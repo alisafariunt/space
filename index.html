@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Safari | PhD Researcher & Entrepreneur</title>
+    <meta name="description" content="Ali Safari - PhD Student in Business Computer Information Systems at University of North Texas. Researcher in AI, Digital Marketing, and E-commerce.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --accent: #00d4aa;
+            --accent-dim: rgba(0, 212, 170, 0.15);
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b0;
+            --text-dim: #606070;
+            --border: rgba(255, 255, 255, 0.08);
+            --gradient-1: linear-gradient(135deg, #00d4aa 0%, #00a8cc 100%);
+            --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(0, 212, 170, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(102, 126, 234, 0.08) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 0;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text h1 .highlight {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge.accent {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 212, 170, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .profile-card {
+            background: linear-gradient(145deg, var(--bg-card) 0%, rgba(0, 212, 170, 0.05) 100%);
+            border: 1px solid var(--border);
+            border-radius: 32px;
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(0, 212, 170, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .profile-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 28px;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 40px rgba(0, 212, 170, 0.3), 0 0 80px rgba(0, 212, 170, 0.1);
+            position: relative;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .profile-info {
+            position: relative;
+        }
+
+        .profile-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .profile-info p {
+            color: var(--text-secondary);
+            margin-bottom: 28px;
+            font-size: 1rem;
+        }
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-top: 28px;
+            border-top: 1px solid var(--border);
+            position: relative;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .highlight-card h4 {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .highlight-card p {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .research-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .research-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .research-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .research-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .research-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .timeline-date {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content .company {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Publications */
+        .publication-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .publication-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .publication-card:hover {
+            border-color: var(--accent);
+        }
+
+        .publication-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .publication-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .publication-venue {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .publication-year {
+            background: var(--accent-dim);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .publication-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .publication-badge.q1 {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .publication-authors {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: var(--bg-secondary);
+            border-radius: 32px;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-section p {
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 16px 28px;
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .contact-section {
+                padding: 40px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Ali<span>.</span>Safari</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span class="highlight">Ali Safari</span></h1>
+                    <p class="tagline">PhD Researcher in Information Systems at University of North Texas. I study how AI and algorithms shape digital markets, creator economies, and business strategies.</p>
+                    
+                    <div class="hero-badges">
+                        <span class="badge accent">🎓 PhD Student</span>
+                        <span class="badge">🚀 Entrepreneur</span>
+                        <span class="badge">🤖 AI Researcher</span>
+                        <span class="badge">📈 Digital Marketing</span>
+                    </div>
+
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Get in Touch →</a>
+                        <a href="/bigs/" class="btn btn-secondary">View Research</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="profile-card">
+                        <div class="profile-avatar"><img src="ali.png" alt="Ali Safari"></div>
+                        <div class="profile-info">
+                            <h3>Ali Safari</h3>
+                            <p>PhD Student & RasaDM Founder<br>Denton, Texas</p>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat">
+                                <div class="stat-value">5</div>
+                                <div class="stat-label">Publications</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">8+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">100+</div>
+                                <div class="stat-label">Projects</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p>Bridging the gap between technology, business, and research</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I am currently pursuing my Ph.D. in Business Computer Information Systems at the G. Brint Ryan College of Business, University of North Texas. My journey into business and technology began with a Bachelor's degree in Industrial Management from the University of Isfahan, followed by a Master's degree in Industrial Engineering from Isfahan University of Technology.</p>
+                    
+                    <p>As an entrepreneur, I founded several successful startups in the healthcare, sports, and e-commerce sectors. Leading Rasa Digital Marketing Agency, I have overseen a team of 20 professionals, delivering over 100 projects that helped businesses boost their online presence and refine digital strategies.</p>
+                    
+                    <p>At UNT, my research focuses on how emerging technologies like generative AI can revolutionize digital marketing and e-commerce, aiming to enhance business efficiency while fostering sustainable practices in the digital economy.</p>
+                </div>
+
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <h4>Current Focus</h4>
+                        <p>AI, Algorithms & Creator Economy</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Advisors</h4>
+                        <p>Dr. Dan J. Kim<br>Dr. Chih-Hao (Justin) Ku</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h4>Languages</h4>
+                        <p>English, Persian, Arabic</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Publications</h2>
+                <p>Recent academic research and conference papers</p>
+            </div>
+
+            <div class="publication-list">
+                <div class="publication-card">
+                    <h3>Enhancing IoT Security and Information Systems Resilience: An Extreme Value Machine Approach</h3>
+                    <div class="publication-meta">
+                        <span class="publication-year">2025</span>
+                        <span class="publication-badge">A* Ranked</span>
+                    </div>
+                    <div class="publication-venue">International Conference on Information Systems (ICIS)</div>
+                    <div class="publication-authors">A Safari, DJ Kim</div>
+                </div>
+
+                <div class="publication-card">
+                    <h3>Social Vulnerability and Disability Prevalence: A Multivariate Analysis Across U.S. Counties</h3>
+                    <div class="publication-meta">
+                        <span class="publication-year">2025</span>
+                        <span class="publication-badge q1">Q1</span>
+                    </div>
+                    <div class="publication-venue">Decision Sciences Institute</div>
+                    <div class="publication-authors">A Safari, F Asgari, R Saeidi</div>
+                </div>
+
+                <div class="publication-card">
+                    <h3>Calibrating Human Trust in AI Cybersecurity Alerts: The Impact of Real-Time Confidence Feedback</h3>
+                    <div class="publication-meta">
+                        <span class="publication-year">2025</span>
+                    </div>
+                    <div class="publication-venue">Annual Security Conference</div>
+                    <div class="publication-authors">A Safari, G Dhillon</div>
+                </div>
+
+                <div class="publication-card">
+                    <h3>Autonomous Constitutional AI Governance: A Dual-Agent System for Real-Time Ethical Compliance</h3>
+                    <div class="publication-meta">
+                        <span class="publication-year">2025</span>
+                    </div>
+                    <div class="publication-venue">International Conference on Entrepreneurship for Sustainability & Impact</div>
+                    <div class="publication-authors">A Safari</div>
+                </div>
+
+                <div class="publication-card">
+                    <h3>Sentiment Analysis of Airbnb Reviews: Exploring Their Impact on Acceptance Rates and Pricing Across Multiple US Regions</h3>
+                    <div class="publication-meta">
+                        <span class="publication-year">2025</span>
+                    </div>
+                    <div class="publication-venue">arXiv preprint arXiv:2504.14053</div>
+                    <div class="publication-authors">A Safari</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://scholar.google.com/citations?user=YOUR_ID" class="btn btn-secondary" target="_blank">View All on Google Scholar →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="research">
+        <div class="container">
+            <div class="section-header">
+                <h2>Research Interests</h2>
+                <p>Exploring the intersection of AI, platforms, and digital business</p>
+            </div>
+
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-icon">🛡️</div>
+                    <h3>IoT Security & Open-Set Recognition</h3>
+                    <p>Using Extreme Value Machines to detect unknown attacks on IoT devices. How do you protect billions of smart devices from attacks nobody has ever seen?</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">🔐</div>
+                    <h3>Cybersecurity & Trust</h3>
+                    <p>Investigating trust in AI-driven cybersecurity systems, human decision-making under uncertainty, and real-time confidence feedback.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">📊</div>
+                    <h3>Creator Economy</h3>
+                    <p>Understanding how algorithms allocate attention and how content quality, social capital, and exposure interact on platforms.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">🤖</div>
+                    <h3>Generative AI</h3>
+                    <p>Studying how AI agents and large language models transform business processes, content creation, and decision-making.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">⚖️</div>
+                    <h3>Platform Fairness</h3>
+                    <p>Examining algorithmic bias, fairness of exposure, and the impact of platform governance on creators and users.</p>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">📈</div>
+                    <h3>Digital Marketing</h3>
+                    <p>Developing data-driven marketing strategies, SEO algorithms, and understanding AI in marketing automation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience</h2>
+                <p>A journey through academia and entrepreneurship</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2024 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Graduate Teaching & Research Assistant</h3>
+                        <div class="company">University of North Texas</div>
+                        <p>TA for Information Security with Dr. Dan J. Kim. RA working on IoT security and platform economics with Dr. Hoon Seok Choi and Dr. Chih-Hao Ku.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Mar 2017 - Present</div>
+                    <div class="timeline-content">
+                        <h3>CEO & Founder</h3>
+                        <div class="company">Rasa Digital Marketing Agency</div>
+                        <p>Leading 20+ professionals, 100+ projects. Built the largest digital marketing platform in Iran and Middle East. SEO, web design, bilingual content.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Nov 2023 - Jun 2024</div>
+                    <div class="timeline-content">
+                        <h3>Digital Marketing Instructor</h3>
+                        <div class="company">University of Isfahan</div>
+                        <p>Teaching MBA students digital marketing and SEO with Professor Azarnoush Ansari. Bridging academic knowledge with industry practice.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Apr 2023 - Jun 2024</div>
+                    <div class="timeline-content">
+                        <h3>SEO Specialist</h3>
+                        <div class="company">ParsPack (Cloud Computing)</div>
+                        <p>Elevated digital presence for leading cloud computing firm. Achieved top rankings in server services sector in Iran.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jun 2020 - Jun 2024</div>
+                    <div class="timeline-content">
+                        <h3>Senior SEO Specialist & Consultant</h3>
+                        <div class="company">Virgool.io</div>
+                        <p>Managed content team, optimized platform SEO for leading Persian blogging platform. Oversaw guest post sales and marketing campaigns.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Aug 2022 - Mar 2023</div>
+                    <div class="timeline-content">
+                        <h3>Digital Marketing Manager</h3>
+                        <div class="company">MamanPaz (Food Startup)</div>
+                        <p>300% organic traffic growth. 3x LinkedIn followers expansion. Led SEO team for homemade meal delivery startup.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sep 2018 - Dec 2022</div>
+                    <div class="timeline-content">
+                        <h3>Co-Founder</h3>
+                        <div class="company">ToopBall (Football Platform)</div>
+                        <p>Built digital platform for football fans. 200% YoY user engagement growth. Led SEO and content strategy.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Apr 2019 - Mar 2021</div>
+                    <div class="timeline-content">
+                        <h3>SEO Manager</h3>
+                        <div class="company">TAP Persia (Tourism Platform)</div>
+                        <p>400% improvement in organic rankings. Top rankings for "Iran Visa", "Iran hotel", "Travel to Iran".</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2019 - Jun 2020</div>
+                    <div class="timeline-content">
+                        <h3>SEO Specialist & Content Manager</h3>
+                        <div class="company">Roomvu (Canadian Real Estate Startup)</div>
+                        <p>First SEO specialist at Roomvu. Remote work with global team across multiple time zones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Skills & Tools</h2>
+                <p>Technologies and methodologies I work with</p>
+            </div>
+
+            <div class="skills-grid">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">NLP</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">Tableau</span>
+                <span class="skill-tag">SEO</span>
+                <span class="skill-tag">Digital Marketing</span>
+                <span class="skill-tag">AI Agents</span>
+                <span class="skill-tag">Research Methods</span>
+                <span class="skill-tag">Statistical Analysis</span>
+                <span class="skill-tag">Content Strategy</span>
+                <span class="skill-tag">Leadership</span>
+                <span class="skill-tag">Project Management</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Work</h2>
+                <p>Research and projects I'm proud of</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>IoT Security with Extreme Value Machines</h3>
+                    <p>ICIS 2025 research on Open-Set Recognition for IoT security. Using Extreme Value Theory to detect unknown attacks that traditional systems miss.</p>
+                    <a href="/bigs/" class="project-link">View Presentation →</a>
+                </div>
+                <div class="project-card">
+                    <h3>Decomposing Attention in Creator Platforms</h3>
+                    <p>Research on how content quality, social capital, and algorithmic exposure interact to determine creator success on digital platforms.</p>
+                    <a href="/bigs/" class="project-link">View Presentation →</a>
+                </div>
+                <div class="project-card">
+                    <h3>Cybersecurity & Trust Research</h3>
+                    <p>Experimental research on trust in AI-driven cybersecurity alerts, presented at the 24th Annual Security Conference with Dr. Dhillon.</p>
+                    <a href="#" class="project-link">Learn More →</a>
+                </div>
+                <div class="project-card">
+                    <h3>RasaDM Platform</h3>
+                    <p>AI-powered content automation platform that transforms business events into intelligent content campaigns across multiple platforms.</p>
+                    <a href="https://rasadm.com" class="project-link" target="_blank">Visit RasaDM →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-section">
+                <h2>Let's Connect</h2>
+                <p>I'm always interested in discussing research collaborations, speaking opportunities, or just chatting about AI and digital marketing.</p>
+                
+                <div class="social-links">
+                    <a href="mailto:alisafari@my.unt.edu" class="social-link">
+                        ✉️ Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/ali-safari/" class="social-link" target="_blank">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=Ali_Safari" class="social-link" target="_blank">
+                        📚 Google Scholar
+                    </a>
+                    <a href="https://github.com" class="social-link" target="_blank">
+                        💻 GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Ali Safari. Built with ☕ in Denton, Texas.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
