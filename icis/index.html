@@ -3101,14 +3101,15 @@
 
     <!-- Presentation Progress Navigation -->
     <div class="presentation-nav">
-        <div class="nav-step" data-slides="0">Intro</div>
-        <div class="nav-step" data-slides="1,2">Problem</div>
-        <div class="nav-step" data-slides="3,4">Solution</div>
-        <div class="nav-step" data-slides="5">Method</div>
-        <div class="nav-step" data-slides="6,7">Results</div>
-        <div class="nav-step" data-slides="8,9">Analysis</div>
-        <div class="nav-step" data-slides="10,11">Theory</div>
-        <div class="nav-step" data-slides="12,13">Conclusion</div>
+        <div class="nav-step main-nav" data-slides="0">Intro</div>
+        <div class="nav-step main-nav" data-slides="1,2">Problem</div>
+        <div class="nav-step main-nav" data-slides="3,4">Solution</div>
+        <div class="nav-step main-nav" data-slides="5">Method</div>
+        <div class="nav-step main-nav" data-slides="6,7">Results</div>
+        <div class="nav-step main-nav" data-slides="8,9">Analysis</div>
+        <div class="nav-step main-nav" data-slides="10,11">Theory</div>
+        <div class="nav-step main-nav" data-slides="12,13">Conclusion</div>
+        <div class="nav-step appendix-nav" data-slides="14-50" style="display: none;">Appendix</div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
@@ -3153,17 +3154,35 @@
         });
 
         function updateNavigation(slideIndex) {
-            const navSteps = document.querySelectorAll('.nav-step');
-            navSteps.forEach(step => {
-                const slides = step.getAttribute('data-slides').split(',').map(s => parseInt(s.trim()));
-                step.classList.remove('active', 'completed');
+            const mainNavSteps = document.querySelectorAll('.nav-step.main-nav');
+            const appendixNav = document.querySelector('.nav-step.appendix-nav');
+            
+            if (slideIndex >= 14) {
+                // In appendix
+                mainNavSteps.forEach(step => {
+                    step.style.display = 'none';
+                });
+                appendixNav.style.display = 'flex';
+                appendixNav.classList.add('active');
+            } else {
+                // In main presentation
+                mainNavSteps.forEach(step => {
+                    step.style.display = 'flex';
+                });
+                appendixNav.style.display = 'none';
+                appendixNav.classList.remove('active');
                 
-                if (slides.includes(slideIndex)) {
-                    step.classList.add('active');
-                } else if (Math.max(...slides) < slideIndex) {
-                    step.classList.add('completed');
-                }
-            });
+                mainNavSteps.forEach(step => {
+                    const slides = step.getAttribute('data-slides').split(',').map(s => parseInt(s.trim()));
+                    step.classList.remove('active', 'completed');
+                    
+                    if (slides.includes(slideIndex)) {
+                        step.classList.add('active');
+                    } else if (Math.max(...slides) < slideIndex) {
+                        step.classList.add('completed');
+                    }
+                });
+            }
         }
     </script>
 </body>
