@@ -606,22 +606,24 @@
         }
 
         .nav-step.active {
-            background: #eff6ff;
-            color: var(--accent-blue);
-            font-weight: 600;
+            background: var(--accent-blue);
+            color: white;
+            font-weight: 700;
         }
 
         .nav-step.active::after {
-            height: 4px;
+            height: 5px;
+            background: var(--accent-teal);
         }
 
         .nav-step.completed {
-            color: var(--accent-teal);
-            background: #f0fdfa;
+            color: white;
+            background: var(--accent-teal);
+            font-weight: 600;
         }
 
         .nav-step.completed::after {
-            height: 2px;
+            height: 3px;
             background: var(--accent-teal);
         }
 
