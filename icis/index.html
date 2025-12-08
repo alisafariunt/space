@@ -1294,6 +1294,39 @@
                 <div class="slide-ref">Rocco (2014). Extreme Value Theory in Finance: A Survey. Journal of Economic Surveys.</div>
             </section>
 
+            <!-- Appendix: EVM & Weibull Assumptions -->
+            <section>
+                <h2>EVM &amp; Weibull Assumptions (Simple Check)</h2>
+
+                <div class="two-col">
+                    <div class="col">
+                        <h3>What EVM Really Assumes</h3>
+                        <ul>
+                            <li>We do <strong>not</strong> assume "all data are Weibull".</li>
+                            <li>EVM uses distances between samples inside each class.</li>
+                            <li>It models only the <strong>largest</strong> distances (the tail) with a Weibull curve.</li>
+                            <li>Extreme Value Theory says: for many distributions, the tail can be approximated by an extreme value law such as Weibull.</li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>What We Tested on IoT-23</h3>
+                        <ul>
+                            <li>Used the same processed IoT-23 feature sample as in our experiments.</li>
+                            <li>Fitted our EVM with cosine distance and <code>tail_size = 20</code>.</li>
+                            <li>For Benign and Malicious classes, took nearest-neighbour distance tails (largest distances).</li>
+                            <li>Fitted a Weibull distribution only on these extreme distances for each class.</li>
+                            <li>The fits are numerically stable and follow the empirical tails reasonably well.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box teal">
+                    <p><strong>Takeaway:</strong> EVM does not require the whole IoT traffic to be Weibull. We only model extreme distances, and on IoT-23 these tails are well behaved and can be fitted by a Weibull distribution in practice.</p>
+                </div>
+
+                <div class="slide-ref">Based on Rudd et al. (2018), Vignotto &amp; Engelke (2020), and our own IoT-23 tail-fit check.</div>
+            </section>
+
             <!-- A2: Weibull Distribution -->
             <section>
                 <h2>A2: Weibull Distribution in EVM</h2>
@@ -2485,39 +2518,6 @@
                 </div>
 
                 <div class="slide-ref">Eling & Wirfs (2019). European Journal of Operational Research.</div>
-            </section>
-
-            <!-- A27b: EVM & Weibull Assumptions Check -->
-            <section>
-                <h2>A27b: EVM & Weibull Assumptions (Simple Check)</h2>
-
-                <div class="two-col">
-                    <div class="col">
-                        <h3>What EVM Really Assumes</h3>
-                        <ul>
-                            <li>We do <strong>not</strong> assume "all data are Weibull".</li>
-                            <li>EVM uses distances between samples inside each class.</li>
-                            <li>It models only the <strong>largest</strong> distances (the tail) with a Weibull curve.</li>
-                            <li>Extreme Value Theory says: for many distributions, the tail can be approximated by an extreme value law such as Weibull.</li>
-                        </ul>
-                    </div>
-                    <div class="col">
-                        <h3>What We Tested on IoT-23</h3>
-                        <ul>
-                            <li>Used the same processed IoT-23 feature sample as in our experiments.</li>
-                            <li>Fitted our EVM with cosine distance and <code>tail_size = 20</code>.</li>
-                            <li>For Benign and Malicious classes, took nearest-neighbour distance tails (largest distances).</li>
-                            <li>Fitted a Weibull distribution only on these extreme distances for each class.</li>
-                            <li>The fits are numerically stable and follow the empirical tails reasonably well.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="highlight-box teal">
-                    <p><strong>Takeaway:</strong> EVM does not require the whole IoT traffic to be Weibull. We only model extreme distances, and on IoT-23 these tails are well behaved and can be fitted by a Weibull distribution in practice.</p>
-                </div>
-
-                <div class="slide-ref">Based on Rudd et al. (2018), Vignotto &amp; Engelke (2020), and our own IoT-23 tail-fit check.</div>
             </section>
 
             <!-- A28: Comparison with Deep Learning -->
