@@ -556,6 +556,57 @@
         .dm-box.benefit h4 {
             color: #1e293b;
         }
+
+        /* Progress Navigation Bar */
+        .presentation-nav {
+            position: fixed;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.95));
+            z-index: 50;
+        }
+
+        .nav-step {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #64748b;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            transition: all 0.3s;
+        }
+
+        .nav-step.active {
+            background: var(--accent-blue);
+            color: white;
+            border-color: var(--accent-blue);
+            font-weight: 600;
+            transform: scale(1.1);
+        }
+
+        .nav-step.completed {
+            background: var(--bg-teal);
+            color: #0f766e;
+            border-color: var(--accent-teal);
+        }
+
+        .nav-arrow {
+            color: #cbd5e1;
+            font-size: 10px;
+        }
+
+        /* Hide nav in fullscreen */
+        :fullscreen .presentation-nav,
+        :-webkit-full-screen .presentation-nav {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -3024,6 +3075,25 @@
         Fullscreen
     </button>
 
+    <!-- Presentation Progress Navigation -->
+    <div class="presentation-nav">
+        <div class="nav-step" data-slides="0">Intro</div>
+        <div class="nav-arrow">→</div>
+        <div class="nav-step" data-slides="1,2">Problem</div>
+        <div class="nav-arrow">→</div>
+        <div class="nav-step" data-slides="3,4">Solution</div>
+        <div class="nav-arrow">→</div>
+        <div class="nav-step" data-slides="5">Method</div>
+        <div class="nav-arrow">→</div>
+        <div class="nav-step" data-slides="6,7">Results</div>
+        <div class="nav-arrow">→</div>
+        <div class="nav-step" data-slides="8,9">Analysis</div>
+        <div class="nav-arrow">→</div>
+        <div class="nav-step" data-slides="10,11">Theory</div>
+        <div class="nav-arrow">→</div>
+        <div class="nav-step" data-slides="12,13">Conclusion</div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script>
         Reveal.initialize({
@@ -3054,6 +3124,30 @@
                 toggleFullscreen();
             }
         });
+
+        // Update navigation bar on slide change
+        Reveal.on('slidechanged', function(event) {
+            updateNavigation(event.indexh);
+        });
+
+        // Initial update
+        Reveal.on('ready', function() {
+            updateNavigation(0);
+        });
+
+        function updateNavigation(slideIndex) {
+            const navSteps = document.querySelectorAll('.nav-step');
+            navSteps.forEach(step => {
+                const slides = step.getAttribute('data-slides').split(',').map(s => parseInt(s.trim()));
+                step.classList.remove('active', 'completed');
+                
+                if (slides.includes(slideIndex)) {
+                    step.classList.add('active');
+                } else if (Math.max(...slides) < slideIndex) {
+                    step.classList.add('completed');
+                }
+            });
+        }
     </script>
 </body>
 </html>
