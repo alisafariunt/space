@@ -560,52 +560,74 @@
         /* Progress Navigation Bar */
         .presentation-nav {
             position: fixed;
-            bottom: 60px;
+            bottom: 0;
             left: 0;
             right: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
-            padding: 10px;
-            background: linear-gradient(180deg, transparent, rgba(255,255,255,0.95));
+            gap: 0;
+            padding: 0;
+            background: rgba(255,255,255,0.98);
+            border-top: 2px solid #e2e8f0;
             z-index: 50;
+            height: 50px;
         }
 
         .nav-step {
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 11px;
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
             font-weight: 500;
             color: #64748b;
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
+            background: transparent;
+            border-right: 1px solid #e2e8f0;
             transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-step:last-child {
+            border-right: none;
+        }
+
+        .nav-step::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: var(--accent-blue);
+            transition: height 0.3s;
         }
 
         .nav-step.active {
-            background: var(--accent-blue);
-            color: white;
-            border-color: var(--accent-blue);
+            background: #eff6ff;
+            color: var(--accent-blue);
             font-weight: 600;
-            transform: scale(1.1);
+        }
+
+        .nav-step.active::after {
+            height: 4px;
         }
 
         .nav-step.completed {
-            background: var(--bg-teal);
-            color: #0f766e;
-            border-color: var(--accent-teal);
+            color: var(--accent-teal);
+            background: #f0fdfa;
         }
 
-        .nav-arrow {
-            color: #cbd5e1;
-            font-size: 10px;
+        .nav-step.completed::after {
+            height: 2px;
+            background: var(--accent-teal);
         }
 
-        /* Hide nav in fullscreen */
+        /* Keep nav visible in fullscreen */
         :fullscreen .presentation-nav,
         :-webkit-full-screen .presentation-nav {
-            display: none;
+            display: flex !important;
         }
     </style>
 </head>
@@ -3078,19 +3100,12 @@
     <!-- Presentation Progress Navigation -->
     <div class="presentation-nav">
         <div class="nav-step" data-slides="0">Intro</div>
-        <div class="nav-arrow">→</div>
         <div class="nav-step" data-slides="1,2">Problem</div>
-        <div class="nav-arrow">→</div>
         <div class="nav-step" data-slides="3,4">Solution</div>
-        <div class="nav-arrow">→</div>
         <div class="nav-step" data-slides="5">Method</div>
-        <div class="nav-arrow">→</div>
         <div class="nav-step" data-slides="6,7">Results</div>
-        <div class="nav-arrow">→</div>
         <div class="nav-step" data-slides="8,9">Analysis</div>
-        <div class="nav-arrow">→</div>
         <div class="nav-step" data-slides="10,11">Theory</div>
-        <div class="nav-arrow">→</div>
         <div class="nav-step" data-slides="12,13">Conclusion</div>
     </div>
 
