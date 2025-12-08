@@ -582,10 +582,10 @@
             justify-content: center;
             font-family: 'IBM Plex Serif', Georgia, serif;
             font-size: 15px;
-            font-weight: 600;
-            color: #64748b;
-            background: transparent;
-            border-right: 1px solid #e2e8f0;
+            font-weight: 500;
+            color: #94a3b8;
+            background: #ffffff;
+            border-right: 2px solid #e2e8f0;
             transition: all 0.3s;
             position: relative;
         }
@@ -601,8 +601,8 @@
             left: 0;
             right: 0;
             height: 0;
-            background: var(--accent-blue);
-            transition: height 0.3s;
+            background: transparent;
+            transition: all 0.3s;
         }
 
         .nav-step.active {
@@ -612,19 +612,18 @@
         }
 
         .nav-step.active::after {
-            height: 5px;
-            background: var(--accent-teal);
+            height: 6px;
+            background: #fbbf24;
         }
 
         .nav-step.completed {
-            color: white;
-            background: var(--accent-teal);
-            font-weight: 600;
+            color: var(--accent-teal);
+            background: #e0f2f1;
+            font-weight: 500;
         }
 
         .nav-step.completed::after {
-            height: 3px;
-            background: var(--accent-teal);
+            height: 0;
         }
 
         /* Keep nav visible in fullscreen */
