@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decomposing Attention in Creator Platforms | BCIS 6010</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #00853E;
+            --accent: #00853E;
+            --accent-light: #c6f6d5;
+            --text: #2d3748;
+            --text-light: #718096;
+            --bg: #f7fafc;
+            --white: #ffffff;
+            --success: #00853E;
+            --warning: #ecc94b;
+            --danger: #c53030;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .presentation {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 60px 80px;
+            display: none;
+            flex-direction: column;
+            background: var(--white);
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Title Slide */
+        .slide.title-slide {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide.title-slide h1 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2.8em;
+            font-weight: 700;
+            line-height: 1.3;
+            max-width: 900px;
+            margin-bottom: 30px;
+        }
+
+        .slide.title-slide .subtitle {
+            font-size: 2em;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .slide.title-slide .conference {
+            font-size: 2em;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 30px;
+            margin-top: 20px;
+        }
+
+        /* Section Badge */
+        .section-badge {
+            display: inline-block;
+            background: var(--secondary);
+            font-size: 1.1em;
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Content Slides */
+        .slide h2 {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 2.2em;
+            color: var(--primary);
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+        }
+
+        .slide h3 {
+            font-size: 1.7em;
+            color: var(--secondary);
+            margin: 18px 0 12px;
+            font-weight: 600;
+        }
+
+        .slide p {
+            font-size: 1.7em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .slide ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .slide li {
+            font-size: 1.7em;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .slide li::marker {
+            color: var(--accent);
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .two-column.wide-right {
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .two-column.wide-left {
+            grid-template-columns: 1.5fr 1fr;
+        }
+
+        /* Content Boxes */
+        .content-box {
+            background: var(--bg);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .content-box.blue {
+            border-left-color: var(--secondary);
+        }
+
+        .content-box.green {
+            border-left-color: var(--success);
+        }
+
+        /* Hypothesis Boxes */
+        .hypothesis {
+            background: linear-gradient(to right, #ebf8ff, var(--white));
+            padding: 18px 22px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .hypothesis.supported {
+            border-left-color: var(--success);
+            background: linear-gradient(to right, #f0fff4, var(--white));
+        }
+
+        .hypothesis.not-supported {
+            border-left-color: var(--danger);
+            background: linear-gradient(to right, #fff5f5, var(--white));
+        }
+
+        .hypothesis.partial {
+            border-left-color: var(--warning);
+            background: linear-gradient(to right, #fffff0, var(--white));
+        }
+
+        .hypothesis strong {
+            color: var(--primary);
+            font-size: 1.02em;
+        }
+
+        .hypothesis .result {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.92em;
+            color: var(--secondary);
+            margin-top: 6px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92em;
+            margin: 12px 0;
+        }
+
+        th {
+            background: var(--primary);
+            color: var(--white);
+            padding: 10px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        tr:hover {
+            background: #edf2f7;
+        }
+
+        .table-note {
+            font-size: 0.82em;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        /* Figures */
+        .figure-container {
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .figure-container img {
+            max-width: 100%;
+            max-height: 65vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .figure-caption {
+            font-size: 0.85em;
+            color: var(--text-light);
+            margin-top: 12px;
+            font-style: italic;
+        }
+
+        /* Stats Highlight */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 22px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2.3em;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        /* Key Finding Box */
+        .key-finding {
+            background: linear-gradient(135deg, var(--accent), #006630);
+            color: var(--white);
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .key-finding h4 {
+            font-size: 1.05em;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .key-finding p,
+        .key-finding strong,
+        .key-finding ul,
+        .key-finding li {
+            color: var(--white);
+        }
+
+        /* Research Question */
+        .research-question {
+            background: linear-gradient(135deg, #ebf8ff, #bee3f8);
+            padding: 30px;
+            border-radius: 16px;
+            border: 3px solid var(--secondary);
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--primary);
+            margin: 20px 0;
+            line-height: 1.5;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Framework Model */
+        .model-diagram {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .model-diagram img {
+            max-width: 80%;
+            max-height: 50vh;
+        }
+
+        /* Equation Box */
+        .equation {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 12px 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Comparison Table */
+        .comparison-row {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-row .label {
+            flex: 1;
+            font-weight: 600;
+        }
+
+        .comparison-row .value {
+            flex: 2;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav button {
+            padding: 12px 25px;
+            border: none;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav button:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .nav button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #fullscreenBtn {
+            background: var(--secondary);
+        }
+
+        #fullscreenBtn:hover {
+            background: var(--primary);
+        }
+
+        /* Fullscreen mode adjustments */
+        :fullscreen .slide {
+            padding: 50px 70px;
+        }
+
+        :fullscreen .nav,
+        :fullscreen .slide-counter {
+            display: none;
+        }
+
+        :fullscreen .progress-bar {
+            display: none;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+
+        /* Slide Counter */
+        .slide-counter {
+            position: fixed;
+            bottom: 35px;
+            right: 40px;
+            font-size: 0.9em;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Highlight Text */
+        .highlight {
+            background: linear-gradient(to bottom, transparent 60%, var(--accent-light) 60%);
+            padding: 0 4px;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge.green {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .badge.red {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .badge.yellow {
+            background: #fefcbf;
+            color: #744210;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--secondary);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 18px;
+            padding-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* Flex utilities */
+        .flex-1 { flex: 1; }
+        .mt-15 { margin-top: 15px; }
+        .mt-20 { margin-top: 20px; }
+        .mb-15 { margin-bottom: 15px; }
+        .mb-20 { margin-bottom: 20px; }
+        .text-center { text-align: center; }
+        .text-small { font-size: 0.9em; }
+
+        /* Slide Footer */
+        .slide-footer {
+            position: absolute;
+            bottom: 25px;
+            left: 80px;
+            right: 80px;
+            font-size: 0.9em;
+            color: var(--primary);
+            opacity: 0.85;
+            border-top: 1px solid rgba(0,0,0,0.15);
+            padding-top: 8px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+        }
+
+        /* Print styles */
+        @media print {
+            .nav, .progress-bar, .slide-counter { display: none; }
+            .slide { display: block !important; page-break-after: always; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progress"></div>
+    
+    <div class="presentation" id="presentation">
+        
+        <!-- SLIDE 1: Title -->
+        <div class="slide title-slide active" data-slide="1">
+            <h1>Decomposing Attention in Creator Platforms</h1>
+            <div class="subtitle">The Relative Effects of Content Quality, Social Capital, and Algorithmic Exposure</div>
+            <div style="margin-top: 40px; font-size: 1.3em;">
+                <strong style="font-size: 1.2em;">Ali Safari</strong>
+            </div>
+            <div class="conference" style="margin-top: 20px;">
+                <span style="font-size: 0.95em;">BCIS 6010 - Seminar | Dr. Dan J. Kim</span><br>
+                <span style="font-size: 0.85em;">University of North Texas</span>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Introduction - The Problem -->
+        <div class="slide" data-slide="2">
+            <span class="section-badge">2 - Introduction</span>
+            <h2>The Creator Economy Challenge</h2>
+            <div class="two-column">
+                <div>
+                    <h3>The Problem</h3>
+                    <p style="font-size: 1.15em; margin-bottom: 20px;">There is too much content and not enough time.</p>
+                    <p style="font-size: 1.15em; margin-bottom: 20px;">Platforms must decide who gets seen and who doesn't.</p>
+                    <p style="font-size: 1.15em;">For creators, attention equals income.</p>
+                    <p style="font-size: 1.15em;">But is the system fair?</p>
+                </div>
+                <div>
+                    <h3>The Gap</h3>
+                    <div class="content-box" style="padding: 20px;">
+                        <p style="font-size: 1.1em; margin-bottom: 15px;">Most research looks at one thing at a time.</p>
+                        <p style="font-size: 1.1em; margin-bottom: 10px;">Some study <strong>Quality</strong>. Does good content win?</p>
+                        <p style="font-size: 1.1em; margin-bottom: 10px;">Some study <strong>Social Capital</strong>. Do famous people get more famous?</p>
+                        <p style="font-size: 1.1em; margin-bottom: 15px;">Some study <strong>Algorithms</strong>. How does the platform decide?</p>
+                        <p style="font-size: 1.15em;"><strong>We don't know how they work together.</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Simon, H. A. (1971). Designing organizations for an information-rich world.</div>
+        </div>
+
+        <!-- SLIDE 3: Research Question -->
+        <div class="slide" data-slide="3">
+            <span class="section-badge">3 - Introduction</span>
+            <h2>Research Question</h2>
+            <div class="research-question">
+                How do Quality, Social Capital, and Algorithms <strong>interact</strong> to drive attention?
+            </div>
+            <div class="two-column mt-15">
+                <div>
+                    <h3>Our Approach</h3>
+                    <p style="font-size: 1.15em; margin-bottom: 15px;">We combine all three factors in one model.</p>
+                    <p style="font-size: 1.15em; margin-bottom: 15px;">We test how they interact with each other.</p>
+                    <p style="font-size: 1.15em;">And we check if the system is fair. Does quality win? Or do famous people always win?</p>
+                </div>
+                <div>
+                    <h3>Where We Tested</h3>
+                    <div class="content-box blue" style="padding: 20px;">
+                        <p style="font-size: 1.1em; margin-bottom: 12px;"><strong>Virgool.io</strong> is like Medium, but for Persian speakers.</p>
+                        <p style="font-size: 1.1em; margin-bottom: 12px;">We analyzed <strong>315,000 posts</strong> from 2022 to 2025.</p>
+                        <p style="font-size: 1.1em;">It tracks <strong>Read Ratio</strong>, which tells us what percent people actually read. Most platforms don't share this.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Henrich, J., et al. (2010). The weirdest people in the world? (Non-WEIRD context justification).</div>
+        </div>
+
+        <!-- SLIDE 4: Three Literatures -->
+        <div class="slide" data-slide="4">
+            <span class="section-badge">4 - Literature & Theory</span>
+            <h2>Three Core Theories</h2>
+            <div class="two-column">
+                <div>
+                    <div class="content-box mb-15" style="padding: 20px;">
+                        <h3>1. Social Capital Theory <span style="font-size: 0.7em; font-weight: normal; color: var(--text-light);">(Nahapiet & Ghoshal, 1998)</span></h3>
+                        <p style="font-size: 1.1em;">Your network and reputation are valuable. If people know you and trust you, you have an advantage.</p>
+                    </div>
+                    <div class="content-box blue mb-15" style="padding: 20px;">
+                        <h3>2. Cumulative Advantage <span style="font-size: 0.7em; font-weight: normal; color: var(--text-light);">(Merton, 1968)</span></h3>
+                        <p style="font-size: 1.1em;">Also called the "Matthew Effect". Success brings more success. If you are already popular, you get even more popular.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="content-box green mb-15" style="padding: 20px;">
+                        <h3>3. Fairness of Exposure <span style="font-size: 0.7em; font-weight: normal; color: var(--text-light);">(Singh & Joachims, 2018)</span></h3>
+                        <p style="font-size: 1.1em;">Algorithms decide who gets seen. Visibility is a limited resource. Platforms must choose who to show to users.</p>
+                    </div>
+                    <div class="key-finding" style="padding: 20px;">
+                        <h4>The Big Question</h4>
+                        <p style="font-size: 1.15em;">Does the algorithm help everyone? Or does it only help famous people?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Nahapiet & Ghoshal (1998). Social capital; Merton (1968). The Matthew effect in science; Singh & Joachims (2018). Fairness of exposure in rankings.</div>
+        </div>
+
+        <!-- SLIDE 5: Framework + Hypotheses (Combined) -->
+        <div class="slide" data-slide="5">
+            <span class="section-badge">5 - Literature & Theory</span>
+            <h2>Our Framework and Hypotheses</h2>
+            <div class="figure-container" style="margin-bottom: 15px;">
+                <img src="model.png" alt="Theoretical Framework for Attention Allocation" style="max-height: 38vh; width: auto; object-fit: contain;">
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <div style="flex: 1;">
+                    <h3 style="margin: 0 0 10px; font-size: 1.2em;">Direct Effects</h3>
+                    <div class="hypothesis" style="padding: 10px; margin-bottom: 6px;">
+                        <strong>H1:</strong> Quality → More Views
+                    </div>
+                    <div class="hypothesis" style="padding: 10px; margin-bottom: 6px;">
+                        <strong>H2:</strong> Social Capital → More Views (diminishing)
+                    </div>
+                    <div class="hypothesis" style="padding: 10px;">
+                        <strong>H3:</strong> Exposure → More Views
+                    </div>
+                </div>
+                <div style="flex: 1;">
+                    <h3 style="margin: 0 0 10px; font-size: 1.2em;">Key Interactions</h3>
+                    <div class="hypothesis" style="padding: 10px; margin-bottom: 6px; border-left-color: var(--success);">
+                        <strong>H4:</strong> Does exposure help quality more? <span style="color: var(--success);">We expect yes.</span>
+                    </div>
+                    <div class="hypothesis" style="padding: 10px; border-left-color: var(--danger);">
+                        <strong>H5:</strong> Does exposure help newcomers more? <span style="color: var(--secondary);">We expect yes.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: ELM (Petty & Cacioppo, 1986); Signaling Theory (Spence, 1974); Fairness of Exposure (Singh & Joachims, 2018).</div>
+        </div>
+
+        <!-- SLIDE 6: Dataset Overview -->
+        <div class="slide" data-slide="6">
+            <span class="section-badge">6 - Methodology</span>
+            <h2>Where We Tested: Virgool.io</h2>
+            <div class="two-column" style="gap: 25px;">
+                <div>
+                    <p style="font-size: 1.05em; line-height: 1.6; margin-bottom: 15px;"><strong>Virgool.io</strong> is an online publishing platform for social journalism in Persian. It gives users freedom to publish long-form writing beyond short social media formats, making it one of the <strong>largest Farsi writing communities</strong>.</p>
+                    
+                    <div class="stat-grid" style="grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 12px;">
+                        <div class="stat-card" style="padding: 10px;">
+                            <span class="number" style="font-size: 1.4em;">4.1M</span>
+                            <span class="label" style="font-size: 0.75em;">Users</span>
+                        </div>
+                        <div class="stat-card" style="padding: 10px;">
+                            <span class="number" style="font-size: 1.4em;">150K</span>
+                            <span class="label" style="font-size: 0.75em;">Authors</span>
+                        </div>
+                        <div class="stat-card" style="padding: 10px;">
+                            <span class="number" style="font-size: 1.4em;">700K</span>
+                            <span class="label" style="font-size: 0.75em;">Posts</span>
+                        </div>
+                        <div class="stat-card" style="padding: 10px;">
+                            <span class="number" style="font-size: 1.4em;">8K</span>
+                            <span class="label" style="font-size: 0.75em;">/month</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.88em; color: var(--text-light); margin-bottom: 12px;">
+                        <span>💬 1M+ comments</span>
+                        <span>❤️ 3.3M+ likes</span>
+                        <span>📊 4.5M monthly active users</span>
+                        <span>👥 180K daily active users</span>
+                    </div>
+                    
+                    <div class="content-box" style="padding: 12px; font-size: 0.9em;">
+                        <strong>Why This Setting?</strong>
+                        <ul style="margin: 8px 0 0; padding-left: 18px;">
+                            <li><strong>Non-WEIRD population</strong> tests boundary conditions (Henrich et al., 2010)</li>
+                            <li><strong>Read completion tracking</strong> provides behavioral quality signal unavailable on most Western platforms</li>
+                            <li><strong>Rich ecosystem</strong> for reading, writing, and social interaction</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="margin-top: 0; margin-bottom: 10px;">Platform Features</h3>
+                    <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 12px; margin-bottom: 12px;">
+                        <div style="background: white; border-radius: 8px; padding: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: left;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                                <div style="width: 32px; height: 32px; background: var(--secondary); border-radius: 50%;"></div>
+                                <div>
+                                    <div style="font-weight: 600; font-size: 0.85em;">Author Profile</div>
+                                    <div style="font-size: 0.7em; color: var(--text-light);">245 followers</div>
+                                </div>
+                            </div>
+                            <div style="font-weight: 600; margin-bottom: 6px; font-size: 0.9em;">Post Title...</div>
+                            <div style="font-size: 0.8em; color: var(--text-light); margin-bottom: 10px;">Long-form content preview...</div>
+                            <div style="display: flex; gap: 10px; font-size: 0.75em; color: var(--text-light); border-top: 1px solid #eee; padding-top: 8px;">
+                                <span>👁 2,450</span>
+                                <span>❤️ 12</span>
+                                <span>💬 3</span>
+                                <span style="color: var(--accent); font-weight: 600;">📖 68% read</span>
+                            </div>
+                            <div style="display: flex; gap: 5px; margin-top: 8px;">
+                                <span style="background: #e2e8f0; padding: 2px 6px; border-radius: 10px; font-size: 0.65em;">#programming</span>
+                                <span style="background: #e2e8f0; padding: 2px 6px; border-radius: 10px; font-size: 0.65em;">#AI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-box blue" style="padding: 12px; font-size: 0.9em;">
+                        <strong>Our Dataset (2017-2025)</strong>
+                        <table style="margin-top: 8px; font-size: 0.9em;">
+                            <tr><td style="padding: 4px 8px;">Posts analyzed</td><td style="padding: 4px 8px;"><strong>679,815</strong></td></tr>
+                            <tr><td style="padding: 4px 8px;">Unique authors</td><td style="padding: 4px 8px;"><strong>94,467</strong></td></tr>
+                            <tr><td style="padding: 4px 8px;">Primary sample</td><td style="padding: 4px 8px;"><strong>315,000</strong> (Jul 2022-Apr 2025)</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Construct Operationalization -->
+        <div class="slide" data-slide="7">
+            <span class="section-badge">7 - Methodology</span>
+            <h2>How We Measured Variables</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Content Quality</h3>
+                    <div class="content-box mb-15" style="padding: 18px;">
+                        <p style="font-size: 1.05em; margin-bottom: 10px;">We used NLP tools to measure quality.</p>
+                        <p style="font-size: 1.05em; margin-bottom: 10px;">We checked readability, vocabulary richness, and how well the text flows.</p>
+                        <p style="font-size: 1.05em;">We also looked at structure like word count and images.</p>
+                    </div>
+                    <h3>Social Capital</h3>
+                    <div class="content-box blue" style="padding: 18px;">
+                        <p style="font-size: 1.05em; margin-bottom: 10px;">We counted followers and past engagement.</p>
+                        <p style="font-size: 1.05em;">How many likes and comments did the author get before?</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Exposure (Discoverability)</h3>
+                    <div class="content-box green mb-15" style="padding: 18px;">
+                        <p style="font-size: 1.05em; margin-bottom: 10px;">We looked at what authors can control to get discovered.</p>
+                        <p style="font-size: 1.05em; margin-bottom: 10px;">How many tags did they use? When did they post?</p>
+                        <p style="font-size: 1.05em;">Is the topic popular right now?</p>
+                    </div>
+                    <div class="key-finding" style="padding: 18px;">
+                        <h4>Important Note</h4>
+                        <p style="font-size: 1.05em;">We measure what authors can control, not the hidden algorithm. We validate this with a natural experiment later.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Farahani et al. (2020). ParsBERT; Singh & Joachims (2018). Fairness of exposure.</div>
+        </div>
+
+        <!-- SLIDE 9: Analytical Approach -->
+        <div class="slide" data-slide="8">
+            <span class="section-badge">8 - Methodology</span>
+            <h2>How We Analyze the Data</h2>
+            <div class="equation" style="font-size: 1.05em; padding: 12px; font-weight: 600; margin-bottom: 8px; text-align: center;">
+                <strong>Views = Quality + Social Capital + Exposure + (Quality × Exposure) + (Social Capital × Exposure) + Author FE</strong>
+            </div>
+            <div class="equation" style="font-size: 0.95em; padding: 10px; margin-bottom: 15px; text-align: center; color: var(--text-light);">
+                ln E[Y<sub>it</sub>] = α<sub>i</sub> + τ<sub>t</sub> + β₁Q<sub>it</sub> + β₂ ln F<sub>i,t-1</sub> + β₃E<sub>it</sub> + β₄(Q<sub>it</sub> × E<sub>it</sub>) + β₅(ln F<sub>i,t-1</sub> × E<sub>it</sub>) + γ′X<sub>it</sub>
+            </div>
+            <div class="two-column" style="gap: 25px;">
+                <div>
+                    <h3>Step 1: Measure Quality</h3>
+                    <div class="content-box mb-15" style="padding: 18px;">
+                        <p style="margin: 0; font-size: 1.1em;">We built a Quality Index using NLP. We measured readability, vocabulary, and structure. Then we validated it against actual Read Ratio.</p>
+                    </div>
+                    
+                    <h3>Step 2: Control for Author</h3>
+                    <div class="content-box blue" style="padding: 18px;">
+                        <p style="margin: 0; font-size: 1.1em;">We use Author Fixed Effects. This compares each author to themselves over time. So if I write a better post today than yesterday, does it get more views?</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Step 3: Prove Causality</h3>
+                    <div class="content-box blue mb-15" style="padding: 18px;">
+                        <p style="margin: 0; font-size: 1.1em;">How do we know exposure causes attention? Maybe good content just gets posted at good times.</p>
+                        <p style="margin: 10px 0 0; font-size: 1.05em;">We use hourly content supply as an instrument. When fewer posts are published, exposure rises randomly.</p>
+                    </div>
+                    <div class="content-box green" style="padding: 18px;">
+                        <p style="margin: 0; font-size: 1.1em;">We also found a Natural Experiment.</p>
+                        <p style="margin: 10px 0 0; font-size: 1.05em;">Iran abolished Daylight Saving Time in Sept 2022. User behavior shifted by 1 hour overnight. Nothing else changed. I will show you the results later.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Arellano & Bond (1991). GMM; Chernozhukov et al. (2018). DML; Oster (2019). Selection bias.</div>
+        </div>
+
+        <!-- SLIDE 10: Main Effects Quality -->
+        <div class="slide" data-slide="9">
+            <span class="section-badge">9 - Results</span>
+            <h2>Finding 1: Quality Matters (H1)</h2>
+            <div class="two-column">
+                <div>
+                    <div class="hypothesis supported mt-15">
+                        <strong>H1b: Quality → Views</strong>
+                        <div class="result">β = 6.57***</div>
+                        <p class="mt-15"><span class="badge green">Supported</span> High quality brings more views. Strong effect.</p>
+                    </div>
+                    <div class="hypothesis partial">
+                        <strong>H1a: Quality → Engagement Rate</strong>
+                        <div class="result">β = -3.55***</div>
+                        <p class="mt-15"><span class="badge yellow">Paradox!</span> High quality hurts engagement in Lifestyle topics.</p>
+                    </div>
+                    <div class="content-box blue mt-15" style="padding: 12px;">
+                        <p style="margin: 0; font-size: 0.95em;"><strong>Why?</strong> Lifestyle readers want easy, casual content. Complex articles feel "too heavy" for them.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="margin-top: 0;">The Paradox: Expectation Mismatch</h3>
+                    <!-- Visual Bar Chart for Quality Paradox -->
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; border: 2px solid #e2e8f0;">
+                        <div style="display: flex; align-items: flex-end; justify-content: center; gap: 40px; height: 160px; margin-bottom: 15px;">
+                            <!-- Lifestyle Bar -->
+                            <div style="text-align: center;">
+                                <div style="display: flex; flex-direction: column; align-items: center;">
+                                    <span style="font-size: 0.9em; color: var(--danger); font-weight: 600; margin-bottom: 5px;">β = -3.32***</span>
+                                    <div style="width: 90px; height: 120px; background: linear-gradient(to top, #c53030, #fc8181); border-radius: 8px 8px 0 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px;">
+                                        <span style="color: white; font-size: 1.5em;">↓</span>
+                                    </div>
+                                </div>
+                                <p style="margin: 8px 0 0; font-weight: 600; font-size: 1em;">Lifestyle</p>
+                                <p style="margin: 2px 0 0; font-size: 0.8em; color: var(--text-light);">Travel, Cooking, Personal</p>
+                            </div>
+                            <!-- Technical Bar -->
+                            <div style="text-align: center;">
+                                <div style="display: flex; flex-direction: column; align-items: center;">
+                                    <span style="font-size: 0.9em; color: var(--success); font-weight: 600; margin-bottom: 5px;">No Effect</span>
+                                    <div style="width: 90px; height: 25px; background: linear-gradient(to top, #38a169, #68d391); border-radius: 8px 8px 0 0; display: flex; align-items: center; justify-content: center;">
+                                        <span style="color: white; font-size: 1em;">—</span>
+                                    </div>
+                                </div>
+                                <p style="margin: 8px 0 0; font-weight: 600; font-size: 1em;">Technical</p>
+                                <p style="margin: 2px 0 0; font-size: 0.8em; color: var(--text-light);">Programming, Science</p>
+                            </div>
+                        </div>
+                        <p style="text-align: center; font-size: 0.9em; color: var(--text); margin: 0; font-weight: 500;">Effect of Quality on Engagement Rate by Topic</p>
+                    </div>
+                    <div class="key-finding mt-15" style="padding: 15px;">
+                        <h4 style="margin-bottom: 5px;">Lesson</h4>
+                        <p style="margin: 0; font-size: 1em;">Match your writing style to your audience. Know what your readers expect.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Yang et al. (2018). Understanding user-generated content; Gkikas et al. (2022). Text characteristics impact.</div>
+        </div>
+
+        <!-- SLIDE 11: Main Effects Social Capital -->
+        <div class="slide" data-slide="10">
+            <span class="section-badge">10 - Results</span>
+            <h2>Finding 2: Social Capital Matters (H2)</h2>
+            <div class="two-column">
+                <div>
+                    <div class="hypothesis supported">
+                        <strong>H2a: Social Capital → Views</strong>
+                        <div class="result">β = 4.87***</div>
+                        <p class="mt-15"><span class="badge green">Supported</span> More followers = more views.</p>
+                    </div>
+                    <div class="content-box mt-15" style="padding: 15px;">
+                        <p style="margin: 0;"><strong>But there are diminishing returns:</strong></p>
+                        <p style="margin: 10px 0 0; font-size: 1.05em;">Your first 1,000 followers help a lot.</p>
+                        <p style="margin: 5px 0 0; font-size: 1.05em;">Going from 10,000 to 11,000 doesn't change much.</p>
+                        <p style="margin: 10px 0 0; font-size: 0.9em; color: var(--text-light);">(β² = -0.51*** means the benefit gets smaller)</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="hypothesis supported">
+                        <strong>H2b: Social Capital → Engagement</strong>
+                        <div class="result">β = 5.37***</div>
+                        <p class="mt-15"><span class="badge green">Supported</span> Followers also increase likes and comments.</p>
+                    </div>
+                    <div class="key-finding mt-15" style="padding: 15px;">
+                        <h4>Key Insight</h4>
+                        <p style="font-size: 1.05em;">Social capital matters more for deep engagement than just views. Your followers are the ones who actually interact with you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Wasko & Faraj (2005). Why should I share?; Bateman et al. (2011). Community commitment.</div>
+        </div>
+
+        <!-- SLIDE 12: Interaction H4 -->
+        <div class="slide" data-slide="11">
+            <span class="section-badge">11 - Results</span>
+            <h2>Finding 3: Quality + Exposure = Amplification (H4)</h2>
+            <div class="two-column wide-right">
+                <div>
+                    <div class="hypothesis supported">
+                        <strong>H4: Does exposure amplify quality?</strong>
+                        <div class="result">β = 2.33***</div>
+                        <p class="mt-15"><span class="badge green">Yes! Strongly Supported</span></p>
+                    </div>
+                    <div class="content-box mt-15" style="padding: 15px;">
+                        <p style="font-size: 1.05em; margin-bottom: 10px;">Look at the graph. The lines are spreading apart.</p>
+                        <p style="font-size: 1.05em; margin-bottom: 10px;">If you have low quality, exposure doesn't help much.</p>
+                        <p style="font-size: 1.05em;">But if you have high quality, exposure makes it even better.</p>
+                    </div>
+                    <div class="key-finding mt-15" style="padding: 15px;">
+                        <p style="font-size: 1.1em; margin: 0;"><strong>The algorithm rewards quality.</strong> Good content wins big when it gets seen. This is good news.</p>
+                    </div>
+                </div>
+                <div class="figure-container">
+                    <img src="results/figures/h4_quality_exposure_interaction.png" alt="Quality-Exposure Interaction" style="max-height: 50vh;">
+                    <p class="figure-caption">High-quality content benefits more from exposure.</p>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Shin et al. (2020). Enhancing social media analysis (Complementarity concept).</div>
+        </div>
+
+        <!-- SLIDE 13: Interaction H5 -->
+        <div class="slide" data-slide="12">
+            <span class="section-badge">12 - Results</span>
+            <h2>Finding 4: Social Capital + Exposure = Inequality (H5)</h2>
+            <div class="two-column wide-right">
+                <div>
+                    <div class="hypothesis not-supported">
+                        <strong>H5: Does exposure help newcomers more?</strong>
+                        <div class="result">β = +0.23***</div>
+                        <p class="mt-15"><span class="badge red">No! The opposite happened.</span></p>
+                    </div>
+                    <div class="content-box mt-15" style="padding: 15px;">
+                        <p style="font-size: 1.05em; margin-bottom: 10px;">We expected exposure to help newcomers more. They have no reputation, so they need the algorithm.</p>
+                        <p style="font-size: 1.05em; margin-bottom: 10px;">But the reality is different. Look at the numbers.</p>
+                        <p style="font-size: 1.05em; margin-bottom: 5px;">Newcomers get <strong>+34%</strong> boost from exposure.</p>
+                        <p style="font-size: 1.05em;">Famous authors get <strong>+57%</strong> boost.</p>
+                    </div>
+                    <div class="key-finding mt-15" style="padding: 15px; border-left-color: var(--danger);">
+                        <p style="font-size: 1.1em; margin: 0;"><strong>The rich get richer.</strong> The platform increases inequality, not solves it. This is bad news.</p>
+                    </div>
+                </div>
+                <div class="figure-container">
+                    <img src="results/figures/h5_social_exposure_interaction.png" alt="Social Capital-Exposure Interaction" style="max-height: 50vh;">
+                    <p class="figure-caption">Famous authors benefit more from exposure.</p>
+                </div>
+            </div>
+            <div class="slide-footer">Source: DiMaggio & Garip (2011). Network effects and social inequality (Reinforcement concept).</div>
+        </div>
+
+        <!-- SLIDE 14: Full Model -->
+        <!-- SLIDE 13: Hypothesis Summary -->
+        <div class="slide" data-slide="13">
+            <span class="section-badge">13 - Results</span>
+            <h2>Scorecard: What We Predicted vs. What We Found</h2>
+            <table style="font-size: 1.05em;">
+                <thead>
+                    <tr><th>Hypothesis</th><th>Prediction</th><th>Result</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>H1a: Quality → Engagement Rate</td><td>β > 0</td><td><strong style="font-size: 1.1em;">β = -3.55***</strong> (moderated)</td><td><span class="badge yellow">Partial</span></td></tr>
+                    <tr><td>H1b: Quality → Views</td><td>β > 0</td><td><strong style="font-size: 1.1em;">β = 6.57***</strong></td><td><span class="badge green">Supported</span></td></tr>
+                    <tr><td>H2a: Social Capital → Views</td><td>β > 0, β² < 0</td><td><strong style="font-size: 1.1em;">β = 4.87***</strong>, β² = -0.51***</td><td><span class="badge green">Strong</span></td></tr>
+                    <tr><td>H2b: Social Capital → Engagement</td><td>β > 0</td><td><strong style="font-size: 1.1em;">β = 5.37***</strong></td><td><span class="badge green">Supported</span></td></tr>
+                    <tr><td>H3a: Exposure → Views</td><td>β > 0</td><td><strong style="font-size: 1.1em;">β = 0.60***</strong></td><td><span class="badge green">Supported</span></td></tr>
+                    <tr><td>H3b: Exposure → Engagement</td><td>β > 0</td><td><strong style="font-size: 1.1em;">β = 0.53***</strong></td><td><span class="badge green">Supported</span></td></tr>
+                    <tr style="background: #f0fff4;"><td>H4: Quality × Exposure</td><td>β > 0</td><td><strong style="font-size: 1.1em; color: #276749;">β = 2.33***</strong></td><td><span class="badge green">Strong</span></td></tr>
+                    <tr style="background: #fff5f5;"><td>H5: Social Capital × Exposure</td><td>β < 0</td><td><strong style="font-size: 1.1em; color: #c53030;">β = +0.23***</strong></td><td><span class="badge red">Not Supported</span></td></tr>
+                </tbody>
+            </table>
+            <div style="display: flex; gap: 20px; margin-top: 15px;">
+                <div class="content-box green" style="flex: 1; padding: 15px; background: #f0fff4;">
+                    <p style="margin: 0; font-size: 1.1em;"><strong>H4 is good news.</strong> Good content benefits more from exposure. The algorithm rewards quality. This is what we hoped.</p>
+                </div>
+                <div class="content-box" style="flex: 1; padding: 15px; border-left-color: #c53030; background: #fff5f5;">
+                    <p style="margin: 0; font-size: 1.1em;"><strong>H5 is bad news.</strong> Famous authors benefit more than newcomers. The rich get richer. This is not fair.</p>
+                </div>
+            </div>
+            <div class="slide-footer">N = 315,000. All effects significant at p < 0.001. Note: β² means the effect slows down as followers increase (more followers = less extra benefit).</div>
+        </div>
+
+        <!-- SLIDE 16: Newcomer Analysis -->
+        <div class="slide" data-slide="14">
+            <span class="section-badge">14 - Results</span>
+            <h2>Digging Deeper: Who Benefits More?</h2>
+            <div class="two-column wide-right">
+                <div>
+                    <table>
+                        <thead><tr><th>Author Type</th><th>Exposure β</th><th>95% CI</th></tr></thead>
+                        <tbody>
+                            <tr><td>Newcomer (≤10 posts)</td><td>0.474</td><td>[0.464, 0.484]</td></tr>
+                            <tr><td>Established (>100 posts)</td><td>0.518</td><td>[0.506, 0.530]</td></tr>
+                            <tr style="background: #fff5f5;"><td><strong>Difference</strong></td><td><strong>-0.043</strong></td><td>p < 0.001</td></tr>
+                        </tbody>
+                    </table>
+                    <div class="key-finding mt-15">
+                        <h4>Confirms "Rich Get Richer"</h4>
+                        <p>Established authors benefit significantly more from exposure than newcomers.</p>
+                        <p><strong>Platforms increase inequality.</strong></p>
+                    </div>
+                </div>
+                <div class="figure-container">
+                    <img src="results/newcomer_analysis/figures/exposure_effect_by_author_type.png" alt="Exposure Effect by Author Type" style="max-height: 45vh;">
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 17: DST Natural Experiment -->
+        <div class="slide" data-slide="15">
+            <span class="section-badge">15 - Results</span>
+            <h2>Proving Causality: The DST Experiment (H3)</h2>
+            <div class="two-column" style="gap: 30px;">
+                <div>
+                    <div class="content-box mb-15" style="padding: 18px; background: #ebf8ff;">
+                        <h3 style="margin: 0 0 10px; font-size: 1.15em; color: var(--primary);">The Problem</h3>
+                        <p style="margin: 0; font-size: 1.05em;">How do we know exposure <em>causes</em> attention? Maybe popular content just gets posted at good times.</p>
+                    </div>
+                    
+                    <div class="content-box green mb-15" style="padding: 18px;">
+                        <h3 style="margin: 0 0 10px; font-size: 1.15em; color: #276749;">The Solution</h3>
+                        <p style="margin: 0; font-size: 1.05em;">Iran abolished Daylight Saving Time in September 2022. User behavior shifted by 1 hour overnight. Nothing else changed.</p>
+                    </div>
+                    
+                    <div class="content-box mb-15" style="padding: 18px;">
+                        <h3 style="margin: 0 0 10px; font-size: 1.15em;">The Result</h3>
+                        <table style="font-size: 1em; margin: 0;">
+                            <tr style="background: #f7fafc;"><td style="padding: 8px;">Basic Model</td><td style="padding: 8px;"><strong>-2.1%</strong></td><td style="padding: 8px; color: #718096;">p > 0.1</td></tr>
+                            <tr><td style="padding: 8px;">With Controls</td><td style="padding: 8px;"><strong>-6.3%</strong></td><td style="padding: 8px; color: #276749;">p < 0.001</td></tr>
+                            <tr style="background: #f0fff4;"><td style="padding: 8px;">Full Model</td><td style="padding: 8px;"><strong>-8.3%</strong></td><td style="padding: 8px; color: #276749;">p < 0.001</td></tr>
+                        </table>
+                    </div>
+                    
+                    <div class="key-finding" style="padding: 15px;">
+                        <p style="margin: 0; font-size: 1.1em;"><strong>Conclusion:</strong> Timing causes attention. This is causal, not just correlation.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="figure-container">
+                        <img src="results/dst_analysis/figures/parallel_trends.png" alt="Parallel Trends" style="max-height: 50vh;">
+                        <p class="figure-caption">Groups were identical before the change (Parallel Trends). The shift happened exactly on the policy date.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Difference-in-Differences design based on Angrist & Pischke (2008). N = 370,875 posts.</div>
+        </div>
+
+        <!-- SLIDE 18: Robustness -->
+        <div class="slide" data-slide="16">
+            <span class="section-badge">16 - Results</span>
+            <h2>Can We Trust These Results?</h2>
+            <div class="two-column" style="gap: 25px;">
+                <div>
+                    <h3>Five Robustness Tests</h3>
+                    <div class="content-box mb-15" style="padding: 10px;">
+                        <p style="margin: 0; font-size: 1.0em;"><strong>1. Model Comparison</strong></p>
+                        <p style="margin: 3px 0 0; font-size: 0.9em;">We ran Poisson, Negative Binomial, and OLS regression. All three models gave similar answers for the quality effect.</p>
+                    </div>
+                    <div class="content-box blue mb-15" style="padding: 10px;">
+                        <p style="margin: 0; font-size: 1.0em;"><strong>2. Outlier Sensitivity</strong></p>
+                        <p style="margin: 3px 0 0; font-size: 0.9em;">We excluded the top 1% and 5% most viral posts. The quality effect stays significant even without outliers.</p>
+                    </div>
+                    <div class="content-box green mb-15" style="padding: 10px;">
+                        <p style="margin: 0; font-size: 1.0em;"><strong>3. Variable Transformations</strong></p>
+                        <p style="margin: 3px 0 0; font-size: 0.9em;">We measured followers using log, square root, and raw values. Results are consistent across all transformations.</p>
+                    </div>
+                    <div class="content-box mb-15" style="padding: 10px; border-left-color: #805AD5;">
+                        <p style="margin: 0; font-size: 1.0em;"><strong>4. Content Length</strong></p>
+                        <p style="margin: 3px 0 0; font-size: 0.9em;">We analyzed short, medium, and long posts separately. Quality effect works for all content lengths.</p>
+                    </div>
+                    <div class="content-box" style="padding: 10px; border-left-color: #DD6B20;">
+                        <p style="margin: 0; font-size: 1.0em;"><strong>5. Temporal Stability</strong></p>
+                        <p style="margin: 3px 0 0; font-size: 0.9em;">We ran yearly analysis from 2017 to 2025. Effects are stable over all 8 years.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="figure-container">
+                        <img src="results/robustness/coefficient_stability.png" alt="Coefficient Stability" style="max-height: 36vh;">
+                        <p class="figure-caption">Quality effect stays positive as we add more controls</p>
+                    </div>
+                    <div class="key-finding" style="margin-top: 8px; padding: 10px;">
+                        <h4 style="margin-bottom: 5px;">Bottom Line</h4>
+                        <p style="margin: 0; font-size: 1.0em;">No matter how we test it, quality matters. These results are real and stable.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Oster (2019). Coefficient stability test for robustness.</div>
+        </div>
+
+        <!-- SLIDE 19: Theoretical Contributions -->
+        <div class="slide" data-slide="17">
+            <span class="section-badge">17 - Discussion</span>
+            <h2>So What? Contributions to Theory</h2>
+            <div class="two-column" style="gap: 25px;">
+                <div>
+                    <div class="content-box mb-15" style="padding: 15px;">
+                        <h3 style="margin-top: 0;">1. Three Drivers</h3>
+                        <p>Success is a mix of Quality, Social Capital, and Exposure. You need to look at all three.</p>
+                    </div>
+                    <div class="content-box blue" style="padding: 15px;">
+                        <h3 style="margin-top: 0;">2. Complementarity (H4)</h3>
+                        <p>Algorithms prioritize Quality. Good content gets a massive boost (Amplification Effect).</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="content-box green mb-15" style="padding: 15px;">
+                        <h3 style="margin-top: 0;">3. Reinforcement (H5)</h3>
+                        <p>Algorithms prioritize Social Capital even more. The "Rich Get Richer".</p>
+                    </div>
+                    <div class="key-finding" style="padding: 15px;">
+                        <h4 style="margin-bottom: 8px;">4. Quality Paradox</h4>
+                        <p style="margin: 0;">You must write for your audience. Don't overcomplicate lifestyle content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Contribution to Attention Economy Theory; Update to Social Capital Theory (Wasko & Faraj, 2005).</div>
+        </div>
+
+        <!-- SLIDE 20: Practical Implications -->
+        <div class="slide" data-slide="18">
+            <span class="section-badge">18 - Discussion</span>
+            <h2>What Should We Do About It?</h2>
+            <div class="stat-grid">
+                <div class="stat-card" style="background: linear-gradient(135deg, #00853E, #006630); padding: 25px;">
+                    <span class="label" style="font-size: 1.4em;"><strong>For Creators</strong></span>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #4299e1, #3182ce); padding: 25px;">
+                    <span class="label" style="font-size: 1.4em;"><strong>For Platforms</strong></span>
+                </div>
+                <div class="stat-card" style="background: linear-gradient(135deg, #9f7aea, #805ad5); padding: 25px;">
+                    <span class="label" style="font-size: 1.4em;"><strong>For Policymakers</strong></span>
+                </div>
+            </div>
+            <div class="two-column mt-15">
+                <div>
+                    <h3 style="font-size: 1.3em;">For Creators</h3>
+                    <ul style="font-size: 1.15em;">
+                        <li><strong>Focus on quality first.</strong> Good content gets more boost from the algorithm.</li>
+                        <li><strong>Don't just chase followers.</strong> After a point, more followers don't help much.</li>
+                        <li><strong>Use the right tags and timing.</strong> These help the algorithm find your content.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.3em;">For Platforms & Policymakers</h3>
+                    <ul style="font-size: 1.15em;">
+                        <li><strong>Good news:</strong> Algorithms do reward quality content.</li>
+                        <li><strong>Bad news:</strong> They also make popular authors even more popular.</li>
+                        <li><strong>Consider fairness:</strong> Give newcomers a chance to be discovered.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 21: Limitations & Future -->
+        <div class="slide" data-slide="19">
+            <span class="section-badge">19 - Discussion</span>
+            <h2>Limitations & Future Research</h2>
+            <div class="two-column" style="gap: 25px;">
+                <div>
+                    <h3>Limitations</h3>
+                    <div class="content-box mb-15" style="padding: 15px;">
+                        <p style="margin: 0;"><strong>One Platform:</strong></p>
+                        <p style="margin: 8px 0 0;">We studied Virgool.io only. Results may differ on YouTube, TikTok, or Instagram.</p>
+                    </div>
+                    <div class="content-box blue mb-15" style="padding: 15px;">
+                        <p style="margin: 0;"><strong>Text-Only:</strong></p>
+                        <p style="margin: 8px 0 0;">Our quality measure is for text. Video and image quality might work differently.</p>
+                    </div>
+                    <div class="content-box" style="padding: 15px; border-left-color: var(--warning);">
+                        <p style="margin: 0;"><strong>Large Sample:</strong></p>
+                        <p style="margin: 8px 0 0;">With 315,000 posts, even small effects become statistically significant. We focus on practically meaningful effects.</p>
+                    </div>
+                </div>
+                <div>
+                    <h3>Future Directions</h3>
+                    <div class="content-box green mb-15" style="padding: 15px;">
+                        <p style="margin: 0;"><strong>Test on Other Platforms:</strong></p>
+                        <p style="margin: 8px 0 0;">Do these patterns hold on YouTube, TikTok, Instagram?</p>
+                    </div>
+                    <div class="content-box blue mb-15" style="padding: 15px;">
+                        <p style="margin: 0;"><strong>Track Over Time:</strong></p>
+                        <p style="margin: 8px 0 0;">How do these effects change as creators grow their careers?</p>
+                    </div>
+                    <div class="content-box" style="padding: 15px;">
+                        <p style="margin: 0;"><strong>Design Better Platforms:</strong></p>
+                        <p style="margin: 8px 0 0;">Can platforms reward quality without increasing inequality?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 22: Conclusion -->
+        <div class="slide" data-slide="20">
+            <span class="section-badge">20 - Conclusion</span>
+            <h2>Key Takeaways</h2>
+            <div class="two-column">
+                <div>
+                    <h3 style="font-size: 1.3em;">What We Found</h3>
+                    <table style="width: 100%; font-size: 1.1em; margin-top: 10px;">
+                        <tr style="background: #f7fafc;">
+                            <td style="padding: 12px; border-bottom: 2px solid #e2e8f0;"><strong>Does Quality matter?</strong></td>
+                            <td style="padding: 12px; border-bottom: 2px solid #e2e8f0; color: #276749; font-weight: bold;">YES (β = 6.57)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border-bottom: 2px solid #e2e8f0;"><strong>Does Social Capital matter?</strong></td>
+                            <td style="padding: 12px; border-bottom: 2px solid #e2e8f0; color: #276749; font-weight: bold;">YES (β = 4.87)</td>
+                        </tr>
+                        <tr style="background: #c6f6d5;">
+                            <td style="padding: 12px; border-bottom: 2px solid #9ae6b4;"><strong>Quality + Exposure?</strong></td>
+                            <td style="padding: 12px; border-bottom: 2px solid #9ae6b4; color: #276749; font-weight: bold;">Positive Interaction</td>
+                        </tr>
+                        <tr style="background: #fed7d7;">
+                            <td style="padding: 12px;"><strong>Social Capital + Exposure?</strong></td>
+                            <td style="padding: 12px; color: #c53030; font-weight: bold;">Reinforcement</td>
+                        </tr>
+                    </table>
+                    <div class="content-box green mt-15" style="padding: 15px;">
+                        <p style="margin: 0; font-size: 1.1em;"><strong>Good News:</strong> Algorithms help good content get discovered.</p>
+                    </div>
+                </div>
+                <div>
+                    <div style="background: linear-gradient(135deg, #c53030, #742a2a); color: white; padding: 30px; border-radius: 16px; text-align: center; box-shadow: 0 8px 30px rgba(197, 48, 48, 0.4); border: 3px solid #fc8181;">
+                        <h3 style="margin: 0 0 15px; font-size: 1.6em; color: white; text-transform: uppercase; letter-spacing: 1px;">But There's a Problem</h3>
+                        <div style="background: rgba(255,255,255,0.15); padding: 15px; border-radius: 10px; margin-top: 10px;">
+                            <p style="margin: 0; font-size: 1.15em; color: white; line-height: 1.5;">
+                                Popular authors benefit <strong>more</strong> from visibility than newcomers.
+                            </p>
+                            <p style="margin: 12px 0 0; font-size: 1.1em; color: #fed7d7;">
+                                This is the <strong>Cumulative Advantage</strong> effect.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="content-box mt-15" style="padding: 15px; border-left-color: #805AD5;">
+                        <p style="margin: 0; font-size: 1.1em;"><strong>Implication:</strong> We need fairer algorithms that give newcomers a chance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 23: Thank You -->
+        <div class="slide title-slide" data-slide="21">
+            <h1>Thank You</h1>
+            <div class="subtitle">Questions & Discussion</div>
+            <div class="conference">
+                <strong>Decomposing Attention in Creator Platforms</strong><br>
+                BCIS 6010 - Seminar | University of North Texas
+            </div>
+        </div>
+
+        <!-- SLIDE 24: Appendix - Correlation Matrix -->
+        <div class="slide" data-slide="22">
+            <span class="section-badge">22 - Appendix</span>
+            <h2>Correlation Matrix</h2>
+            <div class="figure-container">
+                <img src="results/figures/publication/fig3_correlation_matrix.png" alt="Correlation Matrix" style="max-height: 60vh;">
+                <p class="figure-caption">Followers correlate more with likes (r = 0.24) than views (r = 0.12), supporting differential social capital effects.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 25: Appendix - Indices -->
+        <div class="slide" data-slide="23">
+            <span class="section-badge">23 - Appendix</span>
+            <h2>Constructed Index Distributions</h2>
+            <div class="figure-container">
+                <img src="results/figures/publication/fig4_constructed_indices.png" alt="Constructed Indices" style="max-height: 60vh;">
+                <p class="figure-caption">(a) Content Quality Index: approximately normal. (b) Social Capital Index: right-skewed.</p>
+            </div>
+        </div>
+
+        <!-- SLIDE 26: Appendix - DST Event Study -->
+        <div class="slide" data-slide="24">
+            <span class="section-badge">24 - Appendix</span>
+            <h2>DST Natural Experiment: Event Study</h2>
+            <div class="two-column" style="gap: 20px;">
+                <div class="figure-container">
+                    <img src="results/dst_analysis/figures/event_study.png" alt="Event Study" style="max-height: 50vh;">
+                </div>
+                <div>
+                    <div class="content-box mb-15" style="padding: 15px;">
+                        <h3 style="margin-top: 0; font-size: 1.2em;">What This Shows</h3>
+                        <p style="font-size: 1.05em;">Each dot is a weekly coefficient. X-axis = weeks before/after DST abolition (Sep 2022). Y-axis = effect size.</p>
+                    </div>
+                    <div class="content-box green mb-15" style="padding: 15px;">
+                        <h3 style="margin-top: 0; font-size: 1.2em;">Before the Change</h3>
+                        <p style="font-size: 1.05em;">Coefficients are flat and near zero. This confirms <strong>Parallel Trends</strong> (groups were similar before).</p>
+                    </div>
+                    <div class="content-box blue mb-15" style="padding: 15px;">
+                        <h3 style="margin-top: 0; font-size: 1.2em;">After the Change</h3>
+                        <p style="font-size: 1.05em;">We see a clear shift. DiD coefficient = <strong>-0.063</strong> (p < 0.001). Timing matters for attention.</p>
+                    </div>
+                    <div class="key-finding" style="padding: 12px;">
+                        <h4 style="margin-bottom: 5px;">Conclusion</h4>
+                        <p style="margin: 0; font-size: 1.05em;">This proves <strong>Exposure causes Attention</strong>. It's not just correlation.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-footer">Source: Iran abolished DST on Sep 21, 2022. N = 370,875 posts. DiD with time fixed effects.</div>
+        </div>
+
+        <!-- SLIDE 25: Appendix - Construct Table -->
+        <div class="slide" data-slide="25">
+            <span class="section-badge">25 - Appendix</span>
+            <h2>Construct Operationalization</h2>
+            <table style="font-size: 0.85em; width: 100%;">
+                <thead>
+                    <tr><th>Construct</th><th>Definition</th><th>Measures</th><th>Type</th></tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f7fafc;"><td colspan="4"><strong>Dependent Variables</strong></td></tr>
+                    <tr><td>Attention</td><td>Allocation of cognitive resources</td><td><code>views</code>: Total post views</td><td>Count</td></tr>
+                    <tr><td>Engagement Depth</td><td>Meaningful interaction beyond exposure</td><td><code>likes</code>, <code>comments</code>, <code>read_ratio</code></td><td>Count; Bounded</td></tr>
+                    <tr><td>Engagement Rate</td><td>Interaction normalized by exposure</td><td><code>likes_per_100_views</code>, <code>comments_per_100_views</code></td><td>Fractional</td></tr>
+                    
+                    <tr style="background: #f7fafc;"><td colspan="4"><strong>Independent Variables</strong></td></tr>
+                    <tr><td>Content Quality</td><td>Intrinsic value and consumability</td><td>Linguistic: readability, lexical diversity. Semantic: coherence (ParsBERT). Structural: <code>words_count</code>, <code>images_count</code></td><td>Continuous</td></tr>
+                    <tr><td>Social Capital</td><td>Network resources and reputation</td><td><code>author_followers</code> (log), <code>author_total_likes</code>, <code>author_tenure</code></td><td>Count; Days</td></tr>
+                    <tr><td>Discoverability</td><td>Author-controlled visibility</td><td><code>tags_count</code>, <code>topics_count</code>, temporal position, <code>platform_content_supply</code></td><td>Count; Categorical</td></tr>
+                    
+                    <tr style="background: #f7fafc;"><td colspan="4"><strong>Interaction Effects (H4, H5)</strong></td></tr>
+                    <tr><td>Quality × Exposure</td><td>Complementarity between quality and visibility</td><td>Quality index × Discoverability index</td><td>Continuous</td></tr>
+                    <tr><td>Social Capital × Exposure</td><td>Substitution between reputation and visibility</td><td>log(Followers) × Discoverability index</td><td>Continuous</td></tr>
+                </tbody>
+            </table>
+            <div class="slide-footer">Source: DeLone & McLean (2003); Nahapiet & Ghoshal (1998); Singh & Joachims (2018); Petty & Cacioppo (1986).</div>
+        </div>
+
+    </div>
+
+    <div class="nav">
+        <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+        <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        <button id="fullscreenBtn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+    </div>
+
+    <div class="slide-counter" id="slideCounter">1 / 26</div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 25;
+
+        // Get slide from URL hash on load
+        function getSlideFromHash() {
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#slide-')) {
+                const slideNum = parseInt(hash.replace('#slide-', ''));
+                if (slideNum >= 1 && slideNum <= totalSlides) {
+                    return slideNum;
+                }
+            }
+            return 1;
+        }
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+            
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            const activeSlide = document.querySelector(`[data-slide="${currentSlide}"]`);
+            if (activeSlide) {
+                activeSlide.classList.add('active');
+            }
+            
+            // Update URL hash without scrolling
+            history.replaceState(null, null, `#slide-${currentSlide}`);
+            
+            const progress = (currentSlide / totalSlides) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+            document.getElementById('slideCounter').textContent = `${currentSlide} / ${totalSlides}`;
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 1;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+
+        // Fullscreen toggle
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Fullscreen error:', err);
+                });
+                document.getElementById('fullscreenBtn').textContent = '⛶ Exit';
+            } else {
+                document.exitFullscreen();
+                document.getElementById('fullscreenBtn').textContent = '⛶ Fullscreen';
+            }
+        }
+
+        // Update button text when fullscreen changes
+        document.addEventListener('fullscreenchange', function() {
+            const btn = document.getElementById('fullscreenBtn');
+            if (document.fullscreenElement) {
+                btn.textContent = '⛶ Exit';
+            } else {
+                btn.textContent = '⛶ Fullscreen';
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                changeSlide(1);
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                changeSlide(-1);
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                currentSlide = 1;
+                showSlide(currentSlide);
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                currentSlide = totalSlides;
+                showSlide(currentSlide);
+            } else if (e.key === 'f' || e.key === 'F') {
+                e.preventDefault();
+                toggleFullscreen();
+            } else if (e.key === 'Escape' && document.fullscreenElement) {
+                // Escape is handled by browser for fullscreen
+            }
+        });
+
+        // Handle hash change (browser back/forward)
+        window.addEventListener('hashchange', function() {
+            const slideNum = getSlideFromHash();
+            if (slideNum !== currentSlide) {
+                currentSlide = slideNum;
+                showSlide(currentSlide);
+            }
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                changeSlide(1);
+            } else if (touchEndX - touchStartX > 50) {
+                changeSlide(-1);
+            }
+        });
+
+        // Initialize from hash or slide 1
+        currentSlide = getSlideFromHash();
+        showSlide(currentSlide);
+    </script>
+</body>
+</html>
+
+
+
