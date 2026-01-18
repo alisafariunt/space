@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 1 - BUSI 6480 Study Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&family=Source+Code+Pro:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional inline styles for backward compatibility */
+        .container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            background: white;
+            padding: 50px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* Headers */
+        h1 {
+            color: #1a3a52;
+            font-size: 2em;
+            margin-bottom: 8px;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 12px;
+        }
+
+        h2 {
+            color: #2c5f7d;
+            font-size: 1.6em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 12px;
+            border-left: 4px solid #3498db;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.25em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        h4 {
+            color: #555;
+            font-size: 1.05em;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        /* Persian sections */
+        .persian-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f0f7ff 100%);
+            border-right: 5px solid #2196F3;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+            direction: rtl;
+            text-align: right;
+            font-family: 'Vazirmatn', 'Tahoma', 'Arial', sans-serif;
+        }
+
+        .persian-section h4 {
+            color: #1565C0;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+        }
+
+        .persian-section p,
+        .persian-section li {
+            line-height: 1.9;
+            font-size: 0.95em;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.88em;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead tr {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: left;
+        }
+
+        th,
+        td {
+            padding: 14px 18px;
+            border: 1px solid #e0e0e0;
+        }
+
+        tbody tr {
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        tbody tr:hover {
+            background: #e3f2fd;
+        }
+
+        /* Code blocks - Light theme for print-friendly */
+        pre {
+            background: #f4f4f4;
+            color: #1a1a1a;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+            overflow-x: auto;
+            margin: 18px 0;
+            font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.88em;
+            font-weight: 500;
+            line-height: 1.7;
+            letter-spacing: 0.3px;
+        }
+
+        code {
+            background: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #c7254e;
+        }
+
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: #1a1a1a;
+            font-family: 'Source Code Pro', 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        /* Yellow highlight for important points */
+        .highlight {
+            background: linear-gradient(to bottom, transparent 50%, #e8ff00 50%);
+            padding: 0 3px;
+        }
+
+        mark,
+        .mark {
+            background-color: #e8ff00;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        /* Lists */
+        ul,
+        ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.8;
+        }
+
+        /* Horizontal rules */
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 30px 0;
+        }
+
+        /* Blockquotes */
+        blockquote {
+            background: #fff8e1;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        /* Special boxes */
+        .info-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .error-box {
+            background: #ffebee;
+            border-left: 5px solid #f44336;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .checklist li {
+            padding: 10px 0;
+            font-size: 1.1em;
+        }
+
+        .checklist li:before {
+            content: "☐ ";
+            color: #3498db;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.3em;
+        }
+
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 30px;
+            z-index: 1000;
+            gap: 40px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-brand h1 {
+            font-size: 1.3em;
+            color: #667eea;
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .nav-brand span {
+            font-size: 0.75em;
+            color: #888;
+            border-left: 1px solid #ddd;
+            padding-left: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 10px;
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .nav-links a.disabled {
+            color: #aaa;
+            cursor: not-allowed;
+        }
+
+        /* Reading Progress */
+        .reading-progress {
+            position: fixed;
+            top: 55px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #e0e0e0;
+            z-index: 999;
+        }
+
+        .reading-progress-bar {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        .reading-percentage {
+            position: fixed;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: bold;
+            z-index: 999;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Print Styles - Colorful and Neat */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .main-nav,
+            .reading-progress,
+            .reading-percentage,
+            footer {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                padding: 0 !important;
+                font-size: 11pt;
+                line-height: 1.6;
+            }
+
+            .container {
+                margin: 0 !important;
+                padding: 30px !important;
+                box-shadow: none !important;
+                max-width: 100% !important;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4 {
+                page-break-after: avoid;
+                page-break-inside: avoid;
+            }
+
+            h2 {
+                border-left: 5px solid #3498db !important;
+                background: transparent !important;
+                margin-top: 25px;
+            }
+
+            table {
+                page-break-inside: avoid;
+                border: 1px solid #ccc !important;
+            }
+
+            thead tr {
+                background: #667eea !important;
+                color: white !important;
+            }
+
+            pre {
+                page-break-inside: avoid;
+                background: #f5f5f5 !important;
+                color: #333 !important;
+                border: 1px solid #ccc !important;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                font-size: 9pt;
+                padding: 12px !important;
+            }
+
+            .persian-section {
+                background: #e3f2fd !important;
+                border-right: 5px solid #2196F3 !important;
+                page-break-inside: avoid;
+            }
+
+            .info-box {
+                background: #e8f5e9 !important;
+                border-left: 5px solid #4caf50 !important;
+                page-break-inside: avoid;
+            }
+
+            .warning-box {
+                background: #fff3e0 !important;
+                border-left: 5px solid #ff9800 !important;
+                page-break-inside: avoid;
+            }
+
+            .error-box {
+                background: #ffebee !important;
+                border-left: 5px solid #f44336 !important;
+                page-break-inside: avoid;
+            }
+
+            blockquote {
+                background: #fff8e1 !important;
+                border-left: 5px solid #ffc107 !important;
+                page-break-inside: avoid;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            ul,
+            ol {
+                page-break-inside: avoid;
+            }
+
+            li {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .container {
+                padding: 20px;
+                margin-top: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-brand">
+            <h1>📊 BUSI 6480</h1>
+            <span>Experimental Design</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="week1.html" class="active">Week 1</a></li>
+            <li><a href="#" class="disabled">Week 2</a></li>
+            <li><a href="#" class="disabled">Week 3</a></li>
+            <li><a href="#" class="disabled">Week 4</a></li>
+        </ul>
+    </nav>
+
+    <!-- Reading Progress -->
+    <div class="reading-progress">
+        <div class="reading-progress-bar"></div>
+    </div>
+    <div class="reading-percentage">0% Read</div>
+
+    <div class="container">
+        <h1>BUSI 6480 Week 1 - Comprehensive Study Guide</h1>
+        <h2>Advanced Experimental Design & Statistical Analysis</h2>
+
+        <hr>
+
+        <h2>📌 Course Overview</h2>
+        <p><strong>Course:</strong> BUSI 6480 - Experimental Design</p>
+        <p><strong>Instructor Focus:</strong> Learning syntax-based statistical analysis is essential</p>
+        <p><strong>Week 1 Topics:</strong></p>
+        <ul>
+            <li>Kirk Chapters 1, 2, and 3</li>
+            <li>Introduction to Experimental Design</li>
+            <li>ANOVA (Analysis of Variance)</li>
+            <li>Mediation Analysis</li>
+            <li>Statistical Software (SAS, R, Python comparison)</li>
+            <li>Tests for Homogeneity of Variance</li>
+        </ul>
+
+        <hr>
+
+        <h2>🎯 Week 1 Learning Objectives</h2>
+        <p>By the end of Week 1, you should be able to:</p>
+        <ol>
+            <li>Understand basic experimental design terminology and concepts</li>
+            <li>Perform ANOVA analysis and interpret results</li>
+            <li>Test for homogeneity of variance using multiple methods</li>
+            <li>Understand mediation analysis concepts and Baron & Kenny's approach</li>
+            <li>Run statistical analyses using SAS, R, and understand their syntax</li>
+            <li>Apply contrasts and multiple comparison procedures</li>
+        </ol>
+
+        <hr>
+
+        <h2>📖 Part 1: Experimental Design Fundamentals (Kirk Chapters 1-3)</h2>
+
+        <h3>1.1 Basic Terminology</h3>
+
+        <h4>Experimental Unit (Subject)</h4>
+        <ul>
+            <li>The entity to which a treatment is applied</li>
+            <li>Example: In a reading study, each student is an experimental unit</li>
+        </ul>
+
+        <h4>Treatment</h4>
+        <ul>
+            <li>A specific condition or factor level combination applied to experimental units</li>
+            <li>Treatments describe the different ways we manipulate or "treat" experimental units</li>
+        </ul>
+
+        <h4>Factor</h4>
+        <ul>
+            <li>An independent variable that is manipulated in an experiment</li>
+            <li>Can be <strong>qualitative</strong> (e.g., teaching method A vs. B) or <strong>quantitative</strong>
+                (e.g., dosage levels)</li>
+        </ul>
+
+        <h4>Levels</h4>
+        <ul>
+            <li>The specific values or categories of a factor</li>
+            <li>Example: If the factor is "coffee brand," levels might be Brand A and Brand B</li>
+        </ul>
+
+        <h4>Response Variable (Dependent Variable)</h4>
+        <ul>
+            <li>The outcome being measured</li>
+            <li>Can be continuous (e.g., sales in dollars) or discrete (e.g., number of items purchased)</li>
+        </ul>
+
+        <h4>Detailed Example - Coffee Sales Experiment</h4>
+        <pre>Research Question: Do brand and shelf location affect coffee sales?
+
+FACTORS AND LEVELS:
+┌─────────────────┬─────────────────────────────────────┐
+│ Factor          │ Levels                              │
+├─────────────────┼─────────────────────────────────────┤
+│ Brand           │ A, B (2 levels - qualitative)       │
+│ Shelf Location  │ Bottom, Middle, Top (3 levels)      │
+└─────────────────┴─────────────────────────────────────┘
+
+TREATMENTS (all 6 combinations):
+1. Brand A - Bottom shelf
+2. Brand A - Middle shelf  
+3. Brand A - Top shelf
+4. Brand B - Bottom shelf
+5. Brand B - Middle shelf
+6. Brand B - Top shelf
+
+Response Variable: Weekly coffee sales (quantitative, continuous)</pre>
+
+        <h3>1.2 The Five Steps of Experimental Design</h3>
+        <p><strong>STEP 1:</strong> Select the factors and identify target parameters</p>
+        <ul>
+            <li>Usually the population means for each treatment</li>
+        </ul>
+
+        <p><strong>STEP 2:</strong> Decide how to manipulate treatment combinations</p>
+        <ul>
+            <li>Which factor level combinations to include</li>
+        </ul>
+
+        <p><strong>STEP 3:</strong> Determine sample size</p>
+        <ul>
+            <li>Based on desired standard error and statistical power</li>
+        </ul>
+
+        <p><strong>STEP 4:</strong> Plan treatment assignment to experimental units</p>
+        <ul>
+            <li>Which design to use (CRD, RBD, factorial, etc.)</li>
+            <li>Determine random assignment procedures</li>
+        </ul>
+
+        <p><strong>STEP 5:</strong> Plan the analysis</p>
+        <ul>
+            <li>Decide on statistical tests before collecting data</li>
+        </ul>
+
+        <h3>1.3 Experimental Design Types</h3>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - طرح‌های آزمایشی</h4>
+            <p>سه نوع طرح اصلی داریم:</p>
+            <ol>
+                <li><strong>CRD (کاملاً تصادفی):</strong> مثل اینکه افراد رو تصادفی به گروه‌ها تقسیم کنیم - ساده‌ترین
+                    روش</li>
+                <li><strong>RBD (بلوک تصادفی):</strong> اول افراد رو بر اساس یک ویژگی مشترک گروه‌بندی (بلوک) می‌کنیم،
+                    بعد درون هر بلوک تصادفی می‌کنیم - برای کنترل تفاوت‌های فردی</li>
+                <li><strong>طرح فاکتوریل:</strong> وقتی چند متغیر مستقل داریم و همه ترکیبات رو می‌خوایم بررسی کنیم</li>
+            </ol>
+        </div>
+
+        <h4>Completely Randomized Design (CRD)</h4>
+        <p><strong>Definition:</strong> Treatments are randomly assigned to experimental units without any restrictions
+        </p>
+        <p><strong>When to Use:</strong></p>
+        <ul>
+            <li>Experimental units are relatively homogeneous</li>
+            <li>No known nuisance variables to control</li>
+        </ul>
+        <p><strong>Notation:</strong> CR-p (where p = number of treatment levels)</p>
+
+        <pre>       Treatment Assignment (Random)
+       ┌────────────────────────────┐
+       │                            │
+       ▼                            ▼
+┌─────────────┐  ┌─────────────┐  ┌─────────────┐
+│ Treatment A │  │ Treatment B │  │ Treatment C │
+│  Runners:   │  │  Runners:   │  │  Runners:   │
+│  1, 6, 9,   │  │  3, 5, 8,   │  │  2, 4, 7,   │
+│  10, 11     │  │  12, 14     │  │  13, 15     │
+└─────────────┘  └─────────────┘  └─────────────┘
+      n₁=5             n₂=5             n₃=5</pre>
+
+        <h4>Randomized Block Design (RBD)</h4>
+        <p><strong>Definition:</strong> Experimental units are grouped into blocks based on a nuisance variable, then
+            treatments are randomly assigned within each block</p>
+        <p><strong>When to Use:</strong></p>
+        <ul>
+            <li>Known nuisance variable that accounts for variability</li>
+            <li>Want to control for individual differences</li>
+        </ul>
+        <p><strong>Purpose:</strong> Remove block-related variability from error term, increasing power</p>
+        <p><strong>Notation:</strong> RB-p or GRB-p</p>
+
+        <pre>Smoking Cessation Study Example:
+┌──────────────────┬─────────────────────────────────────────┐
+│ Block (Cigs/day) │ Treatment (Therapy Type)                │
+├──────────────────┼─────────────┬─────────────┬─────────────┤
+│ Block 1: <1 pack │ Behavioral  │   Drug      │  Combined   │
+│ Block 2: 1-3 pack│ Combined    │ Behavioral  │   Drug      │
+│ Block 3: >3 packs│   Drug      │  Combined   │ Behavioral  │
+└──────────────────┴─────────────┴─────────────┴─────────────┘
+             ↑
+    Randomized within each block</pre>
+
+        <h4>Latin Square Design (LS-p)</h4>
+        <p><strong>Definition:</strong> Controls for TWO nuisance variables by arranging treatments in a square matrix.
+        </p>
+
+        <p>The Latin Square is a clever design that allows researchers to control for two nuisance variables
+            simultaneously while still testing treatment effects. The key constraint is that the number of rows,
+            columns, and treatments must all be equal. This makes it efficient but somewhat inflexible. Each treatment
+            appears exactly once in each row and once in each column, ensuring balanced exposure across both nuisance
+            dimensions.</p>
+
+        <pre>3×3 Latin Square:
+                    Duration of Smoking (columns)
+                    c₁ (<1yr)  c₂ (1-5yr)  c₃ (>5yr)
+Cigs/Day  b₁ (<1pk)    a₁         a₂          a₃
+(rows)    b₂ (1-3pk)   a₂         a₃          a₁
+          b₃ (>3pk)    a₃         a₁          a₂
+
+Where a₁, a₂, a₃ are three therapy treatments
+Each treatment appears once in each row and once in each column</pre>
+
+        <h4>Factorial Design</h4>
+        <p><strong>Definition:</strong> Studies multiple factors simultaneously with all combinations.</p>
+
+        <p>Factorial designs are powerful because they allow us to study not only the main effects of each factor but
+            also their <strong>interaction effects</strong>—whether the effect of one factor depends on the level of
+            another. This is impossible with one-factor-at-a-time experiments. The downside is that the number of
+            treatment combinations grows rapidly (e.g., 3×3×2 = 18 cells), requiring larger sample sizes.</p>
+
+        <pre>Complete Factorial Example (3×3×2 = 18 treatments):
+
+Factor A: Income (3 levels: A₁, A₂, A₃)
+Factor B: Education (3 levels: B₁, B₂, B₃)
+Factor C: Age (2 levels: C₁, C₂)
+
+Total treatments = 3 × 3 × 2 = 18</pre>
+
+        <h3>1.4 Fixed vs. Random Effects</h3>
+
+        <p>One of the most important decisions in experimental design is whether to treat a factor as
+            <strong>fixed</strong> or <strong>random</strong>. This choice affects how we calculate F-tests, what
+            inferences we can draw, and how we interpret our results. Understanding this distinction is critical for
+            correctly analyzing mixed-model designs.
+        </p>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - اثرات ثابت و تصادفی</h4>
+            <p><strong>اثر ثابت:</strong> وقتی همه سطوح مورد نظر رو در مطالعه داریم (مثلاً ۳ دارو خاص)</p>
+            <p><strong>اثر تصادفی:</strong> وقتی سطوح نمونه تصادفی از یک جامعه بزرگترن (مثلاً ۵ زمان تصادفی از ۱۰۰ زمان
+                ممکن)</p>
+            <p>این تفاوت مهمه چون نحوه محاسبه F-test و تعمیم نتایج فرق می‌کنه.</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Aspect</th>
+                    <th>Fixed Effects</th>
+                    <th>Random Effects</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Levels</strong></td>
+                    <td>All levels of interest included</td>
+                    <td>Levels are random sample from population</td>
+                </tr>
+                <tr>
+                    <td><strong>Inference</strong></td>
+                    <td>Only to levels in study</td>
+                    <td>Generalizes to entire population</td>
+                </tr>
+                <tr>
+                    <td><strong>Example</strong></td>
+                    <td>Comparing 3 specific drugs</td>
+                    <td>Random sample of 5 time points</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>📊 Part 2: Analysis of Variance (ANOVA)</h2>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - ANOVA چیست؟</h4>
+            <p>ANOVA یعنی تجزیه واریانس. هدفش اینه که ببینیم آیا میانگین چند گروه با هم فرق دارن یا نه.</p>
+            <p><strong>منطق ساده‌اش:</strong></p>
+            <ul>
+                <li>کل تغییرات در داده‌ها رو به دو بخش تقسیم می‌کنیم:
+                    <ol>
+                        <li><strong>تغییرات بین گروه‌ها (SSB):</strong> فرق میانگین گروه‌ها با هم</li>
+                        <li><strong>تغییرات درون گروه‌ها (SSW):</strong> پراکندگی افراد درون هر گروه</li>
+                    </ol>
+                </li>
+                <li>اگر SSB خیلی بزرگتر از SSW باشه → تیمار اثر داره (گروه‌ها فرق دارن)</li>
+                <li>اگر SSB و SSW نزدیک باشن → تیمار اثر نداره</li>
+            </ul>
+        </div>
+
+        <h3>2.1 One-Way ANOVA Fundamentals</h3>
+        <p><strong>Purpose:</strong> Compare means across 3 or more groups</p>
+        <p><strong>Null Hypothesis:</strong> H₀: μ₁ = μ₂ = μ₃ = ... = μₚ</p>
+        <p><strong>Alternative Hypothesis:</strong> Hₐ: At least one mean is different</p>
+
+        <h4>The Core Logic of ANOVA</h4>
+        <pre>                    Total Variation (SST)
+                           │
+           ┌───────────────┴───────────────┐
+           │                               │
+    Between-Group (SSB)              Within-Group (SSW)
+    "Due to Treatment"               "Due to Error"
+           │                               │
+           ▼                               ▼
+    If SSB >> SSW                    Random noise
+    → Treatment has effect</pre>
+
+        <h3>2.2 Partitioning Variance</h3>
+
+        <div style="text-align: center; margin: 25px 0;">
+            <img src="images/anova_variance.png" alt="ANOVA Variance Partitioning Diagram"
+                style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="font-size: 0.85em; color: #666; margin-top: 10px;"><em>Figure 1: ANOVA Variance Partitioning - SST
+                    = SSB + SSW</em></p>
+        </div>
+
+        <p><strong>The Fundamental ANOVA Equation:</strong></p>
+        <pre>SST = SSB + SSW  (or equivalently: SST = SSA + SSE)</pre>
+
+        <p><strong>Computational Formulas:</strong></p>
+
+        <p><strong>Total Sum of Squares (SST):</strong></p>
+        <pre>SST = Σᵢⱼ(Yᵢⱼ - Ȳ..)²</pre>
+
+        <p><strong>Between-Group Sum of Squares (SSB):</strong></p>
+        <pre>SSB = Σⱼ nⱼ(Ȳ.ⱼ - Ȳ..)²</pre>
+
+        <p><strong>Within-Group Sum of Squares (SSW):</strong></p>
+        <pre>SSW = SST - SSB</pre>
+
+        <h3>2.3 ANOVA Table Structure</h3>
+        <pre>┌──────────────────────────────────────────────────────────────────┐
+│ Source        │  SS   │  df    │    MS       │    F            │
+├──────────────────────────────────────────────────────────────────┤
+│ Between (A)   │ SSB   │ p-1    │ MSB=SSB/dfB │ F = MSB/MSW     │
+│ Within (Error)│ SSW   │ N-p    │ MSW=SSW/dfW │                 │
+│ Total         │ SST   │ N-1    │             │                 │
+└──────────────────────────────────────────────────────────────────┘
+
+Where:
+- p = number of groups
+- N = total sample size
+- df = degrees of freedom
+- MS = Mean Square</pre>
+
+        <h3>2.4 ANOVA Assumptions</h3>
+
+        <p>ANOVA is a parametric test, meaning it makes certain assumptions about the data. Violating these assumptions
+            can lead to incorrect conclusions—either inflated Type I error (finding effects that don't exist) or reduced
+            power (missing real effects). The good news is that ANOVA is relatively robust to mild violations,
+            especially with equal sample sizes. However, serious violations require alternative approaches.</p>
+
+        <ol>
+            <li><strong>Independence of Observations</strong> - Each observation is independent of all others</li>
+            <li><strong>Normality</strong> - Within each group, the dependent variable is normally distributed</li>
+            <li><mark><strong>Homogeneity of Variance</strong> - All groups have equal variances (σ₁² = σ₂² = ... =
+                    σₚ²)</mark></li>
+        </ol>
+
+        <h3>2.5 Testing Homogeneity of Variance</h3>
+
+        <p>Of the three assumptions, <strong>homogeneity of variance</strong> is often the most critical in practice.
+            When variances are unequal across groups, the F-test becomes unreliable—it may reject H₀ too often (liberal)
+            or too rarely (conservative), depending on the pattern of unequal variances and sample sizes. This is why we
+            always test this assumption before interpreting ANOVA results.</p>
+
+        <h4>Levene's Test</h4>
+        <p><strong>Null Hypothesis:</strong> H₀: σ₁² = σ₂² = ... = σₚ²</p>
+        <ul>
+            <li>If p-value < 0.05 → Reject H₀ → Variances are UNEQUAL</li>
+            <li>If variances are unequal → Use Welch's ANOVA or Brown-Forsythe test</li>
+        </ul>
+
+        <h4>What to Do When Assumptions Are Violated</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Violation</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Unequal variances</td>
+                    <td>Use Welch's test or Brown-Forsythe</td>
+                </tr>
+                <tr>
+                    <td>Non-normality</td>
+                    <td>Transform data (log, sqrt) or use Kruskal-Wallis</td>
+                </tr>
+                <tr>
+                    <td>Both</td>
+                    <td>Non-parametric test (Kruskal-Wallis)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>🔍 Part 3: Multiple Comparisons</h2>
+
+        <h3>3.1 Why We Need Multiple Comparison Procedures</h3>
+        <div class="warning-box">
+            <p><strong>Problem:</strong> <mark>Conducting multiple t-tests inflates Type I error rate</mark></p>
+            <p>If you do 10 comparisons at α = 0.05, the probability of at least one false positive is:</p>
+            <pre>1 - (0.95)¹⁰ = 0.40 (40%!)</pre>
+        </div>
+
+        <h3>3.2 Common Multiple Comparison Methods</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>When to Use</th>
+                    <th>Conservativeness</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tukey's HSD</strong></td>
+                    <td>All pairwise comparisons, equal n</td>
+                    <td>Moderate</td>
+                </tr>
+                <tr>
+                    <td><strong>Bonferroni</strong></td>
+                    <td>Few planned comparisons</td>
+                    <td>Very conservative</td>
+                </tr>
+                <tr>
+                    <td><strong>Scheffé</strong></td>
+                    <td>Complex contrasts, post-hoc</td>
+                    <td>Most conservative</td>
+                </tr>
+                <tr>
+                    <td><strong>Dunnett</strong></td>
+                    <td>Comparing to control group</td>
+                    <td>Less conservative</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>3.3 Contrasts</h3>
+        <p>A <strong>contrast</strong> is a linear combination of means:</p>
+        <pre>ψ = c₁μ₁ + c₂μ₂ + ... + cₚμₚ
+
+where Σcⱼ = 0</pre>
+
+        <h4>Example Contrasts</h4>
+        <pre>Comparing Treatment 1 vs. Treatments 2 and 3 combined:
+ψ = (2)μ₁ + (-1)μ₂ + (-1)μ₃
+
+Check: 2 + (-1) + (-1) = 0 ✓</pre>
+
+        <h4>Orthogonal Contrasts</h4>
+        <p>Two contrasts are orthogonal if:</p>
+        <pre>Σ(cᵢ × dᵢ)/nᵢ = 0</pre>
+        <p><strong>Rule:</strong> Maximum of (p - 1) orthogonal contrasts for p groups</p>
+
+        <hr>
+
+        <h2>💡 Part 4: Effect Size and Power</h2>
+
+        <h3>4.1 Effect Size Measures</h3>
+
+        <h4>Eta-squared (η²)</h4>
+        <pre>η² = SSB / SST
+
+Interpretation:
+- Small: η² = 0.01
+- Medium: η² = 0.06
+- Large: η² = 0.14</pre>
+
+        <h4>Omega-squared (ω²)</h4>
+        <pre>ω² = (SSB - (p-1)MSW) / (SST + MSW)
+
+Less biased than η² for small samples</pre>
+
+        <h3>4.2 Statistical Power</h3>
+        <p><strong>Power</strong> = Probability of correctly rejecting H₀ when it's false</p>
+        <p><strong>Power = 1 - β</strong> (where β = Type II error rate)</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Factor</th>
+                    <th>Increases Power</th>
+                    <th>Decreases Power</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Sample size</td>
+                    <td>Larger n</td>
+                    <td>Smaller n</td>
+                </tr>
+                <tr>
+                    <td>Effect size</td>
+                    <td>Larger effects</td>
+                    <td>Smaller effects</td>
+                </tr>
+                <tr>
+                    <td>Alpha level</td>
+                    <td>Larger α (e.g., 0.10)</td>
+                    <td>Smaller α (e.g., 0.01)</td>
+                </tr>
+                <tr>
+                    <td>Variance</td>
+                    <td>Less variability</td>
+                    <td>More variability</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>💡 Part 5: Two-Way ANOVA</h2>
+
+        <h3>5.1 Factorial Design Benefits</h3>
+        <ol>
+            <li><strong>Efficiency:</strong> Study multiple factors in one experiment</li>
+            <li><strong>Interactions:</strong> Detect if factors work together</li>
+            <li><strong>Generalizability:</strong> Results apply across factor levels</li>
+        </ol>
+
+        <h3>5.2 Main Effects vs. Interactions</h3>
+
+        <div style="text-align: center; margin: 25px 0;">
+            <img src="images/interaction_effects.png" alt="Interaction Effects Graph"
+                style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="font-size: 0.85em; color: #666; margin-top: 10px;"><em>Figure 2: No Interaction (parallel lines)
+                    vs. Interaction Effect (crossing lines)</em></p>
+        </div>
+
+        <p><strong>Main Effect:</strong> The effect of one factor averaged across all levels of other factors</p>
+        <p><strong>Interaction Effect:</strong> When the effect of one factor depends on the level of another factor</p>
+
+        <h4>Example - No Interaction</h4>
+        <pre>Drug A always 10 points better than Drug B
+regardless of dosage level
+→ Parallel lines in graph</pre>
+
+        <h4>Example - With Interaction</h4>
+        <pre>Drug A better at low dose
+Drug B better at high dose
+→ Crossing lines in graph</pre>
+
+        <h3>5.3 Two-Way ANOVA Table</h3>
+        <pre>┌─────────────────────────────────────────────────────────────┐
+│ Source      │  SS   │  df         │    MS    │    F         │
+├─────────────────────────────────────────────────────────────┤
+│ Factor A    │ SSA   │ a-1         │ MSA      │ MSA/MSE      │
+│ Factor B    │ SSB   │ b-1         │ MSB      │ MSB/MSE      │
+│ A × B       │ SSAB  │ (a-1)(b-1)  │ MSAB     │ MSAB/MSE     │
+│ Error       │ SSE   │ N-ab        │ MSE      │              │
+│ Total       │ SST   │ N-1         │          │              │
+└─────────────────────────────────────────────────────────────┘</pre>
+
+        <hr>
+
+        <h2>💡 Part 6: Mediation Analysis</h2>
+
+        <h3>6.1 What is Mediation?</h3>
+        <p>Mediation occurs when the effect of X on Y is transmitted through a third variable M (the mediator).</p>
+
+        <div style="text-align: center; margin: 25px 0;">
+            <img src="images/mediation_model.png" alt="Mediation Model Diagram"
+                style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="font-size: 0.85em; color: #666; margin-top: 10px;"><em>Figure 3: Simple Mediation Model - X
+                    affects Y through M (paths a, b, c, and c')</em></p>
+        </div>
+
+        <pre>Simple Mediation Model:
+
+      Path a        Path b
+   X ────────► M ────────► Y
+    \                     /
+     \___________________/
+          Path c (total)
+          Path c' (direct)</pre>
+
+        <h3>6.2 The Four Paths</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Path</th>
+                    <th>Regression</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>a</strong></td>
+                    <td>M = i₁ + aX + e₁</td>
+                    <td>Effect of X on M</td>
+                </tr>
+                <tr>
+                    <td><strong>b</strong></td>
+                    <td>Y = i₂ + c'X + bM + e₂</td>
+                    <td>Effect of M on Y (controlling for X)</td>
+                </tr>
+                <tr>
+                    <td><strong>c</strong></td>
+                    <td>Y = i₃ + cX + e₃</td>
+                    <td>Total effect of X on Y</td>
+                </tr>
+                <tr>
+                    <td><strong>c'</strong></td>
+                    <td>Y = i₂ + c'X + bM + e₂</td>
+                    <td>Direct effect of X on Y (controlling for M)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>6.3 Modern Approach (Zhao et al. 2010)</h3>
+        <div class="info-box">
+            <p><strong>CRITICAL UPDATE:</strong></p>
+            <p><mark>Baron & Kenny's original approach is OUTDATED!</mark></p>
+            <p><mark>The ONLY requirement for mediation is that the <strong>indirect effect (a × b)</strong> is
+                    significantly
+                    different from zero.</mark></p>
+            <p><mark><strong>Path c does NOT need to be significant!</strong></mark></p>
+        </div>
+
+        <h3>6.4 Testing the Indirect Effect</h3>
+
+        <h4>Sobel Test (Traditional)</h4>
+        <pre>z = (a × b) / √(b²sa² + a²sb²)</pre>
+        <p><strong>Problem:</strong> Assumes ab is normally distributed</p>
+
+        <h4>Bootstrap Test (Preferred)</h4>
+        <ul>
+            <li>Resample 5000+ times</li>
+            <li>Create empirical confidence interval</li>
+            <li>If CI does NOT include 0 → Significant mediation</li>
+        </ul>
+
+        <h3>6.5 Types of Mediation (Zhao Framework)</h3>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - انواع میانجی</h4>
+            <table style="width: 100%; direction: rtl;">
+                <thead>
+                    <tr>
+                        <th>نوع</th>
+                        <th>a×b</th>
+                        <th>c'</th>
+                        <th>تفسیر</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>مکمل</strong></td>
+                        <td>معنادار</td>
+                        <td>معنادار، هم‌علامت</td>
+                        <td>میانجی جزئی، احتمالاً میانجی دیگه‌ای هم هست</td>
+                    </tr>
+                    <tr>
+                        <td><strong>رقابتی</strong></td>
+                        <td>معنادار</td>
+                        <td>معنادار، علامت مخالف</td>
+                        <td>میانجی وجود داره ولی سرکوب شده</td>
+                    </tr>
+                    <tr>
+                        <td><strong>فقط غیرمستقیم</strong></td>
+                        <td>معنادار</td>
+                        <td>نامعنادار</td>
+                        <td>میانجی کامل</td>
+                    </tr>
+                    <tr>
+                        <td><strong>فقط مستقیم</strong></td>
+                        <td>نامعنادار</td>
+                        <td>معنادار</td>
+                        <td>میانجی نداریم</td>
+                    </tr>
+                    <tr>
+                        <td><strong>بدون اثر</strong></td>
+                        <td>نامعنادار</td>
+                        <td>نامعنادار</td>
+                        <td>اصلاً اثری نیست</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>a×b</th>
+                    <th>c'</th>
+                    <th>Interpretation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Complementary</strong></td>
+                    <td>Sig</td>
+                    <td>Sig, same sign</td>
+                    <td>Partial mediation</td>
+                </tr>
+                <tr>
+                    <td><strong>Competitive</strong></td>
+                    <td>Sig</td>
+                    <td>Sig, opposite</td>
+                    <td>Suppression effect</td>
+                </tr>
+                <tr>
+                    <td><strong>Indirect-Only</strong></td>
+                    <td>Sig</td>
+                    <td>NS</td>
+                    <td>Full mediation</td>
+                </tr>
+                <tr>
+                    <td><strong>Direct-Only</strong></td>
+                    <td>NS</td>
+                    <td>Sig</td>
+                    <td>No mediation</td>
+                </tr>
+                <tr>
+                    <td><strong>No-Effect</strong></td>
+                    <td>NS</td>
+                    <td>NS</td>
+                    <td>No effect</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>6.6 Zhao et al. Decision Tree for Mediation</h3>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - درخت تصمیم‌گیری Zhao</h4>
+            <p>این درخت نشون می‌ده که بر اساس معناداری a×b و c' چه نوع میانجی داریم:</p>
+            <ol>
+                <li>اول چک کنید a×b (اثر غیرمستقیم) معناداره یا نه</li>
+                <li>اگر معناداره → چک کنید c' (اثر مستقیم) معناداره یا نه</li>
+                <li>اگر هر دو معنادارن → علامت‌شون رو مقایسه کنید</li>
+            </ol>
+        </div>
+
+        <pre>
+                        آیا a×b معنادار است؟
+                              │
+              ┌───────────────┴───────────────┐
+              │                               │
+             بله                             خیر
+              │                               │
+      آیا c' معنادار است؟              آیا c' معنادار است؟
+              │                               │
+      ┌───────┴───────┐               ┌───────┴───────┐
+      │               │               │               │
+     بله            خیر              بله            خیر
+      │               │               │               │
+ علامت a×b×c'    INDIRECT-ONLY   DIRECT-ONLY    NO-EFFECT
+ چیه؟            (Full Mediation) Non-Mediation  Non-Mediation
+      │
+ ┌────┴────┐
+ │         │
+مثبت     منفی
+ │         │
+COMPLEMENTARY  COMPETITIVE
+(Partial)      (Suppression)
+        </pre>
+
+        <h3>6.7 Real Examples from Zhao et al. (2010)</h3>
+
+        <h4>Example 1: Competitive Mediation (Condom Study)</h4>
+        <div class="warning-box">
+            <p><strong>Scenario:</strong> Effect of condom availability on sexually transmitted disease</p>
+            <ul>
+                <li><strong>X:</strong> Condom availability</li>
+                <li><strong>M:</strong> Perceived risk of sex</li>
+                <li><strong>Y:</strong> Sexually transmitted disease</li>
+            </ul>
+            <p><strong>Paths:</strong></p>
+            <ul>
+                <li>Path a (X→M): <strong>Negative</strong> (condoms reduce perceived risk)</li>
+                <li>Path b (M→Y): <strong>Negative</strong> (less perceived risk → more risky behavior → more disease)
+                </li>
+                <li>Path a×b: <strong>Positive</strong> (negative × negative = positive)</li>
+                <li>Path c' (direct): <strong>Negative</strong> (condoms physically protect)</li>
+            </ul>
+            <p><strong>Result:</strong> a×b and c' have OPPOSITE signs → <strong>Competitive Mediation</strong></p>
+            <p><strong>Total effect c might be near zero!</strong> This is why Baron & Kenny's X-Y test fails here.</p>
+        </div>
+
+        <h4>Example 2: Complementary Mediation (Relationship Marketing)</h4>
+        <div class="info-box">
+            <p><strong>Scenario:</strong> Morgan & Hunt (1994) - Relationship Marketing</p>
+            <ul>
+                <li>Relationship marketing → Trust/Commitment → Business outcomes</li>
+                <li>Both indirect effect (through trust) and direct effect are <strong>positive</strong></li>
+                <li>Meta-analysis (Palmatier et al., 2006) showed 2/3 of effect was direct!</li>
+            </ul>
+            <p><strong>Implication:</strong> The large positive direct effect suggested omitted mediators of the same
+                sign.</p>
+            <p><strong>Follow-up:</strong> Palmatier et al. (2009) found "consumer gratitude" as another positive
+                mediator.</p>
+        </div>
+
+        <h3>6.8 The Key Equation: Why X-Y Test is Unnecessary</h3>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - چرا تست X-Y لازم نیست</h4>
+            <p>Baron و Kenny گفتن اول باید رابطه X→Y معنادار باشه. اما این اشتباهه!</p>
+            <p><strong>فرمول کلیدی:</strong></p>
+            <pre style="direction: ltr; text-align: left;">c = c' + (a × b)</pre>
+            <p>یعنی اثر کل = اثر مستقیم + اثر غیرمستقیم</p>
+            <p><strong>مشکل:</strong> اگر c' و a×b علامت‌های مخالف داشته باشن، ممکنه c نزدیک صفر بشه و X-Y test رد بشه،
+                در حالی که میانجی وجود داره!</p>
+        </div>
+
+        <pre>
+Mathematical Proof (Zhao et al., 2010):
+
+Total Effect:  c = c' + (a × b)
+
+If c' = +5 and a×b = -5  → c = 0  (no "effect to be mediated"!)
+If c' = -3 and a×b = +3  → c = 0  (but mediation EXISTS!)
+
+The ONLY requirement: a × b ≠ 0 (significantly different from zero)
+        </pre>
+
+        <h3>6.9 Three Sobel Test Variants</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Test</th>
+                    <th>Formula</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sobel</strong></td>
+                    <td>z = ab/√(b²sa² + a²sb²)</td>
+                    <td>Most common, approximation</td>
+                </tr>
+                <tr>
+                    <td><strong>Aroian</strong></td>
+                    <td>z = ab/√(b²sa² + a²sb² + sa²sb²)</td>
+                    <td>Adds product of variances</td>
+                </tr>
+                <tr>
+                    <td><strong>Goodman</strong></td>
+                    <td>z = ab/√(b²sa² + a²sb² - sa²sb²)</td>
+                    <td>Subtracts product of variances</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Note:</strong> MacKinnon et al. (1995) found Sobel and Aroian perform similarly. However,
+            <strong>Bootstrap is preferred</strong> because it doesn't assume normality of a×b.
+        </p>
+
+        <h3>6.10 Hayes PROCESS Macro Models</h3>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - مدل‌های PROCESS</h4>
+            <p>PROCESS یک macro برای SAS، SPSS و R هست که 90+ مدل میانجی و تعدیل‌گر داره.</p>
+            <p><strong>مدل‌های مهم برای این کلاس:</strong></p>
+            <ul>
+                <li><strong>Model 1:</strong> تعدیل‌گری ساده (X و W روی Y)</li>
+                <li><strong>Model 4:</strong> میانجی ساده (X → M → Y)</li>
+                <li><strong>Model 7:</strong> میانجی تعدیل‌شده (W روی مسیر a)</li>
+                <li><strong>Model 14:</strong> میانجی تعدیل‌شده (W روی مسیر b)</li>
+            </ul>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Type</th>
+                    <th>Diagram</th>
+                    <th>Use Case</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1</strong></td>
+                    <td>Moderation</td>
+                    <td>X×W → Y</td>
+                    <td>Simple moderation</td>
+                </tr>
+                <tr>
+                    <td><strong>4</strong></td>
+                    <td>Mediation</td>
+                    <td>X → M → Y</td>
+                    <td>Simple mediation (this week's HW!)</td>
+                </tr>
+                <tr>
+                    <td><strong>6</strong></td>
+                    <td>Serial Mediation</td>
+                    <td>X → M1 → M2 → Y</td>
+                    <td>Chain of mediators</td>
+                </tr>
+                <tr>
+                    <td><strong>7</strong></td>
+                    <td>Moderated Mediation</td>
+                    <td>W moderates a path</td>
+                    <td>First stage moderation</td>
+                </tr>
+                <tr>
+                    <td><strong>14</strong></td>
+                    <td>Moderated Mediation</td>
+                    <td>W moderates b path</td>
+                    <td>Second stage moderation</td>
+                </tr>
+                <tr>
+                    <td><strong>58</strong></td>
+                    <td>Moderated Mediation</td>
+                    <td>W moderates both</td>
+                    <td>Full moderated mediation</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>PROCESS Model 4 Syntax (Simple Mediation)</h4>
+        <pre><code>/* SAS Syntax */
+%include "path/to/process.sas";
+%process(data=mydata, 
+         y=salary,      /* Dependent Variable */
+         x=educ,        /* Independent Variable */
+         m=prevexp,     /* Mediator */
+         model=4,       /* Simple mediation */
+         boot=5000,     /* Bootstrap samples */
+         seed=3344);    /* For reproducibility */
+
+/* R Syntax */
+library(processR)
+process(data=mydata, y="salary", x="educ", m="prevexp",
+        model=4, boot=5000, seed=3344)</code></pre>
+
+        <h3>6.11 Percent Mediated and Ratio Measures</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Measure</th>
+                    <th>Formula</th>
+                    <th>Interpretation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Percent Mediated</strong></td>
+                    <td>(a×b) / c</td>
+                    <td>Proportion of total effect through M</td>
+                </tr>
+                <tr>
+                    <td><strong>Indirect/Direct Ratio</strong></td>
+                    <td>(a×b) / c'</td>
+                    <td>Ratio of indirect to direct effect</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning-box">
+            <p><strong>⚠️ Warning:</strong> Some researchers (including Hayes) consider percent mediated unnecessary or
+                even misleading, especially when c is close to zero or when there is competitive mediation.</p>
+        </div>
+
+        <h3>6.12 Complete Mediation Analysis Checklist</h3>
+
+        <ul class="checklist">
+            <li>Run Model 1: M = i + aX + e (get coefficient 'a' and SE)</li>
+            <li>Run Model 2: Y = i + c'X + bM + e (get coefficients 'c'' and 'b' and SEs)</li>
+            <li>Run Model 3: Y = i + cX + e (get coefficient 'c' - total effect)</li>
+            <li>Calculate indirect effect: a × b</li>
+            <li>Check signs of a×b and c' (same or opposite?)</li>
+            <li>Run Sobel test OR Bootstrap (prefer Bootstrap!)</li>
+            <li>Use Zhao's decision tree to classify mediation type</li>
+            <li>Calculate percent mediated (optional): ab/c</li>
+            <li>Run PROCESS Model 4 for complete output</li>
+            <li>Interpret: Is there mediation? What type?</li>
+        </ul>
+
+        <hr>
+
+        <h2>💻 Part 7: Statistical Software</h2>
+
+        <h3>7.1 SAS, R, and Python Comparison</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>SAS</th>
+                    <th>R</th>
+                    <th>Python</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cost</strong></td>
+                    <td>Expensive</td>
+                    <td>Free</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Learning</strong></td>
+                    <td>Easiest</td>
+                    <td>Hardest</td>
+                    <td>Moderate</td>
+                </tr>
+                <tr>
+                    <td><strong>Visualization</strong></td>
+                    <td>Basic</td>
+                    <td>Excellent</td>
+                    <td>Excellent</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>7.2 SAS Basics</h3>
+        <p><strong>Syntax Rules:</strong></p>
+        <ul>
+            <li>Statements end with semicolon <code>;</code></li>
+            <li>Not case-sensitive</li>
+            <li>Comments: <code>/* comment */</code> or <code>* comment;</code></li>
+        </ul>
+
+        <h3>7.3 Key SAS Code Examples</h3>
+
+        <h4>ANOVA with Homogeneity Test</h4>
+        <pre><code>proc glm data=mydata;
+    class Level;
+    model resp = Level / solution;
+    means Level / hovtest welch;
+run;</code></pre>
+
+        <h4>Mediation Analysis</h4>
+        <pre><code>/* Three regression models */
+proc reg data=test;
+    Model1: model mediator = iv;      /* Path a */
+    Model2: model dv = iv mediator;   /* Paths c' and b */
+    Model3: model dv = iv;            /* Path c */
+run;
+
+/* PROCESS Macro */
+%process(data=mydata, y=salary, m=prevexp, x=educ,
+         model=4, boot=5000, seed=3344);</code></pre>
+
+        <h3>7.4 R Code Examples</h3>
+
+        <h4>ANOVA with Contrasts</h4>
+        <pre><code>library(car)
+library(lsmeans)
+
+# Fit model
+MyModel <- lm(MyResponse ~ MyTreatment, data = MyData)
+
+# ANOVA
+Anova(MyModel, type="III")
+
+# Levene's test
+leveneTest(MyResponse ~ MyTreatment, data = MyData)
+
+# Contrasts
+leastsquare <- lsmeans(MyModel, "MyTreatment")
+contrast(leastsquare, MyContrasts, adjust="tukey")</code></pre>
+
+        <hr>
+
+        <h2>📝 Part 8: Homework Problems</h2>
+
+        <h3>8.1 Mediation Homework</h3>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - تکلیف میانجی</h4>
+            <p><strong>داده‌ها:</strong> تحصیلات → تجربه قبلی → حقوق</p>
+            <p><strong>کارهایی که باید انجام بدید:</strong></p>
+            <ol>
+                <li>سه مدل رگرسیون اجرا کنید</li>
+                <li>ضرایب a، b، c و c' رو استخراج کنید</li>
+                <li>تست Sobel رو حساب کنید</li>
+                <li>درصد میانجیگری رو حساب کنید: ab/c</li>
+                <li>PROCESS ماکرو رو اجرا کنید (model=4)</li>
+                <li>تفسیر کنید: میانجی کامل، جزئی، یا هیچ؟</li>
+            </ol>
+        </div>
+
+        <h4>Data</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Education</th>
+                    <th>PrevExp</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>16</td>
+                    <td>3.4</td>
+                    <td>42</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td>4.5</td>
+                    <td>55</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>1.6</td>
+                    <td>35</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>1.4</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>1.1</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>1.5</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>1.0</td>
+                    <td>27</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Tasks:</strong></p>
+        <ol>
+            <li>Run three regression models</li>
+            <li>Calculate Sobel test</li>
+            <li>Calculate percent mediated: ab/c</li>
+            <li>Run PROCESS macro (model=4)</li>
+            <li>Interpret: full, partial, or no mediation?</li>
+        </ol>
+
+        <h3>8.2 Conceptual Homework - Appraiser Problem</h3>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - مسئله ارزیاب‌ها</h4>
+            <p><strong>سناریو:</strong> 4 ارزیاب هر کدوم 10 ملک رو ارزیابی می‌کنن</p>
+            <p><strong>باید پاسخ بدید:</strong></p>
+            <ol>
+                <li>مدل رگرسیون چیه؟ (با 3 متغیر دامی)</li>
+                <li>ضرایب رگرسیون رو چطور تفسیر می‌کنید؟</li>
+                <li>فرضیه آزمون رو بنویسید (هم به زبان رگرسیون، هم ANOVA)</li>
+            </ol>
+        </div>
+
+        <p><strong>Scenario:</strong> Four Appraisers each assess 10 Properties</p>
+
+        <p><strong>Question 1:</strong> What is the regression model?</p>
+        <pre>Y = β₀ + β₁X₁ + β₂X₂ + β₃X₃ + ε
+(Need 3 dummy variables for 4 appraisers)</pre>
+
+        <p><strong>Question 2:</strong> Interpret coefficients</p>
+        <pre>β₀ = Mean appraisal by Appraiser 4 (reference)
+β₁ = Difference between Appraiser 1 and 4</pre>
+
+        <p><strong>Question 3:</strong> Hypothesis test</p>
+        <pre>H₀: β₁ = β₂ = β₃ = 0  (or μ₁ = μ₂ = μ₃ = μ₄)</pre>
+
+        <h3>8.3 Kirk Homework</h3>
+        <p><strong>Chapter 2:</strong> 2(a,c,d,e,f,g), 3, 4, 5d, 7, 9</p>
+        <p><strong>Chapter 3:</strong> 5, 11, 16 (or 13 in 3rd ed)</p>
+
+        <hr>
+
+        <h2>🎓 Part 9: Validity Threats</h2>
+
+        <p>Validity refers to the truthfulness of conclusions drawn from research. Kirk (2013) discusses two main types:
+            <strong>internal validity</strong> (can we conclude the treatment caused the effect?) and <strong>external
+                validity</strong> (can we generalize results to other settings?). Understanding these threats is
+            essential for designing strong experiments and critically evaluating published research.
+        </p>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - تهدیدات اعتبار</h4>
+            <p><strong>اعتبار درونی:</strong> آیا می‌تونیم مطمئن باشیم که تیمار باعث تغییر شده، نه چیز دیگه؟</p>
+            <p><strong>اعتبار بیرونی:</strong> آیا نتایج آزمایشگاهی رو می‌تونیم به دنیای واقعی تعمیم بدیم؟</p>
+            <p>Kirk ۱۲ تهدید اعتبار درونی و ۶ تهدید اعتبار بیرونی رو معرفی کرده. دونستن اینا به ما کمک می‌کنه طرح‌های
+                بهتری بسازیم.</p>
+        </div>
+
+        <h3>Internal Validity Threats (12 Types)</h3>
+        <p>Internal validity is threatened when alternative explanations for the observed effect exist. These 12
+            threats, identified by Campbell & Stanley and expanded by Cook & Campbell, represent systematic sources of
+            confounding that can undermine causal inference:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Threat</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>History</td>
+                    <td>External events affect outcome</td>
+                </tr>
+                <tr>
+                    <td>Maturation</td>
+                    <td>Natural changes over time</td>
+                </tr>
+                <tr>
+                    <td>Testing</td>
+                    <td>Pretest affects posttest</td>
+                </tr>
+                <tr>
+                    <td>Instrumentation</td>
+                    <td>Measuring tool changes</td>
+                </tr>
+                <tr>
+                    <td>Statistical Regression</td>
+                    <td>Extreme scores regress to mean</td>
+                </tr>
+                <tr>
+                    <td>Selection</td>
+                    <td>Groups differ before treatment</td>
+                </tr>
+                <tr>
+                    <td>Mortality</td>
+                    <td>Differential dropout</td>
+                </tr>
+                <tr>
+                    <td>Selection-Maturation</td>
+                    <td>Groups mature differently</td>
+                </tr>
+                <tr>
+                    <td>Diffusion</td>
+                    <td>Control learns about treatment</td>
+                </tr>
+                <tr>
+                    <td>Compensatory Equalization</td>
+                    <td>Extra resources to control</td>
+                </tr>
+                <tr>
+                    <td>Compensatory Rivalry</td>
+                    <td>"John Henry effect"</td>
+                </tr>
+                <tr>
+                    <td>Resentful Demoralization</td>
+                    <td>Control underperforms</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>External Validity Threats (6 Types)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Threat</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Testing × Treatment</td>
+                    <td>Pretest sensitization</td>
+                </tr>
+                <tr>
+                    <td>Selection × Treatment</td>
+                    <td>Volunteer bias</td>
+                </tr>
+                <tr>
+                    <td>Setting × Treatment</td>
+                    <td>Lab vs field</td>
+                </tr>
+                <tr>
+                    <td>History × Treatment</td>
+                    <td>Time-specific results</td>
+                </tr>
+                <tr>
+                    <td>Reactive Arrangements</td>
+                    <td>Hawthorne effect</td>
+                </tr>
+                <tr>
+                    <td>Multiple-Treatment</td>
+                    <td>Order effects</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>🔑 Part 10: Key Takeaways</h2>
+
+        <div class="persian-section">
+            <h4>🇮🇷 توضیح فارسی - قوانین مهم</h4>
+            <ol>
+                <li><strong>متغیرهای دامی:</strong> برای p گروه، به p-1 متغیر دامی نیاز داریم</li>
+                <li><strong>کنتراست‌های متعامد:</strong> حداکثر p-1 برای p گروه</li>
+                <li><strong>میانجی:</strong> روی a×b تمرکز کنید، نه c</li>
+                <li><strong>بوت‌استرپ:</strong> بهتر از Sobel</li>
+                <li><strong>اضافه کردن ثابت:</strong> F-statistic تغییر نمی‌کنه!</li>
+            </ol>
+        </div>
+
+        <h3>Critical Rules to Remember</h3>
+        <ol>
+            <li><strong>Dummy Variables:</strong> Need p-1 for p categories</li>
+            <li><strong>Orthogonal Contrasts:</strong> Maximum p-1 for p groups</li>
+            <li><strong>Mediation:</strong> Focus on a×b, not on c</li>
+            <li><strong>Bootstrap:</strong> Better than Sobel test</li>
+            <li><strong>Adding constant:</strong> Does NOT change F-statistic</li>
+        </ol>
+
+        <h3>Common Mistakes to Avoid</h3>
+        <div class="error-box">
+            <ul>
+                <li>❌ Requiring significant c for mediation</li>
+                <li>❌ Using only Sobel test (use Bootstrap!)</li>
+                <li>❌ Ignoring homogeneity assumption</li>
+                <li>❌ Multiple t-tests without adjustment</li>
+                <li>❌ Confusing statistical vs practical significance</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <h2>✅ Self-Check Questions with Answers</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CRD vs RBD difference?</td>
+                    <td>CRD: Random without restrictions. RBD: Random within blocks.</td>
+                </tr>
+                <tr>
+                    <td>Dummy variables for 5 categories?</td>
+                    <td>4 (p - 1 = 5 - 1 = 4)</td>
+                </tr>
+                <tr>
+                    <td>Significant Levene's test means?</td>
+                    <td>Variances are UNEQUAL. Use Welch's test.</td>
+                </tr>
+                <tr>
+                    <td>Paths a, b, c in mediation?</td>
+                    <td>a: X→M, b: M→Y|X, c: X→Y (total), c': X→Y|M (direct)</td>
+                </tr>
+                <tr>
+                    <td>Why bootstrap over Sobel?</td>
+                    <td>Sobel assumes normality of ab; bootstrap doesn't.</td>
+                </tr>
+                <tr>
+                    <td>Adding 100 to all Y values?</td>
+                    <td>NO CHANGE to F-statistic.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>📌 Final Checklist</h2>
+
+        <ul class="checklist">
+            <li>Read Kirk Chapters 1, 2, 3</li>
+            <li>Read Zhao et al. (2010) paper</li>
+            <li>Run SAS programs line by line</li>
+            <li>Run R programs line by line</li>
+            <li>Complete mediation homework</li>
+            <li>Complete Kirk homework</li>
+            <li>Review class recording</li>
+            <li>Prepare questions for next class</li>
+        </ul>
+
+        <div class="persian-section" style="text-align: center; font-size: 1.5em; margin-top: 40px;">
+            <p><strong>موفق باشی! 🎓</strong></p>
+        </div>
+
+        <hr>
+
+        <h2>📚 Part 11: References & Required Readings</h2>
+
+        <h3>Required Reading for Week 1</h3>
+        <ol>
+            <li><strong>Kirk, R. E.</strong> (2013). <em>Experimental Design: Procedures for the Behavioral
+                    Sciences</em> (4th ed.). SAGE Publications. <strong>Chapters 1, 2, and 3.</strong></li>
+            <li><strong>Zhao, X., Lynch, J. G., & Chen, Q.</strong> (2010). Reconsidering Baron and Kenny: Myths and
+                truths about mediation analysis. <em>Journal of Consumer Research, 37</em>(2), 197-206.</li>
+        </ol>
+
+        <h3>Additional References Cited</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Reference</th>
+                    <th>Topic</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Baron, R. M., & Kenny, D. A. (1986). The moderator-mediator variable distinction. <em>Journal of
+                            Personality and Social Psychology, 51</em>(6), 1173-1182.</td>
+                    <td>Original mediation steps</td>
+                </tr>
+                <tr>
+                    <td>Preacher, K. J., & Hayes, A. F. (2004). SPSS and SAS procedures for estimating indirect effects.
+                        <em>Behavior Research Methods, 36</em>(4), 717-731.
+                    </td>
+                    <td>Bootstrap test</td>
+                </tr>
+                <tr>
+                    <td>Hayes, A. F. (2022). <em>Introduction to Mediation, Moderation, and Conditional Process
+                            Analysis</em> (3rd ed.). Guilford Press.</td>
+                    <td>PROCESS macro</td>
+                </tr>
+                <tr>
+                    <td>MacKinnon, D. P., et al. (1995). A simulation study of mediated effect measures.
+                        <em>Multivariate Behavioral Research, 30</em>(1), 41-62.
+                    </td>
+                    <td>Sobel test variants</td>
+                </tr>
+                <tr>
+                    <td>Cohen, J. (1988). <em>Statistical Power Analysis for the Behavioral Sciences</em> (2nd ed.).
+                        Lawrence Erlbaum.</td>
+                    <td>Effect size guidelines</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Software Resources</h3>
+        <ul>
+            <li><strong>PROCESS Macro:</strong> <a href="http://www.processmacro.org"
+                    target="_blank">www.processmacro.org</a></li>
+            <li><strong>SAS Documentation:</strong> <a href="https://documentation.sas.com"
+                    target="_blank">documentation.sas.com</a></li>
+        </ul>
+
+        <hr>
+
+        <h2>📋 Detailed Literature Summaries</h2>
+
+        <h3>📖 Kirk (2013) - Chapters 1, 2, and 3 Summary</h3>
+
+        <div class="persian-section">
+            <h4>🇮🇷 خلاصه فارسی - کتاب Kirk</h4>
+            <p>کتاب Kirk یکی از مرجع‌های اصلی طرح‌های آزمایشی در علوم رفتاری است. سه فصل اول اصول پایه‌ای این حوزه را
+                پوشش می‌دهند: اصطلاحات، انواع طرح‌ها، و تحلیل واریانس (ANOVA).</p>
+        </div>
+
+        <h4>Chapter 1: Introduction to Experimental Design</h4>
+        <p>Kirk begins by distinguishing <strong>experimental research</strong> from <strong>correlational
+                research</strong>. In experimental research, the researcher actively manipulates one or more independent
+            variables and observes the effect on dependent variables. In correlational research, the researcher merely
+            observes naturally occurring relationships without manipulation. This distinction is crucial because only
+            experimental research can establish <strong>causation</strong>—correlational studies can only show
+            association.</p>
+
+        <p>The chapter introduces key terminology that forms the vocabulary of experimental design:</p>
+        <ul>
+            <li><strong>Experimental Unit</strong>: The entity to which a treatment is applied (e.g., a person, a plot
+                of land, a classroom)</li>
+            <li><strong>Treatment</strong>: A specific condition applied to experimental units. In a drug study,
+                treatments might be Drug A, Drug B, and Placebo</li>
+            <li><strong>Factor</strong>: An independent variable being manipulated. Factors can be qualitative (e.g.,
+                teaching method) or quantitative (e.g., dosage level)</li>
+            <li><strong>Levels</strong>: The specific values of a factor. If the factor is "caffeine dose," levels might
+                be 0mg, 100mg, 200mg</li>
+            <li><strong>Response Variable</strong>: The dependent variable being measured as the outcome</li>
+        </ul>
+
+        <p>Kirk emphasizes that the <strong>five steps of experimental design</strong> should be planned before data
+            collection: (1) identify factors and parameters of interest, (2) decide on treatment combinations, (3)
+            determine sample size, (4) plan treatment assignment, and (5) plan the statistical analysis. Planning the
+            analysis before data collection prevents "p-hacking" and ensures appropriate statistical power.</p>
+
+        <p>A major portion of Chapter 1 addresses <strong>validity</strong>. Internal validity asks: "Can we conclude
+            that the treatment caused the observed effect?" External validity asks: "Can we generalize results to other
+            populations, settings, and times?" Kirk describes 12 threats to internal validity (history, maturation,
+            testing, instrumentation, statistical regression, selection, mortality, selection-maturation, diffusion,
+            compensatory equalization, compensatory rivalry, and resentful demoralization) and 6 threats to external
+            validity. Understanding these threats helps researchers design better studies and critically evaluate
+            published research.</p>
+
+        <h4>Chapter 2: Experimental Design Terminology and Concepts</h4>
+        <p>Chapter 2 introduces the major categories of experimental designs:</p>
+
+        <p><strong>Completely Randomized Design (CR-p)</strong>: The simplest design. Treatments are randomly assigned
+            to experimental units without any restrictions. This design is appropriate when experimental units are
+            relatively homogeneous. The notation CR-p indicates a completely randomized design with p treatment levels.
+            For example, CR-3 means one factor with three levels (treatments).</p>
+
+        <p><strong>Randomized Block Design (RB-p)</strong>: Used when there is a known nuisance variable that creates
+            variability among experimental units. Units are first grouped into "blocks" based on this nuisance variable
+            (e.g., age groups, baseline ability levels), then treatments are randomly assigned within each block. This
+            design reduces error variance because block-to-block variation is separated from treatment effects. The
+            result is typically a more powerful test—that is, a better chance of detecting real treatment effects.</p>
+
+        <p><strong>Latin Square Design (LS-p)</strong>: Extends blocking to control two nuisance variables
+            simultaneously. The design requires that the number of rows, columns, and treatments all equal p. Each
+            treatment appears exactly once in each row and each column. This design is efficient (fewer observations
+            than a full factorial) but restrictive (cannot estimate interactions and requires equal numbers of
+            everything).</p>
+
+        <p><strong>Factorial Designs</strong>: Allow researchers to study multiple factors simultaneously. A 3×2
+            factorial design crosses 3 levels of Factor A with 2 levels of Factor B, creating 6 treatment combinations.
+            The key advantage is the ability to detect <strong>interaction effects</strong>—whether the effect of one
+            factor depends on the level of another. Interactions cannot be studied with one-factor-at-a-time
+            experiments.</p>
+
+        <p>Kirk also distinguishes <strong>fixed effects</strong> from <strong>random effects</strong>. Fixed effects
+            occur when all levels of interest are included in the study (e.g., comparing three specific teaching
+            methods). Random effects occur when the levels in the study are a random sample from a larger population
+            (e.g., using 5 randomly selected teachers from a school district). This distinction affects how F-tests are
+            constructed and how broadly results can be generalized.</p>
+
+        <h4>Chapter 3: Introduction to Analysis of Variance</h4>
+        <p>Chapter 3 introduces ANOVA as a method for testing whether group means differ. The logic of ANOVA rests on
+            <strong>partitioning total variance</strong> into components:
+        </p>
+
+        <p><strong>SST = SSB + SSW</strong></p>
+        <ul>
+            <li><strong>SST (Total Sum of Squares)</strong>: Total variability in all observations around the grand mean
+            </li>
+            <li><strong>SSB (Between-Group Sum of Squares)</strong>: Variability of group means around the grand
+                mean—reflects treatment effects</li>
+            <li><strong>SSW (Within-Group Sum of Squares)</strong>: Variability of individual observations around their
+                group means—reflects random error</li>
+        </ul>
+
+        <p>The <strong>F-statistic</strong> is the ratio of between-group variance to within-group variance: F =
+            MSB/MSW. If treatments have no effect, group means should be similar to each other, and F should be close to
+            1. If treatments have an effect, group means should differ, making MSB larger than MSW, producing a large F.
+        </p>
+
+        <p>ANOVA requires three assumptions: (1) <strong>independence</strong> of observations, (2)
+            <strong>normality</strong> of the dependent variable within each group, and (3) <strong>homogeneity of
+                variance</strong> across groups. ANOVA is relatively robust to violations of normality with adequate
+            sample sizes, but unequal variances can seriously distort results, especially with unequal sample sizes.
+        </p>
+
+        <p>Kirk demonstrates that ANOVA and regression are mathematically equivalent—both are special cases of the
+            General Linear Model. For a factor with p levels, we need p−1 dummy variables to represent group membership.
+            The regression coefficients represent differences between group means and a reference group.</p>
+
+        <hr>
+
+        <h3>📖 Zhao, Lynch, & Chen (2010) - Complete Paper Summary</h3>
+
+        <div class="persian-section">
+            <h4>🇮🇷 خلاصه فارسی - مقاله Zhao</h4>
+            <p>این مقاله رویکرد معیوب Baron و Kenny را به چالش می‌کشد. Zhao نشان می‌دهد که:</p>
+            <ol>
+                <li>رابطه X→Y لازم نیست معنادار باشد تا میانجی وجود داشته باشد</li>
+                <li>تنها شرط لازم این است که اثر غیرمستقیم (a×b) معنادار باشد</li>
+                <li>تست بوت‌استرپ بهتر از Sobel است</li>
+                <li>اثر مستقیم "توضیح‌نداده‌شده" می‌تواند راهنمایی برای یافتن میانجی‌های دیگر باشد</li>
+            </ol>
+        </div>
+
+        <h4>The Central Argument</h4>
+        <p>Zhao, Lynch, and Chen (2010) published a highly influential paper in the Journal of Consumer Research that
+            fundamentally challenges how researchers should think about mediation analysis. Their central argument is
+            that the widely-used Baron and Kenny (1986) approach contains serious flaws that have led to decades of
+            misguided research practices.</p>
+
+        <h4>Myth 1: You Need a Significant Total Effect (X→Y) Before Testing Mediation</h4>
+        <p>Baron and Kenny's first step requires establishing that X significantly affects Y. This is called the "effect
+            to be mediated." Zhao et al. argue this requirement is <strong>wrong</strong>. The mathematical relationship
+            between effects is:</p>
+
+        <blockquote>
+            <p><strong>c = c' + (a × b)</strong></p>
+            <p>where c = total effect, c' = direct effect, and a×b = indirect effect</p>
+        </blockquote>
+
+        <p>If c' and a×b have opposite signs (what Zhao calls "competitive mediation"), they can cancel each other out,
+            making c close to zero or non-significant—even when mediation exists! Consider their example: Condom
+            availability (X) may reduce sexually transmitted disease (Y) through physical protection (negative direct
+            effect c'), but also increase disease through reduced perceived risk (positive indirect effect a×b). The
+            total effect c could be zero, but both mediation pathways are real and important.</p>
+
+        <h4>Myth 2: Full Mediation is Better Than Partial Mediation</h4>
+        <p>Baron and Kenny implied that "full mediation" (where c' becomes non-significant) is the gold standard. Zhao
+            et al. argue this is misleading. Most real-world phenomena involve partial mediation, and a significant
+            direct effect (c') should be seen as an <strong>opportunity for theory building</strong>, not a failure. The
+            direct effect suggests there may be additional mediators not yet included in the model. For example, in
+            relationship marketing research, Morgan and Hunt (1994) proposed trust and commitment as mediators, but a
+            meta-analysis by Palmatier et al. (2006) found that two-thirds of the effect was "direct." This led
+            researchers to discover "consumer gratitude" as an additional mediator.</p>
+
+        <h4>Myth 3: Use the Sobel Test to Test Indirect Effects</h4>
+        <p>The Sobel test assumes that the product a×b is normally distributed. However, the distribution of a product
+            is often non-normal (skewed), especially in small samples. <mark>The <strong>bootstrap test</strong>,
+                popularized
+                by Preacher and Hayes (2004), makes no distributional assumptions.</mark> It resamples the data
+            thousands of times,
+            calculates a×b for each resample, and constructs an empirical confidence interval. If this interval does not
+            contain zero, the indirect effect is significant. The bootstrap test is more powerful and more accurate than
+            the Sobel test.</p>
+
+        <h4>Zhao's Typology of Mediation</h4>
+
+        <div style="text-align: center; margin: 25px 0;">
+            <img src="images/mediation_decision_tree.png" alt="Mediation Decision Tree"
+                style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <p style="font-size: 0.85em; color: #666; margin-top: 10px;"><em>Figure 4: Decision Tree for Classifying
+                    Mediation Types (Zhao et al., 2010)</em></p>
+        </div>
+
+        <p>Based on the significance of a×b and c', Zhao et al. propose five categories:</p>
+        <ol>
+            <li><strong>Complementary Mediation</strong>: Both a×b and c' are significant and have the same sign. This
+                indicates partial mediation with likely additional mediators of the same sign.</li>
+            <li><strong>Competitive Mediation</strong>: Both a×b and c' are significant but have opposite signs. This is
+                sometimes called "suppression." Both pathways are real but work in opposite directions.</li>
+            <li><strong>Indirect-Only Mediation</strong>: a×b is significant, c' is not. This is what Baron and Kenny
+                called "full mediation."</li>
+            <li><strong>Direct-Only Non-Mediation</strong>: c' is significant, a×b is not. There is no mediation—the
+                hypothesized mediator doesn't work.</li>
+            <li><strong>No-Effect Non-Mediation</strong>: Neither a×b nor c' is significant. There is simply no effect
+                to speak of.</li>
+        </ol>
+
+        <h4>Key Takeaway for Researchers</h4>
+        <p><mark>The <strong>only requirement</strong> for establishing mediation is that the indirect effect (a × b) is
+                significantly different from zero. Period.</mark> The X-Y test (Baron and Kenny's Step 1) is unnecessary
+            and can
+            lead to abandoning valid mediation hypotheses when competitive mediation is present. <mark>Researchers
+                should use
+                bootstrap confidence intervals to test a×b</mark>, and should interpret significant direct effects as
+            clues for
+            discovering additional mediators rather than as evidence of "incomplete" mediation.</p>
+
+        <hr>
+
+        <h2>🎯 Key Formulas Summary</h2>
+
+        <pre>
+═══════════════════════════════════════════════════════════════
+                      ANOVA FORMULAS
+═══════════════════════════════════════════════════════════════
+SST = SSB + SSW                     (variance partition)
+F = MSB / MSW                       (F-statistic)
+η² = SSB / SST                      (eta-squared effect size)
+Dummy variables needed = p - 1      (for p categories)
+
+═══════════════════════════════════════════════════════════════
+                    MEDIATION FORMULAS
+═══════════════════════════════════════════════════════════════
+c = c' + (a × b)                    (total = direct + indirect)
+Sobel z = ab / √(b²sa² + a²sb²)     (Sobel test)
+Percent Mediated = (a × b) / c      (proportion through M)
+═══════════════════════════════════════════════════════════════
+        </pre>
+
+        <hr>
+
+        <div class="info-box" style="text-align: center;">
+            <h3>📖 Study Guide Information</h3>
+            <p><strong>Course:</strong> BUSI 6480 - Experimental Design (Spring 2026)</p>
+            <p><strong>Week:</strong> 1</p>
+            <p>This study guide is designed to be comprehensive enough that you do not need to refer back to individual
+                source files.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: #1a1a2e; color: white; text-align: center; padding: 40px; margin-top: 50px;">
+        <p style="opacity: 0.8;">BUSI 6480 - Experimental Design | Spring 2026 | UNT</p>
+        <p><a href="index.html" style="color: #667eea; text-decoration: none;">← Back to Home</a></p>
+    </footer>
+
+    <script src="js/progress.js"></script>
+</body>
+
+</html>
