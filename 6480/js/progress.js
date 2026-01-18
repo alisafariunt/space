@@ -1,61 +1,81 @@
-// Reading Progress Tracker
-document.addEventListener('DOMContentLoaded', function () {
-    // Only run on content pages (not homepage)
-    if (!document.querySelector('.reading-progress')) return;
+/**
+ * Reading Progress Tracker for BCIS 6670 Study Guide
+ * Tracks scroll progress and displays reading percentage
+ */
 
-    const progressBar = document.querySelector('.reading-progress-bar');
-    const percentageDisplay = document.querySelector('.reading-percentage');
+(function() {
+    'use strict';
 
-    function updateProgress() {
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight - windowHeight;
-        const scrolled = window.scrollY;
-        const percentage = Math.min(Math.round((scrolled / documentHeight) * 100), 100);
+    // Initialize progress tracking when DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        initProgressTracker();
+    });
 
-        progressBar.style.width = percentage + '%';
-        percentageDisplay.textContent = percentage + '% Read';
-
-        // Change color when complete
-        if (percentage >= 100) {
-            percentageDisplay.style.background = 'linear-gradient(135deg, #4caf50, #66bb6a)';
-            percentageDisplay.textContent = '✅ 100% Complete!';
-        } else {
-            percentageDisplay.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
+    function initProgressTracker() {
+        const progressFill = document.querySelector('.progress-fill');
+        const progressText = document.querySelector('.progress-text');
+        
+        if (!progressFill || !progressText) {
+            return; // Progress elements not found on this page
         }
+
+        // Calculate and update progress on scroll
+        function updateProgress() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            
+            if (docHeight <= 0) {
+                progressFill.style.width = '100%';
+                progressText.textContent = 'Reading Complete: 100%';
+                return;
+            }
+            
+            const progress = Math.min(Math.round((scrollTop / docHeight) * 100), 100);
+            
+            progressFill.style.width = progress + '%';
+            
+            if (progress === 0) {
+                progressText.textContent = 'Reading Progress: 0%';
+            } else if (progress === 100) {
+                progressText.textContent = 'Reading Complete: 100%';
+            } else {
+                progressText.textContent = 'Reading Progress: ' + progress + '%';
+            }
+        }
+
+        // Initial update
+        updateProgress();
+
+        // Update on scroll with throttling for performance
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    updateProgress();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Update on resize
+        window.addEventListener('resize', updateProgress);
     }
 
-    // Update on scroll
-    window.addEventListener('scroll', updateProgress);
+    // Mark current page in navigation
+    function markActivePage() {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('.navbar-links a');
+        
+        navLinks.forEach(function(link) {
+            const href = link.getAttribute('href');
+            if (currentPath.endsWith(href) || 
+                (href === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('/StudyGuide/')))) {
+                link.classList.add('active');
+            }
+        });
+    }
 
-    // Initial update
-    updateProgress();
-});
+    document.addEventListener('DOMContentLoaded', markActivePage);
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Active navigation highlighting
-document.addEventListener('DOMContentLoaded', function () {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    navLinks.forEach(link => {
-        const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-});
+})();
