@@ -35,7 +35,13 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { text, voice = 'en-US-Wavenet-F', speed = 1.0 } = req.body;
+        let { text, voice = 'en-US-Wavenet-F', speed = 1.0 } = req.body;
+
+        // Validate voice - must be a valid Google TTS voice
+        if (!VOICES[voice]) {
+            console.log(`Invalid voice "${voice}", falling back to default`);
+            voice = 'en-US-Wavenet-F';
+        }
 
         if (!text || text.length === 0) {
             return res.status(400).json({ error: 'Text is required' });
