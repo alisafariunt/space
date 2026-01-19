@@ -330,15 +330,6 @@
                     <input type="password" id="login-password" placeholder="Password" autocomplete="current-password">
                 </div>
 
-                <div class="password-requirements">
-                    <small>
-                        <strong>Password requirements:</strong><br>
-                        • At least 8 characters<br>
-                        • Contains uppercase and lowercase letters<br>
-                        • Contains at least one number
-                    </small>
-                </div>
-
                 <button id="login-btn" class="primary-btn">
                     <span class="btn-text">Login / Register</span>
                     <span class="btn-spinner" style="display:none;">⏳</span>
