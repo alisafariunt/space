@@ -256,21 +256,21 @@
 
     // Merge server data with local storage
     function mergeServerData(serverData) {
-        const courseId = getCourseId();
+        // Main storage key used by highlights.js
+        const localKey = 'studyGuide_highlights';
+        const localData = JSON.parse(localStorage.getItem(localKey) || '{"highlights":[],"bookmarks":[]}');
 
         // Merge highlights
         if (serverData.highlights?.length > 0) {
-            const localKey = `studyGuide_highlights_${courseId}`;
-            const localData = JSON.parse(localStorage.getItem(localKey) || '{"highlights":[],"bookmarks":[]}');
-
             // Create map of local items by ID
-            const localMap = new Map(localData.highlights.map(h => [h.id, h]));
+            const localMap = new Map((localData.highlights || []).map(h => [h.id, h]));
 
             // Add/update from server
             serverData.highlights.forEach(h => {
                 localMap.set(h.id, {
                     id: h.id,
                     pageId: h.page_id,
+                    courseId: h.course_id, // Ensure we store courseId
                     text: h.text,
                     color: h.color,
                     elementPath: h.element_path,
@@ -279,20 +279,17 @@
             });
 
             localData.highlights = Array.from(localMap.values());
-            localStorage.setItem(localKey, JSON.stringify(localData));
         }
 
         // Merge bookmarks
         if (serverData.bookmarks?.length > 0) {
-            const localKey = `studyGuide_highlights_${courseId}`;
-            const localData = JSON.parse(localStorage.getItem(localKey) || '{"highlights":[],"bookmarks":[]}');
-
-            const localMap = new Map(localData.bookmarks.map(b => [b.id, b]));
+            const localMap = new Map((localData.bookmarks || []).map(b => [b.id, b]));
 
             serverData.bookmarks.forEach(b => {
                 localMap.set(b.id, {
                     id: b.id,
                     pageId: b.page_id,
+                    courseId: b.course_id,
                     sectionId: b.section_id,
                     title: b.title,
                     createdAt: b.created_at
@@ -300,6 +297,10 @@
             });
 
             localData.bookmarks = Array.from(localMap.values());
+        }
+
+        // Save back to local storage
+        if (serverData.highlights?.length > 0 || serverData.bookmarks?.length > 0) {
             localStorage.setItem(localKey, JSON.stringify(localData));
         }
 
