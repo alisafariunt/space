@@ -56,8 +56,9 @@
         if (username) {
             userId = username;
             setupSync();
-            createUserInfo();
+            createUserInfo(); // Render Logout button
         } else {
+            createUserInfo(); // Render Login button
             showLoginModal();
         }
     }
@@ -145,50 +146,87 @@
         passInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
     }
 
-    // Create User Info UI (Logout)
+    // Create User Info UI (Login/Logout in Menu)
     function createUserInfo() {
-        const nav = document.querySelector('.nav-links') || document.body;
-        const userDiv = document.createElement('div');
-        userDiv.className = 'user-info';
-        userDiv.innerHTML = `
-            <span class="user-badge" title="Click to logout">👤 ${userId}</span>
-        `;
+        // Target the navbar menu
+        const navbarLinks = document.querySelector('.navbar-links');
 
-        // Insert before sync status if it exists, or append
-        const syncStatusElement = document.getElementById('sync-status');
-        if (syncStatusElement) {
-            syncStatusElement.parentElement.insertBefore(userDiv, syncStatusElement);
-        } else {
-            // Check if nav exists, else fixed position
-            if (document.querySelector('.nav-links')) {
-                document.querySelector('.nav-links').appendChild(userDiv);
+        // Remove existing item if any
+        let authItem = document.getElementById('auth-nav-item');
+        if (authItem) authItem.remove();
+
+        // Also remove legacy user-info div if exists
+        const legacy = document.querySelector('.user-info');
+        if (legacy) legacy.remove();
+
+        if (navbarLinks) {
+            authItem = document.createElement('li');
+            authItem.id = 'auth-nav-item';
+
+            if (userId) {
+                authItem.innerHTML = `<button class="auth-btn logout" title="Logout">👤 ${userId}</button>`;
+                authItem.querySelector('button').addEventListener('click', () => {
+                    if (confirm(`Logout from "${userId}"?`)) {
+                        localStorage.removeItem('studyGuide_username');
+                        localStorage.removeItem('studyGuide_password');
+                        location.reload();
+                    }
+                });
             } else {
-                userDiv.style.cssText = 'position: fixed; top: 10px; right: 60px; z-index: 1000;';
-                document.body.appendChild(userDiv);
+                authItem.innerHTML = `<button class="auth-btn login">Login 🔐</button>`;
+                authItem.querySelector('button').addEventListener('click', () => showLoginModal());
             }
+
+            navbarLinks.appendChild(authItem);
+        } else {
+            // Fallback for pages without navbar
+            const fallbackDiv = document.createElement('div');
+            fallbackDiv.className = 'user-info fixed-auth';
+            fallbackDiv.innerHTML = userId
+                ? `<button class="auth-btn logout">👤 ${userId}</button>`
+                : `<button class="auth-btn login">Login</button>`;
+
+            fallbackDiv.querySelector('button').addEventListener('click', () => {
+                if (userId) {
+                    if (confirm("Logout?")) {
+                        localStorage.removeItem('studyGuide_username');
+                        localStorage.removeItem('studyGuide_password');
+                        location.reload();
+                    }
+                } else {
+                    showLoginModal();
+                }
+            });
+            document.body.appendChild(fallbackDiv);
         }
 
         // Styles
-        const style = document.createElement('style');
-        style.textContent = `
-            .user-badge {
-                padding: 6px 12px; background: rgba(0,0,0,0.05);
-                border-radius: 20px; font-size: 0.9rem; cursor: pointer;
-                margin-right: 10px; display: inline-block; vertical-align: middle;
-            }
-            .user-badge:hover { background: rgba(255,0,0,0.1); color: red; }
-            body.dark-mode .user-badge { background: rgba(255,255,255,0.1); color: #eee; }
-            body.dark-mode .user-badge:hover { background: rgba(255,50,50,0.2); color: #ffadad; }
-        `;
-        document.head.appendChild(style);
-
-        userDiv.addEventListener('click', () => {
-            if (confirm(`Logout from "${userId}"?`)) {
-                localStorage.removeItem('studyGuide_username');
-                localStorage.removeItem('studyGuide_password');
-                location.reload();
-            }
-        });
+        if (!document.getElementById('auth-styles')) {
+            const style = document.createElement('style');
+            style.id = 'auth-styles';
+            style.textContent = `
+                .auth-btn {
+                    background: none; border: 1px solid rgba(255,255,255,0.3);
+                    color: white; padding: 5px 12px; border-radius: 20px;
+                    cursor: pointer; font-size: 14px; transition: all 0.2s;
+                    margin-left: 10px;
+                }
+                .auth-btn:hover { background: rgba(255,255,255,0.1); }
+                .auth-btn.login { background: #10b981; border: none; }
+                .auth-btn.login:hover { background: #059669; }
+                .auth-btn.logout { background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.5); }
+                .auth-btn.logout:hover { background: rgba(239, 68, 68, 0.4); }
+                
+                /* Navbar specific adjustments */
+                .navbar-links li { display: flex; align-items: center; }
+                
+                /* Fixed Fallback */
+                .fixed-auth { position: fixed; top: 10px; right: 10px; z-index: 9999; }
+                .fixed-auth .auth-btn { color: #333; border-color: #ccc; }
+                body.dark-mode .fixed-auth .auth-btn { color: white; }
+            `;
+            document.head.appendChild(style);
+        }
     }
 
     function setupSync() {
