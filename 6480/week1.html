@@ -1767,6 +1767,102 @@ Percent Mediated = (a × b) / c      (proportion through M)
                     source files.</p>
             </div>
 
+            <!-- Flashcard Q&A Sections -->
+            <h2>🎴 Study Flashcards</h2>
+            <p>Use the flashcard button (🎴) in the navigation to study these key concepts!</p>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q1: What is ANOVA?</span>
+                <div class="success-box">
+                    <p>ANOVA (Analysis of Variance) is a statistical method for comparing means across 3 or more groups.
+                        It partitions total variance (SST) into between-group variance (SSB) and within-group variance
+                        (SSW). The F-statistic tests if group means differ significantly.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q2: What is the fundamental ANOVA equation?</span>
+                <div class="success-box">
+                    <p>SST = SSB + SSW (Total Sum of Squares = Between-group Sum of Squares + Within-group Sum of
+                        Squares). This equation shows how total variance is partitioned into treatment effects and
+                        error.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q3: What are the three ANOVA assumptions?</span>
+                <div class="success-box">
+                    <p>1) Independence of observations - each observation is independent. 2) Normality - dependent
+                        variable is normally distributed within each group. 3) Homogeneity of variance - all groups have
+                        equal variances (σ₁² = σ₂² = ... = σₚ²).</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q4: What is mediation?</span>
+                <div class="success-box">
+                    <p>Mediation occurs when the effect of X on Y is transmitted through a third variable M (the
+                        mediator). The relationship is: X → M → Y. The indirect effect (a × b) represents the mediation
+                        pathway.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q5: What is the modern requirement for establishing mediation?</span>
+                <div class="success-box">
+                    <p>The ONLY requirement is that the indirect effect (a × b) is significantly different from zero,
+                        tested using bootstrap confidence intervals. Baron & Kenny's original approach (requiring
+                        significant path c) is OUTDATED. Path c does NOT need to be significant!</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q6: What is the difference between CRD and RBD?</span>
+                <div class="success-box">
+                    <p>CRD (Completely Randomized Design): Treatments randomly assigned without restrictions. RBD
+                        (Randomized Block Design): Experimental units grouped into blocks based on a nuisance variable,
+                        then treatments randomly assigned within each block. RBD controls for known sources of
+                        variability.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q7: Why use bootstrap test instead of Sobel test for mediation?</span>
+                <div class="success-box">
+                    <p>The bootstrap test makes no distributional assumptions about the product a×b, while the Sobel
+                        test incorrectly assumes normality. Bootstrap resamples data thousands of times and constructs
+                        an empirical confidence interval, making it more powerful and accurate than the Sobel test.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q8: What is the F-statistic formula?</span>
+                <div class="success-box">
+                    <p>F = MSB / MSW, where MSB = SSB/(p-1) is the between-group mean square and MSW = SSW/(N-p) is the
+                        within-group mean square. Large F values indicate treatment effects are larger than random
+                        error.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q9: What is Zhao's Typology of Mediation?</span>
+                <div class="success-box">
+                    <p>Zhao et al. (2010) classify mediation into 5 types based on significance of a×b and c': 1)
+                        Complementary (both significant, same sign), 2) Competitive (both significant, opposite signs),
+                        3) Indirect-only (only a×b significant), 4) Direct-only (only c' significant), 5) No-effect
+                        (neither significant).</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q10: What is homogeneity of variance and why is it important?</span>
+                <div class="success-box">
+                    <p>Homogeneity of variance means all groups have equal variances. It's critical because when
+                        variances are unequal, the F-test becomes unreliable - it may reject H₀ too often (liberal) or
+                        too rarely (conservative). Test using Levene's test or Hartley's Fmax test.</p>
+                </div>
+            </div>
+
         </div>
 
         </div><!-- Close paper-card -->
