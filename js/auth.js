@@ -21,7 +21,7 @@
         // Login with username and password
         async login(username, password) {
             try {
-                const response = await fetch(AUTH_API_URL, {
+                const response = await fetch(`${AUTH_API_URL}/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
