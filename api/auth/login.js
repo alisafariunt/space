@@ -148,11 +148,11 @@ export default async function handler(req, res) {
         });
 
         // Set refresh token cookie
-        // Use SameSite=Lax for cross-tab navigation, Path=/ for all routes
+        // Use SameSite=None for cross-origin requests, Secure required for SameSite=None
         const maxAge = Math.floor(expiryMs / 1000);
         const isProduction = process.env.NODE_ENV === 'production';
         const domainPart = isProduction ? '; Domain=alisafari.space' : '';
-        res.setHeader('Set-Cookie', `refreshToken=${refreshToken}; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}; Path=/${domainPart}`);
+        res.setHeader('Set-Cookie', `refreshToken=${refreshToken}; HttpOnly; Secure; SameSite=None; Max-Age=${maxAge}; Path=/${domainPart}`);
 
         // Return access token
         return res.status(200).json({
