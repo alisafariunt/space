@@ -1,17 +1,33 @@
-import {
-    db,
-    initializeDatabase,
-    generateAccessToken,
-    getRefreshTokenFromCookie,
-    clearRefreshTokenCookie,
-    getCorsHeaders,
-    jwt,
-    JWT_SECRET,
-    bcrypt
-} from '../_lib/auth-core.js';
+import { createClient } from '@libsql/client';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {
-    // Handle CORS preflight
+    const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this-in-production';
+    const JWT_ACCESS_EXPIRY = process.env.JWT_ACCESS_EXPIRY || '30m';
+
+    function getCorsHeaders(req) {
+        const allowedOrigins = process.env.NODE_ENV === 'production'
+            ? (process.env.ALLOWED_ORIGINS || 'https://alisafari.space,https://www.alisafari.space').split(',')
+            : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080'];
+
+        const origin = req.headers.origin;
+
+        if (allowedOrigins.includes(origin)) {
+            return {
+                'Access-Control-Allow-Origin': origin,
+                'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true',
+            };
+        }
+
+        return {
+            'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        };
+    }
+
     if (req.method === 'OPTIONS') {
         const corsHeaders = getCorsHeaders(req);
         Object.entries(corsHeaders).forEach(([key, value]) => {
@@ -20,7 +36,6 @@ export default async function handler(req, res) {
         return res.status(200).json({ ok: true });
     }
 
-    // Set CORS headers
     const corsHeaders = getCorsHeaders(req);
     Object.entries(corsHeaders).forEach(([key, value]) => {
         res.setHeader(key, value);
@@ -34,10 +49,15 @@ export default async function handler(req, res) {
     }
 
     try {
-        // Initialize database
-        await initializeDatabase();
+        const db = createClient({
+            url: process.env.TURSO_DATABASE_URL,
+            authToken: process.env.TURSO_AUTH_TOKEN,
+        });
 
-        const refreshToken = getRefreshTokenFromCookie(req);
+        // Get refresh token from cookie
+        const cookies = req.headers.cookie?.split(';').map(c => c.trim()) || [];
+        const refreshTokenCookie = cookies.find(c => c.startsWith('refreshToken='));
+        const refreshToken = refreshTokenCookie?.split('=')[1];
 
         if (!refreshToken) {
             return res.status(401).json({
@@ -51,7 +71,7 @@ export default async function handler(req, res) {
         try {
             decoded = jwt.verify(refreshToken, JWT_SECRET);
         } catch (error) {
-            clearRefreshTokenCookie(res);
+            res.setHeader('Set-Cookie', 'refreshToken=; HttpOnly; Secure; SameSite=Strict; Max-Age=0; Path=/api/auth');
             return res.status(401).json({
                 error: 'INVALID_TOKEN',
                 message: 'Invalid or expired refresh token'
@@ -60,27 +80,27 @@ export default async function handler(req, res) {
 
         const { userId, tokenId } = decoded;
 
-        // Verify token exists in database and is not expired
+        // Verify token exists in database
         const tokenResult = await db.execute({
-            sql: `SELECT id, token_hash, expires_at FROM refresh_tokens
+            sql: `SELECT id, token_hash FROM refresh_tokens
                   WHERE id = ? AND user_id = ? AND expires_at > datetime('now')`,
             args: [tokenId, userId]
         });
 
         if (tokenResult.rows.length === 0) {
-            clearRefreshTokenCookie(res);
+            res.setHeader('Set-Cookie', 'refreshToken=; HttpOnly; Secure; SameSite=Strict; Max-Age=0; Path=/api/auth');
             return res.status(401).json({
                 error: 'TOKEN_REVOKED',
                 message: 'Refresh token has been revoked or expired'
             });
         }
 
-        // Verify token hash matches
+        // Verify token hash
         const storedHash = tokenResult.rows[0].token_hash;
         const isValid = await bcrypt.compare(refreshToken, storedHash);
 
         if (!isValid) {
-            clearRefreshTokenCookie(res);
+            res.setHeader('Set-Cookie', 'refreshToken=; HttpOnly; Secure; SameSite=Strict; Max-Age=0; Path=/api/auth');
             return res.status(401).json({
                 error: 'INVALID_TOKEN',
                 message: 'Invalid refresh token'
@@ -88,9 +108,8 @@ export default async function handler(req, res) {
         }
 
         // Generate new access token
-        const accessToken = generateAccessToken(userId);
+        const accessToken = jwt.sign({ userId }, JWT_SECRET, { expiresIn: JWT_ACCESS_EXPIRY });
 
-        // Return new access token
         return res.status(200).json({
             accessToken
         });

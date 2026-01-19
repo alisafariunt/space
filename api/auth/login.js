@@ -1,21 +1,37 @@
-import {
-    db,
-    initializeDatabase,
-    validateUsername,
-    validatePassword,
-    generateAccessToken,
-    generateRefreshToken,
-    hashToken,
-    setRefreshTokenCookie,
-    cleanExpiredTokens,
-    getCorsHeaders,
-    parseExpiry,
-    JWT_REFRESH_EXPIRY,
-    bcrypt,
-    randomUUID
-} from '../_lib/auth-core.js';
+import { createClient } from '@libsql/client';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import { randomUUID } from 'crypto';
 
 export default async function handler(req, res) {
+    // Configuration
+    const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this-in-production';
+    const JWT_ACCESS_EXPIRY = process.env.JWT_ACCESS_EXPIRY || '30m';
+    const JWT_REFRESH_EXPIRY = process.env.JWT_REFRESH_EXPIRY || '30d';
+
+    // CORS headers
+    function getCorsHeaders(req) {
+        const allowedOrigins = process.env.NODE_ENV === 'production'
+            ? (process.env.ALLOWED_ORIGINS || 'https://alisafari.space,https://www.alisafari.space').split(',')
+            : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080'];
+
+        const origin = req.headers.origin;
+
+        if (allowedOrigins.includes(origin)) {
+            return {
+                'Access-Control-Allow-Origin': origin,
+                'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Access-Control-Allow-Credentials': 'true',
+            };
+        }
+
+        return {
+            'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        };
+    }
+
     // Handle CORS preflight
     if (req.method === 'OPTIONS') {
         const corsHeaders = getCorsHeaders(req);
@@ -39,34 +55,63 @@ export default async function handler(req, res) {
     }
 
     try {
-        // Initialize database
-        await initializeDatabase();
+        // Create Turso client
+        const db = createClient({
+            url: process.env.TURSO_DATABASE_URL,
+            authToken: process.env.TURSO_AUTH_TOKEN,
+        });
+
+        // Initialize database tables
+        await db.execute(`
+            CREATE TABLE IF NOT EXISTS users (
+                id TEXT PRIMARY KEY,
+                device_id TEXT UNIQUE,
+                email TEXT,
+                password_hash TEXT,
+                password_reset_required INTEGER DEFAULT 1,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                last_sync DATETIME
+            )
+        `);
+
+        await db.execute(`
+            CREATE TABLE IF NOT EXISTS refresh_tokens (
+                id TEXT PRIMARY KEY,
+                user_id TEXT NOT NULL,
+                token_hash TEXT NOT NULL,
+                expires_at DATETIME NOT NULL,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+                FOREIGN KEY (user_id) REFERENCES users(id)
+            )
+        `);
 
         const { username, password } = req.body;
 
-        // Validate inputs
-        validateUsername(username);
-        validatePassword(password);
+        // Simple validation
+        if (!username || username.length < 3) {
+            return res.status(400).json({
+                error: 'VALIDATION_ERROR',
+                message: 'Username must be at least 3 characters'
+            });
+        }
+
+        if (!password || password.length < 3) {
+            return res.status(400).json({
+                error: 'VALIDATION_ERROR',
+                message: 'Password must be at least 3 characters'
+            });
+        }
 
         // Check if user exists
         const userResult = await db.execute({
-            sql: `SELECT id, password_hash, password_reset_required FROM users WHERE id = ?`,
+            sql: `SELECT id, password_hash FROM users WHERE id = ?`,
             args: [username]
         });
 
         const user = userResult.rows[0];
 
-        if (user) {
+        if (user && user.password_hash) {
             // Existing user - verify password
-            if (!user.password_hash) {
-                // Legacy user without password - require password reset
-                return res.status(403).json({
-                    error: 'PASSWORD_RESET_REQUIRED',
-                    message: 'This account requires a password reset. Please create a new password.'
-                });
-            }
-
-            // Verify password
             const isValid = await bcrypt.compare(password, user.password_hash);
 
             if (!isValid) {
@@ -87,13 +132,13 @@ export default async function handler(req, res) {
         }
 
         // Generate tokens
-        const accessToken = generateAccessToken(username);
+        const accessToken = jwt.sign({ userId: username }, JWT_SECRET, { expiresIn: JWT_ACCESS_EXPIRY });
         const tokenId = randomUUID();
-        const refreshToken = generateRefreshToken(username, tokenId);
+        const refreshToken = jwt.sign({ userId: username, tokenId }, JWT_SECRET, { expiresIn: JWT_REFRESH_EXPIRY });
 
-        // Store refresh token in database
-        const tokenHash = await hashToken(refreshToken);
-        const expiryMs = parseExpiry(JWT_REFRESH_EXPIRY);
+        // Store refresh token
+        const tokenHash = await bcrypt.hash(refreshToken, 10);
+        const expiryMs = 30 * 24 * 60 * 60 * 1000; // 30 days
         const expiresAt = new Date(Date.now() + expiryMs).toISOString();
 
         await db.execute({
@@ -103,12 +148,10 @@ export default async function handler(req, res) {
         });
 
         // Set refresh token cookie
-        setRefreshTokenCookie(res, refreshToken);
+        const maxAge = Math.floor(expiryMs / 1000);
+        res.setHeader('Set-Cookie', `refreshToken=${refreshToken}; HttpOnly; Secure; SameSite=Strict; Max-Age=${maxAge}; Path=/api/auth`);
 
-        // Clean up expired tokens (async, don't wait)
-        cleanExpiredTokens().catch(console.error);
-
-        // Return access token and user info
+        // Return access token
         return res.status(200).json({
             accessToken,
             user: {
@@ -120,18 +163,10 @@ export default async function handler(req, res) {
     } catch (error) {
         console.error('[Login Error]', error);
 
-        // Handle validation errors
-        if (error.message.includes('Username') || error.message.includes('Password')) {
-            return res.status(400).json({
-                error: 'VALIDATION_ERROR',
-                message: error.message
-            });
-        }
-
-        // Generic error
         return res.status(500).json({
             error: 'INTERNAL_ERROR',
-            message: 'An error occurred during login'
+            message: 'An error occurred during login',
+            details: process.env.NODE_ENV === 'development' ? error.message : undefined
         });
     }
 }
