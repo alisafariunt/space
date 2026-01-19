@@ -60,7 +60,7 @@ export default async function handler(req, res) {
             text: text,
             voiceId: voiceName,
             style: 'Narration',
-            model: 'GEN2',
+            model: 'gen2',
             format: 'MP3',
             sampleRate: 24000,
             multiNativeLocale: voiceConfig?.lang || 'en-US',
