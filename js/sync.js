@@ -87,8 +87,14 @@
             createUserInfo();
         } else {
             createUserInfo();
-            // Show login modal if not authenticated
-            if (window.showLoginModal) {
+            const initialAuthPromise = authManager.initialAuthPromise;
+            if (initialAuthPromise && typeof initialAuthPromise.then === 'function') {
+                initialAuthPromise.then((success) => {
+                    if (!success && !authManager.isAuthenticated() && window.showLoginModal) {
+                        window.showLoginModal();
+                    }
+                });
+            } else if (window.showLoginModal) {
                 window.showLoginModal();
             }
         }

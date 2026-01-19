@@ -293,7 +293,7 @@
         if (COLORS[color].isUnderline) {
             wrapper.style.padding = '0'; // No padding for underline
         } else {
-            wrapper.style.padding = '0 4px'; // Slight padding for highlights
+            wrapper.style.padding = '2px 4px'; // 2px vertical, 4px horizontal
         }
         wrapper.style.cursor = 'pointer';
 
