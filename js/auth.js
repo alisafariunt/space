@@ -593,6 +593,8 @@
 
     // Setup auth state change handler
     authManager.onAuthStateChanged = (isAuthenticated, user) => {
+        updateUserMenu(isAuthenticated, user);
+
         if (isAuthenticated) {
             console.log('[Auth] User authenticated:', user.username);
             sessionManager.start();
@@ -611,6 +613,232 @@
             }));
         }
     };
+
+    // User Menu Manager
+    function updateUserMenu(isAuthenticated, user) {
+        // Remove existing user menu
+        const existingMenu = document.getElementById('user-menu-container');
+        if (existingMenu) existingMenu.remove();
+
+        // Find navbar
+        const navbar = document.querySelector('.navbar-content') || document.querySelector('.navbar');
+        if (!navbar) return;
+
+        if (isAuthenticated && user) {
+            // Create user menu
+            const menuContainer = document.createElement('div');
+            menuContainer.id = 'user-menu-container';
+            menuContainer.innerHTML = `
+                <div class="user-menu">
+                    <button class="user-menu-btn" id="user-menu-toggle">
+                        <span class="user-avatar">👤</span>
+                        <span class="user-name">${user.username}</span>
+                        <span class="chevron">▼</span>
+                    </button>
+                    <div class="user-dropdown" id="user-dropdown">
+                        <div class="dropdown-header">
+                            <span class="dropdown-user">👋 Hi, ${user.username}!</span>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item" id="logout-btn">
+                            <span class="dropdown-icon">🚪</span>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            navbar.appendChild(menuContainer);
+
+            // Toggle dropdown
+            const toggleBtn = document.getElementById('user-menu-toggle');
+            const dropdown = document.getElementById('user-dropdown');
+
+            toggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('show');
+            });
+
+            // Close on outside click
+            document.addEventListener('click', () => {
+                dropdown.classList.remove('show');
+            });
+
+            // Logout button
+            document.getElementById('logout-btn').addEventListener('click', async () => {
+                dropdown.classList.remove('show');
+                await authManager.logout();
+                if (window.showToast) {
+                    window.showToast('Logged out successfully', 'info', 2000);
+                }
+                // Show login modal after a short delay
+                setTimeout(() => showLoginModal('Please log in to continue'), 500);
+            });
+        }
+    }
+
+    // Inject user menu styles
+    function injectUserMenuStyles() {
+        if (document.getElementById('user-menu-styles')) return;
+
+        const style = document.createElement('style');
+        style.id = 'user-menu-styles';
+        style.textContent = `
+            #user-menu-container {
+                margin-left: auto;
+                position: relative;
+            }
+
+            .user-menu {
+                position: relative;
+            }
+
+            .user-menu-btn {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 14px;
+                background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+                border: none;
+                border-radius: 25px;
+                color: white;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+            }
+
+            .user-menu-btn:hover {
+                background: linear-gradient(135deg, #2563eb, #1e40af);
+                transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            }
+
+            .user-avatar {
+                font-size: 16px;
+            }
+
+            .user-name {
+                max-width: 100px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .chevron {
+                font-size: 10px;
+                transition: transform 0.2s;
+            }
+
+            .user-dropdown.show ~ .user-menu-btn .chevron {
+                transform: rotate(180deg);
+            }
+
+            .user-dropdown {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                margin-top: 8px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+                min-width: 180px;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.2s ease;
+                z-index: 1000;
+                overflow: hidden;
+            }
+
+            .user-dropdown.show {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .dropdown-header {
+                padding: 14px 16px;
+                background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            }
+
+            .dropdown-user {
+                font-weight: 600;
+                color: #1f2937;
+                font-size: 14px;
+            }
+
+            .dropdown-divider {
+                height: 1px;
+                background: #e5e7eb;
+            }
+
+            .dropdown-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+                padding: 12px 16px;
+                background: none;
+                border: none;
+                color: #374151;
+                font-size: 14px;
+                cursor: pointer;
+                transition: all 0.15s;
+                text-align: left;
+            }
+
+            .dropdown-item:hover {
+                background: #fee2e2;
+                color: #dc2626;
+            }
+
+            .dropdown-icon {
+                font-size: 16px;
+            }
+
+            /* Dark mode */
+            body.dark-mode .user-dropdown {
+                background: #1f2937;
+            }
+
+            body.dark-mode .dropdown-header {
+                background: linear-gradient(135deg, #374151, #1f2937);
+            }
+
+            body.dark-mode .dropdown-user {
+                color: white;
+            }
+
+            body.dark-mode .dropdown-divider {
+                background: #374151;
+            }
+
+            body.dark-mode .dropdown-item {
+                color: #d1d5db;
+            }
+
+            body.dark-mode .dropdown-item:hover {
+                background: #7f1d1d;
+                color: #fca5a5;
+            }
+
+            /* Mobile responsive */
+            @media (max-width: 768px) {
+                .user-name {
+                    display: none;
+                }
+                
+                .user-menu-btn {
+                    padding: 8px 12px;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // Initialize styles on load
+    injectUserMenuStyles();
 
     // Try silent authentication on page load
     (async function tryInitialAuth() {
