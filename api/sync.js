@@ -183,6 +183,9 @@ export default async function handler(req, res) {
 
             const results = { created: 0, updated: 0, deleted: 0 };
 
+            // Helper to handle undefined values
+            const val = (v) => v === undefined ? null : v;
+
             // Process highlights
             if (changes?.highlights) {
                 // Created/Updated
@@ -191,7 +194,7 @@ export default async function handler(req, res) {
                         sql: `INSERT OR REPLACE INTO highlights 
                               (id, user_id, course_id, page_id, text, color, element_path, created_at, updated_at)
                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`,
-                        args: [h.id, userId, h.courseId, h.pageId, h.text, h.color, h.elementPath, h.createdAt]
+                        args: [val(h.id), userId, val(h.courseId), val(h.pageId), val(h.text), val(h.color), val(h.elementPath), val(h.createdAt)]
                     });
                     results.created++;
                 }
@@ -212,7 +215,7 @@ export default async function handler(req, res) {
                         sql: `INSERT OR REPLACE INTO bookmarks 
                               (id, user_id, course_id, page_id, section_id, title, created_at)
                               VALUES (?, ?, ?, ?, ?, ?, ?)`,
-                        args: [b.id, userId, b.courseId, b.pageId, b.sectionId, b.title, b.createdAt]
+                        args: [val(b.id), userId, val(b.courseId), val(b.pageId), val(b.sectionId), val(b.title), val(b.createdAt)]
                     });
                     results.created++;
                 }
@@ -232,7 +235,7 @@ export default async function handler(req, res) {
                         sql: `INSERT OR REPLACE INTO notes 
                               (id, user_id, course_id, page_id, element_path, selected_text, note_content, color, created_at, updated_at)
                               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`,
-                        args: [n.id, userId, n.courseId, n.pageId, n.elementPath, n.selectedText, n.noteContent, n.color, n.createdAt]
+                        args: [val(n.id), userId, val(n.courseId), val(n.pageId), val(n.elementPath), val(n.selectedText), val(n.noteContent), val(n.color), val(n.createdAt)]
                     });
                     results.created++;
                 }
