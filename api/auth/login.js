@@ -150,7 +150,9 @@ export default async function handler(req, res) {
         // Set refresh token cookie
         // Use SameSite=Lax for cross-tab navigation, Path=/ for all routes
         const maxAge = Math.floor(expiryMs / 1000);
-        res.setHeader('Set-Cookie', `refreshToken=${refreshToken}; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}; Path=/`);
+        const isProduction = process.env.NODE_ENV === 'production';
+        const domainPart = isProduction ? '; Domain=alisafari.space' : '';
+        res.setHeader('Set-Cookie', `refreshToken=${refreshToken}; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}; Path=/${domainPart}`);
 
         // Return access token
         return res.status(200).json({
