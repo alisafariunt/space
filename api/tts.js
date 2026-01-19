@@ -1,27 +1,18 @@
-// Text-to-Speech API using Google Cloud TTS
-// Free tier: 1M characters/month for WaveNet voices
+// Text-to-Speech API using Murf.ai
+// Premium natural voices with narration style
 
-const GOOGLE_TTS_API = 'https://texttospeech.googleapis.com/v1/text:synthesize';
+const MURF_API = 'https://api.murf.ai/v1/speech/generate';
 
-// Available high-quality voices (Journey = best, Neural2 = great, WaveNet = good)
+// Available Murf voices
 const VOICES = {
-    // Journey voices - BEST quality, most natural
-    'en-US-Journey-F': { name: 'Journey Female (US)', gender: 'FEMALE', lang: 'en-US' },
-    'en-US-Journey-D': { name: 'Journey Male (US)', gender: 'MALE', lang: 'en-US' },
-    'en-US-Journey-O': { name: 'Journey Natural (US)', gender: 'FEMALE', lang: 'en-US' },
-    // Studio voices - Professional quality
-    'en-US-Studio-Q': { name: 'Studio Male (US)', gender: 'MALE', lang: 'en-US' },
-    'en-US-Studio-O': { name: 'Studio Female (US)', gender: 'FEMALE', lang: 'en-US' },
-    // Neural2 voices - Very natural
-    'en-US-Neural2-F': { name: 'Neural Female (US)', gender: 'FEMALE', lang: 'en-US' },
-    'en-US-Neural2-D': { name: 'Neural Male (US)', gender: 'MALE', lang: 'en-US' },
-    'en-US-Neural2-J': { name: 'Neural Male 2 (US)', gender: 'MALE', lang: 'en-US' },
-    // WaveNet voices - Good quality
-    'en-US-Wavenet-F': { name: 'WaveNet Female (US)', gender: 'FEMALE', lang: 'en-US' },
-    'en-US-Wavenet-D': { name: 'WaveNet Male (US)', gender: 'MALE', lang: 'en-US' },
-    // UK voices
-    'en-GB-Neural2-A': { name: 'Neural Female (UK)', gender: 'FEMALE', lang: 'en-GB' },
-    'en-GB-Neural2-B': { name: 'Neural Male (UK)', gender: 'MALE', lang: 'en-GB' },
+    'en-US-peter': { name: 'Peter', style: 'Narration', lang: 'en-US' },
+    'en-US-marcus': { name: 'Marcus', style: 'Narration', lang: 'en-US' },
+    'en-US-ken': { name: 'Ken', style: 'Narration', lang: 'en-US' },
+    'en-US-natalie': { name: 'Natalie', style: 'Narration', lang: 'en-US' },
+    'en-US-julia': { name: 'Julia', style: 'Narration', lang: 'en-US' },
+    'en-US-alicia': { name: 'Alicia', style: 'Narration', lang: 'en-US' },
+    'en-GB-iris': { name: 'Iris (UK)', style: 'Narration', lang: 'en-GB' },
+    'en-GB-george': { name: 'George (UK)', style: 'Narration', lang: 'en-GB' },
 };
 
 export default async function handler(req, res) {
@@ -44,13 +35,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        let { text, voice = 'en-US-Wavenet-F', speed = 1.0 } = req.body;
-
-        // Validate voice - must be a valid Google TTS voice
-        if (!VOICES[voice]) {
-            console.log(`Invalid voice "${voice}", falling back to default`);
-            voice = 'en-US-Wavenet-F';
-        }
+        let { text, voice = 'en-US-peter', speed = 1.0 } = req.body;
 
         if (!text || text.length === 0) {
             return res.status(400).json({ error: 'Text is required' });
@@ -60,58 +45,67 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: 'Text too long (max 5000 characters)' });
         }
 
-        const apiKey = process.env.GOOGLE_TTS_API_KEY;
+        const apiKey = process.env.MURF_API_KEY;
         if (!apiKey) {
-            console.error('GOOGLE_TTS_API_KEY not configured');
+            console.error('MURF_API_KEY not configured');
             return res.status(500).json({ error: 'TTS not configured' });
         }
 
-        // Get voice config
-        const voiceConfig = VOICES[voice] || VOICES['en-US-Wavenet-F'];
+        // Get voice config or default to Peter
+        const voiceConfig = VOICES[voice] || VOICES['en-US-peter'];
+        const voiceName = voiceConfig?.name || 'Peter';
 
-        // Build request body
+        // Build request body for Murf API
         const requestBody = {
-            input: { text: text },
-            voice: {
-                languageCode: voiceConfig.lang,
-                name: voice,
-                ssmlGender: voiceConfig.gender
-            },
-            audioConfig: {
-                audioEncoding: 'MP3',
-                speakingRate: speed,
-                pitch: 0,
-                volumeGainDb: 0
-            }
+            text: text,
+            voiceId: voiceName,
+            style: 'Narration',
+            model: 'GEN2',
+            format: 'MP3',
+            sampleRate: 24000,
+            multiNativeLocale: voiceConfig?.lang || 'en-US',
+            rate: speed
         };
 
-        // Call Google TTS API
-        const response = await fetch(`${GOOGLE_TTS_API}?key=${apiKey}`, {
+        // Call Murf API
+        const response = await fetch(MURF_API, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'api-key': apiKey
             },
             body: JSON.stringify(requestBody)
         });
 
         if (!response.ok) {
-            const error = await response.json();
-            console.error('Google TTS API error:', error);
-            return res.status(500).json({ error: 'TTS generation failed', details: error.error?.message });
+            const errorText = await response.text();
+            console.error('Murf API error:', response.status, errorText);
+            return res.status(500).json({ error: 'TTS generation failed', details: errorText });
         }
 
         const data = await response.json();
 
-        // audioContent is base64 encoded
-        const audioBuffer = Buffer.from(data.audioContent, 'base64');
+        // Murf returns a URL to the audio file
+        if (data.audioFile) {
+            // Fetch the audio file
+            const audioResponse = await fetch(data.audioFile);
+            if (!audioResponse.ok) {
+                throw new Error('Failed to fetch audio file');
+            }
 
-        res.setHeader('Content-Type', 'audio/mpeg');
-        res.setHeader('Content-Length', audioBuffer.length);
-        res.setHeader('Cache-Control', 'public, max-age=86400'); // Cache for 24h
-        return res.send(audioBuffer);
+            const audioBuffer = await audioResponse.arrayBuffer();
+
+            res.setHeader('Content-Type', 'audio/mpeg');
+            res.setHeader('Content-Length', audioBuffer.byteLength);
+            res.setHeader('Cache-Control', 'public, max-age=86400');
+            return res.send(Buffer.from(audioBuffer));
+        } else {
+            console.error('No audio file in response:', data);
+            return res.status(500).json({ error: 'No audio generated' });
+        }
 
     } catch (error) {
         console.error('TTS API error:', error);
-        return res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ error: 'Internal server error', details: error.message });
     }
 }

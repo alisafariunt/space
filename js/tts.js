@@ -1,4 +1,4 @@
-// Text-to-Speech Feature - Using Google Cloud TTS (Free Natural Voices)
+// Text-to-Speech Feature - Using Murf.ai (Premium Natural Voices)
 (function () {
     let isPlaying = false;
     let isPaused = false;
@@ -9,32 +9,23 @@
     let isLoading = false;
     const STORAGE_KEY = 'studyGuide_tts_preferences';
 
-    // Google Cloud TTS voices (Journey = BEST, Neural2 = great, WaveNet = good)
+    // Murf.ai Premium Voices (Gen2 - Super Natural!)
     const VOICES = {
-        // Journey - BEST quality
-        'en-US-Journey-F': { name: '⭐ Journey Female (Best)', flag: '🇺🇸' },
-        'en-US-Journey-D': { name: '⭐ Journey Male (Best)', flag: '🇺🇸' },
-        'en-US-Journey-O': { name: '⭐ Journey Natural (Best)', flag: '🇺🇸' },
-        // Studio - Professional
-        'en-US-Studio-Q': { name: '🎙️ Studio Male', flag: '🇺🇸' },
-        'en-US-Studio-O': { name: '🎙️ Studio Female', flag: '🇺🇸' },
-        // Neural2 - Very natural
-        'en-US-Neural2-F': { name: 'Neural Female', flag: '🇺🇸' },
-        'en-US-Neural2-D': { name: 'Neural Male', flag: '🇺🇸' },
-        'en-US-Neural2-J': { name: 'Neural Male 2', flag: '🇺🇸' },
-        // WaveNet
-        'en-US-Wavenet-F': { name: 'WaveNet Female', flag: '��' },
-        'en-US-Wavenet-D': { name: 'WaveNet Male', flag: '��' },
-        // UK
-        'en-GB-Neural2-A': { name: 'Neural Female', flag: '��' },
-        'en-GB-Neural2-B': { name: 'Neural Male', flag: '��' },
+        'en-US-peter': { name: 'Peter (Narrator)', flag: 'US' },
+        'en-US-marcus': { name: 'Marcus', flag: 'US' },
+        'en-US-ken': { name: 'Ken', flag: 'US' },
+        'en-US-natalie': { name: 'Natalie', flag: 'US' },
+        'en-US-julia': { name: 'Julia', flag: 'US' },
+        'en-US-alicia': { name: 'Alicia', flag: 'US' },
+        'en-GB-iris': { name: 'Iris', flag: 'UK' },
+        'en-GB-george': { name: 'George', flag: 'UK' },
     };
 
-    // Default settings - Journey Male is the best!
+    // Default settings - Peter with Narration style!
     let settings = {
         speed: 1.0,
         volume: 0.8,
-        voiceId: 'en-US-Journey-D',
+        voiceId: 'en-US-peter',
         autoScroll: true
     };
 
@@ -223,7 +214,6 @@
                 }
             });
         } else if (!audioUrl) {
-            // If generation failed, stop
             stopSpeaking();
         }
     }
@@ -322,16 +312,16 @@
         if (!btn) return;
 
         if (isLoading) {
-            btn.innerHTML = '⏳ Loading...';
+            btn.innerHTML = 'Loading...';
             btn.disabled = true;
         } else if (isPlaying) {
-            btn.innerHTML = '⏸️ Pause';
+            btn.innerHTML = 'Pause';
             btn.disabled = false;
         } else if (isPaused) {
-            btn.innerHTML = '▶️ Resume';
+            btn.innerHTML = 'Resume';
             btn.disabled = false;
         } else {
-            btn.innerHTML = '▶️ Play';
+            btn.innerHTML = 'Play';
             btn.disabled = false;
         }
     }
@@ -373,17 +363,17 @@
         panel.className = 'tts-panel';
         panel.innerHTML = `
             <div class="tts-header">
-                <span>🎙️ Natural Voice Reader</span>
+                <span>Natural Voice Reader</span>
                 <span id="tts-progress" class="tts-progress">0 / 0</span>
-                <button id="tts-close" title="Close">×</button>
+                <button id="tts-close" title="Close">X</button>
             </div>
             <div class="tts-now-reading" id="tts-now-reading">Ready to read...</div>
             <div class="tts-controls">
-                <button id="tts-prev" class="tts-nav-btn" title="Previous">⏮️</button>
-                <button id="tts-play-btn" class="tts-play-btn">▶️ Play</button>
-                <button id="tts-next" class="tts-nav-btn" title="Next">⏭️</button>
+                <button id="tts-prev" class="tts-nav-btn" title="Previous">Prev</button>
+                <button id="tts-play-btn" class="tts-play-btn">Play</button>
+                <button id="tts-next" class="tts-nav-btn" title="Next">Next</button>
                 <div class="tts-volume">
-                    🔊 <input type="range" id="tts-volume" min="0" max="1" step="0.1" value="${settings.volume}">
+                    Vol: <input type="range" id="tts-volume" min="0" max="1" step="0.1" value="${settings.volume}">
                 </div>
             </div>
             <div class="tts-speed">
@@ -401,7 +391,7 @@
                 </label>
             </div>
             <div class="tts-info">
-                ✨ Powered by Google Cloud WaveNet - Natural AI Voices
+                Powered by Murf.ai - Premium Natural Voices
             </div>
         `;
         document.body.appendChild(panel);
@@ -443,7 +433,7 @@
         const btn = document.createElement('button');
         btn.id = 'tts-btn';
         btn.className = 'tts-btn';
-        btn.innerHTML = '🎙️';
+        btn.innerHTML = 'TTS';
         btn.title = 'Natural Voice Reader';
         btn.addEventListener('click', toggleTTSPanel);
 
@@ -454,9 +444,10 @@
                 border: none;
                 border-radius: 8px;
                 padding: 8px 12px;
-                font-size: 1.2rem;
+                font-size: 0.9rem;
                 cursor: pointer;
                 margin-left: 10px;
+                color: white;
             `;
             nav.appendChild(btn);
         }
@@ -491,7 +482,7 @@
             .tts-header button {
                 background: none;
                 border: none;
-                font-size: 24px;
+                font-size: 18px;
                 cursor: pointer;
                 color: #666;
             }
@@ -528,13 +519,13 @@
                 border-radius: 8px;
                 padding: 10px 20px;
                 cursor: pointer;
-                font-size: 16px;
+                font-size: 14px;
                 transition: all 0.2s;
             }
             .tts-play-btn {
                 padding: 12px 30px;
-                font-size: 18px;
-                min-width: 140px;
+                font-size: 16px;
+                min-width: 120px;
             }
             .tts-play-btn:disabled {
                 background: #94a3b8;
@@ -667,7 +658,7 @@
         injectStyles();
         createTTSButton();
         setupKeyboardShortcuts();
-        console.log('[TTS] Google Cloud WaveNet voices loaded');
+        console.log('[TTS] Murf.ai premium voices loaded');
     }
 
     document.addEventListener('DOMContentLoaded', init);
