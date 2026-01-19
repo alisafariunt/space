@@ -12,11 +12,11 @@
 
     // Colors for highlighting
     const COLORS = {
-        yellow: { bg: '#fef08a', border: '#facc15', label: '🟡 Important' },
-        green: { bg: '#bbf7d0', border: '#22c55e', label: '🟢 Definition' },
-        red: { bg: '#fecaca', border: '#ef4444', label: '🔴 Critical' },
-        blue: { bg: '#bfdbfe', border: '#3b82f6', label: '🔵 Example' },
-        underline: { bg: 'transparent', border: '#f97316', label: '🖊️ Pen', isUnderline: true }
+        yellow: { bg: 'rgba(255, 213, 0, 0.4)', border: 'transparent', label: '🟡 Important' },
+        green: { bg: 'rgba(0, 200, 83, 0.3)', border: 'transparent', label: '🟢 Definition' },
+        red: { bg: 'rgba(255, 23, 68, 0.3)', border: 'transparent', label: '🔴 Critical' },
+        blue: { bg: 'rgba(41, 121, 255, 0.3)', border: 'transparent', label: '🔵 Example' },
+        underline: { bg: 'transparent', border: '#ff6d00', label: '🖊️ Pen', isUnderline: true }
     };
 
     // Get current page ID
@@ -140,10 +140,10 @@
         toolbar.id = 'highlight-toolbar';
         toolbar.className = 'highlight-toolbar';
         toolbar.innerHTML = `
-            <button data-color="yellow" title="Important" style="background: ${COLORS.yellow.bg}">🟡</button>
-            <button data-color="green" title="Definition" style="background: ${COLORS.green.bg}">🟢</button>
-            <button data-color="red" title="Critical" style="background: ${COLORS.red.bg}">🔴</button>
-            <button data-color="blue" title="Example" style="background: ${COLORS.blue.bg}">🔵</button>
+            <button data-color="yellow" title="Important" style="background: rgba(255, 213, 0, 0.6)">🟡</button>
+            <button data-color="green" title="Definition" style="background: rgba(0, 200, 83, 0.5)">🟢</button>
+            <button data-color="red" title="Critical" style="background: rgba(255, 23, 68, 0.5)">🔴</button>
+            <button data-color="blue" title="Example" style="background: rgba(41, 121, 255, 0.5)">🔵</button>
             <button data-color="underline" title="Pen Underline" style="background: #fff; border: 2px solid ${COLORS.underline.border}; color: ${COLORS.underline.border}">🖊️</button>
             <span class="toolbar-divider"></span>
             <button data-action="note" title="Add Note">📝</button>
@@ -273,23 +273,24 @@
         wrapper.dataset.highlightId = id;
 
         if (COLORS[color].isUnderline) {
-            // Style for Pen Underline
-            wrapper.style.backgroundColor = 'transparent'; // No background
-            wrapper.style.textDecoration = 'underline'; // Underline
-            wrapper.style.textDecorationStyle = 'solid'; // Solid line (not wavy)
-            wrapper.style.textDecorationColor = COLORS[color].border; // Red color
-            wrapper.style.textUnderlineOffset = '3px'; // Slightly below text
-            wrapper.style.textDecorationThickness = '2px'; // Thickness
-            // Also add bottom border for better visibility if wavy isn't enough, or just rely on wavy
-            // Let's stick to just the wavy underline for a "pen" feel
+            // Style for Pen Underline (Simple & Clean)
+            wrapper.style.backgroundColor = 'transparent';
+            wrapper.style.textDecoration = 'underline';
+            wrapper.style.textDecorationStyle = 'solid';
+            wrapper.style.textDecorationColor = COLORS[color].border;
+            wrapper.style.textUnderlineOffset = '2px';
+            wrapper.style.textDecorationThickness = '2px';
+            wrapper.style.borderBottom = 'none'; // Ensure no border
         } else {
-            // Standard Highlight
+            // Standard Highlighter (Ink effect)
             wrapper.style.backgroundColor = COLORS[color].bg;
-            wrapper.style.borderBottom = `2px solid ${COLORS[color].border}`;
+            wrapper.style.borderBottom = 'none'; // No underline for standard highlights
+            wrapper.style.borderRadius = '3px';
+            wrapper.style.boxDecorationBreak = 'clone'; // Better multiline rendering
+            wrapper.style.webkitBoxDecorationBreak = 'clone';
         }
 
-        wrapper.style.padding = '0 2px';
-        wrapper.style.borderRadius = '2px';
+        wrapper.style.padding = '1px 0'; // Minimal padding
         wrapper.style.cursor = 'pointer';
 
         wrapper.addEventListener('click', (e) => {
