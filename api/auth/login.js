@@ -162,11 +162,18 @@ export default async function handler(req, res) {
 
     } catch (error) {
         console.error('[Login Error]', error);
+        console.error('[Login Error Stack]', error.stack);
+        console.error('[Login Error - ENV Check]', {
+            hasTursoUrl: !!process.env.TURSO_DATABASE_URL,
+            hasTursoToken: !!process.env.TURSO_AUTH_TOKEN,
+            hasJwtSecret: !!process.env.JWT_SECRET
+        });
 
         return res.status(500).json({
             error: 'INTERNAL_ERROR',
             message: 'An error occurred during login',
-            details: process.env.NODE_ENV === 'development' ? error.message : undefined
+            details: error.message,
+            stack: error.stack?.split('\n').slice(0, 3).join('\n')
         });
     }
 }
