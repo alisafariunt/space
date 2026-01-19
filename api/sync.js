@@ -97,34 +97,60 @@ export default async function handler(req, res) {
 
         // Validate User & Password
         const validateUser = async (userId, inputPassword) => {
+            console.log(`[Auth] Validating ${userId}`);
+
             const result = await db.execute({
-                sql: "SELECT password FROM users WHERE id = ?",
+                sql: "SELECT * FROM users WHERE id = ?",
                 args: [userId]
             });
             const user = result.rows[0];
 
+            // Debug info
+            const debugMsg = user ? `User found (Pass: ${!!user.password})` : "User not found";
+            console.log(`[Auth] ${debugMsg}`);
+            res.setHeader('x-debug-auth', debugMsg);
+
             if (!user) {
                 // New User: Require password
-                if (!inputPassword) throw new Error('PASSWORD_REQUIRED');
+                if (!inputPassword) {
+                    console.log('[Auth] Password required for new user');
+                    throw new Error('PASSWORD_REQUIRED');
+                }
 
+                console.log('[Auth] Creating user with password');
                 await db.execute({
                     sql: `INSERT INTO users (id, device_id, password, created_at) VALUES (?, ?, ?, datetime('now'))`,
                     args: [userId, userId, inputPassword]
                 });
+                res.setHeader('x-debug-action', 'created_user');
                 return true;
             } else {
                 // Existing User
                 if (user.password) {
                     // Protected account
-                    if (user.password !== inputPassword) throw new Error('INVALID_PASSWORD');
+                    if (user.password !== inputPassword) {
+                        console.log('[Auth] Invalid password');
+                        throw new Error('INVALID_PASSWORD');
+                    }
+                    res.setHeader('x-debug-action', 'authenticated');
                 } else {
                     // Legacy account (unprotected)
                     // If user provides password, claim the account
                     if (inputPassword) {
-                        await db.execute({
-                            sql: "UPDATE users SET password = ? WHERE id = ?",
-                            args: [inputPassword, userId]
-                        });
+                        console.log('[Auth] claiming legacy account');
+                        try {
+                            const updateResult = await db.execute({
+                                sql: "UPDATE users SET password = ? WHERE id = ?",
+                                args: [inputPassword, userId]
+                            });
+                            console.log(`[Auth] Update result: ${JSON.stringify(updateResult)}`);
+                            res.setHeader('x-debug-action', 'claimed_account');
+                        } catch (err) {
+                            console.error('[Auth] Update Failed', err);
+                            res.setHeader('x-debug-error', err.message);
+                        }
+                    } else {
+                        res.setHeader('x-debug-action', 'legacy_login_no_pass');
                     }
                 }
                 return true;
