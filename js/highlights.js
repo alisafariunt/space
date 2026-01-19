@@ -274,12 +274,12 @@
 
         if (COLORS[color].isUnderline) {
             // Style for Pen Underline
-            wrapper.style.backgroundColor = 'transparent';
-            wrapper.style.textDecoration = 'underline'; // Fallback
-            wrapper.style.textDecorationStyle = 'wavy'; // Wavy line
-            wrapper.style.textDecorationColor = COLORS[color].border;
-            wrapper.style.textUnderlineOffset = '3px';
-            wrapper.style.textDecorationThickness = '2px';
+            wrapper.style.backgroundColor = 'transparent'; // No background
+            wrapper.style.textDecoration = 'underline'; // Underline
+            wrapper.style.textDecorationStyle = 'solid'; // Solid line (not wavy)
+            wrapper.style.textDecorationColor = COLORS[color].border; // Red color
+            wrapper.style.textUnderlineOffset = '3px'; // Slightly below text
+            wrapper.style.textDecorationThickness = '2px'; // Thickness
             // Also add bottom border for better visibility if wavy isn't enough, or just rely on wavy
             // Let's stick to just the wavy underline for a "pen" feel
         } else {

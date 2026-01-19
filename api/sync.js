@@ -75,55 +75,10 @@ async function initializeDatabase() {
         )`,
         `CREATE INDEX IF NOT EXISTS idx_highlights_user_course ON highlights(user_id, course_id)`,
         `CREATE INDEX IF NOT EXISTS idx_highlights_user_deleted ON highlights(user_id, deleted_at)`,
-        `CREATE INDEX IF NOT EXISTS idx_highlights_user_updated ON highlights(user_id, updated_at)`,
         `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_course ON bookmarks(user_id, course_id)`,
         `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_deleted ON bookmarks(user_id, deleted_at)`,
-        `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_updated ON bookmarks(user_id, updated_at)`,
         `CREATE INDEX IF NOT EXISTS idx_notes_user_course ON notes(user_id, course_id)`,
-        `CREATE INDEX IF NOT EXISTS idx_notes_user_deleted ON notes(user_id, deleted_at)`,
-        `CREATE INDEX IF NOT EXISTS idx_notes_user_updated ON notes(user_id, updated_at)`,
-        `CREATE TRIGGER IF NOT EXISTS highlights_set_updated_at
-            AFTER UPDATE ON highlights
-            FOR EACH ROW
-            WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
-            BEGIN
-                UPDATE highlights SET updated_at = datetime('now') WHERE id = NEW.id;
-            END`,
-        `CREATE TRIGGER IF NOT EXISTS highlights_set_updated_at_insert
-            AFTER INSERT ON highlights
-            FOR EACH ROW
-            WHEN NEW.updated_at IS NULL
-            BEGIN
-                UPDATE highlights SET updated_at = datetime('now') WHERE id = NEW.id;
-            END`,
-        `CREATE TRIGGER IF NOT EXISTS bookmarks_set_updated_at
-            AFTER UPDATE ON bookmarks
-            FOR EACH ROW
-            WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
-            BEGIN
-                UPDATE bookmarks SET updated_at = datetime('now') WHERE id = NEW.id;
-            END`,
-        `CREATE TRIGGER IF NOT EXISTS bookmarks_set_updated_at_insert
-            AFTER INSERT ON bookmarks
-            FOR EACH ROW
-            WHEN NEW.updated_at IS NULL
-            BEGIN
-                UPDATE bookmarks SET updated_at = datetime('now') WHERE id = NEW.id;
-            END`,
-        `CREATE TRIGGER IF NOT EXISTS notes_set_updated_at
-            AFTER UPDATE ON notes
-            FOR EACH ROW
-            WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
-            BEGIN
-                UPDATE notes SET updated_at = datetime('now') WHERE id = NEW.id;
-            END`,
-        `CREATE TRIGGER IF NOT EXISTS notes_set_updated_at_insert
-            AFTER INSERT ON notes
-            FOR EACH ROW
-            WHEN NEW.updated_at IS NULL
-            BEGIN
-                UPDATE notes SET updated_at = datetime('now') WHERE id = NEW.id;
-            END`
+        `CREATE INDEX IF NOT EXISTS idx_notes_user_deleted ON notes(user_id, deleted_at)`
     ]);
 }
 
@@ -270,6 +225,57 @@ export default async function handler(req, res) {
         } catch (e) {
             // Column likely exists
         }
+        try {
+            await db.batch([
+                `CREATE INDEX IF NOT EXISTS idx_highlights_user_updated ON highlights(user_id, updated_at)`,
+                `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_updated ON bookmarks(user_id, updated_at)`,
+                `CREATE INDEX IF NOT EXISTS idx_notes_user_updated ON notes(user_id, updated_at)`,
+                `CREATE TRIGGER IF NOT EXISTS highlights_set_updated_at
+                    AFTER UPDATE ON highlights
+                    FOR EACH ROW
+                    WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
+                    BEGIN
+                        UPDATE highlights SET updated_at = datetime('now') WHERE id = NEW.id;
+                    END`,
+                `CREATE TRIGGER IF NOT EXISTS highlights_set_updated_at_insert
+                    AFTER INSERT ON highlights
+                    FOR EACH ROW
+                    WHEN NEW.updated_at IS NULL
+                    BEGIN
+                        UPDATE highlights SET updated_at = datetime('now') WHERE id = NEW.id;
+                    END`,
+                `CREATE TRIGGER IF NOT EXISTS bookmarks_set_updated_at
+                    AFTER UPDATE ON bookmarks
+                    FOR EACH ROW
+                    WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
+                    BEGIN
+                        UPDATE bookmarks SET updated_at = datetime('now') WHERE id = NEW.id;
+                    END`,
+                `CREATE TRIGGER IF NOT EXISTS bookmarks_set_updated_at_insert
+                    AFTER INSERT ON bookmarks
+                    FOR EACH ROW
+                    WHEN NEW.updated_at IS NULL
+                    BEGIN
+                        UPDATE bookmarks SET updated_at = datetime('now') WHERE id = NEW.id;
+                    END`,
+                `CREATE TRIGGER IF NOT EXISTS notes_set_updated_at
+                    AFTER UPDATE ON notes
+                    FOR EACH ROW
+                    WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
+                    BEGIN
+                        UPDATE notes SET updated_at = datetime('now') WHERE id = NEW.id;
+                    END`,
+                `CREATE TRIGGER IF NOT EXISTS notes_set_updated_at_insert
+                    AFTER INSERT ON notes
+                    FOR EACH ROW
+                    WHEN NEW.updated_at IS NULL
+                    BEGIN
+                        UPDATE notes SET updated_at = datetime('now') WHERE id = NEW.id;
+                    END`
+            ]);
+        } catch (e) {
+            // Trigger creation is best-effort
+        }
 
         const { method } = req;
 
@@ -410,7 +416,7 @@ export default async function handler(req, res) {
                 // Deleted (soft delete)
                 for (const id of changes.highlights.deleted || []) {
                     await db.execute({
-                        sql: `UPDATE highlights SET deleted_at = datetime('now') WHERE id = ? AND user_id = ?`,
+                        sql: `UPDATE highlights SET deleted_at = datetime('now'), updated_at = datetime('now') WHERE id = ? AND user_id = ?`,
                         args: [id, userId]
                     });
                     results.deleted++;
@@ -422,15 +428,15 @@ export default async function handler(req, res) {
                 for (const b of changes.bookmarks.upsert || []) {
                     await db.execute({
                         sql: `INSERT OR REPLACE INTO bookmarks 
-                              (id, user_id, course_id, page_id, section_id, title, created_at)
-                              VALUES (?, ?, ?, ?, ?, ?, ?)`,
+                              (id, user_id, course_id, page_id, section_id, title, created_at, updated_at)
+                              VALUES (?, ?, ?, ?, ?, ?, ?, datetime('now'))`,
                         args: [val(b.id), userId, val(b.courseId), val(b.pageId), val(b.sectionId), val(b.title), val(b.createdAt)]
                     });
                     results.created++;
                 }
                 for (const id of changes.bookmarks.deleted || []) {
                     await db.execute({
-                        sql: `UPDATE bookmarks SET deleted_at = datetime('now') WHERE id = ? AND user_id = ?`,
+                        sql: `UPDATE bookmarks SET deleted_at = datetime('now'), updated_at = datetime('now') WHERE id = ? AND user_id = ?`,
                         args: [id, userId]
                     });
                     results.deleted++;
@@ -450,7 +456,7 @@ export default async function handler(req, res) {
                 }
                 for (const id of changes.notes.deleted || []) {
                     await db.execute({
-                        sql: `UPDATE notes SET deleted_at = datetime('now') WHERE id = ? AND user_id = ?`,
+                        sql: `UPDATE notes SET deleted_at = datetime('now'), updated_at = datetime('now') WHERE id = ? AND user_id = ?`,
                         args: [id, userId]
                     });
                     results.deleted++;
