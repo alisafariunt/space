@@ -1,6 +1,8 @@
 // Text-to-Speech API using Microsoft Edge TTS
 // Free, natural-sounding neural voices
 
+import WebSocket from 'ws';
+
 const TRUSTED_CLIENT_TOKEN = "6A5AA1D4EAFF4E9FB37E23D68491D6F4";
 const WSS_URL = "wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1";
 const VOICE_LIST_URL = "https://speech.platform.bing.com/consumer/speech/synthesize/readaloud/voices/list";
@@ -46,7 +48,7 @@ function buildSSML(text, voice = 'en-US-AriaNeural', rate = 1.0, pitch = 0) {
     `.trim();
 }
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
     // CORS headers
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -78,7 +80,6 @@ module.exports = async function handler(req, res) {
         const wsUrl = `${WSS_URL}?TrustedClientToken=${TRUSTED_CLIENT_TOKEN}&ConnectionId=${requestId}`;
 
         // Create WebSocket connection
-        const WebSocket = require('ws');
         const ws = new WebSocket(wsUrl, {
             headers: {
                 'Origin': 'chrome-extension://jdiccldimpdaibmpdkjnbmckianbfold',
