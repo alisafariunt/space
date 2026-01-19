@@ -355,13 +355,20 @@
                 const id = btn.dataset.id;
                 const type = btn.dataset.type;
                 if (type === 'bookmark') {
-                    bookmarks = bookmarks.filter(b => b.id !== id);
-                    document.querySelector(`[data-bookmark-id="${id}"]`)?.remove();
+                    // Find indicator primarily by ID
+                    let indicator = document.querySelector(`.bookmark-indicator[data-bookmark-id="${id}"]`);
+                    if (indicator) {
+                        removeBookmark(id, indicator);
+                    } else {
+                        // Fallback: just remove data if indicator not found (e.g. different page)
+                        bookmarks = bookmarks.filter(b => b.id !== id);
+                        saveData();
+                        queueSync('bookmarks', 'delete', id);
+                    }
                 } else {
                     const el = document.querySelector(`[data-highlight-id="${id}"]`);
                     if (el) removeHighlight(id, el);
                 }
-                saveData();
                 updateHighlightPanel(filter);
             });
         });
@@ -384,12 +391,7 @@
         const title = heading.textContent.trim();
 
         // Add visual indicator
-        const indicator = document.createElement('span');
-        indicator.className = 'bookmark-indicator';
-        indicator.dataset.bookmarkId = id;
-        indicator.innerHTML = '📌';
-        indicator.style.cssText = 'margin-right: 8px; cursor: pointer;';
-        indicator.addEventListener('click', () => removeBookmark(id, indicator));
+        const indicator = createBookmarkIndicator(id);
         heading.insertBefore(indicator, heading.firstChild);
 
         // Save bookmark
@@ -409,9 +411,66 @@
         queueSync('bookmarks', 'upsert', bookmark);
     }
 
+    // Create bookmark indicator element
+    function createBookmarkIndicator(id) {
+        const indicator = document.createElement('span');
+        indicator.className = 'bookmark-indicator';
+        indicator.dataset.bookmarkId = id;
+        indicator.innerHTML = '📌';
+        indicator.style.cssText = 'margin-right: 8px; cursor: pointer;';
+        indicator.title = 'Click to remove bookmark';
+        indicator.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            removeBookmark(id, indicator);
+        });
+        return indicator;
+    }
+
+    // Restore bookmarks from storage
+    function restoreBookmarks() {
+        const pageId = getPageId();
+        bookmarks.forEach(b => {
+            if (b.pageId !== pageId) return;
+
+            // Try to find section by ID first, then by matching text
+            let heading = b.sectionId ? document.getElementById(b.sectionId) : null;
+
+            if (!heading) {
+                // Fallback: find heading by text content
+                const headings = document.querySelectorAll('h1, h2, h3, h4');
+                for (let h of headings) {
+                    if (h.textContent.trim() === b.title || h.textContent.includes(b.title)) {
+                        heading = h;
+                        break;
+                    }
+                }
+            }
+
+            if (heading && !heading.querySelector('.bookmark-indicator')) {
+                const indicator = createBookmarkIndicator(b.id);
+                heading.insertBefore(indicator, heading.firstChild);
+
+                // Keep the add button hidden
+                const addBtn = heading.querySelector('.bookmark-btn');
+                if (addBtn) addBtn.style.display = 'none';
+            }
+        });
+    }
+
     // Remove bookmark
     function removeBookmark(id, indicator) {
-        indicator.remove();
+        if (indicator) {
+            const heading = indicator.parentElement;
+            indicator.remove();
+
+            // Show the add button again if it exists
+            if (heading) {
+                const addBtn = heading.querySelector('.bookmark-btn');
+                if (addBtn) addBtn.style.display = '';
+            }
+        }
+
         bookmarks = bookmarks.filter(b => b.id !== id);
         saveData();
         updateHighlightPanel();
@@ -733,6 +792,7 @@
         injectStyles();
         createPanelButton();
         addBookmarkButtons();
+        restoreBookmarks();
 
         // Selection handler
         document.addEventListener('mouseup', () => {
