@@ -9,23 +9,32 @@
     let isLoading = false;
     const STORAGE_KEY = 'studyGuide_tts_preferences';
 
-    // Google Cloud TTS voices (WaveNet & Neural2 - very natural!)
+    // Google Cloud TTS voices (Journey = BEST, Neural2 = great, WaveNet = good)
     const VOICES = {
-        'en-US-Wavenet-F': { name: 'Emma (US Female)', flag: '🇺🇸' },
-        'en-US-Wavenet-D': { name: 'James (US Male)', flag: '🇺🇸' },
-        'en-US-Neural2-F': { name: 'Sophie (Neural)', flag: '🇺🇸' },
-        'en-US-Neural2-D': { name: 'Michael (Neural)', flag: '🇺🇸' },
-        'en-GB-Wavenet-A': { name: 'Charlotte (UK)', flag: '🇬🇧' },
-        'en-GB-Wavenet-B': { name: 'Oliver (UK)', flag: '🇬🇧' },
-        'en-AU-Wavenet-A': { name: 'Olivia (AU)', flag: '🇦🇺' },
-        'en-AU-Wavenet-B': { name: 'Liam (AU)', flag: '🇦🇺' },
+        // Journey - BEST quality
+        'en-US-Journey-F': { name: '⭐ Journey Female (Best)', flag: '🇺🇸' },
+        'en-US-Journey-D': { name: '⭐ Journey Male (Best)', flag: '🇺🇸' },
+        'en-US-Journey-O': { name: '⭐ Journey Natural (Best)', flag: '🇺🇸' },
+        // Studio - Professional
+        'en-US-Studio-Q': { name: '🎙️ Studio Male', flag: '🇺🇸' },
+        'en-US-Studio-O': { name: '🎙️ Studio Female', flag: '🇺🇸' },
+        // Neural2 - Very natural
+        'en-US-Neural2-F': { name: 'Neural Female', flag: '🇺🇸' },
+        'en-US-Neural2-D': { name: 'Neural Male', flag: '🇺🇸' },
+        'en-US-Neural2-J': { name: 'Neural Male 2', flag: '🇺🇸' },
+        // WaveNet
+        'en-US-Wavenet-F': { name: 'WaveNet Female', flag: '��' },
+        'en-US-Wavenet-D': { name: 'WaveNet Male', flag: '��' },
+        // UK
+        'en-GB-Neural2-A': { name: 'Neural Female', flag: '��' },
+        'en-GB-Neural2-B': { name: 'Neural Male', flag: '��' },
     };
 
-    // Default settings
+    // Default settings - Journey Male is the best!
     let settings = {
         speed: 1.0,
         volume: 0.8,
-        voiceId: 'en-US-Wavenet-F',
+        voiceId: 'en-US-Journey-D',
         autoScroll: true
     };
 

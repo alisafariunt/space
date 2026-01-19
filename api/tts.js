@@ -3,16 +3,25 @@
 
 const GOOGLE_TTS_API = 'https://texttospeech.googleapis.com/v1/text:synthesize';
 
-// Available high-quality voices
+// Available high-quality voices (Journey = best, Neural2 = great, WaveNet = good)
 const VOICES = {
-    'en-US-Wavenet-F': { name: 'Emma (US Female)', gender: 'FEMALE', lang: 'en-US' },
-    'en-US-Wavenet-D': { name: 'James (US Male)', gender: 'MALE', lang: 'en-US' },
-    'en-US-Neural2-F': { name: 'Sophie (US Female Neural)', gender: 'FEMALE', lang: 'en-US' },
-    'en-US-Neural2-D': { name: 'Michael (US Male Neural)', gender: 'MALE', lang: 'en-US' },
-    'en-GB-Wavenet-A': { name: 'Charlotte (UK Female)', gender: 'FEMALE', lang: 'en-GB' },
-    'en-GB-Wavenet-B': { name: 'Oliver (UK Male)', gender: 'MALE', lang: 'en-GB' },
-    'en-AU-Wavenet-A': { name: 'Olivia (AU Female)', gender: 'FEMALE', lang: 'en-AU' },
-    'en-AU-Wavenet-B': { name: 'Liam (AU Male)', gender: 'MALE', lang: 'en-AU' },
+    // Journey voices - BEST quality, most natural
+    'en-US-Journey-F': { name: 'Journey Female (US)', gender: 'FEMALE', lang: 'en-US' },
+    'en-US-Journey-D': { name: 'Journey Male (US)', gender: 'MALE', lang: 'en-US' },
+    'en-US-Journey-O': { name: 'Journey Natural (US)', gender: 'FEMALE', lang: 'en-US' },
+    // Studio voices - Professional quality
+    'en-US-Studio-Q': { name: 'Studio Male (US)', gender: 'MALE', lang: 'en-US' },
+    'en-US-Studio-O': { name: 'Studio Female (US)', gender: 'FEMALE', lang: 'en-US' },
+    // Neural2 voices - Very natural
+    'en-US-Neural2-F': { name: 'Neural Female (US)', gender: 'FEMALE', lang: 'en-US' },
+    'en-US-Neural2-D': { name: 'Neural Male (US)', gender: 'MALE', lang: 'en-US' },
+    'en-US-Neural2-J': { name: 'Neural Male 2 (US)', gender: 'MALE', lang: 'en-US' },
+    // WaveNet voices - Good quality
+    'en-US-Wavenet-F': { name: 'WaveNet Female (US)', gender: 'FEMALE', lang: 'en-US' },
+    'en-US-Wavenet-D': { name: 'WaveNet Male (US)', gender: 'MALE', lang: 'en-US' },
+    // UK voices
+    'en-GB-Neural2-A': { name: 'Neural Female (UK)', gender: 'FEMALE', lang: 'en-GB' },
+    'en-GB-Neural2-B': { name: 'Neural Male (UK)', gender: 'MALE', lang: 'en-GB' },
 };
 
 export default async function handler(req, res) {
