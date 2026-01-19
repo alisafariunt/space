@@ -86,21 +86,67 @@ export default async function handler(req, res) {
         // Ensure tables exist
         await initializeDatabase();
 
+        // Migration: Add password column if missing
+        try {
+            await db.execute("ALTER TABLE users ADD COLUMN password TEXT");
+        } catch (e) {
+            // Column likely exists
+        }
+
         const { method } = req;
+
+        // Validate User & Password
+        const validateUser = async (userId, inputPassword) => {
+            const result = await db.execute({
+                sql: "SELECT password FROM users WHERE id = ?",
+                args: [userId]
+            });
+            const user = result.rows[0];
+
+            if (!user) {
+                // New User: Require password
+                if (!inputPassword) throw new Error('PASSWORD_REQUIRED');
+
+                await db.execute({
+                    sql: `INSERT INTO users (id, device_id, password, created_at) VALUES (?, ?, ?, datetime('now'))`,
+                    args: [userId, userId, inputPassword]
+                });
+                return true;
+            } else {
+                // Existing User
+                if (user.password) {
+                    // Protected account
+                    if (user.password !== inputPassword) throw new Error('INVALID_PASSWORD');
+                } else {
+                    // Legacy account (unprotected)
+                    // If user provides password, claim the account
+                    if (inputPassword) {
+                        await db.execute({
+                            sql: "UPDATE users SET password = ? WHERE id = ?",
+                            args: [inputPassword, userId]
+                        });
+                    }
+                }
+                return true;
+            }
+        };
 
         if (method === 'GET') {
             // Fetch user data
             const { userId, since, courseId } = req.query;
+            const password = req.headers['x-password'];
 
             if (!userId) {
                 return res.status(400).json({ error: 'userId is required' });
             }
 
-            // Ensure user exists
-            await db.execute({
-                sql: `INSERT OR IGNORE INTO users (id, device_id, created_at) VALUES (?, ?, datetime('now'))`,
-                args: [userId, userId]
-            });
+            try {
+                await validateUser(userId, password);
+            } catch (e) {
+                if (e.message === 'PASSWORD_REQUIRED') return res.status(400).json({ error: 'Password required to create account' });
+                if (e.message === 'INVALID_PASSWORD') return res.status(401).json({ error: 'Invalid password' });
+                throw e;
+            }
 
             // Fetch highlights
             let highlightsQuery = `SELECT * FROM highlights WHERE user_id = ?`;
@@ -176,16 +222,19 @@ export default async function handler(req, res) {
         } else if (method === 'POST') {
             // Push changes
             const { userId, changes } = req.body;
+            const password = req.headers['x-password'];
 
             if (!userId) {
                 return res.status(400).json({ error: 'userId is required' });
             }
 
-            // Ensure user exists
-            await db.execute({
-                sql: `INSERT OR IGNORE INTO users (id, device_id, created_at) VALUES (?, ?, datetime('now'))`,
-                args: [userId, userId]
-            });
+            try {
+                await validateUser(userId, password);
+            } catch (e) {
+                if (e.message === 'PASSWORD_REQUIRED') return res.status(400).json({ error: 'Password required to create account' });
+                if (e.message === 'INVALID_PASSWORD') return res.status(401).json({ error: 'Invalid password' });
+                throw e;
+            }
 
             const results = { created: 0, updated: 0, deleted: 0 };
 

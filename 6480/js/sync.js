@@ -63,15 +63,19 @@
     }
 
     // Show Login Modal
-    function showLoginModal() {
+    function showLoginModal(message = null) {
+        const existing = document.querySelector('.login-modal-overlay');
+        if (existing) existing.remove();
+
         const modal = document.createElement('div');
         modal.className = 'login-modal-overlay';
         modal.innerHTML = `
             <div class="login-modal">
                 <h2>👋 Welcome!</h2>
-                <p>Enter your name to sync your progress across devices.</p>
-                <input type="text" id="login-name" placeholder="Your Name (e.g. Ali)" autofocus>
-                <button id="login-btn">Start Studying 🚀</button>
+                ${message ? `<p style="color:red; font-weight:bold;">${message}</p>` : '<p>Enter your name and a secret password to protect your progress.</p>'}
+                <input type="text" id="login-name" placeholder="Username (e.g. Ali)" autofocus>
+                <input type="password" id="login-password" placeholder="Secret Password">
+                <button id="login-btn">Login / Register 🚀</button>
             </div>
         `;
         document.body.appendChild(modal);
@@ -95,6 +99,7 @@
             .login-modal input {
                 width: 100%; padding: 10px; margin-bottom: 1rem;
                 border: 2px solid #eee; border-radius: 8px; font-size: 1rem;
+                box-sizing: border-box;
             }
             .login-modal button {
                 width: 100%; padding: 12px; background: #3b82f6; color: white;
@@ -111,25 +116,33 @@
         document.head.appendChild(style);
 
         // Logic
-        const input = modal.querySelector('input');
+        const nameInput = modal.querySelector('#login-name');
+        const passInput = modal.querySelector('#login-password');
         const btn = modal.querySelector('button');
 
         const login = () => {
-            const name = input.value.trim();
-            if (name) {
+            const name = nameInput.value.trim();
+            const password = passInput.value.trim();
+            if (name && password) {
                 localStorage.setItem('studyGuide_username', name);
+                localStorage.setItem('studyGuide_password', password);
                 userId = name;
                 modal.remove();
                 setupSync();
                 createUserInfo();
 
-                // Trigger initial sync to merge local data to this new user account
-                queueChange('preferences', 'upsert', null); // Force a sync check
+                // Trigger initial sync
+                const hasData = hasQueuedChanges(); // Logic to merge?
+                // We just trigger sync. Sync will handle logic.
+                // But we want to ensure we push local preferences if any
+                window.StudyGuideSync.queueChange('preferences', 'upsert', null);
+            } else {
+                alert("Please enter both Name and Password.");
             }
         };
 
         btn.addEventListener('click', login);
-        input.addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
+        passInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
     }
 
     // Create User Info UI (Logout)
@@ -172,6 +185,7 @@
         userDiv.addEventListener('click', () => {
             if (confirm(`Logout from "${userId}"?`)) {
                 localStorage.removeItem('studyGuide_username');
+                localStorage.removeItem('studyGuide_password');
                 location.reload();
             }
         });
@@ -350,8 +364,19 @@
         updateSyncStatusUI();
 
         try {
-            const userId = getDeviceId();
+            const userId = getUserId();
+            const password = localStorage.getItem('studyGuide_password');
             const courseId = getCourseId();
+
+            if (!userId) {
+                showLoginModal();
+                return { success: false };
+            }
+
+            const headers = {
+                'Content-Type': 'application/json',
+                'x-password': password || ''
+            };
 
             // Push local changes first
             if (hasQueuedChanges()) {
@@ -359,12 +384,16 @@
 
                 const response = await fetch(API_URL, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: headers,
                     body: JSON.stringify({
                         userId,
                         changes: queue
                     })
                 });
+
+                if (response.status === 401) {
+                    throw new Error('AUTH_FAILED');
+                }
 
                 if (!response.ok) {
                     throw new Error(`Push failed: ${response.status}`);
@@ -376,7 +405,14 @@
 
             // Pull latest from server
             const pullUrl = `${API_URL}?userId=${userId}&courseId=${courseId}`;
-            const pullResponse = await fetch(pullUrl);
+            const pullResponse = await fetch(pullUrl, {
+                method: 'GET',
+                headers: headers
+            });
+
+            if (pullResponse.status === 401) {
+                throw new Error('AUTH_FAILED');
+            }
 
             if (!pullResponse.ok) {
                 throw new Error(`Pull failed: ${pullResponse.status}`);
@@ -408,6 +444,14 @@
 
         } catch (error) {
             console.error('Sync error:', error);
+
+            if (error.message === 'AUTH_FAILED') {
+                syncStatus = 'error';
+                updateSyncStatusUI();
+                showLoginModal("Incorrect Password. Please login again.");
+                return { success: false, error: 'auth_failed' };
+            }
+
             syncStatus = 'error';
             updateSyncStatusUI();
 
