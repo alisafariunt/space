@@ -9,23 +9,23 @@
     let isLoading = false;
     const STORAGE_KEY = 'studyGuide_tts_preferences';
 
-    // Murf.ai Premium Voices (Gen2 - Super Natural!)
+    // Murf.ai Premium Voices (correct IDs from API)
     const VOICES = {
-        'en-US-peter': { name: 'Peter (Narrator)', flag: 'US' },
-        'en-US-marcus': { name: 'Marcus', flag: 'US' },
-        'en-US-ken': { name: 'Ken', flag: 'US' },
+        'en-US-terrell': { name: 'Terrell', flag: 'US' },
+        'en-US-ryan': { name: 'Ryan', flag: 'US' },
+        'en-US-miles': { name: 'Miles', flag: 'US' },
+        'en-US-denzel': { name: 'Denzel', flag: 'US' },
         'en-US-natalie': { name: 'Natalie', flag: 'US' },
-        'en-US-julia': { name: 'Julia', flag: 'US' },
-        'en-US-alicia': { name: 'Alicia', flag: 'US' },
-        'en-GB-iris': { name: 'Iris', flag: 'UK' },
-        'en-GB-george': { name: 'George', flag: 'UK' },
+        'en-US-samantha': { name: 'Samantha', flag: 'US' },
+        'en-US-charlotte': { name: 'Charlotte', flag: 'US' },
+        'en-UK-peter': { name: 'Peter', flag: 'UK' },
     };
 
-    // Default settings - Peter with Narration style!
+    // Default settings - Terrell is a good narrator voice
     let settings = {
         speed: 1.0,
         volume: 0.8,
-        voiceId: 'en-US-peter',
+        voiceId: 'en-US-terrell',
         autoScroll: true
     };
 

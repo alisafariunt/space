@@ -1,1 +1,0 @@
-{"error":"TTS generation failed","details":"{\"errorCode\":403,\"errorMessage\":\"Requested model- 'GEN2'not available for v1/speech/generate endpoint. Use 'gen2' instead.\"}"}

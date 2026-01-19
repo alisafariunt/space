@@ -3,16 +3,16 @@
 
 const MURF_API = 'https://api.murf.ai/v1/speech/generate';
 
-// Available Murf voices
+// Available Murf voices (correct voice IDs from API)
 const VOICES = {
-    'en-US-peter': { name: 'Peter', style: 'Narration', lang: 'en-US' },
-    'en-US-marcus': { name: 'Marcus', style: 'Narration', lang: 'en-US' },
-    'en-US-ken': { name: 'Ken', style: 'Narration', lang: 'en-US' },
-    'en-US-natalie': { name: 'Natalie', style: 'Narration', lang: 'en-US' },
-    'en-US-julia': { name: 'Julia', style: 'Narration', lang: 'en-US' },
-    'en-US-alicia': { name: 'Alicia', style: 'Narration', lang: 'en-US' },
-    'en-GB-iris': { name: 'Iris (UK)', style: 'Narration', lang: 'en-GB' },
-    'en-GB-george': { name: 'George (UK)', style: 'Narration', lang: 'en-GB' },
+    'en-US-terrell': { name: 'Terrell', lang: 'en-US' },
+    'en-US-ryan': { name: 'Ryan', lang: 'en-US' },
+    'en-US-miles': { name: 'Miles', lang: 'en-US' },
+    'en-US-denzel': { name: 'Denzel', lang: 'en-US' },
+    'en-US-natalie': { name: 'Natalie', lang: 'en-US' },
+    'en-US-samantha': { name: 'Samantha', lang: 'en-US' },
+    'en-US-charlotte': { name: 'Charlotte', lang: 'en-US' },
+    'en-UK-peter': { name: 'Peter (UK)', lang: 'en-UK' },
 };
 
 export default async function handler(req, res) {
@@ -53,7 +53,7 @@ export default async function handler(req, res) {
 
         // Get voice ID - Murf uses format like "en-US-peter" (lowercase name)
         // The voice parameter is already in this format from frontend
-        const voiceId = VOICES[voice] ? voice : 'en-US-peter';
+        const voiceId = VOICES[voice] ? voice : 'en-US-terrell';
 
         // Build request body for Murf API (using snake_case as per docs)
         const requestBody = {
