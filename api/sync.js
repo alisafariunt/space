@@ -103,7 +103,7 @@ export default async function handler(req, res) {
             });
 
             // Fetch highlights
-            let highlightsQuery = `SELECT * FROM highlights WHERE user_id = ? AND deleted_at IS NULL`;
+            let highlightsQuery = `SELECT * FROM highlights WHERE user_id = ?`;
             const highlightsArgs = [userId];
 
             if (courseId) {
@@ -111,14 +111,16 @@ export default async function handler(req, res) {
                 highlightsArgs.push(courseId);
             }
             if (since) {
-                highlightsQuery += ` AND (updated_at > ? OR created_at > ?)`;
-                highlightsArgs.push(since, since);
+                highlightsQuery += ` AND (updated_at > ? OR created_at > ? OR deleted_at > ?)`;
+                highlightsArgs.push(since, since, since);
+            } else {
+                highlightsQuery += ` AND deleted_at IS NULL`;
             }
 
             const highlights = await db.execute({ sql: highlightsQuery, args: highlightsArgs });
 
             // Fetch bookmarks
-            let bookmarksQuery = `SELECT * FROM bookmarks WHERE user_id = ? AND deleted_at IS NULL`;
+            let bookmarksQuery = `SELECT * FROM bookmarks WHERE user_id = ?`;
             const bookmarksArgs = [userId];
 
             if (courseId) {
@@ -126,14 +128,16 @@ export default async function handler(req, res) {
                 bookmarksArgs.push(courseId);
             }
             if (since) {
-                bookmarksQuery += ` AND created_at > ?`;
-                bookmarksArgs.push(since);
+                bookmarksQuery += ` AND (created_at > ? OR deleted_at > ?)`;
+                bookmarksArgs.push(since, since);
+            } else {
+                bookmarksQuery += ` AND deleted_at IS NULL`;
             }
 
             const bookmarks = await db.execute({ sql: bookmarksQuery, args: bookmarksArgs });
 
             // Fetch notes
-            let notesQuery = `SELECT * FROM notes WHERE user_id = ? AND deleted_at IS NULL`;
+            let notesQuery = `SELECT * FROM notes WHERE user_id = ?`;
             const notesArgs = [userId];
 
             if (courseId) {
@@ -141,8 +145,10 @@ export default async function handler(req, res) {
                 notesArgs.push(courseId);
             }
             if (since) {
-                notesQuery += ` AND (updated_at > ? OR created_at > ?)`;
-                notesArgs.push(since, since);
+                notesQuery += ` AND (updated_at > ? OR created_at > ? OR deleted_at > ?)`;
+                notesArgs.push(since, since, since);
+            } else {
+                notesQuery += ` AND deleted_at IS NULL`;
             }
 
             const notes = await db.execute({ sql: notesQuery, args: notesArgs });

@@ -267,15 +267,19 @@
 
             // Add/update from server
             serverData.highlights.forEach(h => {
-                localMap.set(h.id, {
-                    id: h.id,
-                    pageId: h.page_id,
-                    courseId: h.course_id, // Ensure we store courseId
-                    text: h.text,
-                    color: h.color,
-                    elementPath: h.element_path,
-                    createdAt: h.created_at
-                });
+                if (h.deleted_at) {
+                    localMap.delete(h.id);
+                } else {
+                    localMap.set(h.id, {
+                        id: h.id,
+                        pageId: h.page_id,
+                        courseId: h.course_id, // Ensure we store courseId
+                        text: h.text,
+                        color: h.color,
+                        elementPath: h.element_path,
+                        createdAt: h.created_at
+                    });
+                }
             });
 
             localData.highlights = Array.from(localMap.values());
@@ -286,14 +290,18 @@
             const localMap = new Map((localData.bookmarks || []).map(b => [b.id, b]));
 
             serverData.bookmarks.forEach(b => {
-                localMap.set(b.id, {
-                    id: b.id,
-                    pageId: b.page_id,
-                    courseId: b.course_id,
-                    sectionId: b.section_id,
-                    title: b.title,
-                    createdAt: b.created_at
-                });
+                if (b.deleted_at) {
+                    localMap.delete(b.id);
+                } else {
+                    localMap.set(b.id, {
+                        id: b.id,
+                        pageId: b.page_id,
+                        courseId: b.course_id,
+                        sectionId: b.section_id,
+                        title: b.title,
+                        createdAt: b.created_at
+                    });
+                }
             });
 
             localData.bookmarks = Array.from(localMap.values());
