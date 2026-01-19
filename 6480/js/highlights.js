@@ -395,7 +395,11 @@
     // Add bookmark to section
     function bookmarkSection(heading) {
         const id = generateId();
-        const title = heading.textContent.trim();
+
+        // Sanitize title: remove existing pins and cleanup text
+        let clone = heading.cloneNode(true);
+        clone.querySelectorAll('.bookmark-indicator').forEach(el => el.remove());
+        const title = clone.textContent.replace(/📌/g, '').trim();
 
         // Add visual indicator
         const indicator = createBookmarkIndicator(id);
@@ -407,7 +411,7 @@
             pageId: getPageId(),
             courseId: getCourseId(),
             sectionId: heading.id || '',
-            title,
+            title: title,
             createdAt: new Date().toISOString()
         };
         bookmarks.push(bookmark);
