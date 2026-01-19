@@ -51,20 +51,16 @@ export default async function handler(req, res) {
             return res.status(500).json({ error: 'TTS not configured' });
         }
 
-        // Get voice config or default to Peter
-        const voiceConfig = VOICES[voice] || VOICES['en-US-peter'];
-        const voiceName = voiceConfig?.name || 'Peter';
+        // Get voice ID - Murf uses format like "en-US-peter" (lowercase name)
+        // The voice parameter is already in this format from frontend
+        const voiceId = VOICES[voice] ? voice : 'en-US-peter';
 
-        // Build request body for Murf API
+        // Build request body for Murf API (using snake_case as per docs)
         const requestBody = {
             text: text,
-            voiceId: voiceName,
-            style: 'Narration',
-            model: 'gen2',
+            voice_id: voiceId,
             format: 'MP3',
-            sampleRate: 24000,
-            multiNativeLocale: voiceConfig?.lang || 'en-US',
-            rate: speed
+            sample_rate: 24000
         };
 
         // Call Murf API
