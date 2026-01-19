@@ -4,10 +4,10 @@ import jwt from 'jsonwebtoken';
 import { randomUUID } from 'crypto';
 
 export default async function handler(req, res) {
-    // Configuration
-    const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this-in-production';
-    const JWT_ACCESS_EXPIRY = process.env.JWT_ACCESS_EXPIRY || '30m';
-    const JWT_REFRESH_EXPIRY = process.env.JWT_REFRESH_EXPIRY || '30d';
+    // Configuration - use hardcoded values that JWT understands
+    const JWT_SECRET = process.env.JWT_SECRET || 'study-guide-secret-key-2024';
+    const JWT_ACCESS_EXPIRY = '30m';  // 30 minutes
+    const JWT_REFRESH_EXPIRY = '30d'; // 30 days
 
     // CORS headers
     function getCorsHeaders(req) {

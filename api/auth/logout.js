@@ -2,7 +2,7 @@ import { createClient } from '@libsql/client';
 import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {
-    const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this-in-production';
+    const JWT_SECRET = process.env.JWT_SECRET || 'study-guide-secret-key-2024';
 
     function getCorsHeaders(req) {
         const allowedOrigins = process.env.NODE_ENV === 'production'

@@ -3,8 +3,8 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {
-    const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this-in-production';
-    const JWT_ACCESS_EXPIRY = process.env.JWT_ACCESS_EXPIRY || '30m';
+    const JWT_SECRET = process.env.JWT_SECRET || 'study-guide-secret-key-2024';
+    const JWT_ACCESS_EXPIRY = '30m';
 
     function getCorsHeaders(req) {
         const allowedOrigins = process.env.NODE_ENV === 'production'
