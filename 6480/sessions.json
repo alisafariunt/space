@@ -1,0 +1,18 @@
+{
+  "course": {
+    "code": "BUSI 6480",
+    "title": "Experimental Design & Analysis",
+    "semester": "Spring 2026",
+    "instructor": "Dr. [Instructor Name]",
+    "university": "University of North Texas"
+  },
+  "sessions": [
+    {
+      "week": 1,
+      "id": "week1",
+      "title": "Introduction & ANOVA",
+      "description": "Kirk Chapters 1-3, ANOVA fundamentals, mediation analysis (Zhao et al. 2010), SAS & R basics, and homework guidance.",
+      "file": "week1.html"
+    }
+  ]
+}

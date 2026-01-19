@@ -2,6 +2,7 @@
 (function () {
     let highlights = [];
     let bookmarks = [];
+    let notes = [];
     let highlightPanel = null;
     let highlightToolbar = null;
     const STORAGE_KEY = 'studyGuide_highlights';
@@ -25,9 +26,11 @@
             const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
             highlights = data.highlights || [];
             bookmarks = data.bookmarks || [];
+            notes = data.notes || [];
         } catch (e) {
             highlights = [];
             bookmarks = [];
+            notes = [];
         }
     }
 
@@ -36,6 +39,7 @@
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
             highlights,
             bookmarks,
+            notes,
             lastUpdated: new Date().toISOString()
         }));
     }
@@ -103,6 +107,26 @@
             });
         });
 
+        // Note button click
+        const noteBtn = toolbar.querySelector('[data-action="note"]');
+        if (noteBtn) {
+            noteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                // Create highlight first with yellow color
+                const highlightId = applyHighlight('yellow', true);
+                hideToolbar();
+
+                // Then open note modal after a brief delay to ensure highlight is created
+                setTimeout(() => {
+                    const highlight = highlights.find(h => h.id === highlightId);
+                    const highlightElement = document.querySelector(`[data-highlight-id="${highlightId}"]`);
+                    if (highlight && highlightElement) {
+                        showNoteModal(highlight, highlightElement);
+                    }
+                }, 100);
+            });
+        }
+
         return toolbar;
     }
 
@@ -140,9 +164,9 @@
     }
 
     // Apply highlight to selected text
-    function applyHighlight(color) {
+    function applyHighlight(color, returnId = false) {
         const selInfo = getSelectionInfo();
-        if (!selInfo) return;
+        if (!selInfo) return returnId ? null : undefined;
 
         const { range, text } = selInfo;
         const id = generateId();
@@ -215,6 +239,9 @@
 
         // Update panel if open
         updateHighlightPanel();
+
+        // Return ID if requested
+        return returnId ? id : undefined;
     }
 
     // Restore Visual Highlights
@@ -316,7 +343,10 @@
         });
 
         options.querySelector('[data-action="note"]').addEventListener('click', () => {
-            alert('📝 Note-taking feature is coming soon!');
+            const highlight = highlights.find(h => h.id === id);
+            if (highlight) {
+                showNoteModal(highlight, element);
+            }
             options.remove();
         });
 
@@ -344,11 +374,226 @@
 
         // Remove from data
         highlights = highlights.filter(h => h.id !== id);
+
+        // Also remove associated notes
+        const associatedNotes = notes.filter(n => n.highlightId === id);
+        associatedNotes.forEach(note => {
+            queueSync('notes', 'delete', note.id);
+        });
+        notes = notes.filter(n => n.highlightId !== id);
+
         saveData();
         updateHighlightPanel();
 
         // Queue for cloud sync
         queueSync('highlights', 'delete', id);
+    }
+
+    // Show Note Modal
+    function showNoteModal(highlight, highlightElement) {
+        // Check if note already exists for this highlight
+        const existingNote = notes.find(n => n.highlightId === highlight.id);
+
+        const modal = document.createElement('div');
+        modal.className = 'note-modal-overlay';
+        modal.innerHTML = `
+            <div class="note-modal">
+                <div class="note-modal-header">
+                    <h3>📝 ${existingNote ? 'Edit' : 'Add'} Note</h3>
+                    <button class="note-modal-close">×</button>
+                </div>
+                <div class="note-modal-body">
+                    <div class="note-selected-text">
+                        <strong>Highlighted text:</strong>
+                        <p>"${highlight.text}"</p>
+                    </div>
+                    <textarea
+                        id="note-content"
+                        placeholder="Type your note here..."
+                        rows="8"
+                    >${existingNote ? existingNote.noteContent : ''}</textarea>
+                </div>
+                <div class="note-modal-footer">
+                    ${existingNote ? '<button class="note-delete-btn">🗑️ Delete Note</button>' : ''}
+                    <button class="note-cancel-btn">Cancel</button>
+                    <button class="note-save-btn">💾 Save</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        const textarea = modal.querySelector('#note-content');
+        const saveBtn = modal.querySelector('.note-save-btn');
+        const cancelBtn = modal.querySelector('.note-cancel-btn');
+        const closeBtn = modal.querySelector('.note-modal-close');
+        const deleteBtn = modal.querySelector('.note-delete-btn');
+
+        // Focus textarea
+        textarea.focus();
+
+        // Save note
+        const saveNote = () => {
+            const content = textarea.value.trim();
+            if (!content) {
+                alert('Please enter some note content');
+                return;
+            }
+
+            if (existingNote) {
+                // Update existing note
+                existingNote.noteContent = content;
+                existingNote.updatedAt = new Date().toISOString();
+                queueSync('notes', 'upsert', existingNote);
+            } else {
+                // Create new note
+                const note = {
+                    id: generateId().replace('hl_', 'note_'),
+                    highlightId: highlight.id,
+                    userId: window.StudyGuideSync?.getUserId(),
+                    courseId: getCourseId(),
+                    pageId: getPageId(),
+                    elementPath: highlight.elementPath,
+                    selectedText: highlight.text,
+                    noteContent: content,
+                    color: highlight.color,
+                    createdAt: new Date().toISOString()
+                };
+                notes.push(note);
+                queueSync('notes', 'upsert', note);
+
+                // Add note indicator to highlight
+                addNoteIndicator(highlightElement, note);
+            }
+
+            saveData();
+            updateHighlightPanel();
+            modal.remove();
+        };
+
+        // Delete note
+        const deleteNote = () => {
+            if (existingNote && confirm('Delete this note?')) {
+                notes = notes.filter(n => n.id !== existingNote.id);
+                queueSync('notes', 'delete', existingNote.id);
+                saveData();
+                updateHighlightPanel();
+
+                // Remove note indicator from highlight
+                const indicator = highlightElement?.querySelector('.note-indicator');
+                if (indicator) indicator.remove();
+
+                modal.remove();
+            }
+        };
+
+        // Close modal
+        const closeModal = () => modal.remove();
+
+        // Event listeners
+        saveBtn.addEventListener('click', saveNote);
+        cancelBtn.addEventListener('click', closeModal);
+        closeBtn.addEventListener('click', closeModal);
+        if (deleteBtn) deleteBtn.addEventListener('click', deleteNote);
+
+        // Save on Ctrl/Cmd + Enter
+        textarea.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                saveNote();
+            }
+        });
+
+        // Close on outside click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
+
+    // Add note indicator to highlight element
+    function addNoteIndicator(highlightElement, note) {
+        if (!highlightElement) return;
+
+        // Check if indicator already exists
+        if (highlightElement.querySelector('.note-indicator')) return;
+
+        const indicator = document.createElement('span');
+        indicator.className = 'note-indicator';
+        indicator.innerHTML = '📝';
+        indicator.title = 'Has note - Click to view';
+        indicator.style.cssText = 'margin-left: 4px; cursor: pointer; font-size: 0.8em;';
+
+        indicator.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showNoteViewModal(note);
+        });
+
+        highlightElement.appendChild(indicator);
+    }
+
+    // Show note view modal (read-only initially)
+    function showNoteViewModal(note) {
+        const highlight = highlights.find(h => h.id === note.highlightId);
+        const highlightElement = document.querySelector(`[data-highlight-id="${note.highlightId}"]`);
+
+        const modal = document.createElement('div');
+        modal.className = 'note-modal-overlay';
+        modal.innerHTML = `
+            <div class="note-modal">
+                <div class="note-modal-header">
+                    <h3>📝 Note</h3>
+                    <button class="note-modal-close">×</button>
+                </div>
+                <div class="note-modal-body">
+                    <div class="note-selected-text">
+                        <strong>Highlighted text:</strong>
+                        <p>"${note.selectedText}"</p>
+                    </div>
+                    <div class="note-content-display">
+                        ${note.noteContent.replace(/\n/g, '<br>')}
+                    </div>
+                </div>
+                <div class="note-modal-footer">
+                    <button class="note-edit-btn">✏️ Edit</button>
+                    <button class="note-close-btn">Close</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        const editBtn = modal.querySelector('.note-edit-btn');
+        const closeBtn = modal.querySelector('.note-close-btn');
+        const closeXBtn = modal.querySelector('.note-modal-close');
+
+        const closeModal = () => modal.remove();
+
+        editBtn.addEventListener('click', () => {
+            modal.remove();
+            if (highlight && highlightElement) {
+                showNoteModal(highlight, highlightElement);
+            }
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        closeXBtn.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
+
+    // Restore notes from storage
+    function restoreNotes() {
+        const pageId = getPageId();
+        notes.forEach(note => {
+            if (note.pageId !== pageId) return;
+
+            const highlightElement = document.querySelector(`[data-highlight-id="${note.highlightId}"]`);
+            if (highlightElement) {
+                addNoteIndicator(highlightElement, note);
+            }
+        });
     }
 
     // Create highlights/bookmarks panel
@@ -368,6 +613,7 @@
                 <button class="filter-btn" data-filter="red">🔴</button>
                 <button class="filter-btn" data-filter="blue">🔵</button>
                 <button class="filter-btn" data-filter="bookmarks">📌</button>
+                <button class="filter-btn" data-filter="notes">📝</button>
             </div>
             <div class="panel-content" id="highlight-list">
                 <!-- Populated dynamically -->
@@ -420,15 +666,30 @@
             highlights
                 .filter(h => h.pageId === pageId && (filter === 'all' || h.color === filter))
                 .forEach(h => {
+                    // Check if this highlight has a note
+                    const hasNote = notes.some(n => n.highlightId === h.id);
                     items.push({
                         type: 'highlight',
+                        hasNote,
                         ...h
                     });
                 });
         }
 
+        // Add notes
+        if (filter === 'all' || filter === 'notes') {
+            notes
+                .filter(n => n.pageId === pageId)
+                .forEach(n => {
+                    items.push({
+                        type: 'note',
+                        ...n
+                    });
+                });
+        }
+
         if (items.length === 0) {
-            list.innerHTML = '<p class="empty-message">No highlights or bookmarks on this page.</p>';
+            list.innerHTML = '<p class="empty-message">No items on this page.</p>';
             return;
         }
 
@@ -441,11 +702,22 @@
                         <button class="item-delete" data-id="${item.id}" data-type="bookmark">×</button>
                     </div>
                 `;
+            } else if (item.type === 'note') {
+                return `
+                    <div class="highlight-item note-item" data-id="${item.id}" data-note-id="${item.id}">
+                        <span class="item-icon">📝</span>
+                        <div class="item-content">
+                            <div class="item-text"><em>"${item.selectedText.substring(0, 50)}${item.selectedText.length > 50 ? '...' : ''}"</em></div>
+                            <div class="note-preview">${item.noteContent.substring(0, 100)}${item.noteContent.length > 100 ? '...' : ''}</div>
+                        </div>
+                        <button class="item-delete" data-id="${item.id}" data-type="note">×</button>
+                    </div>
+                `;
             } else {
                 return `
                     <div class="highlight-item" data-id="${item.id}">
                         <span class="item-icon" style="background: ${COLORS[item.color].bg}">${item.color === 'yellow' ? '🟡' : item.color === 'green' ? '🟢' : item.color === 'red' ? '🔴' : '🔵'}</span>
-                        <span class="item-text">${item.text}</span>
+                        <span class="item-text">${item.text}${item.hasNote ? ' 📝' : ''}</span>
                         <button class="item-delete" data-id="${item.id}" data-type="highlight">×</button>
                     </div>
                 `;
@@ -469,6 +741,21 @@
                         saveData();
                         queueSync('bookmarks', 'delete', id);
                     }
+                } else if (type === 'note') {
+                    if (confirm('Delete this note?')) {
+                        const note = notes.find(n => n.id === id);
+                        if (note) {
+                            // Remove note indicator from highlight if it exists
+                            const highlightElement = document.querySelector(`[data-highlight-id="${note.highlightId}"]`);
+                            if (highlightElement) {
+                                const indicator = highlightElement.querySelector('.note-indicator');
+                                if (indicator) indicator.remove();
+                            }
+                        }
+                        notes = notes.filter(n => n.id !== id);
+                        saveData();
+                        queueSync('notes', 'delete', id);
+                    }
                 } else {
                     const el = document.querySelector(`[data-highlight-id="${id}"]`);
                     if (el) {
@@ -481,6 +768,18 @@
                     }
                 }
                 updateHighlightPanel(filter);
+            });
+        });
+
+        // Add click handlers for note items to view them
+        list.querySelectorAll('.note-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (e.target.classList.contains('item-delete')) return;
+                const noteId = item.dataset.noteId;
+                const note = notes.find(n => n.id === noteId);
+                if (note) {
+                    showNoteViewModal(note);
+                }
             });
         });
     }
@@ -887,6 +1186,221 @@
             [data-theme="dark"] .item-text {
                 color: #e5e7eb;
             }
+
+            /* Note Modal Styles */
+            .note-modal-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                z-index: 10002;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(3px);
+            }
+            .note-modal {
+                background: white;
+                border-radius: 12px;
+                width: 90%;
+                max-width: 600px;
+                max-height: 80vh;
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            }
+            .note-modal-header {
+                padding: 20px;
+                border-bottom: 1px solid #e5e7eb;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .note-modal-header h3 {
+                margin: 0;
+                font-size: 1.25rem;
+            }
+            .note-modal-close {
+                background: none;
+                border: none;
+                font-size: 28px;
+                cursor: pointer;
+                color: #9ca3af;
+                line-height: 1;
+                padding: 0;
+                width: 30px;
+                height: 30px;
+            }
+            .note-modal-close:hover {
+                color: #374151;
+            }
+            .note-modal-body {
+                padding: 20px;
+                flex: 1;
+                overflow-y: auto;
+            }
+            .note-selected-text {
+                background: #f3f4f6;
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 15px;
+            }
+            .note-selected-text strong {
+                display: block;
+                margin-bottom: 8px;
+                color: #6b7280;
+                font-size: 0.875rem;
+            }
+            .note-selected-text p {
+                margin: 0;
+                font-style: italic;
+                color: #374151;
+            }
+            .note-modal-body textarea {
+                width: 100%;
+                padding: 12px;
+                border: 2px solid #e5e7eb;
+                border-radius: 8px;
+                font-size: 1rem;
+                font-family: inherit;
+                resize: vertical;
+                box-sizing: border-box;
+            }
+            .note-modal-body textarea:focus {
+                outline: none;
+                border-color: #3b82f6;
+            }
+            .note-content-display {
+                background: #f9fafb;
+                padding: 15px;
+                border-radius: 8px;
+                line-height: 1.6;
+                color: #374151;
+                white-space: pre-wrap;
+            }
+            .note-modal-footer {
+                padding: 15px 20px;
+                border-top: 1px solid #e5e7eb;
+                display: flex;
+                gap: 10px;
+                justify-content: flex-end;
+            }
+            .note-modal-footer button {
+                padding: 10px 20px;
+                border: none;
+                border-radius: 8px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+            .note-save-btn {
+                background: #3b82f6;
+                color: white;
+            }
+            .note-save-btn:hover {
+                background: #2563eb;
+            }
+            .note-cancel-btn, .note-close-btn {
+                background: #f3f4f6;
+                color: #374151;
+            }
+            .note-cancel-btn:hover, .note-close-btn:hover {
+                background: #e5e7eb;
+            }
+            .note-edit-btn {
+                background: #10b981;
+                color: white;
+            }
+            .note-edit-btn:hover {
+                background: #059669;
+            }
+            .note-delete-btn {
+                background: #ef4444;
+                color: white;
+                margin-right: auto;
+            }
+            .note-delete-btn:hover {
+                background: #dc2626;
+            }
+
+            /* Note indicator styles */
+            .note-indicator {
+                animation: noteAppear 0.3s ease;
+            }
+            @keyframes noteAppear {
+                from {
+                    opacity: 0;
+                    transform: scale(0.5);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            /* Note item in panel */
+            .note-item {
+                cursor: pointer;
+            }
+            .note-item .item-content {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+            .note-item .note-preview {
+                font-size: 0.875rem;
+                color: #6b7280;
+                line-height: 1.4;
+            }
+            .note-item:hover .note-preview {
+                color: #374151;
+            }
+
+            /* Dark mode for note modal */
+            [data-theme="dark"] .note-modal {
+                background: #1e293b;
+                color: #e5e7eb;
+            }
+            [data-theme="dark"] .note-modal-header,
+            [data-theme="dark"] .note-modal-footer {
+                border-color: #334155;
+            }
+            [data-theme="dark"] .note-modal-close {
+                color: #9ca3af;
+            }
+            [data-theme="dark"] .note-modal-close:hover {
+                color: #e5e7eb;
+            }
+            [data-theme="dark"] .note-selected-text {
+                background: #334155;
+            }
+            [data-theme="dark"] .note-selected-text strong {
+                color: #9ca3af;
+            }
+            [data-theme="dark"] .note-selected-text p {
+                color: #e5e7eb;
+            }
+            [data-theme="dark"] .note-modal-body textarea {
+                background: #334155;
+                border-color: #475569;
+                color: #e5e7eb;
+            }
+            [data-theme="dark"] .note-content-display {
+                background: #334155;
+                color: #e5e7eb;
+            }
+            [data-theme="dark"] .note-cancel-btn,
+            [data-theme="dark"] .note-close-btn {
+                background: #334155;
+                color: #e5e7eb;
+            }
+            [data-theme="dark"] .note-cancel-btn:hover,
+            [data-theme="dark"] .note-close-btn:hover {
+                background: #475569;
+            }
         `;
         document.head.appendChild(style);
     }
@@ -909,11 +1423,13 @@
         addBookmarkButtons();
         restoreBookmarks();
         restoreHighlights(); // Restore visual highlights
+        restoreNotes(); // Restore note indicators
 
         // Listen for sync updates
         window.addEventListener('syncComplete', (e) => {
             loadData();
             restoreHighlights(); // Re-apply highlights after sync
+            restoreNotes(); // Re-apply note indicators after sync
             updateHighlightPanel();
         });
 

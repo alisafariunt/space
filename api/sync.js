@@ -1,10 +1,17 @@
 import { createClient } from '@libsql/client';
+import jwt from 'jsonwebtoken';
 
 // Create Turso client
 const db = createClient({
     url: process.env.TURSO_DATABASE_URL,
     authToken: process.env.TURSO_AUTH_TOKEN,
 });
+
+// JWT Configuration
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this-in-production';
+
+// Rate limiting (in-memory, upgrade to Redis for production)
+const requestCounts = new Map();
 
 // Initialize database tables
 async function initializeDatabase() {
@@ -63,18 +70,97 @@ async function initializeDatabase() {
     ]);
 }
 
-// CORS headers
-const corsHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-};
+// CORS configuration
+function getCorsHeaders(req) {
+    const allowedOrigins = process.env.NODE_ENV === 'production'
+        ? (process.env.ALLOWED_ORIGINS || 'https://alisafari.space,https://www.alisafari.space').split(',')
+        : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080'];
+
+    const origin = req.headers.origin;
+
+    if (allowedOrigins.includes(origin)) {
+        return {
+            'Access-Control-Allow-Origin': origin,
+            'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+            'Access-Control-Allow-Credentials': 'true',
+        };
+    }
+
+    // Default headers for non-matching origins
+    return {
+        'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    };
+}
+
+// JWT verification middleware
+function verifyAccessToken(req) {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        throw new Error('MISSING_TOKEN');
+    }
+
+    const token = authHeader.substring(7);
+
+    try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+        return decoded.userId;
+    } catch (error) {
+        if (error.name === 'TokenExpiredError') {
+            throw new Error('TOKEN_EXPIRED');
+        }
+        throw new Error('INVALID_TOKEN');
+    }
+}
+
+// Rate limiting function
+function rateLimit(userId) {
+    const limit = parseInt(process.env.RATE_LIMIT_MAX || '60');
+    const windowMs = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '60000');
+    const now = Date.now();
+
+    const userRequests = requestCounts.get(userId) || [];
+
+    // Clean old requests outside the window
+    const recentRequests = userRequests.filter(time => now - time < windowMs);
+
+    if (recentRequests.length >= limit) {
+        throw new Error('RATE_LIMIT_EXCEEDED');
+    }
+
+    recentRequests.push(now);
+    requestCounts.set(userId, recentRequests);
+
+    return true;
+}
+
+// Clean up rate limit map periodically
+setInterval(() => {
+    const now = Date.now();
+    const windowMs = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '60000');
+
+    for (const [userId, requests] of requestCounts.entries()) {
+        const recent = requests.filter(time => now - time < windowMs);
+        if (recent.length === 0) {
+            requestCounts.delete(userId);
+        } else {
+            requestCounts.set(userId, recent);
+        }
+    }
+}, 60000); // Clean every minute
 
 export default async function handler(req, res) {
+    // Get CORS headers
+    const corsHeaders = getCorsHeaders(req);
+
     // Handle CORS preflight
     if (req.method === 'OPTIONS') {
-        res.status(200).json({ ok: true });
-        return;
+        Object.entries(corsHeaders).forEach(([key, value]) => {
+            res.setHeader(key, value);
+        });
+        return res.status(200).json({ ok: true });
     }
 
     // Set CORS headers
@@ -93,86 +179,45 @@ export default async function handler(req, res) {
             // Column likely exists
         }
 
+        // Migration: Add highlight_id column to notes if missing
+        try {
+            await db.execute("ALTER TABLE notes ADD COLUMN highlight_id TEXT");
+        } catch (e) {
+            // Column likely exists
+        }
+
         const { method } = req;
 
-        // Validate User & Password
-        const validateUser = async (userId, inputPassword) => {
-            console.log(`[Auth] Validating ${userId}`);
-
-            const result = await db.execute({
-                sql: "SELECT * FROM users WHERE id = ?",
-                args: [userId]
-            });
-            const user = result.rows[0];
-
-            // Debug info
-            const debugMsg = user ? `User found (Pass: ${!!user.password})` : "User not found";
-            console.log(`[Auth] ${debugMsg}`);
-            res.setHeader('x-debug-auth', debugMsg);
-
-            if (!user) {
-                // New User: Require password
-                if (!inputPassword) {
-                    console.log('[Auth] Password required for new user');
-                    throw new Error('PASSWORD_REQUIRED');
-                }
-
-                console.log('[Auth] Creating user with password');
-                await db.execute({
-                    sql: `INSERT INTO users (id, device_id, password, created_at) VALUES (?, ?, ?, datetime('now'))`,
-                    args: [userId, userId, inputPassword]
-                });
-                res.setHeader('x-debug-action', 'created_user');
-                return true;
-            } else {
-                // Existing User
-                if (user.password) {
-                    // Protected account
-                    if (user.password !== inputPassword) {
-                        console.log('[Auth] Invalid password');
-                        throw new Error('INVALID_PASSWORD');
-                    }
-                    res.setHeader('x-debug-action', 'authenticated');
-                } else {
-                    // Legacy account (unprotected)
-                    // If user provides password, claim the account
-                    if (inputPassword) {
-                        console.log('[Auth] claiming legacy account');
-                        try {
-                            const updateResult = await db.execute({
-                                sql: "UPDATE users SET password = ? WHERE id = ?",
-                                args: [inputPassword, userId]
-                            });
-                            console.log(`[Auth] Update result: ${JSON.stringify(updateResult)}`);
-                            res.setHeader('x-debug-action', 'claimed_account');
-                        } catch (err) {
-                            console.error('[Auth] Update Failed', err);
-                            res.setHeader('x-debug-error', err.message);
-                        }
-                    } else {
-                        res.setHeader('x-debug-action', 'legacy_login_no_pass');
-                    }
-                }
-                return true;
+        // Verify JWT and extract userId
+        let userId;
+        try {
+            userId = verifyAccessToken(req);
+        } catch (error) {
+            if (error.message === 'MISSING_TOKEN') {
+                return res.status(401).json({ error: 'Authentication required' });
             }
-        };
+            if (error.message === 'TOKEN_EXPIRED') {
+                return res.status(401).json({ error: 'Token expired' });
+            }
+            if (error.message === 'INVALID_TOKEN') {
+                return res.status(401).json({ error: 'Invalid token' });
+            }
+            throw error;
+        }
+
+        // Apply rate limiting
+        try {
+            rateLimit(userId);
+        } catch (error) {
+            if (error.message === 'RATE_LIMIT_EXCEEDED') {
+                return res.status(429).json({ error: 'Too many requests. Please try again later.' });
+            }
+            throw error;
+        }
 
         if (method === 'GET') {
-            // Fetch user data
-            const { userId, since, courseId } = req.query;
-            const password = req.headers['x-password'];
-
-            if (!userId) {
-                return res.status(400).json({ error: 'userId is required' });
-            }
-
-            try {
-                await validateUser(userId, password);
-            } catch (e) {
-                if (e.message === 'PASSWORD_REQUIRED') return res.status(400).json({ error: 'Password required to create account' });
-                if (e.message === 'INVALID_PASSWORD') return res.status(401).json({ error: 'Invalid password' });
-                throw e;
-            }
+            // Fetch user data (userId already extracted from JWT)
+            const { since, courseId } = req.query;
 
             // Fetch highlights
             let highlightsQuery = `SELECT * FROM highlights WHERE user_id = ?`;
@@ -246,21 +291,8 @@ export default async function handler(req, res) {
             });
 
         } else if (method === 'POST') {
-            // Push changes
-            const { userId, changes } = req.body;
-            const password = req.headers['x-password'];
-
-            if (!userId) {
-                return res.status(400).json({ error: 'userId is required' });
-            }
-
-            try {
-                await validateUser(userId, password);
-            } catch (e) {
-                if (e.message === 'PASSWORD_REQUIRED') return res.status(400).json({ error: 'Password required to create account' });
-                if (e.message === 'INVALID_PASSWORD') return res.status(401).json({ error: 'Invalid password' });
-                throw e;
-            }
+            // Push changes (userId already extracted from JWT)
+            const { changes } = req.body;
 
             const results = { created: 0, updated: 0, deleted: 0 };
 
@@ -313,10 +345,10 @@ export default async function handler(req, res) {
             if (changes?.notes) {
                 for (const n of changes.notes.upsert || []) {
                     await db.execute({
-                        sql: `INSERT OR REPLACE INTO notes 
-                              (id, user_id, course_id, page_id, element_path, selected_text, note_content, color, created_at, updated_at)
-                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`,
-                        args: [val(n.id), userId, val(n.courseId), val(n.pageId), val(n.elementPath), val(n.selectedText), val(n.noteContent), val(n.color), val(n.createdAt)]
+                        sql: `INSERT OR REPLACE INTO notes
+                              (id, user_id, course_id, page_id, element_path, selected_text, note_content, color, created_at, updated_at, highlight_id)
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'), ?)`,
+                        args: [val(n.id), userId, val(n.courseId), val(n.pageId), val(n.elementPath), val(n.selectedText), val(n.noteContent), val(n.color), val(n.createdAt), val(n.highlightId)]
                     });
                     results.created++;
                 }

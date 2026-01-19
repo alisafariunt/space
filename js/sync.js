@@ -1,4 +1,4 @@
-// Cloud Sync Manager
+// Cloud Sync Manager (JWT-Authenticated)
 (function () {
     const API_URL = '/api/sync';
     const SYNC_QUEUE_KEY = 'studyGuide_syncQueue';
@@ -6,7 +6,8 @@
     const DEBOUNCE_DELAY = 2000; // 2 seconds
     const LAST_SYNC_KEY = 'studyGuide_lastSync';
 
-    let userId = null; // Will be set after login
+    let userId = null; // Will be set after authentication
+    let authManager = null; // Reference to AuthManager from auth.js
     let syncQueue = {
         highlights: { upsert: [], deleted: [] },
         bookmarks: { upsert: [], deleted: [] },
@@ -33,12 +34,19 @@
 
     // Initialize Sync
     function init() {
+        // Get reference to AuthManager (from auth.js)
+        authManager = window.AuthManager;
+
+        if (!authManager) {
+            console.warn('[Sync] AuthManager not found. Make sure auth.js is loaded first.');
+            return;
+        }
+
         // Load sync queue
         const savedQueue = localStorage.getItem(SYNC_QUEUE_KEY);
         if (savedQueue) {
             try {
                 const parsedQueue = JSON.parse(savedQueue);
-                // Ensure all expected keys exist in the loaded queue
                 syncQueue = {
                     highlights: parsedQueue.highlights || { upsert: [], deleted: [] },
                     bookmarks: parsedQueue.bookmarks || { upsert: [], deleted: [] },
@@ -47,103 +55,41 @@
                 };
             } catch (e) {
                 console.error("Error parsing sync queue from localStorage, resetting.", e);
-                clearSyncQueue(); // Reset if parsing fails
+                clearSyncQueue();
             }
         }
 
-        // Check for login
-        const username = getUserId();
-        if (username) {
-            userId = username;
-            setupSync();
-            createUserInfo(); // Render Logout button
-        } else {
-            createUserInfo(); // Render Login button
-            showLoginModal();
-        }
-    }
+        // Listen for authentication state changes
+        window.addEventListener('authStateChanged', (event) => {
+            const { isAuthenticated, user } = event.detail;
 
-    // Show Login Modal
-    function showLoginModal(message = null) {
-        const existing = document.querySelector('.login-modal-overlay');
-        if (existing) existing.remove();
-
-        const modal = document.createElement('div');
-        modal.className = 'login-modal-overlay';
-        modal.innerHTML = `
-            <div class="login-modal">
-                <h2>👋 Welcome!</h2>
-                ${message ? `<p style="color:red; font-weight:bold;">${message}</p>` : '<p>Enter your name and a secret password to protect your progress.</p>'}
-                <input type="text" id="login-name" placeholder="Username (e.g. Ali)" autofocus>
-                <input type="password" id="login-password" placeholder="Secret Password">
-                <button id="login-btn">Login / Register 🚀</button>
-            </div>
-        `;
-        document.body.appendChild(modal);
-
-        // Styles
-        const style = document.createElement('style');
-        style.textContent = `
-            .login-modal-overlay {
-                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-                background: rgba(0,0,0,0.8); z-index: 10000;
-                display: flex; justify-content: center; align-items: center;
-                backdrop-filter: blur(5px);
-            }
-            .login-modal {
-                background: white; padding: 2rem; border-radius: 12px;
-                text-align: center; max-width: 400px; width: 90%;
-                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            }
-            .login-modal h2 { margin-top: 0; color: #333; }
-            .login-modal p { color: #666; margin-bottom: 1.5rem; }
-            .login-modal input {
-                width: 100%; padding: 10px; margin-bottom: 1rem;
-                border: 2px solid #eee; border-radius: 8px; font-size: 1rem;
-                box-sizing: border-box;
-            }
-            .login-modal button {
-                width: 100%; padding: 12px; background: #3b82f6; color: white;
-                border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;
-                transition: background 0.2s;
-            }
-            .login-modal button:hover { background: #2563eb; }
-            /* Dark mode support */
-            body.dark-mode .login-modal { background: #1f2937; color: white; }
-            body.dark-mode .login-modal h2 { color: white; }
-            body.dark-mode .login-modal p { color: #9ca3af; }
-            body.dark-mode .login-modal input { background: #374151; border-color: #4b5563; color: white; }
-        `;
-        document.head.appendChild(style);
-
-        // Logic
-        const nameInput = modal.querySelector('#login-name');
-        const passInput = modal.querySelector('#login-password');
-        const btn = modal.querySelector('button');
-
-        const login = () => {
-            const name = nameInput.value.trim();
-            const password = passInput.value.trim();
-            if (name && password) {
-                localStorage.setItem('studyGuide_username', name);
-                localStorage.setItem('studyGuide_password', password);
-                userId = name;
-                modal.remove();
+            if (isAuthenticated) {
+                userId = user.username;
                 setupSync();
                 createUserInfo();
 
-                // Trigger initial sync
-                const hasData = hasQueuedChanges(); // Logic to merge?
-                // We just trigger sync. Sync will handle logic.
-                // But we want to ensure we push local preferences if any
+                // Trigger initial sync with preferences
                 window.StudyGuideSync.queueChange('preferences', 'upsert', null);
+                debouncedSync();
             } else {
-                alert("Please enter both Name and Password.");
+                userId = null;
+                teardownSync();
+                createUserInfo();
             }
-        };
+        });
 
-        btn.addEventListener('click', login);
-        passInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
+        // Check initial authentication state
+        if (authManager.isAuthenticated()) {
+            userId = authManager.getUsername();
+            setupSync();
+            createUserInfo();
+        } else {
+            createUserInfo();
+            // Show login modal if not authenticated
+            if (window.showLoginModal) {
+                window.showLoginModal();
+            }
+        }
     }
 
     // Create User Info UI (Login/Logout in Menu)
@@ -165,16 +111,21 @@
 
             if (userId) {
                 authItem.innerHTML = `<button class="auth-btn logout" title="Logout">👤 ${userId}</button>`;
-                authItem.querySelector('button').addEventListener('click', () => {
+                authItem.querySelector('button').addEventListener('click', async () => {
                     if (confirm(`Logout from "${userId}"?`)) {
-                        localStorage.removeItem('studyGuide_username');
-                        localStorage.removeItem('studyGuide_password');
+                        if (authManager) {
+                            await authManager.logout();
+                        }
                         location.reload();
                     }
                 });
             } else {
                 authItem.innerHTML = `<button class="auth-btn login">Login 🔐</button>`;
-                authItem.querySelector('button').addEventListener('click', () => showLoginModal());
+                authItem.querySelector('button').addEventListener('click', () => {
+                    if (window.showLoginModal) {
+                        window.showLoginModal();
+                    }
+                });
             }
 
             navbarLinks.appendChild(authItem);
@@ -186,15 +137,18 @@
                 ? `<button class="auth-btn logout">👤 ${userId}</button>`
                 : `<button class="auth-btn login">Login</button>`;
 
-            fallbackDiv.querySelector('button').addEventListener('click', () => {
+            fallbackDiv.querySelector('button').addEventListener('click', async () => {
                 if (userId) {
                     if (confirm("Logout?")) {
-                        localStorage.removeItem('studyGuide_username');
-                        localStorage.removeItem('studyGuide_password');
+                        if (authManager) {
+                            await authManager.logout();
+                        }
                         location.reload();
                     }
                 } else {
-                    showLoginModal();
+                    if (window.showLoginModal) {
+                        window.showLoginModal();
+                    }
                 }
             });
             document.body.appendChild(fallbackDiv);
@@ -244,9 +198,24 @@
 
         // Expose queue function globally
         window.StudyGuideSync = {
-            queue: queueChange,
+            queueChange: queueChange,
             sync: sync
         };
+    }
+
+    // Teardown sync (called on logout)
+    function teardownSync() {
+        // Remove event listeners
+        window.removeEventListener('online', sync);
+
+        // Clear sync indicator
+        const indicator = document.getElementById('sync-status');
+        if (indicator) {
+            indicator.remove();
+        }
+
+        // Reset sync status
+        syncStatus = 'idle';
     }
 
     // Get course ID from URL
@@ -401,6 +370,9 @@
         if (!isOnline()) {
             syncStatus = 'offline';
             updateSyncStatusUI();
+            if (window.showToast) {
+                window.showToast('Offline - sync will resume when online', 'warning', 3000);
+            }
             return { success: false, reason: 'offline' };
         }
 
@@ -408,22 +380,32 @@
             return { success: false, reason: 'already syncing' };
         }
 
+        // Check authentication
+        if (!authManager || !authManager.isAuthenticated()) {
+            console.log('[Sync] Not authenticated');
+            if (window.showLoginModal) {
+                window.showLoginModal();
+            }
+            return { success: false, reason: 'not authenticated' };
+        }
+
         syncStatus = 'syncing';
         updateSyncStatusUI();
 
         try {
-            const userId = getUserId();
-            const password = localStorage.getItem('studyGuide_password');
             const courseId = getCourseId();
 
-            if (!userId) {
-                showLoginModal();
-                return { success: false };
+            // Get JWT token
+            let accessToken;
+            try {
+                accessToken = authManager.getAccessToken();
+            } catch (error) {
+                throw new Error('AUTH_FAILED');
             }
 
             const headers = {
                 'Content-Type': 'application/json',
-                'x-password': password || ''
+                'Authorization': `Bearer ${accessToken}`
             };
 
             // Push local changes first
@@ -433,18 +415,30 @@
                 const response = await fetch(API_URL, {
                     method: 'POST',
                     headers: headers,
+                    credentials: 'include',
                     body: JSON.stringify({
-                        userId,
                         changes: queue
                     })
                 });
 
                 if (response.status === 401) {
-                    throw new Error('AUTH_FAILED');
+                    // Token expired, try refresh
+                    try {
+                        await authManager.refreshAccessToken();
+                        // Retry sync with new token
+                        return await sync();
+                    } catch (refreshError) {
+                        throw new Error('AUTH_FAILED');
+                    }
+                }
+
+                if (response.status === 429) {
+                    throw new Error('RATE_LIMIT_EXCEEDED');
                 }
 
                 if (!response.ok) {
-                    throw new Error(`Push failed: ${response.status}`);
+                    const errorData = await response.json().catch(() => ({}));
+                    throw new Error(errorData.error || `Push failed: ${response.status}`);
                 }
 
                 // Clear queue after successful push
@@ -452,14 +446,26 @@
             }
 
             // Pull latest from server
-            const pullUrl = `${API_URL}?userId=${userId}&courseId=${courseId}`;
+            const pullUrl = courseId ? `${API_URL}?courseId=${courseId}` : API_URL;
             const pullResponse = await fetch(pullUrl, {
                 method: 'GET',
-                headers: headers
+                headers: headers,
+                credentials: 'include'
             });
 
             if (pullResponse.status === 401) {
-                throw new Error('AUTH_FAILED');
+                // Token expired, try refresh
+                try {
+                    await authManager.refreshAccessToken();
+                    // Retry sync with new token
+                    return await sync();
+                } catch (refreshError) {
+                    throw new Error('AUTH_FAILED');
+                }
+            }
+
+            if (pullResponse.status === 429) {
+                throw new Error('RATE_LIMIT_EXCEEDED');
             }
 
             if (!pullResponse.ok) {
@@ -496,12 +502,34 @@
             if (error.message === 'AUTH_FAILED') {
                 syncStatus = 'error';
                 updateSyncStatusUI();
-                showLoginModal("Incorrect Password. Please login again.");
+                if (window.showToast) {
+                    window.showToast('Please log in to sync your data', 'warning');
+                }
+                if (window.showLoginModal) {
+                    window.showLoginModal('Session expired. Please login again.');
+                }
                 return { success: false, error: 'auth_failed' };
+            }
+
+            if (error.message === 'RATE_LIMIT_EXCEEDED') {
+                syncStatus = 'error';
+                updateSyncStatusUI();
+                if (window.showToast) {
+                    window.showToast('Too many requests. Please wait a moment.', 'error');
+                }
+                setTimeout(() => {
+                    syncStatus = 'idle';
+                    updateSyncStatusUI();
+                }, 10000);
+                return { success: false, error: 'rate_limit' };
             }
 
             syncStatus = 'error';
             updateSyncStatusUI();
+
+            if (window.showToast) {
+                window.showToast('Sync failed. Will retry automatically.', 'error');
+            }
 
             // Reset to idle after 5 seconds
             setTimeout(() => {
@@ -517,7 +545,7 @@
     function mergeServerData(serverData) {
         // Main storage key used by highlights.js
         const localKey = 'studyGuide_highlights';
-        const localData = JSON.parse(localStorage.getItem(localKey) || '{"highlights":[],"bookmarks":[]}');
+        const localData = JSON.parse(localStorage.getItem(localKey) || '{"highlights":[],"bookmarks":[],"notes":[]}');
 
         // Merge highlights
         if (serverData.highlights?.length > 0) {
@@ -566,8 +594,35 @@
             localData.bookmarks = Array.from(localMap.values());
         }
 
+        // Merge notes
+        if (serverData.notes?.length > 0) {
+            const localMap = new Map((localData.notes || []).map(n => [n.id, n]));
+
+            serverData.notes.forEach(n => {
+                if (n.deleted_at) {
+                    localMap.delete(n.id);
+                } else {
+                    localMap.set(n.id, {
+                        id: n.id,
+                        highlightId: n.highlight_id,
+                        userId: n.user_id,
+                        courseId: n.course_id,
+                        pageId: n.page_id,
+                        elementPath: n.element_path,
+                        selectedText: n.selected_text,
+                        noteContent: n.note_content,
+                        color: n.color,
+                        createdAt: n.created_at,
+                        updatedAt: n.updated_at
+                    });
+                }
+            });
+
+            localData.notes = Array.from(localMap.values());
+        }
+
         // Save back to local storage
-        if (serverData.highlights?.length > 0 || serverData.bookmarks?.length > 0) {
+        if (serverData.highlights?.length > 0 || serverData.bookmarks?.length > 0 || serverData.notes?.length > 0) {
             localStorage.setItem(localKey, JSON.stringify(localData));
         }
 
