@@ -15,7 +15,8 @@
         yellow: { bg: '#fef08a', border: '#facc15', label: '🟡 Important' },
         green: { bg: '#bbf7d0', border: '#22c55e', label: '🟢 Definition' },
         red: { bg: '#fecaca', border: '#ef4444', label: '🔴 Critical' },
-        blue: { bg: '#bfdbfe', border: '#3b82f6', label: '🔵 Example' }
+        blue: { bg: '#bfdbfe', border: '#3b82f6', label: '🔵 Example' },
+        underline: { bg: 'transparent', border: '#ef4444', label: '🖊️ Pen', isUnderline: true }
     };
 
     // Get current page ID
@@ -143,6 +144,7 @@
             <button data-color="green" title="Definition" style="background: ${COLORS.green.bg}">🟢</button>
             <button data-color="red" title="Critical" style="background: ${COLORS.red.bg}">🔴</button>
             <button data-color="blue" title="Example" style="background: ${COLORS.blue.bg}">🔵</button>
+            <button data-color="underline" title="Pen Underline" style="background: #fff; border: 2px solid ${COLORS.underline.border}; color: ${COLORS.underline.border}">🖊️</button>
             <span class="toolbar-divider"></span>
             <button data-action="note" title="Add Note">📝</button>
         `;
@@ -269,8 +271,23 @@
         const wrapper = document.createElement('mark');
         wrapper.className = `user-highlight highlight-${color}`;
         wrapper.dataset.highlightId = id;
-        wrapper.style.backgroundColor = COLORS[color].bg;
-        wrapper.style.borderBottom = `2px solid ${COLORS[color].border}`;
+
+        if (COLORS[color].isUnderline) {
+            // Style for Pen Underline
+            wrapper.style.backgroundColor = 'transparent';
+            wrapper.style.textDecoration = 'underline'; // Fallback
+            wrapper.style.textDecorationStyle = 'wavy'; // Wavy line
+            wrapper.style.textDecorationColor = COLORS[color].border;
+            wrapper.style.textUnderlineOffset = '3px';
+            wrapper.style.textDecorationThickness = '2px';
+            // Also add bottom border for better visibility if wavy isn't enough, or just rely on wavy
+            // Let's stick to just the wavy underline for a "pen" feel
+        } else {
+            // Standard Highlight
+            wrapper.style.backgroundColor = COLORS[color].bg;
+            wrapper.style.borderBottom = `2px solid ${COLORS[color].border}`;
+        }
+
         wrapper.style.padding = '0 2px';
         wrapper.style.borderRadius = '2px';
         wrapper.style.cursor = 'pointer';
@@ -746,6 +763,7 @@
                 <button class="filter-btn" data-filter="green">🟢</button>
                 <button class="filter-btn" data-filter="red">🔴</button>
                 <button class="filter-btn" data-filter="blue">🔵</button>
+                <button class="filter-btn" data-filter="underline">🖊️</button>
                 <button class="filter-btn" data-filter="bookmarks">📌</button>
                 <button class="filter-btn" data-filter="notes">📝</button>
             </div>

@@ -47,6 +47,7 @@ async function initializeDatabase() {
             section_id TEXT,
             title TEXT NOT NULL,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME,
             deleted_at DATETIME
         )`,
         `CREATE TABLE IF NOT EXISTS notes (
@@ -74,10 +75,55 @@ async function initializeDatabase() {
         )`,
         `CREATE INDEX IF NOT EXISTS idx_highlights_user_course ON highlights(user_id, course_id)`,
         `CREATE INDEX IF NOT EXISTS idx_highlights_user_deleted ON highlights(user_id, deleted_at)`,
+        `CREATE INDEX IF NOT EXISTS idx_highlights_user_updated ON highlights(user_id, updated_at)`,
         `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_course ON bookmarks(user_id, course_id)`,
         `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_deleted ON bookmarks(user_id, deleted_at)`,
+        `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_updated ON bookmarks(user_id, updated_at)`,
         `CREATE INDEX IF NOT EXISTS idx_notes_user_course ON notes(user_id, course_id)`,
-        `CREATE INDEX IF NOT EXISTS idx_notes_user_deleted ON notes(user_id, deleted_at)`
+        `CREATE INDEX IF NOT EXISTS idx_notes_user_deleted ON notes(user_id, deleted_at)`,
+        `CREATE INDEX IF NOT EXISTS idx_notes_user_updated ON notes(user_id, updated_at)`,
+        `CREATE TRIGGER IF NOT EXISTS highlights_set_updated_at
+            AFTER UPDATE ON highlights
+            FOR EACH ROW
+            WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
+            BEGIN
+                UPDATE highlights SET updated_at = datetime('now') WHERE id = NEW.id;
+            END`,
+        `CREATE TRIGGER IF NOT EXISTS highlights_set_updated_at_insert
+            AFTER INSERT ON highlights
+            FOR EACH ROW
+            WHEN NEW.updated_at IS NULL
+            BEGIN
+                UPDATE highlights SET updated_at = datetime('now') WHERE id = NEW.id;
+            END`,
+        `CREATE TRIGGER IF NOT EXISTS bookmarks_set_updated_at
+            AFTER UPDATE ON bookmarks
+            FOR EACH ROW
+            WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
+            BEGIN
+                UPDATE bookmarks SET updated_at = datetime('now') WHERE id = NEW.id;
+            END`,
+        `CREATE TRIGGER IF NOT EXISTS bookmarks_set_updated_at_insert
+            AFTER INSERT ON bookmarks
+            FOR EACH ROW
+            WHEN NEW.updated_at IS NULL
+            BEGIN
+                UPDATE bookmarks SET updated_at = datetime('now') WHERE id = NEW.id;
+            END`,
+        `CREATE TRIGGER IF NOT EXISTS notes_set_updated_at
+            AFTER UPDATE ON notes
+            FOR EACH ROW
+            WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
+            BEGIN
+                UPDATE notes SET updated_at = datetime('now') WHERE id = NEW.id;
+            END`,
+        `CREATE TRIGGER IF NOT EXISTS notes_set_updated_at_insert
+            AFTER INSERT ON notes
+            FOR EACH ROW
+            WHEN NEW.updated_at IS NULL
+            BEGIN
+                UPDATE notes SET updated_at = datetime('now') WHERE id = NEW.id;
+            END`
     ]);
 }
 
@@ -201,6 +247,18 @@ export default async function handler(req, res) {
         } catch (e) {
             // Column likely exists
         }
+        // Migration: Add updated_at to bookmarks if missing
+        try {
+            await db.execute("ALTER TABLE bookmarks ADD COLUMN updated_at DATETIME");
+        } catch (e) {
+            // Column likely exists
+        }
+        // Migration: Add updated_at to notes if missing
+        try {
+            await db.execute("ALTER TABLE notes ADD COLUMN updated_at DATETIME");
+        } catch (e) {
+            // Column likely exists
+        }
         // Migration: Add highlight offsets if missing
         try {
             await db.execute("ALTER TABLE highlights ADD COLUMN start_offset INTEGER");
@@ -272,8 +330,8 @@ export default async function handler(req, res) {
                 bookmarksArgs.push(courseId);
             }
             if (since) {
-                bookmarksQuery += ` AND (created_at > ? OR deleted_at > ?)`;
-                bookmarksArgs.push(since, since);
+                bookmarksQuery += ` AND (updated_at > ? OR created_at > ? OR deleted_at > ?)`;
+                bookmarksArgs.push(since, since, since);
             } else {
                 bookmarksQuery += ` AND deleted_at IS NULL`;
             }
