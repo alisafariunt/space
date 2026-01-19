@@ -16,6 +16,8 @@
     };
     let syncStatus = 'idle'; // 'idle', 'syncing', 'synced', 'error', 'offline'
     let syncTimeout = null;
+    let syncIntervalId = null;
+    let visibilityHandler = null;
 
     // Get last sync time
     function getLastSync() {
@@ -108,20 +110,41 @@
         // Listen for online/offline
         window.addEventListener('online', sync);
 
+        if (!visibilityHandler) {
+            visibilityHandler = () => {
+                if (document.visibilityState === 'visible') {
+                    sync();
+                }
+            };
+        }
+        document.addEventListener('visibilitychange', visibilityHandler);
+        window.addEventListener('focus', sync);
+
         // Periodic sync
-        setInterval(sync, SYNC_INTERVAL);
+        if (syncIntervalId) {
+            clearInterval(syncIntervalId);
+        }
+        syncIntervalId = setInterval(sync, SYNC_INTERVAL);
 
         // Expose queue function globally
-        window.StudyGuideSync = {
+        window.StudyGuideSync = Object.assign(window.StudyGuideSync || {}, {
             queueChange: queueChange,
             sync: sync
-        };
+        });
     }
 
     // Teardown sync (called on logout)
     function teardownSync() {
         // Remove event listeners
         window.removeEventListener('online', sync);
+        window.removeEventListener('focus', sync);
+        if (visibilityHandler) {
+            document.removeEventListener('visibilitychange', visibilityHandler);
+        }
+        if (syncIntervalId) {
+            clearInterval(syncIntervalId);
+            syncIntervalId = null;
+        }
 
         // Clear sync indicator
         const indicator = document.getElementById('sync-status');
@@ -135,15 +158,23 @@
 
     // Get course ID from URL
     function getCourseId() {
-        const path = window.location.pathname;
-        if (path.includes('/6480/')) return '6480';
-        if (path.includes('/6670/')) return '6670';
+        const segments = (window.location.pathname || '').split('/').filter(Boolean);
+        const course = segments[0];
+        if (course === '6480' || course === '6670') return course;
         return 'general';
     }
 
     // Get page ID from URL
     function getPageId() {
-        return window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+        let path = window.location.pathname || '';
+        if (path.endsWith('/')) {
+            path = path.slice(0, -1);
+        }
+        const segment = path.split('/').pop() || 'index';
+        if (!segment || segment === 'index' || segment === 'index.html') {
+            return 'index';
+        }
+        return segment.replace(/\.html$/i, '');
     }
 
     // Create sync status UI element
@@ -361,7 +392,18 @@
             }
 
             // Pull latest from server
-            const pullUrl = courseId ? `${API_URL}?courseId=${courseId}` : API_URL;
+            const params = new URLSearchParams();
+            if (courseId) {
+                params.set('courseId', courseId);
+            }
+            const lastSync = getLastSync();
+            if (lastSync) {
+                const parsed = Date.parse(lastSync);
+                if (!Number.isNaN(parsed)) {
+                    params.set('since', new Date(parsed).toISOString());
+                }
+            }
+            const pullUrl = params.toString() ? `${API_URL}?${params.toString()}` : API_URL;
             const pullResponse = await fetch(pullUrl, {
                 method: 'GET',
                 headers: headers,
@@ -479,6 +521,8 @@
                         text: h.text,
                         color: h.color,
                         elementPath: h.element_path,
+                        startOffset: h.start_offset,
+                        endOffset: h.end_offset,
                         createdAt: h.created_at
                     });
                 }
@@ -547,7 +591,7 @@
             const prefs = {
                 speed: p.tts_speed,
                 volume: p.tts_volume,
-                voiceIndex: 0,
+                voiceId: p.tts_voice || 'en-US-terrell',
                 autoScroll: !!p.tts_autoscroll,
                 theme: p.theme
             };

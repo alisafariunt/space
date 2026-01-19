@@ -9,6 +9,23 @@ export default async function handler(req, res) {
     const JWT_ACCESS_EXPIRY = '30m';  // 30 minutes
     const JWT_REFRESH_EXPIRY = '30d'; // 30 days
 
+    const isProduction = process.env.NODE_ENV === 'production';
+    const cookieDomain = isProduction ? 'alisafari.space' : null;
+
+    function buildRefreshTokenCookie(value, maxAgeSeconds) {
+        const attrs = ['HttpOnly', 'SameSite=Lax', 'Path=/'];
+        if (isProduction) {
+            attrs.push('Secure');
+        }
+        if (cookieDomain) {
+            attrs.push(`Domain=${cookieDomain}`);
+        }
+        if (typeof maxAgeSeconds === 'number') {
+            attrs.push(`Max-Age=${maxAgeSeconds}`);
+        }
+        return `refreshToken=${value}; ${attrs.join('; ')}`;
+    }
+
     // CORS headers
     function getCorsHeaders(req) {
         const allowedOrigins = process.env.NODE_ENV === 'production'
@@ -73,6 +90,16 @@ export default async function handler(req, res) {
                 last_sync DATETIME
             )
         `);
+        try {
+            await db.execute("ALTER TABLE users ADD COLUMN password_hash TEXT");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE users ADD COLUMN password_reset_required INTEGER DEFAULT 1");
+        } catch (e) {
+            // Column likely exists
+        }
 
         await db.execute(`
             CREATE TABLE IF NOT EXISTS refresh_tokens (
@@ -84,6 +111,12 @@ export default async function handler(req, res) {
                 FOREIGN KEY (user_id) REFERENCES users(id)
             )
         `);
+        try {
+            await db.execute(`CREATE INDEX IF NOT EXISTS idx_refresh_tokens_user_id ON refresh_tokens(user_id)`);
+            await db.execute(`CREATE INDEX IF NOT EXISTS idx_refresh_tokens_expires ON refresh_tokens(expires_at)`);
+        } catch (e) {
+            // Indexes might already exist
+        }
 
         const { username, password } = req.body;
 
@@ -150,9 +183,7 @@ export default async function handler(req, res) {
         // Set refresh token cookie
         // Use SameSite=None for cross-origin requests, Secure required for SameSite=None
         const maxAge = Math.floor(expiryMs / 1000);
-        const isProduction = process.env.NODE_ENV === 'production';
-        const domainPart = isProduction ? '; Domain=alisafari.space' : '';
-        res.setHeader('Set-Cookie', `refreshToken=${refreshToken}; HttpOnly; Secure; SameSite=None; Max-Age=${maxAge}; Path=/${domainPart}`);
+        res.setHeader('Set-Cookie', buildRefreshTokenCookie(refreshToken, maxAge));
 
         // Return access token
         return res.status(200).json({

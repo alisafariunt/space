@@ -8,7 +8,7 @@ const db = createClient({
 });
 
 // JWT Configuration
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this-in-production';
+const JWT_SECRET = process.env.JWT_SECRET || 'study-guide-secret-key-2024';
 
 // Rate limiting (in-memory, upgrade to Redis for production)
 const requestCounts = new Map();
@@ -20,6 +20,8 @@ async function initializeDatabase() {
             id TEXT PRIMARY KEY,
             device_id TEXT UNIQUE,
             email TEXT,
+            password_hash TEXT,
+            password_reset_required INTEGER DEFAULT 1,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             last_sync DATETIME
         )`,
@@ -31,6 +33,8 @@ async function initializeDatabase() {
             text TEXT NOT NULL,
             color TEXT NOT NULL,
             element_path TEXT,
+            start_offset INTEGER,
+            end_offset INTEGER,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             updated_at DATETIME,
             deleted_at DATETIME
@@ -54,6 +58,7 @@ async function initializeDatabase() {
             selected_text TEXT,
             note_content TEXT NOT NULL,
             color TEXT DEFAULT 'yellow',
+            highlight_id TEXT,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             updated_at DATETIME,
             deleted_at DATETIME
@@ -66,7 +71,13 @@ async function initializeDatabase() {
             tts_autoscroll INTEGER DEFAULT 1,
             theme TEXT DEFAULT 'light',
             updated_at DATETIME
-        )`
+        )`,
+        `CREATE INDEX IF NOT EXISTS idx_highlights_user_course ON highlights(user_id, course_id)`,
+        `CREATE INDEX IF NOT EXISTS idx_highlights_user_deleted ON highlights(user_id, deleted_at)`,
+        `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_course ON bookmarks(user_id, course_id)`,
+        `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_deleted ON bookmarks(user_id, deleted_at)`,
+        `CREATE INDEX IF NOT EXISTS idx_notes_user_course ON notes(user_id, course_id)`,
+        `CREATE INDEX IF NOT EXISTS idx_notes_user_deleted ON notes(user_id, deleted_at)`
     ]);
 }
 
@@ -172,9 +183,14 @@ export default async function handler(req, res) {
         // Ensure tables exist
         await initializeDatabase();
 
-        // Migration: Add password column if missing
+        // Migration: Add auth columns if missing
         try {
-            await db.execute("ALTER TABLE users ADD COLUMN password TEXT");
+            await db.execute("ALTER TABLE users ADD COLUMN password_hash TEXT");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE users ADD COLUMN password_reset_required INTEGER DEFAULT 1");
         } catch (e) {
             // Column likely exists
         }
@@ -182,6 +198,17 @@ export default async function handler(req, res) {
         // Migration: Add highlight_id column to notes if missing
         try {
             await db.execute("ALTER TABLE notes ADD COLUMN highlight_id TEXT");
+        } catch (e) {
+            // Column likely exists
+        }
+        // Migration: Add highlight offsets if missing
+        try {
+            await db.execute("ALTER TABLE highlights ADD COLUMN start_offset INTEGER");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE highlights ADD COLUMN end_offset INTEGER");
         } catch (e) {
             // Column likely exists
         }
@@ -305,9 +332,20 @@ export default async function handler(req, res) {
                 for (const h of changes.highlights.upsert || []) {
                     await db.execute({
                         sql: `INSERT OR REPLACE INTO highlights 
-                              (id, user_id, course_id, page_id, text, color, element_path, created_at, updated_at)
-                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`,
-                        args: [val(h.id), userId, val(h.courseId), val(h.pageId), val(h.text), val(h.color), val(h.elementPath), val(h.createdAt)]
+                              (id, user_id, course_id, page_id, text, color, element_path, start_offset, end_offset, created_at, updated_at)
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`,
+                        args: [
+                            val(h.id),
+                            userId,
+                            val(h.courseId),
+                            val(h.pageId),
+                            val(h.text),
+                            val(h.color),
+                            val(h.elementPath),
+                            val(h.startOffset),
+                            val(h.endOffset),
+                            val(h.createdAt)
+                        ]
                     });
                     results.created++;
                 }
@@ -385,11 +423,13 @@ export default async function handler(req, res) {
             });
 
         } else if (method === 'DELETE') {
-            // Hard delete all user data (for testing/reset)
-            const { userId } = req.query;
+            // Hard delete all data for the authenticated user (for testing/reset)
+            const requestedUserId = Array.isArray(req.query.userId)
+                ? req.query.userId[0]
+                : req.query.userId;
 
-            if (!userId) {
-                return res.status(400).json({ error: 'userId is required' });
+            if (requestedUserId && requestedUserId !== userId) {
+                return res.status(403).json({ error: 'Forbidden' });
             }
 
             await db.batch([

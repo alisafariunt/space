@@ -5,6 +5,9 @@
     let notes = [];
     let highlightPanel = null;
     let highlightToolbar = null;
+    let savedSelection = null;
+    let selectionCheckTimer = null;
+    let toolbarInteraction = false;
     const STORAGE_KEY = 'studyGuide_highlights';
 
     // Colors for highlighting
@@ -17,7 +20,15 @@
 
     // Get current page ID
     function getPageId() {
-        return window.location.pathname.split('/').pop().replace('.html', '') || 'index';
+        let path = window.location.pathname || '';
+        if (path.endsWith('/')) {
+            path = path.slice(0, -1);
+        }
+        const segment = path.split('/').pop() || 'index';
+        if (!segment || segment === 'index' || segment === 'index.html') {
+            return 'index';
+        }
+        return segment.replace(/\.html$/i, '');
     }
 
     // Load from localStorage
@@ -46,10 +57,18 @@
 
     // Get course ID from URL
     function getCourseId() {
-        const path = window.location.pathname;
-        if (path.includes('/6480/')) return '6480';
-        if (path.includes('/6670/')) return '6670';
+        const segments = (window.location.pathname || '').split('/').filter(Boolean);
+        const course = segments[0];
+        if (course === '6480' || course === '6670') return course;
         return 'general';
+    }
+
+    function getContentRoot() {
+        return document.querySelector('main')
+            || document.querySelector('article')
+            || document.querySelector('.container')
+            || document.querySelector('.content')
+            || document.body;
     }
 
     // Queue for cloud sync
@@ -64,20 +83,53 @@
         return 'hl_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     }
 
+    function getSelectionRect(range) {
+        const rect = range.getBoundingClientRect();
+        if (rect && rect.width && rect.height) {
+            return rect;
+        }
+        const rects = range.getClientRects();
+        if (rects && rects.length > 0) {
+            return rects[0];
+        }
+        return rect;
+    }
+
+    function isSelectionEligible(selection) {
+        if (!selection || selection.rangeCount === 0 || selection.isCollapsed || !selection.toString().trim()) {
+            return false;
+        }
+        const range = selection.getRangeAt(0);
+        const root = getContentRoot();
+        const container = range.commonAncestorContainer.nodeType === 1
+            ? range.commonAncestorContainer
+            : range.commonAncestorContainer.parentNode;
+
+        if (!root || !container || !root.contains(container)) {
+            return false;
+        }
+
+        if (container.closest('input, textarea, button, select, [contenteditable="true"], .highlight-toolbar, .highlight-panel, .note-modal, .note-modal-overlay, .login-modal, .login-modal-overlay')) {
+            return false;
+        }
+
+        return true;
+    }
+
     // Get text selection info
     function getSelectionInfo() {
         const selection = window.getSelection();
-        if (!selection || selection.isCollapsed || !selection.toString().trim()) {
+        if (!isSelectionEligible(selection)) {
             return null;
         }
 
-        const range = selection.getRangeAt(0);
+        const range = selection.getRangeAt(0).cloneRange();
         const text = selection.toString().trim();
 
         return {
             range,
             text,
-            rect: range.getBoundingClientRect()
+            rect: getSelectionRect(range)
         };
     }
 
@@ -97,13 +149,29 @@
         toolbar.style.display = 'none';
         document.body.appendChild(toolbar);
 
+        const startInteraction = (e) => {
+            toolbarInteraction = true;
+            e.stopPropagation();
+        };
+        const endInteraction = () => {
+            setTimeout(() => {
+                toolbarInteraction = false;
+            }, 0);
+        };
+        ['mousedown', 'touchstart', 'pointerdown'].forEach(evt => {
+            toolbar.addEventListener(evt, startInteraction, { passive: true });
+        });
+        ['mouseup', 'touchend', 'pointerup'].forEach(evt => {
+            toolbar.addEventListener(evt, endInteraction, { passive: true });
+        });
+
         // Color button clicks
         toolbar.querySelectorAll('[data-color]').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 const color = btn.dataset.color;
                 applyHighlight(color);
-                hideToolbar();
+                hideToolbar(true);
             });
         });
 
@@ -114,10 +182,11 @@
                 e.stopPropagation();
                 // Create highlight first with yellow color
                 const highlightId = applyHighlight('yellow', true);
-                hideToolbar();
+                hideToolbar(true);
 
                 // Then open note modal after a brief delay to ensure highlight is created
                 setTimeout(() => {
+                    if (!highlightId) return;
                     const highlight = highlights.find(h => h.id === highlightId);
                     const highlightElement = document.querySelector(`[data-highlight-id="${highlightId}"]`);
                     if (highlight && highlightElement) {
@@ -137,18 +206,25 @@
         }
 
         const toolbarHeight = 40;
-        const top = rect.top + window.scrollY - toolbarHeight - 10;
-        const left = rect.left + window.scrollX + (rect.width / 2) - 100;
+        const toolbarWidth = 220;
+        const preferredTop = rect.top + window.scrollY - toolbarHeight - 10;
+        const fallbackTop = rect.bottom + window.scrollY + 10;
+        const top = preferredTop < 10 ? fallbackTop : preferredTop;
+        const left = rect.left + window.scrollX + (rect.width / 2) - (toolbarWidth / 2);
+        const maxLeft = window.scrollX + window.innerWidth - toolbarWidth - 10;
 
         highlightToolbar.style.top = `${Math.max(10, top)}px`;
-        highlightToolbar.style.left = `${Math.max(10, left)}px`;
+        highlightToolbar.style.left = `${Math.max(10, Math.min(left, maxLeft))}px`;
         highlightToolbar.style.display = 'flex';
     }
 
     // Hide toolbar
-    function hideToolbar() {
+    function hideToolbar(clearSaved = false) {
         if (highlightToolbar) {
             highlightToolbar.style.display = 'none';
+        }
+        if (clearSaved) {
+            savedSelection = null;
         }
     }
 
@@ -158,20 +234,38 @@
         if (element === document.body) return 'body';
 
         const parent = element.parentNode;
-        const index = Array.from(parent.children).indexOf(element);
+        if (!parent || parent.nodeType !== 1) return element.tagName.toLowerCase();
         const tagName = element.tagName.toLowerCase();
-        return `${getElementPath(parent)} > ${tagName}:nth-child(${index + 1})`;
+        const siblings = Array.from(parent.children)
+            .filter(child => child.tagName && child.tagName.toLowerCase() === tagName);
+        const index = siblings.indexOf(element);
+        return `${getElementPath(parent)} > ${tagName}:nth-of-type(${index + 1})`;
     }
 
-    // Apply highlight to selected text
-    function applyHighlight(color, returnId = false) {
-        const selInfo = getSelectionInfo();
-        if (!selInfo) return returnId ? null : undefined;
+    function getOffsetsForRange(container, range) {
+        try {
+            const startRange = range.cloneRange();
+            startRange.selectNodeContents(container);
+            startRange.setEnd(range.startContainer, range.startOffset);
+            const start = startRange.toString().length;
 
-        const { range, text } = selInfo;
-        const id = generateId();
+            const endRange = range.cloneRange();
+            endRange.selectNodeContents(container);
+            endRange.setEnd(range.endContainer, range.endOffset);
+            const end = endRange.toString().length;
 
-        // Create highlight wrapper
+            if (Number.isNaN(start) || Number.isNaN(end)) {
+                return null;
+            }
+
+            return start <= end ? { start, end } : { start: end, end: start };
+        } catch (e) {
+            console.error('Offset calculation failed', e);
+            return null;
+        }
+    }
+
+    function createHighlightMark(id, color) {
         const wrapper = document.createElement('mark');
         wrapper.className = `user-highlight highlight-${color}`;
         wrapper.dataset.highlightId = id;
@@ -181,33 +275,77 @@
         wrapper.style.borderRadius = '2px';
         wrapper.style.cursor = 'pointer';
 
-        // Capture path before modifying DOM
-        let elementPath = '';
-        let startOffset = 0;
-        try {
-            const container = range.commonAncestorContainer;
-            const parentElement = container.nodeType === 1 ? container : container.parentNode;
-            elementPath = getElementPath(parentElement);
+        wrapper.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showHighlightOptions(wrapper, id);
+        });
 
-            // Calculate offset relative to parent text content
-            // This is simplified; robust impl requires Rangy or similar.
-            // We'll rely on text matching within the parent for restoration fallback.
+        return wrapper;
+    }
+
+    function wrapOffsets(container, startOffset, endOffset, color, id) {
+        if (!container || startOffset == null || endOffset == null) return false;
+        if (startOffset === endOffset || startOffset < 0 || endOffset < 0) return false;
+
+        const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
+        const textNodes = [];
+        let node;
+        let offset = 0;
+
+        while (node = walker.nextNode()) {
+            const length = node.nodeValue.length;
+            textNodes.push({ node, start: offset, end: offset + length });
+            offset += length;
+        }
+
+        let created = false;
+        textNodes.forEach(({ node, start, end }) => {
+            if (end <= startOffset || start >= endOffset) return;
+            const startInNode = Math.max(0, startOffset - start);
+            const endInNode = Math.min(node.nodeValue.length, endOffset - start);
+            if (startInNode >= endInNode) return;
+
+            const range = document.createRange();
+            range.setStart(node, startInNode);
+            range.setEnd(node, endInNode);
+
+            const wrapper = createHighlightMark(id, color);
+            try {
+                range.surroundContents(wrapper);
+                created = true;
+            } catch (e) {
+                console.error('Highlight wrap failed', e);
+            }
+        });
+
+        return created;
+    }
+
+    // Apply highlight to selected text
+    function applyHighlight(color, returnId = false) {
+        const selInfo = getSelectionInfo();
+        const info = selInfo || savedSelection;
+        if (!info) return returnId ? null : undefined;
+
+        const { range, text } = info;
+        const id = generateId();
+
+        const root = getContentRoot();
+        if (!root || !root.contains(range.commonAncestorContainer)) {
+            return returnId ? null : undefined;
+        }
+
+        // Capture path and offsets before modifying DOM
+        let elementPath = '';
+        let offsets = null;
+        try {
+            elementPath = getElementPath(root);
+            offsets = getOffsetsForRange(root, range);
         } catch (e) { console.error("Path capture failed", e); }
 
-        try {
-            range.surroundContents(wrapper);
-            // Cleanup empty text nodes that might break restoration logic
-            wrapper.normalize();
-        } catch (e) {
-            // Complex selection fallback
-            try {
-                const fragment = range.extractContents();
-                wrapper.appendChild(fragment);
-                range.insertNode(wrapper);
-            } catch (ex) {
-                console.error("Highlight application failed", ex);
-                return;
-            }
+        if (!offsets || !wrapOffsets(root, offsets.start, offsets.end, color, id)) {
+            console.error("Highlight application failed");
+            return;
         }
 
         // Save highlight data
@@ -215,9 +353,11 @@
             id,
             pageId: getPageId(),
             courseId: getCourseId(),
-            text: text.substring(0, 200),
+            text: text,
             color,
             elementPath, // Store path
+            startOffset: offsets ? offsets.start : null,
+            endOffset: offsets ? offsets.end : null,
             createdAt: new Date().toISOString()
         };
         highlights.push(highlight);
@@ -228,14 +368,9 @@
             window.StudyGuideSync.queueChange('highlights', 'upsert', highlight);
         }
 
-        // Add click handler to remove
-        wrapper.addEventListener('click', (e) => {
-            e.stopPropagation();
-            showHighlightOptions(wrapper, id);
-        });
-
         // Clear selection
         window.getSelection().removeAllRanges();
+        savedSelection = null;
 
         // Update panel if open
         updateHighlightPanel();
@@ -244,71 +379,66 @@
         return returnId ? id : undefined;
     }
 
+    function clearRenderedHighlights() {
+        document.querySelectorAll('.user-highlight').forEach(el => {
+            const parent = el.parentNode;
+            while (el.firstChild) {
+                parent.insertBefore(el.firstChild, el);
+            }
+            parent.removeChild(el);
+        });
+        const options = document.querySelector('.highlight-options');
+        if (options) options.remove();
+    }
+
     // Restore Visual Highlights
-    function restoreHighlights() {
+    function restoreHighlights(reset = false) {
+        if (reset) {
+            clearRenderedHighlights();
+        }
+
         const pageId = getPageId();
         const pageHighlights = highlights.filter(h => h.pageId === pageId);
+        const root = getContentRoot();
 
         pageHighlights.forEach(h => {
             // Skip if already exists
             if (document.querySelector(`[data-highlight-id="${h.id}"]`)) return;
 
-            let targetElement = null;
+            let targetElement = root;
             if (h.elementPath) {
                 try {
-                    targetElement = document.querySelector(h.elementPath);
-                } catch (e) { }
+                    targetElement = document.querySelector(h.elementPath) || root;
+                } catch (e) {
+                    targetElement = root;
+                }
             }
 
-            // If we found the container, try to find the text to wrap
-            if (targetElement) {
-                // Simplified restoration: Find text in container and wrap first instance
-                // This is not perfect for repeated text but better than nothing
-                findAndWrapText(targetElement, h.text, h.color, h.id);
-            } else {
-                // Fallback: search entire body (expensive but necessary)
-                findAndWrapText(document.body, h.text, h.color, h.id);
+            if (h.startOffset != null && h.endOffset != null) {
+                if (wrapOffsets(targetElement, Number(h.startOffset), Number(h.endOffset), h.color, h.id)) {
+                    return;
+                }
+            }
+
+            const recovered = findAndWrapText(targetElement || document.body, h.text, h.color, h.id);
+            if (recovered && (h.startOffset == null || h.endOffset == null)) {
+                h.startOffset = recovered.start;
+                h.endOffset = recovered.end;
+                saveData();
+                queueSync('highlights', 'upsert', h);
             }
         });
     }
 
     function findAndWrapText(root, searchText, color, id) {
-        if (!searchText) return;
+        if (!root || !searchText) return null;
 
-        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
-        let node;
-        while (node = walker.nextNode()) {
-            const index = node.nodeValue.indexOf(searchText);
-            if (index >= 0) {
-                // Found it! Split and wrap
-                try {
-                    const range = document.createRange();
-                    range.setStart(node, index);
-                    range.setEnd(node, index + searchText.length);
+        const content = root.textContent || '';
+        const index = content.indexOf(searchText);
+        if (index < 0) return null;
 
-                    const wrapper = document.createElement('mark');
-                    wrapper.className = `user-highlight highlight-${color}`;
-                    wrapper.dataset.highlightId = id;
-                    wrapper.style.backgroundColor = COLORS[color].bg;
-                    wrapper.style.borderBottom = `2px solid ${COLORS[color].border}`;
-                    wrapper.style.padding = '0 2px';
-                    wrapper.style.borderRadius = '2px';
-                    wrapper.style.cursor = 'pointer';
-
-                    range.surroundContents(wrapper);
-
-                    wrapper.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        showHighlightOptions(wrapper, id);
-                    });
-
-                    return true; // Done
-                } catch (e) {
-                    console.error("Restoration wrap failed", e);
-                }
-            }
-        }
-        return false;
+        const success = wrapOffsets(root, index, index + searchText.length, color, id);
+        return success ? { start: index, end: index + searchText.length } : null;
     }
 
     // Show options for existing highlight
@@ -318,15 +448,21 @@
 
         const rect = element.getBoundingClientRect();
         const options = document.createElement('div');
+        const existingNote = notes.find(n => n.highlightId === id);
+        const noteLabel = existingNote ? '📝 View Note' : '📝 Add Note';
         options.className = 'highlight-options';
         options.innerHTML = `
             <button data-action="remove">🗑️ Remove</button>
-            <button data-action="note">📝 Add Note</button>
+            <button data-action="note">${noteLabel}</button>
         `;
+        const optionsWidth = 200;
+        const optionsLeft = Math.max(10, Math.min(rect.left, window.innerWidth - optionsWidth - 10));
+        const optionsTop = Math.min(rect.bottom + 5, window.innerHeight - 60);
+
         options.style.cssText = `
             position: fixed;
-            top: ${rect.bottom + 5}px;
-            left: ${rect.left}px;
+            top: ${optionsTop}px;
+            left: ${optionsLeft}px;
             background: white;
             border: 1px solid #ddd;
             border-radius: 8px;
@@ -338,14 +474,18 @@
         `;
 
         options.querySelector('[data-action="remove"]').addEventListener('click', () => {
-            removeHighlight(id, element);
+            removeHighlight(id);
             options.remove();
         });
 
         options.querySelector('[data-action="note"]').addEventListener('click', () => {
-            const highlight = highlights.find(h => h.id === id);
-            if (highlight) {
-                showNoteModal(highlight, element);
+            if (existingNote) {
+                showNoteViewModal(existingNote);
+            } else {
+                const highlight = highlights.find(h => h.id === id);
+                if (highlight) {
+                    showNoteModal(highlight, element);
+                }
             }
             options.remove();
         });
@@ -364,13 +504,14 @@
     }
 
     // Remove highlight
-    function removeHighlight(id, element) {
-        // Unwrap the element
-        const parent = element.parentNode;
-        while (element.firstChild) {
-            parent.insertBefore(element.firstChild, element);
-        }
-        parent.removeChild(element);
+    function removeHighlight(id) {
+        document.querySelectorAll(`[data-highlight-id="${id}"]`).forEach(el => {
+            const parent = el.parentNode;
+            while (el.firstChild) {
+                parent.insertBefore(el.firstChild, el);
+            }
+            parent.removeChild(el);
+        });
 
         // Remove from data
         highlights = highlights.filter(h => h.id !== id);
@@ -463,7 +604,7 @@
                 queueSync('notes', 'upsert', note);
 
                 // Add note indicator to highlight
-                addNoteIndicator(highlightElement, note);
+                addNoteIndicator(highlightElement);
             }
 
             saveData();
@@ -480,8 +621,9 @@
                 updateHighlightPanel();
 
                 // Remove note indicator from highlight
-                const indicator = highlightElement?.querySelector('.note-indicator');
-                if (indicator) indicator.remove();
+                if (highlight) {
+                    removeNoteIndicator(highlight.id);
+                }
 
                 modal.remove();
             }
@@ -511,24 +653,16 @@
     }
 
     // Add note indicator to highlight element
-    function addNoteIndicator(highlightElement, note) {
+    function addNoteIndicator(highlightElement) {
         if (!highlightElement) return;
+        if (highlightElement.classList.contains('has-note')) return;
+        highlightElement.classList.add('has-note');
+    }
 
-        // Check if indicator already exists
-        if (highlightElement.querySelector('.note-indicator')) return;
-
-        const indicator = document.createElement('span');
-        indicator.className = 'note-indicator';
-        indicator.innerHTML = '📝';
-        indicator.title = 'Has note - Click to view';
-        indicator.style.cssText = 'margin-left: 4px; cursor: pointer; font-size: 0.8em;';
-
-        indicator.addEventListener('click', (e) => {
-            e.stopPropagation();
-            showNoteViewModal(note);
-        });
-
-        highlightElement.appendChild(indicator);
+    function removeNoteIndicator(highlightId) {
+        if (!highlightId) return;
+        document.querySelectorAll(`[data-highlight-id="${highlightId}"]`)
+            .forEach(el => el.classList.remove('has-note'));
     }
 
     // Show note view modal (read-only initially)
@@ -591,7 +725,7 @@
 
             const highlightElement = document.querySelector(`[data-highlight-id="${note.highlightId}"]`);
             if (highlightElement) {
-                addNoteIndicator(highlightElement, note);
+                addNoteIndicator(highlightElement);
             }
         });
     }
@@ -714,10 +848,12 @@
                     </div>
                 `;
             } else {
+                const rawText = typeof item.text === 'string' ? item.text.trim() : '';
+                const displayText = rawText.length > 160 ? `${rawText.substring(0, 160)}...` : rawText;
                 return `
                     <div class="highlight-item" data-id="${item.id}">
                         <span class="item-icon" style="background: ${COLORS[item.color].bg}">${item.color === 'yellow' ? '🟡' : item.color === 'green' ? '🟢' : item.color === 'red' ? '🔴' : '🔵'}</span>
-                        <span class="item-text">${item.text}${item.hasNote ? ' 📝' : ''}</span>
+                        <span class="item-text">${displayText}${item.hasNote ? ' 📝' : ''}</span>
                         <button class="item-delete" data-id="${item.id}" data-type="highlight">×</button>
                     </div>
                 `;
@@ -746,11 +882,7 @@
                         const note = notes.find(n => n.id === id);
                         if (note) {
                             // Remove note indicator from highlight if it exists
-                            const highlightElement = document.querySelector(`[data-highlight-id="${note.highlightId}"]`);
-                            if (highlightElement) {
-                                const indicator = highlightElement.querySelector('.note-indicator');
-                                if (indicator) indicator.remove();
-                            }
+                            removeNoteIndicator(note.highlightId);
                         }
                         notes = notes.filter(n => n.id !== id);
                         saveData();
@@ -759,7 +891,7 @@
                 } else {
                     const el = document.querySelector(`[data-highlight-id="${id}"]`);
                     if (el) {
-                        removeHighlight(id, el);
+                        removeHighlight(id);
                     } else {
                         // Fallback: remove data if element not found (e.g. different page)
                         highlights = highlights.filter(h => h.id !== id);
@@ -946,9 +1078,21 @@
         // Remove bookmark indicators
         document.querySelectorAll('.bookmark-indicator').forEach(el => el.remove());
 
+        // Queue deletions for cloud sync
+        highlights.filter(h => h.pageId === pageId).forEach(h => {
+            queueSync('highlights', 'delete', h.id);
+        });
+        bookmarks.filter(b => b.pageId === pageId).forEach(b => {
+            queueSync('bookmarks', 'delete', b.id);
+        });
+        notes.filter(n => n.pageId === pageId).forEach(n => {
+            queueSync('notes', 'delete', n.id);
+        });
+
         // Clear data for this page
         highlights = highlights.filter(h => h.pageId !== pageId);
         bookmarks = bookmarks.filter(b => b.pageId !== pageId);
+        notes = notes.filter(n => n.pageId !== pageId);
         saveData();
         updateHighlightPanel();
     }
@@ -1326,7 +1470,11 @@
             }
 
             /* Note indicator styles */
-            .note-indicator {
+            .user-highlight.has-note::after {
+                content: "📝";
+                margin-left: 4px;
+                font-size: 0.8em;
+                pointer-events: none;
                 animation: noteAppear 0.3s ease;
             }
             @keyframes noteAppear {
@@ -1405,14 +1553,28 @@
         document.head.appendChild(style);
     }
 
+    function scheduleSelectionCheck(delay = 10) {
+        if (selectionCheckTimer) {
+            clearTimeout(selectionCheckTimer);
+        }
+        selectionCheckTimer = setTimeout(() => {
+            selectionCheckTimer = null;
+            handleSelection();
+        }, delay);
+    }
+
     // Handle text selection
     function handleSelection() {
         const selInfo = getSelectionInfo();
-        if (selInfo) {
+        if (selInfo && selInfo.rect) {
+            savedSelection = selInfo;
             showToolbar(selInfo.rect);
-        } else {
-            hideToolbar();
+            return;
         }
+        if (toolbarInteraction && savedSelection) {
+            return;
+        }
+        hideToolbar(true);
     }
 
     // Initialize
@@ -1428,18 +1590,30 @@
         // Listen for sync updates
         window.addEventListener('syncComplete', (e) => {
             loadData();
-            restoreHighlights(); // Re-apply highlights after sync
+            restoreHighlights(true); // Re-apply highlights after sync
             restoreNotes(); // Re-apply note indicators after sync
             updateHighlightPanel();
         });
 
         // Selection handler
-        document.addEventListener('mouseup', () => {
-            setTimeout(handleSelection, 10);
-        });
+        document.addEventListener('mouseup', () => scheduleSelectionCheck());
+        document.addEventListener('pointerup', () => scheduleSelectionCheck());
+        document.addEventListener('touchend', () => scheduleSelectionCheck(50), { passive: true });
+        document.addEventListener('selectionchange', () => scheduleSelectionCheck(50));
+        document.addEventListener('keyup', () => scheduleSelectionCheck());
 
-        // Hide toolbar on scroll
-        document.addEventListener('scroll', hideToolbar);
+        // Hide toolbar on scroll or outside interactions
+        document.addEventListener('scroll', () => hideToolbar(true), { passive: true });
+        document.addEventListener('mousedown', (e) => {
+            if (highlightToolbar && !highlightToolbar.contains(e.target)) {
+                hideToolbar(true);
+            }
+        });
+        document.addEventListener('touchstart', (e) => {
+            if (highlightToolbar && !highlightToolbar.contains(e.target)) {
+                hideToolbar(true);
+            }
+        }, { passive: true });
 
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {

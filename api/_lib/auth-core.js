@@ -10,7 +10,7 @@ export const db = createClient({
 });
 
 // Configuration
-export const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-this-in-production';
+export const JWT_SECRET = process.env.JWT_SECRET || 'study-guide-secret-key-2024';
 export const JWT_ACCESS_EXPIRY = process.env.JWT_ACCESS_EXPIRY || '30m';
 export const JWT_REFRESH_EXPIRY = process.env.JWT_REFRESH_EXPIRY || '30d';
 export const BCRYPT_ROUNDS = 10;
@@ -158,12 +158,24 @@ export function setRefreshTokenCookie(res, refreshToken) {
     const expiryMs = parseExpiry(JWT_REFRESH_EXPIRY);
     const maxAge = Math.floor(expiryMs / 1000); // Convert to seconds
 
-    res.setHeader('Set-Cookie', `refreshToken=${refreshToken}; HttpOnly; Secure; SameSite=Strict; Max-Age=${maxAge}; Path=/api/auth`);
+    const isProduction = process.env.NODE_ENV === 'production';
+    const attrs = ['HttpOnly', 'SameSite=Lax', 'Path=/', `Max-Age=${maxAge}`];
+    if (isProduction) {
+        attrs.push('Secure', 'Domain=alisafari.space');
+    }
+
+    res.setHeader('Set-Cookie', `refreshToken=${refreshToken}; ${attrs.join('; ')}`);
 }
 
 // Clear refresh token cookie
 export function clearRefreshTokenCookie(res) {
-    res.setHeader('Set-Cookie', 'refreshToken=; HttpOnly; Secure; SameSite=Strict; Max-Age=0; Path=/api/auth');
+    const isProduction = process.env.NODE_ENV === 'production';
+    const attrs = ['HttpOnly', 'SameSite=Lax', 'Path=/', 'Max-Age=0'];
+    if (isProduction) {
+        attrs.push('Secure', 'Domain=alisafari.space');
+    }
+
+    res.setHeader('Set-Cookie', `refreshToken=; ${attrs.join('; ')}`);
 }
 
 // Get refresh token from cookie

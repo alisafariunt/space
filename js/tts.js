@@ -35,6 +35,10 @@
             const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
             settings = { ...settings, ...saved };
         } catch (e) { }
+
+        if (!VOICES[settings.voiceId]) {
+            settings.voiceId = 'en-US-terrell';
+        }
     }
 
     // Queue for cloud sync
@@ -54,7 +58,7 @@
             theme: document.documentElement.getAttribute('data-theme') || 'light'
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
-        queueSync('preferences', 'update', prefs);
+        queueSync('preferences', 'upsert', prefs);
     }
 
     // Update voice dropdown
@@ -95,9 +99,17 @@
     // Generate speech from API
     async function generateSpeech(text) {
         try {
+            const headers = { 'Content-Type': 'application/json' };
+            try {
+                const token = window.AuthManager?.getAccessToken?.();
+                if (token) {
+                    headers.Authorization = `Bearer ${token}`;
+                }
+            } catch (e) { }
+
             const response = await fetch('/api/tts', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers,
                 body: JSON.stringify({
                     text: text,
                     voice: settings.voiceId,
@@ -106,6 +118,9 @@
             });
 
             if (!response.ok) {
+                if (response.status === 401 && window.showLoginModal) {
+                    window.showLoginModal('Please login to use Text-to-Speech.');
+                }
                 const err = await response.json();
                 throw new Error(err.error || 'TTS failed');
             }
@@ -127,6 +142,7 @@
 
         audioElement.src = url;
         audioElement.volume = settings.volume;
+        audioElement.playbackRate = settings.speed;
 
         audioElement.onended = () => {
             URL.revokeObjectURL(url);
@@ -329,6 +345,9 @@
     // Set speed
     function setSpeed(speed) {
         settings.speed = parseFloat(speed);
+        if (audioElement) {
+            audioElement.playbackRate = settings.speed;
+        }
         saveSettings();
         document.querySelectorAll('.speed-btn').forEach(btn => {
             btn.classList.toggle('active', parseFloat(btn.dataset.speed) === settings.speed);

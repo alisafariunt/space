@@ -1,7 +1,13 @@
+import jwt from 'jsonwebtoken';
+
 // Text-to-Speech API using Murf.ai
 // Premium natural voices with narration style
 
 const MURF_API = 'https://api.murf.ai/v1/speech/generate';
+const JWT_SECRET = process.env.JWT_SECRET || 'study-guide-secret-key-2024';
+
+// Rate limiting (in-memory, upgrade to Redis for production)
+const requestCounts = new Map();
 
 // Available Murf voices (correct voice IDs from API)
 const VOICES = {
@@ -15,11 +21,69 @@ const VOICES = {
     'en-UK-peter': { name: 'Peter (UK)', lang: 'en-UK' },
 };
 
+function getCorsHeaders(req) {
+    const allowedOrigins = process.env.NODE_ENV === 'production'
+        ? (process.env.ALLOWED_ORIGINS || 'https://alisafari.space,https://www.alisafari.space').split(',')
+        : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080'];
+
+    const origin = req.headers.origin;
+
+    if (allowedOrigins.includes(origin)) {
+        return {
+            'Access-Control-Allow-Origin': origin,
+            'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+            'Access-Control-Allow-Credentials': 'true',
+        };
+    }
+
+    return {
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    };
+}
+
+function verifyAccessToken(req) {
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        throw new Error('MISSING_TOKEN');
+    }
+
+    const token = authHeader.substring(7);
+
+    try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+        return decoded.userId;
+    } catch (error) {
+        if (error.name === 'TokenExpiredError') {
+            throw new Error('TOKEN_EXPIRED');
+        }
+        throw new Error('INVALID_TOKEN');
+    }
+}
+
+function rateLimit(userId) {
+    const limit = parseInt(process.env.RATE_LIMIT_MAX || '60');
+    const windowMs = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '60000');
+    const now = Date.now();
+
+    const userRequests = requestCounts.get(userId) || [];
+    const recentRequests = userRequests.filter(time => now - time < windowMs);
+
+    if (recentRequests.length >= limit) {
+        throw new Error('RATE_LIMIT_EXCEEDED');
+    }
+
+    recentRequests.push(now);
+    requestCounts.set(userId, recentRequests);
+}
+
 export default async function handler(req, res) {
-    // CORS headers
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    const corsHeaders = getCorsHeaders(req);
+    Object.entries(corsHeaders).forEach(([key, value]) => {
+        res.setHeader(key, value);
+    });
 
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
@@ -35,7 +99,32 @@ export default async function handler(req, res) {
     }
 
     try {
-        let { text, voice = 'en-US-peter', speed = 1.0 } = req.body;
+        let { text, voice = 'en-US-terrell' } = req.body;
+
+        let userId;
+        try {
+            userId = verifyAccessToken(req);
+        } catch (error) {
+            if (error.message === 'MISSING_TOKEN') {
+                return res.status(401).json({ error: 'Authentication required' });
+            }
+            if (error.message === 'TOKEN_EXPIRED') {
+                return res.status(401).json({ error: 'Token expired' });
+            }
+            if (error.message === 'INVALID_TOKEN') {
+                return res.status(401).json({ error: 'Invalid token' });
+            }
+            throw error;
+        }
+
+        try {
+            rateLimit(userId);
+        } catch (error) {
+            if (error.message === 'RATE_LIMIT_EXCEEDED') {
+                return res.status(429).json({ error: 'Too many requests. Please try again later.' });
+            }
+            throw error;
+        }
 
         if (!text || text.length === 0) {
             return res.status(400).json({ error: 'Text is required' });
