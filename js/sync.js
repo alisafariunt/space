@@ -92,95 +92,10 @@
         }
     }
 
-    // Create User Info UI (Login/Logout in Menu)
+    // User Info UI is now handled by auth.js (updateUserMenu function)
+    // This function is kept as a stub for compatibility
     function createUserInfo() {
-        // Target the navbar menu
-        const navbarLinks = document.querySelector('.navbar-links');
-
-        // Remove existing item if any
-        let authItem = document.getElementById('auth-nav-item');
-        if (authItem) authItem.remove();
-
-        // Also remove legacy user-info div if exists
-        const legacy = document.querySelector('.user-info');
-        if (legacy) legacy.remove();
-
-        if (navbarLinks) {
-            authItem = document.createElement('li');
-            authItem.id = 'auth-nav-item';
-
-            if (userId) {
-                authItem.innerHTML = `<button class="auth-btn logout" title="Logout">👤 ${userId}</button>`;
-                authItem.querySelector('button').addEventListener('click', async () => {
-                    if (confirm(`Logout from "${userId}"?`)) {
-                        if (authManager) {
-                            await authManager.logout();
-                        }
-                        location.reload();
-                    }
-                });
-            } else {
-                authItem.innerHTML = `<button class="auth-btn login">Login 🔐</button>`;
-                authItem.querySelector('button').addEventListener('click', () => {
-                    if (window.showLoginModal) {
-                        window.showLoginModal();
-                    }
-                });
-            }
-
-            navbarLinks.appendChild(authItem);
-        } else {
-            // Fallback for pages without navbar
-            const fallbackDiv = document.createElement('div');
-            fallbackDiv.className = 'user-info fixed-auth';
-            fallbackDiv.innerHTML = userId
-                ? `<button class="auth-btn logout">👤 ${userId}</button>`
-                : `<button class="auth-btn login">Login</button>`;
-
-            fallbackDiv.querySelector('button').addEventListener('click', async () => {
-                if (userId) {
-                    if (confirm("Logout?")) {
-                        if (authManager) {
-                            await authManager.logout();
-                        }
-                        location.reload();
-                    }
-                } else {
-                    if (window.showLoginModal) {
-                        window.showLoginModal();
-                    }
-                }
-            });
-            document.body.appendChild(fallbackDiv);
-        }
-
-        // Styles
-        if (!document.getElementById('auth-styles')) {
-            const style = document.createElement('style');
-            style.id = 'auth-styles';
-            style.textContent = `
-                .auth-btn {
-                    background: none; border: 1px solid rgba(255,255,255,0.3);
-                    color: white; padding: 5px 12px; border-radius: 20px;
-                    cursor: pointer; font-size: 14px; transition: all 0.2s;
-                    margin-left: 10px;
-                }
-                .auth-btn:hover { background: rgba(255,255,255,0.1); }
-                .auth-btn.login { background: #10b981; border: none; }
-                .auth-btn.login:hover { background: #059669; }
-                .auth-btn.logout { background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.5); }
-                .auth-btn.logout:hover { background: rgba(239, 68, 68, 0.4); }
-                
-                /* Navbar specific adjustments */
-                .navbar-links li { display: flex; align-items: center; }
-                
-                /* Fixed Fallback */
-                .fixed-auth { position: fixed; top: 10px; right: 10px; z-index: 9999; }
-                .fixed-auth .auth-btn { color: #333; border-color: #ccc; }
-                body.dark-mode .fixed-auth .auth-btn { color: white; }
-            `;
-            document.head.appendChild(style);
-        }
+        // Auth.js handles the user menu now
     }
 
     function setupSync() {
