@@ -128,6 +128,17 @@
         }
     }
 
+    // Get distinct path to element
+    function getElementPath(element) {
+        if (element.id) return '#' + element.id;
+        if (element === document.body) return 'body';
+
+        const parent = element.parentNode;
+        const index = Array.from(parent.children).indexOf(element);
+        const tagName = element.tagName.toLowerCase();
+        return `${getElementPath(parent)} > ${tagName}:nth-child(${index + 1})`;
+    }
+
     // Apply highlight to selected text
     function applyHighlight(color) {
         const selInfo = getSelectionInfo();
@@ -146,13 +157,33 @@
         wrapper.style.borderRadius = '2px';
         wrapper.style.cursor = 'pointer';
 
+        // Capture path before modifying DOM
+        let elementPath = '';
+        let startOffset = 0;
+        try {
+            const container = range.commonAncestorContainer;
+            const parentElement = container.nodeType === 1 ? container : container.parentNode;
+            elementPath = getElementPath(parentElement);
+
+            // Calculate offset relative to parent text content
+            // This is simplified; robust impl requires Rangy or similar.
+            // We'll rely on text matching within the parent for restoration fallback.
+        } catch (e) { console.error("Path capture failed", e); }
+
         try {
             range.surroundContents(wrapper);
+            // Cleanup empty text nodes that might break restoration logic
+            wrapper.normalize();
         } catch (e) {
-            // If selection spans multiple elements, use extractContents
-            const fragment = range.extractContents();
-            wrapper.appendChild(fragment);
-            range.insertNode(wrapper);
+            // Complex selection fallback
+            try {
+                const fragment = range.extractContents();
+                wrapper.appendChild(fragment);
+                range.insertNode(wrapper);
+            } catch (ex) {
+                console.error("Highlight application failed", ex);
+                return;
+            }
         }
 
         // Save highlight data
@@ -162,22 +193,95 @@
             courseId: getCourseId(),
             text: text.substring(0, 200),
             color,
+            elementPath, // Store path
             createdAt: new Date().toISOString()
         };
         highlights.push(highlight);
         saveData();
 
-        // Queue for cloud sync
-        queueSync('highlights', 'upsert', highlight);
+        // Queue for cloud sync (use correct queueChange name from sync.js)
+        if (window.StudyGuideSync) {
+            window.StudyGuideSync.queueChange('highlights', 'upsert', highlight);
+        }
 
         // Add click handler to remove
-        wrapper.addEventListener('click', () => showHighlightOptions(wrapper, id));
+        wrapper.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showHighlightOptions(wrapper, id);
+        });
 
         // Clear selection
         window.getSelection().removeAllRanges();
 
         // Update panel if open
         updateHighlightPanel();
+    }
+
+    // Restore Visual Highlights
+    function restoreHighlights() {
+        const pageId = getPageId();
+        const pageHighlights = highlights.filter(h => h.pageId === pageId);
+
+        pageHighlights.forEach(h => {
+            // Skip if already exists
+            if (document.querySelector(`[data-highlight-id="${h.id}"]`)) return;
+
+            let targetElement = null;
+            if (h.elementPath) {
+                try {
+                    targetElement = document.querySelector(h.elementPath);
+                } catch (e) { }
+            }
+
+            // If we found the container, try to find the text to wrap
+            if (targetElement) {
+                // Simplified restoration: Find text in container and wrap first instance
+                // This is not perfect for repeated text but better than nothing
+                findAndWrapText(targetElement, h.text, h.color, h.id);
+            } else {
+                // Fallback: search entire body (expensive but necessary)
+                findAndWrapText(document.body, h.text, h.color, h.id);
+            }
+        });
+    }
+
+    function findAndWrapText(root, searchText, color, id) {
+        if (!searchText) return;
+
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        while (node = walker.nextNode()) {
+            const index = node.nodeValue.indexOf(searchText);
+            if (index >= 0) {
+                // Found it! Split and wrap
+                try {
+                    const range = document.createRange();
+                    range.setStart(node, index);
+                    range.setEnd(node, index + searchText.length);
+
+                    const wrapper = document.createElement('mark');
+                    wrapper.className = `user-highlight highlight-${color}`;
+                    wrapper.dataset.highlightId = id;
+                    wrapper.style.backgroundColor = COLORS[color].bg;
+                    wrapper.style.borderBottom = `2px solid ${COLORS[color].border}`;
+                    wrapper.style.padding = '0 2px';
+                    wrapper.style.borderRadius = '2px';
+                    wrapper.style.cursor = 'pointer';
+
+                    range.surroundContents(wrapper);
+
+                    wrapper.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        showHighlightOptions(wrapper, id);
+                    });
+
+                    return true; // Done
+                } catch (e) {
+                    console.error("Restoration wrap failed", e);
+                }
+            }
+        }
+        return false;
     }
 
     // Show options for existing highlight
@@ -804,6 +908,14 @@
         createPanelButton();
         addBookmarkButtons();
         restoreBookmarks();
+        restoreHighlights(); // Restore visual highlights
+
+        // Listen for sync updates
+        window.addEventListener('syncComplete', (e) => {
+            loadData();
+            restoreHighlights(); // Re-apply highlights after sync
+            updateHighlightPanel();
+        });
 
         // Selection handler
         document.addEventListener('mouseup', () => {
