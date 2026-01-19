@@ -40,6 +40,21 @@
         }));
     }
 
+    // Get course ID from URL
+    function getCourseId() {
+        const path = window.location.pathname;
+        if (path.includes('/6480/')) return '6480';
+        if (path.includes('/6670/')) return '6670';
+        return 'general';
+    }
+
+    // Queue for cloud sync
+    function queueSync(type, action, data) {
+        if (window.StudyGuideSync) {
+            window.StudyGuideSync.queueChange(type, action, data);
+        }
+    }
+
     // Create unique ID
     function generateId() {
         return 'hl_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
@@ -144,12 +159,16 @@
         const highlight = {
             id,
             pageId: getPageId(),
+            courseId: getCourseId(),
             text: text.substring(0, 200),
             color,
             createdAt: new Date().toISOString()
         };
         highlights.push(highlight);
         saveData();
+
+        // Queue for cloud sync
+        queueSync('highlights', 'upsert', highlight);
 
         // Add click handler to remove
         wrapper.addEventListener('click', () => showHighlightOptions(wrapper, id));
@@ -218,6 +237,9 @@
         highlights = highlights.filter(h => h.id !== id);
         saveData();
         updateHighlightPanel();
+
+        // Queue for cloud sync
+        queueSync('highlights', 'delete', id);
     }
 
     // Create highlights/bookmarks panel
@@ -366,15 +388,20 @@
         heading.insertBefore(indicator, heading.firstChild);
 
         // Save bookmark
-        bookmarks.push({
+        const bookmark = {
             id,
             pageId: getPageId(),
+            courseId: getCourseId(),
             sectionId: heading.id || '',
             title,
             createdAt: new Date().toISOString()
-        });
+        };
+        bookmarks.push(bookmark);
         saveData();
         updateHighlightPanel();
+
+        // Queue for cloud sync
+        queueSync('bookmarks', 'upsert', bookmark);
     }
 
     // Remove bookmark
@@ -383,6 +410,9 @@
         bookmarks = bookmarks.filter(b => b.id !== id);
         saveData();
         updateHighlightPanel();
+
+        // Queue for cloud sync
+        queueSync('bookmarks', 'delete', id);
     }
 
     // Export highlights
