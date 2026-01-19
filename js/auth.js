@@ -6,6 +6,7 @@
     const ACCESS_TOKEN_REFRESH_BUFFER = 5 * 60 * 1000; // Refresh 5 min before expiry
     const SESSION_TIMEOUT_MS = 30 * 60 * 1000; // 30 minutes
     const SESSION_WARNING_MS = 5 * 60 * 1000; // Warning 5 min before timeout
+    const ACCESS_TOKEN_STORAGE_KEY = 'studyGuide_accessToken';
 
     // ==========================================
     // AuthManager Class
@@ -16,6 +17,23 @@
             this.refreshTimer = null;
             this.onAuthStateChanged = null;
             this.username = localStorage.getItem('studyGuide_username') || null;
+            this.initialAuthPromise = null;
+
+            const storedToken = sessionStorage.getItem(ACCESS_TOKEN_STORAGE_KEY);
+            if (storedToken) {
+                const payload = this.decodeJWT(storedToken);
+                const expiresAt = payload?.exp ? payload.exp * 1000 : 0;
+                if (expiresAt > Date.now()) {
+                    this.accessToken = storedToken;
+                    if (!this.username && payload?.userId) {
+                        this.username = payload.userId;
+                        localStorage.setItem('studyGuide_username', this.username);
+                    }
+                    this.scheduleTokenRefresh();
+                } else {
+                    sessionStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
+                }
+            }
         }
 
         // Login with username and password
@@ -42,6 +60,7 @@
 
                 // Store access token in memory (NOT localStorage for security)
                 this.accessToken = data.accessToken;
+                sessionStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, this.accessToken);
                 this.username = data.user.username;
 
                 // Store username in localStorage for convenience (non-sensitive)
@@ -82,6 +101,7 @@
 
                 const data = await response.json();
                 this.accessToken = data.accessToken;
+                sessionStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, this.accessToken);
 
                 // Restore user info from refresh response
                 if (data.user) {
@@ -169,6 +189,7 @@
             // Clear local state
             this.accessToken = null;
             this.username = null;
+            sessionStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
             if (this.refreshTimer) {
                 clearTimeout(this.refreshTimer);
                 this.refreshTimer = null;
@@ -882,15 +903,24 @@
     injectUserMenuStyles();
 
     // Try silent authentication on page load
-    (async function tryInitialAuth() {
-        if (!authManager.isAuthenticated()) {
-            const success = await authManager.tryRefreshAuth();
-            if (success) {
-                console.log('[Auth] Silent authentication successful');
-            } else {
-                console.log('[Auth] No valid session, login required');
+    authManager.initialAuthPromise = (async function tryInitialAuth() {
+        if (authManager.isAuthenticated()) {
+            if (authManager.onAuthStateChanged && authManager.getUsername()) {
+                authManager.onAuthStateChanged(true, {
+                    id: authManager.getUsername(),
+                    username: authManager.getUsername()
+                });
             }
+            return true;
         }
+
+        const success = await authManager.tryRefreshAuth();
+        if (success) {
+            console.log('[Auth] Silent authentication successful');
+        } else {
+            console.log('[Auth] No valid session, login required');
+        }
+        return success;
     })();
 
     // Export to global scope

@@ -290,7 +290,11 @@
             wrapper.style.webkitBoxDecorationBreak = 'clone';
         }
 
-        wrapper.style.padding = '1px 0'; // Minimal padding
+        if (COLORS[color].isUnderline) {
+            wrapper.style.padding = '0'; // No padding for underline
+        } else {
+            wrapper.style.padding = '0 4px'; // Slight padding for highlights
+        }
         wrapper.style.cursor = 'pointer';
 
         wrapper.addEventListener('click', (e) => {
