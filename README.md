@@ -56,10 +56,15 @@ Verified and centralized architecture to support multiple courses easily.
 │   ├── progress.js       # Scroll Progress Tracker
 │   └── ...
 ├── courses/              # Courses Landing Page (/courses/)
+├── conferences/          # Conference Presentations
 ├── 6480/                 # Course: Experimental Design & Analysis
 ├── 6670/                 # Course: Intro to IS Research
+│   └── sw.js             # Service Worker (PWA support)
+├── icis2025/             # ICIS 2025 Conference Materials
 ├── css/                  # Global Styles (Portfolio Theme)
 ├── index.html            # Main Portfolio Landing Page
+├── package.json          # Node.js Dependencies
+├── vercel.json           # Vercel Deployment Configuration
 └── README.md             # Project Documentation
 ```
 
@@ -68,7 +73,7 @@ Verified and centralized architecture to support multiple courses easily.
 ## 🔐 Authentication & Security
 
 - **User System:** Custom-built user system storing data in SQLite.
-- **Password Protection:** Accounts are protected via password ( hashed/stored in DB).
+- **Password Protection:** Accounts are protected via password (stored in DB). *Note: For production use, consider implementing password hashing.*
 - **Lazy Migration:** The database schema automatically updates itself (e.g., adding password columns) upon the first API request, ensuring zero-downtime deployments.
 
 ---

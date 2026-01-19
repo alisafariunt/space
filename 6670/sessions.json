@@ -1,0 +1,32 @@
+{
+  "course": {
+    "code": "BCIS 6670",
+    "title": "Topics in Information Systems",
+    "semester": "Spring 2026",
+    "instructor": "Dr. Anna Sidorova",
+    "university": "University of North Texas"
+  },
+  "sessions": [
+    {
+      "week": 0,
+      "id": "session0",
+      "title": "Course Introduction",
+      "description": "Syllabus, learning objectives, grading, semester schedule, research paradigms, AIS Basket of 11 Premier Journals, and course policies.",
+      "file": "session0.html"
+    },
+    {
+      "week": 1,
+      "id": "session1",
+      "title": "Introduction to IS Research",
+      "description": "How to write and review IS research papers. Covers Baird (2021), Sarker et al. (2023), and Sun et al. (2025). Also includes the AIS Basket of 11 Premier Journals.",
+      "file": "session1.html"
+    },
+    {
+      "week": 2,
+      "id": "session2",
+      "title": "AI in IS Research",
+      "description": "The sociotechnical axis, digital objects, and agentic IS artifacts. Covers Sarker et al. (2019), Faulkner & Runde (2019), Baird & Maruping (2021), and Gartner 2026 trends.",
+      "file": "session2.html"
+    }
+  ]
+}

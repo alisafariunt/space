@@ -234,18 +234,18 @@
         createSyncIndicator();
 
         // Initial sync
-        syncData();
+        sync();
 
         // Listen for online/offline
-        window.addEventListener('online', syncData);
+        window.addEventListener('online', sync);
 
         // Periodic sync
-        setInterval(syncData, SYNC_INTERVAL);
+        setInterval(sync, SYNC_INTERVAL);
 
         // Expose queue function globally
         window.StudyGuideSync = {
             queue: queueChange,
-            sync: syncData
+            sync: sync
         };
     }
 
@@ -288,6 +288,14 @@
             }
         }
 
+        updateSyncStatusUI();
+    }
+
+    // Update sync status UI
+    function updateSyncStatusUI() {
+        const indicator = document.getElementById('sync-status');
+        if (!indicator) return;
+
         const states = {
             'idle': { icon: '☁️', text: 'Sync', bg: '#e5e7eb', color: '#374151' },
             'syncing': { icon: '⟳', text: 'Syncing...', bg: '#dbeafe', color: '#1e40af' },
@@ -304,6 +312,8 @@
         // Add animation for syncing
         if (syncStatus === 'syncing') {
             indicator.querySelector('span:first-child')?.classList.add('spin');
+        } else {
+            indicator.querySelector('span:first-child')?.classList.remove('spin');
         }
     }
 
@@ -383,7 +393,7 @@
         }
         syncTimeout = setTimeout(() => {
             sync();
-        }, SYNC_DEBOUNCE_MS);
+        }, DEBOUNCE_DELAY);
     }
 
     // Main sync function
