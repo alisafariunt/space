@@ -367,7 +367,14 @@
                     }
                 } else {
                     const el = document.querySelector(`[data-highlight-id="${id}"]`);
-                    if (el) removeHighlight(id, el);
+                    if (el) {
+                        removeHighlight(id, el);
+                    } else {
+                        // Fallback: remove data if element not found (e.g. different page)
+                        highlights = highlights.filter(h => h.id !== id);
+                        saveData();
+                        queueSync('highlights', 'delete', id);
+                    }
                 }
                 updateHighlightPanel(filter);
             });
