@@ -610,6 +610,12 @@
             console.log('[Auth] User authenticated:', user.username);
             sessionManager.start();
 
+            // Hide login modal if it exists (important for silent refresh)
+            const modal = document.querySelector('.login-modal-overlay');
+            if (modal) {
+                modal.remove();
+            }
+
             // Trigger custom event for other components
             window.dispatchEvent(new CustomEvent('authStateChanged', {
                 detail: { isAuthenticated: true, user }
