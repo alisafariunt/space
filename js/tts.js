@@ -1,21 +1,38 @@
-// Text-to-Speech Feature
+// Text-to-Speech Feature - Using Microsoft Edge TTS (Free & Natural)
 (function () {
     let isPlaying = false;
-    let currentUtterance = null;
+    let isPaused = false;
     let ttsPanel = null;
     let voices = [];
     let currentParagraphIndex = 0;
     let paragraphs = [];
+    let audioElement = null;
+    let audioQueue = [];
+    let isGenerating = false;
     const STORAGE_KEY = 'studyGuide_tts_preferences';
+
+    // Edge TTS voices - natural sounding, free
+    const EDGE_VOICES = [
+        { id: 'en-US-AriaNeural', name: 'Aria (US Female)', lang: 'en-US', gender: 'Female' },
+        { id: 'en-US-GuyNeural', name: 'Guy (US Male)', lang: 'en-US', gender: 'Male' },
+        { id: 'en-US-JennyNeural', name: 'Jenny (US Female)', lang: 'en-US', gender: 'Female' },
+        { id: 'en-US-ChristopherNeural', name: 'Christopher (US Male)', lang: 'en-US', gender: 'Male' },
+        { id: 'en-GB-SoniaNeural', name: 'Sonia (UK Female)', lang: 'en-GB', gender: 'Female' },
+        { id: 'en-GB-RyanNeural', name: 'Ryan (UK Male)', lang: 'en-GB', gender: 'Male' },
+        { id: 'en-AU-NatashaNeural', name: 'Natasha (AU Female)', lang: 'en-AU', gender: 'Female' },
+    ];
 
     // Default settings
     let settings = {
         speed: 1.0,
         volume: 0.8,
-        voiceIndex: 0,
+        voiceId: 'en-US-AriaNeural',
         autoScroll: true,
-        highlightWords: false
+        useEdgeTTS: true // Use Edge TTS by default
     };
+
+    // Fallback to browser TTS
+    let browserVoices = [];
 
     // Load settings
     function loadSettings() {
@@ -37,22 +54,20 @@
         const prefs = {
             ttsSpeed: settings.speed,
             ttsVolume: settings.volume,
-            ttsVoice: voices[settings.voiceIndex]?.name,
+            ttsVoice: settings.voiceId,
             ttsAutoscroll: settings.autoScroll,
             theme: document.documentElement.getAttribute('data-theme') || 'light'
         };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
-
-        // Sync to cloud
         queueSync('preferences', 'update', prefs);
     }
 
-    // Get available voices
-    function loadVoices() {
-        voices = speechSynthesis.getVoices();
-        if (voices.length === 0) {
+    // Load browser voices as fallback
+    function loadBrowserVoices() {
+        browserVoices = speechSynthesis.getVoices();
+        if (browserVoices.length === 0) {
             speechSynthesis.onvoiceschanged = () => {
-                voices = speechSynthesis.getVoices();
+                browserVoices = speechSynthesis.getVoices();
                 updateVoiceSelect();
             };
         }
@@ -61,19 +76,30 @@
     // Update voice dropdown
     function updateVoiceSelect() {
         const select = document.getElementById('tts-voice-select');
-        if (!select || voices.length === 0) return;
+        if (!select) return;
 
-        // Prefer English voices
-        const englishVoices = voices.filter(v => v.lang.startsWith('en'));
-        const otherVoices = voices.filter(v => !v.lang.startsWith('en'));
-        const sortedVoices = [...englishVoices, ...otherVoices];
+        // Add Edge TTS voices first (marked as recommended)
+        let html = '<optgroup label="🌟 Natural Voices (Recommended)">';
+        EDGE_VOICES.forEach(voice => {
+            const selected = voice.id === settings.voiceId ? 'selected' : '';
+            html += `<option value="${voice.id}" ${selected}>${voice.name}</option>`;
+        });
+        html += '</optgroup>';
 
-        select.innerHTML = sortedVoices.map((voice, i) => {
-            const originalIndex = voices.indexOf(voice);
-            return `<option value="${originalIndex}" ${originalIndex === settings.voiceIndex ? 'selected' : ''}>
-                ${voice.name} (${voice.lang})
-            </option>`;
-        }).join('');
+        // Add browser voices as fallback
+        if (browserVoices.length > 0) {
+            const englishVoices = browserVoices.filter(v => v.lang.startsWith('en'));
+            if (englishVoices.length > 0) {
+                html += '<optgroup label="📱 Browser Voices (Fallback)">';
+                englishVoices.forEach((voice, i) => {
+                    const selected = `browser-${i}` === settings.voiceId ? 'selected' : '';
+                    html += `<option value="browser-${i}" ${selected}>${voice.name}</option>`;
+                });
+                html += '</optgroup>';
+            }
+        }
+
+        select.innerHTML = html;
     }
 
     // Get readable content from page
@@ -83,7 +109,6 @@
 
         paragraphs = [];
         elements.forEach(el => {
-            // Skip hidden elements and nav
             if (el.closest('nav') || el.closest('.navbar') || el.closest('.tts-panel')) return;
             if (el.offsetParent === null) return;
 
@@ -99,57 +124,114 @@
         return paragraphs;
     }
 
-    // Speak text
-    function speak(text, onEnd) {
-        if (!text) return;
+    // Generate speech using Edge TTS API
+    async function generateEdgeTTS(text, voiceId, rate = 1.0) {
+        const apiUrl = '/api/tts';
 
-        currentUtterance = new SpeechSynthesisUtterance(text);
-        currentUtterance.rate = settings.speed;
-        currentUtterance.volume = settings.volume;
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    text: text,
+                    voice: voiceId,
+                    rate: rate
+                })
+            });
 
-        if (voices.length > 0 && settings.voiceIndex < voices.length) {
-            currentUtterance.voice = voices[settings.voiceIndex];
+            if (!response.ok) {
+                throw new Error('TTS API error');
+            }
+
+            const blob = await response.blob();
+            return URL.createObjectURL(blob);
+        } catch (error) {
+            console.error('Edge TTS error:', error);
+            return null;
+        }
+    }
+
+    // Speak using browser TTS (fallback)
+    function speakBrowser(text, onEnd) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = settings.speed;
+        utterance.volume = settings.volume;
+
+        if (settings.voiceId.startsWith('browser-')) {
+            const index = parseInt(settings.voiceId.replace('browser-', ''));
+            if (browserVoices[index]) {
+                utterance.voice = browserVoices[index];
+            }
         }
 
-        currentUtterance.onend = () => {
+        utterance.onend = onEnd;
+        utterance.onerror = (e) => {
+            console.error('Browser TTS Error:', e);
             if (onEnd) onEnd();
         };
 
-        currentUtterance.onerror = (e) => {
-            console.error('TTS Error:', e);
-            stopSpeaking();
-        };
-
-        speechSynthesis.speak(currentUtterance);
+        speechSynthesis.speak(utterance);
     }
 
-    // Play/pause toggle
+    // Play audio from URL
+    function playAudio(url, onEnd) {
+        if (!audioElement) {
+            audioElement = new Audio();
+        }
+
+        audioElement.src = url;
+        audioElement.volume = settings.volume;
+        audioElement.playbackRate = settings.speed;
+
+        audioElement.onended = () => {
+            URL.revokeObjectURL(url);
+            if (onEnd) onEnd();
+        };
+
+        audioElement.onerror = (e) => {
+            console.error('Audio playback error:', e);
+            URL.revokeObjectURL(url);
+            if (onEnd) onEnd();
+        };
+
+        audioElement.play().catch(e => {
+            console.error('Play error:', e);
+            if (onEnd) onEnd();
+        });
+    }
+
+    // Toggle play/pause
     function togglePlay() {
         if (isPlaying) {
             pauseSpeaking();
+        } else if (isPaused) {
+            resumeSpeaking();
         } else {
             startSpeaking();
         }
     }
 
     // Start speaking
-    function startSpeaking() {
+    async function startSpeaking() {
         if (paragraphs.length === 0) {
             getPageContent();
         }
 
         if (paragraphs.length === 0) {
-            alert('No readable content found on this page.');
+            showToast('No readable content found on this page.', 'warning');
             return;
         }
 
         isPlaying = true;
+        isPaused = false;
         updatePlayButton();
-        speakNextParagraph();
+        await speakNextParagraph();
     }
 
     // Speak next paragraph
-    function speakNextParagraph() {
+    async function speakNextParagraph() {
         if (!isPlaying || currentParagraphIndex >= paragraphs.length) {
             stopSpeaking();
             return;
@@ -167,17 +249,56 @@
 
         // Update UI
         updateNowReading(para.text);
+        updateProgress();
 
-        speak(para.text, () => {
-            highlightParagraph(para.element, false);
-            currentParagraphIndex++;
-            speakNextParagraph();
-        });
+        // Check if using Edge TTS or browser TTS
+        const isEdgeVoice = EDGE_VOICES.some(v => v.id === settings.voiceId);
+
+        if (isEdgeVoice) {
+            // Use Edge TTS
+            isGenerating = true;
+            updatePlayButton();
+
+            const audioUrl = await generateEdgeTTS(para.text, settings.voiceId, settings.speed);
+            isGenerating = false;
+            updatePlayButton();
+
+            if (audioUrl && isPlaying) {
+                playAudio(audioUrl, () => {
+                    highlightParagraph(para.element, false);
+                    currentParagraphIndex++;
+                    speakNextParagraph();
+                });
+            } else {
+                // Fallback to browser TTS
+                console.warn('Edge TTS failed, using browser TTS fallback');
+                speakBrowser(para.text, () => {
+                    highlightParagraph(para.element, false);
+                    currentParagraphIndex++;
+                    speakNextParagraph();
+                });
+            }
+        } else {
+            // Use browser TTS
+            speakBrowser(para.text, () => {
+                highlightParagraph(para.element, false);
+                currentParagraphIndex++;
+                speakNextParagraph();
+            });
+        }
+    }
+
+    // Show toast notification
+    function showToast(message, type = 'info') {
+        if (window.showToast) {
+            window.showToast(message, type);
+        } else {
+            console.log(`[TTS] ${message}`);
+        }
     }
 
     // Highlight paragraph being read
     function highlightParagraph(element, active) {
-        // Remove previous highlights
         document.querySelectorAll('.tts-reading').forEach(el => {
             el.classList.remove('tts-reading');
         });
@@ -195,33 +316,56 @@
         }
     }
 
+    // Update progress display
+    function updateProgress() {
+        const progress = document.getElementById('tts-progress');
+        if (progress && paragraphs.length > 0) {
+            progress.textContent = `${currentParagraphIndex + 1} / ${paragraphs.length}`;
+        }
+    }
+
     // Pause speaking
     function pauseSpeaking() {
+        if (audioElement && !audioElement.paused) {
+            audioElement.pause();
+        }
         speechSynthesis.pause();
         isPlaying = false;
+        isPaused = true;
         updatePlayButton();
     }
 
     // Resume speaking
     function resumeSpeaking() {
+        if (audioElement && audioElement.paused && audioElement.src) {
+            audioElement.play();
+        }
         speechSynthesis.resume();
         isPlaying = true;
+        isPaused = false;
         updatePlayButton();
     }
 
     // Stop speaking
     function stopSpeaking() {
+        if (audioElement) {
+            audioElement.pause();
+            audioElement.src = '';
+        }
         speechSynthesis.cancel();
         isPlaying = false;
+        isPaused = false;
         currentParagraphIndex = 0;
         highlightParagraph(null, false);
         updatePlayButton();
         updateNowReading('Ready to read...');
+        updateProgress();
     }
 
     // Skip forward
     function skipForward() {
         if (currentParagraphIndex < paragraphs.length - 1) {
+            if (audioElement) audioElement.pause();
             speechSynthesis.cancel();
             currentParagraphIndex++;
             if (isPlaying) {
@@ -233,6 +377,7 @@
     // Skip backward
     function skipBackward() {
         if (currentParagraphIndex > 0) {
+            if (audioElement) audioElement.pause();
             speechSynthesis.cancel();
             currentParagraphIndex--;
             if (isPlaying) {
@@ -245,7 +390,19 @@
     function updatePlayButton() {
         const btn = document.getElementById('tts-play-btn');
         if (btn) {
-            btn.innerHTML = isPlaying ? '⏸️ Pause' : '▶️ Play';
+            if (isGenerating) {
+                btn.innerHTML = '⏳ Loading...';
+                btn.disabled = true;
+            } else if (isPlaying) {
+                btn.innerHTML = '⏸️ Pause';
+                btn.disabled = false;
+            } else if (isPaused) {
+                btn.innerHTML = '▶️ Resume';
+                btn.disabled = false;
+            } else {
+                btn.innerHTML = '▶️ Play';
+                btn.disabled = false;
+            }
         }
     }
 
@@ -254,15 +411,13 @@
         settings.speed = parseFloat(speed);
         saveSettings();
 
-        // Update active button
         document.querySelectorAll('.speed-btn').forEach(btn => {
             btn.classList.toggle('active', parseFloat(btn.dataset.speed) === settings.speed);
         });
 
-        // If currently speaking, restart with new speed
-        if (isPlaying) {
-            speechSynthesis.cancel();
-            speakNextParagraph();
+        // Update audio playback rate if playing
+        if (audioElement && !audioElement.paused) {
+            audioElement.playbackRate = settings.speed;
         }
     }
 
@@ -270,11 +425,15 @@
     function setVolume(volume) {
         settings.volume = parseFloat(volume);
         saveSettings();
+
+        if (audioElement) {
+            audioElement.volume = settings.volume;
+        }
     }
 
     // Set voice
-    function setVoice(index) {
-        settings.voiceIndex = parseInt(index);
+    function setVoice(voiceId) {
+        settings.voiceId = voiceId;
         saveSettings();
     }
 
@@ -294,6 +453,7 @@
         panel.innerHTML = `
             <div class="tts-header">
                 <span>🎙️ Text-to-Speech</span>
+                <span id="tts-progress" class="tts-progress">0 / 0</span>
                 <button id="tts-close" title="Close">×</button>
             </div>
             <div class="tts-now-reading" id="tts-now-reading">Ready to read...</div>
@@ -307,12 +467,10 @@
             </div>
             <div class="tts-speed">
                 <span>Speed:</span>
-                <button class="speed-btn ${settings.speed === 0.5 ? 'active' : ''}" data-speed="0.5">0.5x</button>
                 <button class="speed-btn ${settings.speed === 0.75 ? 'active' : ''}" data-speed="0.75">0.75x</button>
                 <button class="speed-btn ${settings.speed === 1 ? 'active' : ''}" data-speed="1">1x</button>
                 <button class="speed-btn ${settings.speed === 1.25 ? 'active' : ''}" data-speed="1.25">1.25x</button>
                 <button class="speed-btn ${settings.speed === 1.5 ? 'active' : ''}" data-speed="1.5">1.5x</button>
-                <button class="speed-btn ${settings.speed === 2 ? 'active' : ''}" data-speed="2">2x</button>
             </div>
             <div class="tts-options">
                 <select id="tts-voice-select" title="Voice">
@@ -322,6 +480,9 @@
                     <input type="checkbox" id="tts-autoscroll" ${settings.autoScroll ? 'checked' : ''}>
                     Auto-scroll
                 </label>
+            </div>
+            <div class="tts-info">
+                ✨ Using Microsoft Edge Neural Voices - Natural & Free!
             </div>
         `;
         document.body.appendChild(panel);
@@ -356,7 +517,8 @@
         if (!ttsPanel.classList.contains('open')) {
             stopSpeaking();
         } else {
-            getPageContent(); // Prepare content
+            getPageContent();
+            updateProgress();
         }
     }
 
@@ -366,7 +528,7 @@
         btn.id = 'tts-btn';
         btn.className = 'tts-btn';
         btn.innerHTML = '🎙️';
-        btn.title = 'Text-to-Speech';
+        btn.title = 'Text-to-Speech (Natural Voices)';
         btn.addEventListener('click', toggleTTSPanel);
 
         const nav = document.querySelector('.navbar-content') || document.querySelector('nav');
@@ -390,7 +552,7 @@
         style.textContent = `
             .tts-panel {
                 position: fixed;
-                bottom: -300px;
+                bottom: -350px;
                 left: 50%;
                 transform: translateX(-50%);
                 width: 90%;
@@ -419,16 +581,24 @@
                 cursor: pointer;
                 color: #666;
             }
-            .tts-now-reading {
+            .tts-progress {
+                font-size: 12px;
+                color: #666;
                 background: #f3f4f6;
-                padding: 10px 15px;
+                padding: 4px 8px;
+                border-radius: 12px;
+            }
+            .tts-now-reading {
+                background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%);
+                padding: 12px 15px;
                 border-radius: 8px;
                 font-size: 14px;
-                color: #666;
+                color: #1e40af;
                 margin-bottom: 15px;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                border-left: 4px solid #3b82f6;
             }
             .tts-controls {
                 display: flex;
@@ -445,13 +615,20 @@
                 padding: 10px 20px;
                 cursor: pointer;
                 font-size: 16px;
+                transition: all 0.2s;
             }
             .tts-play-btn {
                 padding: 12px 30px;
                 font-size: 18px;
+                min-width: 140px;
             }
-            .tts-nav-btn:hover, .tts-play-btn:hover {
+            .tts-play-btn:disabled {
+                background: #94a3b8;
+                cursor: not-allowed;
+            }
+            .tts-nav-btn:hover, .tts-play-btn:hover:not(:disabled) {
                 background: #1e3a8a;
+                transform: scale(1.05);
             }
             .tts-volume {
                 display: flex;
@@ -475,22 +652,28 @@
                 background: white;
                 cursor: pointer;
                 font-size: 13px;
+                transition: all 0.2s;
             }
             .speed-btn.active {
                 background: #1e40af;
                 color: white;
                 border-color: #1e40af;
             }
+            .speed-btn:hover {
+                border-color: #1e40af;
+            }
             .tts-options {
                 display: flex;
                 align-items: center;
                 gap: 15px;
+                margin-bottom: 10px;
             }
             .tts-options select {
                 flex: 1;
                 padding: 8px;
                 border: 1px solid #e5e7eb;
                 border-radius: 8px;
+                font-size: 14px;
             }
             .tts-checkbox {
                 display: flex;
@@ -498,6 +681,14 @@
                 gap: 5px;
                 font-size: 14px;
                 cursor: pointer;
+            }
+            .tts-info {
+                text-align: center;
+                font-size: 12px;
+                color: #059669;
+                background: #d1fae5;
+                padding: 8px;
+                border-radius: 8px;
             }
             .tts-reading {
                 background: linear-gradient(135deg, #dbeafe 0%, #e0f2fe 100%) !important;
@@ -510,15 +701,29 @@
                 color: #e5e7eb;
             }
             [data-theme="dark"] .tts-now-reading {
+                background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%);
+                color: #93c5fd;
+            }
+            [data-theme="dark"] .tts-progress {
                 background: #334155;
+                color: #94a3b8;
             }
             [data-theme="dark"] .tts-options select {
                 background: #334155;
                 color: #e5e7eb;
                 border-color: #475569;
             }
+            [data-theme="dark"] .tts-info {
+                background: #064e3b;
+                color: #6ee7b7;
+            }
             [data-theme="dark"] .tts-reading {
                 background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%) !important;
+            }
+            [data-theme="dark"] .speed-btn {
+                background: #334155;
+                color: #e5e7eb;
+                border-color: #475569;
             }
         `;
         document.head.appendChild(style);
@@ -527,7 +732,6 @@
     // Keyboard shortcuts
     function setupKeyboardShortcuts() {
         document.addEventListener('keydown', (e) => {
-            // Only when TTS panel is open
             if (!ttsPanel?.classList.contains('open')) return;
 
             switch (e.key) {
@@ -564,14 +768,8 @@
             settings.speed = p.tts_speed || 1.0;
             settings.volume = p.tts_volume || 0.8;
             settings.autoScroll = !!p.tts_autoscroll;
+            if (p.tts_voice) settings.voiceId = p.tts_voice;
 
-            // Try to match voice name
-            if (p.tts_voice && voices.length > 0) {
-                const index = voices.findIndex(v => v.name === p.tts_voice);
-                if (index !== -1) settings.voiceIndex = index;
-            }
-
-            // Update UI elements
             const volSlider = document.getElementById('tts-volume');
             if (volSlider) volSlider.value = settings.volume;
 
@@ -583,25 +781,18 @@
             });
 
             updateVoiceSelect();
-
-            // Update local storage without triggering sync queue
             localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
         }
     });
 
     // Initialize
     function init() {
-        // Check if Speech Synthesis is supported
-        if (!('speechSynthesis' in window)) {
-            console.warn('Text-to-Speech is not supported in this browser.');
-            return;
-        }
-
         loadSettings();
-        loadVoices();
+        loadBrowserVoices();
         injectStyles();
         createTTSButton();
         setupKeyboardShortcuts();
+        console.log('[TTS] Natural voices loaded (Microsoft Edge Neural)');
     }
 
     document.addEventListener('DOMContentLoaded', init);
