@@ -111,7 +111,11 @@ export default async function handler(req, res) {
         const accessToken = jwt.sign({ userId }, JWT_SECRET, { expiresIn: JWT_ACCESS_EXPIRY });
 
         return res.status(200).json({
-            accessToken
+            accessToken,
+            user: {
+                id: userId,
+                username: userId
+            }
         });
 
     } catch (error) {

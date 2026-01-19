@@ -83,6 +83,17 @@
                 const data = await response.json();
                 this.accessToken = data.accessToken;
 
+                // Restore user info from refresh response
+                if (data.user) {
+                    this.username = data.user.username;
+                    localStorage.setItem('studyGuide_username', this.username);
+
+                    // Trigger auth state change
+                    if (this.onAuthStateChanged) {
+                        this.onAuthStateChanged(true, data.user);
+                    }
+                }
+
                 // Schedule next refresh
                 this.scheduleTokenRefresh();
 
