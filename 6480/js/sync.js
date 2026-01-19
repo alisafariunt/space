@@ -1,23 +1,200 @@
 // Cloud Sync Manager
 (function () {
     const API_URL = '/api/sync';
-    const DEVICE_ID_KEY = 'studyGuide_deviceId';
-    const LAST_SYNC_KEY = 'studyGuide_lastSync';
     const SYNC_QUEUE_KEY = 'studyGuide_syncQueue';
+    const SYNC_INTERVAL = 5 * 60 * 1000; // 5 minutes
+    const DEBOUNCE_DELAY = 2000; // 2 seconds
+    const LAST_SYNC_KEY = 'studyGuide_lastSync';
 
+    let userId = null; // Will be set after login
+    let syncQueue = {
+        highlights: { upsert: [], deleted: [] },
+        bookmarks: { upsert: [], deleted: [] },
+        notes: { upsert: [], deleted: [] },
+        preferences: null
+    };
     let syncStatus = 'idle'; // 'idle', 'syncing', 'synced', 'error', 'offline'
     let syncTimeout = null;
-    const SYNC_DEBOUNCE_MS = 2000;
-    const SYNC_INTERVAL_MS = 5 * 60 * 1000; // 5 minutes
 
-    // Get or create device ID
-    function getDeviceId() {
-        let id = localStorage.getItem(DEVICE_ID_KEY);
-        if (!id) {
-            id = 'device_' + crypto.randomUUID();
-            localStorage.setItem(DEVICE_ID_KEY, id);
+    // Get last sync time
+    function getLastSync() {
+        return localStorage.getItem(LAST_SYNC_KEY);
+    }
+
+    // Set last sync time
+    function setLastSync(time) {
+        localStorage.setItem(LAST_SYNC_KEY, time);
+    }
+
+    // Get User ID (Username)
+    function getUserId() {
+        return localStorage.getItem('studyGuide_username');
+    }
+
+    // Initialize Sync
+    function init() {
+        // Load sync queue
+        const savedQueue = localStorage.getItem(SYNC_QUEUE_KEY);
+        if (savedQueue) {
+            try {
+                const parsedQueue = JSON.parse(savedQueue);
+                // Ensure all expected keys exist in the loaded queue
+                syncQueue = {
+                    highlights: parsedQueue.highlights || { upsert: [], deleted: [] },
+                    bookmarks: parsedQueue.bookmarks || { upsert: [], deleted: [] },
+                    notes: parsedQueue.notes || { upsert: [], deleted: [] },
+                    preferences: parsedQueue.preferences || null
+                };
+            } catch (e) {
+                console.error("Error parsing sync queue from localStorage, resetting.", e);
+                clearSyncQueue(); // Reset if parsing fails
+            }
         }
-        return id;
+
+        // Check for login
+        const username = getUserId();
+        if (username) {
+            userId = username;
+            setupSync();
+            createUserInfo();
+        } else {
+            showLoginModal();
+        }
+    }
+
+    // Show Login Modal
+    function showLoginModal() {
+        const modal = document.createElement('div');
+        modal.className = 'login-modal-overlay';
+        modal.innerHTML = `
+            <div class="login-modal">
+                <h2>👋 Welcome!</h2>
+                <p>Enter your name to sync your progress across devices.</p>
+                <input type="text" id="login-name" placeholder="Your Name (e.g. Ali)" autofocus>
+                <button id="login-btn">Start Studying 🚀</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        // Styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .login-modal-overlay {
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.8); z-index: 10000;
+                display: flex; justify-content: center; align-items: center;
+                backdrop-filter: blur(5px);
+            }
+            .login-modal {
+                background: white; padding: 2rem; border-radius: 12px;
+                text-align: center; max-width: 400px; width: 90%;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            }
+            .login-modal h2 { margin-top: 0; color: #333; }
+            .login-modal p { color: #666; margin-bottom: 1.5rem; }
+            .login-modal input {
+                width: 100%; padding: 10px; margin-bottom: 1rem;
+                border: 2px solid #eee; border-radius: 8px; font-size: 1rem;
+            }
+            .login-modal button {
+                width: 100%; padding: 12px; background: #3b82f6; color: white;
+                border: none; border-radius: 8px; font-size: 1rem; cursor: pointer;
+                transition: background 0.2s;
+            }
+            .login-modal button:hover { background: #2563eb; }
+            /* Dark mode support */
+            body.dark-mode .login-modal { background: #1f2937; color: white; }
+            body.dark-mode .login-modal h2 { color: white; }
+            body.dark-mode .login-modal p { color: #9ca3af; }
+            body.dark-mode .login-modal input { background: #374151; border-color: #4b5563; color: white; }
+        `;
+        document.head.appendChild(style);
+
+        // Logic
+        const input = modal.querySelector('input');
+        const btn = modal.querySelector('button');
+
+        const login = () => {
+            const name = input.value.trim();
+            if (name) {
+                localStorage.setItem('studyGuide_username', name);
+                userId = name;
+                modal.remove();
+                setupSync();
+                createUserInfo();
+
+                // Trigger initial sync to merge local data to this new user account
+                queueChange('preferences', 'upsert', null); // Force a sync check
+            }
+        };
+
+        btn.addEventListener('click', login);
+        input.addEventListener('keypress', (e) => { if (e.key === 'Enter') login(); });
+    }
+
+    // Create User Info UI (Logout)
+    function createUserInfo() {
+        const nav = document.querySelector('.nav-links') || document.body;
+        const userDiv = document.createElement('div');
+        userDiv.className = 'user-info';
+        userDiv.innerHTML = `
+            <span class="user-badge" title="Click to logout">👤 ${userId}</span>
+        `;
+
+        // Insert before sync status if it exists, or append
+        const syncStatusElement = document.getElementById('sync-status');
+        if (syncStatusElement) {
+            syncStatusElement.parentElement.insertBefore(userDiv, syncStatusElement);
+        } else {
+            // Check if nav exists, else fixed position
+            if (document.querySelector('.nav-links')) {
+                document.querySelector('.nav-links').appendChild(userDiv);
+            } else {
+                userDiv.style.cssText = 'position: fixed; top: 10px; right: 60px; z-index: 1000;';
+                document.body.appendChild(userDiv);
+            }
+        }
+
+        // Styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .user-badge {
+                padding: 6px 12px; background: rgba(0,0,0,0.05);
+                border-radius: 20px; font-size: 0.9rem; cursor: pointer;
+                margin-right: 10px; display: inline-block; vertical-align: middle;
+            }
+            .user-badge:hover { background: rgba(255,0,0,0.1); color: red; }
+            body.dark-mode .user-badge { background: rgba(255,255,255,0.1); color: #eee; }
+            body.dark-mode .user-badge:hover { background: rgba(255,50,50,0.2); color: #ffadad; }
+        `;
+        document.head.appendChild(style);
+
+        userDiv.addEventListener('click', () => {
+            if (confirm(`Logout from "${userId}"?`)) {
+                localStorage.removeItem('studyGuide_username');
+                location.reload();
+            }
+        });
+    }
+
+    function setupSync() {
+        injectStyles();
+        createSyncIndicator();
+
+        // Initial sync
+        syncData();
+
+        // Listen for online/offline
+        window.addEventListener('online', syncData);
+
+        // Periodic sync
+        setInterval(syncData, SYNC_INTERVAL);
+
+        // Expose queue function globally
+        window.StudyGuideSync = {
+            queue: queueChange,
+            sync: syncData
+        };
     }
 
     // Get course ID from URL
@@ -33,18 +210,8 @@
         return window.location.pathname.split('/').pop().replace('.html', '') || 'index';
     }
 
-    // Get last sync time
-    function getLastSync() {
-        return localStorage.getItem(LAST_SYNC_KEY);
-    }
-
-    // Set last sync time
-    function setLastSync(time) {
-        localStorage.setItem(LAST_SYNC_KEY, time);
-    }
-
-    // Update sync status UI
-    function updateSyncStatusUI() {
+    // Create sync status UI element
+    function createSyncIndicator() {
         let indicator = document.getElementById('sync-status');
 
         if (!indicator) {
@@ -331,38 +498,6 @@
         }
     }
 
-    // Start background sync interval
-    function startBackgroundSync() {
-        setInterval(() => {
-            if (isOnline() && !hasQueuedChanges()) {
-                // Just pull latest if no local changes
-                sync();
-            }
-        }, SYNC_INTERVAL_MS);
-    }
-
-    // Handle online/offline events
-    function setupNetworkListeners() {
-        window.addEventListener('online', () => {
-            syncStatus = 'idle';
-            updateSyncStatusUI();
-            // Sync when coming back online
-            setTimeout(sync, 1000);
-        });
-
-        window.addEventListener('offline', () => {
-            syncStatus = 'offline';
-            updateSyncStatusUI();
-        });
-
-        // Sync when tab becomes visible
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible' && isOnline()) {
-                sync();
-            }
-        });
-    }
-
     // Inject CSS for sync status
     function injectStyles() {
         const style = document.createElement('style');
@@ -384,24 +519,11 @@
         document.head.appendChild(style);
     }
 
-    // Initialize
-    function init() {
-        injectStyles();
-        setupNetworkListeners();
-        updateSyncStatusUI();
-
-        // Initial sync on page load
-        setTimeout(sync, 1000);
-
-        // Start background sync
-        startBackgroundSync();
-    }
-
     // Expose API globally
     window.StudyGuideSync = {
         sync,
-        queueChange,
-        getDeviceId,
+        queueChange, // Correct name expected by highlights.js and tts.js
+        getUserId,
         getCourseId,
         getPageId,
         isOnline,
