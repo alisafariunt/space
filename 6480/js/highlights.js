@@ -211,6 +211,11 @@
             options.remove();
         });
 
+        options.querySelector('[data-action="note"]').addEventListener('click', () => {
+            alert('📝 Note-taking feature is coming soon!');
+            options.remove();
+        });
+
         document.body.appendChild(options);
 
         // Close on outside click

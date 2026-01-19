@@ -25,9 +25,26 @@
         } catch (e) { }
     }
 
+    // Queue for cloud sync
+    function queueSync(type, action, data) {
+        if (window.StudyGuideSync) {
+            window.StudyGuideSync.queueChange(type, action, data);
+        }
+    }
+
     // Save settings
     function saveSettings() {
+        const prefs = {
+            ttsSpeed: settings.speed,
+            ttsVolume: settings.volume,
+            ttsVoice: voices[settings.voiceIndex]?.name,
+            ttsAutoscroll: settings.autoScroll,
+            theme: document.documentElement.getAttribute('data-theme') || 'light'
+        };
         localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+
+        // Sync to cloud
+        queueSync('preferences', 'update', prefs);
     }
 
     // Get available voices
@@ -538,6 +555,39 @@
             }
         });
     }
+
+    // Listen for sync updates
+    window.addEventListener('syncComplete', (e) => {
+        const serverData = e.detail;
+        if (serverData.preferences) {
+            const p = serverData.preferences;
+            settings.speed = p.tts_speed || 1.0;
+            settings.volume = p.tts_volume || 0.8;
+            settings.autoScroll = !!p.tts_autoscroll;
+
+            // Try to match voice name
+            if (p.tts_voice && voices.length > 0) {
+                const index = voices.findIndex(v => v.name === p.tts_voice);
+                if (index !== -1) settings.voiceIndex = index;
+            }
+
+            // Update UI elements
+            const volSlider = document.getElementById('tts-volume');
+            if (volSlider) volSlider.value = settings.volume;
+
+            const autoBox = document.getElementById('tts-autoscroll');
+            if (autoBox) autoBox.checked = settings.autoScroll;
+
+            document.querySelectorAll('.speed-btn').forEach(btn => {
+                btn.classList.toggle('active', parseFloat(btn.dataset.speed) === settings.speed);
+            });
+
+            updateVoiceSelect();
+
+            // Update local storage without triggering sync queue
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(settings));
+        }
+    });
 
     // Initialize
     function init() {
