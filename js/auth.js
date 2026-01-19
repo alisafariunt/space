@@ -657,7 +657,11 @@
                             <span class="dropdown-user">👋 Hi, ${user.username}!</span>
                         </div>
                         <div class="dropdown-divider"></div>
-                        <button class="dropdown-item" id="logout-btn">
+                        <button class="dropdown-item" id="force-full-sync-btn">
+                            <span class="dropdown-icon">🔄</span>
+                            <span>Force Full Sync</span>
+                        </button>
+                        <button class="dropdown-item logout-item" id="logout-btn">
                             <span class="dropdown-icon">🚪</span>
                             <span>Logout</span>
                         </button>
@@ -678,6 +682,16 @@
             // Close on outside click
             document.addEventListener('click', () => {
                 dropdown.classList.remove('show');
+            });
+
+            // Logout button
+            document.getElementById('force-full-sync-btn').addEventListener('click', async () => {
+                dropdown.classList.remove('show');
+                if (window.StudyGuideSync && window.StudyGuideSync.forceFullSync) {
+                    await window.StudyGuideSync.forceFullSync();
+                } else if (window.showToast) {
+                    window.showToast('Sync is not available yet. Please try again.', 'warning', 3000);
+                }
             });
 
             // Logout button
@@ -806,6 +820,11 @@
             }
 
             .dropdown-item:hover {
+                background: #f3f4f6;
+                color: #111827;
+            }
+
+            .dropdown-item.logout-item:hover {
                 background: #fee2e2;
                 color: #dc2626;
             }
@@ -836,6 +855,11 @@
             }
 
             body.dark-mode .dropdown-item:hover {
+                background: #374151;
+                color: #f9fafb;
+            }
+
+            body.dark-mode .dropdown-item.logout-item:hover {
                 background: #7f1d1d;
                 color: #fca5a5;
             }

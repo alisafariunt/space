@@ -129,7 +129,8 @@
         // Expose queue function globally
         window.StudyGuideSync = Object.assign(window.StudyGuideSync || {}, {
             queueChange: queueChange,
-            sync: sync
+            sync: sync,
+            forceFullSync: forceFullSync
         });
     }
 
@@ -312,7 +313,8 @@
     }
 
     // Main sync function
-    async function sync() {
+    async function sync(options = {}) {
+        const forceFull = options.forceFull === true;
         if (!isOnline()) {
             syncStatus = 'offline';
             updateSyncStatusUI();
@@ -372,7 +374,7 @@
                     try {
                         await authManager.refreshAccessToken();
                         // Retry sync with new token
-                        return await sync();
+                        return await sync(options);
                     } catch (refreshError) {
                         throw new Error('AUTH_FAILED');
                     }
@@ -396,11 +398,15 @@
             if (courseId) {
                 params.set('courseId', courseId);
             }
-            const lastSync = getLastSync();
-            if (lastSync) {
-                const parsed = Date.parse(lastSync);
-                if (!Number.isNaN(parsed)) {
-                    params.set('since', new Date(parsed).toISOString());
+            if (forceFull) {
+                params.set('since', '1970-01-01T00:00:00.000Z');
+            } else {
+                const lastSync = getLastSync();
+                if (lastSync) {
+                    const parsed = Date.parse(lastSync);
+                    if (!Number.isNaN(parsed)) {
+                        params.set('since', new Date(parsed).toISOString());
+                    }
                 }
             }
             const pullUrl = params.toString() ? `${API_URL}?${params.toString()}` : API_URL;
@@ -415,7 +421,7 @@
                 try {
                     await authManager.refreshAccessToken();
                     // Retry sync with new token
-                    return await sync();
+                    return await sync(options);
                 } catch (refreshError) {
                     throw new Error('AUTH_FAILED');
                 }
@@ -496,6 +502,22 @@
 
             return { success: false, error: error.message };
         }
+    }
+
+    async function forceFullSync(options = {}) {
+        const skipConfirm = options.skipConfirm === true;
+        if (!skipConfirm && typeof window !== 'undefined') {
+            const confirmSync = window.confirm('Force full sync? This will re-download all your data.');
+            if (!confirmSync) {
+                return { success: false, reason: 'cancelled' };
+            }
+        }
+
+        if (window.showToast) {
+            window.showToast('Forcing full sync...', 'info', 2000);
+        }
+
+        return await sync({ forceFull: true });
     }
 
     // Merge server data with local storage
@@ -628,6 +650,7 @@
     // Expose API globally
     window.StudyGuideSync = {
         sync,
+        forceFullSync,
         queueChange, // Correct name expected by highlights.js and tts.js
         getUserId,
         getCourseId,

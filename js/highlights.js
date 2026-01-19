@@ -16,7 +16,7 @@
         green: { bg: '#bbf7d0', border: '#22c55e', label: '🟢 Definition' },
         red: { bg: '#fecaca', border: '#ef4444', label: '🔴 Critical' },
         blue: { bg: '#bfdbfe', border: '#3b82f6', label: '🔵 Example' },
-        underline: { bg: 'transparent', border: '#ef4444', label: '🖊️ Pen', isUnderline: true }
+        underline: { bg: 'transparent', border: '#f97316', label: '🖊️ Pen', isUnderline: true }
     };
 
     // Get current page ID
