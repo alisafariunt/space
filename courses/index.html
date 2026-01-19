@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PhD Courses & Study Guides - Ali Safari">
+    <title>Courses | Ali Safari</title>
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .course-card {
+            background: var(--card-bg, #fff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-code {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-color, #2563eb);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .course-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .course-desc {
+            color: var(--text-muted, #6b7280);
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .course-link {
+            font-weight: 600;
+            color: var(--primary-color, #2563eb);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../images/logo.png" alt="Ali Safari" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#research">Research</a></li>
+                <li><a href="index.html" class="active">Courses</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../conferences/">Conferences</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">
+                <span class="title-icon"><i class="fas fa-graduation-cap"></i></span>
+                PhD Courses & Study Guides
+            </h1>
+            <p class="lead">Interactive study guides, notes, and resources for UNT PhD courses.</p>
+
+            <div class="courses-grid">
+                <!-- BUSI 6480 -->
+                <a href="../6480/index.html" class="course-card">
+                    <div class="course-code">BUSI 6480</div>
+                    <div class="course-title">Experimental Design & Analysis</div>
+                    <p class="course-desc">
+                        Advanced statistical methods, ANOVA, Mediation Analysis, and experimental design principles.
+                        Features interactive highlights, TTS, and cloud sync.
+                    </p>
+                    <span class="course-link">View Study Guide <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <!-- BCIS 6670 -->
+                <a href="../6670/index.html" class="course-card">
+                    <div class="course-code">BCIS 6670</div>
+                    <div class="course-title">Introduction to IS Research</div>
+                    <p class="course-desc">
+                        Fundamentals of Information Systems research, theory building, and academic writing.
+                        Includes reading analysis, flashcards, and progress tracking.
+                    </p>
+                    <span class="course-link">View Study Guide <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ali Safari. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
