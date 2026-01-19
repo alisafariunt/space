@@ -73,7 +73,7 @@ export default async function handler(req, res) {
         }
 
         // Clear refresh token cookie
-        res.setHeader('Set-Cookie', 'refreshToken=; HttpOnly; Secure; SameSite=Strict; Max-Age=0; Path=/api/auth');
+        res.setHeader('Set-Cookie', 'refreshToken=; HttpOnly; Secure; SameSite=Lax; Max-Age=0; Path=/');
 
         return res.status(200).json({
             success: true,
