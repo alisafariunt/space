@@ -368,7 +368,24 @@
         </div>
     </footer>
 
+    <script src="js/toast.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Auto-open login modal if redirected from protected page
+        window.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get('login') === 'required') {
+                // Wait for AuthManager to load
+                setTimeout(function () {
+                    if (window.AuthManager && typeof window.AuthManager.showLoginModal === 'function') {
+                        window.showToast('Please login to access the courses dashboard', 'info', 3000);
+                        window.AuthManager.showLoginModal();
+                    }
+                }, 500);
+            }
+        });
+    </script>
 </body>
 
 </html>
