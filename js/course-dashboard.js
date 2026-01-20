@@ -146,27 +146,50 @@
         const progress = loadProgress();
         const { highlights, notes } = loadHighlights();
 
+        console.log('Dashboard Debug - Progress:', progress);
+        console.log('Dashboard Debug - Highlights:', highlights);
+        console.log('Dashboard Debug - Notes:', notes);
+
         // Total time across all courses
         const totalSeconds = Object.values(progress.pages || {}).reduce((sum, page) => sum + (page.timeSpentSec || 0), 0);
+        console.log('Dashboard Debug - Total seconds:', totalSeconds);
+
         const totalEl = document.getElementById('totalTimeValue');
         if (totalEl) {
             const hrs = Math.floor(totalSeconds / 3600);
-            totalEl.textContent = hrs > 0 ? `${hrs}h` : formatDuration(totalSeconds);
+            const displayValue = hrs > 0 ? `${hrs}h` : formatDuration(totalSeconds);
+            console.log('Dashboard Debug - Setting total time to:', displayValue);
+            totalEl.textContent = displayValue;
+        } else {
+            console.error('Dashboard Debug - totalTimeValue element not found!');
         }
 
         // Total highlights
         const highlightsEl = document.getElementById('totalHighlightsValue');
-        if (highlightsEl) highlightsEl.textContent = highlights.length;
+        if (highlightsEl) {
+            console.log('Dashboard Debug - Setting highlights to:', highlights.length);
+            highlightsEl.textContent = highlights.length;
+        } else {
+            console.error('Dashboard Debug - totalHighlightsValue element not found!');
+        }
 
         // Total notes
         const notesEl = document.getElementById('totalNotesValue');
-        if (notesEl) notesEl.textContent = notes.length;
+        if (notesEl) {
+            console.log('Dashboard Debug - Setting notes to:', notes.length);
+            notesEl.textContent = notes.length;
+        } else {
+            console.error('Dashboard Debug - totalNotesValue element not found!');
+        }
 
         // Calculate streak (simple version - days with activity)
         const streakEl = document.getElementById('streakValue');
         if (streakEl) {
             const days = calculateStreak(progress);
+            console.log('Dashboard Debug - Setting streak to:', days);
             streakEl.textContent = days;
+        } else {
+            console.error('Dashboard Debug - streakValue element not found!');
         }
     }
 
