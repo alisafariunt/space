@@ -176,10 +176,21 @@
             outputEl.textContent = '⏳ Fetching from server...';
 
             try {
-                // Get access token
-                const token = localStorage.getItem('studyGuide_accessToken');
+                // Get access token - check sessionStorage first, then AuthManager
+                let token = sessionStorage.getItem('studyGuide_accessToken');
+
+                if (!token && window.AuthManager) {
+                    try {
+                        token = window.AuthManager.getAccessToken();
+                    } catch (e) {
+                        console.log('AuthManager.getAccessToken error:', e);
+                    }
+                }
+
                 if (!token) {
-                    outputEl.textContent = '❌ No access token found. Please login first.';
+                    outputEl.textContent = '❌ No access token found.\n\nsessionStorage keys: ' +
+                        Object.keys(sessionStorage).join(', ') +
+                        '\n\nlocalStorage keys: ' + Object.keys(localStorage).join(', ');
                     return;
                 }
 
