@@ -20,106 +20,351 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        /* Dashboard Layout */
+        .dashboard-section {
+            padding: 2rem 0 4rem;
         }
 
-        .course-card {
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .dashboard-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .dashboard-title i {
+            color: var(--primary-color, #2563eb);
+        }
+
+        .dashboard-subtitle {
+            color: var(--text-muted, #6b7280);
+            margin: 0.5rem 0 0;
+            font-size: 1rem;
+        }
+
+        .btn-outline {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-color, #2563eb);
+            background: transparent;
+            color: var(--primary-color, #2563eb);
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color, #2563eb);
+            color: white;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            padding: 1.75rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card.stat-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .stat-card.stat-success {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        }
+
+        .stat-card.stat-warning {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .stat-card.stat-info {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Dashboard Main Grid */
+        .dashboard-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .dashboard-main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dashboard Cards */
+        .dashboard-card {
             background: var(--card-bg, #fff);
             border: 1px solid var(--border-color, #e5e7eb);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-header {
             display: flex;
-            flex-direction: column;
-            height: 100%;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
         }
 
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .course-code {
-            font-size: 0.9rem;
+        .card-header h3 {
+            font-size: 1.15rem;
             font-weight: 700;
-            color: var(--primary-color, #2563eb);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .course-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .course-desc {
-            color: var(--text-muted, #6b7280);
-            margin-bottom: 2rem;
-            flex-grow: 1;
-        }
-
-        .course-link {
-            font-weight: 600;
-            color: var(--primary-color, #2563eb);
+            margin: 0;
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
 
-        .course-stats {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.75rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .course-stat {
-            background: rgba(37, 99, 235, 0.08);
-            border-radius: 10px;
-            padding: 0.6rem 0.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .course-stat .stat-label {
-            font-size: 0.7rem;
-            color: var(--text-muted, #6b7280);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .course-stat .stat-value {
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        .course-stat .stat-alert {
-            color: #dc2626;
-        }
-
-        .course-last {
+        .card-subtitle {
             font-size: 0.85rem;
             color: var(--text-muted, #6b7280);
+        }
+
+        /* Chart */
+        .chart-container {
+            height: 200px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 0.5rem;
+            padding: 1rem 0;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            border-radius: 6px 6px 0 0;
+            min-height: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .chart-bar:hover {
+            opacity: 0.8;
+        }
+
+        .chart-bar::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: var(--text-muted, #6b7280);
+            white-space: nowrap;
+        }
+
+        /* Enhanced Course Cards */
+        .courses-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .enhanced-course-card {
+            background: var(--card-bg, #f9fafb);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .enhanced-course-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-color, #2563eb);
+        }
+
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 1rem;
         }
 
-        [data-theme="dark"] .course-stat {
-            background: rgba(59, 130, 246, 0.2);
+        .course-code {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-color, #2563eb);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
         }
 
-        [data-theme="dark"] .course-stat .stat-label,
-        [data-theme="dark"] .course-last {
-            color: rgba(255, 255, 255, 0.7);
+        .course-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .course-progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color, #e5e7eb);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 999px;
+            transition: width 0.5s ease;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .course-stat-mini {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-muted, #6b7280);
+        }
+
+        .course-stat-mini.due {
+            color: #f59e0b;
+        }
+
+        /* Highlights Feed */
+        .highlights-feed,
+        .reminders-content {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .highlight-item,
+        .reminder-item {
+            padding: 0.75rem;
+            border-left: 3px solid #667eea;
+            background: var(--card-bg, #f9fafb);
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .highlight-item:hover,
+        .reminder-item:hover {
+            background: var(--border-color, #e5e7eb);
+            transform: translateX(3px);
+        }
+
+        .highlight-text {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .highlight-meta {
+            font-size: 0.75rem;
+            color: var(--text-muted, #6b7280);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted, #6b7280);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        /* Dark Mode */
+        [data-theme="dark"] .stat-card {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] .dashboard-card,
+        [data-theme="dark"] .enhanced-course-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        [data-theme="dark"] .course-progress-bar {
+            background: #334155;
+        }
+
+        [data-theme="dark"] .highlight-item,
+        [data-theme="dark"] .reminder-item {
+            background: #334155;
+        }
+
+        [data-theme="dark"] .highlight-item:hover,
+        [data-theme="dark"] .reminder-item:hover {
+            background: #475569;
         }
     </style>
 </head>
@@ -195,82 +440,172 @@
         </div>
     </nav>
 
-    <section class="section">
+    <section class="section dashboard-section">
         <div class="container">
-            <h1 class="section-title">
-                <span class="title-icon"><i class="fas fa-graduation-cap"></i></span>
-                PhD Courses & Study Guides
-            </h1>
-            <p class="lead">Interactive study guides, notes, and resources for UNT PhD courses.</p>
+            <!-- Dashboard Header -->
+            <div class="dashboard-header">
+                <div class="dashboard-welcome">
+                    <h1 class="dashboard-title">
+                        <i class="fas fa-chart-line"></i>
+                        Study Dashboard
+                    </h1>
+                    <p class="dashboard-subtitle" id="dashboardGreeting">Loading...</p>
+                </div>
+                <div class="dashboard-actions">
+                    <button class="btn-outline" id="quickReviewBtn">
+                        <i class="fas fa-brain"></i> Quick Review
+                    </button>
+                </div>
+            </div>
 
-            <div class="courses-grid">
-                <!-- BUSI 6480 -->
-                <a href="../6480/index.html" class="course-card" data-course-id="6480">
-                    <div class="course-code">BUSI 6480</div>
-                    <div class="course-title">Experimental Design & Analysis</div>
-                    <p class="course-desc">
-                        Advanced statistical methods, ANOVA, Mediation Analysis, and experimental design principles.
-                        Features interactive highlights, TTS, and cloud sync.
-                    </p>
-                    <div class="course-stats" data-course-stats>
-                        <div class="course-stat">
-                            <span class="stat-label">Time</span>
-                            <span class="stat-value" data-stat="time">0m</span>
+            <!-- Overview Stats -->
+            <div class="stats-grid">
+                <div class="stat-card stat-primary">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="totalTimeValue">0h</div>
+                        <div class="stat-label">Total Study Time</div>
+                    </div>
+                </div>
+                <div class="stat-card stat-success">
+                    <div class="stat-icon">
+                        <i class="fas fa-highlighter"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="totalHighlightsValue">0</div>
+                        <div class="stat-label">Highlights</div>
+                    </div>
+                </div>
+                <div class="stat-card stat-warning">
+                    <div class="stat-icon">
+                        <i class="fas fa-sticky-note"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="totalNotesValue">0</div>
+                        <div class="stat-label">Notes</div>
+                    </div>
+                </div>
+                <div class="stat-card stat-info">
+                    <div class="stat-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="streakValue">0</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="dashboard-main">
+                <!-- Left Column -->
+                <div class="dashboard-left">
+                    <!-- Study Activity Chart -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-chart-bar"></i> Study Activity</h3>
+                            <span class="card-subtitle">Last 7 days</span>
                         </div>
-                        <div class="course-stat">
-                            <span class="stat-label">Today</span>
-                            <span class="stat-value" data-stat="today">0m</span>
-                        </div>
-                        <div class="course-stat">
-                            <span class="stat-label">Pages</span>
-                            <span class="stat-value" data-stat="pages">0/0</span>
-                        </div>
-                        <div class="course-stat">
-                            <span class="stat-label">Highlights</span>
-                            <span class="stat-value" data-stat="highlights">0</span>
-                        </div>
-                        <div class="course-stat">
-                            <span class="stat-label">Due</span>
-                            <span class="stat-value" data-stat="due">0</span>
+                        <div class="chart-container" id="studyChart">
+                            <!-- Chart bars will be generated by JS -->
                         </div>
                     </div>
-                    <div class="course-last" data-course-last>Last: --</div>
-                    <span class="course-link">View Study Guide <i class="fas fa-arrow-right"></i></span>
-                </a>
 
-                <!-- BCIS 6670 -->
-                <a href="../6670/index.html" class="course-card" data-course-id="6670">
-                    <div class="course-code">BCIS 6670</div>
-                    <div class="course-title">Introduction to IS Research</div>
-                    <p class="course-desc">
-                        Fundamentals of Information Systems research, theory building, and academic writing.
-                        Includes reading analysis, flashcards, and progress tracking.
-                    </p>
-                    <div class="course-stats" data-course-stats>
-                        <div class="course-stat">
-                            <span class="stat-label">Time</span>
-                            <span class="stat-value" data-stat="time">0m</span>
+                    <!-- Courses -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-graduation-cap"></i> Your Courses</h3>
                         </div>
-                        <div class="course-stat">
-                            <span class="stat-label">Today</span>
-                            <span class="stat-value" data-stat="today">0m</span>
-                        </div>
-                        <div class="course-stat">
-                            <span class="stat-label">Pages</span>
-                            <span class="stat-value" data-stat="pages">0/0</span>
-                        </div>
-                        <div class="course-stat">
-                            <span class="stat-label">Highlights</span>
-                            <span class="stat-value" data-stat="highlights">0</span>
-                        </div>
-                        <div class="course-stat">
-                            <span class="stat-label">Due</span>
-                            <span class="stat-value" data-stat="due">0</span>
+                        <div class="courses-list">
+                            <!-- BUSI 6480 -->
+                            <a href="../6480/index.html" class="enhanced-course-card" data-course-id="6480">
+                                <div class="course-header">
+                                    <div>
+                                        <div class="course-code">BUSI 6480</div>
+                                        <div class="course-title">Experimental Design & Analysis</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <div class="course-progress-bar">
+                                    <div class="progress-fill" data-progress="0"></div>
+                                </div>
+                                <div class="course-meta">
+                                    <div class="course-stat-mini">
+                                        <i class="fas fa-clock"></i>
+                                        <span data-stat="time">0m</span>
+                                    </div>
+                                    <div class="course-stat-mini">
+                                        <i class="fas fa-highlighter"></i>
+                                        <span data-stat="highlights">0</span>
+                                    </div>
+                                    <div class="course-stat-mini due">
+                                        <i class="fas fa-bell"></i>
+                                        <span data-stat="due">0 due</span>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <!-- BCIS 6670 -->
+                            <a href="../6670/index.html" class="enhanced-course-card" data-course-id="6670">
+                                <div class="course-header">
+                                    <div>
+                                        <div class="course-code">BCIS 6670</div>
+                                        <div class="course-title">Introduction to IS Research</div>
+                                    </div>
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <div class="course-progress-bar">
+                                    <div class="progress-fill" data-progress="0"></div>
+                                </div>
+                                <div class="course-meta">
+                                    <div class="course-stat-mini">
+                                        <i class="fas fa-clock"></i>
+                                        <span data-stat="time">0m</span>
+                                    </div>
+                                    <div class="course-stat-mini">
+                                        <i class="fas fa-highlighter"></i>
+                                        <span data-stat="highlights">0</span>
+                                    </div>
+                                    <div class="course-stat-mini due">
+                                        <i class="fas fa-bell"></i>
+                                        <span data-stat="due">0 due</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                    <div class="course-last" data-course-last>Last: --</div>
-                    <span class="course-link">View Study Guide <i class="fas fa-arrow-right"></i></span>
-                </a>
+                </div>
+
+                <!-- Right Column -->
+                <div class="dashboard-right">
+                    <!-- Spaced Repetition Reminders -->
+                    <div class="dashboard-card reminders-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-bell"></i> Review Today</h3>
+                        </div>
+                        <div class="reminders-content" id="remindersList">
+                            <div class="empty-state">
+                                <i class="fas fa-check-circle"></i>
+                                <p>No reviews due today!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Highlights -->
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-highlighter"></i> Recent Highlights</h3>
+                        </div>
+                        <div class="highlights-feed" id="recentHighlights">
+                            <div class="empty-state">
+                                <i class="fas fa-pen"></i>
+                                <p>No highlights yet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
