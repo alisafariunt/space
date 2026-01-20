@@ -1,5 +1,8 @@
 // Course Dashboard Stats for Courses Index
+console.log('🚀 Course Dashboard Script Loading...');
+
 (function () {
+    console.log('✅ Course Dashboard IIFE Started');
     const PROGRESS_KEY = 'studyGuide_progress';
     const HIGHLIGHT_KEY = 'studyGuide_highlights';
 
@@ -370,8 +373,11 @@
 
     // Quick Review button
     document.addEventListener('DOMContentLoaded', () => {
+        console.log('📋 DOMContentLoaded fired for dashboard');
+
         const reviewBtn = document.getElementById('quickReviewBtn');
         if (reviewBtn) {
+            console.log('✅ Quick Review button found');
             reviewBtn.addEventListener('click', () => {
                 const { highlights } = loadHighlights();
                 const due = highlights.filter(h => {
@@ -392,9 +398,13 @@
                     navigateToHighlight(first.pageId, first.id);
                 }
             });
+        } else {
+            console.warn('⚠️ Quick Review button NOT found');
         }
 
+        console.log('🎯 Calling populateDashboard()...');
         populateDashboard();
+        console.log('✅ populateDashboard() completed');
     });
 
     document.addEventListener('DOMContentLoaded', updateCourseCards);
@@ -403,3 +413,4 @@
         populateDashboard();
     });
 })();
+console.log('✅ Course Dashboard Script Loaded');
