@@ -125,6 +125,33 @@
 </head>
 
 <body>
+    <!-- Auth Check - Protect Dashboard -->
+    <script>
+        // Check if user is authenticated
+        (function () {
+            // Wait for AuthManager to be available
+            function checkAuth() {
+                if (!window.AuthManager || typeof window.AuthManager.isAuthenticated !== 'function') {
+                    // AuthManager not loaded yet, wait a bit
+                    setTimeout(checkAuth, 50);
+                    return;
+                }
+
+                if (!window.AuthManager.isAuthenticated()) {
+                    // Not logged in - redirect to home with login prompt
+                    window.location.href = '/?login=required';
+                }
+            }
+
+            // Start auth check when DOM is loaded
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', checkAuth);
+            } else {
+                checkAuth();
+            }
+        })();
+    </script>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -140,6 +167,27 @@
                 <li><a href="../index.html#contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
+                <!-- Sync Status -->
+                <div id="sync-status" class="sync-status" style="display: none;">
+                    <i class="fas fa-cloud"></i>
+                    <span>Syncing...</span>
+                </div>
+
+                <!-- User Menu (for logged-in users) -->
+                <div id="user-menu-container" style="display: none;">
+                    <button class="user-menu-btn" id="userMenuBtn">
+                        <i class="fas fa-user-circle"></i>
+                        <span id="user-email">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-menu-dropdown" id="userMenuDropdown">
+                        <button id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                     <i class="fas fa-moon"></i>
                 </button>
