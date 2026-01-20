@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Debug Helper</title>
+</head>
+
+<body>
+    <h1>Dashboard Debug Test</h1>
+    <button onclick="checkLocalStorage()">Check localStorage</button>
+    <button onclick="addTestData()">Add Test Data</button>
+    <pre id="output"></pre>
+
+    <script>
+        function checkLocalStorage() {
+            const output = document.getElementById('output');
+            const progress = localStorage.getItem('studyGuide_progress');
+            const highlights = localStorage.getItem('studyGuide_highlights');
+
+            output.textContent = 'Progress Data:\n' + (progress || 'EMPTY') + '\n\n' +
+                'Highlights Data:\n' + (highlights || 'EMPTY');
+        }
+
+        function addTestData() {
+            const testProgress = {
+                pages: {
+                    '6480/week1': {
+                        timeSpentSec: 3600,
+                        lastVisitedAt: new Date().toISOString(),
+                        completed: true
+                    },
+                    '6670/session0': {
+                        timeSpentSec: 1800,
+                        lastVisitedAt: new Date().toISOString(),
+                        completed: false
+                    }
+                },
+                dailyTotalsByCourse: {
+                    '6480|2026-01-19': { seconds: 3600 },
+                    '6670|2026-01-19': { seconds: 1800 }
+                }
+            };
+
+            const testHighlights = {
+                highlights: [
+                    {
+                        id: 'test1',
+                        text: 'Test highlight 1',
+                        courseId: '6480',
+                        pageId: 'week1',
+                        createdAt: new Date().toISOString()
+                    },
+                    {
+                        id: 'test2',
+                        text: 'Test highlight 2',
+                        courseId: '6670',
+                        pageId: 'session0',
+                        createdAt: new Date().toISOString()
+                    }
+                ],
+                notes: [
+                    {
+                        id: 'note1',
+                        text: 'Test note',
+                        createdAt: new Date().toISOString()
+                    }
+                ]
+            };
+
+            localStorage.setItem('studyGuide_progress', JSON.stringify(testProgress));
+            localStorage.setItem('studyGuide_highlights', JSON.stringify(testHighlights));
+
+            alert('Test data added! Now refresh the dashboard page.');
+        }
+
+        // Auto-check on load
+        checkLocalStorage();
+    </script>
+</body>
+
+</html>
