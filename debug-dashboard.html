@@ -7,7 +7,7 @@
         body {
             font-family: Arial, sans-serif;
             padding: 2rem;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -35,19 +35,27 @@
             color: white;
         }
 
+        .btn-warning {
+            background: #f59e0b;
+            color: white;
+        }
+
         pre {
             background: #1e293b;
             color: #e2e8f0;
             padding: 1rem;
             border-radius: 8px;
             overflow-x: auto;
-            font-size: 12px;
-            max-height: 300px;
+            font-size: 11px;
+            max-height: 250px;
             overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
 
         h2 {
             color: #334155;
+            margin-top: 2rem;
         }
 
         .status {
@@ -70,27 +78,44 @@
             background: #dbeafe;
             color: #1e40af;
         }
+
+        .section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+        }
     </style>
 </head>
 
 <body>
     <h1>🔧 Dashboard Debug Helper</h1>
 
-    <h2>Actions</h2>
-    <button class="btn-danger" onclick="clearAllData()">🗑️ Clear ALL Local Data</button>
-    <button class="btn-primary" onclick="forceSync()">🔄 Force Full Sync from Server</button>
-    <button class="btn-success" onclick="goToDashboard()">📊 Go to Dashboard</button>
+    <div class="section">
+        <h2>1️⃣ Quick Actions</h2>
+        <button class="btn-danger" onclick="clearAllData()">🗑️ Clear ALL Local Data</button>
+        <button class="btn-primary" onclick="forceSync()">🔄 Force Full Sync</button>
+        <button class="btn-success" onclick="goToDashboard()">📊 Go to Dashboard</button>
+        <div id="status"></div>
+    </div>
 
-    <div id="status"></div>
+    <div class="section">
+        <h2>2️⃣ Raw API Check (See what database returns)</h2>
+        <button class="btn-warning" onclick="checkRawAPI()">📡 Check Raw Sync API Response</button>
+        <h3>Server Response:</h3>
+        <pre id="apiResponse">Click button above to check...</pre>
+    </div>
 
-    <h2>Current localStorage Data</h2>
-    <button onclick="checkLocalStorage()">🔍 Refresh Data View</button>
+    <div class="section">
+        <h2>3️⃣ Current localStorage Data</h2>
+        <button onclick="checkLocalStorage()">🔍 Refresh</button>
 
-    <h3>Progress Data:</h3>
-    <pre id="progress">Loading...</pre>
+        <h3>Progress:</h3>
+        <pre id="progress">Loading...</pre>
 
-    <h3>Highlights Data:</h3>
-    <pre id="highlights">Loading...</pre>
+        <h3>Highlights:</h3>
+        <pre id="highlights">Loading...</pre>
+    </div>
 
     <script src="/js/toast.js"></script>
     <script src="/js/auth.js"></script>
@@ -118,7 +143,7 @@
             localStorage.removeItem('studyGuide_highlights');
             localStorage.removeItem('studyGuide_lastSync');
             localStorage.removeItem('studyGuide_syncQueue');
-            showStatus('✅ All local data cleared! Now click "Force Full Sync" to get your real data.', 'success');
+            showStatus('✅ All local data cleared!', 'success');
             checkLocalStorage();
         }
 
@@ -135,7 +160,7 @@
                 console.log('Sync result:', result);
 
                 if (result && result.success) {
-                    showStatus('✅ Sync successful! Your data from the database is now loaded.', 'success');
+                    showStatus('✅ Sync successful! Data loaded.', 'success');
                 } else {
                     showStatus('⚠️ Sync returned: ' + JSON.stringify(result), 'error');
                 }
@@ -143,6 +168,48 @@
             } catch (err) {
                 showStatus('❌ Sync error: ' + err.message, 'error');
                 console.error(err);
+            }
+        }
+
+        async function checkRawAPI() {
+            const outputEl = document.getElementById('apiResponse');
+            outputEl.textContent = '⏳ Fetching from server...';
+
+            try {
+                // Get access token
+                const token = localStorage.getItem('studyGuide_accessToken');
+                if (!token) {
+                    outputEl.textContent = '❌ No access token found. Please login first.';
+                    return;
+                }
+
+                const response = await fetch('/api/sync?since=1970-01-01T00:00:00.000Z', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+
+                outputEl.textContent = `Status: ${response.status}\n\n` + JSON.stringify(data, null, 2);
+
+                // Summary
+                const summary = {
+                    highlights: data.highlights?.length || 0,
+                    bookmarks: data.bookmarks?.length || 0,
+                    notes: data.notes?.length || 0,
+                    progress: data.progress?.length || 0,
+                    dailyStats: data.dailyStats?.length || 0,
+                    hasPreferences: !!data.preferences
+                };
+
+                console.log('API Response Summary:', summary);
+
+            } catch (err) {
+                outputEl.textContent = '❌ Error: ' + err.message;
             }
         }
 
