@@ -35,6 +35,34 @@ async function initializeDatabase() {
             element_path TEXT,
             start_offset INTEGER,
             end_offset INTEGER,
+            sr_due_at DATETIME,
+            sr_interval REAL,
+            sr_ease REAL,
+            sr_reps INTEGER,
+            sr_last_reviewed DATETIME,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME,
+            deleted_at DATETIME
+        )`,
+        `CREATE TABLE IF NOT EXISTS progress (
+            id TEXT PRIMARY KEY,
+            user_id TEXT NOT NULL,
+            course_id TEXT NOT NULL,
+            page_id TEXT NOT NULL,
+            last_percent INTEGER,
+            time_spent_sec INTEGER,
+            completed INTEGER,
+            last_visited_at DATETIME,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME,
+            deleted_at DATETIME
+        )`,
+        `CREATE TABLE IF NOT EXISTS daily_stats (
+            id TEXT PRIMARY KEY,
+            user_id TEXT NOT NULL,
+            course_id TEXT NOT NULL,
+            stat_date TEXT NOT NULL,
+            time_spent_sec INTEGER,
             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
             updated_at DATETIME,
             deleted_at DATETIME
@@ -75,6 +103,10 @@ async function initializeDatabase() {
         )`,
         `CREATE INDEX IF NOT EXISTS idx_highlights_user_course ON highlights(user_id, course_id)`,
         `CREATE INDEX IF NOT EXISTS idx_highlights_user_deleted ON highlights(user_id, deleted_at)`,
+        `CREATE INDEX IF NOT EXISTS idx_progress_user_course ON progress(user_id, course_id)`,
+        `CREATE INDEX IF NOT EXISTS idx_progress_user_deleted ON progress(user_id, deleted_at)`,
+        `CREATE INDEX IF NOT EXISTS idx_daily_stats_user_date ON daily_stats(user_id, stat_date)`,
+        `CREATE INDEX IF NOT EXISTS idx_daily_stats_user_deleted ON daily_stats(user_id, deleted_at)`,
         `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_course ON bookmarks(user_id, course_id)`,
         `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_deleted ON bookmarks(user_id, deleted_at)`,
         `CREATE INDEX IF NOT EXISTS idx_notes_user_course ON notes(user_id, course_id)`,
@@ -225,9 +257,94 @@ export default async function handler(req, res) {
         } catch (e) {
             // Column likely exists
         }
+        // Migration: Add spaced repetition fields if missing
+        try {
+            await db.execute("ALTER TABLE highlights ADD COLUMN sr_due_at DATETIME");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE highlights ADD COLUMN sr_interval REAL");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE highlights ADD COLUMN sr_ease REAL");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE highlights ADD COLUMN sr_reps INTEGER");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE highlights ADD COLUMN sr_last_reviewed DATETIME");
+        } catch (e) {
+            // Column likely exists
+        }
+        // Migration: Add progress columns if missing
+        try {
+            await db.execute("ALTER TABLE progress ADD COLUMN last_percent INTEGER");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE progress ADD COLUMN time_spent_sec INTEGER");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE progress ADD COLUMN completed INTEGER");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE progress ADD COLUMN last_visited_at DATETIME");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE progress ADD COLUMN updated_at DATETIME");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE progress ADD COLUMN deleted_at DATETIME");
+        } catch (e) {
+            // Column likely exists
+        }
+        // Migration: Add daily stats columns if missing
+        try {
+            await db.execute("ALTER TABLE daily_stats ADD COLUMN course_id TEXT");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE daily_stats ADD COLUMN stat_date TEXT");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE daily_stats ADD COLUMN time_spent_sec INTEGER");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE daily_stats ADD COLUMN updated_at DATETIME");
+        } catch (e) {
+            // Column likely exists
+        }
+        try {
+            await db.execute("ALTER TABLE daily_stats ADD COLUMN deleted_at DATETIME");
+        } catch (e) {
+            // Column likely exists
+        }
         try {
             await db.batch([
                 `CREATE INDEX IF NOT EXISTS idx_highlights_user_updated ON highlights(user_id, updated_at)`,
+                `CREATE INDEX IF NOT EXISTS idx_progress_user_updated ON progress(user_id, updated_at)`,
+                `CREATE INDEX IF NOT EXISTS idx_daily_stats_user_updated ON daily_stats(user_id, updated_at)`,
                 `CREATE INDEX IF NOT EXISTS idx_bookmarks_user_updated ON bookmarks(user_id, updated_at)`,
                 `CREATE INDEX IF NOT EXISTS idx_notes_user_updated ON notes(user_id, updated_at)`,
                 `CREATE TRIGGER IF NOT EXISTS highlights_set_updated_at
@@ -243,6 +360,34 @@ export default async function handler(req, res) {
                     WHEN NEW.updated_at IS NULL
                     BEGIN
                         UPDATE highlights SET updated_at = datetime('now') WHERE id = NEW.id;
+                    END`,
+                `CREATE TRIGGER IF NOT EXISTS progress_set_updated_at
+                    AFTER UPDATE ON progress
+                    FOR EACH ROW
+                    WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
+                    BEGIN
+                        UPDATE progress SET updated_at = datetime('now') WHERE id = NEW.id;
+                    END`,
+                `CREATE TRIGGER IF NOT EXISTS progress_set_updated_at_insert
+                    AFTER INSERT ON progress
+                    FOR EACH ROW
+                    WHEN NEW.updated_at IS NULL
+                    BEGIN
+                        UPDATE progress SET updated_at = datetime('now') WHERE id = NEW.id;
+                    END`,
+                `CREATE TRIGGER IF NOT EXISTS daily_stats_set_updated_at
+                    AFTER UPDATE ON daily_stats
+                    FOR EACH ROW
+                    WHEN NEW.updated_at IS NULL OR NEW.updated_at = OLD.updated_at
+                    BEGIN
+                        UPDATE daily_stats SET updated_at = datetime('now') WHERE id = NEW.id;
+                    END`,
+                `CREATE TRIGGER IF NOT EXISTS daily_stats_set_updated_at_insert
+                    AFTER INSERT ON daily_stats
+                    FOR EACH ROW
+                    WHEN NEW.updated_at IS NULL
+                    BEGIN
+                        UPDATE daily_stats SET updated_at = datetime('now') WHERE id = NEW.id;
                     END`,
                 `CREATE TRIGGER IF NOT EXISTS bookmarks_set_updated_at
                     AFTER UPDATE ON bookmarks
@@ -361,6 +506,40 @@ export default async function handler(req, res) {
 
             const notes = await db.execute({ sql: notesQuery, args: notesArgs });
 
+            // Fetch progress
+            let progressQuery = `SELECT * FROM progress WHERE user_id = ?`;
+            const progressArgs = [userId];
+
+            if (courseId) {
+                progressQuery += ` AND course_id = ?`;
+                progressArgs.push(courseId);
+            }
+            if (since) {
+                progressQuery += ` AND (updated_at > ? OR created_at > ? OR deleted_at > ?)`;
+                progressArgs.push(since, since, since);
+            } else {
+                progressQuery += ` AND deleted_at IS NULL`;
+            }
+
+            const progress = await db.execute({ sql: progressQuery, args: progressArgs });
+
+            // Fetch daily stats
+            let dailyStatsQuery = `SELECT * FROM daily_stats WHERE user_id = ?`;
+            const dailyStatsArgs = [userId];
+
+            if (courseId) {
+                dailyStatsQuery += ` AND course_id = ?`;
+                dailyStatsArgs.push(courseId);
+            }
+            if (since) {
+                dailyStatsQuery += ` AND (updated_at > ? OR created_at > ? OR deleted_at > ?)`;
+                dailyStatsArgs.push(since, since, since);
+            } else {
+                dailyStatsQuery += ` AND deleted_at IS NULL`;
+            }
+
+            const dailyStats = await db.execute({ sql: dailyStatsQuery, args: dailyStatsArgs });
+
             // Fetch preferences
             const preferences = await db.execute({
                 sql: `SELECT * FROM preferences WHERE user_id = ?`,
@@ -377,6 +556,8 @@ export default async function handler(req, res) {
                 highlights: highlights.rows,
                 bookmarks: bookmarks.rows,
                 notes: notes.rows,
+                progress: progress.rows,
+                dailyStats: dailyStats.rows,
                 preferences: preferences.rows[0] || null,
                 serverTime: new Date().toISOString()
             });
@@ -396,8 +577,8 @@ export default async function handler(req, res) {
                 for (const h of changes.highlights.upsert || []) {
                     await db.execute({
                         sql: `INSERT OR REPLACE INTO highlights 
-                              (id, user_id, course_id, page_id, text, color, element_path, start_offset, end_offset, created_at, updated_at)
-                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`,
+                              (id, user_id, course_id, page_id, text, color, element_path, start_offset, end_offset, sr_due_at, sr_interval, sr_ease, sr_reps, sr_last_reviewed, created_at, updated_at)
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))`,
                         args: [
                             val(h.id),
                             userId,
@@ -408,6 +589,11 @@ export default async function handler(req, res) {
                             val(h.elementPath),
                             val(h.startOffset),
                             val(h.endOffset),
+                            val(h.srDueAt),
+                            val(h.srInterval),
+                            val(h.srEase),
+                            val(h.srReps),
+                            val(h.srLastReviewed),
                             val(h.createdAt)
                         ]
                     });
@@ -463,6 +649,61 @@ export default async function handler(req, res) {
                 }
             }
 
+            // Process progress
+            if (changes?.progress) {
+                for (const p of changes.progress.upsert || []) {
+                    await db.execute({
+                        sql: `INSERT OR REPLACE INTO progress
+                              (id, user_id, course_id, page_id, last_percent, time_spent_sec, completed, last_visited_at, created_at, updated_at)
+                              VALUES (?, ?, ?, ?, ?, ?, ?, ?, datetime('now'), datetime('now'))`,
+                        args: [
+                            val(p.id),
+                            userId,
+                            val(p.courseId),
+                            val(p.pageId),
+                            val(p.lastPercent),
+                            val(p.timeSpentSec),
+                            val(p.completed ? 1 : 0),
+                            val(p.lastVisitedAt)
+                        ]
+                    });
+                    results.updated++;
+                }
+                for (const id of changes.progress.deleted || []) {
+                    await db.execute({
+                        sql: `UPDATE progress SET deleted_at = datetime('now'), updated_at = datetime('now') WHERE id = ? AND user_id = ?`,
+                        args: [id, userId]
+                    });
+                    results.deleted++;
+                }
+            }
+
+            // Process daily stats
+            if (changes?.dailyStats) {
+                for (const d of changes.dailyStats.upsert || []) {
+                    await db.execute({
+                        sql: `INSERT OR REPLACE INTO daily_stats
+                              (id, user_id, course_id, stat_date, time_spent_sec, created_at, updated_at)
+                              VALUES (?, ?, ?, ?, ?, datetime('now'), datetime('now'))`,
+                        args: [
+                            val(d.id),
+                            userId,
+                            val(d.courseId),
+                            val(d.statDate),
+                            val(d.timeSpentSec)
+                        ]
+                    });
+                    results.updated++;
+                }
+                for (const id of changes.dailyStats.deleted || []) {
+                    await db.execute({
+                        sql: `UPDATE daily_stats SET deleted_at = datetime('now'), updated_at = datetime('now') WHERE id = ? AND user_id = ?`,
+                        args: [id, userId]
+                    });
+                    results.deleted++;
+                }
+            }
+
             // Process preferences
             if (changes?.preferences) {
                 const p = changes.preferences;
@@ -498,6 +739,8 @@ export default async function handler(req, res) {
 
             await db.batch([
                 { sql: `DELETE FROM highlights WHERE user_id = ?`, args: [userId] },
+                { sql: `DELETE FROM progress WHERE user_id = ?`, args: [userId] },
+                { sql: `DELETE FROM daily_stats WHERE user_id = ?`, args: [userId] },
                 { sql: `DELETE FROM bookmarks WHERE user_id = ?`, args: [userId] },
                 { sql: `DELETE FROM notes WHERE user_id = ?`, args: [userId] },
                 { sql: `DELETE FROM preferences WHERE user_id = ?`, args: [userId] },

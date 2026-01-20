@@ -74,6 +74,53 @@
             align-items: center;
             gap: 0.5rem;
         }
+
+        .course-stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .course-stat {
+            background: rgba(37, 99, 235, 0.08);
+            border-radius: 10px;
+            padding: 0.6rem 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .course-stat .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted, #6b7280);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .course-stat .stat-value {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .course-stat .stat-alert {
+            color: #dc2626;
+        }
+
+        .course-last {
+            font-size: 0.85rem;
+            color: var(--text-muted, #6b7280);
+            margin-bottom: 1rem;
+        }
+
+        [data-theme="dark"] .course-stat {
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        [data-theme="dark"] .course-stat .stat-label,
+        [data-theme="dark"] .course-last {
+            color: rgba(255, 255, 255, 0.7);
+        }
     </style>
 </head>
 
@@ -110,24 +157,70 @@
 
             <div class="courses-grid">
                 <!-- BUSI 6480 -->
-                <a href="../6480/index.html" class="course-card">
+                <a href="../6480/index.html" class="course-card" data-course-id="6480">
                     <div class="course-code">BUSI 6480</div>
                     <div class="course-title">Experimental Design & Analysis</div>
                     <p class="course-desc">
                         Advanced statistical methods, ANOVA, Mediation Analysis, and experimental design principles.
                         Features interactive highlights, TTS, and cloud sync.
                     </p>
+                    <div class="course-stats" data-course-stats>
+                        <div class="course-stat">
+                            <span class="stat-label">Time</span>
+                            <span class="stat-value" data-stat="time">0m</span>
+                        </div>
+                        <div class="course-stat">
+                            <span class="stat-label">Today</span>
+                            <span class="stat-value" data-stat="today">0m</span>
+                        </div>
+                        <div class="course-stat">
+                            <span class="stat-label">Pages</span>
+                            <span class="stat-value" data-stat="pages">0/0</span>
+                        </div>
+                        <div class="course-stat">
+                            <span class="stat-label">Highlights</span>
+                            <span class="stat-value" data-stat="highlights">0</span>
+                        </div>
+                        <div class="course-stat">
+                            <span class="stat-label">Due</span>
+                            <span class="stat-value" data-stat="due">0</span>
+                        </div>
+                    </div>
+                    <div class="course-last" data-course-last>Last: --</div>
                     <span class="course-link">View Study Guide <i class="fas fa-arrow-right"></i></span>
                 </a>
 
                 <!-- BCIS 6670 -->
-                <a href="../6670/index.html" class="course-card">
+                <a href="../6670/index.html" class="course-card" data-course-id="6670">
                     <div class="course-code">BCIS 6670</div>
                     <div class="course-title">Introduction to IS Research</div>
                     <p class="course-desc">
                         Fundamentals of Information Systems research, theory building, and academic writing.
                         Includes reading analysis, flashcards, and progress tracking.
                     </p>
+                    <div class="course-stats" data-course-stats>
+                        <div class="course-stat">
+                            <span class="stat-label">Time</span>
+                            <span class="stat-value" data-stat="time">0m</span>
+                        </div>
+                        <div class="course-stat">
+                            <span class="stat-label">Today</span>
+                            <span class="stat-value" data-stat="today">0m</span>
+                        </div>
+                        <div class="course-stat">
+                            <span class="stat-label">Pages</span>
+                            <span class="stat-value" data-stat="pages">0/0</span>
+                        </div>
+                        <div class="course-stat">
+                            <span class="stat-label">Highlights</span>
+                            <span class="stat-value" data-stat="highlights">0</span>
+                        </div>
+                        <div class="course-stat">
+                            <span class="stat-label">Due</span>
+                            <span class="stat-value" data-stat="due">0</span>
+                        </div>
+                    </div>
+                    <div class="course-last" data-course-last>Last: --</div>
                     <span class="course-link">View Study Guide <i class="fas fa-arrow-right"></i></span>
                 </a>
             </div>
@@ -142,7 +235,11 @@
         </div>
     </footer>
 
+    <script src="../js/toast.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/sync.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/course-dashboard.js"></script>
 </body>
 
 </html>

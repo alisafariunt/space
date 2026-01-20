@@ -19,6 +19,16 @@
         underline: { bg: 'transparent', border: '#ff6d00', label: '🖊️ Pen', isUnderline: true }
     };
 
+    function getDefaultSrData() {
+        return {
+            srDueAt: new Date().toISOString(),
+            srInterval: 1,
+            srEase: 2.5,
+            srReps: 0,
+            srLastReviewed: null
+        };
+    }
+
     // Get current page ID
     function getPageId() {
         let path = window.location.pathname || '';
@@ -43,6 +53,17 @@
             highlights = [];
             bookmarks = [];
             notes = [];
+        }
+
+        let updated = false;
+        highlights.forEach(h => {
+            if (!h.srDueAt) {
+                Object.assign(h, getDefaultSrData());
+                updated = true;
+            }
+        });
+        if (updated) {
+            saveData();
         }
     }
 
@@ -380,6 +401,7 @@
             elementPath, // Store path
             startOffset: offsets ? offsets.start : null,
             endOffset: offsets ? offsets.end : null,
+            ...getDefaultSrData(),
             createdAt: new Date().toISOString()
         };
         highlights.push(highlight);
@@ -752,6 +774,229 @@
         });
     }
 
+    function focusHighlight(id) {
+        const el = document.querySelector(`[data-highlight-id="${id}"]`);
+        if (!el) return false;
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('highlight-focus');
+        setTimeout(() => el.classList.remove('highlight-focus'), 2000);
+        return true;
+    }
+
+    function showReviewModal() {
+        const pageId = getPageId();
+        const pageHighlights = highlights.filter(h => h.pageId === pageId);
+        if (pageHighlights.length === 0) {
+            if (window.showToast) {
+                window.showToast('No highlights on this page yet.', 'info', 2000);
+            } else {
+                alert('No highlights on this page yet.');
+            }
+            return;
+        }
+
+        const noteMap = new Map();
+        notes.forEach(n => {
+            if (n.highlightId) {
+                noteMap.set(n.highlightId, n);
+            }
+        });
+
+        const items = pageHighlights.map(h => {
+            const el = document.querySelector(`[data-highlight-id="${h.id}"]`);
+            const position = el ? el.getBoundingClientRect().top + window.scrollY : Number.MAX_SAFE_INTEGER;
+            return {
+                ...h,
+                note: noteMap.get(h.id) || null,
+                position
+            };
+        }).sort((a, b) => a.position - b.position);
+
+        const modal = document.createElement('div');
+        modal.className = 'review-modal-overlay';
+        modal.innerHTML = `
+            <div class="review-modal">
+                <div class="review-modal-header">
+                    <h3>🧠 Quick Review</h3>
+                    <button class="review-modal-close">×</button>
+                </div>
+                <div class="review-modal-body">
+                    ${items.map(item => {
+                        const color = COLORS[item.color]?.bg || '#e5e7eb';
+                        const highlightText = (item.text || '').trim();
+                        const noteText = item.note?.noteContent || '';
+                        return `
+                            <div class="review-item" data-id="${item.id}">
+                                <div class="review-item-header">
+                                    <span class="review-dot" style="background: ${color}"></span>
+                                    <span class="review-text">${highlightText.length > 180 ? `${highlightText.slice(0, 180)}...` : highlightText}</span>
+                                </div>
+                                ${noteText ? `<div class="review-note">${noteText.length > 200 ? `${noteText.slice(0, 200)}...` : noteText}</div>` : ''}
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+                <div class="review-modal-footer">
+                    <button class="review-modal-close-btn">Close</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        const closeModal = () => modal.remove();
+        modal.querySelectorAll('.review-modal-close, .review-modal-close-btn').forEach(btn => {
+            btn.addEventListener('click', closeModal);
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        modal.querySelectorAll('.review-item').forEach(item => {
+            item.addEventListener('click', () => {
+                focusHighlight(item.dataset.id);
+            });
+        });
+    }
+
+    function createSummaryModal() {
+        const modal = document.createElement('div');
+        modal.className = 'summary-modal-overlay';
+        modal.innerHTML = `
+            <div class="summary-modal">
+                <div class="summary-modal-header">
+                    <h3>✨ Highlight Summary</h3>
+                    <button class="summary-modal-close">×</button>
+                </div>
+                <div class="summary-modal-body">
+                    <div class="summary-loading">Generating summary...</div>
+                    <pre class="summary-output" id="summary-output" style="display:none;"></pre>
+                </div>
+                <div class="summary-modal-footer">
+                    <button class="summary-copy-btn">Copy</button>
+                    <button class="summary-modal-close-btn">Close</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        const closeModal = () => modal.remove();
+        modal.querySelectorAll('.summary-modal-close, .summary-modal-close-btn').forEach(btn => {
+            btn.addEventListener('click', closeModal);
+        });
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        modal.querySelector('.summary-copy-btn').addEventListener('click', () => {
+            const output = modal.querySelector('#summary-output');
+            if (!output || !output.textContent) return;
+            navigator.clipboard?.writeText(output.textContent).then(() => {
+                if (window.showToast) {
+                    window.showToast('Summary copied to clipboard', 'success', 2000);
+                }
+            }).catch(() => {
+                if (window.showToast) {
+                    window.showToast('Unable to copy summary', 'error', 2000);
+                }
+            });
+        });
+
+        return modal;
+    }
+
+    async function summarizeHighlights(retry = false) {
+        const pageId = getPageId();
+        const courseId = getCourseId();
+        const pageHighlights = highlights.filter(h => h.pageId === pageId);
+        if (pageHighlights.length === 0) {
+            if (window.showToast) {
+                window.showToast('No highlights on this page to summarize.', 'info', 2000);
+            } else {
+                alert('No highlights on this page to summarize.');
+            }
+            return;
+        }
+
+        const noteMap = new Map();
+        notes.forEach(n => {
+            if (n.highlightId) {
+                noteMap.set(n.highlightId, n);
+            }
+        });
+
+        const payload = {
+            courseId,
+            pageId,
+            highlights: pageHighlights.map(h => ({
+                text: h.text,
+                color: h.color,
+                note: noteMap.get(h.id)?.noteContent || ''
+            }))
+        };
+
+        const modal = createSummaryModal();
+        const output = modal.querySelector('#summary-output');
+        const loading = modal.querySelector('.summary-loading');
+
+        try {
+            let accessToken = null;
+            if (window.AuthManager?.getAccessToken) {
+                try {
+                    accessToken = window.AuthManager.getAccessToken();
+                } catch (e) {
+                    accessToken = null;
+                }
+            }
+
+            const response = await fetch('/api/summary', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    ...(accessToken ? { 'Authorization': `Bearer ${accessToken}` } : {})
+                },
+                credentials: 'include',
+                body: JSON.stringify(payload)
+            });
+
+            if (response.status === 401 && !retry && window.AuthManager?.refreshAccessToken) {
+                await window.AuthManager.refreshAccessToken();
+                modal.remove();
+                return await summarizeHighlights(true);
+            }
+
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.error || 'Summary generation failed');
+            }
+
+            const data = await response.json();
+            const summary = data.summary || '';
+            loading.style.display = 'none';
+            output.style.display = 'block';
+            output.textContent = summary || 'No summary available.';
+        } catch (error) {
+            loading.textContent = error.message || 'Summary generation failed.';
+        }
+    }
+
+    function focusHighlightFromHash() {
+        const hash = window.location.hash || '';
+        const match = hash.match(/hl=([^&]+)/);
+        if (!match) return;
+        const highlightId = decodeURIComponent(match[1]);
+
+        const tryFocus = () => {
+            if (!focusHighlight(highlightId)) {
+                setTimeout(() => focusHighlight(highlightId), 300);
+            }
+        };
+
+        tryFocus();
+    }
+
     // Create highlights/bookmarks panel
     function createHighlightPanel() {
         const panel = document.createElement('div');
@@ -776,6 +1021,8 @@
                 <!-- Populated dynamically -->
             </div>
             <div class="panel-footer">
+                <button id="review-highlights">🧠 Review</button>
+                <button id="summarize-highlights">✨ Summary</button>
                 <button id="export-highlights">📤 Export</button>
                 <button id="clear-highlights">🗑️ Clear All</button>
             </div>
@@ -784,6 +1031,8 @@
 
         // Event listeners
         panel.querySelector('#close-highlight-panel').addEventListener('click', togglePanel);
+        panel.querySelector('#review-highlights').addEventListener('click', showReviewModal);
+        panel.querySelector('#summarize-highlights').addEventListener('click', summarizeHighlights);
         panel.querySelector('#export-highlights').addEventListener('click', exportHighlights);
         panel.querySelector('#clear-highlights').addEventListener('click', clearAllHighlights);
 
@@ -1318,6 +1567,7 @@
                 padding: 15px 20px;
                 border-top: 1px solid #e5e7eb;
                 display: flex;
+                flex-wrap: wrap;
                 gap: 10px;
             }
             .panel-footer button {
@@ -1338,6 +1588,10 @@
             .user-highlight:hover {
                 box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
             }
+            .highlight-focus {
+                box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.4);
+                transition: box-shadow 0.2s ease;
+            }
             [data-theme="dark"] .highlight-panel {
                 background: #1e293b;
                 color: #e5e7eb;
@@ -1352,6 +1606,210 @@
             }
             [data-theme="dark"] .item-text {
                 color: #e5e7eb;
+            }
+
+            /* Review Modal Styles */
+            .review-modal-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                z-index: 10003;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(4px);
+            }
+            .review-modal {
+                background: white;
+                border-radius: 14px;
+                width: 90%;
+                max-width: 700px;
+                max-height: 80vh;
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+                overflow: hidden;
+            }
+            .review-modal-header {
+                padding: 18px 20px;
+                border-bottom: 1px solid #e5e7eb;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .review-modal-header h3 {
+                margin: 0;
+                font-size: 1.2rem;
+            }
+            .review-modal-close {
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                color: #9ca3af;
+            }
+            .review-modal-body {
+                padding: 16px 20px;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .review-item {
+                background: #f9fafb;
+                border-radius: 10px;
+                padding: 12px 14px;
+                cursor: pointer;
+                transition: background 0.2s ease;
+            }
+            .review-item:hover {
+                background: #f3f4f6;
+            }
+            .review-item-header {
+                display: flex;
+                gap: 10px;
+                align-items: flex-start;
+            }
+            .review-dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 999px;
+                margin-top: 6px;
+                flex-shrink: 0;
+            }
+            .review-text {
+                font-size: 0.95rem;
+                color: #111827;
+                line-height: 1.5;
+            }
+            .review-note {
+                margin-top: 8px;
+                font-size: 0.9rem;
+                color: #6b7280;
+                line-height: 1.5;
+            }
+            .review-modal-footer {
+                padding: 14px 20px;
+                border-top: 1px solid #e5e7eb;
+                display: flex;
+                justify-content: flex-end;
+            }
+            .review-modal-footer button {
+                background: #f3f4f6;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+            [data-theme="dark"] .review-modal {
+                background: #1e293b;
+                color: #e5e7eb;
+            }
+            [data-theme="dark"] .review-modal-header,
+            [data-theme="dark"] .review-modal-footer {
+                border-color: #334155;
+            }
+            [data-theme="dark"] .review-item {
+                background: #334155;
+            }
+            [data-theme="dark"] .review-item:hover {
+                background: #475569;
+            }
+            [data-theme="dark"] .review-text {
+                color: #e5e7eb;
+            }
+            [data-theme="dark"] .review-note {
+                color: #cbd5f5;
+            }
+
+            /* Summary Modal Styles */
+            .summary-modal-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.7);
+                z-index: 10004;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                backdrop-filter: blur(4px);
+            }
+            .summary-modal {
+                background: white;
+                border-radius: 14px;
+                width: 90%;
+                max-width: 700px;
+                max-height: 80vh;
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+                overflow: hidden;
+            }
+            .summary-modal-header {
+                padding: 18px 20px;
+                border-bottom: 1px solid #e5e7eb;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .summary-modal-header h3 {
+                margin: 0;
+                font-size: 1.2rem;
+            }
+            .summary-modal-close {
+                background: none;
+                border: none;
+                font-size: 24px;
+                cursor: pointer;
+                color: #9ca3af;
+            }
+            .summary-modal-body {
+                padding: 16px 20px;
+                overflow-y: auto;
+            }
+            .summary-loading {
+                color: #6b7280;
+                font-size: 0.95rem;
+            }
+            .summary-output {
+                white-space: pre-wrap;
+                font-family: inherit;
+                font-size: 0.95rem;
+                color: #111827;
+                line-height: 1.6;
+            }
+            .summary-modal-footer {
+                padding: 14px 20px;
+                border-top: 1px solid #e5e7eb;
+                display: flex;
+                justify-content: flex-end;
+                gap: 10px;
+            }
+            .summary-modal-footer button {
+                background: #f3f4f6;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+            [data-theme="dark"] .summary-modal {
+                background: #1e293b;
+                color: #e5e7eb;
+            }
+            [data-theme="dark"] .summary-modal-header,
+            [data-theme="dark"] .summary-modal-footer {
+                border-color: #334155;
+            }
+            [data-theme="dark"] .summary-output {
+                color: #e5e7eb;
+            }
+            [data-theme="dark"] .summary-loading {
+                color: #cbd5f5;
             }
 
             /* Note Modal Styles */
@@ -1576,6 +2034,35 @@
         document.head.appendChild(style);
     }
 
+    function updateHighlightMeta(id, updates) {
+        const index = highlights.findIndex(h => h.id === id);
+        if (index < 0) return null;
+        const updated = { ...highlights[index], ...updates };
+        highlights[index] = updated;
+        saveData();
+        queueSync('highlights', 'upsert', updated);
+        updateHighlightPanel();
+        return updated;
+    }
+
+    function getHighlightById(id) {
+        return highlights.find(h => h.id === id) || null;
+    }
+
+    function openNoteForHighlight(id) {
+        const highlight = getHighlightById(id);
+        if (!highlight) return false;
+        const highlightElement = document.querySelector(`[data-highlight-id="${id}"]`);
+        if (!highlightElement) {
+            if (window.showToast) {
+                window.showToast('Open the page for this highlight to add a note.', 'info', 3000);
+            }
+            return false;
+        }
+        showNoteModal(highlight, highlightElement);
+        return true;
+    }
+
     function scheduleSelectionCheck(delay = 10) {
         if (selectionCheckTimer) {
             clearTimeout(selectionCheckTimer);
@@ -1609,6 +2096,7 @@
         restoreBookmarks();
         restoreHighlights(); // Restore visual highlights
         restoreNotes(); // Restore note indicators
+        focusHighlightFromHash();
 
         // Listen for sync updates
         window.addEventListener('syncComplete', (e) => {
@@ -1616,7 +2104,10 @@
             restoreHighlights(true); // Re-apply highlights after sync
             restoreNotes(); // Re-apply note indicators after sync
             updateHighlightPanel();
+            focusHighlightFromHash();
         });
+
+        window.addEventListener('hashchange', focusHighlightFromHash);
 
         // Selection handler
         document.addEventListener('mouseup', () => scheduleSelectionCheck());
@@ -1652,6 +2143,14 @@
             }
         });
     }
+
+    window.StudyGuideHighlights = Object.assign(window.StudyGuideHighlights || {}, {
+        getHighlights: () => highlights.slice(),
+        getNotes: () => notes.slice(),
+        updateHighlightMeta,
+        getHighlightById,
+        openNoteForHighlight
+    });
 
     document.addEventListener('DOMContentLoaded', init);
 })();

@@ -10,6 +10,8 @@
     let authManager = null; // Reference to AuthManager from auth.js
     let syncQueue = {
         highlights: { upsert: [], deleted: [] },
+        progress: { upsert: [], deleted: [] },
+        dailyStats: { upsert: [], deleted: [] },
         bookmarks: { upsert: [], deleted: [] },
         notes: { upsert: [], deleted: [] },
         preferences: null
@@ -51,6 +53,8 @@
                 const parsedQueue = JSON.parse(savedQueue);
                 syncQueue = {
                     highlights: parsedQueue.highlights || { upsert: [], deleted: [] },
+                    progress: parsedQueue.progress || { upsert: [], deleted: [] },
+                    dailyStats: parsedQueue.dailyStats || { upsert: [], deleted: [] },
                     bookmarks: parsedQueue.bookmarks || { upsert: [], deleted: [] },
                     notes: parsedQueue.notes || { upsert: [], deleted: [] },
                     preferences: parsedQueue.preferences || null
@@ -204,7 +208,7 @@
             `;
             indicator.addEventListener('click', () => window.StudyGuideSync.sync());
 
-            const nav = document.querySelector('.navbar-content') || document.querySelector('nav');
+            const nav = document.querySelector('.navbar-content') || document.querySelector('.nav-container') || document.querySelector('nav');
             if (nav) {
                 nav.appendChild(indicator);
             }
@@ -246,7 +250,7 @@
 
     // Queue a change for sync
     function queueChange(type, action, data) {
-        const queue = JSON.parse(localStorage.getItem(SYNC_QUEUE_KEY) || '{"highlights":{},"bookmarks":{},"notes":{},"preferences":null}');
+        const queue = JSON.parse(localStorage.getItem(SYNC_QUEUE_KEY) || '{"highlights":{},"progress":{},"dailyStats":{},"bookmarks":{},"notes":{},"preferences":null}');
 
         if (type === 'preferences') {
             queue.preferences = data;
@@ -283,6 +287,8 @@
     function clearSyncQueue() {
         localStorage.setItem(SYNC_QUEUE_KEY, JSON.stringify({
             highlights: { upsert: [], deleted: [] },
+            progress: { upsert: [], deleted: [] },
+            dailyStats: { upsert: [], deleted: [] },
             bookmarks: { upsert: [], deleted: [] },
             notes: { upsert: [], deleted: [] },
             preferences: null
@@ -300,6 +306,10 @@
         return (
             (queue.highlights?.upsert?.length > 0) ||
             (queue.highlights?.deleted?.length > 0) ||
+            (queue.progress?.upsert?.length > 0) ||
+            (queue.progress?.deleted?.length > 0) ||
+            (queue.dailyStats?.upsert?.length > 0) ||
+            (queue.dailyStats?.deleted?.length > 0) ||
             (queue.bookmarks?.upsert?.length > 0) ||
             (queue.bookmarks?.deleted?.length > 0) ||
             (queue.notes?.upsert?.length > 0) ||
@@ -551,6 +561,11 @@
                         elementPath: h.element_path,
                         startOffset: h.start_offset,
                         endOffset: h.end_offset,
+                        srDueAt: h.sr_due_at,
+                        srInterval: h.sr_interval,
+                        srEase: h.sr_ease,
+                        srReps: h.sr_reps,
+                        srLastReviewed: h.sr_last_reviewed,
                         createdAt: h.created_at
                     });
                 }
@@ -606,6 +621,90 @@
             });
 
             localData.notes = Array.from(localMap.values());
+        }
+
+        // Merge progress
+        if (serverData.progress?.length > 0) {
+            const progressKey = 'studyGuide_progress';
+            const localProgress = JSON.parse(localStorage.getItem(progressKey) || '{"pages":{},"dailyTotals":{},"dailyTotalsByCourse":{},"streak":{}}');
+            localProgress.pages = localProgress.pages || {};
+            localProgress.dailyTotals = localProgress.dailyTotals || {};
+            localProgress.dailyTotalsByCourse = localProgress.dailyTotalsByCourse || {};
+
+            serverData.progress.forEach(p => {
+                const pageKey = `${p.course_id}/${p.page_id}`;
+                if (p.deleted_at) {
+                    delete localProgress.pages[pageKey];
+                    return;
+                }
+
+                const existing = localProgress.pages[pageKey] || {};
+                const incomingUpdatedAt = p.updated_at || p.created_at;
+                const existingUpdatedAt = existing.updatedAt || existing.createdAt;
+                if (existingUpdatedAt && incomingUpdatedAt) {
+                    const incomingTs = Date.parse(incomingUpdatedAt);
+                    const existingTs = Date.parse(existingUpdatedAt);
+                    if (!Number.isNaN(incomingTs) && !Number.isNaN(existingTs) && incomingTs < existingTs) {
+                        return;
+                    }
+                }
+
+                localProgress.pages[pageKey] = {
+                    ...existing,
+                    lastPercent: p.last_percent,
+                    timeSpentSec: p.time_spent_sec,
+                    completed: !!p.completed,
+                    lastVisitedAt: p.last_visited_at,
+                    updatedAt: incomingUpdatedAt,
+                    createdAt: p.created_at || existing.createdAt
+                };
+            });
+
+            localStorage.setItem(progressKey, JSON.stringify(localProgress));
+        }
+
+        // Merge daily stats
+        if (serverData.dailyStats?.length > 0) {
+            const progressKey = 'studyGuide_progress';
+            const localProgress = JSON.parse(localStorage.getItem(progressKey) || '{"pages":{},"dailyTotals":{},"dailyTotalsByCourse":{},"streak":{}}');
+            localProgress.dailyTotals = localProgress.dailyTotals || {};
+            localProgress.dailyTotalsByCourse = localProgress.dailyTotalsByCourse || {};
+
+            serverData.dailyStats.forEach(d => {
+                const statKey = `${d.course_id}|${d.stat_date}`;
+                if (d.deleted_at) {
+                    delete localProgress.dailyTotalsByCourse[statKey];
+                    return;
+                }
+
+                const existing = localProgress.dailyTotalsByCourse[statKey] || {};
+                const incomingUpdatedAt = d.updated_at || d.created_at;
+                const existingUpdatedAt = existing.updatedAt || existing.createdAt;
+                if (existingUpdatedAt && incomingUpdatedAt) {
+                    const incomingTs = Date.parse(incomingUpdatedAt);
+                    const existingTs = Date.parse(existingUpdatedAt);
+                    if (!Number.isNaN(incomingTs) && !Number.isNaN(existingTs) && incomingTs < existingTs) {
+                        return;
+                    }
+                }
+
+                localProgress.dailyTotalsByCourse[statKey] = {
+                    courseId: d.course_id,
+                    statDate: d.stat_date,
+                    seconds: d.time_spent_sec || 0,
+                    updatedAt: incomingUpdatedAt,
+                    createdAt: d.created_at || existing.createdAt
+                };
+            });
+
+            const aggregate = {};
+            Object.values(localProgress.dailyTotalsByCourse).forEach(entry => {
+                if (!entry || !entry.statDate) return;
+                aggregate[entry.statDate] = (aggregate[entry.statDate] || 0) + (entry.seconds || 0);
+            });
+            localProgress.dailyTotals = aggregate;
+
+            localStorage.setItem(progressKey, JSON.stringify(localProgress));
         }
 
         // Save back to local storage

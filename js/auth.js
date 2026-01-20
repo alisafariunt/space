@@ -659,7 +659,7 @@
         if (existingMenu) existingMenu.remove();
 
         // Find navbar
-        const navbar = document.querySelector('.navbar-content') || document.querySelector('.navbar');
+        const navbar = document.querySelector('.navbar-content') || document.querySelector('.nav-container') || document.querySelector('.navbar');
         if (!navbar) return;
 
         if (isAuthenticated && user) {

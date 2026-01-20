@@ -115,6 +115,7 @@ body {
     padding: 0.5rem 1.5rem;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
 
 .progress-bar-wrapper {
@@ -146,6 +147,97 @@ body {
     font-size: 0.85rem;
     font-weight: 600;
     min-width: 100px;
+}
+
+/* ===========================================
+   Progress Modal
+   =========================================== */
+.progress-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.progress-modal {
+    background: var(--bg-color);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 520px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+.progress-modal-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress-modal-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.progress-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.progress-modal-body {
+    padding: 1rem 1.25rem 1.5rem;
+}
+
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.progress-stat {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.progress-modal-footer {
+    padding: 0 1.25rem 1.25rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.progress-modal-footer button {
+    background: var(--bg-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
 }
 
 /* ===========================================
@@ -843,6 +935,30 @@ figcaption {
     font-size: 1rem;
 }
 
+.search-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-filter {
+    background: var(--bg-light);
+    border: none;
+    color: var(--text-light);
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.search-filter.active {
+    background: var(--primary-light);
+    color: white;
+}
+
 .search-results {
     max-height: 50vh;
     overflow-y: auto;
@@ -865,10 +981,41 @@ figcaption {
     font-weight: 600;
     margin-bottom: 0.25rem;
     color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .result-preview {
     font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.result-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--primary-color);
+}
+
+.result-tag-highlight {
+    background: rgba(34, 197, 94, 0.2);
+    color: #16a34a;
+}
+
+.result-tag-note {
+    background: rgba(234, 179, 8, 0.2);
+    color: #b45309;
+}
+
+.result-meta {
+    margin-top: 0.35rem;
+    font-size: 0.75rem;
     color: var(--text-light);
 }
 
@@ -938,9 +1085,54 @@ figcaption {
 .flashcard-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 1.5rem;
     color: white;
+}
+
+.flashcard-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.flashcard-header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.flashcard-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.flashcard-mode-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.flashcard-mode-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.flashcard-mode-btn.active {
+    background: var(--primary-light);
+    color: white;
+}
+
+.flashcard-mode-btn:hover {
+    transform: translateY(-1px);
 }
 
 .flashcard-header button {
@@ -1012,6 +1204,46 @@ figcaption {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 1rem;
+}
+
+.flashcard-review-controls {
+    display: none;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.flashcard-review-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.flashcard-review-btn:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.flashcard-extra {
+    display: none;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.flashcard-extra button {
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: white;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
 }
 
 .flashcard-nav,
