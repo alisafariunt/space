@@ -3,78 +3,155 @@
 
 <head>
     <title>Debug Helper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        h2 {
+            color: #334155;
+        }
+
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+        }
+
+        .status.success {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .status.error {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .status.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Dashboard Debug Test</h1>
-    <button onclick="checkLocalStorage()">Check localStorage</button>
-    <button onclick="addTestData()">Add Test Data</button>
-    <pre id="output"></pre>
+    <h1>🔧 Dashboard Debug Helper</h1>
 
+    <h2>Actions</h2>
+    <button class="btn-danger" onclick="clearAllData()">🗑️ Clear ALL Local Data</button>
+    <button class="btn-primary" onclick="forceSync()">🔄 Force Full Sync from Server</button>
+    <button class="btn-success" onclick="goToDashboard()">📊 Go to Dashboard</button>
+
+    <div id="status"></div>
+
+    <h2>Current localStorage Data</h2>
+    <button onclick="checkLocalStorage()">🔍 Refresh Data View</button>
+
+    <h3>Progress Data:</h3>
+    <pre id="progress">Loading...</pre>
+
+    <h3>Highlights Data:</h3>
+    <pre id="highlights">Loading...</pre>
+
+    <script src="/js/toast.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="/js/sync.js"></script>
     <script>
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+
         function checkLocalStorage() {
-            const output = document.getElementById('output');
             const progress = localStorage.getItem('studyGuide_progress');
             const highlights = localStorage.getItem('studyGuide_highlights');
 
-            output.textContent = 'Progress Data:\n' + (progress || 'EMPTY') + '\n\n' +
-                'Highlights Data:\n' + (highlights || 'EMPTY');
+            document.getElementById('progress').textContent = progress
+                ? JSON.stringify(JSON.parse(progress), null, 2)
+                : 'EMPTY';
+            document.getElementById('highlights').textContent = highlights
+                ? JSON.stringify(JSON.parse(highlights), null, 2)
+                : 'EMPTY';
         }
 
-        function addTestData() {
-            const testProgress = {
-                pages: {
-                    '6480/week1': {
-                        timeSpentSec: 3600,
-                        lastVisitedAt: new Date().toISOString(),
-                        completed: true
-                    },
-                    '6670/session0': {
-                        timeSpentSec: 1800,
-                        lastVisitedAt: new Date().toISOString(),
-                        completed: false
-                    }
-                },
-                dailyTotalsByCourse: {
-                    '6480|2026-01-19': { seconds: 3600 },
-                    '6670|2026-01-19': { seconds: 1800 }
+        function clearAllData() {
+            localStorage.removeItem('studyGuide_progress');
+            localStorage.removeItem('studyGuide_highlights');
+            localStorage.removeItem('studyGuide_lastSync');
+            localStorage.removeItem('studyGuide_syncQueue');
+            showStatus('✅ All local data cleared! Now click "Force Full Sync" to get your real data.', 'success');
+            checkLocalStorage();
+        }
+
+        async function forceSync() {
+            showStatus('⏳ Syncing with server...', 'info');
+
+            if (!window.StudyGuideSync) {
+                showStatus('❌ Sync module not loaded. Are you logged in?', 'error');
+                return;
+            }
+
+            try {
+                const result = await window.StudyGuideSync.forceFullSync({ skipConfirm: true });
+                console.log('Sync result:', result);
+
+                if (result && result.success) {
+                    showStatus('✅ Sync successful! Your data from the database is now loaded.', 'success');
+                } else {
+                    showStatus('⚠️ Sync returned: ' + JSON.stringify(result), 'error');
                 }
-            };
+                checkLocalStorage();
+            } catch (err) {
+                showStatus('❌ Sync error: ' + err.message, 'error');
+                console.error(err);
+            }
+        }
 
-            const testHighlights = {
-                highlights: [
-                    {
-                        id: 'test1',
-                        text: 'Test highlight 1',
-                        courseId: '6480',
-                        pageId: 'week1',
-                        createdAt: new Date().toISOString()
-                    },
-                    {
-                        id: 'test2',
-                        text: 'Test highlight 2',
-                        courseId: '6670',
-                        pageId: 'session0',
-                        createdAt: new Date().toISOString()
-                    }
-                ],
-                notes: [
-                    {
-                        id: 'note1',
-                        text: 'Test note',
-                        createdAt: new Date().toISOString()
-                    }
-                ]
-            };
-
-            localStorage.setItem('studyGuide_progress', JSON.stringify(testProgress));
-            localStorage.setItem('studyGuide_highlights', JSON.stringify(testHighlights));
-
-            alert('Test data added! Now refresh the dashboard page.');
+        function goToDashboard() {
+            window.location.href = '/courses/';
         }
 
         // Auto-check on load
-        checkLocalStorage();
+        setTimeout(checkLocalStorage, 500);
     </script>
 </body>
 
