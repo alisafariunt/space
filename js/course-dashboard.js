@@ -405,6 +405,23 @@ console.log('🚀 Course Dashboard Script Loading...');
         console.log('🎯 Calling populateDashboard()...');
         populateDashboard();
         console.log('✅ populateDashboard() completed');
+
+        // Force sync to get latest data from server
+        setTimeout(() => {
+            if (window.StudyGuideSync && typeof window.StudyGuideSync.forceFullSync === 'function') {
+                console.log('🔄 Triggering forceFullSync to load server data...');
+                window.StudyGuideSync.forceFullSync({ skipConfirm: true }).then((result) => {
+                    console.log('✅ Sync completed:', result);
+                    if (result && result.success) {
+                        console.log('🔄 Refreshing dashboard with server data...');
+                        populateDashboard();
+                        updateCourseCards();
+                    }
+                }).catch(err => {
+                    console.error('❌ Sync error:', err);
+                });
+            }
+        }, 500); // Small delay to ensure sync.js is fully loaded
     });
 
     document.addEventListener('DOMContentLoaded', updateCourseCards);
