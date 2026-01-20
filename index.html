@@ -376,11 +376,11 @@
         window.addEventListener('DOMContentLoaded', function () {
             const params = new URLSearchParams(window.location.search);
             if (params.get('login') === 'required') {
-                // Wait for AuthManager to load
+                // Wait for auth scripts to load
                 setTimeout(function () {
-                    if (window.AuthManager && typeof window.AuthManager.showLoginModal === 'function') {
+                    if (window.showLoginModal && window.showToast) {
                         window.showToast('Please login to access the courses dashboard', 'info', 3000);
-                        window.AuthManager.showLoginModal();
+                        window.showLoginModal('Please login to continue');
                     }
                 }, 500);
             }
