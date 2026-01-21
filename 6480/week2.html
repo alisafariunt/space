@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Week 2 - BUSI 6480 Study Guide: Completely Randomized Design (CRD) & One-Way ANOVA">
+    <title>Week 2 - BUSI 6480 Study Guide</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-brand">BUSI 6480 Study Guide</a>
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="week1.html">Week 1</a></li>
+                <li><a href="week2.html" class="active">Week 2</a></li>
+            </ul>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">Reading Progress: 0%</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Page Header -->
+        <div class="session-header">
+            <h1>Week 2: Completely Randomized Design (CRD) & One-Way ANOVA</h1>
+            <p class="session-meta">Kirk Chapter 3 | Sums of Squares | F-test | Homogeneity of Variance</p>
+        </div>
+
+        <div class="paper-card">
+            <h1>📊 Week 2: Completely Randomized Design (CRD) & One-Way ANOVA</h1>
+
+            <p><strong>Topics Covered:</strong> Completely Randomized Design fundamentals, ANOVA model equations, sums
+                of
+                squares decomposition, expected mean squares, F-test justification, homogeneity of variance testing,
+                data
+                transformations, nonparametric alternatives, regression representation of ANOVA, and comprehensive
+                homework
+                problems.</p>
+
+            <p><strong>Primary Reading:</strong> Kirk (2013) - Chapter 3: Completely Randomized Design</p>
+
+            <div class="info-box"
+                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; margin: 25px 0;">
+                <h3 style="color: white; margin-top: 0;">🎯 Week 2 in Plain English</h3>
+                <p><strong>The Main Question:</strong> How do we know if different treatments (teaching methods,
+                    medications, etc.) actually produce different results?</p>
+
+                <p><strong>The Answer: ANOVA (Analysis of Variance)</strong></p>
+                <ul style="line-height: 1.8;">
+                    <li><strong>Step 1:</strong> Compare how different the GROUP AVERAGES are</li>
+                    <li><strong>Step 2:</strong> Compare that to how different people are WITHIN each group</li>
+                    <li><strong>Step 3:</strong> If between-group differences are much bigger than within-group
+                        differences
+                        → treatments work!</li>
+                </ul>
+
+                <p><strong>This Week You'll Learn:</strong></p>
+                <ul style="line-height: 1.8;">
+                    <li>✅ How to set up the simplest experiment (Completely Randomized Design)</li>
+                    <li>✅ How ANOVA breaks down variation into "signal" vs "noise"</li>
+                    <li>✅ Why the F-test tells us if treatments matter</li>
+                    <li>✅ What to do when data doesn't meet assumptions (transformations, alternatives)</li>
+                    <li>✅ How ANOVA and regression are secretly the same thing</li>
+                </ul>
+
+                <p style="margin-bottom: 0;"><strong>💡 Bottom Line:</strong> ANOVA is like asking "Are the differences
+                    between groups too big to be random chance?"</p>
+            </div>
+
+            <hr>
+
+            <!-- SECTION 1 -->
+            <h2>📐 Part 1: Completely Randomized Design (CRD) Fundamentals</h2>
+
+            <h3>1.1 What is a Completely Randomized Design?</h3>
+
+            <p>A <mark>Completely Randomized Design (CRD)</mark> is the simplest experimental design for comparing the
+                effects of multiple treatments. It has the following characteristics:</p>
+
+            <ul>
+                <li><strong>One Factor (Independent Variable)</strong>: The design involves one treatment factor with
+                    two or
+                    more levels</li>
+                <li><strong>Random Assignment</strong>: Participants are randomly assigned to treatment groups</li>
+                <li><strong>Independent Observations</strong>: Each participant receives only one treatment</li>
+                <li><strong>No Blocking</strong>: Unlike RBD or Latin Square, there are no nuisance variables controlled
+                </li>
+            </ul>
+
+            <div class="info-box">
+                <strong>Key Concept:</strong> # factors = # IVs = # "ways"
+                <br><br>
+                A <strong>one-way ANOVA</strong> has 1 factor (e.g., teaching method with 3 levels)
+                <br>
+                A <strong>two-way ANOVA</strong> has 2 factors (e.g., teaching method × time of day)
+                <br>
+                A <strong>three-way ANOVA</strong> has 3 factors (e.g., teaching method × time × location)
+            </div>
+
+            <h3>1.2 Design Notation</h3>
+
+            <p>A CRD with <em>p</em> treatment levels is denoted as <strong>CR-p</strong>:</p>
+
+            <ul>
+                <li><strong>CR-2</strong>: 2 treatment levels (e.g., control vs. experimental)</li>
+                <li><strong>CR-3</strong>: 3 treatment levels (e.g., three types of instruction)</li>
+                <li><strong>CR-4</strong>: 4 treatment levels (e.g., four levels of food deprivation)</li>
+            </ul>
+
+            <h3>1.3 When to Use CRD vs. Other Designs</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Design</th>
+                        <th>When to Use</th>
+                        <th>Advantages</th>
+                        <th>Disadvantages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>CRD</strong></td>
+                        <td>Homogeneous participants, no known nuisance variables</td>
+                        <td>Simple analysis, maximum error df, broadly representative</td>
+                        <td>Larger error variance if nuisance variables exist</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RBD</strong></td>
+                        <td>One nuisance variable to control (e.g., matched pairs)</td>
+                        <td>Reduces error variance, more powerful if blocking effective</td>
+                        <td>Requires identifying meaningful blocks, loses df</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Latin Square</strong></td>
+                        <td>Two nuisance variables to control simultaneously</td>
+                        <td>Controls two sources of variation efficiently</td>
+                        <td>Restrictive assumptions, limited flexibility, loses more df</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="persian-section">
+                <h4>🇮🇷 توضیح فارسی: طرح کاملاً تصادفی شده (CRD)</h4>
+                <p>
+                    طرح کاملاً تصادفی شده (CRD) ساده‌ترین نوع طراحی آزمایش است که در آن شرکت‌کنندگان به صورت کاملاً
+                    تصادفی
+                    به گروه‌های مختلف تیمار اختصاص داده می‌شوند.
+                </p>
+                <p><strong>ویژگی‌های اصلی:</strong></p>
+                <ul>
+                    <li>یک متغیر مستقل (فاکتور) با چند سطح مختلف</li>
+                    <li>تخصیص تصادفی شرکت‌کنندگان به گروه‌ها</li>
+                    <li>مشاهدات مستقل از یکدیگر</li>
+                    <li>بدون کنترل متغیرهای مزاحم</li>
+                </ul>
+                <p>
+                    <strong>مثال:</strong> بررسی تأثیر سه روش مختلف آموزش بر یادگیری دانش‌آموزان، که دانش‌آموزان به صورت
+                    تصادفی به یکی از سه گروه اختصاص داده می‌شوند.
+                </p>
+            </div>
+
+            <h3>1.4 Example: Three Types of Instruction (CR-3)</h3>
+
+            <p>From Kirk Exercise 2a (Page 71): The effects of three kinds of instruction (α₁, α₂, α₃) on first-grade
+                students' tendency to help another child were investigated. Forty-two boys were randomly assigned to the
+                three kinds of instructions with 14 boys in each group.</p>
+
+            <ul>
+                <li><strong>α₁</strong>: Indirect responsibility group</li>
+                <li><strong>α₂</strong>: Direct responsibility group</li>
+                <li><strong>α₃</strong>: Second direct responsibility group (with calls for help)</li>
+            </ul>
+
+            <p>This is a <strong>CR-3 design</strong> because there is one factor (instruction type) with 3 levels, and
+                boys
+                are randomly assigned to groups.</p>
+
+            <hr>
+
+            <!-- SECTION 2 -->
+            <h2>🧮 Part 2: ANOVA Model for CRD</h2>
+
+            <h3>2.1 The Effects Model (Fixed Effects)</h3>
+
+            <p>For a completely randomized design with <em>p</em> treatment levels and <em>n</em> observations per
+                treatment, the <strong>effects model</strong> is:</p>
+
+            <div class="info-box">
+                <strong>Fixed Effects Model:</strong>
+                <pre>Y<sub>ij</sub> = μ + α<sub>j</sub> + ε<sub>i(j)</sub>
+
+where:
+  Y<sub>ij</sub> = observation i in treatment j
+  μ = grand mean (overall population mean)
+  α<sub>j</sub> = treatment effect for level j
+  ε<sub>i(j)</sub> = error effect for observation i in treatment j
+  i = 1, ..., n (observations within treatment)
+  j = 1, ..., p (treatment levels)</pre>
+            </div>
+
+            <h3>2.2 Partition of a Single Score</h3>
+
+            <p>Every observation can be decomposed into three components:</p>
+
+            <pre>Y<sub>ij</sub> = Ȳ<sub>..</sub> + (Ȳ<sub>.j</sub> - Ȳ<sub>..</sub>) + (Y<sub>ij</sub> - Ȳ<sub>.j</sub>)
+
+Score = Grand Mean + Treatment Effect + Error Effect</pre>
+
+            <div class="info-box">
+                <strong>🎯 Simple Example:</strong> Imagine testing three teaching methods with this student's score:
+                <ul>
+                    <li>Student's test score (Y<sub>ij</sub>) = 85</li>
+                    <li>Overall average across all methods (Ȳ<sub>..</sub>) = 75</li>
+                    <li>Average for this teaching method (Ȳ<sub>.j</sub>) = 82</li>
+                </ul>
+                <p>Breaking it down:</p>
+                <ul>
+                    <li><strong>Grand Mean:</strong> 75 (baseline for everyone)</li>
+                    <li><strong>Treatment Effect:</strong> 82 - 75 = +7 (this method adds 7 points on average)</li>
+                    <li><strong>Error Effect:</strong> 85 - 82 = +3 (this student scored 3 points above their method's
+                        average)</li>
+                </ul>
+                <p>Check: 75 + 7 + 3 = 85 ✓</p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Symbol</th>
+                        <th>Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Grand Mean</strong></td>
+                        <td>Ȳ<sub>..</sub></td>
+                        <td>Mean of all observations across all treatments</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Treatment Effect</strong></td>
+                        <td>(Ȳ<sub>.j</sub> - Ȳ<sub>..</sub>)</td>
+                        <td>Deviation of treatment mean from grand mean</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Error Effect</strong></td>
+                        <td>(Y<sub>ij</sub> - Ȳ<sub>.j</sub>)</td>
+                        <td>Deviation of observation from its treatment mean (unexplained variation)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2.3 Model Assumptions</h3>
+
+            <p>The CR-p design requires four key assumptions about the error term ε<sub>i(j)</sub>:</p>
+
+            <ol>
+                <li><strong>Normality:</strong> Data come from normally distributed populations within each treatment
+                    level
+                </li>
+                <li><strong>Independence:</strong> Observations within and between cells are independent (or at least
+                    randomly assigned)</li>
+                <li><strong>Homogeneity of Variance:</strong> All treatment populations have equal variance (σ²ε is
+                    constant
+                    across j)</li>
+                <li><strong>Additivity:</strong> Treatment and error effects are additive</li>
+            </ol>
+
+            <div class="warning-box">
+                <strong>Important:</strong> These are the same assumptions as for regression models. The error term in
+                ANOVA
+                has the same characteristics as the error term in regression:
+                <ul>
+                    <li>E(ε<sub>i(j)</sub>) = 0</li>
+                    <li>Var(ε<sub>i(j)</sub>) = σ²ε (constant)</li>
+                    <li>ε<sub>i(j)</sub> ~ N(0, σ²ε)</li>
+                    <li>ε<sub>i(j)</sub> independent of ε<sub>i'(j')</sub></li>
+                </ul>
+            </div>
+
+            <h3>2.4 Fixed Effects vs. Random Effects</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Fixed Effects Model</th>
+                        <th>Random Effects Model</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Treatment levels</strong></td>
+                        <td>All levels of interest are included</td>
+                        <td>Levels are random sample from larger population</td>
+                    </tr>
+                    <tr>
+                        <td><strong>α<sub>j</sub> interpretation</strong></td>
+                        <td>Fixed constants: Σα<sub>j</sub> = 0</td>
+                        <td>Random variables: E(α<sub>j</sub>) = 0, Var(α<sub>j</sub>) = σ²α</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inference</strong></td>
+                        <td>About specific treatments tested</td>
+                        <td>About population of treatments</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Example</strong></td>
+                        <td>Three specific teaching methods we want to compare</td>
+                        <td>Three randomly selected teachers from a school district</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="persian-section">
+                <h4>🇮🇷 مدل ANOVA برای طرح CRD</h4>
+                <p>
+                    مدل ANOVA هر مشاهده را به سه بخش تقسیم می‌کند:
+                </p>
+                <ul>
+                    <li><strong>میانگین کلی:</strong> میانگین همه مشاهدات</li>
+                    <li><strong>اثر تیمار:</strong> تفاوت میانگین هر گروه تیمار با میانگین کلی</li>
+                    <li><strong>اثر خطا:</strong> تفاوت هر مشاهده با میانگین گروه خودش (واریانس توضیح داده نشده)</li>
+                </ul>
+                <p>
+                    <strong>فرض‌های مدل:</strong> نرمال بودن، استقلال، همگنی واریانس، و جمع‌پذیری اثرات
+                </p>
+            </div>
+
+            <hr>
+
+            <!-- SECTION 3 -->
+            <h2>📈 Part 3: Sums of Squares and ANOVA Table</h2>
+
+            <h3>3.1 Understanding Variation in ANOVA</h3>
+
+            <p>The fundamental principle of ANOVA is partitioning the <strong>total variation</strong> into
+                <strong>between-group</strong> and <strong>within-group</strong> components:
+            </p>
+
+            <pre>SST = SSB + SSW
+
+Total Variation = Between-group + Within-group
+                  Variation       Variation</pre>
+
+            <div class="info-box">
+                <strong>💡 Simple Analogy:</strong>
+                <p>Imagine test scores from 3 classrooms (A, B, C):</p>
+                <ul>
+                    <li><strong>SST (Total):</strong> How spread out are ALL students' scores? Some got 60, some got 95,
+                        etc.</li>
+                    <li><strong>SSB (Between):</strong> Are the classroom averages different? (Class A avg = 85, Class B
+                        avg
+                        = 75, Class C avg = 80)</li>
+                    <li><strong>SSW (Within):</strong> How spread out are scores WITHIN each classroom? (Even in Class
+                        A,
+                        some students got 70 while others got 95)</li>
+                </ul>
+                <p><strong>ANOVA asks:</strong> Is the variation BETWEEN classrooms (SSB) large compared to the
+                    variation
+                    WITHIN classrooms (SSW)?</p>
+            </div>
+
+            <h3>3.2 Bracket Notation for Sums of Squares</h3>
+
+            <p>Kirk uses bracket notation to simplify calculations. Three key terms are needed:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Notation</th>
+                        <th>Formula</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>[AS]</strong></td>
+                        <td>ΣΣ Y²<sub>ij</sub></td>
+                        <td>Sum of squared individual observations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>[A]</strong></td>
+                        <td>Σ(Σ Y<sub>ij</sub>)² / n</td>
+                        <td>Square treatment totals, divide by n, then sum</td>
+                    </tr>
+                    <tr>
+                        <td><strong>[Y]</strong></td>
+                        <td>(ΣΣ Y<sub>ij</sub>)² / np</td>
+                        <td>Square grand total, divide by total sample size</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <strong>Key Formulas:</strong>
+                <ul>
+                    <li><strong>SST</strong> = [AS] - [Y] (Total sum of squares)</li>
+                    <li><strong>SSB</strong> = [A] - [Y] (Between-group sum of squares)</li>
+                    <li><strong>SSW</strong> = [AS] - [A] (Within-group sum of squares)</li>
+                </ul>
+                <p>These formulas work because: <strong>SST = SSB + SSW</strong></p>
+            </div>
+
+            <h3>3.3 Degrees of Freedom</h3>
+
+            <ul>
+                <li><strong>df<sub>Total</sub></strong> = np - 1 (total observations minus 1)</li>
+                <li><strong>df<sub>Between</sub></strong> = p - 1 (number of groups minus 1)</li>
+                <li><strong>df<sub>Within</sub></strong> = np - p = p(n - 1) (total observations minus number of groups)
+                </li>
+            </ul>
+
+            <h3>3.4 Mean Squares</h3>
+
+            <p>Mean squares are sums of squares divided by their degrees of freedom:</p>
+
+            <ul>
+                <li><strong>MSB</strong> = SSB / (p - 1)</li>
+                <li><strong>MSW</strong> = SSW / [p(n - 1)]</li>
+            </ul>
+
+            <h3>3.5 Complete ANOVA Table Structure</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>SS</th>
+                        <th>df</th>
+                        <th>MS</th>
+                        <th>F</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Between Groups</td>
+                        <td>SSB = [A] - [Y]</td>
+                        <td>p - 1</td>
+                        <td>MSB = SSB/(p-1)</td>
+                        <td>F = MSB/MSW</td>
+                    </tr>
+                    <tr>
+                        <td>Within Groups (Error)</td>
+                        <td>SSW = [AS] - [A]</td>
+                        <td>p(n - 1)</td>
+                        <td>MSW = SSW/[p(n-1)]</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td>SST = [AS] - [Y]</td>
+                        <td>np - 1</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.6 SAS Code for One-Way ANOVA</h3>
+
+            <pre><code>/* One-Way ANOVA in SAS */
+PROC GLM DATA=mydata;
+    CLASS treatment;
+    MODEL response = treatment;
+    MEANS treatment / HOVTEST WELCH;
+RUN;
+QUIT;</code></pre>
+
+            <h3>3.7 R Code for One-Way ANOVA</h3>
+
+            <pre><code># One-Way ANOVA in R
+library(car)
+
+# Fit the model
+model <- lm(response ~ treatment, data = mydata)
+
+# ANOVA table
+anova(model)
+
+# Levene's test for homogeneity of variance
+leveneTest(response ~ treatment, data = mydata)</code></pre>
+
+            <hr>
+
+            <!-- SECTION 4 -->
+            <h2>🎯 Part 4: Expected Mean Squares and F-Test Justification</h2>
+
+            <h3>4.1 Expected Values of Error Terms</h3>
+
+            <p>Understanding the expected values of error terms is crucial for understanding the F-test:</p>
+
+            <ul>
+                <li>E(ε<sub>i(j)</sub>) = 0</li>
+                <li>E(Σε<sub>i(j)</sub>) = 0 (sum of errors in a group)</li>
+                <li>E(Σε²<sub>i(j)</sub>) = nσ²ε (sum of squared errors)</li>
+                <li>E(ΣΣε²<sub>i(j)</sub>) = npσ²ε (sum of all squared errors)</li>
+            </ul>
+
+            <h3>4.2 Expected Mean Squares (Fixed Effects Model)</h3>
+
+            <div class="info-box">
+                <strong>For Fixed Effects CR-p Design:</strong>
+                <pre>E(MSB) = σ²ε + n·Σα²<sub>j</sub>/(p-1)
+
+E(MSW) = σ²ε
+
+E(F) ≈ E(MSB)/E(MSW) = [σ²ε + n·Σα²<sub>j</sub>/(p-1)] / σ²ε</pre>
+            </div>
+
+            <p><strong>Key Insight:</strong> If H₀ is true (all α<sub>j</sub> = 0), then E(F) ≈ 1.</p>
+
+            <h3>4.3 Expected Mean Squares (Random Effects Model)</h3>
+
+            <div class="info-box">
+                <strong>For Random Effects CR-p Design:</strong>
+                <pre>E(MSB) = σ²ε + nσ²α
+
+E(MSW) = σ²ε
+
+E(F) ≈ E(MSB)/E(MSW) = (σ²ε + nσ²α) / σ²ε</pre>
+            </div>
+
+            <p><strong>Key Insight:</strong> If H₀ is true (σ²α = 0), then E(F) ≈ 1.</p>
+
+            <div class="warning-box">
+                <strong>Important Observation:</strong> For the CR-p design, both fixed and random effects models lead
+                to
+                the same F-ratio structure. <mark>This will NOT always be true for more complex designs!</mark>
+            </div>
+
+            <h3>4.4 Why the F-Test Works</h3>
+
+            <p>The F-statistic tests whether MSB is significantly larger than MSW:</p>
+
+            <ol>
+                <li><strong>MSW always estimates σ²ε</strong> (the within-group variance)</li>
+                <li><strong>MSB estimates σ²ε PLUS treatment effects</strong>
+                    <ul>
+                        <li>If treatments have no effect: E(MSB) = σ²ε, so F ≈ 1</li>
+                        <li>If treatments differ: E(MSB) > σ²ε, so F > 1</li>
+                    </ul>
+                </li>
+                <li><strong>Large F values</strong> indicate treatments have different effects</li>
+            </ol>
+
+            <div class="info-box">
+                <strong>🔍 Intuitive Explanation:</strong>
+                <p>Think of ANOVA like this:</p>
+                <ul>
+                    <li><strong>Within-group variation (MSW):</strong> How much do people differ <em>within the same
+                            treatment</em>? This is just random noise.</li>
+                    <li><strong>Between-group variation (MSB):</strong> How much do the <em>group averages</em> differ
+                        from
+                        each other?</li>
+                </ul>
+                <p><strong>The Logic:</strong></p>
+                <ul>
+                    <li>If treatments do nothing → group means differ only due to random chance → MSB ≈ MSW → F ≈ 1</li>
+                    <li>If treatments have real effects → group means differ MORE than random chance → MSB > MSW → F > 1
+                    </li>
+                </ul>
+                <p><strong>Example:</strong> Testing 3 pain medications:</p>
+                <ul>
+                    <li>MSW = 4 (people taking the same med still differ by about 4 points due to individual variation)
+                    </li>
+                    <li>MSB = 12 (the three medication averages differ by much more than 4 points)</li>
+                    <li>F = 12/4 = 3 (the between-group differences are 3× larger than within-group noise → medications
+                        likely have different effects!)</li>
+                </ul>
+            </div>
+
+            <h3>4.5 Interactive Q&A Examples</h3>
+
+            <div class="info-box">
+                <strong>Q1:</strong> For any typical significance level, if a computed value of the F statistic for a
+                one-way ANOVA is less than or equal to one, we would:
+                <ol>
+                    <li>Always reject the null hypothesis</li>
+                    <li><mark>Always fail to reject the null hypothesis ✓</mark></li>
+                    <li>Either reject or fail to reject depending on degrees of freedom</li>
+                </ol>
+                <strong>Answer:</strong> (2) Since E(F) ≈ 1 when H₀ is true, F ≤ 1 provides no evidence against H₀.
+            </div>
+
+            <div class="info-box">
+                <strong>Q2:</strong> The expected mean square due to the treatment in a one-way ANOVA consists of:
+                <ol>
+                    <li>Variation due to the treatment levels</li>
+                    <li><mark>Variation due to the treatment levels AND the error term ✓</mark></li>
+                    <li>Variation only due to the error term</li>
+                </ol>
+                <strong>Answer:</strong> (2) E(MSB) = σ²ε + [treatment effect term]
+            </div>
+
+            <div class="persian-section">
+                <h4>🇮🇷 آماره F و معنی آن</h4>
+                <p>
+                    <strong>آماره F</strong> نسبت واریانس بین گروهی به واریانس درون گروهی است.
+                </p>
+                <ul>
+                    <li><strong>اگر تیمارها تأثیری نداشته باشند:</strong> F تقریباً برابر 1 خواهد بود</li>
+                    <li><strong>اگر تیمارها متفاوت باشند:</strong> F بزرگتر از 1 خواهد بود</li>
+                    <li><strong>MSB همیشه شامل σ²ε به علاوه اثر تیمار است</strong></li>
+                    <li><strong>MSW فقط واریانس درون گروهی (σ²ε) را برآورد می‌کند</strong></li>
+                </ul>
+                <p>
+                    وقتی F ≤ 1 باشد، هیچ شواهدی علیه فرض صفر وجود ندارد.
+                </p>
+            </div>
+
+            <hr>
+
+            <!-- SECTION 5 -->
+            <h2>🔄 Part 5: Regression Representation of ANOVA</h2>
+
+            <h3>5.1 One-Way ANOVA as Regression with Dummy Variables</h3>
+
+            <p>A <mark>one-way ANOVA with one factor is equivalent to a regression model with one qualitative
+                    variable</mark> (represented by dummy variables).</p>
+
+            <div class="info-box">
+                <strong>💡 The Big Picture:</strong>
+                <p>ANOVA and regression are actually the SAME thing! Here's how:</p>
+                <ul>
+                    <li><strong>ANOVA:</strong> Compare means across groups (e.g., 3 teaching methods)</li>
+                    <li><strong>Regression:</strong> Use dummy variables (0/1) to represent groups
+                        <ul>
+                            <li>Method A: x₁=1, x₂=0</li>
+                            <li>Method B: x₁=0, x₂=1</li>
+                            <li>Method C: x₁=0, x₂=0 (reference group)</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p><strong>Why this matters:</strong> You can run ANOVA using regression software! The F-test is the
+                    same,
+                    p-values are the same.</p>
+            </div>
+
+            <div class="info-box">
+                <strong>Q:</strong> A standard "One-Way ANOVA" with one factor is equivalent to:
+                <ol>
+                    <li>A regression model in which there is one dummy variable</li>
+                    <li>A regression model in which the dependent variable is a dummy variable</li>
+                    <li><mark>A regression model in which there is one qualitative variable ✓</mark></li>
+                </ol>
+            </div>
+
+            <h3>5.2 The Appraiser Problem: Full Example</h3>
+
+            <p><strong>Scenario:</strong> Four appraisers (A, B, C, D) each assess 10 properties. We want to test
+                whether
+                appraisers differ systematically in their assessments.</p>
+
+            <p>This is an <strong>RB-10 design</strong> (Randomized Block with 10 blocks, where blocks are properties).
+            </p>
+
+            <h4>Regression Model Specification:</h4>
+
+            <pre>E(y) = β₀ + β₁x₁ + β₂x₂ + β₃x₃ + β₄x₄ + β₅x₅ + ... + β₁₂x₁₂
+       \_____Treatment______/   \________Blocks (Properties)________/
+         (Appraisers)
+
+where:
+  x₁ = 1 if appraiser A, 0 otherwise
+  x₂ = 1 if appraiser B, 0 otherwise
+  x₃ = 1 if appraiser C, 0 otherwise
+  (Appraiser D is reference category)
+
+  x₄ = 1 if property 1, 0 otherwise
+  x₅ = 1 if property 2, 0 otherwise
+  ...
+  x₁₂ = 1 if property 9, 0 otherwise
+  (Property 10 is reference category)</pre>
+
+            <h3>5.3 Interpretation of β Coefficients</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Coefficient</th>
+                        <th>Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>β₀</td>
+                        <td>μ<sub>D</sub> + μ<sub>10</sub> (mean for Appraiser D on Property 10)</td>
+                    </tr>
+                    <tr>
+                        <td>β₁</td>
+                        <td>μ<sub>A</sub> - μ<sub>D</sub> (difference between Appraiser A and D)</td>
+                    </tr>
+                    <tr>
+                        <td>β₂</td>
+                        <td>μ<sub>B</sub> - μ<sub>D</sub> (difference between Appraiser B and D)</td>
+                    </tr>
+                    <tr>
+                        <td>β₃</td>
+                        <td>μ<sub>C</sub> - μ<sub>D</sub> (difference between Appraiser C and D)</td>
+                    </tr>
+                    <tr>
+                        <td>β₄</td>
+                        <td>μ<sub>1</sub> - μ<sub>10</sub> (difference between Property 1 and 10)</td>
+                    </tr>
+                    <tr>
+                        <td>β₅, ..., β₁₂</td>
+                        <td>μ<sub>2</sub> - μ<sub>10</sub>, ..., μ<sub>9</sub> - μ<sub>10</sub> (other property
+                            differences)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>5.4 Hypothesis Testing in Regression Form</h3>
+
+            <p><strong>To test differences among appraisers:</strong></p>
+
+            <pre>H₀: μ_A = μ_B = μ_C = μ_D
+
+Equivalent to:
+
+H₀: β₁ = β₂ = β₃ = 0
+H_A: β_i ≠ 0 for some i ∈ {1, 2, 3}</pre>
+
+            <p><strong>To test differences among properties:</strong></p>
+
+            <pre>H₀: μ₁ = μ₂ = ... = μ₉ = μ₁₀
+
+Equivalent to:
+
+H₀: β₄ = β₅ = ... = β₁₂ = 0
+H_A: β_i ≠ 0 for some i ∈ {4, 5, ..., 12}</pre>
+
+            <h3>5.5 Why This Matters</h3>
+
+            <div class="warning-box">
+                <strong>Key Insight:</strong> Understanding the connection between ANOVA and regression helps you:
+                <ul>
+                    <li>Interpret regression output when dealing with categorical predictors</li>
+                    <li>Understand how software codes categorical variables</li>
+                    <li>Extend ANOVA to more complex models (ANCOVA, mixed models)</li>
+                    <li>Use regression software for ANOVA problems</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <!-- SECTION 6 -->
+            <h2>⚖️ Part 6: Homogeneity of Variance (HOV) Testing</h2>
+
+            <h3>6.1 Why Is HOV Important?</h3>
+
+            <p>ANOVA assumes all treatment populations have equal variance: <strong>σ²₁ = σ²₂ = ... =
+                    σ²<sub>p</sub></strong>
+            </p>
+
+            <p><strong>H₀:</strong> σ²₁ = σ²₂ = ... = σ²<sub>p</sub> (homogeneity of variance)</p>
+
+            <div class="info-box">
+                <strong>🎯 What Does "Equal Variance" Mean?</strong>
+                <p>Imagine testing 3 weight-loss programs:</p>
+                <ul>
+                    <li><strong>Program A:</strong> Everyone loses 5-7 lbs (variance = 1 lb²)</li>
+                    <li><strong>Program B:</strong> People lose 0-15 lbs (variance = 25 lb²)</li>
+                    <li><strong>Program C:</strong> Everyone loses 5-8 lbs (variance = 1.5 lb²)</li>
+                </ul>
+                <p><strong>Problem:</strong> Program B has much higher variance (more spread). ANOVA assumes all
+                    programs
+                    have similar spreads.</p>
+                <p><strong>Why it matters:</strong> If variances differ a lot, ANOVA's p-values become unreliable!</p>
+            </div>
+
+            <div class="warning-box">
+                <strong>Why This Matters:</strong>
+                <ul>
+                    <li>ANOVA is <strong>robust to moderate violations</strong> when group sizes are equal</li>
+                    <li>With <strong>unequal n</strong>, violations can seriously affect Type I error rates</li>
+                    <li>Larger variances in smaller groups → inflated Type I error</li>
+                    <li>Larger variances in larger groups → reduced power</li>
+                </ul>
+            </div>
+
+            <h3>6.2 Rule of Thumb</h3>
+
+            <div class="info-box">
+                <strong>Simple Rule:</strong> If the ratio of largest to smallest group variances exceeds 4, use an
+                alternative procedure.
+                <pre>F<sub>max</sub> = s²<sub>largest</sub> / s²<sub>smallest</sub>
+
+If F<sub>max</sub> > 4: Consider alternatives (Welch test, transformations)</pre>
+                <p>The more unequal the group sizes, the more important it is to follow this rule.</p>
+            </div>
+
+            <h3>6.3 Hartley's F<sub>max</sub> Test</h3>
+
+            <p>Generalizes the F-test for two variances to p variances:</p>
+
+            <pre>F<sub>max</sub> = s²<sub>largest</sub> / s²<sub>smallest</sub></pre>
+
+            <p><strong>Critical values</strong> depend on:</p>
+            <ul>
+                <li>Number of groups (p)</li>
+                <li>Degrees of freedom per group (n - 1)</li>
+                <li>Significance level (α)</li>
+            </ul>
+
+            <div class="warning-box">
+                <strong>Caution:</strong> Hartley's test is sensitive to non-normality. If data are clearly non-normal,
+                use
+                Levene or Brown-Forsythe tests instead.
+            </div>
+
+            <h3>6.4 Levene's Test</h3>
+
+            <p><strong>Procedure:</strong></p>
+            <ol>
+                <li>Replace each observation Y<sub>ij</sub> with |Y<sub>ij</sub> - Ȳ<sub>j</sub>| (absolute deviation
+                    from
+                    group mean)</li>
+                <li>Run a one-way ANOVA on these transformed values</li>
+                <li>If ANOVA is significant, reject homogeneity of variance</li>
+            </ol>
+
+            <div class="info-box">
+                <strong>Advantages:</strong>
+                <ul>
+                    <li>Less sensitive to non-normality than Hartley's test</li>
+                    <li>Works with unequal sample sizes</li>
+                    <li>Available in most statistical software</li>
+                </ul>
+            </div>
+
+            <h3>6.5 Brown-Forsythe Test</h3>
+
+            <p>Modification of Levene's test that uses <strong>deviations from the median</strong> instead of the mean:
+            </p>
+
+            <ol>
+                <li>Replace each observation with |Y<sub>ij</sub> - M<sub>j</sub>| where M<sub>j</sub> is the group
+                    median
+                </li>
+                <li>Run a one-way ANOVA on these values</li>
+            </ol>
+
+            <p><strong>Advantage:</strong> Even more robust to non-normality than Levene's test.</p>
+
+            <h3>6.6 Welch's Test for ANOVA Means</h3>
+
+            <p>When HOV is violated, use <strong>Welch's adjusted F-test</strong> instead of standard ANOVA:</p>
+
+            <pre>W* = Σw<sub>j</sub>(Ȳ<sub>j</sub> - μ̂)² / (k-1)
+     ────────────────────────────────
+     1 + [2(k-2)/(k²-1)]Σh<sub>j</sub>
+
+where:
+  w<sub>j</sub> = n<sub>j</sub>/s²<sub>j</sub> (weight inversely proportional to variance)
+  μ̂ = Σw<sub>j</sub>Ȳ<sub>j</sub> / Σw<sub>j</sub> (weighted grand mean)
+  h<sub>j</sub> = (1 - w<sub>j</sub>/W)² / (n<sub>j</sub> - 1)
+  f = k² - 1 / [3Σh<sub>j</sub>] (adjusted degrees of freedom)</pre>
+
+            <p><strong>Reject H₀ if:</strong> W* exceeds F<sub>α,k-1,f</sub></p>
+
+            <h3>6.7 SAS and SPSS Output</h3>
+
+            <h4>SAS Code:</h4>
+            <pre><code>PROC GLM DATA=mydata;
+    CLASS treatment;
+    MODEL response = treatment;
+    MEANS treatment / HOVTEST WELCH;
+RUN;</code></pre>
+
+            <h4>Interpreting Output:</h4>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Test</th>
+                        <th>Null Hypothesis</th>
+                        <th>When to Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Levene</td>
+                        <td>Variances are equal</td>
+                        <td>If p > .05: retain H₀, use standard ANOVA</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>If p < .05: reject H₀, use Welch or Brown-Forsythe</td>
+                    </tr>
+                    <tr>
+                        <td>Welch</td>
+                        <td>Means are equal (unequal variances OK)</td>
+                        <td>Use when Levene test is significant</td>
+                    </tr>
+                    <tr>
+                        <td>Brown-Forsythe</td>
+                        <td>Means are equal (unequal variances OK)</td>
+                        <td>Alternative to Welch, slightly more robust</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Example interpretation:</strong> If Levene statistic = 6.540 with p = .012, we reject homogeneity
+                of
+                variance and should use Welch's test (or Brown-Forsythe) instead of standard ANOVA.</p>
+
+            <hr>
+
+            <!-- SECTION 7 -->
+            <h2>🔀 Part 7: Data Transformations</h2>
+
+            <div class="info-box">
+                <strong>🤔 Why Transform Data?</strong>
+                <p>Sometimes your data violates ANOVA assumptions (non-normal, unequal variances). Instead of giving up,
+                    you
+                    can <strong>transform</strong> the data to fix the problem!</p>
+                <p><strong>Simple Example:</strong></p>
+                <ul>
+                    <li>Original data: 1, 4, 9, 16, 25, 100 (very skewed, large variance)</li>
+                    <li>After square root: 1, 2, 3, 4, 5, 10 (less skewed, more equal spread)</li>
+                </ul>
+                <p><strong>Key idea:</strong> Transform → Run ANOVA → Interpret results (in transformed scale or convert
+                    back)</p>
+            </div>
+
+            <h3>7.1 The Power Transformation Family</h3>
+
+            <p>Any transformation of the form y = x<sup>p</sup> is a member of the <strong>power transformation
+                    family</strong>:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>p value</th>
+                        <th>Transformation</th>
+                        <th>Name</th>
+                        <th>When to Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>p = 2</td>
+                        <td>y = x²</td>
+                        <td>Square</td>
+                        <td>Rarely used (increases skewness)</td>
+                    </tr>
+                    <tr>
+                        <td>p = 1</td>
+                        <td>y = x</td>
+                        <td>No transformation</td>
+                        <td>Data already meet assumptions</td>
+                    </tr>
+                    <tr>
+                        <td>p = 0.5</td>
+                        <td>y = √x</td>
+                        <td>Square root</td>
+                        <td>Count data, means ∝ variances</td>
+                    </tr>
+                    <tr>
+                        <td>p = 0</td>
+                        <td>y = ln(x)</td>
+                        <td>Logarithmic</td>
+                        <td>Positively skewed data, means ∝ std deviations</td>
+                    </tr>
+                    <tr>
+                        <td>p = -0.5</td>
+                        <td>y = 1/√x</td>
+                        <td>Inverse square root</td>
+                        <td>Severely skewed data</td>
+                    </tr>
+                    <tr>
+                        <td>p = -1</td>
+                        <td>y = 1/x</td>
+                        <td>Reciprocal</td>
+                        <td>Reaction time data, mean² ∝ std deviation</td>
+                    </tr>
+                    <tr>
+                        <td>p = -2</td>
+                        <td>y = 1/x²</td>
+                        <td>Reciprocal square</td>
+                        <td>Extreme skewness</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>7.2 Rules of Thumb for Selecting Transformations</h3>
+
+            <h4>Square Root Transformation (√x)</h4>
+            <ul>
+                <li>Sometimes used for <strong>count data</strong></li>
+                <li>May be helpful if <strong>means are proportional to the variances</strong></li>
+            </ul>
+
+            <h4>Logarithmic Transformation (ln x)</h4>
+            <ul>
+                <li>Sometimes used for <strong>reaction time data</strong> or positively skewed data</li>
+                <li>May be helpful if <strong>means are proportional to the standard deviations</strong></li>
+            </ul>
+
+            <h4>Reciprocal Transformation (1/x)</h4>
+            <ul>
+                <li>Sometimes used for <strong>reaction time data</strong></li>
+                <li>May be helpful if <strong>the square of the means are proportional to the standard
+                        deviations</strong>
+                </li>
+            </ul>
+
+            <h3>7.3 Plotting Variances to Determine Transformation</h3>
+
+            <p><strong>Procedure:</strong></p>
+            <ol>
+                <li>Plot the <strong>variance</strong> of each group (y-axis) by the <strong>group mean</strong>
+                    (x-axis)
+                </li>
+                <li>Draw a least squares line through the points</li>
+                <li>Find the slope β</li>
+                <li>Use p = 1 - β to determine the transformation</li>
+                <li>Round p to the nearest value from the transformation family</li>
+            </ol>
+
+            <div class="info-box">
+                <strong>Example:</strong>
+                <ul>
+                    <li>If slope β = 0, then p = 1 - 0 = 1 → No transformation needed</li>
+                    <li>If slope β = 0.5, then p = 1 - 0.5 = 0.5 → Square root transformation</li>
+                    <li>If slope β = 1, then p = 1 - 1 = 0 → Log transformation</li>
+                    <li>If slope β = 2, then p = 1 - 2 = -1 → Reciprocal transformation</li>
+                </ul>
+            </div>
+
+            <h3>7.4 Smallest Range Criteria</h3>
+
+            <p>Alternative method: Try multiple transformations and select the one that produces the <strong>smallest
+                    ratio
+                    of largest range to smallest range</strong>.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transformation</th>
+                        <th>Treatment 1</th>
+                        <th>Treatment 2</th>
+                        <th>Treatment 3</th>
+                        <th>Range Ratio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Original (y)</td>
+                        <td>Range = 4</td>
+                        <td>Range = 5</td>
+                        <td>Range = 6</td>
+                        <td>6/4 = 1.50</td>
+                    </tr>
+                    <tr>
+                        <td>Log (ln y)</td>
+                        <td>Range = 1.609</td>
+                        <td>Range = 1.253</td>
+                        <td>Range = 0.693</td>
+                        <td>1.609/0.693 = 2.23</td>
+                    </tr>
+                    <tr>
+                        <td><strong>√y</strong></td>
+                        <td>Range = 1.236</td>
+                        <td>Range = 1.232</td>
+                        <td>Range = 0.974</td>
+                        <td><strong>1.236/0.974 = 1.27 ✓ BEST</strong></td>
+                    </tr>
+                    <tr>
+                        <td>1/y</td>
+                        <td>Range = 0.800</td>
+                        <td>Range = 0.357</td>
+                        <td>Range = 0.083</td>
+                        <td>0.800/0.083 = 9.65</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>7.5 Important Considerations</h3>
+
+            <div class="warning-box">
+                <strong>Caution with Transformations:</strong>
+                <ul>
+                    <li><strong>Interpretation changes:</strong> Conclusions apply to transformed data, not original
+                        scale
+                    </li>
+                    <li><strong>May distort meaning:</strong> Log of salary is not the same as salary</li>
+                    <li><strong>Not always applicable:</strong> Some transformations require positive data</li>
+                    <li><strong>Results may differ:</strong> Significant on one scale may not be on another</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <!-- SECTION 8 -->
+            <h2>📊 Part 8: Nonparametric Alternatives</h2>
+
+            <h3>8.1 When to Use Nonparametric Tests</h3>
+
+            <div class="info-box">
+                <strong>🛤️ Quick Decision Guide:</strong>
+                <pre style="background: #f8f9fa; padding: 12px; border-left: 3px solid #667eea;">
+START: Comparing 3+ groups
+
+Step 1: Check Variances (Levene test)
+├─ Equal variances?
+│  ├─ YES → Step 2
+│  └─ NO → Use <strong>Welch's ANOVA</strong>
+
+Step 2: Check Normality (Shapiro-Wilk, Q-Q plot)
+├─ Normal data?
+│  ├─ YES → Use <strong>Standard ANOVA</strong> ✅
+│  └─ NO → Step 3
+
+Step 3: Try Transformation
+├─ Transformation fixes it?
+│  ├─ YES → <strong>ANOVA on transformed data</strong>
+│  └─ NO → Use <strong>Kruskal-Wallis test</strong> (nonparametric)
+</pre>
+            </div>
+
+            <div class="info-box">
+                <strong>Q:</strong> A non-parametric ANOVA should primarily be used when which conditions are violated?
+                <ol>
+                    <li><mark>Normality ✓</mark></li>
+                    <li>Independence of observations</li>
+                    <li>Homogeneity of variance (use Welch instead)</li>
+                    <li>Any of the above</li>
+                </ol>
+                <strong>Answer:</strong> (1) Nonparametric tests are primarily for normality violations. For HOV
+                violations,
+                use Welch or transformations. Independence violations require different approaches.
+            </div>
+
+            <h3>8.2 Kruskal-Wallis Test</h3>
+
+            <p>The <strong>Kruskal-Wallis test</strong> is the nonparametric alternative to one-way ANOVA:</p>
+
+            <ul>
+                <li>Multi-group equivalent of the Mann-Whitney U test</li>
+                <li>Also called "ANOVA by ranks"</li>
+                <li>Data must be at least ordinal scale</li>
+            </ul>
+
+            <h4>Procedure:</h4>
+            <ol>
+                <li>Rank all observations in the entire data set (smallest = 1)</li>
+                <li>Perform an ANOVA on the rank scores for each group</li>
+                <li>Test statistic approximately follows χ² distribution</li>
+            </ol>
+
+            <h4>Assumptions:</h4>
+            <ul>
+                <li><strong>No normality assumption</strong> - main advantage!</li>
+                <li><strong>Shape assumption:</strong> Distribution shape must be equal for all groups (weaker version
+                    of
+                    HOV)</li>
+                <li><strong>No parameter estimates:</strong> Cannot construct confidence intervals</li>
+            </ul>
+
+            <h3>8.3 Other Nonparametric Tests</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Test</th>
+                        <th>Design</th>
+                        <th>Parametric Equivalent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Wilcoxon sign-rank</td>
+                        <td>Paired samples (2 groups)</td>
+                        <td>Paired t-test</td>
+                    </tr>
+                    <tr>
+                        <td>Mann-Whitney U (Wilcoxon sum-rank)</td>
+                        <td>Independent samples (2 groups)</td>
+                        <td>Independent t-test</td>
+                    </tr>
+                    <tr>
+                        <td>Kruskal-Wallis</td>
+                        <td>Independent samples (3+ groups)</td>
+                        <td>One-way ANOVA</td>
+                    </tr>
+                    <tr>
+                        <td>Friedman test</td>
+                        <td>Repeated measures (3+ groups)</td>
+                        <td>Repeated-measures ANOVA</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>8.4 Guidelines for Choosing Alternative Tests</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>When Appropriate</th>
+                        <th>Advantages</th>
+                        <th>Disadvantages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Parametric ANOVA</strong></td>
+                        <td>Normal/symmetrical data, equal variances, no outliers</td>
+                        <td>Most powerful when assumptions met, most familiar</td>
+                        <td>Wrong results when assumptions not met</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Welch F*</strong></td>
+                        <td>Normal/symmetrical data, no outliers (unequal variances OK)</td>
+                        <td>Fewer assumptions, more powerful in typical data</td>
+                        <td>Less familiar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Transformations</strong></td>
+                        <td>Transformed data: normal/symmetrical, homogeneous variances, no outliers</td>
+                        <td>Permits use of familiar parametric tests</td>
+                        <td>May distort meaning, can't always apply, conclusions apply to transformed scale</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kruskal-Wallis</strong></td>
+                        <td>Similar shape distributions (weak HOV assumption)</td>
+                        <td>Does not distort data, can use ordinal data</td>
+                        <td>Loses information, may be less powerful, less familiar</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
+            <!-- SECTION 9 -->
+            <h2>💻 Part 9: Software Implementation</h2>
+
+            <h3>9.1 Complete SAS Example</h3>
+
+            <h4>Step 1: Import Data from Excel</h4>
+            <pre><code>/* Import Excel file */
+PROC IMPORT OUT=WORK.mydata
+    DATAFILE="H:\MyDataFile.xlsx"
+    DBMS=XLSX REPLACE;
+    GETNAMES=YES;
+RUN;</code></pre>
+
+            <h4>Step 2: Transform Data to Long Format</h4>
+            <pre><code>/* Create separate treatment datasets */
+DATA Treat1;
+    SET mydata;
+    resp = Treat1;
+RUN;
+
+DATA Treat2;
+    SET mydata;
+    resp = Treat2;
+RUN;
+
+DATA Treat3;
+    SET mydata;
+    resp = Treat3;
+RUN;
+
+/* Combine and add grouping variable */
+DATA myAnovaData;
+    SET Treat1 Treat2 Treat3;
+    IF _N_ <= 27 THEN Level = 3;
+    IF _N_ <= 18 THEN Level = 2;
+    IF _N_ <= 9 THEN Level = 1;
+    KEEP resp Level;
+RUN;</code></pre>
+
+            <h4>Step 3: Run One-Way ANOVA with HOV Tests</h4>
+            <pre><code>/* One-way ANOVA with Levene and Welch tests */
+PROC GLM DATA=myAnovaData;
+    CLASS Level;
+    MODEL resp = Level;
+    MEANS Level / HOVTEST WELCH;
+RUN;
+QUIT;</code></pre>
+
+            <h3>9.2 Complete R Example</h3>
+
+            <h4>Step 1: Load Libraries and Data</h4>
+            <pre><code># Load required libraries
+library(car)       # For leveneTest()
+library(ggplot2)   # For visualizations
+
+# Set working directory
+setwd("H:/MyFolder")
+
+# Read CSV file
+mydata <- read.csv("WineRatings.csv")</code></pre>
+
+            <h4>Step 2: Transform Data to Long Format</h4>
+            <pre><code># Create separate treatment datasets
+Treat1 <- mydata
+Treat1$resp <- Treat1$A1
+
+Treat2 <- mydata
+Treat2$resp <- Treat2$A2
+
+Treat3 <- mydata
+Treat3$resp <- Treat3$A3
+
+# Combine treatment datasets
+myAnovaData <- rbind(
+    Treat1[, c("resp")],
+    Treat2[, c("resp")],
+    Treat3[, c("resp")]
+)
+
+# Add grouping variable
+myAnovaData$Level <- factor(
+    rep(1:3, each=nrow(Treat1))
+)</code></pre>
+
+            <h4>Step 3: Run ANOVA and Tests</h4>
+            <pre><code># Fit the model
+model <- lm(resp ~ Level, data = myAnovaData)
+
+# ANOVA table
+anova(model)
+
+# Levene's test for homogeneity of variance
+leveneTest(resp ~ Level, data = myAnovaData)
+
+# Summary statistics by group
+aggregate(resp ~ Level, data = myAnovaData,
+          FUN = function(x) c(mean=mean(x), sd=sd(x), n=length(x)))
+
+# Visualize
+boxplot(resp ~ Level, data = myAnovaData,
+        main = "Response by Treatment Level",
+        xlab = "Treatment", ylab = "Response")</code></pre>
+
+            <h3>9.3 SPSS Example</h3>
+
+            <p><strong>Menu Navigation:</strong></p>
+            <ol>
+                <li>Analyze → Compare Means → One-Way ANOVA</li>
+                <li>Move response variable to "Dependent List"</li>
+                <li>Move grouping variable to "Factor"</li>
+                <li>Click "Options"
+                    <ul>
+                        <li>Check "Homogeneity of variance test"</li>
+                        <li>Check "Brown-Forsythe"</li>
+                        <li>Check "Welch"</li>
+                    </ul>
+                </li>
+                <li>Click Continue → OK</li>
+            </ol>
+
+            <p><strong>Interpreting Output:</strong></p>
+            <ul>
+                <li>Check Levene statistic: If p < .05, variances are unequal</li>
+                <li>If variances unequal: Use Welch or Brown-Forsythe F-test instead of standard ANOVA</li>
+                <li>Both Welch and Brown-Forsythe provide adjusted p-values</li>
+            </ul>
+
+            <hr>
+
+            <!-- SECTION 10 -->
+            <h2>📝 Part 10: Homework Problems and Solutions</h2>
+
+            <h3>10.1 Kirk Page 72 Exercise 2a - Three Types of Instruction</h3>
+
+            <p><strong>Problem:</strong> The effects of three kinds of instruction on first-grade students' tendency to
+                help
+                another child were investigated. Forty-two boys were randomly assigned to three instruction types (14
+                per
+                group).</p>
+
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>(i) Design:</strong> CR-3 (Completely Randomized with 3 treatment levels)</li>
+                <li><strong>(ii) Hypotheses:</strong> H₀: μ₁ = μ₂ = μ₃</li>
+                <li><strong>(iii) Model:</strong> Y<sub>ij</sub> = μ + α<sub>j</sub> + ε<sub>i(j)</sub>, i=1,...,14,
+                    j=1,2,3</li>
+            </ul>
+
+            <h3>10.2 Kirk Page 72 Exercise 2c - Mongolian Gerbils</h3>
+
+            <p><strong>Problem:</strong> Effects of isolation at 90, 120, 150, and 180 days of age on subsequent
+                combative
+                behavior of Mongolian gerbils were investigated. Eighty gerbils randomly assigned to four isolation
+                conditions (20 each).</p>
+
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>(i) Design:</strong> CR-4</li>
+                <li><strong>(ii) Hypotheses:</strong> H₀: μ₁ = μ₂ = μ₃ = μ₄</li>
+                <li><strong>(iii) Model:</strong> Y<sub>ij</sub> = μ + α<sub>j</sub> + ε<sub>i(j)</sub>, i=1,...,20,
+                    j=1,2,3,4</li>
+            </ul>
+
+            <h3>10.3 Kirk Page 72 Exercise 2d - Conforming-Compulsive Scale</h3>
+
+            <p><strong>Problem:</strong> Scores on the Conforming-Compulsive scale were used to form blocks of three
+                boys
+                with similar scores. The three boys in each block were randomly assigned to three treatment conditions.
+            </p>
+
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>(i) Design:</strong> RB-3 (Randomized Block with 3 treatments, 14 blocks)</li>
+                <li><strong>(ii) Hypotheses:</strong> H₀: μ<sub>.1</sub> = μ<sub>.2</sub> = μ<sub>.3</sub></li>
+                <li><strong>(iii) Model:</strong> Y<sub>ij</sub> = μ + α<sub>j</sub> + π<sub>i</sub> + ε<sub>ij</sub>,
+                    i=1,...,14, j=1,2,3</li>
+            </ul>
+
+            <h4>Block Diagram for RB-3:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Treatment 1</th>
+                        <th>Treatment 2</th>
+                        <th>Treatment 3</th>
+                        <th>Block Mean</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Block 1</td>
+                        <td>α₁</td>
+                        <td>α₂</td>
+                        <td>α₃</td>
+                        <td>Ȳ<sub>1.</sub></td>
+                    </tr>
+                    <tr>
+                        <td>Block 2</td>
+                        <td>α₁</td>
+                        <td>α₂</td>
+                        <td>α₃</td>
+                        <td>Ȳ<sub>2.</sub></td>
+                    </tr>
+                    <tr>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <td>Block 14</td>
+                        <td>α₁</td>
+                        <td>α₂</td>
+                        <td>α₃</td>
+                        <td>Ȳ<sub>14.</sub></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Treatment Mean</strong></td>
+                        <td>Ȳ<sub>.1</sub></td>
+                        <td>Ȳ<sub>.2</sub></td>
+                        <td>Ȳ<sub>.3</sub></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>10.4 Kirk Page 72 Exercise 2e - French vs. English Canadian Dreams</h3>
+
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>(i) Design:</strong> Paired t-test for dependent samples (RB-2 design)</li>
+                <li><strong>(ii) Hypotheses:</strong> H₀: μ<sub>.1</sub> ≤ μ<sub>.2</sub> (directional hypothesis)</li>
+                <li><strong>(iii) Model:</strong> Y<sub>ij</sub> = μ + α<sub>j</sub> + π<sub>i</sub> + ε<sub>ij</sub>,
+                    i=1,...,50, j=1,2</li>
+            </ul>
+
+            <p><strong>Note:</strong> Directional hypothesis requires t-test, not F-test.</p>
+
+            <h3>10.5 Kirk Page 72 Exercise 2f - Human Faces with Emotions</h3>
+
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li><strong>(i) Design:</strong> CRF-6,2 (Completely Randomized Factorial: 6 emotions × 2 sides)</li>
+                <li><strong>(ii) Hypotheses:</strong>
+                    <ul>
+                        <li>H₀: μ<sub>1.</sub> = μ<sub>2.</sub> = ... = μ<sub>6.</sub> (emotion main effect)</li>
+                        <li>H₀: μ<sub>.1</sub> ≤ μ<sub>.2</sub> (side main effect, directional)</li>
+                    </ul>
+                </li>
+                <li><strong>(iii) Model:</strong> Y<sub>ijk</sub> = μ + α<sub>j</sub> + β<sub>k</sub> +
+                    (αβ)<sub>jk</sub> +
+                    ε<sub>i(jk)</sub>, i=1,...,50, j=1,...,6, k=1,2</li>
+            </ul>
+
+            <h3>10.6 Kirk Page 73 Exercise 9 - Interaction Example</h3>
+
+            <p><strong>Problem:</strong> Data on running time (seconds) in a straight-alley maze obtained in a CRF-33
+                design
+                (3 magnitudes of reinforcement × 3 hours of deprivation).</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Small (α₁)</th>
+                        <th>Medium (α₂)</th>
+                        <th>Large (α₃)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10 hrs (b₁)</td>
+                        <td>Ȳ = 9</td>
+                        <td>Ȳ = 7</td>
+                        <td>Ȳ = 6</td>
+                    </tr>
+                    <tr>
+                        <td>15 hrs (b₂)</td>
+                        <td>Ȳ = 8</td>
+                        <td>Ȳ = 7</td>
+                        <td>Ȳ = 5</td>
+                    </tr>
+                    <tr>
+                        <td>20 hrs (b₃)</td>
+                        <td>Ȳ = 5</td>
+                        <td>Ȳ = 5</td>
+                        <td>Ȳ = 5</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Verbal Description of Interaction:</strong></p>
+            <p>For the third level of deprivation (20 hours), there is <strong>no effect due to reinforcement</strong> -
+                all means are equal at 5 seconds. However, for the two lower levels of deprivation (10 and 15 hours),
+                running time is <strong>negatively related to magnitude of reinforcement</strong> - larger reinforcement
+                leads to faster running times (lower seconds).</p>
+
+            <p>This is a clear <strong>interaction</strong> because the effect of reinforcement depends on the level of
+                deprivation.</p>
+
+            <h3>10.7 Kirk Page 118 Exercise 5 - Summation Rules</h3>
+
+            <p><strong>Purpose:</strong> Illustrate how Σ(Y<sub>i</sub> - μ)² can be partitioned.</p>
+
+            <p><strong>Key Result:</strong></p>
+            <pre>Σ(Y<sub>i</sub> - μ)² = Σ(Y<sub>i</sub> - Ȳ + Ȳ - μ)²
+            = Σ(Y<sub>i</sub> - Ȳ)² + 2(Ȳ - μ)Σ(Y<sub>i</sub> - Ȳ) + n(Ȳ - μ)²
+            = Σ(Y<sub>i</sub> - Ȳ)² + n(Ȳ - μ)²   [middle term = 0]</pre>
+
+            <p>This demonstrates the fundamental ANOVA partition at the population level.</p>
+
+            <h3>10.8 Kirk Page 120 Exercise 16 - Fixed vs. Random Effects</h3>
+
+            <p><strong>Solutions:</strong></p>
+            <ul>
+                <li><strong>(a) Random samples of White and Black employed mothers:</strong> FIXED effects (specific
+                    groups
+                    of interest)</li>
+                <li><strong>(b) 20 Wistar rats with randomly selected injection times:</strong> RANDOM effects (times
+                    are
+                    random sample)</li>
+                <li><strong>(c) Effects of 1, 2, 3, or 4 social science courses:</strong> FIXED effects (specific course
+                    counts)</li>
+                <li><strong>(d) Children classified as severely, moderately, mildly, or nonhandicapped:</strong> FIXED
+                    effects (specific categories)</li>
+                <li><strong>(e) Eight randomly selected doses of testosterone:</strong> RANDOM effects (doses are random
+                    sample)</li>
+            </ul>
+
+            <hr>
+
+            <!-- SECTION 11 -->
+            <h2>✅ Part 11: Key Concepts and Takeaways</h2>
+
+            <h3>11.1 Critical Concepts Checklist</h3>
+
+            <ul class="checklist">
+                <li>Understand when F ≤ 1 means always fail to reject H₀ (no evidence against null)</li>
+                <li>Expected MS for treatment (MSB) includes BOTH σ²ε AND treatment effect</li>
+                <li>Variables must be INDEPENDENT for sum of variances to equal variance of sum</li>
+                <li>One-way ANOVA is equivalent to regression with one QUALITATIVE variable (dummy coded)</li>
+                <li>Nonparametric tests are primarily for NORMALITY violations (not HOV)</li>
+                <li>Use Welch/Brown-Forsythe tests when HOV assumption is violated</li>
+                <li>Fixed effects: specific treatment levels of interest included in study</li>
+                <li>Random effects: treatment levels are random sample from larger population</li>
+                <li>SSE for RB/LS is always ≤ SSE for CRD (if blocking is effective)</li>
+                <li>CRD provides maximum error df but may have larger error variance</li>
+            </ul>
+
+            <h3>11.2 Common Mistakes to Avoid</h3>
+
+            <div class="error-box">
+                <strong>❌ Don't:</strong>
+                <ul>
+                    <li>Confuse MSB with MSW - they estimate different things!</li>
+                    <li>Use Hartley's test with non-normal data</li>
+                    <li>Apply transformations without considering interpretation changes</li>
+                    <li>Forget that ANOVA assumptions are identical to regression assumptions</li>
+                    <li>Think nonparametric tests are for HOV violations (use Welch instead)</li>
+                    <li>Ignore the connection between ANOVA and regression with dummy variables</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <strong>✓ Do:</strong>
+                <ul>
+                    <li>Always check assumptions before interpreting ANOVA results</li>
+                    <li>Use Levene or Brown-Forsythe tests to assess HOV</li>
+                    <li>Consider the practical significance of transformations on interpretation</li>
+                    <li>Understand that F-ratio works because E(MSB) includes treatment effects</li>
+                    <li>Remember that blocking removes variation IF nuisance variable is effective</li>
+                </ul>
+            </div>
+
+            <h3>11.3 Formula Summary</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Formula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Effects Model</td>
+                        <td>Y<sub>ij</sub> = μ + α<sub>j</sub> + ε<sub>i(j)</sub></td>
+                    </tr>
+                    <tr>
+                        <td>SST Partition</td>
+                        <td>SST = SSB + SSW</td>
+                    </tr>
+                    <tr>
+                        <td>F-ratio</td>
+                        <td>F = MSB / MSW</td>
+                    </tr>
+                    <tr>
+                        <td>E(MSB) Fixed</td>
+                        <td>E(MSB) = σ²ε + n·Σα²<sub>j</sub>/(p-1)</td>
+                    </tr>
+                    <tr>
+                        <td>E(MSB) Random</td>
+                        <td>E(MSB) = σ²ε + nσ²α</td>
+                    </tr>
+                    <tr>
+                        <td>E(MSW)</td>
+                        <td>E(MSW) = σ²ε</td>
+                    </tr>
+                    <tr>
+                        <td>Hartley's F<sub>max</sub></td>
+                        <td>F<sub>max</sub> = s²<sub>largest</sub> / s²<sub>smallest</sub></td>
+                    </tr>
+                    <tr>
+                        <td>Power Transform</td>
+                        <td>y = x<sup>p</sup> where p = 1 - β (β = slope of variance vs. mean plot)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
+            <!-- SECTION 12 -->
+            <h2>📚 Part 12: References and Further Reading</h2>
+
+            <h3>12.1 Primary Textbook</h3>
+
+            <p><strong>Kirk, R. E. (2013).</strong> <em>Experimental Design: Procedures for the Behavioral Sciences</em>
+                (4th ed.). Thousand Oaks, CA: Sage Publications.</p>
+            <ul>
+                <li><strong>Chapter 3:</strong> Completely Randomized Design (pp. 85-124)</li>
+                <li>Focus: CRD fundamentals, ANOVA model, sums of squares, expected mean squares, HOV testing,
+                    transformations, nonparametric alternatives</li>
+            </ul>
+
+            <h3>12.2 Course Materials</h3>
+
+            <ul>
+                <li><strong>2 TP CRD Chp3 ANOVA Kirk 2026.pdf</strong> - Main lecture slides covering Chapter 3 content
+                </li>
+                <li><strong>1 HW from Day 1 & Regression Model HW for RBD 2026.pdf</strong> - Homework problems and
+                    regression representation of ANOVA</li>
+                <li><strong>Kirk - Experimental Design - Appendices & answers.pdf</strong> - Appendix A: Summation rules
+                    (A.1 through A.6)</li>
+            </ul>
+
+            <h3>12.3 Additional References</h3>
+
+            <ul>
+                <li><strong>Welch, B. L. (1951).</strong> On the comparison of several mean values: An alternative
+                    approach.
+                    <em>Biometrika, 38</em>, 330-336.
+                </li>
+                <li><strong>Brown, M. B., & Forsythe, A. B. (1974).</strong> Robust tests for the equality of variances.
+                    <em>Journal of the American Statistical Association, 69</em>, 364-367.
+                </li>
+                <li><strong>Levene, H. (1960).</strong> Robust tests for equality of variances. In I. Olkin et al.
+                    (Eds.),
+                    <em>Contributions to Probability and Statistics</em> (pp. 278-292). Stanford University Press.
+                </li>
+                <li><strong>Kruskal, W. H., & Wallis, W. A. (1952).</strong> Use of ranks in one-criterion variance
+                    analysis. <em>Journal of the American Statistical Association, 47</em>, 583-621.</li>
+            </ul>
+
+            <h3>12.4 Software Documentation</h3>
+
+            <ul>
+                <li><strong>SAS Institute Inc.</strong> SAS/STAT User's Guide: PROC GLM</li>
+                <li><strong>R Core Team.</strong> car package documentation: <code>leveneTest()</code></li>
+                <li><strong>IBM SPSS Statistics.</strong> One-Way ANOVA procedure documentation</li>
+            </ul>
+
+            <h3>12.5 Related Topics for Future Study</h3>
+
+            <ul>
+                <li><strong>Week 3:</strong> Randomized Block Designs (RBD)</li>
+                <li><strong>Week 4:</strong> Factorial Designs and Interactions</li>
+                <li>Multiple comparison procedures (Tukey, Bonferroni, Scheffé)</li>
+                <li>Contrasts and planned comparisons</li>
+                <li>Power analysis and sample size determination</li>
+                <li>Mixed models (combining fixed and random effects)</li>
+            </ul>
+
+            <hr>
+
+            <div class="info-box" style="margin-top: 40px; text-align: center;">
+                <h3>🎓 End of Week 2 Study Guide</h3>
+                <p>You have completed the comprehensive study guide for Completely Randomized Design and One-Way ANOVA.
+                </p>
+                <p><strong>Next:</strong> <a href="index.html">Return to Home</a> | <a href="week1.html">Review Week
+                        1</a>
+                </p>
+            </div>
+
+        </div>
+
+        </div>
+
+    </main>
+
+    <!-- JavaScript for Reading Progress -->
+    <script src="js/progress.js"></script>
+
+</body>
+
+</html>
