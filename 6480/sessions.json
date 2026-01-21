@@ -13,6 +13,13 @@
       "title": "Introduction & ANOVA",
       "description": "Kirk Chapters 1-3, ANOVA fundamentals, mediation analysis (Zhao et al. 2010), SAS & R basics, and homework guidance.",
       "file": "week1.html"
+    },
+    {
+      "week": 2,
+      "id": "week2",
+      "title": "Completely Randomized Design & One-Way ANOVA",
+      "description": "Kirk Chapter 3, Sums of Squares decomposition, F-test, homogeneity of variance testing, data transformations, and nonparametric alternatives.",
+      "file": "week2.html"
     }
   ]
 }
