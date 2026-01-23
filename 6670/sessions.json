@@ -27,6 +27,13 @@
       "title": "AI in IS Research",
       "description": "The sociotechnical axis, digital objects, and agentic IS artifacts. Covers Sarker et al. (2019), Faulkner & Runde (2019), Baird & Maruping (2021), and Gartner 2026 trends.",
       "file": "session2.html"
+    },
+    {
+      "week": 3,
+      "id": "session3",
+      "title": "Theorizing in IS Research",
+      "description": "Elements of theory, types of theory, and new approaches. Covers Whetten (1989), Gregor (2006), Markus & Robey (1988), Burton-Jones (2021), and Raisch & Fomina (2024).",
+      "file": "session3.html"
     }
   ]
 }
