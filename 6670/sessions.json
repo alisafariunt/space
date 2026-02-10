@@ -34,6 +34,13 @@
       "title": "Theorizing in IS Research",
       "description": "Elements of theory, types of theory, and new approaches. Covers Whetten (1989), Gregor (2006), Markus & Robey (1988), Burton-Jones (2021), and Raisch & Fomina (2024).",
       "file": "session3.html"
+    },
+    {
+      "week": 5,
+      "id": "session5",
+      "title": "IS Success & Human-AI Interaction",
+      "description": "IS Success Models, Affective Response, Cognitive Load, Human-AI Delegation, and Social Bots. Covers Petter et al. (2013), Zhang (2013), Hu et al. (2017), Liu et al. (2025), and Gao et al. (2025).",
+      "file": "session5.html"
     }
   ]
 }
