@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="BCIS 6670 Analysis Frameworks Reference - All frameworks for analyzing IS research papers">
+    <meta name="theme-color" content="#1e40af">
+    <title>Analysis Frameworks | BCIS 6670 Study Guide</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        .framework-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .framework-nav a {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .framework-nav a:hover {
+            opacity: 0.85;
+            text-decoration: none;
+        }
+
+        .type-badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-right: 0.3rem;
+        }
+
+        .badge-blue {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-green {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-gold {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-purple {
+            background: #ede9fe;
+            color: #5b21b6;
+        }
+
+        .badge-red {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .quote-box {
+            background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%);
+            border-left: 4px solid #7c3aed;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+            font-style: italic;
+        }
+
+        .quote-box cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-style: normal;
+            font-weight: 600;
+            color: #6d28d9;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-brand">BCIS 6670 Study Guide</a>
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="exam_guide.html">🎯 Exam Guide</a></li>
+                <li><a href="frameworks.html" class="active">📐 Frameworks</a></li>
+                <li><a href="session1.html">Wk 1</a></li>
+                <li><a href="session2.html">Wk 2</a></li>
+                <li><a href="session3.html">Wk 3</a></li>
+                <li><a href="session5.html">Wk 5</a></li>
+                <li><a href="session6.html">Wk 6</a></li>
+            </ul>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">Reading Progress: 0%</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- Header -->
+        <div class="session-header">
+            <h1>📐 Analysis Frameworks Reference</h1>
+            <p class="session-meta">All frameworks you need to analyze any IS paper — Weeks 1 through 6</p>
+        </div>
+
+        <div class="info-box">
+            <h4>How to Use This Page</h4>
+            <p>These are the analytical tools Anna taught us. For Q1 (unknown paper), you apply these frameworks. For
+                Q2/Q3, you explain them. Know these by heart — you can bring the original papers, but you won't have
+                time to look everything up.</p>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="framework-nav">
+            <a href="#sarker">1. Sarker 2019 — 6 IT Views</a>
+            <a href="#gregor">2. Gregor — Theory Types</a>
+            <a href="#markus-robey">3. Markus & Robey — Causal</a>
+            <a href="#whetten">4. Whetten — Theory Elements</a>
+            <a href="#burton-jones">5. Burton-Jones — Strategies</a>
+            <a href="#faulkner">6. Faulkner & Runde — Digital</a>
+            <a href="#orlikowski">7. Orlikowski &amp; Iacono — 5 Views</a>
+            <a href="#baird">8. Baird &amp; Maruping — Delegation</a>
+            <a href="#baird-writing">9. Baird 2021 — Writing Guide</a>
+            <a href="#sarker-reviewing">10. Sarker 2023 — Reviewing</a>
+            <a href="#sun">11. Sun 2024 — Novelty Triad</a>
+        </div>
+
+        <!-- ===== FRAMEWORK 1: SARKER ===== -->
+        <div class="paper-card" id="sarker">
+            <h2>1. Sarker et al. (2019) — The Sociotechnical Axis</h2>
+            <div class="paper-citation">
+                Sarker, S., Chatterjee, S., Xiao, X., & Elbanna, A. (2019). The sociotechnical axis of cohesion for the
+                IS discipline. <em>MIS Quarterly</em>, 43(3), 695–719.
+            </div>
+
+            <div class="warning-box">
+                <h4>🚨 The Transport Test (Most Important Tool)</h4>
+                <p>Take the entire research model. Transport it from an IT context to a non-IT context (e.g., physical
+                    security in an elementary school with NO computers). If the model works exactly the same with zero
+                    changes → <strong>Type I (social-dominant)</strong>. If IT is central to the relationships → more
+                    sociotechnical.</p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>IT Role</th>
+                        <th>Example RQ</th>
+                        <th>MISQ %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #fee2e2;">
+                        <td><strong>I</strong></td>
+                        <td>Social-Dominant</td>
+                        <td>Context only (background)</td>
+                        <td>"Does neuroticism predict career speed of IT employees?" (IT = context, not in model)</td>
+                        <td>56.5%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>II</strong></td>
+                        <td>Social Imperative</td>
+                        <td>Social causes Tech</td>
+                        <td>"Does org culture influence AI use in board meetings?"</td>
+                        <td>11.4%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>III</strong></td>
+                        <td>Additive</td>
+                        <td>Social + Tech as separate IVs, no interaction</td>
+                        <td>"Do both manager support AND system usability predict productivity?"</td>
+                        <td>2.9%</td>
+                    </tr>
+                    <tr style="background-color: #d1fae5;">
+                        <td><strong>IV</strong></td>
+                        <td>Interplay (Reciprocal)</td>
+                        <td>Social and Tech interact, shape each other</td>
+                        <td>ChatGPT: users shape AI → AI shapes users → cycle continues</td>
+                        <td>13.0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>V</strong></td>
+                        <td>Tech Imperative</td>
+                        <td>Tech causes Social</td>
+                        <td>"How does GenAI affect task allocation in insurance companies?"</td>
+                        <td>9.9%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VI</strong></td>
+                        <td>Tech-Dominant</td>
+                        <td>Social = noise to be removed</td>
+                        <td>"How can we reduce database latency by 30%?"</td>
+                        <td>6.3%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>Why Most Papers Are Type I (Anna's 3 Reasons)</h4>
+                <ol>
+                    <li><strong>Easier data collection</strong> — "It's easier to gather data from humans" than from
+                        technical systems</li>
+                    <li><strong>Theory borrowing is easy</strong> — "Take a theory from psychology. Take all those
+                        constructs and apply them to the context."</li>
+                    <li><strong>Publication advantage</strong> — "If the majority of research is already falling into
+                        those categories, then those are the categories that are getting published."</li>
+                </ol>
+            </div>
+
+            <div class="success-box">
+                <h4>Anna's Honest Advice</h4>
+                <p>"Am I going to tell you to not do it? Absolutely not. Because we are all practical people here. We
+                    all need to get published." But: "You just have to be <strong>AWARE</strong> that when you're
+                    positioning your paper, you know where it is positioned."</p>
+            </div>
+
+            <h3>Three Dangers of Losing the Sociotechnical Axis</h3>
+            <ol>
+                <li><strong>Loss of distinctiveness</strong> — What makes IS different from CS or OB?</li>
+                <li><strong>Internal division</strong> — The field breaks into pieces that don't talk to each other</li>
+                <li><strong>Ethical failure</strong> — Ignoring how technology affects human well-being</li>
+            </ol>
+        </div>
+
+        <!-- ===== FRAMEWORK 2: GREGOR ===== -->
+        <div class="paper-card" id="gregor">
+            <h2>2. Gregor (2006) — The Nature of Theory in IS</h2>
+            <div class="paper-citation">
+                Gregor, S. (2006). The nature of theory in information systems. <em>MIS Quarterly</em>, 30(3), 611–642.
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>Explains WHY?</th>
+                        <th>Predicts WHAT?</th>
+                        <th>Prescribes HOW?</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="type-badge badge-blue">I</span></td>
+                        <td>Theory for Analyzing</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>Taxonomies, Sarker's 6 types, Orlikowski's 5 views</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-badge badge-blue">II</span></td>
+                        <td>Theory for Explaining</td>
+                        <td>✅</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>Process theories, historical analyses, interpretive studies</td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-badge badge-blue">III</span></td>
+                        <td>Theory for Predicting</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                        <td>❌</td>
+                        <td>Statistical models, machine learning (black box)</td>
+                    </tr>
+                    <tr style="background-color: #d1fae5;">
+                        <td><span class="type-badge badge-green">IV</span></td>
+                        <td><mark>Theory for Explaining & Predicting (EP)</mark></td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>❌</td>
+                        <td><mark>TAM, UTAUT — Gold Standard in behavioral IS</mark></td>
+                    </tr>
+                    <tr>
+                        <td><span class="type-badge badge-purple">V</span></td>
+                        <td>Theory for Design & Action</td>
+                        <td>✅ (often)</td>
+                        <td>✅ (often)</td>
+                        <td>✅</td>
+                        <td>Design science papers, method papers</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Gregor's 7 Structural Components of Theory (Table 3)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Component</th>
+                        <th>Description</th>
+                        <th>Which Types Have It</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Means of Representation</td>
+                        <td>How theory is expressed (words, diagrams, math)</td>
+                        <td>All types</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Primary Constructs</td>
+                        <td>Key concepts/variables</td>
+                        <td>All types</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Statements of Relationship</td>
+                        <td>How constructs relate (X → Y)</td>
+                        <td>All types</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Scope</td>
+                        <td>Boundary conditions</td>
+                        <td>All types</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td>5</td>
+                        <td><strong>Causal Explanations</strong></td>
+                        <td>WHY relationships exist (mechanisms)</td>
+                        <td>II, IV, V</td>
+                    </tr>
+                    <tr style="background-color: #d1fae5;">
+                        <td>6</td>
+                        <td><strong>Testable Propositions</strong></td>
+                        <td>Falsifiable predictions (hypotheses)</td>
+                        <td>III, IV, V</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Prescriptive Statements</td>
+                        <td>"Should" statements, design guidance</td>
+                        <td>V only</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>Variance vs. Process Theories (Gregor + Markus & Robey)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Variance Theory</th>
+                            <th>Process Theory</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Core Question</td>
+                            <td>How much variance in Y is explained by X?</td>
+                            <td>What sequence of events leads to outcome?</td>
+                        </tr>
+                        <tr>
+                            <td>Logic</td>
+                            <td>More X → More Y</td>
+                            <td>A → B → C → Outcome</td>
+                        </tr>
+                        <tr>
+                            <td>Conditions</td>
+                            <td>Necessary AND sufficient</td>
+                            <td>Necessary but NOT sufficient</td>
+                        </tr>
+                        <tr>
+                            <td>Time</td>
+                            <td>Assumed (X before Y)</td>
+                            <td>Explicit (sequence matters)</td>
+                        </tr>
+                        <tr>
+                            <td>Data Needed</td>
+                            <td>Cross-sectional often OK</td>
+                            <td>Longitudinal typically needed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ===== FRAMEWORK 3: MARKUS & ROBEY ===== -->
+        <div class="paper-card" id="markus-robey">
+            <h2>3. Markus & Robey (1988) — Causal Structure of IT Research</h2>
+            <div class="paper-citation">
+                Markus, M. L., & Robey, D. (1988). Information technology and organizational change: Causal structure in
+                theory and research. <em>Management Science</em>, 34(5), 583–598.
+            </div>
+
+            <p>This paper gives us 3 dimensions to classify the causal logic of any IS theory.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>Option A</th>
+                        <th>Option B</th>
+                        <th>Key Question</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Causal Agency</strong></td>
+                        <td><strong>Technological Imperative</strong><br>Technology determines outcomes. Humans adapt to
+                            IT.</td>
+                        <td><strong>Organizational Imperative</strong><br>Humans choose and shape IT. IT is a tool.</td>
+                        <td>Who has more power — the technology or the humans?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Structure of Causality</strong></td>
+                        <td><strong>Variance Theory</strong><br>More X → More Y. Deterministic. Necessary + sufficient
+                            conditions.</td>
+                        <td><strong>Process Theory</strong><br>A → B → C. Sequence of events. Necessary but NOT
+                            sufficient.</td>
+                        <td>Is the outcome determined by variable levels, or by a sequence of events?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Level of Analysis</strong></td>
+                        <td><strong>Micro</strong><br>Individual users, small groups</td>
+                        <td><strong>Macro</strong><br>Organizations, industries, societies</td>
+                        <td>What is the unit of analysis?</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>The "Emergent" View (Third Option)</h4>
+                <p>Markus & Robey also describe an <strong>Emergent</strong> perspective: neither technology nor humans
+                    fully determine outcomes. Instead, outcomes emerge from the interaction between them. This aligns
+                    with Type IV (Interplay) in Sarker's framework and is the most complex but most realistic view.</p>
+            </div>
+        </div>
+
+        <!-- ===== FRAMEWORK 4: WHETTEN ===== -->
+        <div class="paper-card" id="whetten">
+            <h2>4. Whetten (1989) — What Constitutes a Theoretical Contribution?</h2>
+            <div class="paper-citation">
+                Whetten, D. A. (1989). What constitutes a theoretical contribution? <em>Academy of Management
+                    Review</em>, 14(4), 490–495.
+            </div>
+
+            <h3>The 4 Essential Elements of Theory</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Question</th>
+                        <th>Description</th>
+                        <th>Importance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>WHAT</strong></td>
+                        <td>Which factors?</td>
+                        <td>The constructs, variables, or concepts</td>
+                        <td>Comprehensiveness vs. Parsimony</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HOW</strong></td>
+                        <td>How are they related?</td>
+                        <td>Relationships between constructs (arrows in models)</td>
+                        <td>Shown as boxes-and-arrows diagrams</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td><mark><strong>WHY</strong></mark></td>
+                        <td>Why do these relationships exist?</td>
+                        <td>The underlying logic, mechanisms, theoretical reasoning</td>
+                        <td><mark>⚠️ MOST CRITICAL — where real contribution happens</mark></td>
+                    </tr>
+                    <tr>
+                        <td><strong>WHEN/WHERE/WHO</strong></td>
+                        <td>Under what conditions?</td>
+                        <td>Boundary conditions, scope, generalizability limits</td>
+                        <td>Discovered through replications and extensions</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>The Most Important Insight</h4>
+                <p>Whetten: <mark>"Merely identifying new concepts or relationships is often insufficient; a true
+                        contribution comes from developing new and compelling 'whys' that alter the prior understanding
+                        of how relationships operate."</mark></p>
+                <p>Just saying "nobody has studied X in context Y" (gap-spotting) is <strong>not enough</strong>. You
+                    need to explain WHY studying X in context Y would change our theoretical understanding.</p>
+            </div>
+
+            <h3>Whetten's 7 Questions Reviewers Ask</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Question</th>
+                        <th>What Reviewers Look For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #fef3c7;">
+                        <td>1</td>
+                        <td><mark><strong>What's new?</strong></mark></td>
+                        <td>Significant value-added contribution. Scope (how much field is impacted) vs. Degree (how
+                            different from current thinking)</td>
+                    </tr>
+                    <tr style="background-color: #fef3c7;">
+                        <td>2</td>
+                        <td><mark><strong>So what?</strong></mark></td>
+                        <td>Will this change research practice? Are linkages to research evident?</td>
+                    </tr>
+                    <tr style="background-color: #d1fae5;">
+                        <td>3</td>
+                        <td><mark><strong>Why so?</strong></mark></td>
+                        <td>Is the underlying logic compelling? Are assumptions explicit? Built on sound foundation?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Well done?</td>
+                        <td>Seasoned thinking? Completeness? Multiple elements covered?</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Done well?</td>
+                        <td>Well written? Flows logically? Enjoyable to read?</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Why now?</td>
+                        <td>Contemporary interest? Not redundant or antiquated?</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Who cares?</td>
+                        <td>What % of readers interested? Links to core concepts?</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ===== FRAMEWORK 5: BURTON-JONES ===== -->
+        <div class="paper-card" id="burton-jones">
+            <h2>5. Burton-Jones et al. (2021) — Next-Generation IS Theorizing</h2>
+            <div class="paper-citation">
+                Burton-Jones, A., Butler, B. S., Scott, S. V., & Xu, S. X. (2021). Next-generation information systems
+                theorizing: A call to action. <em>MIS Quarterly</em>, 45(1), 301–314.
+            </div>
+
+            <h3>Table 1: Four Next-Gen Theorizing Strategies</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Studying EXISTING Phenomena</th>
+                        <th>Studying NEW Phenomena</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Inventing NEW Theory</strong></td>
+                        <td><span class="type-badge badge-blue">Replace</span><br>Replace existing theory with new IS
+                            theory to understand a phenomenon more effectively.<br><em>Example: Media Richness → Media
+                                Synchronicity</em></td>
+                        <td><span class="type-badge badge-green">Envision</span><br>Develop a new theory that opens up a
+                            new world.<br><em>Example: Design theory for emergent knowledge processes</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Using EXISTING Theory</strong></td>
+                        <td><span class="type-badge badge-gold">Reformulate</span><br>Unpack and alter a theory
+                            considerably so it offers new and better insights.<br><em>Example: Reformulating
+                                resistance-to-change paradigm</em></td>
+                        <td><span class="type-badge badge-purple">Extend</span><br>Expand a theory significantly so it
+                            can explain/reveal a new world.<br><em>Example: Extending identity theory to study "IT
+                                identity"</em></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Table 3: Four Shifts in How We View Theory</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>From (Old View)</th>
+                        <th>To (New View)</th>
+                        <th>Why It Matters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Theory as <strong>intellectual product</strong><br>(explicit set of statements)</td>
+                        <td>Theory as <strong>intellectual conversation</strong><br>(evolving ideas in a community)</td>
+                        <td>Knowing the history of ideas helps you understand why a theory was chosen and how it evolved
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Theory as <strong>truth</strong><br>(mirror of reality, seek fidelity)</td>
+                        <td>Theory as <strong>lens</strong><br>(purposefully selected for its focus)</td>
+                        <td>Need diversity in lenses because the world is complex. Lenses surface questions, not just
+                            answers.</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Theory as <strong>purely desk work</strong><br>(armchair theorizing)</td>
+                        <td>Theory as <strong>reflective engagement</strong><br>(can emerge from practice and design)
+                        </td>
+                        <td>Theorizing can happen in the field through design, action, or interaction with practitioners
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Theory as <strong>purely representational</strong><br>(simplified representation of reality)
+                        </td>
+                        <td>Theory as <strong>performative</strong><br>(describes AND produces the world)</td>
+                        <td>Theories are "models of" and "models for" the world — they can make a difference</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>Key Insight: Why Theorize Now?</h4>
+                <p>Burton-Jones argues that theorizing is <strong>more critical than ever</strong> because
+                    digitalization is increasing complexity (more sensors, data, software, interfaces, interactions, and
+                    change). Theory helps us make sense of complexity. Big data and ML don't replace theory — they are
+                    new instruments for theorizing.</p>
+            </div>
+        </div>
+
+        <!-- ===== FRAMEWORK 6: FAULKNER & RUNDE ===== -->
+        <div class="paper-card" id="faulkner">
+            <h2>6. Faulkner & Runde (2019) — Theorizing the Digital Object</h2>
+            <div class="paper-citation">
+                Faulkner, P., & Runde, J. (2019). Theorizing the digital object. <em>MIS Quarterly</em>, 43(4),
+                1279–1302.
+            </div>
+
+            <div class="warning-box">
+                <h4>🚨 The Most Important Concept: Social Positions</h4>
+                <p>Anna said: "What I think is most important about this paper is the social, is that little piece on
+                    social positions."</p>
+                <p><strong>Definition:</strong> A social position is "a definition of <strong>rights and
+                        responsibilities</strong> that are expected of an object that would occupy that position."</p>
+                <p>When you create a digital object, you typically create it to occupy a particular social position. You
+                    do NOT create a digital object in a vacuum.</p>
+            </div>
+
+            <h3>Key Concepts</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Definition</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Material Objects</strong></td>
+                        <td>Have physical properties (mass, location, shape)</td>
+                        <td>Servers, hard drives, laptops</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nonmaterial Objects</strong></td>
+                        <td>No physical form; made of symbols (syntactic objects)</td>
+                        <td>Software, files, protocols, documents</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bitstrings</strong></td>
+                        <td>Fundamental building block of digital tech (0s and 1s)</td>
+                        <td>Program files (instructions) + Data files (content)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bearer</strong></td>
+                        <td>What "carries" a nonmaterial object so it can be used</td>
+                        <td>Hard drive (material) bears a Word document (nonmaterial)</td>
+                    </tr>
+                    <tr style="background-color: #dbeafe;">
+                        <td><strong>Social Position</strong></td>
+                        <td>Rights and responsibilities expected of an object occupying that position</td>
+                        <td>PhD student position: rights (resources, mentorship) + responsibilities (pass comps,
+                            publish)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>Why Social Positions Connect to Sociotechnical Research</h4>
+                <p>Anna: "Social position is EXTREMELY important. It's that social position that makes the focus on a
+                    digital object part of sociotechnical research. It's that social position, that interest in the
+                    social position, that positions your paper on that sociotechnical axis."</p>
+                <p>For design science: "If I'm designing an agent to perform a type of work, and I'm actually trying to
+                    understand the type of work it is going to perform from the social point of view, from the
+                    interaction with other objects point of view, I am doing sociotechnical research!"</p>
+            </div>
+
+            <h3>Why This Paper Exists (Connection to Orlikowski & Iacono, 2001)</h3>
+            <p>Orlikowski & Iacono (2001) showed IS research under-theorizes the IT artifact. Most research uses the
+                "nominal" or "tool" view. Only ~12% use the "ensemble view." Faulkner & Runde (2019) respond 18 years
+                later with a proper theory of what digital objects ARE.</p>
+        </div>
+
+        <!-- ===== FRAMEWORK 7: ORLIKOWSKI & IACONO ===== -->
+        <div class="paper-card" id="orlikowski">
+            <h2>7. Orlikowski &amp; Iacono (2001) — Five Views of the IT Artifact</h2>
+            <div class="paper-citation">
+                Orlikowski, W. J., &amp; Iacono, C. S. (2001). Research commentary: Desperately seeking the "IT" in IT
+                research — A call to theorizing the IT artifact. <em>Information Systems Research</em>, 12(2), 121–134.
+            </div>
+
+            <div class="warning-box">
+                <h4>🚨 The Core Problem This Paper Addresses</h4>
+                <p>IS research often ignores or under-theorizes the very thing that makes it IS research: the IT
+                    artifact. The artifact is either absent, treated as a black box, or reduced to a single surrogate
+                    measure. This paper provides a framework to diagnose HOW a paper conceptualizes the IT artifact.</p>
+                <p><strong>Why it matters for Q1:</strong> When you read an unknown paper, ask "How does this paper view
+                    the IT artifact?" Use these five views.</p>
+            </div>
+
+            <h3>The Five Views (Table 1 from the paper)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>View</th>
+                        <th>How IT is Treated</th>
+                        <th>Problem</th>
+                        <th>% in ISR (2001)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background-color: #fee2e2;">
+                        <td><strong>1. Nominal</strong></td>
+                        <td>IT artifact mentioned in name only or not at all. IT is just context or label.</td>
+                        <td>IT has no role in the research model</td>
+                        <td>24.9%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Tool</strong></td>
+                        <td>IT as a discrete, unchanging instrument. How it works is a technical issue, black-boxed.
+                            Focus is on effects, not the artifact itself.</td>
+                        <td>Artifact treated as static and independent of social setting</td>
+                        <td>20.3%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Computational</strong></td>
+                        <td>Emphasis on IT's ability to represent, manipulate, store, retrieve, and transmit
+                            information. About what the machine can do computationally.</td>
+                        <td>Ignores social embedding</td>
+                        <td>24.3%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Proxy</strong></td>
+                        <td>IT described by one or more quantitative surrogate measures (e.g., number of systems, IT
+                            spending, IT intensity) rather than actual artifact properties.</td>
+                        <td>Reduces rich artifact to a single number</td>
+                        <td>18.1%</td>
+                    </tr>
+                    <tr style="background-color: #d1fae5;">
+                        <td><strong>5. Ensemble ✅</strong></td>
+                        <td>Emphasis on the interactions and relationships between IT artifacts and the groups involved
+                            in their construction, implementation, and use. IT is dynamic, situated, socially embedded.
+                        </td>
+                        <td>None — this is the GOOD view</td>
+                        <td>12.4%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>The Key Finding: Only 12.4% Got It Right</h4>
+                <p>Orlikowski &amp; Iacono found that only 12.4% of IS papers used the ensemble view — the only view
+                    that properly captures the complexity, dynamism, and context-dependence of IT artifacts. Three
+                    follow-up studies show this has barely improved (highest found: 21.7%).</p>
+                <p>The four inadequate views all treat IT as either <strong>absent</strong>,
+                    <strong>black-boxed</strong>, <strong>abstracted from social life</strong>, or <strong>reduced to
+                        surrogate measures</strong>.</p>
+            </div>
+
+            <div class="success-box">
+                <h4>How to Apply This in Q1 (Unknown Paper Analysis)</h4>
+                <p>Ask yourself: <em>"How does this paper view the IT artifact?"</em></p>
+                <ul>
+                    <li>Is IT just named but not in the model? → <strong>Nominal</strong></li>
+                    <li>Is IT treated as a neutral tool? Effects studied, internals ignored? → <strong>Tool</strong>
+                    </li>
+                    <li>Is the focus on what the system can compute/process? → <strong>Computational</strong></li>
+                    <li>Is IT measured by spending or counts only? → <strong>Proxy</strong></li>
+                    <li>Does the paper study how IT interacts with users, organizations, context? →
+                        <strong>Ensemble</strong> (the ideal)</li>
+                </ul>
+                <p><em>Connection to Sarker 2019:</em> Ensemble view papers tend to be Type IV (Interplay). Nominal view
+                    papers tend to be Type I (Social-Dominant).</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Connection to Faulkner &amp; Runde (2019)</h4>
+                <p>Faulkner &amp; Runde published their digital object theory 18 years after Orlikowski &amp; Iacono's
+                    call for better IT theorizing. They say IS research still under-theorizes the IT artifact. Their
+                    response: provide a formal ontological theory of what digital objects <em>are</em> (bearers,
+                    bitstrings, social positions). This is what a proper ensemble-view paper looks like at the
+                    ontological level.</p>
+            </div>
+        </div>
+
+        <!-- ===== FRAMEWORK 8: BAIRD & MARUPING ===== -->
+        <div class="paper-card" id="baird">
+            <h2>8. Baird &amp; Maruping (2021) — IS Delegation Framework</h2>
+            <div class="paper-citation">
+                Baird, A., & Maruping, L. M. (2021). The next generation of research on IS use: A theoretical framework
+                of delegation to and from agentic IS artifacts. <em>MIS Quarterly</em>, 45(1), 315–341.
+            </div>
+
+            <div class="info-box">
+                <h4>The Core Theoretical Tension</h4>
+                <p>Old assumption: IS artifacts have <strong>NO agency</strong>. They are passive tools. Now we have
+                    agentic systems (AI, chatbots, autonomous vehicles) that can perceive, act, learn, and accept
+                    responsibility. The old assumption no longer holds. We need a new theory.</p>
+            </div>
+
+            <h3>What Makes an IS Artifact "Agentic"?</h3>
+            <p>Agency = having <strong>choice</strong> + having <strong>accountability</strong> + ability to give up
+                control while retaining some rights. An agentic IS artifact can <strong>choose</strong> an action in
+                response to changes in the environment.</p>
+
+            <h3>Four Archetypes of Agentic IS (Simple → Complex)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Archetype</th>
+                        <th>Description</th>
+                        <th>Examples</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Reflexive</strong></td>
+                        <td>React to immediate stimuli. Simple mapping: state → action.</td>
+                        <td>Voice assistants, basic sensors</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Supervisory</strong></td>
+                        <td>Monitor progress, suggest corrections. Has internal model.</td>
+                        <td>Decision support systems, smart thermostats</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anticipatory</strong></td>
+                        <td>Proactively anticipate needs. Predicts future states.</td>
+                        <td>Social media content filtering, auto-generated albums</td>
+                    </tr>
+                    <tr style="background-color: #dbeafe;">
+                        <td><strong>Prescriptive</strong></td>
+                        <td>Make autonomous decisions. Utility-based. Highest agency.</td>
+                        <td>Chatbots, autonomous vehicles, robo-advisors</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Three Delegation Mechanisms</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mechanism</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Appraisal</strong></td>
+                        <td>Evaluating the other agent. "Can I trust this AI? Is the human capable?" Trust is part of
+                            appraisal.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Distribution</strong></td>
+                        <td>How rights and responsibilities are divided. Who decides? Who acts?</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Coordination</strong></td>
+                        <td>Managing the ongoing relationship. Monitoring, updating, accountability.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>Key Difference from Traditional IS Use Research</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>IS Use (Old)</th>
+                            <th>IS Delegation (New)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Users responsible for application</td>
+                            <td>Roles are fluid, can switch</td>
+                        </tr>
+                        <tr>
+                            <td>Systems are dependent on users</td>
+                            <td>Systems can be autonomous</td>
+                        </tr>
+                        <tr>
+                            <td>Human is always superior</td>
+                            <td>Either agent might be "better" for the task</td>
+                        </tr>
+                        <tr>
+                            <td>Focus on individual user</td>
+                            <td>Focus on the DYAD (human + AI pair)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-box">
+                <h4>Preference Alignment (The Thermostat Example)</h4>
+                <p>If you let an agentic system optimize for its own preferences (e.g., thermostat maximizes its
+                    longevity → prefers very cold), you freeze. The solution: set the preference function to optimize
+                    <strong>your</strong> preference, not the agent's. This is the same problem as executive
+                    compensation in agency theory — how do you align the agent's incentives with the principal's goals?
+                </p>
+                <p>Applied to ChatGPT: "The preferences of OpenAI, as a money-making corporation, will be reflected in
+                    the preferences of ChatGPT." — Anna, Week 2</p>
+            </div>
+        </div>
+
+        <!-- ===== FRAMEWORK 8: BAIRD 2021 WRITING ===== -->
+        <div class="paper-card" id="baird-writing">
+            <h2>8. Baird (2021) — Writing IS Papers</h2>
+            <p class="citation">Baird, A. (2021). On writing research articles well: A guide for writing IS papers.
+                <em>Journal of the Association for Information Systems, 22</em>(5), 1197–1211.
+            </p>
+            <p><strong>Use this for Q1:</strong> The 5 elements tell you what to look for when analyzing an unknown
+                paper. Finding each element shows deep reading.</p>
+
+            <h3>The 5 Elements Every IS Paper Must Have</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Element</th>
+                        <th>What to Look For in the Paper</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Area of Focus</strong></td>
+                        <td>Who is this for? What specific topic does it address?</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Relevant Background</strong></td>
+                        <td>What does the existing literature say? Where does the paper start from?</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>3</td>
+                        <td><strong>Theoretical Tension</strong></td>
+                        <td>The "but" or "however" moment. What problem, contradiction, or challenge drives the paper?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Resolution</strong></td>
+                        <td>What theory, model, or argument does the paper propose to solve the tension?</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Application Guidelines</strong></td>
+                        <td>How can other researchers or practitioners use this? What are the implications?</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>Gap Spotting vs. Assumption Challenging</h4>
+                <p><strong>Gap spotting (weak):</strong> "Nobody studied X yet." Any empty space can be called a gap.
+                    This is not strong theory.</p>
+                <p><strong>Assumption challenging (strong):</strong> "Everyone assumes X is true, but X breaks down
+                    under condition Y." This questions what the field takes for granted.</p>
+                <p><em>Example:</em> Everyone assumed end-users always direct IS artifacts. Baird & Maruping challenge
+                    this: agentic AI now directs humans. That is assumption challenging.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Red Thread and Hourglass</h4>
+                <p><strong>Red thread:</strong> Every section connects to the central argument. No detours. If you can
+                    remove a section and the paper still makes sense, the thread is broken.</p>
+                <p><strong>Hourglass shape:</strong> Broad intro (what we know) → narrow (specific theory or study) →
+                    broaden again (implications, future research).</p>
+            </div>
+        </div>
+
+        <!-- ===== FRAMEWORK 9: SARKER 2023 REVIEWING ===== -->
+        <div class="paper-card" id="sarker-reviewing">
+            <h2>9. Sarker et al. (2023) — How to Review IS Papers</h2>
+            <p class="citation">Sarker, S., Whitley, E. A., Goh, K. Y., et al. (2023). Editorial: Some thoughts on
+                reviewing for <em>Information Systems Research</em>. <em>ISR, 34</em>(4), 1321–1338.</p>
+            <p><strong>Use this for Q2/Q3:</strong> When asked to evaluate or critique a paper, use the q/r framework.
+            </p>
+
+            <h3>The q/r Framework</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dimension</th>
+                        <th>What It Means</th>
+                        <th>How to Judge It</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>q — Idea Quality</strong></td>
+                        <td>Is the research question important, novel, and interesting?</td>
+                        <td>High q = addresses something that matters and has not been answered. Low q = trivial or
+                            already known.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>r — Execution Quality</strong></td>
+                        <td>Is the method appropriate and done well?</td>
+                        <td>High r = design matches the question, rigorous implementation. Low r = poor fit or weak
+                            execution.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>The Four Combinations</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>q</th>
+                        <th>r</th>
+                        <th>Verdict</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="highlight">
+                        <td>High</td>
+                        <td>High</td>
+                        <td>Accept — strong paper</td>
+                    </tr>
+                    <tr>
+                        <td>High</td>
+                        <td>Low</td>
+                        <td>Major revision — great idea, weak execution</td>
+                    </tr>
+                    <tr>
+                        <td>Low</td>
+                        <td>High</td>
+                        <td>Hard case — perfectly done, but boring question</td>
+                    </tr>
+                    <tr>
+                        <td>Low</td>
+                        <td>Low</td>
+                        <td>Reject</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4>Key Rules from Sarker</h4>
+                <p><strong>Know the research type first.</strong> You cannot criticize a qualitative paper for not
+                    having a large sample. The standards differ by paradigm (positivist, design science, interpretive).
+                </p>
+                <p><strong>Developmental reviewing.</strong> For every weakness you identify, suggest how to fix it. Be
+                    a collaborator, not just a critic.</p>
+                <p><strong>Fatal vs. fixable issues.</strong> Distinguish "showstoppers" (fundamental flaws in q) from
+                    "fixable" issues (execution problems that revision can solve).</p>
+            </div>
+        </div>
+
+        <!-- ===== FRAMEWORK 10: SUN 2024 NOVELTY ===== -->
+        <div class="paper-card" id="sun">
+            <h2>10. Sun et al. (2024) — Novelty, Rigor, and Relevance</h2>
+            <p class="citation">Sun, H., Wen, W., Thatcher, J. B., Chau, M., & Brown, S. A. (2024). Rebalancing novelty
+                with rigor and relevance in IS research. <em>MIS Quarterly</em>.</p>
+            <p><strong>Use this for Q1 and Q2/Q3:</strong> Identify what kind of novelty a paper claims and whether it
+                properly balances rigor and relevance.</p>
+
+            <h3>The Three Concepts (Table 2)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Novelty</strong></td>
+                        <td>Originality of concepts, relationships, or methods. Includes theoretical extensions, new
+                            empirical phenomena, or design innovations.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rigor</strong></td>
+                        <td>Theoretical and empirical validity. Methodological soundness. The study is done correctly.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Relevance</strong></td>
+                        <td>Practical and theoretical importance. The study matters to someone — practice, policy, or
+                            future research.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Novelty by Research Paradigm (Table 1)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paradigm</th>
+                        <th>What Counts as Novelty</th>
+                        <th>Main Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Behavioral / Theory Testing</strong></td>
+                        <td>New constructs, new relationships, new boundary conditions</td>
+                        <td>Jangle fallacy — old construct with new name</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Design Science</strong></td>
+                        <td>New artifact, new design principle, new evaluation framework</td>
+                        <td>Building a system without showing it is better than alternatives</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Qualitative / Interpretive</strong></td>
+                        <td>New understanding, new context, new theoretical lens</td>
+                        <td>Novelty of context instead of novelty of insight</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Econ-IS</strong></td>
+                        <td>New causal identification, new data, new natural experiment</td>
+                        <td>"Methodological fireworks without conceptual fire"</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>The Jangle Fallacy</h4>
+                <p>Creating a new construct name for something that already exists in the literature. Example: calling
+                    something "delegation readiness" when "trust" already covers it. Sun et al. call this one of the
+                    biggest threats to IS research quality. Anna mentioned it specifically in class.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Two Key Tensions</h4>
+                <p><strong>Novelty vs. Rigor:</strong> Chasing novelty leads to untested theories and poorly validated
+                    constructs that look exciting but cannot be replicated.</p>
+                <p><strong>Novelty vs. Relevance:</strong> Chasing novelty leads to studying obscure phenomena nobody
+                    cares about. "We study what is countable, not what counts."</p>
+            </div>
+        </div>
+
+        <!-- SYNTHESIS -->
+        <div class="synthesis-section">
+            <h3>🔗 How All 11 Frameworks Connect for Q1</h3>
+            <p>For an unknown paper in Q1, work through these in order. Each one answers a different question:</p>
+            <ul>
+                <li><strong>Baird 2021</strong> → WHAT DOES THE PAPER SAY? (Identify the 5 elements: focus, background,
+                    tension, resolution, guidelines)</li>
+                <li><strong>Gap or Assumption?</strong> → HOW DOES IT FIND ITS TENSION? (Gap spotting = weak. Assumption
+                    challenging = strong.)</li>
+                <li><strong>Sarker 2019</strong> → WHERE IS IT ON THE SOCIOTECHNICAL AXIS? (Type I pure tech to Type VI
+                    pure social)</li>
+                <li><strong>Gregor</strong> → WHAT TYPE OF THEORY? (Analyzing, Explaining, Predicting,
+                    Explaining+Predicting, Design)</li>
+                <li><strong>Markus & Robey</strong> → WHAT IS THE CAUSAL LOGIC? (Variance vs. Process; Deterministic vs.
+                    Emergent)</li>
+                <li><strong>Whetten</strong> → HOW GOOD IS THE THEORY? (What, How, Why, When — is the WHY compelling?)
+                </li>
+                <li><strong>Burton-Jones</strong> → WHAT THEORIZING STRATEGY? (Replace, Reformulate, Envision, Extend)
+                </li>
+                <li><strong>Sun 2024</strong> → IS THE NOVELTY REAL AND BALANCED? (What type of novelty? Any jangle
+                    fallacy? Balanced with rigor and relevance?)</li>
+                <li><strong>Sarker 2023</strong> → OVERALL QUALITY VERDICT: q (important question?) + r (executed well?)
+                </li>
+                <li><strong>Faulkner & Runde</strong> → HOW IS THE IT ARTIFACT THEORIZED? (Only for papers where the
+                    artifact matters)</li>
+                <li><strong>Orlikowski & Iacono</strong> → WHICH VIEW OF IT ARTIFACT? (Nominal, Tool, Computational, Proxy,
+                    or Ensemble? Is the IT theorized adequately?)</li>
+                <li><strong>Baird & Maruping</strong> → HOW IS HUMAN-AI INTERACTION THEORIZED? (Only for papers about
+                    AI/agentic IS)</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ali Safari | BCIS 6670 PhD Seminar | Analysis Frameworks Reference</p>
+    </footer>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
