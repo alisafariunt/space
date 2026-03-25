@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     // CORS headers
     function getCorsHeaders(req) {
         const allowedOrigins = process.env.NODE_ENV === 'production'
-            ? (process.env.ALLOWED_ORIGINS || 'https://alisafari.space,https://www.alisafari.space').split(',')
+            ? (process.env.ALLOWED_ORIGINS || 'https://alisafari.space,https://www.alisafari.space,https://flow.alisafari.space').split(',')
             : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080'];
 
         const origin = req.headers.origin;

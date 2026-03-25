@@ -132,7 +132,7 @@ export async function hashToken(token) {
 // CORS headers
 export function getCorsHeaders(req) {
     const allowedOrigins = process.env.NODE_ENV === 'production'
-        ? (process.env.ALLOWED_ORIGINS || 'https://alisafari.space,https://www.alisafari.space').split(',')
+        ? (process.env.ALLOWED_ORIGINS || 'https://alisafari.space,https://www.alisafari.space,https://flow.alisafari.space').split(',')
         : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080'];
 
     const origin = req.headers.origin;
@@ -161,7 +161,7 @@ export function setRefreshTokenCookie(res, refreshToken) {
     const isProduction = process.env.NODE_ENV === 'production';
     const attrs = ['HttpOnly', 'SameSite=Lax', 'Path=/', `Max-Age=${maxAge}`];
     if (isProduction) {
-        attrs.push('Secure', 'Domain=alisafari.space');
+        attrs.push('Secure', 'Domain=.alisafari.space');
     }
 
     res.setHeader('Set-Cookie', `refreshToken=${refreshToken}; ${attrs.join('; ')}`);
@@ -172,7 +172,7 @@ export function clearRefreshTokenCookie(res) {
     const isProduction = process.env.NODE_ENV === 'production';
     const attrs = ['HttpOnly', 'SameSite=Lax', 'Path=/', 'Max-Age=0'];
     if (isProduction) {
-        attrs.push('Secure', 'Domain=alisafari.space');
+        attrs.push('Secure', 'Domain=.alisafari.space');
     }
 
     res.setHeader('Set-Cookie', `refreshToken=; ${attrs.join('; ')}`);
