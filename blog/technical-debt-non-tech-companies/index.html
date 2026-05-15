@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/technical-debt-non-tech-companies/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Technical Debt in Non-Tech Companies Is an IS Governance Problem","description":"Ward Cunningham coined technical debt in 1992. Non-tech organizations accumulate it just as fast as tech companies, and manage it far less deliberately.","url":"https://alisafari.space/blog/technical-debt-non-tech-companies/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>IT Governance &amp; Strategy</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">IT Governance &amp; Strategy</div>
+<h1 class="art-title">Technical Debt in Non-Tech Companies Is an IS Governance Problem</h1>
+<p class="art-dek">Ward Cunningham coined technical debt in 1992. Non-tech organizations accumulate it just as fast as tech companies, and manage it far less deliberately.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>5 min read</span>
+<span class="art-tag">IT Governance &amp; Strategy</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Technical Debt in Non-Tech Companies Is an IS Governance Problem</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="technical-debt-non-tech-companies" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">IT Governance &amp; Strategy</span>
-<h1>Technical Debt in Non-Tech Companies Is an IS Governance Problem</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 5 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>Ward Cunningham coined the term "technical debt" in 1992 to describe a specific trade-off in software development: sometimes you write code that you know is not quite right, because getting the right version would take too long, and you take on an obligation to come back and fix it later. Like financial debt, a small amount at a reasonable interest rate is manageable. A large amount at a high interest rate, never paid down, becomes crippling. Cunningham used the metaphor to explain to non-technical stakeholders why fast code and good code are not always the same thing, and why the fast version eventually costs more than the good version would have.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>Ward Cunningham coined the term "technical debt" in 1992 to describe a specific trade-off in software development: sometimes you write code that you know is not quite right, because getting the right version would take too long, and you take on an obligation to come back and fix it later. Like financial debt, a small amount at a reasonable interest rate is manageable. A large amount at a high interest rate, never paid down, becomes crippling. Cunningham used the metaphor to explain to non-technical stakeholders why fast code and good code are not always the same thing, and why the fast version eventually costs more than the good version would have.</p>
 <p>The software engineering community has been wrestling with technical debt management since then. What is less discussed is that the same accumulation happens in non-tech organizations, often faster and with less visibility, because nobody in those organizations has the vocabulary or the authority to track it.</p>
 <p>Major US banks and insurance companies are known to run core systems on COBOL, a programming language that dates to the late 1950s. This is widely reported in financial industry and software press, particularly around hiring and retirement demographics. The systems themselves often work. They process transactions. They calculate premiums. They have been doing their jobs reliably for decades. The problem is not that they fail. The problem is that the people who know how to maintain them are retiring, that finding qualified COBOL developers is difficult and getting harder, and that every year the cost of either maintaining or replacing these systems grows. The debt is not in the code quality. It is in the accumulated organizational dependence on a technology base that the labor market can no longer easily support.</p>
 <p>Replacing a core banking system is not like upgrading a mobile app. These systems have decades of business logic embedded in them, often in ways that are not documented anywhere except in the code itself. Edge cases that took years to discover and handle accumulate silently. A loan origination system built in 1978 has survived forty-five years of regulatory changes, product line changes, and organizational restructurings, with each change adding complexity. The institution that tries to replace it has to understand every rule the system encodes, which requires either reverse-engineering the code or finding the people who built it. Many of those people are retired or dead. The replacement cost is so high that organizations choose to keep paying the maintenance cost indefinitely. That is technical debt compounding at an interest rate nobody calculated when the original system was built.</p>
@@ -68,47 +57,55 @@
 <p>The reason this is an IS governance problem rather than just a software engineering problem is that the decisions that create technical debt in non-tech organizations are not made by software engineers. They are made by executives who choose to defer replacement because the cost is immediate and the benefit is speculative. By project managers who agree to a faster delivery timeline because the deadline is real and the shortcuts are invisible. By finance teams that do not have a mechanism for capitalizing technical debt the way they capitalize other liabilities. By IT governance structures that track project costs but not accumulated system risk. Nobody is lying or incompetent in these decisions. The problem is structural: the organizations lack the tools and frameworks to make technical debt visible to the people who could authorize paying it down.</p>
 <p>This connects directly to <a href="/blog/why-it-projects-are-late-over-budget">why IT projects tend to run over budget and over schedule</a>. Scope creep and optimistic estimating are frequently cited causes of IT project failure. But a lot of what looks like scope creep in a legacy replacement project is actually undiscovered technical debt revealing itself: business rules nobody documented, integrations nobody mapped, edge cases the legacy system handled silently. The discovery happens during implementation, after the budget was set, which is why replacement projects routinely cost twice the original estimate. The debt was always there. It just was not visible until someone tried to pay it.</p>
 <p>I think about this in relation to <a href="/blog/dynamic-capabilities-digital-agility">dynamic capabilities and digital agility</a> as well. Teece et al.'s argument is that dynamic capability involves the ability to sense, seize, and reconfigure resources in response to environmental change. An organization with a severely technically indebted architecture cannot reconfigure quickly, because every change to a poorly understood legacy system carries operational risk. The technical debt becomes a cap on agility. Not because the organization lacks strategic intent, but because the system is a constraint rather than a capability. The organizations that responded fastest to COVID-era operational disruptions were generally the ones with the most modular, maintainable architectures. Those architectures are not free. They require sustained investment in paying down debt, and that investment has to be authorized by people who understand what it is buying.</p>
-<p>The accounting framework for this does not exist in most organizations. There is no balance sheet entry for accumulated technical debt, no depreciation schedule, no explicit cost-of-carry. Financial debt has all of these. Technical debt is invisible in the financial statements until a system fails catastrophically or a replacement project comes in at three times the estimate. By then, the people who made the original decisions have usually moved on.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>The accounting framework for this does not exist in most organizations. There is no balance sheet entry for accumulated technical debt, no depreciation schedule, no explicit cost-of-carry. Financial debt has all of these. Technical debt is invisible in the financial statements until a system fails catastrophically or a replacement project comes in at three times the estimate. By then, the people who made the original decisions have usually moved on.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/technical-skills-is-researchers/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Technical Skills Every IS Researcher Actually Needs</div></a><a href="/blog/task-technology-fit-wrong-tool/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">The Tool Is Not Broken. It&#x27;s Just Wrong for Your Job.</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="related-item"><div><div class="related-cat">IT Governance &amp; Strategy</div><div class="related-title">5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</div></div><span class="related-rt">7 min read</span></a><a href="/blog/agency-theory-algorithm-accountability/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">When the Algorithm Fails, Nobody Takes the Call</div></div><span class="related-rt">6 min read</span></a><a href="/blog/agile-at-enterprise-scale/" class="related-item"><div><div class="related-cat">IT Governance &amp; Strategy</div><div class="related-title">Agile at Enterprise Scale: Why It Is Harder Than It Looks</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/technical-skills-is-researchers/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Technical Skills Every IS Researcher Actually Needs</div></a><a href="/blog/task-technology-fit-wrong-tool/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">The Tool Is Not Broken. It&#x27;s Just Wrong for Your Job.</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agile-at-enterprise-scale/" class="blog-related-card"><h4>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

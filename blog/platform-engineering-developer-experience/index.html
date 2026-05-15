@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/platform-engineering-developer-experience/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Platform Engineering: When Developer Experience Becomes an IT Function","description":"Platform engineering packages infrastructure expertise as a service for product teams, treating developer experience as something that can be built, maintained, and improved like a product.","url":"https://alisafari.space/blog/platform-engineering-developer-experience/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy, Platforms & Ecosystems"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>IT Governance &amp; Strategy</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">IT Governance &amp; Strategy</div>
+<h1 class="art-title">Platform Engineering: When Developer Experience Becomes an IT Function</h1>
+<p class="art-dek">Platform engineering packages infrastructure expertise as a service for product teams, treating developer experience as something that can be built, maintained, and improved like a product.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">IT Governance &amp; Strategy</span><span class="art-tag">Platforms &amp; Ecosystems</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Platform Engineering: When Developer Experience Becomes an IT Function</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="platform-engineering-developer-experience" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">IT Governance &amp; Strategy</span>
-<h1>Platform Engineering: When Developer Experience Becomes an IT Function</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-</div>
-</article>
+</header>
 <div class="series-badge"><span class="series-label">Platform</span><span class="series-counter">Part 2 of 4</span><div class="series-nav"><a href="/blog/platform-capitalism-digital-labor/">Platform Capitalism </a> &rsaquo; <span class="series-current">2</span> &rsaquo; <a href="/blog/platform-governance-multi-sided-markets/">Platform Governance </a> &rsaquo; <a href="/blog/platform-monetization-architecture-business-model/">Platform Monetizatio</a></div></div>
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>DevOps promised that developers and operations would work together rather than throwing software over a wall at each other. The promise was real and the movement delivered genuine improvements in how organizations think about deployment, monitoring, and shared responsibility for production systems. But it also created a problem that took a few years to fully surface. If every development team is supposed to own its own infrastructure, every development team needs people who understand Kubernetes, cloud networking, identity and access management, CI/CD configuration, secrets management, observability tooling, and a dozen other things that are not directly related to the product the team is supposed to be building. That is a lot of cognitive load to distribute across every team in a large engineering organization.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>DevOps promised that developers and operations would work together rather than throwing software over a wall at each other. The promise was real and the movement delivered genuine improvements in how organizations think about deployment, monitoring, and shared responsibility for production systems. But it also created a problem that took a few years to fully surface. If every development team is supposed to own its own infrastructure, every development team needs people who understand Kubernetes, cloud networking, identity and access management, CI/CD configuration, secrets management, observability tooling, and a dozen other things that are not directly related to the product the team is supposed to be building. That is a lot of cognitive load to distribute across every team in a large engineering organization.</p>
 <p>Platform engineering is the response to that problem. The idea is that you build a team, sometimes called a platform team or a platform engineering team, whose job is to package infrastructure complexity into a set of self-service capabilities that product teams can use without needing to understand what's underneath. You want to deploy a new service? You click through a workflow in the internal developer portal, and it creates the repository, sets up the pipeline, configures the monitoring, and provisions the infrastructure. The platform team built and maintains the workflow. The product team uses it without needing to know how Kubernetes namespaces or OIDC tokens work.</p>
 <p>This is the internal developer platform (IDP) concept, and it treats developer experience the same way a product team treats user experience. You research what developers actually need to be productive. You identify friction points in their day: the 45 minutes spent debugging a deployment pipeline that's slightly different from every other team's pipeline, the three separate approval processes required to provision a new database, the four different places you might look to find out why a service is behaving oddly in production. You design workflows that reduce that friction. You maintain those workflows and improve them over time based on feedback. It's product development, but the users are internal engineers.</p>
 <p>Backstage, the open-source developer portal originally built by Spotify and now a project under the Cloud Native Computing Foundation (CNCF), is the most visible infrastructure in this space. Backstage gives platform teams a framework for building an internal developer portal: a single place where developers can discover services owned by other teams, create new services from templates, find documentation, and track the status of their deployments. It's not the only approach, and using Backstage doesn't mean you're doing platform engineering in the full sense, but it has become a common front-end interface for the concept. The fact that it came from Spotify, which operates at a scale where developer experience problems become very expensive, says something about where platform engineering tends to prove its value first.</p>
@@ -68,47 +57,55 @@
 <p>The platform team is a service provider to the rest of engineering. That relationship is real and it has real implications. Platform teams that behave like traditional IT, where you file a ticket and wait, will fail. Developers who wait three weeks for a provisioned environment will stop using the platform and build their own shadow infrastructure, which is worse than the problem platform engineering was trying to solve. The platform team has to operate with the responsiveness and product quality of a commercial service provider, except the customers are internal and can't easily go elsewhere without creating organizational problems. That's a difficult cultural position.</p>
 <p>The "you build it, you run it" principle from the original DevOps era didn't go away with platform engineering. Product teams still own their services in production. They still monitor them, respond to incidents, and make architectural decisions about them. What changed is that the platform team owns the infrastructure underneath, so the product team doesn't need to think about it. The boundary between what the platform provides and what the product team owns is one of the critical design decisions in any platform engineering initiative. Draw it in the wrong place and you create handoffs that look exactly like the old pre-DevOps model of throwing code over a wall.</p>
 <p>The cognitive load argument is where I find platform engineering most compelling on an organizational level. There's a limit to how much context a developer can hold while doing the creative work of building software. Configuring a Kubernetes deployment manifest is not cognitively difficult once you know how, but it takes mental space that isn't being spent on the actual problem the developer is there to solve. Multiplied across a team and across the year, the cumulative effect on productivity is real. Platform engineering is partly a bet that centralizing the toil of infrastructure management frees up cognitive capacity in product teams that can then be spent on better software.</p>
-<p>Whether that bet pays off depends on how well the platform team executes. A good internal developer platform genuinely does reduce friction and free up developer time. A mediocre one becomes another bureaucratic layer that developers route around. The difference is mostly in how seriously the platform team takes the "product" framing: do they talk to their users, measure where the friction is, ship improvements regularly, and treat developer complaints as signals rather than noise? The organizations that do that seem to get value from platform engineering. The ones that treat it as a way to recentralize IT control without the service orientation tend not to.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>Whether that bet pays off depends on how well the platform team executes. A good internal developer platform genuinely does reduce friction and free up developer time. A mediocre one becomes another bureaucratic layer that developers route around. The difference is mostly in how seriously the platform team takes the "product" framing: do they talk to their users, measure where the friction is, ship improvements regularly, and treat developer complaints as signals rather than noise? The organizations that do that seem to get value from platform engineering. The ones that treat it as a way to recentralize IT control without the service orientation tend not to.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/platform-governance-multi-sided-markets/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">The Platform Decides Who Wins</div></a><a href="/blog/platform-capitalism-digital-labor/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Platform Capitalism and the Digital Labor Question</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="related-item"><div><div class="related-cat">IT Governance &amp; Strategy</div><div class="related-title">5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</div></div><span class="related-rt">7 min read</span></a><a href="/blog/activity-theory-is-research/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">People Use Tools Inside Activity Systems, Not in a Vacuum</div></div><span class="related-rt">5 min read</span></a><a href="/blog/agency-theory-algorithm-accountability/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">When the Algorithm Fails, Nobody Takes the Call</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/platform-governance-multi-sided-markets/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">The Platform Decides Who Wins</div></a><a href="/blog/platform-capitalism-digital-labor/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Platform Capitalism and the Digital Labor Question</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

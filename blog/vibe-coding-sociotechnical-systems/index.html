@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/vibe-coding-sociotechnical-systems/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Vibe Coding Is Sociotechnical Systems Theory Testing Its Limits","description":"AI-native platforms let anyone generate code from a prompt. Trist and Bamforth showed in 1951 why optimizing only the technical subsystem creates a maintenance crisis.","url":"https://alisafari.space/blog/vibe-coding-sociotechnical-systems/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"AI & Agentic Systems","keywords":"AI & Agentic Systems, IS Theory, Sociotechnical Systems"}</script>
@@ -20,93 +19,91 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>AI &amp; Agentic Systems</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">AI &amp; Agentic Systems</div>
+<h1 class="art-title">Vibe Coding Is Sociotechnical Systems Theory Testing Its Limits</h1>
+<p class="art-dek">AI-native platforms let anyone generate code from a prompt. Trist and Bamforth showed in 1951 why optimizing only the technical subsystem creates a maintenance crisis.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">AI &amp; Agentic Systems</span><span class="art-tag">IS Theory</span><span class="art-tag">Sociotechnical Systems</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Vibe Coding Is Sociotechnical Systems Theory Testing Its Limits</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="vibe-coding-sociotechnical-systems" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">AI &amp; Agentic Systems</span>
-<h1>Vibe Coding Is Sociotechnical Systems Theory Testing Its Limits</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>Gartner recently identified AI-native development platforms as enabling a new pattern they call vibe coding: software development without deep technical knowledge, where one-shot tools generate working applications from a single prompt. The phrase caught my attention because it captures something real about what these tools do. A non-developer can describe an app in natural language and get back something that runs. That is genuinely new. But the more I thought about it, the more I kept returning to a paper from 1951. Trist and Bamforth studied British coal mines where the longwall method had mechanized extraction, splitting one autonomous team into three specialized shifts. The technical subsystem was optimized. Productivity collapsed anyway. I wrote about this recently in the context of move-fast culture, and the parallel to vibe coding feels even more direct.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>Gartner recently identified AI-native development platforms as enabling a new pattern they call vibe coding: software development without deep technical knowledge, where one-shot tools generate working applications from a single prompt. The phrase caught my attention because it captures something real about what these tools do. A non-developer can describe an app in natural language and get back something that runs. That is genuinely new. But the more I thought about it, the more I kept returning to a paper from 1951. Trist and Bamforth studied British coal mines where the longwall method had mechanized extraction, splitting one autonomous team into three specialized shifts. The technical subsystem was optimized. Productivity collapsed anyway. I wrote about this recently in the context of move-fast culture, and the parallel to vibe coding feels even more direct.</p>
 <p>Vibe coding optimizes a single moment of the software lifecycle: the moment of generation. You type a prompt, the model returns code, and the code does something visible. That is the technical subsystem operating at peak speed. But software engineering is not just code production. It is code review, testing, deployment, maintenance, documentation, and team coordination. It is understanding why a piece of code exists, who owns it, and what happens when it breaks in production at 3 AM on a Saturday. Vibe coding produces output at the front of this pipeline while deleting almost nothing from the back. The code still needs review. It still needs tests. It still needs to be deployed, monitored, documented, and maintained. These are not technical fringe activities. They are the social subsystem of software engineering, the practices and norms and shared understandings that turn a blob of working code into something a team can sustain.</p>
 <p>The longwall method broke a single autonomous mining group into three specialized shifts. Each shift did one piece of the work and handed off the result. The handoff was where everything fell apart. Miners on one shift blamed the previous shift for problems. Informal coordination collapsed. Shared responsibility for output vanished. Vibe coding creates the same fragmentation. A developer vibes out a feature, gets a pull request with twenty files of AI-generated code, and the reviewer is expected to understand, validate, and take responsibility for code they did not write and did not see being written. The generation moment is fast. The review moment becomes slower, more uncertain, and more socially costly. When something breaks, who owns the fix? The person who wrote the prompt? The reviewer who approved it? The model that generated it? The question has no organizational answer yet.</p>
 <p>Trist and Emery formalized this pattern into sociotechnical systems theory. Their core claim is that any organization contains a technical subsystem and a social subsystem, and optimizing either one alone degrades the performance of the whole. Joint optimization is the alternative: you design both subsystems together, accounting for how changes to one ripple through the other. Bostrom and Heinen (1977) brought this directly into IS research in the very first volume of MIS Quarterly, arguing that system failures are almost always sociotechnical problems, not purely technical ones. Sarker et al. (2019) found that only about 13% of IS research operates at genuine sociotechnical interaction, what they call Type IV. The rest treats technology as background, as a control variable, or as a deterministic force. Vibe coding is a perfect example of what happens when the industry normalizes operating at the purely technical end of that axis.</p>
 <p>The distinction between prototyping and production software makes the problem concrete. Vibe coding works well for prototypes because prototypes have no social subsystem. A prototype needs to exist, to be seen, to be iterated. Who maintains it? Nobody. Who is responsible when it breaks? Nobody. Prototypes end up in a drawer. But production software has a social system built around it. On-call rotations. Service level objectives. Incident response playbooks. Code ownership. Deployment gates. When AI generates a piece of production code, that code enters a social system that was designed around human authorship. The code has no author, no context, no history of why it was written that way. The reviewer inherits all of that invisibility. Every AI-generated pull request becomes a review problem that the team did not have before. The generation is fast. The absorption into the social system is slow, and the mismatch grows with every line.</p>
 <p>Sarker et al. (2019) identify three dangers of IS research that cluster at the poles of the sociotechnical axis: uneven emphasis on one dimension, limited variety in relationship types, and an instrumental focus that treats technology only as a tool for achieving human goals. Vibe coding suffers from all three. The emphasis is entirely on the generation moment. The relationship between the developer and the AI is treated as linear: prompt in, code out. And the AI is framed as a productivity tool rather than as a participant in a social system of accountability. The Substantive IT Role Check, drawn from Lee (2001) and discussed by Sarker et al. (2019), asks whether removing the IT context changes the model. If vibe coding is just a faster way to produce code, the IT artifact collapses to a typewriter. If it changes who is responsible for what, who reviews what, and how teams coordinate, then the IT artifact is doing real work and the sociotechnical system needs to be redesigned around it.</p>
 <p>I think the industry will rediscover STS theory the hard way. Right now vibe coding is exciting because it lowers the barrier to making software. That excitement is real and it is not wrong. But the cost is deferred. The code being generated today will need to be maintained in 2027 and 2028, by teams that did not write it, working from prompts they did not see, supporting features whose rationale exists only in someone's chat history. The maintenance crisis is already visible in the growing friction around AI-generated pull requests, the finger-pointing when AI code introduces a production bug, the slow realization that vibing code into existence is not the same as building software. The technical subsystem has been optimized. The social subsystem is about to find out what that costs.</p>
-<p>I wrote about the longwall method and move-fast culture a few days ago, and about sociotechnical systems theory and what joint optimization actually requires. Vibe coding is the same story with a newer technology. The coal mine became a code editor. Everything else is still where Trist and Bamforth left it.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>I wrote about the longwall method and move-fast culture a few days ago, and about sociotechnical systems theory and what joint optimization actually requires. Vibe coding is the same story with a newer technology. The coal mine became a code editor. Everything else is still where Trist and Bamforth left it.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/organizational-routines-vulnerability-management/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">One Million Vulnerabilities and Counting: Why Patching Is Not a Strategy</div></a><a href="/blog/vendor-lock-in-is-a-strategy/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Vendor Lock-In Is a Strategy, Not an Accident</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="related-item"><div><div class="related-cat">Comps &amp; Reflections</div><div class="related-title">Bought a $2M Platform, Nobody Learned a Thing</div></div><span class="related-rt">6 min read</span></a><a href="/blog/affordance-actualization-perception-gap/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">The Gap Between What a System Can Do and What People Do With It</div></div><span class="related-rt">6 min read</span></a><a href="/blog/affordance-theory-is-not-just-features/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">The Door Handle Is Not for Everyone</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/organizational-routines-vulnerability-management/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">One Million Vulnerabilities and Counting: Why Patching Is Not a Strategy</div></a><a href="/blog/vendor-lock-in-is-a-strategy/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Vendor Lock-In Is a Strategy, Not an Accident</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/affordance-actualization-perception-gap/" class="blog-related-card"><h4>The Gap Between What a System Can Do and What People Do With It</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/affordance-theory-is-not-just-features/" class="blog-related-card"><h4>The Door Handle Is Not for Everyone</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

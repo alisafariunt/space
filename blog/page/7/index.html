@@ -1,376 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Ali Safari</title><meta name="description" content="Ali Safari's blog on Information Systems research, AI, security, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Blog | Ali Safari"><meta property="og:description" content="Information Systems research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<title>Field Notes | Ali Safari</title><meta name="description" content="Ali Safari's notes on Information Systems research, AI, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Field Notes | Ali Safari"><meta property="og:description" content="Notes on IS research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="canonical" href="https://alisafari.space/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Ali Safari Blog","description":"Thoughts on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Field Notes — Ali Safari","description":"Notes on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
 </head>
-<body class="blog-page">
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="index">
+<header class="masthead">
+<div class="masthead-kicker">Field Notes &mdash; Ali Safari &mdash; 258 notes</div>
+<h1 class="masthead-title">Field<br>Notes.</h1>
+<div class="masthead-bottom">
+<p class="masthead-dek">Honest reactions to IS research, AI, and the theory I'm studying for comps. No summaries.</p>
+<div class="masthead-stats">
+<div><b>258</b> Posts</div>
+<div><b>10</b> Topics</div>
 </div>
-</div></nav>
-<header class="blog-header">
-<h1>Blog</h1>
-<p class="blog-subtitle">Thoughts on IS theory, AI, technology, and comps studying. No summaries, just honest reactions.</p>
-<div class="blog-meta">
-<span class="blog-meta-item"><i class="fas fa-pen-nib"></i> 258 posts</span>
-<span class="blog-meta-item"><i class="fas fa-tags"></i> 10 topics</span>
 </div>
 </header>
-<section class="blog-stats-bar">
-<div class="blog-stat"><span class="blog-stat-value">258</span><div class="blog-stat-label">Posts</div></div>
-<div class="blog-stat"><span class="blog-stat-value">10</span><div class="blog-stat-label">Topics</div></div>
-<div class="blog-stat"><span class="blog-stat-value">2026</span><div class="blog-stat-label">Latest</div></div>
-</section>
-<div class="blog-controls">
-<div class="blog-search-box"><i class="fas fa-search"></i><input type="text" id="blogSearch" placeholder="Search posts by title or content..." autocomplete="off"></div>
-<div class="blog-filter-sort">
-<button class="blog-filter-btn active" data-sort="newest"><i class="fas fa-sort-amount-down"></i> Newest</button>
-<button class="blog-filter-btn" data-sort="oldest"><i class="fas fa-sort-amount-up"></i> Oldest</button>
+<div class="controls">
+<div class="search-wrap">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="blogSearch" placeholder="Search notes…" autocomplete="off">
+</div>
+<div class="seg">
+<button class="on" data-sort="newest">Newest</button>
+<button data-sort="oldest">Oldest</button>
+</div>
+</div>
+<div class="tags" id="tagFilters"><button class="tag-chip on" data-tag="all">All <span class="n">258</span></button><button class="tag-chip" data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="n">86</span></button><button class="tag-chip" data-tag="IS Theory">IS Theory <span class="n">82</span></button><button class="tag-chip" data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="n">77</span></button><button class="tag-chip" data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="n">74</span></button><button class="tag-chip" data-tag="Organizational Theory">Organizational Theory <span class="n">72</span></button><button class="tag-chip" data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="n">47</span></button><button class="tag-chip" data-tag="IS Research Methods">IS Research Methods <span class="n">43</span></button><button class="tag-chip" data-tag="Technology Adoption">Technology Adoption <span class="n">32</span></button><button class="tag-chip" data-tag="Trust &amp; Security">Trust &amp; Security <span class="n">31</span></button><button class="tag-chip" data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="n">29</span></button></div>
+
+<div class="post-list" id="postList">
+<div class="post-row" data-title="the eu ai act is institutional theory playing out in real time" data-tags="AI &amp; Agentic Systems,Organizational Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="eu-ai-act-institutional-pillars" onclick="location.href='/blog/eu-ai-act-institutional-pillars/'"><div class="pr-n">121</div><div class="pr-body"><div class="pr-title"><a href="/blog/eu-ai-act-institutional-pillars/">The EU AI Act Is Institutional Theory Playing Out in Real Time</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="the eu ai act and what it means for is practitioners" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections" data-date="2026-05-14" data-slug="eu-ai-act-is-implications" onclick="location.href='/blog/eu-ai-act-is-implications/'"><div class="pr-n">122</div><div class="pr-body"><div class="pr-title"><a href="/blog/eu-ai-act-is-implications/">The EU AI Act and What It Means for IS Practitioners</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="why everyone keeps extending tam instead of replacing it" data-tags="AI &amp; Agentic Systems,IS Theory,Technology Adoption" data-date="2026-05-14" data-slug="extending-tam-instead-of-replacing-it" onclick="location.href='/blog/extending-tam-instead-of-replacing-it/'"><div class="pr-n">123</div><div class="pr-body"><div class="pr-title"><a href="/blog/extending-tam-instead-of-replacing-it/">Why Everyone Keeps Extending TAM Instead of Replacing It</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="fear does not make people secure" data-tags="Trust &amp; Security" data-date="2026-05-14" data-slug="fear-does-not-make-people-secure" onclick="location.href='/blog/fear-does-not-make-people-secure/'"><div class="pr-n">124</div><div class="pr-body"><div class="pr-title"><a href="/blog/fear-does-not-make-people-secure/">Fear Does Not Make People Secure</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Trust &amp; Security</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="fintech and the bank that still runs on cobol" data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="fintech-disruption-banking-it" onclick="location.href='/blog/fintech-disruption-banking-it/'"><div class="pr-n">125</div><div class="pr-body"><div class="pr-title"><a href="/blog/fintech-disruption-banking-it/">FinTech and the Bank That Still Runs on COBOL</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="your free trial strategy is expectation-confirmation theory without the theory" data-tags="Technology Adoption" data-date="2026-05-14" data-slug="free-trial-expectation-confirmation-theory" onclick="location.href='/blog/free-trial-expectation-confirmation-theory/'"><div class="pr-n">126</div><div class="pr-body"><div class="pr-title"><a href="/blog/free-trial-expectation-confirmation-theory/">Your Free Trial Strategy Is Expectation-Confirmation Theory Without the Theory</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Technology Adoption</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="your ai strategy found the problem it wanted to solve" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="garbage-can-model-ai-strategy" onclick="location.href='/blog/garbage-can-model-ai-strategy/'"><div class="pr-n">127</div><div class="pr-body"><div class="pr-title"><a href="/blog/garbage-can-model-ai-strategy/">Your AI Strategy Found the Problem It Wanted to Solve</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="generative ai in enterprise: the governance problem nobody has solved" data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="generative-ai-enterprise-governance" onclick="location.href='/blog/generative-ai-enterprise-governance/'"><div class="pr-n">128</div><div class="pr-body"><div class="pr-title"><a href="/blog/generative-ai-enterprise-governance/">Generative AI in Enterprise: The Governance Problem Nobody Has Solved</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="geopatriation is institutional logics colliding with cloud strategy" data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="geopatriation-institutional-logics-sovereignty" onclick="location.href='/blog/geopatriation-institutional-logics-sovereignty/'"><div class="pr-n">129</div><div class="pr-body"><div class="pr-title"><a href="/blog/geopatriation-institutional-logics-sovereignty/">Geopatriation Is Institutional Logics Colliding with Cloud Strategy</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the gig economy is a platform governance problem" data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="gig-economy-platform-governance" onclick="location.href='/blog/gig-economy-platform-governance/'"><div class="pr-n">130</div><div class="pr-body"><div class="pr-title"><a href="/blog/gig-economy-platform-governance/">The Gig Economy Is a Platform Governance Problem</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="gpu dependency is resource dependency theory in a $200b market" data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="gpu-dependency-resource-dependency-theory" onclick="location.href='/blog/gpu-dependency-resource-dependency-theory/'"><div class="pr-n">131</div><div class="pr-body"><div class="pr-title"><a href="/blog/gpu-dependency-resource-dependency-theory/">GPU Dependency Is Resource Dependency Theory in a $200B Market</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the great resignation and what it revealed about it talent" data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="great-resignation-it-talent" onclick="location.href='/blog/great-resignation-it-talent/'"><div class="pr-n">132</div><div class="pr-body"><div class="pr-title"><a href="/blog/great-resignation-it-talent/">The Great Resignation and What It Revealed About IT Talent</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="green it: the environmental cost of the digital economy" data-tags="Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="green-it-environmental-cost-digital" onclick="location.href='/blog/green-it-environmental-cost-digital/'"><div class="pr-n">133</div><div class="pr-body"><div class="pr-title"><a href="/blog/green-it-environmental-cost-digital/">Green IT: The Environmental Cost of the Digital Economy</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Platforms &amp; Ecosystems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="grounded theory in is: let the data lead, except when it doesn&#x27;t" data-tags="IS Research Methods" data-date="2026-05-14" data-slug="grounded-theory-is-research" onclick="location.href='/blog/grounded-theory-is-research/'"><div class="pr-n">134</div><div class="pr-body"><div class="pr-title"><a href="/blog/grounded-theory-is-research/">Grounded Theory in IS: Let the Data Lead, Except When It Doesn&#x27;t</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="health it interoperability: why your doctor still sends faxes" data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="health-it-interoperability-fax-problem" onclick="location.href='/blog/health-it-interoperability-fax-problem/'"><div class="pr-n">135</div><div class="pr-body"><div class="pr-title"><a href="/blog/health-it-interoperability-fax-problem/">Health IT Interoperability: Why Your Doctor Still Sends Faxes</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="hyperautomation: the gap between the gartner term and the factory floor" data-tags="IS Research Methods,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="hyperautomation-enterprise" onclick="location.href='/blog/hyperautomation-enterprise/'"><div class="pr-n">136</div><div class="pr-body"><div class="pr-title"><a href="/blog/hyperautomation-enterprise/">Hyperautomation: The Gap Between the Gartner Term and the Factory Floor</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="you are not your job title" data-tags="AI &amp; Agentic Systems,IS Theory,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="identity-theory-information-systems" onclick="location.href='/blog/identity-theory-information-systems/'"><div class="pr-n">137</div><div class="pr-body"><div class="pr-title"><a href="/blog/identity-theory-information-systems/">You Are Not Your Job Title</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="information overload: simon was right" data-tags="Organizational Theory" data-date="2026-05-14" data-slug="information-overload-simon-bounded-rationality" onclick="location.href='/blog/information-overload-simon-bounded-rationality/'"><div class="pr-n">138</div><div class="pr-body"><div class="pr-title"><a href="/blog/information-overload-simon-bounded-rationality/">Information Overload: Simon Was Right</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Organizational Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="information processing theory: organizations are processors, not machines" data-tags="IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="information-processing-theory-is-design" onclick="location.href='/blog/information-processing-theory-is-design/'"><div class="pr-n">139</div><div class="pr-body"><div class="pr-title"><a href="/blog/information-processing-theory-is-design/">Information Processing Theory: Organizations Are Processors, Not Machines</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="institutional entrepreneurship: who gets to change the rules?" data-tags="Comps &amp; Reflections,Organizational Theory" data-date="2026-05-14" data-slug="institutional-entrepreneurship-is-change" onclick="location.href='/blog/institutional-entrepreneurship-is-change/'"><div class="pr-n">140</div><div class="pr-body"><div class="pr-title"><a href="/blog/institutional-entrepreneurship-is-change/">Institutional Entrepreneurship: Who Gets to Change the Rules?</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div>
+<div id="emptyState" style="display:none;padding:64px 0;font-family:var(--f-mono);font-size:13px;color:var(--ink-4);letter-spacing:.07em;text-transform:uppercase;">No notes found</div>
+<div class="pgn"><a href="/blog/page/6/" class="pgn-step">&#8592; Prev</a><div class="pgn-nums"><button onclick="location.href='/blog/'">1</button><button onclick="location.href='/blog/page/2/'">2</button><button onclick="location.href='/blog/page/3/'">3</button><button onclick="location.href='/blog/page/4/'">4</button><button onclick="location.href='/blog/page/5/'">5</button><button onclick="location.href='/blog/page/6/'">6</button><span class="cur">7</span><button onclick="location.href='/blog/page/8/'">8</button><button onclick="location.href='/blog/page/9/'">9</button><button onclick="location.href='/blog/page/10/'">10</button><button onclick="location.href='/blog/page/11/'">11</button><button onclick="location.href='/blog/page/12/'">12</button><button onclick="location.href='/blog/page/13/'">13</button></div><a href="/blog/page/8/" class="pgn-step">Next &#8594;</a></div>
+</div>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="blog-tag-filters"><a href="/blog/" class="blog-tag-chip active" data-tag="all">All <span class="tag-count">258</span></a><a href="/blog/?tag=Comps &amp; Reflections" class="blog-tag-chip " data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="tag-count">86</span></a><a href="/blog/?tag=IS Theory" class="blog-tag-chip " data-tag="IS Theory">IS Theory <span class="tag-count">82</span></a><a href="/blog/?tag=IT Governance &amp; Strategy" class="blog-tag-chip " data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="tag-count">77</span></a><a href="/blog/?tag=AI &amp; Agentic Systems" class="blog-tag-chip " data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="tag-count">74</span></a><a href="/blog/?tag=Organizational Theory" class="blog-tag-chip " data-tag="Organizational Theory">Organizational Theory <span class="tag-count">72</span></a><a href="/blog/?tag=Platforms &amp; Ecosystems" class="blog-tag-chip " data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="tag-count">47</span></a><a href="/blog/?tag=IS Research Methods" class="blog-tag-chip " data-tag="IS Research Methods">IS Research Methods <span class="tag-count">43</span></a><a href="/blog/?tag=Technology Adoption" class="blog-tag-chip " data-tag="Technology Adoption">Technology Adoption <span class="tag-count">32</span></a><a href="/blog/?tag=Trust &amp; Security" class="blog-tag-chip " data-tag="Trust &amp; Security">Trust &amp; Security <span class="tag-count">31</span></a><a href="/blog/?tag=Sociotechnical Systems" class="blog-tag-chip " data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="tag-count">29</span></a></div>
-<div class="blog-grid" id="blogGrid">
-<div class="blog-grid-item" data-title="the eu ai act is institutional theory playing out in real time" data-excerpt="the eu ai act hits all three of scott&#x27;s institutional pillars at once. here is why that makes it the most consequential is policy since gdpr." data-tags="AI &amp; Agentic Systems,Organizational Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="eu-ai-act-institutional-pillars">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/eu-ai-act-institutional-pillars/">The EU AI Act Is Institutional Theory Playing Out in Real Time</a></h2>
-</div>
-<p class="card-excerpt">The EU AI Act hits all three of Scott&#x27;s institutional pillars at once. Here is why that makes it the most consequential IS policy since GDPR.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Organizational Theory</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="eu-ai-act-institutional-pillars" title="Save for later" aria-label="Save The EU AI Act Is Institutional Theory Playing Out in Real Time for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/eu-ai-act-institutional-pillars/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the eu ai act and what it means for is practitioners" data-excerpt="the eu ai act is now in force. if you build or deploy ai that touches eu users, you are in a regulated space whether or not you planned for it." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections" data-date="2026-05-14" data-slug="eu-ai-act-is-implications">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/eu-ai-act-is-implications/">The EU AI Act and What It Means for IS Practitioners</a></h2>
-</div>
-<p class="card-excerpt">The EU AI Act is now in force. If you build or deploy AI that touches EU users, you are in a regulated space whether or not you planned for it.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="eu-ai-act-is-implications" title="Save for later" aria-label="Save The EU AI Act and What It Means for IS Practitioners for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/eu-ai-act-is-implications/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="why everyone keeps extending tam instead of replacing it" data-excerpt="tam was built for email and word processors. now it explains ai agents, blockchain, and vr. the is field knows how to replace theories, so why does it keep choosing extension instead?" data-tags="AI &amp; Agentic Systems,IS Theory,Technology Adoption" data-date="2026-05-14" data-slug="extending-tam-instead-of-replacing-it">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/extending-tam-instead-of-replacing-it/">Why Everyone Keeps Extending TAM Instead of Replacing It</a></h2>
-</div>
-<p class="card-excerpt">TAM was built for email and word processors. Now it explains AI agents, blockchain, and VR. The IS field knows how to replace theories, so why does it keep choo...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="extending-tam-instead-of-replacing-it" title="Save for later" aria-label="Save Why Everyone Keeps Extending TAM Instead of Replacing It for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/extending-tam-instead-of-replacing-it/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="fear does not make people secure" data-excerpt="security awareness training loves a good scare story. the research says fear without efficacy produces denial, not compliance." data-tags="Trust &amp; Security" data-date="2026-05-14" data-slug="fear-does-not-make-people-secure">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/fear-does-not-make-people-secure/">Fear Does Not Make People Secure</a></h2>
-</div>
-<p class="card-excerpt">Security awareness training loves a good scare story. The research says fear without efficacy produces denial, not compliance.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="fear-does-not-make-people-secure" title="Save for later" aria-label="Save Fear Does Not Make People Secure for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/fear-does-not-make-people-secure/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="fintech and the bank that still runs on cobol" data-excerpt="stripe and chime built modern financial infrastructure from scratch while banks ran on mainframes from the 1970s. the gap is real, but the narrative oversimplifies." data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="fintech-disruption-banking-it">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/fintech-disruption-banking-it/">FinTech and the Bank That Still Runs on COBOL</a></h2>
-</div>
-<p class="card-excerpt">Stripe and Chime built modern financial infrastructure from scratch while banks ran on mainframes from the 1970s. The gap is real, but the narrative oversimplif...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="fintech-disruption-banking-it" title="Save for later" aria-label="Save FinTech and the Bank That Still Runs on COBOL for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/fintech-disruption-banking-it/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="your free trial strategy is expectation-confirmation theory without the theory" data-excerpt="the gap between what your marketing promises and what your product delivers in the first 30 days is the only metric that determines whether a user stays. bhattacherjee knew this in 2001. most saas companies act like adoption is the finish line." data-tags="Technology Adoption" data-date="2026-05-14" data-slug="free-trial-expectation-confirmation-theory">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/free-trial-expectation-confirmation-theory/">Your Free Trial Strategy Is Expectation-Confirmation Theory Without the Theory</a></h2>
-</div>
-<p class="card-excerpt">The gap between what your marketing promises and what your product delivers in the first 30 days is the only metric that determines whether a user stays. Bhatta...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="free-trial-expectation-confirmation-theory" title="Save for later" aria-label="Save Your Free Trial Strategy Is Expectation-Confirmation Theory Without the Theory for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/free-trial-expectation-confirmation-theory/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="your ai strategy found the problem it wanted to solve" data-excerpt="cohen, march and olsen showed that in real organizations, solutions arrive before problems. the ai strategy wave is the clearest recent example." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="garbage-can-model-ai-strategy">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/garbage-can-model-ai-strategy/">Your AI Strategy Found the Problem It Wanted to Solve</a></h2>
-</div>
-<p class="card-excerpt">Cohen, March and Olsen showed that in real organizations, solutions arrive before problems. The AI strategy wave is the clearest recent example.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="garbage-can-model-ai-strategy" title="Save for later" aria-label="Save Your AI Strategy Found the Problem It Wanted to Solve for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/garbage-can-model-ai-strategy/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="generative ai in enterprise: the governance problem nobody has solved" data-excerpt="enterprise ai governance involves at least four distinct problems. most organizations are still treating them as one." data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="generative-ai-enterprise-governance">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/generative-ai-enterprise-governance/">Generative AI in Enterprise: The Governance Problem Nobody Has Solved</a></h2>
-</div>
-<p class="card-excerpt">Enterprise AI governance involves at least four distinct problems. Most organizations are still treating them as one.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="generative-ai-enterprise-governance" title="Save for later" aria-label="Save Generative AI in Enterprise: The Governance Problem Nobody Has Solved for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/generative-ai-enterprise-governance/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="geopatriation is institutional logics colliding with cloud strategy" data-excerpt="geopatriation is not a cloud architecture decision. it is an institutional choice about which logic dominates." data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="geopatriation-institutional-logics-sovereignty">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/geopatriation-institutional-logics-sovereignty/">Geopatriation Is Institutional Logics Colliding with Cloud Strategy</a></h2>
-</div>
-<p class="card-excerpt">Geopatriation is not a cloud architecture decision. It is an institutional choice about which logic dominates.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="geopatriation-institutional-logics-sovereignty" title="Save for later" aria-label="Save Geopatriation Is Institutional Logics Colliding with Cloud Strategy for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/geopatriation-institutional-logics-sovereignty/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the gig economy is a platform governance problem" data-excerpt="uber sets the prices, assigns the work, and deactivates accounts. calling that &#x27;independent contracting&#x27; is a governance choice, not a neutral fact." data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="gig-economy-platform-governance">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/gig-economy-platform-governance/">The Gig Economy Is a Platform Governance Problem</a></h2>
-</div>
-<p class="card-excerpt">Uber sets the prices, assigns the work, and deactivates accounts. Calling that &#x27;independent contracting&#x27; is a governance choice, not a neutral fact.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="gig-economy-platform-governance" title="Save for later" aria-label="Save The Gig Economy Is a Platform Governance Problem for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/gig-economy-platform-governance/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="gpu dependency is resource dependency theory in a $200b market" data-excerpt="pfeffer and salancik predicted this. when one supplier controls access to a critical resource, power concentrates. nvidia at 80% gpu market share changes everything." data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="gpu-dependency-resource-dependency-theory">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/gpu-dependency-resource-dependency-theory/">GPU Dependency Is Resource Dependency Theory in a $200B Market</a></h2>
-</div>
-<p class="card-excerpt">Pfeffer and Salancik predicted this. When one supplier controls access to a critical resource, power concentrates. NVIDIA at 80% GPU market share changes everyt...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="gpu-dependency-resource-dependency-theory" title="Save for later" aria-label="Save GPU Dependency Is Resource Dependency Theory in a $200B Market for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/gpu-dependency-resource-dependency-theory/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the great resignation and what it revealed about it talent" data-excerpt="the great resignation hit the is workforce hard. organizations discovered how much institutional knowledge had been quietly sitting in people who had just left." data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="great-resignation-it-talent">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/great-resignation-it-talent/">The Great Resignation and What It Revealed About IT Talent</a></h2>
-</div>
-<p class="card-excerpt">The Great Resignation hit the IS workforce hard. Organizations discovered how much institutional knowledge had been quietly sitting in people who had just left.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="great-resignation-it-talent" title="Save for later" aria-label="Save The Great Resignation and What It Revealed About IT Talent for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/great-resignation-it-talent/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="green it: the environmental cost of the digital economy" data-excerpt="data centers, ai training, and hardware manufacturing all have environmental footprints. the digital economy&#x27;s energy costs are growing and largely invisible to end users." data-tags="Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="green-it-environmental-cost-digital">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/green-it-environmental-cost-digital/">Green IT: The Environmental Cost of the Digital Economy</a></h2>
-</div>
-<p class="card-excerpt">Data centers, AI training, and hardware manufacturing all have environmental footprints. The digital economy&#x27;s energy costs are growing and largely invisible to...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="green-it-environmental-cost-digital" title="Save for later" aria-label="Save Green IT: The Environmental Cost of the Digital Economy for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/green-it-environmental-cost-digital/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="grounded theory in is: let the data lead, except when it doesn&#x27;t" data-excerpt="glaser and strauss said to let theory emerge from data, not from prior frameworks. is researchers often invoke grounded theory while doing something considerably different." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="grounded-theory-is-research">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/grounded-theory-is-research/">Grounded Theory in IS: Let the Data Lead, Except When It Doesn&#x27;t</a></h2>
-</div>
-<p class="card-excerpt">Glaser and Strauss said to let theory emerge from data, not from prior frameworks. IS researchers often invoke grounded theory while doing something considerabl...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="grounded-theory-is-research" title="Save for later" aria-label="Save Grounded Theory in IS: Let the Data Lead, Except When It Doesn&#x27;t for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/grounded-theory-is-research/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="health it interoperability: why your doctor still sends faxes" data-excerpt="the us has spent billions on ehrs since 2009. patient records still don&#x27;t move between systems. fax machines still work. here&#x27;s why." data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="health-it-interoperability-fax-problem">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/health-it-interoperability-fax-problem/">Health IT Interoperability: Why Your Doctor Still Sends Faxes</a></h2>
-</div>
-<p class="card-excerpt">The US has spent billions on EHRs since 2009. Patient records still don&#x27;t move between systems. Fax machines still work. Here&#x27;s why.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="health-it-interoperability-fax-problem" title="Save for later" aria-label="Save Health IT Interoperability: Why Your Doctor Still Sends Faxes for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/health-it-interoperability-fax-problem/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="hyperautomation: the gap between the gartner term and the factory floor" data-excerpt="gartner coined hyperautomation to describe end-to-end automation of any automatable process. most organizations are still struggling to automate one process well." data-tags="IS Research Methods,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="hyperautomation-enterprise">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/hyperautomation-enterprise/">Hyperautomation: The Gap Between the Gartner Term and the Factory Floor</a></h2>
-</div>
-<p class="card-excerpt">Gartner coined hyperautomation to describe end-to-end automation of any automatable process. Most organizations are still struggling to automate one process wel...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="hyperautomation-enterprise" title="Save for later" aria-label="Save Hyperautomation: The Gap Between the Gartner Term and the Factory Floor for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/hyperautomation-enterprise/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="you are not your job title" data-excerpt="most technology resistance is not about the technology. when a tool threatens who someone believes they are, rejection is identity-consistent, not irrational." data-tags="AI &amp; Agentic Systems,IS Theory,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="identity-theory-information-systems">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/identity-theory-information-systems/">You Are Not Your Job Title</a></h2>
-</div>
-<p class="card-excerpt">Most technology resistance is not about the technology. When a tool threatens who someone believes they are, rejection is identity-consistent, not irrational.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="identity-theory-information-systems" title="Save for later" aria-label="Save You Are Not Your Job Title for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/identity-theory-information-systems/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="information overload: simon was right" data-excerpt="herbert simon said we can&#x27;t process everything. that was 1947. we&#x27;ve spent 80 years building systems that prove him right every single day." data-tags="Organizational Theory" data-date="2026-05-14" data-slug="information-overload-simon-bounded-rationality">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/information-overload-simon-bounded-rationality/">Information Overload: Simon Was Right</a></h2>
-</div>
-<p class="card-excerpt">Herbert Simon said we can&#x27;t process everything. That was 1947. We&#x27;ve spent 80 years building systems that prove him right every single day.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="information-overload-simon-bounded-rationality" title="Save for later" aria-label="Save Information Overload: Simon Was Right for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/information-overload-simon-bounded-rationality/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="information processing theory: organizations are processors, not machines" data-excerpt="galbraith (1974) said organizations design themselves to handle the information their tasks demand. is exists to close the gap between what a task requires and what people can process alone." data-tags="IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="information-processing-theory-is-design">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/information-processing-theory-is-design/">Information Processing Theory: Organizations Are Processors, Not Machines</a></h2>
-</div>
-<p class="card-excerpt">Galbraith (1974) said organizations design themselves to handle the information their tasks demand. IS exists to close the gap between what a task requires and ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="information-processing-theory-is-design" title="Save for later" aria-label="Save Information Processing Theory: Organizations Are Processors, Not Machines for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/information-processing-theory-is-design/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="institutional entrepreneurship: who gets to change the rules?" data-excerpt="institutional theory explains why organizations conform. institutional entrepreneurship explains who breaks that conformity and rewrites the rules everyone else must follow." data-tags="Comps &amp; Reflections,Organizational Theory" data-date="2026-05-14" data-slug="institutional-entrepreneurship-is-change">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/institutional-entrepreneurship-is-change/">Institutional Entrepreneurship: Who Gets to Change the Rules?</a></h2>
-</div>
-<p class="card-excerpt">Institutional theory explains why organizations conform. Institutional entrepreneurship explains who breaks that conformity and rewrites the rules everyone else...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="institutional-entrepreneurship-is-change" title="Save for later" aria-label="Save Institutional Entrepreneurship: Who Gets to Change the Rules? for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/institutional-entrepreneurship-is-change/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div>
-<div class="blog-empty-state" style="display:none"><i class="fas fa-search"></i><h3>No posts found</h3><p>Try a different search term.</p></div>
-</div>
-<div class="blog-pagination"><a href="/blog/">1</a><a href="/blog/page/2/">2</a><a href="/blog/page/3/">3</a><a href="/blog/page/4/">4</a><a href="/blog/page/5/">5</a><a href="/blog/page/6/">6</a><span class="current">7</span><a href="/blog/page/8/">8</a><a href="/blog/page/9/">9</a><a href="/blog/page/10/">10</a><a href="/blog/page/11/">11</a><a href="/blog/page/12/">12</a><a href="/blog/page/13/">13</a></div>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-</div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
 </body></html>

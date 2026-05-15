@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/erp-implementation-failure-structural-not-technical/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Why CIOs Get Fired After ERP Implementation","description":"When ERP implementations fail, the postmortem always says the software was fine and the change management was missing. That phrase hides what actually happened: the organization lacked the political will to standardize processes.","url":"https://alisafari.space/blog/erp-implementation-failure-structural-not-technical/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"Organizational Theory","keywords":"Organizational Theory, Platforms & Ecosystems, Sociotechnical Systems"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>Organizational Theory</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">Organizational Theory</div>
+<h1 class="art-title">Why CIOs Get Fired After ERP Implementation</h1>
+<p class="art-dek">When ERP implementations fail, the postmortem always says the software was fine and the change management was missing. That phrase hides what actually happened: the organization lacked the political will to standardize processes.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">Organizational Theory</span><span class="art-tag">Platforms &amp; Ecosystems</span><span class="art-tag">Sociotechnical Systems</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Why CIOs Get Fired After ERP Implementation</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="erp-implementation-failure-structural-not-technical" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">Organizational Theory</span>
-<h1>Why CIOs Get Fired After ERP Implementation</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">Organizational Theory</span><span class="tag">Platforms &amp; Ecosystems</span><span class="tag">Sociotechnical Systems</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>&lt;script type="application/ld+json"&gt;<br>{<br>  "@context": "https://schema.org",<br>  "@type": "Article",<br>  "headline": "Why CIOs Get Fired After ERP Implementation",<br>  "author": {<br>    "@type": "Person",<br>    "name": "Ali Safari",<br>    "url": "https://alisafari.space"<br>  },<br>  "datePublished": "2026-05-14",<br>  "description": "When ERP implementations fail, the postmortem always says the software was fine and the change management was missing. That phrase hides what actually happened: the organization lacked the political will to standardize processes.",<br>  "keywords": ["ERP implementation", "IT failure", "adaptive structuration theory", "organizational change", "change management", "enterprise systems", "sociotechnical systems"]<br>}<br>&lt;/script&gt;<br>&lt;script type="application/ld+json"&gt;<br>{<br>  "@context": "https://schema.org",<br>  "@type": "FAQPage",<br>  "mainEntity": [<br>    {<br>      "@type": "Question",<br>      "name": "Why do ERP implementations fail if the software itself usually works?",<br>      "acceptedAnswer": {<br>        "@type": "Answer",<br>        "text": "ERP failures are organizational, not technical. The software standardizes processes across departments, which threatens local autonomy, professional identity, and political power. When different divisions resist standardization, the implementation collapses. DeSanctis and Poole's (1994) Adaptive Structuration Theory explains this as unfaithful appropriation: the technology's spirit was standardization, but the organization appropriated it in ways that preserved existing power structures and local control."<br>      }<br>    },<br>    {<br>      "@type": "Question",<br>      "name": "What is the difference between faithful and unfaithful appropriation in ERP implementation?",<br>      "acceptedAnswer": {<br>        "@type": "Answer",<br>        "text": "Faithful appropriation means using the system consistent with its structural features and spirit (in ERP's case, process standardization across the organization). Unfaithful appropriation means using it in ways that preserve local autonomy, depart from standardized workflows, or circumvent the integration logic. When a division insists on customizing their module to match existing local processes rather than adopting the standardized approach, they are engaged in unfaithful appropriation."<br>      }<br>    },<br>    {<br>      "@type": "Question",<br>      "name": "Are the Hershey's, Nike, and Levi Strauss ERP failures cases of technology failure?",<br>      "acceptedAnswer": {<br>        "@type": "Answer",<br>        "text": "No. In all three cases, the software itself functioned as designed. Hershey's SAP software processed orders correctly; the problem was cutting over right before Halloween demand surge with insufficient testing. Nike's i2 system generated forecasts as configured; the configuration parameters were wrong for Nike's business. Levi Strauss's ERP technically worked; the organization could not harmonize its processes. These were structural and organizational failures, not software bugs."<br>      }<br>    }<br>  ]<br>}<br>&lt;/script&gt;<br>&lt;meta property="og:title" content="Why CIOs Get Fired After ERP Implementation" /&gt;<br>&lt;meta property="og:description" content="When ERP implementations fail, the postmortem always says the software was fine and the change management was missing. That phrase hides what actually happened." /&gt;<br>&lt;meta property="og:type" content="article" /&gt;<br>&lt;meta property="og:url" content="https://alisafari.space/blog/erp-implementation-failure-structural-not-technical" /&gt;<br>&lt;meta property="og:site_name" content="Ali Safari" /&gt;<br>&lt;meta name="twitter:card" content="summary" /&gt;<br>&lt;meta name="twitter:title" content="Why CIOs Get Fired After ERP Implementation" /&gt;<br>&lt;meta name="twitter:description" content="When ERP implementations fail, the postmortem always says the software was fine and the change management was missing. That phrase hides what actually happened." /&gt;</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>&lt;script type="application/ld+json"&gt;<br>{<br>  "@context": "https://schema.org",<br>  "@type": "Article",<br>  "headline": "Why CIOs Get Fired After ERP Implementation",<br>  "author": {<br>    "@type": "Person",<br>    "name": "Ali Safari",<br>    "url": "https://alisafari.space"<br>  },<br>  "datePublished": "2026-05-14",<br>  "description": "When ERP implementations fail, the postmortem always says the software was fine and the change management was missing. That phrase hides what actually happened: the organization lacked the political will to standardize processes.",<br>  "keywords": ["ERP implementation", "IT failure", "adaptive structuration theory", "organizational change", "change management", "enterprise systems", "sociotechnical systems"]<br>}<br>&lt;/script&gt;<br>&lt;script type="application/ld+json"&gt;<br>{<br>  "@context": "https://schema.org",<br>  "@type": "FAQPage",<br>  "mainEntity": [<br>    {<br>      "@type": "Question",<br>      "name": "Why do ERP implementations fail if the software itself usually works?",<br>      "acceptedAnswer": {<br>        "@type": "Answer",<br>        "text": "ERP failures are organizational, not technical. The software standardizes processes across departments, which threatens local autonomy, professional identity, and political power. When different divisions resist standardization, the implementation collapses. DeSanctis and Poole's (1994) Adaptive Structuration Theory explains this as unfaithful appropriation: the technology's spirit was standardization, but the organization appropriated it in ways that preserved existing power structures and local control."<br>      }<br>    },<br>    {<br>      "@type": "Question",<br>      "name": "What is the difference between faithful and unfaithful appropriation in ERP implementation?",<br>      "acceptedAnswer": {<br>        "@type": "Answer",<br>        "text": "Faithful appropriation means using the system consistent with its structural features and spirit (in ERP's case, process standardization across the organization). Unfaithful appropriation means using it in ways that preserve local autonomy, depart from standardized workflows, or circumvent the integration logic. When a division insists on customizing their module to match existing local processes rather than adopting the standardized approach, they are engaged in unfaithful appropriation."<br>      }<br>    },<br>    {<br>      "@type": "Question",<br>      "name": "Are the Hershey's, Nike, and Levi Strauss ERP failures cases of technology failure?",<br>      "acceptedAnswer": {<br>        "@type": "Answer",<br>        "text": "No. In all three cases, the software itself functioned as designed. Hershey's SAP software processed orders correctly; the problem was cutting over right before Halloween demand surge with insufficient testing. Nike's i2 system generated forecasts as configured; the configuration parameters were wrong for Nike's business. Levi Strauss's ERP technically worked; the organization could not harmonize its processes. These were structural and organizational failures, not software bugs."<br>      }<br>    }<br>  ]<br>}<br>&lt;/script&gt;<br>&lt;meta property="og:title" content="Why CIOs Get Fired After ERP Implementation" /&gt;<br>&lt;meta property="og:description" content="When ERP implementations fail, the postmortem always says the software was fine and the change management was missing. That phrase hides what actually happened." /&gt;<br>&lt;meta property="og:type" content="article" /&gt;<br>&lt;meta property="og:url" content="https://alisafari.space/blog/erp-implementation-failure-structural-not-technical" /&gt;<br>&lt;meta property="og:site_name" content="Ali Safari" /&gt;<br>&lt;meta name="twitter:card" content="summary" /&gt;<br>&lt;meta name="twitter:title" content="Why CIOs Get Fired After ERP Implementation" /&gt;<br>&lt;meta name="twitter:description" content="When ERP implementations fail, the postmortem always says the software was fine and the change management was missing. That phrase hides what actually happened." /&gt;</p>
 <p>Hershey Foods lost $112 million in Halloween candy orders in 1999 because their brand new SAP system could not ship product. Nike bled somewhere between $100 million and $400 million in 2000 when their i2 supply chain system generated demand forecasts that had no relationship to reality. Levi Strauss wrote off a similar fortune when their ERP project stalled years later. And every time, the postmortem read the same way: the software was fine, the change management was inadequate.</p>
 <p>That phrase, "the software was fine", should bother you more than it does. Because if the software was fine, what exactly failed? The answer sits in the gap between what enterprise systems are designed to do and what organizations are willing to let them do. ERP systems enforce process standardization. They demand that marketing and logistics and manufacturing all use the same data structures, the same workflows, the same definitions of a customer. That is the whole value proposition. And that is exactly what the organization fights, because standardized processes threaten local autonomy, professional identity, and political power.</p>
 <p>I keep coming back to DeSanctis and Poole (1994) when I think about this. Their Adaptive Structuration Theory gives a clean language for what happens during technology appropriation. A technology arrives with structural features (the rules, resources, and capabilities embedded in it) and a spirit (the general intent or official line for how it should be used). Groups then appropriate those structures, and the appropriation can be faithful (consistent with the spirit and feature design) or unfaithful (departing from that spirit). The spirit of ERP is standardization. The structural features enforce integration. When a division manager demands thirty custom fields in their order screen so their department can keep doing things the way they always have, that is unfaithful appropriation. And it is not a technical choice. It is a political choice dressed up as a technical requirement.</p>
@@ -71,47 +60,55 @@
 <p>The CIO gets fired in these cases for a predictable reason. The board needs a story that makes sense. "Our organization lacks the political will to standardize its own processes" is not a story a CEO can tell investors. "The CIO failed to manage the implementation" is. Someone has to take the blame, and the person whose title literally contains the word information is the structurally convenient target. But the CIO did not fail to implement the software. The software implemented just fine. The organization failed to standardize its processes, and nobody with the authority to enforce standardization was willing to spend the political capital required. The CIO cannot fire the CFO for refusing to change their chart of accounts. The CIO cannot fire the VP of operations for demanding custom workaround screens. But the board can fire the CIO. So they do.</p>
 <p>I am not arguing that these CIOs were blameless. Plenty of ERP implementations crash because of genuine incompetence in vendor selection, project scoping, or data migration. But the pattern in the famous cases is different. The pattern is an organization that bought a standardization technology and then systematically resisted standardization, leaving the implementation team with a Frankenstein system that satisfied nobody's local demands and delivered none of the integration benefits. DeSanctis and Poole (1994) would call that unfaithful appropriation at scale. Organization theory would call it structural conflict between centralized process design and distributed power. The postmortem calls it "inadequate change management." I think that phrase is a euphemism.</p>
 <p>What real change management would have looked like in these cases is executive leadership willing to tell division heads that their local processes were not special, that the standardization was happening whether they liked it or not, and that their job was to adapt their teams to the new reality, not to protect the old one. That is a political act, not a project management technique. Most organizations cannot do it because executives at that level owe their positions to the same political coalitions that resist standardization. The CIO is the one executive whose authority comes from expertise rather than coalition-building, which makes them the only person who can be safely sacrificed when the coalition refuses to cooperate.</p>
-<p>The lesson that keeps getting missed is that ERP implementation is not a technology project that requires change management. It is an organizational restructuring that happens to involve software. The software is the easy part. The restructuring is where everything breaks, and the restructuring cannot be delegated to a CIO because the CIO cannot restructure the company. Only the CEO can do that. When the CEO declines to do it and the implementation still goes forward, the failure is inevitable, and the CIO's firing is just the ritual that closes the loop.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>The lesson that keeps getting missed is that ERP implementation is not a technology project that requires change management. It is an organizational restructuring that happens to involve software. The software is the easy part. The restructuring is where everything breaks, and the restructuring cannot be delegated to a CIO because the CIO cannot restructure the company. Only the CEO can do that. When the CEO declines to do it and the implementation still goes forward, the failure is inevitable, and the CIO's firing is just the ritual that closes the loop.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/erp-implementations-keep-failing/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Why ERP Implementations Keep Failing</div></a><a href="/blog/enterprise-software-universally-hated/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Why Enterprise Software Is Universally Hated</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="related-item"><div><div class="related-cat">Comps &amp; Reflections</div><div class="related-title">Bought a $2M Platform, Nobody Learned a Thing</div></div><span class="related-rt">6 min read</span></a><a href="/blog/actor-network-theory-is-research/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">Actor-Network Theory: Why Your ERP System Is an Actor Too</div></div><span class="related-rt">7 min read</span></a><a href="/blog/affordance-theory-is-not-just-features/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">The Door Handle Is Not for Everyone</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/erp-implementations-keep-failing/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Why ERP Implementations Keep Failing</div></a><a href="/blog/enterprise-software-universally-hated/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Why Enterprise Software Is Universally Hated</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/actor-network-theory-is-research/" class="blog-related-card"><h4>Actor-Network Theory: Why Your ERP System Is an Actor Too</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/affordance-theory-is-not-just-features/" class="blog-related-card"><h4>The Door Handle Is Not for Everyone</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/iot-manufacturing-adoption-gap/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"IoT in Manufacturing: The Gap Between Pilot and Plant","description":"Sensor technology works in controlled conditions. Deploying it across a real production floor, with legacy machines, variable connectivity, and skeptical workers, is a different problem.","url":"https://alisafari.space/blog/iot-manufacturing-adoption-gap/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"Technology Adoption","keywords":"Technology Adoption"}</script>
@@ -20,93 +19,91 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>Technology Adoption</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">Technology Adoption</div>
+<h1 class="art-title">IoT in Manufacturing: The Gap Between Pilot and Plant</h1>
+<p class="art-dek">Sensor technology works in controlled conditions. Deploying it across a real production floor, with legacy machines, variable connectivity, and skeptical workers, is a different problem.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">Technology Adoption</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">IoT in Manufacturing: The Gap Between Pilot and Plant</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="iot-manufacturing-adoption-gap" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">Technology Adoption</span>
-<h1>IoT in Manufacturing: The Gap Between Pilot and Plant</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">Technology Adoption</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>The smart factory pitch is easy to visualize. Sensors on every machine. A dashboard showing real-time throughput, temperature, vibration, pressure. An algorithm that detects the early signs of a bearing failure before the machine breaks down. The maintenance team gets an alert on Tuesday, schedules the repair for Thursday, and avoids the unplanned outage that would have happened Friday at 2am when the production run is in full swing. This is the promise of industrial IoT, and in a controlled setting, with new equipment, clean power, stable connectivity, and a motivated team, it works.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>The smart factory pitch is easy to visualize. Sensors on every machine. A dashboard showing real-time throughput, temperature, vibration, pressure. An algorithm that detects the early signs of a bearing failure before the machine breaks down. The maintenance team gets an alert on Tuesday, schedules the repair for Thursday, and avoids the unplanned outage that would have happened Friday at 2am when the production run is in full swing. This is the promise of industrial IoT, and in a controlled setting, with new equipment, clean power, stable connectivity, and a motivated team, it works.</p>
 <p>The part that is harder to sell in a deck is what happens when you try to do this at scale, across an actual production floor that has been running for twenty years.</p>
 <p>Start with the machines themselves. Predictive maintenance, the most cited use case in industrial IoT, requires sensors that can read the machine's outputs. New equipment often comes with digital outputs already built in. Equipment that was installed in 2003 does not. Retrofitting an older machine with sensors means attaching external accelerometers, temperature probes, or acoustic monitors, running cables, finding mounting points that do not interfere with the machine's operation, and dealing with the vibration, heat, oil, and particulate environments that manufacturing floors actually involve. A sensor that works perfectly in a lab specification sheet will not necessarily survive two years next to a press that generates significant vibration and heat. The failure rates for retrofitted sensors in harsh industrial environments can be substantially higher than pilot data suggests, because pilots use new sensors on well-maintained machines in conditions chosen to make the pilot succeed.</p>
 <p>Then there is connectivity. Plant floors were not designed for wireless data transmission. Metal enclosures, interference from motors and welding equipment, and the layout of production lines create real obstacles for the Bluetooth, Wi-Fi, or cellular connectivity that IoT devices depend on. Industrial wireless protocols exist for this, and they work, but deploying them across a complex floor requires a network infrastructure project that is often more expensive and time-consuming than the sensor deployment itself. Organizations that budget for the sensors and forget to budget for the connectivity infrastructure discover this during implementation.</p>
 <p>GE's industrial IoT platform, Predix, is probably the highest-profile example of the gap between ambitious rollout and actual enterprise deployment. Starting around 2015, GE announced Predix with significant investment and coverage in the business press, positioning it as the operating system for the industrial internet. By most accounts, the platform was subsequently scaled back significantly. The specific reasons reported at the time included challenges with enterprise adoption, the complexity of integrating with existing industrial systems, and competitive pressures. I do not want to overstate what I know about the internal decisions at GE, and the reporting on large technology programs is often simplified. But the broad pattern, a major industrial technology initiative announced with high expectations that was later significantly reduced in scope, is consistent with what the industrial IoT adoption literature suggests about the difficulty of actual scale deployment versus proof-of-concept.</p>
 <p>The data challenge is where I think the gap is most underappreciated. Predictive maintenance as a use case depends on having enough historical failure data to train a model that can recognize early signs of failure. If your organization has detailed maintenance logs going back five or ten years, with accurate timestamps for when equipment failed and what the sensor readings looked like in the hours before failure, you have the training data you need. Most manufacturing organizations do not have this. They have maintenance records of varying quality, often kept in paper logs, spreadsheets, or multiple systems with inconsistent formats. When the IoT project goes live and the sensors start generating data, the model has nothing reliable to learn from. Getting from "sensors are running" to "we can predict failures" requires building the historical dataset, which takes years of operation, or accepting a model trained on generic equipment profiles that may not match the specific behavior of your specific machines in your specific operating conditions.</p>
 <p>There is also a change management dimension that the technology case does not address. Sensors on the floor are, from a worker's perspective, monitoring. Even when the explicit purpose is equipment monitoring rather than performance monitoring, the distinction is not always obvious to the people whose work is now being tracked at higher resolution. Workers who have concerns about surveillance are unlikely to be enthusiastic participants in the system, and without their cooperation, the data quality that the analytics depend on is compromised. I wrote about how <a href="/blog/technology-readiness-resistance-is-data">technology resistance is actually data</a>, and industrial IoT on the plant floor is one of the clearest examples. Resistance to sensor deployment is often telling you something about the change management process, not about irrational fear of technology.</p>
-<p>None of this means industrial IoT does not work. There are real deployments, at scale, in manufacturing environments, that deliver genuine predictive maintenance value. The technology is sound. The challenge is that getting from "this works in a pilot" to "this works across our plant" requires solving a set of problems, legacy equipment integration, connectivity infrastructure, historical data quality, and change management, that are organizational problems, not technology problems. Organizations that go into industrial IoT deployment understanding this upfront tend to build realistic timelines, invest in the organizational prerequisites, and get closer to the outcomes the pilot promised. Organizations that treat deployment as primarily a technology rollout tend to hit those organizational problems as surprises, mid-project, when the budget and timeline have already been set.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>None of this means industrial IoT does not work. There are real deployments, at scale, in manufacturing environments, that deliver genuine predictive maintenance value. The technology is sound. The challenge is that getting from "this works in a pilot" to "this works across our plant" requires solving a set of problems, legacy equipment integration, connectivity infrastructure, historical data quality, and change management, that are organizational problems, not technology problems. Organizations that go into industrial IoT deployment understanding this upfront tend to build realistic timelines, invest in the organizational prerequisites, and get closer to the outcomes the pilot promised. Organizations that treat deployment as primarily a technology rollout tend to hit those organizational problems as surprises, mid-project, when the budget and timeline have already been set.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/is-career-paths-2026/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">What You Can Actually Do with an IS Degree in 2026</div></a><a href="/blog/intrapreneurship-is-innovation-enterprise/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Shadow IT Is Intrapreneurship With a Compliance Problem</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/activity-theory-is-research/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">People Use Tools Inside Activity Systems, Not in a Vacuum</div></div><span class="related-rt">5 min read</span></a><a href="/blog/affordance-theory-is-not-just-features/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">The Door Handle Is Not for Everyone</div></div><span class="related-rt">6 min read</span></a><a href="/blog/ai-adoption-s-curve-diffusion/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">AI Adoption Follows the S-Curve. Most Organizations Are Still in the Chasm.</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/is-career-paths-2026/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">What You Can Actually Do with an IS Degree in 2026</div></a><a href="/blog/intrapreneurship-is-innovation-enterprise/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Shadow IT Is Intrapreneurship With a Compliance Problem</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/affordance-theory-is-not-just-features/" class="blog-related-card"><h4>The Door Handle Is Not for Everyone</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-adoption-s-curve-diffusion/" class="blog-related-card"><h4>AI Adoption Follows the S-Curve. Most Organizations Are Still in the Chasm.</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

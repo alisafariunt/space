@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/algorithmic-bias-model-is-policy/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Algorithmic Bias: When the Model Is the Policy","description":"When an algorithm screens job applicants or recommends bail conditions, it is not neutral infrastructure. It is policy, running at scale, with no judgment calls.","url":"https://alisafari.space/blog/algorithmic-bias-model-is-policy/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"AI & Agentic Systems","keywords":"AI & Agentic Systems, Comps & Reflections"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>AI &amp; Agentic Systems</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">AI &amp; Agentic Systems</div>
+<h1 class="art-title">Algorithmic Bias: When the Model Is the Policy</h1>
+<p class="art-dek">When an algorithm screens job applicants or recommends bail conditions, it is not neutral infrastructure. It is policy, running at scale, with no judgment calls.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">AI &amp; Agentic Systems</span><span class="art-tag">Comps &amp; Reflections</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Algorithmic Bias: When the Model Is the Policy</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="algorithmic-bias-model-is-policy" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">AI &amp; Agentic Systems</span>
-<h1>Algorithmic Bias: When the Model Is the Policy</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>In 2018, it was widely reported that Amazon had scrapped an internal AI recruiting tool after discovering it was penalizing resumes that included the word "women's," as in women's chess club or women's college organization. The press coverage at the time was careful to note this was reporting on internal company decisions, so I will treat it the same way: widely reported, not independently verified. But the mechanism that allegedly produced the bias is worth thinking about carefully regardless of the specific case. The tool had apparently been trained on ten years of resumes submitted to Amazon. Amazon, like most large technology companies, had historically hired more men than women. The model learned from that history. It optimized for the patterns in the data it was given. The data reflected a world shaped by existing inequalities, so the model reproduced those inequalities with considerably more speed and scale than any individual recruiter.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>In 2018, it was widely reported that Amazon had scrapped an internal AI recruiting tool after discovering it was penalizing resumes that included the word "women's," as in women's chess club or women's college organization. The press coverage at the time was careful to note this was reporting on internal company decisions, so I will treat it the same way: widely reported, not independently verified. But the mechanism that allegedly produced the bias is worth thinking about carefully regardless of the specific case. The tool had apparently been trained on ten years of resumes submitted to Amazon. Amazon, like most large technology companies, had historically hired more men than women. The model learned from that history. It optimized for the patterns in the data it was given. The data reflected a world shaped by existing inequalities, so the model reproduced those inequalities with considerably more speed and scale than any individual recruiter.</p>
 <p>That mechanism is the part I keep coming back to. It is not a story about a malicious algorithm. It is a story about what happens when you treat historical outcomes as a neutral training signal.</p>
 <p>ProPublica's 2016 investigation "Machine Bias" documented something similar in a different domain. The investigation examined COMPAS, a recidivism prediction tool used in some US courts to help inform decisions about bail and sentencing. ProPublica's journalists found that the tool produced false positive rates that differed by race: Black defendants were more likely than white defendants to be incorrectly classified as high risk for reoffending. That finding was disputed by the tool's developers and by academic researchers who argued that ProPublica's definition of fairness conflicted with alternative mathematical definitions of fairness that COMPAS did satisfy. That dispute is real and still unresolved in the technical literature. What is not in dispute is that COMPAS was producing different error rates for different groups, and that courts were using those scores in decisions with serious consequences for people's lives.</p>
 <p>The methodological argument about which definition of fairness to use is genuine and worth taking seriously. But it also illustrates something that I think IS researchers should find uncomfortable. The choice of how to define fairness in an algorithmic system is not a technical choice. It is a values choice. You can formalize it mathematically, but someone decided which formalization to use, which outcomes to optimize for, and which errors were acceptable. Those are design decisions made by people, and they have distributional consequences for other people.</p>
@@ -69,47 +58,55 @@
 <p>This matters for how organizations approach bias mitigation. A lot of AI fairness work focuses on post-hoc correction: train the model, evaluate for disparate outcomes, apply a correction algorithm, re-evaluate. That approach treats bias as something that emerges from the model and can be corrected at the model level. My read is that this misses most of the problem. If the training data encodes historical inequalities, if the features selected reflect cultural assumptions about who "looks like" a good candidate or a high-risk defendant, if the evaluation metric was chosen without thinking carefully about whose errors are tolerable, then post-hoc correction is trying to fix a structural problem with a surface intervention.</p>
 <p>The deeper correction is upstream. It involves asking whose data is included and why, what the target variable actually measures and whether it is a valid proxy for what you care about, and whether the people most affected by the system had any role in deciding how it was built. These are not questions that most IS development processes are designed to surface, because they require thinking about the social and political dimensions of technical choices at a stage when the team is usually focused on getting the model to converge.</p>
 <p>I have been thinking about this alongside what I wrote about <a href="/blog/agency-theory-algorithm-accountability">when the algorithm fails and nobody takes the call</a>, where the principal-agent structure breaks down because an algorithm cannot be held responsible in the way a human agent can. Bias adds another layer to that problem. The algorithm not only cannot be held responsible for a bad outcome; it also cannot explain which design decision caused the disparity. You can identify that the false positive rate differs across groups. Tracing that back to a specific choice in the data pipeline or the feature engineering process is much harder. The accountability chain is long and the algorithm is opaque in the middle of it.</p>
-<p>I do not think this means algorithmic systems are inherently more biased than human decision-makers. The research on human judgment in hiring, sentencing, and credit decisions is not flattering either. But human bias, at least in principle, can be surfaced through inconsistency, challenged through confrontation, and modified through feedback. A biased model runs consistently, which means the same disparate error rate every time, for every person in the affected group, without the natural variation that might otherwise signal a problem. The scale and consistency are what make it different, and what make the design choices so consequential.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>I do not think this means algorithmic systems are inherently more biased than human decision-makers. The research on human judgment in hiring, sentencing, and credit decisions is not flattering either. But human bias, at least in principle, can be surfaced through inconsistency, challenged through confrontation, and modified through feedback. A biased model runs consistently, which means the same disparate error rate every time, for every person in the affected group, without the natural variation that might otherwise signal a problem. The scale and consistency are what make it different, and what make the design choices so consequential.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/api-economy-software-as-platform/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">The API Economy and Why Your Software Is Now a Platform</div></a><a href="/blog/ai-vendor-concentration-resource-dependency/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">AI Vendor Concentration Creates a New Resource Dependency</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="related-item"><div><div class="related-cat">Comps &amp; Reflections</div><div class="related-title">Bought a $2M Platform, Nobody Learned a Thing</div></div><span class="related-rt">6 min read</span></a><a href="/blog/ai-agents-principal-agent-theory/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">AI Agents Create a Principal-Agent Problem at Machine Speed</div></div><span class="related-rt">6 min read</span></a><a href="/blog/ai-chatbots-media-richness-theory/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">AI Chatbots Are the Richest Medium That Has Never Existed</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/api-economy-software-as-platform/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">The API Economy and Why Your Software Is Now a Platform</div></a><a href="/blog/ai-vendor-concentration-resource-dependency/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">AI Vendor Concentration Creates a New Resource Dependency</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-agents-principal-agent-theory/" class="blog-related-card"><h4>AI Agents Create a Principal-Agent Problem at Machine Speed</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-chatbots-media-richness-theory/" class="blog-related-card"><h4>AI Chatbots Are the Richest Medium That Has Never Existed</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

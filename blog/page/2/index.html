@@ -1,376 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Ali Safari</title><meta name="description" content="Ali Safari's blog on Information Systems research, AI, security, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Blog | Ali Safari"><meta property="og:description" content="Information Systems research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<title>Field Notes | Ali Safari</title><meta name="description" content="Ali Safari's notes on Information Systems research, AI, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Field Notes | Ali Safari"><meta property="og:description" content="Notes on IS research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="canonical" href="https://alisafari.space/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Ali Safari Blog","description":"Thoughts on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Field Notes — Ali Safari","description":"Notes on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
 </head>
-<body class="blog-page">
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="index">
+<header class="masthead">
+<div class="masthead-kicker">Field Notes &mdash; Ali Safari &mdash; 258 notes</div>
+<h1 class="masthead-title">Field<br>Notes.</h1>
+<div class="masthead-bottom">
+<p class="masthead-dek">Honest reactions to IS research, AI, and the theory I'm studying for comps. No summaries.</p>
+<div class="masthead-stats">
+<div><b>258</b> Posts</div>
+<div><b>10</b> Topics</div>
 </div>
-</div></nav>
-<header class="blog-header">
-<h1>Blog</h1>
-<p class="blog-subtitle">Thoughts on IS theory, AI, technology, and comps studying. No summaries, just honest reactions.</p>
-<div class="blog-meta">
-<span class="blog-meta-item"><i class="fas fa-pen-nib"></i> 258 posts</span>
-<span class="blog-meta-item"><i class="fas fa-tags"></i> 10 topics</span>
 </div>
 </header>
-<section class="blog-stats-bar">
-<div class="blog-stat"><span class="blog-stat-value">258</span><div class="blog-stat-label">Posts</div></div>
-<div class="blog-stat"><span class="blog-stat-value">10</span><div class="blog-stat-label">Topics</div></div>
-<div class="blog-stat"><span class="blog-stat-value">2026</span><div class="blog-stat-label">Latest</div></div>
-</section>
-<div class="blog-controls">
-<div class="blog-search-box"><i class="fas fa-search"></i><input type="text" id="blogSearch" placeholder="Search posts by title or content..." autocomplete="off"></div>
-<div class="blog-filter-sort">
-<button class="blog-filter-btn active" data-sort="newest"><i class="fas fa-sort-amount-down"></i> Newest</button>
-<button class="blog-filter-btn" data-sort="oldest"><i class="fas fa-sort-amount-up"></i> Oldest</button>
+<div class="controls">
+<div class="search-wrap">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="blogSearch" placeholder="Search notes…" autocomplete="off">
+</div>
+<div class="seg">
+<button class="on" data-sort="newest">Newest</button>
+<button data-sort="oldest">Oldest</button>
+</div>
+</div>
+<div class="tags" id="tagFilters"><button class="tag-chip on" data-tag="all">All <span class="n">258</span></button><button class="tag-chip" data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="n">86</span></button><button class="tag-chip" data-tag="IS Theory">IS Theory <span class="n">82</span></button><button class="tag-chip" data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="n">77</span></button><button class="tag-chip" data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="n">74</span></button><button class="tag-chip" data-tag="Organizational Theory">Organizational Theory <span class="n">72</span></button><button class="tag-chip" data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="n">47</span></button><button class="tag-chip" data-tag="IS Research Methods">IS Research Methods <span class="n">43</span></button><button class="tag-chip" data-tag="Technology Adoption">Technology Adoption <span class="n">32</span></button><button class="tag-chip" data-tag="Trust &amp; Security">Trust &amp; Security <span class="n">31</span></button><button class="tag-chip" data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="n">29</span></button></div>
+
+<div class="post-list" id="postList">
+<div class="post-row" data-title="ai ethics boards that never blocked a project" data-tags="AI &amp; Agentic Systems,Organizational Theory" data-date="2026-05-14" data-slug="ai-ethics-ceremonial-adoption-isomorphism" onclick="location.href='/blog/ai-ethics-ceremonial-adoption-isomorphism/'"><div class="pr-n">21</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-ethics-ceremonial-adoption-isomorphism/">AI Ethics Boards That Never Blocked a Project</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai adopted the way the garbage can model predicts" data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="ai-garbage-can-model-adoption" onclick="location.href='/blog/ai-garbage-can-model-adoption/'"><div class="pr-n">22</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-garbage-can-model-adoption/">AI Adopted the Way the Garbage Can Model Predicts</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai hallucination is a trust problem, not a technical one" data-tags="AI &amp; Agentic Systems,Trust &amp; Security" data-date="2026-05-14" data-slug="ai-hallucination-trust-problem" onclick="location.href='/blog/ai-hallucination-trust-problem/'"><div class="pr-n">23</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-hallucination-trust-problem/">AI Hallucination Is a Trust Problem, Not a Technical One</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="why doctors still resist better ai: identity, not accuracy" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="ai-healthcare-identity-theory-professional" onclick="location.href='/blog/ai-healthcare-identity-theory-professional/'"><div class="pr-n">24</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-healthcare-identity-theory-professional/">Why Doctors Still Resist Better AI: Identity, Not Accuracy</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the gap between fair metrics and fair experience (amazon&#x27;s ai hiring edition)" data-tags="AI &amp; Agentic Systems" data-date="2026-05-14" data-slug="ai-hiring-fairness-metric-experience-gap" onclick="location.href='/blog/ai-hiring-fairness-metric-experience-gap/'"><div class="pr-n">25</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-hiring-fairness-metric-experience-gap/">The Gap Between Fair Metrics and Fair Experience (Amazon&#x27;s AI Hiring Edition)</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai implementation failures are sociotechnical, not technical" data-tags="AI &amp; Agentic Systems,IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="ai-implementation-failure-sociotechnical" onclick="location.href='/blog/ai-implementation-failure-sociotechnical/'"><div class="pr-n">26</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-implementation-failure-sociotechnical/">AI Implementation Failures Are Sociotechnical, Not Technical</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai and the labor market: what is research can contribute" data-tags="AI &amp; Agentic Systems,IS Research Methods,Organizational Theory" data-date="2026-05-14" data-slug="ai-labor-market-is-research" onclick="location.href='/blog/ai-labor-market-is-research/'"><div class="pr-n">27</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-labor-market-is-research/">AI and the Labor Market: What IS Research Can Contribute</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="critical realism explains why ai models are not the mechanisms they simulate" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Research Methods" data-date="2026-05-14" data-slug="ai-models-critical-realism-mechanisms" onclick="location.href='/blog/ai-models-critical-realism-mechanisms/'"><div class="pr-n">28</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-models-critical-realism-mechanisms/">Critical Realism Explains Why AI Models Are Not the Mechanisms They Simulate</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="tiny teams, big questions: what happens when ai writes the code" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory" data-date="2026-05-14" data-slug="ai-native-development-tiny-teams-delegation" onclick="location.href='/blog/ai-native-development-tiny-teams-delegation/'"><div class="pr-n">29</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-native-development-tiny-teams-delegation/">Tiny Teams, Big Questions: What Happens When AI Writes the Code</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai has the strongest network effects ever, and that is a problem" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="ai-network-effects-data-flywheel" onclick="location.href='/blog/ai-network-effects-data-flywheel/'"><div class="pr-n">30</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-network-effects-data-flywheel/">AI Has The Strongest Network Effects Ever, And That Is a Problem</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div><div class="post-row" data-title="we learn to use ai by watching others, and that is why adoption is uneven" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Technology Adoption" data-date="2026-05-14" data-slug="ai-observational-learning-social-cognitive" onclick="location.href='/blog/ai-observational-learning-social-cognitive/'"><div class="pr-n">31</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-observational-learning-social-cognitive/">We Learn to Use AI by Watching Others, and That Is Why Adoption Is Uneven</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai output is a boundary object. that is why it is so hard to govern." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="ai-output-boundary-objects" onclick="location.href='/blog/ai-output-boundary-objects/'"><div class="pr-n">32</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-output-boundary-objects/">AI Output Is a Boundary Object. That Is Why It Is So Hard to Govern.</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div><div class="post-row" data-title="ai is not a tool. it is a participant in the work system." data-tags="AI &amp; Agentic Systems,IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="ai-participant-work-systems-theory" onclick="location.href='/blog/ai-participant-work-systems-theory/'"><div class="pr-n">33</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-participant-work-systems-theory/">AI Is Not a Tool. It Is a Participant in the Work System.</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="why ai pilots don&#x27;t become products" data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="ai-pilots-dont-become-products" onclick="location.href='/blog/ai-pilots-dont-become-products/'"><div class="pr-n">34</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-pilots-dont-become-products/">Why AI Pilots Don&#x27;t Become Products</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="your ai policy is just your old it policy with ai pasted in" data-tags="AI &amp; Agentic Systems,Organizational Theory" data-date="2026-05-14" data-slug="ai-policy-governance-theater-isomorphism" onclick="location.href='/blog/ai-policy-governance-theater-isomorphism/'"><div class="pr-n">35</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-policy-governance-theater-isomorphism/">Your AI Policy Is Just Your Old IT Policy With AI Pasted In</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai regulation: why every country is writing different rules" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections" data-date="2026-05-14" data-slug="ai-regulation-global-landscape" onclick="location.href='/blog/ai-regulation-global-landscape/'"><div class="pr-n">36</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-regulation-global-landscape/">AI Regulation: Why Every Country Is Writing Different Rules</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai is forcing is research methods to evolve. here is what should change." data-tags="AI &amp; Agentic Systems,IS Research Methods" data-date="2026-05-14" data-slug="ai-is-research-methods-evolution" onclick="location.href='/blog/ai-is-research-methods-evolution/'"><div class="pr-n">37</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-is-research-methods-evolution/">AI Is Forcing IS Research Methods to Evolve. Here Is What Should Change.</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="ai safety frameworks are pmt without using the name" data-tags="AI &amp; Agentic Systems,IS Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="ai-safety-pmt-fear-danger" onclick="location.href='/blog/ai-safety-pmt-fear-danger/'"><div class="pr-n">38</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-safety-pmt-fear-danger/">AI Safety Frameworks Are PMT Without Using the Name</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai security platforms are governance boundary resources" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory,Platforms &amp; Ecosystems,Trust &amp; Security" data-date="2026-05-14" data-slug="ai-security-platforms-governance-boundary-resources" onclick="location.href='/blog/ai-security-platforms-governance-boundary-resources/'"><div class="pr-n">39</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-security-platforms-governance-boundary-resources/">AI Security Platforms Are Governance Boundary Resources</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai self-efficacy is the new digital divide" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Platforms &amp; Ecosystems,Technology Adoption" data-date="2026-05-14" data-slug="ai-self-efficacy-digital-divide" onclick="location.href='/blog/ai-self-efficacy-digital-divide/'"><div class="pr-n">40</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-self-efficacy-digital-divide/">AI Self-Efficacy Is the New Digital Divide</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div>
+<div id="emptyState" style="display:none;padding:64px 0;font-family:var(--f-mono);font-size:13px;color:var(--ink-4);letter-spacing:.07em;text-transform:uppercase;">No notes found</div>
+<div class="pgn"><a href="/blog/" class="pgn-step">&#8592; Prev</a><div class="pgn-nums"><button onclick="location.href='/blog/'">1</button><span class="cur">2</span><button onclick="location.href='/blog/page/3/'">3</button><button onclick="location.href='/blog/page/4/'">4</button><button onclick="location.href='/blog/page/5/'">5</button><button onclick="location.href='/blog/page/6/'">6</button><button onclick="location.href='/blog/page/7/'">7</button><button onclick="location.href='/blog/page/8/'">8</button><button onclick="location.href='/blog/page/9/'">9</button><button onclick="location.href='/blog/page/10/'">10</button><button onclick="location.href='/blog/page/11/'">11</button><button onclick="location.href='/blog/page/12/'">12</button><button onclick="location.href='/blog/page/13/'">13</button></div><a href="/blog/page/3/" class="pgn-step">Next &#8594;</a></div>
+</div>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="blog-tag-filters"><a href="/blog/" class="blog-tag-chip active" data-tag="all">All <span class="tag-count">258</span></a><a href="/blog/?tag=Comps &amp; Reflections" class="blog-tag-chip " data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="tag-count">86</span></a><a href="/blog/?tag=IS Theory" class="blog-tag-chip " data-tag="IS Theory">IS Theory <span class="tag-count">82</span></a><a href="/blog/?tag=IT Governance &amp; Strategy" class="blog-tag-chip " data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="tag-count">77</span></a><a href="/blog/?tag=AI &amp; Agentic Systems" class="blog-tag-chip " data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="tag-count">74</span></a><a href="/blog/?tag=Organizational Theory" class="blog-tag-chip " data-tag="Organizational Theory">Organizational Theory <span class="tag-count">72</span></a><a href="/blog/?tag=Platforms &amp; Ecosystems" class="blog-tag-chip " data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="tag-count">47</span></a><a href="/blog/?tag=IS Research Methods" class="blog-tag-chip " data-tag="IS Research Methods">IS Research Methods <span class="tag-count">43</span></a><a href="/blog/?tag=Technology Adoption" class="blog-tag-chip " data-tag="Technology Adoption">Technology Adoption <span class="tag-count">32</span></a><a href="/blog/?tag=Trust &amp; Security" class="blog-tag-chip " data-tag="Trust &amp; Security">Trust &amp; Security <span class="tag-count">31</span></a><a href="/blog/?tag=Sociotechnical Systems" class="blog-tag-chip " data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="tag-count">29</span></a></div>
-<div class="blog-grid" id="blogGrid">
-<div class="blog-grid-item" data-title="ai ethics boards that never blocked a project" data-excerpt="meyer and rowan predicted that organizations adopt structures for legitimacy, not performance. ai ethics boards are the most direct example i have seen." data-tags="AI &amp; Agentic Systems,Organizational Theory" data-date="2026-05-14" data-slug="ai-ethics-ceremonial-adoption-isomorphism">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-ethics-ceremonial-adoption-isomorphism/">AI Ethics Boards That Never Blocked a Project</a></h2>
-</div>
-<p class="card-excerpt">Meyer and Rowan predicted that organizations adopt structures for legitimacy, not performance. AI ethics boards are the most direct example I have seen.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-ethics-ceremonial-adoption-isomorphism" title="Save for later" aria-label="Save AI Ethics Boards That Never Blocked a Project for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-ethics-ceremonial-adoption-isomorphism/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai adopted the way the garbage can model predicts" data-excerpt="cohen, march and olsen showed that solutions search for problems, not the other way around. most organizations adopted ai exactly that way between 2023 and 2025." data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="ai-garbage-can-model-adoption">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-garbage-can-model-adoption/">AI Adopted the Way the Garbage Can Model Predicts</a></h2>
-</div>
-<p class="card-excerpt">Cohen, March and Olsen showed that solutions search for problems, not the other way around. Most organizations adopted AI exactly that way between 2023 and 2025...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-garbage-can-model-adoption" title="Save for later" aria-label="Save AI Adopted the Way the Garbage Can Model Predicts for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-garbage-can-model-adoption/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai hallucination is a trust problem, not a technical one" data-excerpt="hallucination is framed as a retrieval bug to be engineered away. lee and see would call it a trust calibration failure, and that framing changes the solution entirely." data-tags="AI &amp; Agentic Systems,Trust &amp; Security" data-date="2026-05-14" data-slug="ai-hallucination-trust-problem">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-hallucination-trust-problem/">AI Hallucination Is a Trust Problem, Not a Technical One</a></h2>
-</div>
-<p class="card-excerpt">Hallucination is framed as a retrieval bug to be engineered away. Lee and See would call it a trust calibration failure, and that framing changes the solution e...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-hallucination-trust-problem" title="Save for later" aria-label="Save AI Hallucination Is a Trust Problem, Not a Technical One for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-hallucination-trust-problem/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="why doctors still resist better ai: identity, not accuracy" data-excerpt="ai outperforms radiologists at detection but hospitals do not adopt it. identity theory explains why. the tools that succeed will verify professional identity, not threaten it." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="ai-healthcare-identity-theory-professional">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-healthcare-identity-theory-professional/">Why Doctors Still Resist Better AI: Identity, Not Accuracy</a></h2>
-</div>
-<p class="card-excerpt">AI outperforms radiologists at detection but hospitals do not adopt it. Identity theory explains why. The tools that succeed will verify professional identity, ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-healthcare-identity-theory-professional" title="Save for later" aria-label="Save Why Doctors Still Resist Better AI: Identity, Not Accuracy for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-healthcare-identity-theory-professional/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the gap between fair metrics and fair experience (amazon&#x27;s ai hiring edition)" data-excerpt="kattnig et al. (2024) showed a model can satisfy every fairness metric and still feel deeply unfair. amazon&#x27;s ai hiring tool proved it with real damage." data-tags="AI &amp; Agentic Systems" data-date="2026-05-14" data-slug="ai-hiring-fairness-metric-experience-gap">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-hiring-fairness-metric-experience-gap/">The Gap Between Fair Metrics and Fair Experience (Amazon&#x27;s AI Hiring Edition)</a></h2>
-</div>
-<p class="card-excerpt">Kattnig et al. (2024) showed a model can satisfy every fairness metric and still feel deeply unfair. Amazon&#x27;s AI hiring tool proved it with real damage.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-hiring-fairness-metric-experience-gap" title="Save for later" aria-label="Save The Gap Between Fair Metrics and Fair Experience (Amazon&#x27;s AI Hiring Edition) for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-hiring-fairness-metric-experience-gap/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai implementation failures are sociotechnical, not technical" data-excerpt="bostrom and heinen said in 1977 that mis failures are sociotechnical. half a century later, ai implementation fails the same way." data-tags="AI &amp; Agentic Systems,IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="ai-implementation-failure-sociotechnical">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-implementation-failure-sociotechnical/">AI Implementation Failures Are Sociotechnical, Not Technical</a></h2>
-</div>
-<p class="card-excerpt">Bostrom and Heinen said in 1977 that MIS failures are sociotechnical. Half a century later, AI implementation fails the same way.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-implementation-failure-sociotechnical" title="Save for later" aria-label="Save AI Implementation Failures Are Sociotechnical, Not Technical for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-implementation-failure-sociotechnical/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai and the labor market: what is research can contribute" data-excerpt="economists study macro displacement. is researchers can study what actually happens inside organizations when ai changes specific jobs, roles, and power structures." data-tags="AI &amp; Agentic Systems,IS Research Methods,Organizational Theory" data-date="2026-05-14" data-slug="ai-labor-market-is-research">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-labor-market-is-research/">AI and the Labor Market: What IS Research Can Contribute</a></h2>
-</div>
-<p class="card-excerpt">Economists study macro displacement. IS researchers can study what actually happens inside organizations when AI changes specific jobs, roles, and power structu...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Research Methods</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-labor-market-is-research" title="Save for later" aria-label="Save AI and the Labor Market: What IS Research Can Contribute for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-labor-market-is-research/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="critical realism explains why ai models are not the mechanisms they simulate" data-excerpt="ai models predict patterns in observed data but never access the generative mechanisms that produce them. critical realism tells us why that ceiling is not a technical problem." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Research Methods" data-date="2026-05-14" data-slug="ai-models-critical-realism-mechanisms">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-models-critical-realism-mechanisms/">Critical Realism Explains Why AI Models Are Not the Mechanisms They Simulate</a></h2>
-</div>
-<p class="card-excerpt">AI models predict patterns in observed data but never access the generative mechanisms that produce them. Critical realism tells us why that ceiling is not a te...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-models-critical-realism-mechanisms" title="Save for later" aria-label="Save Critical Realism Explains Why AI Models Are Not the Mechanisms They Simulate for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-models-critical-realism-mechanisms/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="tiny teams, big questions: what happens when ai writes the code" data-excerpt="gartner says two-person ai-augmented teams will deliver what twenty-person teams do today. baird and maruping predicted this years ago. the real question is not team size but delegation governance." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory" data-date="2026-05-14" data-slug="ai-native-development-tiny-teams-delegation">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-native-development-tiny-teams-delegation/">Tiny Teams, Big Questions: What Happens When AI Writes the Code</a></h2>
-</div>
-<p class="card-excerpt">Gartner says two-person AI-augmented teams will deliver what twenty-person teams do today. Baird and Maruping predicted this years ago. The real question is not...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-native-development-tiny-teams-delegation" title="Save for later" aria-label="Save Tiny Teams, Big Questions: What Happens When AI Writes the Code for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-native-development-tiny-teams-delegation/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai has the strongest network effects ever, and that is a problem" data-excerpt="network effects theory explains why ai markets concentrate around a few providers and why the data flywheel makes it nearly impossible for new entrants to catch up." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="ai-network-effects-data-flywheel">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/ai-network-effects-data-flywheel/">AI Has The Strongest Network Effects Ever, And That Is a Problem</a></h2>
-</div>
-<p class="card-excerpt">Network effects theory explains why AI markets concentrate around a few providers and why the data flywheel makes it nearly impossible for new entrants to catch...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-network-effects-data-flywheel" title="Save for later" aria-label="Save AI Has The Strongest Network Effects Ever, And That Is a Problem for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-network-effects-data-flywheel/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="we learn to use ai by watching others, and that is why adoption is uneven" data-excerpt="social cognitive theory predicts that ai adoption clusters not by access but by observation: people adopt when they see peers succeed with ai, and the gap between teams with visible champions and those without will persist." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Technology Adoption" data-date="2026-05-14" data-slug="ai-observational-learning-social-cognitive">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-observational-learning-social-cognitive/">We Learn to Use AI by Watching Others, and That Is Why Adoption Is Uneven</a></h2>
-</div>
-<p class="card-excerpt">Social cognitive theory predicts that AI adoption clusters not by access but by observation: people adopt when they see peers succeed with AI, and the gap betwe...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-observational-learning-social-cognitive" title="Save for later" aria-label="Save We Learn to Use AI by Watching Others, and That Is Why Adoption Is Uneven for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-observational-learning-social-cognitive/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai output is a boundary object. that is why it is so hard to govern." data-excerpt="star and griesemer defined boundary objects in 1989. ai output fits the definition perfectly. and that is why every governance policy that treats it as a single type of thing fails." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="ai-output-boundary-objects">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/ai-output-boundary-objects/">AI Output Is a Boundary Object. That Is Why It Is So Hard to Govern.</a></h2>
-</div>
-<p class="card-excerpt">Star and Griesemer defined boundary objects in 1989. AI output fits the definition perfectly. And that is why every governance policy that treats it as a single...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-output-boundary-objects" title="Save for later" aria-label="Save AI Output Is a Boundary Object. That Is Why It Is So Hard to Govern. for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-output-boundary-objects/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai is not a tool. it is a participant in the work system." data-excerpt="alter&#x27;s work system framework already has a slot for ai. it is not the technology element. it is the participant element." data-tags="AI &amp; Agentic Systems,IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="ai-participant-work-systems-theory">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-participant-work-systems-theory/">AI Is Not a Tool. It Is a Participant in the Work System.</a></h2>
-</div>
-<p class="card-excerpt">Alter&#x27;s work system framework already has a slot for AI. It is not the technology element. It is the participant element.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-participant-work-systems-theory" title="Save for later" aria-label="Save AI Is Not a Tool. It Is a Participant in the Work System. for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-participant-work-systems-theory/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="why ai pilots don&#x27;t become products" data-excerpt="almost every large organization has run an ai pilot. very few of those pilots make it to production. that gap is not a data science problem." data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="ai-pilots-dont-become-products">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-pilots-dont-become-products/">Why AI Pilots Don&#x27;t Become Products</a></h2>
-</div>
-<p class="card-excerpt">Almost every large organization has run an AI pilot. Very few of those pilots make it to production. That gap is not a data science problem.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-pilots-dont-become-products" title="Save for later" aria-label="Save Why AI Pilots Don&#x27;t Become Products for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-pilots-dont-become-products/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="your ai policy is just your old it policy with ai pasted in" data-excerpt="almost every ai policy is a find-and-replaced it acceptable-use policy. dimaggio and powell explain why that pattern is not lazy. it is institutional isomorphism." data-tags="AI &amp; Agentic Systems,Organizational Theory" data-date="2026-05-14" data-slug="ai-policy-governance-theater-isomorphism">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-policy-governance-theater-isomorphism/">Your AI Policy Is Just Your Old IT Policy With AI Pasted In</a></h2>
-</div>
-<p class="card-excerpt">Almost every AI policy is a find-and-replaced IT acceptable-use policy. DiMaggio and Powell explain why that pattern is not lazy. It is institutional isomorphis...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-policy-governance-theater-isomorphism" title="Save for later" aria-label="Save Your AI Policy Is Just Your Old IT Policy With AI Pasted In for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-policy-governance-theater-isomorphism/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai regulation: why every country is writing different rules" data-excerpt="the eu has comprehensive legislation. the us has executive orders. china has sector-specific rules. the uk has no ai-specific law. organizations operating globally must navigate all four simultaneously." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections" data-date="2026-05-14" data-slug="ai-regulation-global-landscape">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-regulation-global-landscape/">AI Regulation: Why Every Country Is Writing Different Rules</a></h2>
-</div>
-<p class="card-excerpt">The EU has comprehensive legislation. The US has executive orders. China has sector-specific rules. The UK has no AI-specific law. Organizations operating globa...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-regulation-global-landscape" title="Save for later" aria-label="Save AI Regulation: Why Every Country Is Writing Different Rules for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-regulation-global-landscape/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai is forcing is research methods to evolve. here is what should change." data-excerpt="is research methods assume technology is stable and humans adapt. ai inverts that assumption, and our methods have not caught up." data-tags="AI &amp; Agentic Systems,IS Research Methods" data-date="2026-05-14" data-slug="ai-is-research-methods-evolution">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/ai-is-research-methods-evolution/">AI Is Forcing IS Research Methods to Evolve. Here Is What Should Change.</a></h2>
-</div>
-<p class="card-excerpt">IS research methods assume technology is stable and humans adapt. AI inverts that assumption, and our methods have not caught up.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-is-research-methods-evolution" title="Save for later" aria-label="Save AI Is Forcing IS Research Methods to Evolve. Here Is What Should Change. for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-is-research-methods-evolution/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai safety frameworks are pmt without using the name" data-excerpt="ai safety warnings raise threat appraisal sky high. without coping appraisal, they produce fear control, not safety." data-tags="AI &amp; Agentic Systems,IS Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="ai-safety-pmt-fear-danger">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-safety-pmt-fear-danger/">AI Safety Frameworks Are PMT Without Using the Name</a></h2>
-</div>
-<p class="card-excerpt">AI safety warnings raise threat appraisal sky high. Without coping appraisal, they produce fear control, not safety.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-safety-pmt-fear-danger" title="Save for later" aria-label="Save AI Safety Frameworks Are PMT Without Using the Name for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-safety-pmt-fear-danger/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai security platforms are governance boundary resources" data-excerpt="when 80% of unauthorized ai use is internal policy violations, ai security platforms are governance products, not security products." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory,Platforms &amp; Ecosystems,Trust &amp; Security" data-date="2026-05-14" data-slug="ai-security-platforms-governance-boundary-resources">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-security-platforms-governance-boundary-resources/">AI Security Platforms Are Governance Boundary Resources</a></h2>
-</div>
-<p class="card-excerpt">When 80% of unauthorized AI use is internal policy violations, AI security platforms are governance products, not security products.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span><span class="tag">Platforms &amp; Ecosystems</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-security-platforms-governance-boundary-resources" title="Save for later" aria-label="Save AI Security Platforms Are Governance Boundary Resources for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-security-platforms-governance-boundary-resources/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai self-efficacy is the new digital divide" data-excerpt="access to ai tools is not the barrier. the belief that you can use them effectively is what separates who gains and who falls behind." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Platforms &amp; Ecosystems,Technology Adoption" data-date="2026-05-14" data-slug="ai-self-efficacy-digital-divide">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-self-efficacy-digital-divide/">AI Self-Efficacy Is the New Digital Divide</a></h2>
-</div>
-<p class="card-excerpt">Access to AI tools is not the barrier. The belief that you can use them effectively is what separates who gains and who falls behind.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-self-efficacy-digital-divide" title="Save for later" aria-label="Save AI Self-Efficacy Is the New Digital Divide for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-self-efficacy-digital-divide/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div>
-<div class="blog-empty-state" style="display:none"><i class="fas fa-search"></i><h3>No posts found</h3><p>Try a different search term.</p></div>
-</div>
-<div class="blog-pagination"><a href="/blog/">1</a><span class="current">2</span><a href="/blog/page/3/">3</a><a href="/blog/page/4/">4</a><a href="/blog/page/5/">5</a><a href="/blog/page/6/">6</a><a href="/blog/page/7/">7</a><a href="/blog/page/8/">8</a><a href="/blog/page/9/">9</a><a href="/blog/page/10/">10</a><a href="/blog/page/11/">11</a><a href="/blog/page/12/">12</a><a href="/blog/page/13/">13</a></div>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-</div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
 </body></html>

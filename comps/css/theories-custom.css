@@ -1,0 +1,378 @@
+/* Theory Encyclopedia - Session3-Style Clean Design */
+
+/* Theory Type Badges */
+.theory-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: 0.75rem;
+    vertical-align: middle;
+}
+
+.badge-meta {
+    background: #ede9fe;
+    color: #6d28d9;
+    border: 1px solid #c4b5fd;
+}
+
+.badge-is-native {
+    background: #d1fae5;
+    color: #059669;
+    border: 1px solid #6ee7b7;
+}
+
+.badge-borrowed {
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #93c5fd;
+}
+
+/* Part Dividers - Same as Session Header */
+.part-divider {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1e3a5f 100%);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    margin: 3rem 0 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.part-divider h2 {
+    color: white;
+    margin: 0;
+    border: none;
+    font-size: 1.4rem;
+}
+
+.part-count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/* Statistics Box */
+.stats-box {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Key Term Highlight - Using built-in mark style */
+.key-term {
+    background-color: var(--highlight-color);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+/* Construct Badge - Clean emphasis without background */
+.construct-badge {
+    font-weight: 600;
+    color: inherit;
+}
+
+/* Exam Tip - Using success-box colors */
+.exam-tip {
+    background: var(--success-bg);
+    border-left: 4px solid var(--success-border);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+}
+
+.exam-tip::before {
+    content: "🎯 Exam Tip: ";
+    font-weight: 700;
+    color: var(--success-border);
+}
+
+/* Critical Point - Using warning-box colors */
+.critical-point {
+    background: var(--warning-bg);
+    border-left: 4px solid var(--warning-border);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+}
+
+.critical-point::before {
+    content: "⚠️ Important: ";
+    font-weight: 700;
+    color: #b45309;
+}
+
+/* Key Insight - Using info-box colors */
+.key-insight {
+    background: var(--info-bg);
+    border-left: 4px solid var(--info-border);
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+}
+
+.key-insight::before {
+    content: "💡 Key Insight: ";
+    font-weight: 700;
+    color: var(--info-border);
+}
+
+/* Mechanism Highlight - Synthesis style */
+.mechanism-highlight {
+    background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%);
+    border-left: 4px solid #c4b5fd;
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+}
+
+.mechanism-highlight strong:first-child {
+    color: #6d28d9;
+}
+
+/* Theory List - Clean bullets */
+.theory-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.75rem 0;
+}
+
+.theory-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.theory-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Four Elements Grid */
+.four-elements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.element-card {
+    background: var(--bg-light);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.element-card h4 {
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.element-card p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Framework Steps - Numbered circles */
+.framework-steps {
+    counter-reset: step-counter;
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.framework-steps li {
+    counter-increment: step-counter;
+    position: relative;
+    padding-left: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.framework-steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--primary-color);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Clean Table of Contents */
+.toc-container {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0;
+}
+
+.toc-part {
+    margin-bottom: 1.5rem;
+}
+
+.toc-part-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-light);
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.toc-part-header .part-count {
+    margin-left: auto;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.25rem 1rem;
+    padding-left: 1.5rem;
+}
+
+.toc-list li {
+    margin: 0;
+    padding: 0;
+}
+
+.toc-list a {
+    display: block;
+    padding: 0.35rem 0.75rem;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.toc-list a:hover {
+    background: #e5edff;
+}
+
+.toc-list a::before {
+    content: "→ ";
+    color: var(--primary-light);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .part-divider {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .four-elements {
+        grid-template-columns: 1fr;
+    }
+
+    .toc-list {
+        grid-template-columns: 1fr;
+    }
+
+    .toc-container {
+        padding: 1rem;
+    }
+}
+
+/* Print */
+@media print {
+    .part-divider {
+        background: var(--primary-color) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .exam-tip,
+    .critical-point,
+    .key-insight,
+    .mechanism-highlight {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        page-break-inside: avoid;
+    }
+
+    .toc-container {
+        page-break-inside: avoid;
+        border: 1px solid #ccc;
+    }
+
+    .toc-part-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .toc-list a::before {
+        content: "• ";
+    }
+
+    .paper-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .theory-badge,
+    .badge-meta,
+    .badge-is-native,
+    .badge-borrowed {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

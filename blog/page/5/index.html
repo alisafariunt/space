@@ -1,376 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Ali Safari</title><meta name="description" content="Ali Safari's blog on Information Systems research, AI, security, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Blog | Ali Safari"><meta property="og:description" content="Information Systems research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<title>Field Notes | Ali Safari</title><meta name="description" content="Ali Safari's notes on Information Systems research, AI, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Field Notes | Ali Safari"><meta property="og:description" content="Notes on IS research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="canonical" href="https://alisafari.space/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Ali Safari Blog","description":"Thoughts on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Field Notes — Ali Safari","description":"Notes on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
 </head>
-<body class="blog-page">
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="index">
+<header class="masthead">
+<div class="masthead-kicker">Field Notes &mdash; Ali Safari &mdash; 258 notes</div>
+<h1 class="masthead-title">Field<br>Notes.</h1>
+<div class="masthead-bottom">
+<p class="masthead-dek">Honest reactions to IS research, AI, and the theory I'm studying for comps. No summaries.</p>
+<div class="masthead-stats">
+<div><b>258</b> Posts</div>
+<div><b>10</b> Topics</div>
 </div>
-</div></nav>
-<header class="blog-header">
-<h1>Blog</h1>
-<p class="blog-subtitle">Thoughts on IS theory, AI, technology, and comps studying. No summaries, just honest reactions.</p>
-<div class="blog-meta">
-<span class="blog-meta-item"><i class="fas fa-pen-nib"></i> 258 posts</span>
-<span class="blog-meta-item"><i class="fas fa-tags"></i> 10 topics</span>
 </div>
 </header>
-<section class="blog-stats-bar">
-<div class="blog-stat"><span class="blog-stat-value">258</span><div class="blog-stat-label">Posts</div></div>
-<div class="blog-stat"><span class="blog-stat-value">10</span><div class="blog-stat-label">Topics</div></div>
-<div class="blog-stat"><span class="blog-stat-value">2026</span><div class="blog-stat-label">Latest</div></div>
-</section>
-<div class="blog-controls">
-<div class="blog-search-box"><i class="fas fa-search"></i><input type="text" id="blogSearch" placeholder="Search posts by title or content..." autocomplete="off"></div>
-<div class="blog-filter-sort">
-<button class="blog-filter-btn active" data-sort="newest"><i class="fas fa-sort-amount-down"></i> Newest</button>
-<button class="blog-filter-btn" data-sort="oldest"><i class="fas fa-sort-amount-up"></i> Oldest</button>
+<div class="controls">
+<div class="search-wrap">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="blogSearch" placeholder="Search notes…" autocomplete="off">
+</div>
+<div class="seg">
+<button class="on" data-sort="newest">Newest</button>
+<button data-sort="oldest">Oldest</button>
+</div>
+</div>
+<div class="tags" id="tagFilters"><button class="tag-chip on" data-tag="all">All <span class="n">258</span></button><button class="tag-chip" data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="n">86</span></button><button class="tag-chip" data-tag="IS Theory">IS Theory <span class="n">82</span></button><button class="tag-chip" data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="n">77</span></button><button class="tag-chip" data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="n">74</span></button><button class="tag-chip" data-tag="Organizational Theory">Organizational Theory <span class="n">72</span></button><button class="tag-chip" data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="n">47</span></button><button class="tag-chip" data-tag="IS Research Methods">IS Research Methods <span class="n">43</span></button><button class="tag-chip" data-tag="Technology Adoption">Technology Adoption <span class="n">32</span></button><button class="tag-chip" data-tag="Trust &amp; Security">Trust &amp; Security <span class="n">31</span></button><button class="tag-chip" data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="n">29</span></button></div>
+
+<div class="post-list" id="postList">
+<div class="post-row" data-title="the world exists whether you measure it or not" data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="critical-realism-is-research" onclick="location.href='/blog/critical-realism-is-research/'"><div class="pr-n">81</div><div class="pr-body"><div class="pr-title"><a href="/blog/critical-realism-is-research/">The World Exists Whether You Measure It or Not</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="the crowdstrike outage and why every &#x27;minor update&#x27; is a structural risk" data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Trust &amp; Security" data-date="2026-05-14" data-slug="crowdstrike-outage-minor-update-structural-risk" onclick="location.href='/blog/crowdstrike-outage-minor-update-structural-risk/'"><div class="pr-n">82</div><div class="pr-body"><div class="pr-title"><a href="/blog/crowdstrike-outage-minor-update-structural-risk/">The CrowdStrike Outage and Why Every &#x27;Minor Update&#x27; Is a Structural Risk</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="cybersecurity in critical infrastructure: when the stakes are physical" data-tags="Trust &amp; Security" data-date="2026-05-14" data-slug="cybersecurity-critical-infrastructure" onclick="location.href='/blog/cybersecurity-critical-infrastructure/'"><div class="pr-n">83</div><div class="pr-body"><div class="pr-title"><a href="/blog/cybersecurity-critical-infrastructure/">Cybersecurity in Critical Infrastructure: When the Stakes Are Physical</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Trust &amp; Security</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="cybersecurity mesh: when the perimeter finally stopped making sense" data-tags="Trust &amp; Security" data-date="2026-05-14" data-slug="cybersecurity-mesh-architecture" onclick="location.href='/blog/cybersecurity-mesh-architecture/'"><div class="pr-n">84</div><div class="pr-body"><div class="pr-title"><a href="/blog/cybersecurity-mesh-architecture/">Cybersecurity Mesh: When the Perimeter Finally Stopped Making Sense</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Trust &amp; Security</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="why no one reads your dashboard" data-tags="Comps &amp; Reflections,IS Theory,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="dashboard-effective-use-information-quality" onclick="location.href='/blog/dashboard-effective-use-information-quality/'"><div class="pr-n">85</div><div class="pr-body"><div class="pr-title"><a href="/blog/dashboard-effective-use-information-quality/">Why No One Reads Your Dashboard</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="why data governance fails without executive sponsorship" data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="data-governance-executive-sponsorship" onclick="location.href='/blog/data-governance-executive-sponsorship/'"><div class="pr-n">86</div><div class="pr-body"><div class="pr-title"><a href="/blog/data-governance-executive-sponsorship/">Why Data Governance Fails Without Executive Sponsorship</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div><div class="post-row" data-title="the data lakehouse: how we stopped copying data between systems" data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="data-lakehouse-architecture" onclick="location.href='/blog/data-lakehouse-architecture/'"><div class="pr-n">87</div><div class="pr-body"><div class="pr-title"><a href="/blog/data-lakehouse-architecture/">The Data Lakehouse: How We Stopped Copying Data Between Systems</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="data mesh vs. data warehouse: the architecture wars are a distraction" data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="data-mesh-vs-data-warehouse" onclick="location.href='/blog/data-mesh-vs-data-warehouse/'"><div class="pr-n">88</div><div class="pr-body"><div class="pr-title"><a href="/blog/data-mesh-vs-data-warehouse/">Data Mesh vs. Data Warehouse: The Architecture Wars Are a Distraction</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="design science is not just building things" data-tags="IS Research Methods,IS Theory,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="design-science-is-not-just-building-things" onclick="location.href='/blog/design-science-is-not-just-building-things/'"><div class="pr-n">89</div><div class="pr-body"><div class="pr-title"><a href="/blog/design-science-is-not-just-building-things/">Design Science Is Not Just Building Things</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="design science research in is: building things that produce knowledge" data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="design-science-research-is" onclick="location.href='/blog/design-science-research-is/'"><div class="pr-n">90</div><div class="pr-body"><div class="pr-title"><a href="/blog/design-science-research-is/">Design Science Research in IS: Building Things That Produce Knowledge</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="devops is not a tool, it is a culture problem" data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="devops-culture-not-tools" onclick="location.href='/blog/devops-culture-not-tools/'"><div class="pr-n">91</div><div class="pr-body"><div class="pr-title"><a href="/blog/devops-culture-not-tools/">DevOps Is Not a Tool, It Is a Culture Problem</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div><div class="post-row" data-title="digital colonialism and what is research gets wrong" data-tags="IS Research Methods,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="digital-colonialism-tech-imperialism" onclick="location.href='/blog/digital-colonialism-tech-imperialism/'"><div class="pr-n">92</div><div class="pr-body"><div class="pr-title"><a href="/blog/digital-colonialism-tech-imperialism/">Digital Colonialism and What IS Research Gets Wrong</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the digital divide is not just about access" data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="digital-divide-beyond-access" onclick="location.href='/blog/digital-divide-beyond-access/'"><div class="pr-n">93</div><div class="pr-body"><div class="pr-title"><a href="/blog/digital-divide-beyond-access/">The Digital Divide Is Not Just About Access</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="digital ethics: beyond compliance" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Research Methods,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="digital-ethics-beyond-compliance" onclick="location.href='/blog/digital-ethics-beyond-compliance/'"><div class="pr-n">94</div><div class="pr-body"><div class="pr-title"><a href="/blog/digital-ethics-beyond-compliance/">Digital Ethics: Beyond Compliance</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="digital identity: who are you, online?" data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="digital-identity-who-are-you-online" onclick="location.href='/blog/digital-identity-who-are-you-online/'"><div class="pr-n">95</div><div class="pr-body"><div class="pr-title"><a href="/blog/digital-identity-who-are-you-online/">Digital Identity: Who Are You, Online?</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the cio used to keep the lights on. now what?" data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="digital-leadership-cio-cdo-role" onclick="location.href='/blog/digital-leadership-cio-cdo-role/'"><div class="pr-n">96</div><div class="pr-body"><div class="pr-title"><a href="/blog/digital-leadership-cio-cdo-role/">The CIO Used to Keep the Lights On. Now What?</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="who designed that default? you did." data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="digital-nudging-choice-architecture-is" onclick="location.href='/blog/digital-nudging-choice-architecture-is/'"><div class="pr-n">97</div><div class="pr-body"><div class="pr-title"><a href="/blog/digital-nudging-choice-architecture-is/">Who Designed That Default? You Did.</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="digital product management: when it projects become products" data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="digital-product-management-is" onclick="location.href='/blog/digital-product-management-is/'"><div class="pr-n">98</div><div class="pr-body"><div class="pr-title"><a href="/blog/digital-product-management-is/">Digital Product Management: When IT Projects Become Products</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="digital provenance is trust calibration infrastructure" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Trust &amp; Security" data-date="2026-05-14" data-slug="digital-provenance-trust-calibration" onclick="location.href='/blog/digital-provenance-trust-calibration/'"><div class="pr-n">99</div><div class="pr-body"><div class="pr-title"><a href="/blog/digital-provenance-trust-calibration/">Digital Provenance Is Trust Calibration Infrastructure</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div><div class="post-row" data-title="digital sovereignty and the politics of where your data lives" data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Trust &amp; Security" data-date="2026-05-14" data-slug="digital-sovereignty-data-politics" onclick="location.href='/blog/digital-sovereignty-data-politics/'"><div class="pr-n">100</div><div class="pr-body"><div class="pr-title"><a href="/blog/digital-sovereignty-data-politics/">Digital Sovereignty and the Politics of Where Your Data Lives</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div>
+<div id="emptyState" style="display:none;padding:64px 0;font-family:var(--f-mono);font-size:13px;color:var(--ink-4);letter-spacing:.07em;text-transform:uppercase;">No notes found</div>
+<div class="pgn"><a href="/blog/page/4/" class="pgn-step">&#8592; Prev</a><div class="pgn-nums"><button onclick="location.href='/blog/'">1</button><button onclick="location.href='/blog/page/2/'">2</button><button onclick="location.href='/blog/page/3/'">3</button><button onclick="location.href='/blog/page/4/'">4</button><span class="cur">5</span><button onclick="location.href='/blog/page/6/'">6</button><button onclick="location.href='/blog/page/7/'">7</button><button onclick="location.href='/blog/page/8/'">8</button><button onclick="location.href='/blog/page/9/'">9</button><button onclick="location.href='/blog/page/10/'">10</button><button onclick="location.href='/blog/page/11/'">11</button><button onclick="location.href='/blog/page/12/'">12</button><button onclick="location.href='/blog/page/13/'">13</button></div><a href="/blog/page/6/" class="pgn-step">Next &#8594;</a></div>
+</div>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="blog-tag-filters"><a href="/blog/" class="blog-tag-chip active" data-tag="all">All <span class="tag-count">258</span></a><a href="/blog/?tag=Comps &amp; Reflections" class="blog-tag-chip " data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="tag-count">86</span></a><a href="/blog/?tag=IS Theory" class="blog-tag-chip " data-tag="IS Theory">IS Theory <span class="tag-count">82</span></a><a href="/blog/?tag=IT Governance &amp; Strategy" class="blog-tag-chip " data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="tag-count">77</span></a><a href="/blog/?tag=AI &amp; Agentic Systems" class="blog-tag-chip " data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="tag-count">74</span></a><a href="/blog/?tag=Organizational Theory" class="blog-tag-chip " data-tag="Organizational Theory">Organizational Theory <span class="tag-count">72</span></a><a href="/blog/?tag=Platforms &amp; Ecosystems" class="blog-tag-chip " data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="tag-count">47</span></a><a href="/blog/?tag=IS Research Methods" class="blog-tag-chip " data-tag="IS Research Methods">IS Research Methods <span class="tag-count">43</span></a><a href="/blog/?tag=Technology Adoption" class="blog-tag-chip " data-tag="Technology Adoption">Technology Adoption <span class="tag-count">32</span></a><a href="/blog/?tag=Trust &amp; Security" class="blog-tag-chip " data-tag="Trust &amp; Security">Trust &amp; Security <span class="tag-count">31</span></a><a href="/blog/?tag=Sociotechnical Systems" class="blog-tag-chip " data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="tag-count">29</span></a></div>
-<div class="blog-grid" id="blogGrid">
-<div class="blog-grid-item" data-title="the world exists whether you measure it or not" data-excerpt="critical realism says reality has layers we cannot fully observe, and most is research ignores the deepest one." data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="critical-realism-is-research">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/critical-realism-is-research/">The World Exists Whether You Measure It or Not</a></h2>
-</div>
-<p class="card-excerpt">Critical realism says reality has layers we cannot fully observe, and most IS research ignores the deepest one.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="critical-realism-is-research" title="Save for later" aria-label="Save The World Exists Whether You Measure It or Not for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/critical-realism-is-research/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the crowdstrike outage and why every &#x27;minor update&#x27; is a structural risk" data-excerpt="a routine config update grounded airlines and froze hospitals. the risk was not the update but the architecture that pushed it everywhere at once." data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Trust &amp; Security" data-date="2026-05-14" data-slug="crowdstrike-outage-minor-update-structural-risk">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/crowdstrike-outage-minor-update-structural-risk/">The CrowdStrike Outage and Why Every &#x27;Minor Update&#x27; Is a Structural Risk</a></h2>
-</div>
-<p class="card-excerpt">A routine config update grounded airlines and froze hospitals. The risk was not the update but the architecture that pushed it everywhere at once.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="crowdstrike-outage-minor-update-structural-risk" title="Save for later" aria-label="Save The CrowdStrike Outage and Why Every &#x27;Minor Update&#x27; Is a Structural Risk for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/crowdstrike-outage-minor-update-structural-risk/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="cybersecurity in critical infrastructure: when the stakes are physical" data-excerpt="most cyber attacks hit data. critical infrastructure attacks hit pipelines, power grids, and hospitals. the consequences are physical, and the security disciplines are different." data-tags="Trust &amp; Security" data-date="2026-05-14" data-slug="cybersecurity-critical-infrastructure">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/cybersecurity-critical-infrastructure/">Cybersecurity in Critical Infrastructure: When the Stakes Are Physical</a></h2>
-</div>
-<p class="card-excerpt">Most cyber attacks hit data. Critical infrastructure attacks hit pipelines, power grids, and hospitals. The consequences are physical, and the security discipli...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="cybersecurity-critical-infrastructure" title="Save for later" aria-label="Save Cybersecurity in Critical Infrastructure: When the Stakes Are Physical for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/cybersecurity-critical-infrastructure/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="cybersecurity mesh: when the perimeter finally stopped making sense" data-excerpt="the castle-and-moat model of security was built for a world where the data stayed inside. that world is gone." data-tags="Trust &amp; Security" data-date="2026-05-14" data-slug="cybersecurity-mesh-architecture">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/cybersecurity-mesh-architecture/">Cybersecurity Mesh: When the Perimeter Finally Stopped Making Sense</a></h2>
-</div>
-<p class="card-excerpt">The castle-and-moat model of security was built for a world where the data stayed inside. That world is gone.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="cybersecurity-mesh-architecture" title="Save for later" aria-label="Save Cybersecurity Mesh: When the Perimeter Finally Stopped Making Sense for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/cybersecurity-mesh-architecture/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="why no one reads your dashboard" data-excerpt="dashboards fail when they are built for reporting instead of decision-making. delone and mclean show why, and torres and sidorova show what to do about it." data-tags="Comps &amp; Reflections,IS Theory,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="dashboard-effective-use-information-quality">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/dashboard-effective-use-information-quality/">Why No One Reads Your Dashboard</a></h2>
-</div>
-<p class="card-excerpt">Dashboards fail when they are built for reporting instead of decision-making. DeLone and McLean show why, and Torres and Sidorova show what to do about it.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="dashboard-effective-use-information-quality" title="Save for later" aria-label="Save Why No One Reads Your Dashboard for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/dashboard-effective-use-information-quality/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="why data governance fails without executive sponsorship" data-excerpt="data governance fails more often as a political problem than a technical one. without someone with real authority, no amount of tooling resolves conflicting data definitions." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="data-governance-executive-sponsorship">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/data-governance-executive-sponsorship/">Why Data Governance Fails Without Executive Sponsorship</a></h2>
-</div>
-<p class="card-excerpt">Data governance fails more often as a political problem than a technical one. Without someone with real authority, no amount of tooling resolves conflicting dat...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="data-governance-executive-sponsorship" title="Save for later" aria-label="Save Why Data Governance Fails Without Executive Sponsorship for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/data-governance-executive-sponsorship/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the data lakehouse: how we stopped copying data between systems" data-excerpt="the lakehouse architecture combines the cheap storage of data lakes with the transactional guarantees of data warehouses, and the governance challenge is what makes or breaks it." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="data-lakehouse-architecture">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/data-lakehouse-architecture/">The Data Lakehouse: How We Stopped Copying Data Between Systems</a></h2>
-</div>
-<p class="card-excerpt">The lakehouse architecture combines the cheap storage of data lakes with the transactional guarantees of data warehouses, and the governance challenge is what m...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="data-lakehouse-architecture" title="Save for later" aria-label="Save The Data Lakehouse: How We Stopped Copying Data Between Systems for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/data-lakehouse-architecture/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="data mesh vs. data warehouse: the architecture wars are a distraction" data-excerpt="the data architecture debate between centralized warehouses and data mesh has generated enormous noise. the actual choice depends on your organization, not your preferences." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="data-mesh-vs-data-warehouse">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/data-mesh-vs-data-warehouse/">Data Mesh vs. Data Warehouse: The Architecture Wars Are a Distraction</a></h2>
-</div>
-<p class="card-excerpt">The data architecture debate between centralized warehouses and data mesh has generated enormous noise. The actual choice depends on your organization, not your...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="data-mesh-vs-data-warehouse" title="Save for later" aria-label="Save Data Mesh vs. Data Warehouse: The Architecture Wars Are a Distraction for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/data-mesh-vs-data-warehouse/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="design science is not just building things" data-excerpt="building a working artifact is necessary but not sufficient for design science research. the real question is whether your artifact produces generalizable knowledge grounded in theory." data-tags="IS Research Methods,IS Theory,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="design-science-is-not-just-building-things">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/design-science-is-not-just-building-things/">Design Science Is Not Just Building Things</a></h2>
-</div>
-<p class="card-excerpt">Building a working artifact is necessary but not sufficient for design science research. The real question is whether your artifact produces generalizable knowl...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="design-science-is-not-just-building-things" title="Save for later" aria-label="Save Design Science Is Not Just Building Things for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/design-science-is-not-just-building-things/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="design science research in is: building things that produce knowledge" data-excerpt="hevner et al. (2004) argued that is should not only explain and predict but also build and evaluate artifacts. twenty years later, the paper still shapes how we think about what counts as is research." data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="design-science-research-is">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/design-science-research-is/">Design Science Research in IS: Building Things That Produce Knowledge</a></h2>
-</div>
-<p class="card-excerpt">Hevner et al. (2004) argued that IS should not only explain and predict but also build and evaluate artifacts. Twenty years later, the paper still shapes how we...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="design-science-research-is" title="Save for later" aria-label="Save Design Science Research in IS: Building Things That Produce Knowledge for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/design-science-research-is/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="devops is not a tool, it is a culture problem" data-excerpt="organizations buy ci/cd pipelines and call it devops. the dora research says the differentiating factor is culture, not tooling." data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="devops-culture-not-tools">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/devops-culture-not-tools/">DevOps Is Not a Tool, It Is a Culture Problem</a></h2>
-</div>
-<p class="card-excerpt">Organizations buy CI/CD pipelines and call it DevOps. The DORA research says the differentiating factor is culture, not tooling.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="devops-culture-not-tools" title="Save for later" aria-label="Save DevOps Is Not a Tool, It Is a Culture Problem for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/devops-culture-not-tools/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="digital colonialism and what is research gets wrong" data-excerpt="a handful of us and chinese companies control most of the internet&#x27;s infrastructure. is research still treats western organizational contexts as the default." data-tags="IS Research Methods,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="digital-colonialism-tech-imperialism">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/digital-colonialism-tech-imperialism/">Digital Colonialism and What IS Research Gets Wrong</a></h2>
-</div>
-<p class="card-excerpt">A handful of US and Chinese companies control most of the internet&#x27;s infrastructure. IS research still treats Western organizational contexts as the default.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="digital-colonialism-tech-imperialism" title="Save for later" aria-label="Save Digital Colonialism and What IS Research Gets Wrong for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/digital-colonialism-tech-imperialism/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the digital divide is not just about access" data-excerpt="subsidized broadband matters. but the gap between having internet and using it to improve your life is wider than the access frame admits." data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="digital-divide-beyond-access">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/digital-divide-beyond-access/">The Digital Divide Is Not Just About Access</a></h2>
-</div>
-<p class="card-excerpt">Subsidized broadband matters. But the gap between having internet and using it to improve your life is wider than the access frame admits.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="digital-divide-beyond-access" title="Save for later" aria-label="Save The Digital Divide Is Not Just About Access for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/digital-divide-beyond-access/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="digital ethics: beyond compliance" data-excerpt="compliance asks &#x27;are we allowed to do this?&#x27; ethics asks &#x27;should we do this?&#x27; in most organizations, the first question is answered and the second is never asked." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Research Methods,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="digital-ethics-beyond-compliance">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/digital-ethics-beyond-compliance/">Digital Ethics: Beyond Compliance</a></h2>
-</div>
-<p class="card-excerpt">Compliance asks &#x27;are we allowed to do this?&#x27; Ethics asks &#x27;should we do this?&#x27; In most organizations, the first question is answered and the second is never aske...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Research Methods</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="digital-ethics-beyond-compliance" title="Save for later" aria-label="Save Digital Ethics: Beyond Compliance for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/digital-ethics-beyond-compliance/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="digital identity: who are you, online?" data-excerpt="most people have dozens of digital identities that don&#x27;t talk to each other. the vision of user-controlled identity has been under development for years and remains largely unrealized." data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="digital-identity-who-are-you-online">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/digital-identity-who-are-you-online/">Digital Identity: Who Are You, Online?</a></h2>
-</div>
-<p class="card-excerpt">Most people have dozens of digital identities that don&#x27;t talk to each other. The vision of user-controlled identity has been under development for years and rem...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="digital-identity-who-are-you-online" title="Save for later" aria-label="Save Digital Identity: Who Are You, Online? for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/digital-identity-who-are-you-online/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the cio used to keep the lights on. now what?" data-excerpt="the cio role has shifted from infrastructure steward to business strategy partner, but most organizations have not figured out what that actually requires." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="digital-leadership-cio-cdo-role">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/digital-leadership-cio-cdo-role/">The CIO Used to Keep the Lights On. Now What?</a></h2>
-</div>
-<p class="card-excerpt">The CIO role has shifted from infrastructure steward to business strategy partner, but most organizations have not figured out what that actually requires.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="digital-leadership-cio-cdo-role" title="Save for later" aria-label="Save The CIO Used to Keep the Lights On. Now What? for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/digital-leadership-cio-cdo-role/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="who designed that default? you did." data-excerpt="every default in a digital system is a design choice with behavioral consequences. is designers are choice architects whether they admit it or not." data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="digital-nudging-choice-architecture-is">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/digital-nudging-choice-architecture-is/">Who Designed That Default? You Did.</a></h2>
-</div>
-<p class="card-excerpt">Every default in a digital system is a design choice with behavioral consequences. IS designers are choice architects whether they admit it or not.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="digital-nudging-choice-architecture-is" title="Save for later" aria-label="Save Who Designed That Default? You Did. for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/digital-nudging-choice-architecture-is/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="digital product management: when it projects become products" data-excerpt="a project ends when you ship. a product never really finishes. organizations that still run it like a project shop while trying to compete in a product-driven market have a structural problem." data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="digital-product-management-is">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/digital-product-management-is/">Digital Product Management: When IT Projects Become Products</a></h2>
-</div>
-<p class="card-excerpt">A project ends when you ship. A product never really finishes. Organizations that still run IT like a project shop while trying to compete in a product-driven m...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="digital-product-management-is" title="Save for later" aria-label="Save Digital Product Management: When IT Projects Become Products for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/digital-product-management-is/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="digital provenance is trust calibration infrastructure" data-excerpt="digital provenance (boms, attestation databases, watermarking) gives users verifiable information about system origin and integrity. it is the first trust calibration mechanism that works at infrastructure level rather than requiring individual evaluation." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Trust &amp; Security" data-date="2026-05-14" data-slug="digital-provenance-trust-calibration">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/digital-provenance-trust-calibration/">Digital Provenance Is Trust Calibration Infrastructure</a></h2>
-</div>
-<p class="card-excerpt">Digital provenance (BOMs, attestation databases, watermarking) gives users verifiable information about system origin and integrity. It is the first trust calib...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="digital-provenance-trust-calibration" title="Save for later" aria-label="Save Digital Provenance Is Trust Calibration Infrastructure for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/digital-provenance-trust-calibration/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="digital sovereignty and the politics of where your data lives" data-excerpt="where data is stored and processed has become a geopolitical question, not just a technical one. gdpr, schrems ii, and chip export controls explain why." data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Trust &amp; Security" data-date="2026-05-14" data-slug="digital-sovereignty-data-politics">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/digital-sovereignty-data-politics/">Digital Sovereignty and the Politics of Where Your Data Lives</a></h2>
-</div>
-<p class="card-excerpt">Where data is stored and processed has become a geopolitical question, not just a technical one. GDPR, Schrems II, and chip export controls explain why.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="digital-sovereignty-data-politics" title="Save for later" aria-label="Save Digital Sovereignty and the Politics of Where Your Data Lives for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/digital-sovereignty-data-politics/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div>
-<div class="blog-empty-state" style="display:none"><i class="fas fa-search"></i><h3>No posts found</h3><p>Try a different search term.</p></div>
-</div>
-<div class="blog-pagination"><a href="/blog/">1</a><a href="/blog/page/2/">2</a><a href="/blog/page/3/">3</a><a href="/blog/page/4/">4</a><span class="current">5</span><a href="/blog/page/6/">6</a><a href="/blog/page/7/">7</a><a href="/blog/page/8/">8</a><a href="/blog/page/9/">9</a><a href="/blog/page/10/">10</a><a href="/blog/page/11/">11</a><a href="/blog/page/12/">12</a><a href="/blog/page/13/">13</a></div>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-</div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
 </body></html>

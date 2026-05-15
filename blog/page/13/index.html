@@ -1,346 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Ali Safari</title><meta name="description" content="Ali Safari's blog on Information Systems research, AI, security, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Blog | Ali Safari"><meta property="og:description" content="Information Systems research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<title>Field Notes | Ali Safari</title><meta name="description" content="Ali Safari's notes on Information Systems research, AI, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Field Notes | Ali Safari"><meta property="og:description" content="Notes on IS research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="canonical" href="https://alisafari.space/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Ali Safari Blog","description":"Thoughts on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Field Notes — Ali Safari","description":"Notes on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
 </head>
-<body class="blog-page">
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="index">
+<header class="masthead">
+<div class="masthead-kicker">Field Notes &mdash; Ali Safari &mdash; 258 notes</div>
+<h1 class="masthead-title">Field<br>Notes.</h1>
+<div class="masthead-bottom">
+<p class="masthead-dek">Honest reactions to IS research, AI, and the theory I'm studying for comps. No summaries.</p>
+<div class="masthead-stats">
+<div><b>258</b> Posts</div>
+<div><b>10</b> Topics</div>
 </div>
-</div></nav>
-<header class="blog-header">
-<h1>Blog</h1>
-<p class="blog-subtitle">Thoughts on IS theory, AI, technology, and comps studying. No summaries, just honest reactions.</p>
-<div class="blog-meta">
-<span class="blog-meta-item"><i class="fas fa-pen-nib"></i> 258 posts</span>
-<span class="blog-meta-item"><i class="fas fa-tags"></i> 10 topics</span>
 </div>
 </header>
-<section class="blog-stats-bar">
-<div class="blog-stat"><span class="blog-stat-value">258</span><div class="blog-stat-label">Posts</div></div>
-<div class="blog-stat"><span class="blog-stat-value">10</span><div class="blog-stat-label">Topics</div></div>
-<div class="blog-stat"><span class="blog-stat-value">2026</span><div class="blog-stat-label">Latest</div></div>
-</section>
-<div class="blog-controls">
-<div class="blog-search-box"><i class="fas fa-search"></i><input type="text" id="blogSearch" placeholder="Search posts by title or content..." autocomplete="off"></div>
-<div class="blog-filter-sort">
-<button class="blog-filter-btn active" data-sort="newest"><i class="fas fa-sort-amount-down"></i> Newest</button>
-<button class="blog-filter-btn" data-sort="oldest"><i class="fas fa-sort-amount-up"></i> Oldest</button>
+<div class="controls">
+<div class="search-wrap">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="blogSearch" placeholder="Search notes…" autocomplete="off">
+</div>
+<div class="seg">
+<button class="on" data-sort="newest">Newest</button>
+<button data-sort="oldest">Oldest</button>
 </div>
 </div>
-<div class="blog-tag-filters"><a href="/blog/" class="blog-tag-chip active" data-tag="all">All <span class="tag-count">258</span></a><a href="/blog/?tag=Comps &amp; Reflections" class="blog-tag-chip " data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="tag-count">86</span></a><a href="/blog/?tag=IS Theory" class="blog-tag-chip " data-tag="IS Theory">IS Theory <span class="tag-count">82</span></a><a href="/blog/?tag=IT Governance &amp; Strategy" class="blog-tag-chip " data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="tag-count">77</span></a><a href="/blog/?tag=AI &amp; Agentic Systems" class="blog-tag-chip " data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="tag-count">74</span></a><a href="/blog/?tag=Organizational Theory" class="blog-tag-chip " data-tag="Organizational Theory">Organizational Theory <span class="tag-count">72</span></a><a href="/blog/?tag=Platforms &amp; Ecosystems" class="blog-tag-chip " data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="tag-count">47</span></a><a href="/blog/?tag=IS Research Methods" class="blog-tag-chip " data-tag="IS Research Methods">IS Research Methods <span class="tag-count">43</span></a><a href="/blog/?tag=Technology Adoption" class="blog-tag-chip " data-tag="Technology Adoption">Technology Adoption <span class="tag-count">32</span></a><a href="/blog/?tag=Trust &amp; Security" class="blog-tag-chip " data-tag="Trust &amp; Security">Trust &amp; Security <span class="tag-count">31</span></a><a href="/blog/?tag=Sociotechnical Systems" class="blog-tag-chip " data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="tag-count">29</span></a></div>
-<div class="blog-grid" id="blogGrid">
-<div class="blog-grid-item" data-title="two-speed it: running today and building tomorrow" data-excerpt="gartner&#x27;s bimodal it concept is appealing in theory. the execution is where things get complicated, and expensive, and politically strange." data-tags="IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="two-speed-it-bimodal">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/two-speed-it-bimodal/">Two-Speed IT: Running Today and Building Tomorrow</a></h2>
+<div class="tags" id="tagFilters"><button class="tag-chip on" data-tag="all">All <span class="n">258</span></button><button class="tag-chip" data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="n">86</span></button><button class="tag-chip" data-tag="IS Theory">IS Theory <span class="n">82</span></button><button class="tag-chip" data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="n">77</span></button><button class="tag-chip" data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="n">74</span></button><button class="tag-chip" data-tag="Organizational Theory">Organizational Theory <span class="n">72</span></button><button class="tag-chip" data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="n">47</span></button><button class="tag-chip" data-tag="IS Research Methods">IS Research Methods <span class="n">43</span></button><button class="tag-chip" data-tag="Technology Adoption">Technology Adoption <span class="n">32</span></button><button class="tag-chip" data-tag="Trust &amp; Security">Trust &amp; Security <span class="n">31</span></button><button class="tag-chip" data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="n">29</span></button></div>
+
+<div class="post-list" id="postList">
+<div class="post-row" data-title="two-speed it: running today and building tomorrow" data-tags="IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="two-speed-it-bimodal" onclick="location.href='/blog/two-speed-it-bimodal/'"><div class="pr-n">241</div><div class="pr-body"><div class="pr-title"><a href="/blog/two-speed-it-bimodal/">Two-Speed IT: Running Today and Building Tomorrow</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the cio&#x27;s background is part of the it strategy" data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="upper-echelons-cio-it-strategy" onclick="location.href='/blog/upper-echelons-cio-it-strategy/'"><div class="pr-n">242</div><div class="pr-body"><div class="pr-title"><a href="/blog/upper-echelons-cio-it-strategy/">The CIO&#x27;s Background Is Part of the IT Strategy</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="your regression can&#x27;t explain a divorce" data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="variance-vs-process-theory-is-research" onclick="location.href='/blog/variance-vs-process-theory-is-research/'"><div class="pr-n">243</div><div class="pr-body"><div class="pr-title"><a href="/blog/variance-vs-process-theory-is-research/">Your Regression Can&#x27;t Explain a Divorce</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div><div class="post-row" data-title="vendor lock-in is a strategy, not an accident" data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="vendor-lock-in-is-a-strategy" onclick="location.href='/blog/vendor-lock-in-is-a-strategy/'"><div class="pr-n">244</div><div class="pr-body"><div class="pr-title"><a href="/blog/vendor-lock-in-is-a-strategy/">Vendor Lock-In Is a Strategy, Not an Accident</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="vibe coding is sociotechnical systems theory testing its limits" data-tags="AI &amp; Agentic Systems,IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="vibe-coding-sociotechnical-systems" onclick="location.href='/blog/vibe-coding-sociotechnical-systems/'"><div class="pr-n">245</div><div class="pr-body"><div class="pr-title"><a href="/blog/vibe-coding-sociotechnical-systems/">Vibe Coding Is Sociotechnical Systems Theory Testing Its Limits</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="one million vulnerabilities and counting: why patching is not a strategy" data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="organizational-routines-vulnerability-management" onclick="location.href='/blog/organizational-routines-vulnerability-management/'"><div class="pr-n">246</div><div class="pr-body"><div class="pr-title"><a href="/blog/organizational-routines-vulnerability-management/">One Million Vulnerabilities and Counting: Why Patching Is Not a Strategy</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="what makes a good is paper?" data-tags="Comps &amp; Reflections,IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="what-makes-good-is-paper" onclick="location.href='/blog/what-makes-good-is-paper/'"><div class="pr-n">247</div><div class="pr-body"><div class="pr-title"><a href="/blog/what-makes-good-is-paper/">What Makes a Good IS Paper?</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="what theory actually is (and what it isn&#x27;t)" data-tags="IS Theory" data-date="2026-05-14" data-slug="what-theory-is-and-is-not" onclick="location.href='/blog/what-theory-is-and-is-not/'"><div class="pr-n">248</div><div class="pr-body"><div class="pr-title"><a href="/blog/what-theory-is-and-is-not/">What Theory Actually Is (And What It Isn&#x27;t)</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="when bit strings get social power" data-tags="IS Research Methods,IS Theory,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="when-bit-strings-get-social-power" onclick="location.href='/blog/when-bit-strings-get-social-power/'"><div class="pr-n">249</div><div class="pr-body"><div class="pr-title"><a href="/blog/when-bit-strings-get-social-power/">When Bit Strings Get Social Power</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="why it projects are always late and over budget" data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="why-it-projects-are-late-over-budget" onclick="location.href='/blog/why-it-projects-are-late-over-budget/'"><div class="pr-n">250</div><div class="pr-body"><div class="pr-title"><a href="/blog/why-it-projects-are-late-over-budget/">Why IT Projects Are Always Late and Over Budget</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="when employees break the system, that&#x27;s a requirements document" data-tags="Comps &amp; Reflections,Organizational Theory,Sociotechnical Systems,Technology Adoption" data-date="2026-05-14" data-slug="workarounds-shadow-it-requirements" onclick="location.href='/blog/workarounds-shadow-it-requirements/'"><div class="pr-n">251</div><div class="pr-body"><div class="pr-title"><a href="/blog/workarounds-shadow-it-requirements/">When Employees Break the System, That&#x27;s a Requirements Document</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="explainable ai is sensemaking theory: plausibility, not accuracy" data-tags="AI &amp; Agentic Systems,IS Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="xai-sensemaking-plausibility" onclick="location.href='/blog/xai-sensemaking-plausibility/'"><div class="pr-n">252</div><div class="pr-body"><div class="pr-title"><a href="/blog/xai-sensemaking-plausibility/">Explainable AI Is Sensemaking Theory: Plausibility, Not Accuracy</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="your paradigm is not neutral" data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="your-paradigm-is-not-neutral" onclick="location.href='/blog/your-paradigm-is-not-neutral/'"><div class="pr-n">253</div><div class="pr-body"><div class="pr-title"><a href="/blog/your-paradigm-is-not-neutral/">Your Paradigm Is Not Neutral</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="zero trust security: why &#x27;never trust, always verify&#x27; is harder than it sounds" data-tags="Trust &amp; Security" data-date="2026-05-14" data-slug="zero-trust-security-architecture" onclick="location.href='/blog/zero-trust-security-architecture/'"><div class="pr-n">254</div><div class="pr-body"><div class="pr-title"><a href="/blog/zero-trust-security-architecture/">Zero Trust Security: Why &#x27;Never Trust, Always Verify&#x27; Is Harder Than It Sounds</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Trust &amp; Security</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="zero-trust architecture is already founded on trust research" data-tags="IS Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="zero-trust-trust-calibration" onclick="location.href='/blog/zero-trust-trust-calibration/'"><div class="pr-n">255</div><div class="pr-body"><div class="pr-title"><a href="/blog/zero-trust-trust-calibration/">Zero-Trust Architecture Is Already Founded on Trust Research</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="untitled" data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="ai-pilots-dont-become-products.claims" onclick="location.href='/blog/ai-pilots-dont-become-products.claims/'"><div class="pr-n">256</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-pilots-dont-become-products.claims/">Untitled</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div><div class="post-row" data-title="untitled" data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="ai-pilots-dont-become-products.review" onclick="location.href='/blog/ai-pilots-dont-become-products.review/'"><div class="pr-n">257</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-pilots-dont-become-products.review/">Untitled</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div><div class="post-row" data-title="untitled" data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="ai-pilots-dont-become-products.verification" onclick="location.href='/blog/ai-pilots-dont-become-products.verification/'"><div class="pr-n">258</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-pilots-dont-become-products.verification/">Untitled</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div>
+<div id="emptyState" style="display:none;padding:64px 0;font-family:var(--f-mono);font-size:13px;color:var(--ink-4);letter-spacing:.07em;text-transform:uppercase;">No notes found</div>
+<div class="pgn"><a href="/blog/page/12/" class="pgn-step">&#8592; Prev</a><div class="pgn-nums"><button onclick="location.href='/blog/'">1</button><button onclick="location.href='/blog/page/2/'">2</button><button onclick="location.href='/blog/page/3/'">3</button><button onclick="location.href='/blog/page/4/'">4</button><button onclick="location.href='/blog/page/5/'">5</button><button onclick="location.href='/blog/page/6/'">6</button><button onclick="location.href='/blog/page/7/'">7</button><button onclick="location.href='/blog/page/8/'">8</button><button onclick="location.href='/blog/page/9/'">9</button><button onclick="location.href='/blog/page/10/'">10</button><button onclick="location.href='/blog/page/11/'">11</button><button onclick="location.href='/blog/page/12/'">12</button><span class="cur">13</span></div><span></span></div>
 </div>
-<p class="card-excerpt">Gartner&#x27;s bimodal IT concept is appealing in theory. The execution is where things get complicated, and expensive, and politically strange.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="two-speed-it-bimodal" title="Save for later" aria-label="Save Two-Speed IT: Running Today and Building Tomorrow for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/two-speed-it-bimodal/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the cio&#x27;s background is part of the it strategy" data-excerpt="upper echelons theory says executives interpret strategy through the lens of their experience. in is, that means the cio&#x27;s background shapes what gets built and bought." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="upper-echelons-cio-it-strategy">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/upper-echelons-cio-it-strategy/">The CIO&#x27;s Background Is Part of the IT Strategy</a></h2>
-</div>
-<p class="card-excerpt">Upper echelons theory says executives interpret strategy through the lens of their experience. In IS, that means the CIO&#x27;s background shapes what gets built and...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="upper-echelons-cio-it-strategy" title="Save for later" aria-label="Save The CIO&#x27;s Background Is Part of the IT Strategy for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/upper-echelons-cio-it-strategy/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="your regression can&#x27;t explain a divorce" data-excerpt="mohr warned us in 1982 that variance and process theories answer different questions and need different evidence. most is research still evaluates process stories with variance criteria. here is why that is a mistake." data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="variance-vs-process-theory-is-research">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/variance-vs-process-theory-is-research/">Your Regression Can&#x27;t Explain a Divorce</a></h2>
-</div>
-<p class="card-excerpt">Mohr warned us in 1982 that variance and process theories answer different questions and need different evidence. Most IS research still evaluates process stori...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="variance-vs-process-theory-is-research" title="Save for later" aria-label="Save Your Regression Can&#x27;t Explain a Divorce for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/variance-vs-process-theory-is-research/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="vendor lock-in is a strategy, not an accident" data-excerpt="enterprise vendors don&#x27;t accidentally create lock-in. they engineer it. understanding this changes how you evaluate software contracts." data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="vendor-lock-in-is-a-strategy">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/vendor-lock-in-is-a-strategy/">Vendor Lock-In Is a Strategy, Not an Accident</a></h2>
-</div>
-<p class="card-excerpt">Enterprise vendors don&#x27;t accidentally create lock-in. They engineer it. Understanding this changes how you evaluate software contracts.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="vendor-lock-in-is-a-strategy" title="Save for later" aria-label="Save Vendor Lock-In Is a Strategy, Not an Accident for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/vendor-lock-in-is-a-strategy/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="vibe coding is sociotechnical systems theory testing its limits" data-excerpt="ai-native platforms let anyone generate code from a prompt. trist and bamforth showed in 1951 why optimizing only the technical subsystem creates a maintenance crisis." data-tags="AI &amp; Agentic Systems,IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="vibe-coding-sociotechnical-systems">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/vibe-coding-sociotechnical-systems/">Vibe Coding Is Sociotechnical Systems Theory Testing Its Limits</a></h2>
-</div>
-<p class="card-excerpt">AI-native platforms let anyone generate code from a prompt. Trist and Bamforth showed in 1951 why optimizing only the technical subsystem creates a maintenance ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="vibe-coding-sociotechnical-systems" title="Save for later" aria-label="Save Vibe Coding Is Sociotechnical Systems Theory Testing Its Limits for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/vibe-coding-sociotechnical-systems/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="one million vulnerabilities and counting: why patching is not a strategy" data-excerpt="gartner projects one million vulnerabilities annually by 2030. patching cannot scale. the only move is to reconfigure how the firm approaches software risk." data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="organizational-routines-vulnerability-management">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/organizational-routines-vulnerability-management/">One Million Vulnerabilities and Counting: Why Patching Is Not a Strategy</a></h2>
-</div>
-<p class="card-excerpt">Gartner projects one million vulnerabilities annually by 2030. Patching cannot scale. The only move is to reconfigure how the firm approaches software risk.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="organizational-routines-vulnerability-management" title="Save for later" aria-label="Save One Million Vulnerabilities and Counting: Why Patching Is Not a Strategy for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/organizational-routines-vulnerability-management/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="what makes a good is paper?" data-excerpt="technically correct is papers fail all the time. the difference between a paper that passes review and one that advances the field is harder to name than it sounds." data-tags="Comps &amp; Reflections,IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="what-makes-good-is-paper">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/what-makes-good-is-paper/">What Makes a Good IS Paper?</a></h2>
-</div>
-<p class="card-excerpt">Technically correct IS papers fail all the time. The difference between a paper that passes review and one that advances the field is harder to name than it sou...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="what-makes-good-is-paper" title="Save for later" aria-label="Save What Makes a Good IS Paper? for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/what-makes-good-is-paper/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="what theory actually is (and what it isn&#x27;t)" data-excerpt="references, data, variables, diagrams, and hypotheses are not theory. but then what is? a tour through the papers that shaped how is researchers answer that question." data-tags="IS Theory" data-date="2026-05-14" data-slug="what-theory-is-and-is-not">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/what-theory-is-and-is-not/">What Theory Actually Is (And What It Isn&#x27;t)</a></h2>
-</div>
-<p class="card-excerpt">References, data, variables, diagrams, and hypotheses are not theory. But then what is? A tour through the papers that shaped how IS researchers answer that que...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="what-theory-is-and-is-not" title="Save for later" aria-label="Save What Theory Actually Is (And What It Isn&#x27;t) for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/what-theory-is-and-is-not/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="when bit strings get social power" data-excerpt="a digital object is more than code on a server. faulkner and runde show that bit strings occupy social positions with rights and responsibilities, and that changes everything about how we study it." data-tags="IS Research Methods,IS Theory,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="when-bit-strings-get-social-power">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/when-bit-strings-get-social-power/">When Bit Strings Get Social Power</a></h2>
-</div>
-<p class="card-excerpt">A digital object is more than code on a server. Faulkner and Runde show that bit strings occupy social positions with rights and responsibilities, and that chan...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="when-bit-strings-get-social-power" title="Save for later" aria-label="Save When Bit Strings Get Social Power for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/when-bit-strings-get-social-power/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="why it projects are always late and over budget" data-excerpt="the standish group has tracked it project outcomes for decades. the numbers have barely moved. this is a structural problem, not a competence problem." data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="why-it-projects-are-late-over-budget">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/why-it-projects-are-late-over-budget/">Why IT Projects Are Always Late and Over Budget</a></h2>
-</div>
-<p class="card-excerpt">The Standish Group has tracked IT project outcomes for decades. The numbers have barely moved. This is a structural problem, not a competence problem.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="why-it-projects-are-late-over-budget" title="Save for later" aria-label="Save Why IT Projects Are Always Late and Over Budget for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/why-it-projects-are-late-over-budget/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="when employees break the system, that&#x27;s a requirements document" data-excerpt="ferneley and sobreperez argued workarounds are not user failure but evidence of system-task misfit. the workaround is the real requirements document." data-tags="Comps &amp; Reflections,Organizational Theory,Sociotechnical Systems,Technology Adoption" data-date="2026-05-14" data-slug="workarounds-shadow-it-requirements">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/workarounds-shadow-it-requirements/">When Employees Break the System, That&#x27;s a Requirements Document</a></h2>
-</div>
-<p class="card-excerpt">Ferneley and Sobreperez argued workarounds are not user failure but evidence of system-task misfit. The workaround is the real requirements document.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Organizational Theory</span><span class="tag">Sociotechnical Systems</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="workarounds-shadow-it-requirements" title="Save for later" aria-label="Save When Employees Break the System, That&#x27;s a Requirements Document for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/workarounds-shadow-it-requirements/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="explainable ai is sensemaking theory: plausibility, not accuracy" data-excerpt="weick said people prefer plausible stories over accurate ones. xai built tools for accuracy. it has been solving the wrong problem since 1995." data-tags="AI &amp; Agentic Systems,IS Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="xai-sensemaking-plausibility">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/xai-sensemaking-plausibility/">Explainable AI Is Sensemaking Theory: Plausibility, Not Accuracy</a></h2>
-</div>
-<p class="card-excerpt">Weick said people prefer plausible stories over accurate ones. XAI built tools for accuracy. It has been solving the wrong problem since 1995.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="xai-sensemaking-plausibility" title="Save for later" aria-label="Save Explainable AI Is Sensemaking Theory: Plausibility, Not Accuracy for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/xai-sensemaking-plausibility/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="your paradigm is not neutral" data-excerpt="positivist, interpretive, and critical realist research each carry assumptions about what is real and how we can know it. none of them is just a method choice." data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="your-paradigm-is-not-neutral">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/your-paradigm-is-not-neutral/">Your Paradigm Is Not Neutral</a></h2>
-</div>
-<p class="card-excerpt">Positivist, interpretive, and critical realist research each carry assumptions about what is real and how we can know it. None of them is just a method choice.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="your-paradigm-is-not-neutral" title="Save for later" aria-label="Save Your Paradigm Is Not Neutral for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/your-paradigm-is-not-neutral/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="zero trust security: why &#x27;never trust, always verify&#x27; is harder than it sounds" data-excerpt="zero trust is an architecture philosophy, not a product. buying a zero trust solution and having zero trust architecture are not the same thing." data-tags="Trust &amp; Security" data-date="2026-05-14" data-slug="zero-trust-security-architecture">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/zero-trust-security-architecture/">Zero Trust Security: Why &#x27;Never Trust, Always Verify&#x27; Is Harder Than It Sounds</a></h2>
-</div>
-<p class="card-excerpt">Zero trust is an architecture philosophy, not a product. Buying a zero trust solution and having zero trust architecture are not the same thing.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="zero-trust-security-architecture" title="Save for later" aria-label="Save Zero Trust Security: Why &#x27;Never Trust, Always Verify&#x27; Is Harder Than It Sounds for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/zero-trust-security-architecture/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="zero-trust architecture is already founded on trust research" data-excerpt="zero-trust architecture is not about eliminating trust. it is about institutionalizing the calibrated trust that is researchers have studied for decades." data-tags="IS Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="zero-trust-trust-calibration">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/zero-trust-trust-calibration/">Zero-Trust Architecture Is Already Founded on Trust Research</a></h2>
-</div>
-<p class="card-excerpt">Zero-trust architecture is not about eliminating trust. It is about institutionalizing the calibrated trust that IS researchers have studied for decades.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="zero-trust-trust-calibration" title="Save for later" aria-label="Save Zero-Trust Architecture Is Already Founded on Trust Research for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/zero-trust-trust-calibration/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="untitled" data-excerpt="" data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="ai-pilots-dont-become-products.claims">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/ai-pilots-dont-become-products.claims/">Untitled</a></h2>
-</div>
-<p class="card-excerpt"></p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-pilots-dont-become-products.claims" title="Save for later" aria-label="Save Untitled for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-pilots-dont-become-products.claims/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="untitled" data-excerpt="" data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="ai-pilots-dont-become-products.review">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/ai-pilots-dont-become-products.review/">Untitled</a></h2>
-</div>
-<p class="card-excerpt"></p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-pilots-dont-become-products.review" title="Save for later" aria-label="Save Untitled for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-pilots-dont-become-products.review/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="untitled" data-excerpt="" data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="ai-pilots-dont-become-products.verification">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/ai-pilots-dont-become-products.verification/">Untitled</a></h2>
-</div>
-<p class="card-excerpt"></p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-pilots-dont-become-products.verification" title="Save for later" aria-label="Save Untitled for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-pilots-dont-become-products.verification/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div>
-<div class="blog-empty-state" style="display:none"><i class="fas fa-search"></i><h3>No posts found</h3><p>Try a different search term.</p></div>
-</div>
-<div class="blog-pagination"><a href="/blog/">1</a><a href="/blog/page/2/">2</a><a href="/blog/page/3/">3</a><a href="/blog/page/4/">4</a><a href="/blog/page/5/">5</a><a href="/blog/page/6/">6</a><a href="/blog/page/7/">7</a><a href="/blog/page/8/">8</a><a href="/blog/page/9/">9</a><a href="/blog/page/10/">10</a><a href="/blog/page/11/">11</a><a href="/blog/page/12/">12</a><span class="current">13</span></div>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-</div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
 </body></html>

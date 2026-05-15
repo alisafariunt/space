@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/fintech-disruption-banking-it/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"FinTech and the Bank That Still Runs on COBOL","description":"Stripe and Chime built modern financial infrastructure from scratch while banks ran on mainframes from the 1970s. The gap is real, but the narrative oversimplifies.","url":"https://alisafari.space/blog/fintech-disruption-banking-it/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"Comps & Reflections","keywords":"Comps & Reflections"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>Comps &amp; Reflections</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">Comps &amp; Reflections</div>
+<h1 class="art-title">FinTech and the Bank That Still Runs on COBOL</h1>
+<p class="art-dek">Stripe and Chime built modern financial infrastructure from scratch while banks ran on mainframes from the 1970s. The gap is real, but the narrative oversimplifies.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">Comps &amp; Reflections</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">FinTech and the Bank That Still Runs on COBOL</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="fintech-disruption-banking-it" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">Comps &amp; Reflections</span>
-<h1>FinTech and the Bank That Still Runs on COBOL</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>There is a moment in most FinTech pitch decks where the founding team shows a slide of a legacy bank's technology stack and uses it as evidence that disruption is inevitable. The point lands because it is not wrong. A meaningful portion of the core banking systems still running in large financial institutions today were written in COBOL, a language designed in the late 1950s and standardized in the early 1960s. The machines running some of this code are IBM mainframes that have been in continuous operation since before most people working in technology today were born. This is not a rumor. It is well-documented in public reporting, in industry surveys, and occasionally in the banks' own investor materials when they discuss technology modernization costs.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>There is a moment in most FinTech pitch decks where the founding team shows a slide of a legacy bank's technology stack and uses it as evidence that disruption is inevitable. The point lands because it is not wrong. A meaningful portion of the core banking systems still running in large financial institutions today were written in COBOL, a language designed in the late 1950s and standardized in the early 1960s. The machines running some of this code are IBM mainframes that have been in continuous operation since before most people working in technology today were born. This is not a rumor. It is well-documented in public reporting, in industry surveys, and occasionally in the banks' own investor materials when they discuss technology modernization costs.</p>
 <p>The FinTechs looked at this situation and built from scratch. Stripe, founded in 2010, built a payments API that made it trivial to accept credit cards on the internet. Before Stripe, doing this required a merchant account, a payment gateway, and a process that took weeks. Stripe reduced it to a few lines of code and an afternoon. Square did something similar for in-person payments with a card reader that plugged into a phone. Plaid built the data layer that connected consumer bank accounts to financial apps, essentially reverse-engineering access to the banking system's data through screen-scraping and later through more formal API integrations. Chime built a consumer bank account on top of existing banking infrastructure without a bank charter of its own.</p>
 <p>What all of these companies share is that they did not try to change the legacy system from the inside. They built new layers on top of existing infrastructure, or they found ways to route around the old infrastructure entirely, and they moved at software-company speed rather than bank speed. A bank releases new software features on a quarterly cycle because the core banking system requires careful testing and a formal change management process. A FinTech releases software multiple times a day.</p>
 <p>The IS challenge for incumbent banks is not really a technology problem, which is what makes it hard. The banks know their technology is old. They have known for decades. The problem is that modernizing a core banking system is one of the most dangerous technology projects any organization can attempt. The core banking system is the ledger. It records every transaction, every account balance, every loan. It has been accumulating data and business logic for forty or fifty years. It is connected to every other system in the bank. Replacing it means replacing the foundation while the building is occupied, while millions of transactions run through it every day, with regulatory scrutiny on every step, and with personal financial data that cannot be corrupted or lost under any circumstances. The risk tolerance required for that project is essentially zero.</p>
@@ -67,47 +56,55 @@
 <p>Open banking adds another layer of complexity and opportunity. The EU's Payment Services Directive 2 (PSD2), which took effect in 2018, required banks operating in the EU to open their account data and payment initiation services to licensed third parties through APIs. This was a regulatory mandate for interoperability: banks had to let accredited FinTechs and other banks access customer data (with customer consent) through standardized interfaces. The UK implemented its own Open Banking framework with similar goals. The United States has moved more slowly here, with less prescriptive regulation and more market-led API adoption, though the Consumer Financial Protection Bureau has been working on related data sharing rules.</p>
 <p>Banking as a Service (BaaS) is the model that some banks have built on this opening. A BaaS provider holds the banking license, maintains the regulatory compliance infrastructure, and offers other companies the ability to embed financial services into their products. Chime, for most of its history, offered accounts that were actually held at partner banks that held FDIC insurance on the deposits. Chime was the user interface and the brand. This arrangement works until it runs into regulatory scrutiny. Chime's situation has been publicly reported: the company faced questions from regulators about its practices around account closures and has navigated an evolving relationship with its banking partners. The regulatory moat that banks have historically enjoyed is real, and FinTechs that grow large enough eventually have to engage with it.</p>
 <p>The "bank-in-a-box" narrative, the idea that any startup can now spin up a fully functional bank using off-the-shelf BaaS components, is more complicated than it sounds. The technology layer is more accessible than it was. But banking regulation is not going away. Know Your Customer (KYC) requirements, Anti-Money Laundering (AML) compliance, capital requirements, and consumer protection rules apply whether the bank is 150 years old or two years old. FinTechs that build on top of bank partners inherit those requirements indirectly. FinTechs that seek bank charters of their own face a years-long regulatory process. The moat is lower than it was but it is still there.</p>
-<p>What the FinTech wave has actually changed is not that banks are obsolete. It is that the monopoly banks held on the user experience layer has broken. The customer relationship, the app, the product, the brand: these can now be owned by a company that does not have a banking charter. The actual banking infrastructure underneath it is still largely the same mainframes and the same COBOL. The question is whether the incumbents can modernize fast enough to reclaim the user experience layer before they become purely wholesale infrastructure providers to the FinTechs that are now their retail competitors.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>What the FinTech wave has actually changed is not that banks are obsolete. It is that the monopoly banks held on the user experience layer has broken. The customer relationship, the app, the product, the brand: these can now be owned by a company that does not have a banking charter. The actual banking infrastructure underneath it is still largely the same mainframes and the same COBOL. The question is whether the incumbents can modernize fast enough to reclaim the user experience layer before they become purely wholesale infrastructure providers to the FinTechs that are now their retail competitors.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/free-trial-expectation-confirmation-theory/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Your Free Trial Strategy Is Expectation-Confirmation Theory Without the Theory</div></a><a href="/blog/fear-does-not-make-people-secure/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Fear Does Not Make People Secure</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="related-item"><div><div class="related-cat">Comps &amp; Reflections</div><div class="related-title">Bought a $2M Platform, Nobody Learned a Thing</div></div><span class="related-rt">6 min read</span></a><a href="/blog/agency-theory-algorithm-accountability/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">When the Algorithm Fails, Nobody Takes the Call</div></div><span class="related-rt">6 min read</span></a><a href="/blog/agent-ecosystems-platform-envelopment/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">The Internet of Agents Will Be Built by Platforms That Own the Protocol</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/free-trial-expectation-confirmation-theory/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Your Free Trial Strategy Is Expectation-Confirmation Theory Without the Theory</div></a><a href="/blog/fear-does-not-make-people-secure/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Fear Does Not Make People Secure</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agent-ecosystems-platform-envelopment/" class="blog-related-card"><h4>The Internet of Agents Will Be Built by Platforms That Own the Protocol</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

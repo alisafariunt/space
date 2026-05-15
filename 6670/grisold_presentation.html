@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grisold et al. (2025) — Presentation Notes</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.7; padding: 25px; max-width: 920px; margin: 0 auto; }
+        h1 { color: #059669; font-size: 1.7em; margin-bottom: 4px; }
+        .subtitle { color: #64748b; font-size: 0.95em; margin-bottom: 20px; }
+        h2 { color: #059669; font-size: 1.25em; margin: 30px 0 12px; border-left: 5px solid #10b981; padding-left: 12px; background: #ecfdf5; padding: 8px 12px; border-radius: 0 8px 8px 0; }
+        .card { background: #ffffff; border-radius: 12px; padding: 20px; margin: 12px 0; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .speak { background: #ecfdf5; border-left: 4px solid #10b981; padding: 14px 16px; border-radius: 0 8px 8px 0; margin: 10px 0; }
+        .speak strong { color: #059669; }
+        .example { background: #fefce8; border-left: 4px solid #eab308; padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 8px 0; font-size: 0.92em; }
+        .example strong { color: #a16207; }
+        mark { background: #a7f3d0; color: #1e293b; padding: 1px 5px; border-radius: 3px; }
+        ul { margin: 8px 0 8px 22px; }
+        li { margin: 5px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        th, td { border: 1px solid #cbd5e1; padding: 9px 12px; text-align: left; font-size: 0.9em; }
+        th { background: #ecfdf5; color: #059669; font-weight: 600; }
+        .warn { background: #fff7ed; border: 1px solid #fb923c; border-radius: 8px; padding: 14px; margin: 12px 0; }
+        .warn strong { color: #c2410c; }
+        .key { background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 14px; margin: 12px 0; }
+        .key strong { color: #166534; }
+        p { margin: 6px 0; }
+        hr { border: none; border-top: 1px solid #e2e8f0; margin: 25px 0; }
+    </style>
+</head>
+<body>
+
+<h1>🤖 Grisold, Berente & Seidel (2025)</h1>
+<p class="subtitle">Guardrails for Human-AI Ecologies: Norm-Based Coordination and Design for Predictability<br/>
+MIS Quarterly, 49(4), pp. 1239-1266 &nbsp;|&nbsp; <strong>Presenters:</strong> <mark>Ali</mark>, Dante, Vamsi</p>
+
+<!-- ========== 1 ========== -->
+<h2>1️⃣ What Problem Does This Paper Solve?</h2>
+<div class="card">
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> When AI becomes truly <mark>agentic</mark>, meaning it learns on its own, makes decisions, and acts independently, we cannot control it with hard-coded rules anymore. Why? Because its behavior becomes unpredictable. A robot in a warehouse might learn a new path we never programmed.</p>
+        <p>So the question is: <mark>how do we coordinate humans and autonomous AI agents when we cannot predict exactly what the AI will do?</mark></p>
+        <p>Their answer: instead of hard rules, use <mark>social norms</mark>. Like how humans in a society coordinate without a central boss. Nobody tells you to be quiet in an elevator, but you do it because of shared norms. This paper says we should design AI systems the same way.</p>
+    </div>
+</div>
+
+<!-- ========== 2 ========== -->
+<h2>2️⃣ What is a Human-AI Ecology?</h2>
+<div class="card">
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> A <mark>human-AI ecology</mark> is an environment where humans and AI agents work together and need to coordinate. Like a smart warehouse with robots, drones, and human workers all operating in the same space.</p>
+        <p>The key difference from older systems: here, AI is not just a tool. It is an <mark>agent</mark>. It decides, learns, and might even make mistakes. So we need a coordination mechanism that works even when we do not fully control the AI.</p>
+    </div>
+</div>
+
+<!-- ========== 3 ========== -->
+<h2>3️⃣ Two Kernel Theories</h2>
+<div class="card">
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> The design principles are grounded in two theories. This is their Omega (Ω) — the descriptive knowledge base:</p>
+    </div>
+    <table>
+        <thead><tr><th>Theory</th><th>Core Idea</th><th>How It Applies</th></tr></thead>
+        <tbody>
+            <tr>
+                <td><strong>Predictive Processing Theory</strong></td>
+                <td>Every agent (human or AI) is a <mark>prediction machine</mark>. It predicts, then acts, then gets sensory input. If input does not match prediction, <mark>prediction error</mark> occurs, and it updates its internal model.</td>
+                <td>If agents can predict each other's behavior, coordination works smoothly. If they cannot predict, chaos happens.</td>
+            </tr>
+            <tr>
+                <td><strong>Social Norm Theory</strong></td>
+                <td>Societies coordinate without a central boss through <mark>shared norms</mark>. Norms create shared expectations about behavior.</td>
+                <td>If we give AI agents shared norms, they can coordinate without needing a central controller to manage every action.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ========== 4 ========== -->
+<h2>4️⃣ Deep Norms vs. Surface Norms ⭐</h2>
+<div class="card">
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> This is the most important distinction in the paper. Two types of norms:</p>
+    </div>
+    <table>
+        <thead><tr><th></th><th>Deep Norms</th><th>Surface Norms</th></tr></thead>
+        <tbody>
+            <tr><td><strong>What</strong></td><td>Core values, stable principles</td><td>Practical rules, flexible, context-dependent</td></tr>
+            <tr><td><strong>Example</strong></td><td>"Protect human safety" · "Be fair" · "Maximize efficiency"</td><td>"At intersections, robot goes first" · "When busy, drones take upper path"</td></tr>
+            <tr><td><strong>Who sets them</strong></td><td>Human managers</td><td>Can be generated by AI based on deep norms</td></tr>
+            <tr><td><strong>Change?</strong></td><td>Rarely change</td><td>Change often based on context</td></tr>
+            <tr><td><strong>Metaphor</strong></td><td><mark>Guardrails on a highway</mark> — set the boundaries</td><td>Lane markings — guide specific behavior within boundaries</td></tr>
+        </tbody>
+    </table>
+    <div class="key">
+        <p><strong>🏆 Key relationship:</strong> Deep norms <mark>constrain</mark> surface norms. Every surface norm must stay within the "zone of desirable behavior" defined by deep norms. If a surface norm goes outside that zone (e.g., robot speed too high), the deep norm (safety) is violated and a human manager must intervene.</p>
+    </div>
+</div>
+
+<!-- ========== 5 ========== -->
+<h2>5️⃣ The Four Design Principles (The Artifact)</h2>
+<div class="card">
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> The main contribution of this paper is <mark>four design principles with ten subprinciples</mark>. This is their artifact — a nascent design theory (Level 2).</p>
+    </div>
+
+    <table>
+        <thead><tr><th>DP</th><th>Name</th><th>Subprinciples</th><th>Simple Explanation</th></tr></thead>
+        <tbody>
+            <tr>
+                <td><strong>DP1</strong></td>
+                <td>Design for Shared Norms</td>
+                <td>DP1.1 Deep norm encoding<br/>DP1.2 Surface norm enactment</td>
+                <td>Put the core values into the system. Then let the system create practical rules based on those values.</td>
+            </tr>
+            <tr>
+                <td><strong>DP2</strong></td>
+                <td>Design for Human Intervention</td>
+                <td>DP2.1 Deep norm evolution<br/>DP2.2 Deep norm reinforcement</td>
+                <td>Humans monitor outcomes and update norms over time. If a surface norm works well, promote it to deep norm.</td>
+            </tr>
+            <tr>
+                <td><strong>DP3</strong></td>
+                <td>Design for Predictability (Signals)</td>
+                <td>DP3.1 Norm-enactment communication<br/>DP3.2 Norm-enactment inference</td>
+                <td>Agents signal what they plan to do. Other agents infer intentions from those signals.</td>
+            </tr>
+            <tr>
+                <td><strong>DP4</strong></td>
+                <td>Design for Predictability (Execution)</td>
+                <td>DP4.1 Surface norm defaulting<br/>DP4.2 Surface norm adjustment<br/>DP4.3 Surface norm generation<br/>DP4.4 Surface norm reinforcing</td>
+                <td>When uncertainty is low, use default norm. Medium uncertainty, adjust it. High uncertainty, generate a new norm. If it works, reinforce it.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="example">
+        <p><strong>💡 Warehouse example:</strong> Manager sets "safety first" (DP1 deep norm). Then the system creates "robot yields to human at intersections" (DP1 surface norm). Robot turns on its light to signal its path (DP3). Robot enters unknown zone, no surface norm exists, so it generates one: "slow down and stay right" (DP4.3). It works well, so the system reinforces it (DP4.4). Manager sees it working and promotes it to a standard rule (DP2.2).</p>
+    </div>
+</div>
+
+<!-- ========== 6 ========== -->
+<h2>6️⃣ DSR Classification (Gregor & Hevner 2013)</h2>
+<div class="card">
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> The authors do NOT explicitly use Gregor and Hevner's 2x2 matrix or three levels. They reference <strong>Gregor et al. (2020)</strong>, which is about the anatomy of design principles. But here is how <mark>I would classify their work</mark> using the Gregor and Hevner 2013 framework:</p>
+    </div>
+    <table>
+        <thead><tr><th>Dimension</th><th>My Classification</th><th>Why</th></tr></thead>
+        <tbody>
+            <tr><td><strong>Contribution Type</strong></td><td><mark>Invention or Exaptation</mark></td><td>The problem (coordinating with agentic AI) is relatively new in IS. The solution (social norms) exists in sociology but is new to this domain. Could be argued either way.</td></tr>
+            <tr><td><strong>Contribution Level</strong></td><td><mark>Level 2</mark> (Nascent Design Theory)</td><td>They give design principles, not a working system. No prototype was built.</td></tr>
+            <tr><td><strong>Theory Type</strong></td><td>Theory for Design and Action</td><td>They call it a "design theory" (p. 1240). It tells you how to design, not how things are.</td></tr>
+            <tr><td><strong>Kernel Theories (Omega)</strong></td><td>Predictive Processing + Social Norm Theory</td><td>These are the descriptive theories grounding the design.</td></tr>
+            <tr><td><strong>Artifact (Lambda)</strong></td><td>4 design principles, 10 subprinciples</td><td>This is the prescriptive knowledge they create.</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- ========== 7 ========== -->
+<h2>7️⃣ Baskerville Genre Classification</h2>
+<div class="card">
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong></p>
+        <ul>
+            <li><strong>Genre ND (main):</strong> General design principles for norm-based coordination. This is the core.</li>
+            <li><strong>Genre ID (partial):</strong> They illustrate with a warehouse scenario but <mark>did NOT build a real system</mark>.</li>
+            <li><strong>Genre IS (weak):</strong> No real case study. The scenario is illustrative, not empirical.</li>
+            <li><strong>Genre NS (not yet):</strong> No general scientific theory tested. Future work.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ========== 8 ========== -->
+<h2>8️⃣ Biggest Weakness & Methodology Critique</h2>
+<div class="card">
+    <div class="warn">
+        <p><strong>⚠️ Evaluation is the weakest part.</strong> They only used an <mark>illustrative scenario</mark> in a warehouse. No prototype. No experiment. No real case study. Just "imagine in a warehouse..." They acknowledge this themselves and say future work should build an actual implementation.</p>
+    </div>
+    <div class="speak">
+        <p><strong>🗣️ If the professor asks about this:</strong> "The paper has strong justification — two solid kernel theories grounding the design principles. But the evaluation is weak because they only use a thought experiment. Using Baskerville's genres, they stay in Genre ND without moving to ID or IS. Future work needs to build the system and test it."</p>
+    </div>
+    <div class="speak">
+        <p><strong>🗣️ Dr. Sidorova's Critical Points:</strong></p>
+        <ul>
+            <li><strong>Nomothetic approach:</strong> The authors jump directly from abstract theory to abstract design principles. They do this very <mark>nomothetically</mark> (universally, not case-specific).</li>
+            <li><strong>No bottom-up testing:</strong> They do not test the principles by designing a specific ecology from scratch. They only use an 'instantiation' mentally.</li>
+            <li><strong>Where does DP2 come from?</strong> DP2 (Human Intervention) does not necessarily come from predictive processing or social norm theory. It comes from the practical necessity that humans must be able to control the system.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- ========== 9 ========== -->
+<h2>9️⃣ Possible Class Questions</h2>
+<div class="card">
+    <div class="speak">
+        <p><strong>🗣️ Questions the professor might ask:</strong></p>
+        <ul>
+            <li><strong>"Can AI really understand social norms?"</strong> Not "understand" in a human sense. The norms are encoded in the AI's behavior. The AI follows encoded rules that function like norms.</li>
+            <li><strong>"What is the difference between guardrails and hard rules?"</strong> Guardrails set boundaries but allow freedom within. Hard rules specify the exact path. Guardrails are like highway barriers; hard rules are like train tracks.</li>
+            <li><strong>"Why did they claim Invention?"</strong> Multi-agent coordination exists in CS, but applying social norm theory to human-AI ecologies in an IS/sociotechnical context is new. The novelty is in the domain, not the technique.</li>
+            <li><strong>"Where does this fit in your research, Ali?"</strong> Directly related to my trust-delegation work. Deep norms = trust boundaries. Surface norms = operational delegation rules. When you delegate to AI, you need guardrails instead of full control.</li>
+        </ul>
+    </div>
+</div>
+
+<hr/>
+<p style="color:#94a3b8; font-size:0.85em; text-align:center;">Ali Safari — BCIS 6670 Week 9 — Spring 2026</p>
+
+</body>
+</html>

@@ -239,19 +239,24 @@ def detect_series(posts):
     return series_map
 
 def generate_toc(body_html):
-    """Extract h2 headings and build TOC HTML with anchor links."""
+    """Extract h2 headings, return (<li> items string, anchored body_html)."""
     headings = re.findall(r'<h2>([^<]+)</h2>', body_html)
     if not headings: return "", body_html
-    
+
     toc_items = []
-    for heading in headings:
+    for i, heading in enumerate(headings, 1):
         anchor = slugify(heading)
-        toc_items.append(f'<li><a href="#{anchor}">{html_mod.escape(heading)}</a></li>')
-        # Replace h2 with anchored version
-        body_html = body_html.replace(f'<h2>{heading}</h2>', f'<h2 id="{anchor}">{html_mod.escape(heading)}</h2>', 1)
-    
-    toc_html = f'<nav class="toc" aria-label="Table of contents"><div class="toc-header"><i class="fas fa-list-ul"></i> Contents</div><ul>{"".join(toc_items)}</ul></nav>'
-    return toc_html, body_html
+        num = f'{i:02d}'
+        toc_items.append(
+            f'<li><span class="toc-n">{num}</span>'
+            f'<span class="toc-t"><a href="#{anchor}">{html_mod.escape(heading)}</a></span></li>'
+        )
+        body_html = body_html.replace(
+            f'<h2>{heading}</h2>',
+            f'<h2 id="{anchor}">{html_mod.escape(heading)}</h2>', 1
+        )
+
+    return ''.join(toc_items), body_html
 
 def get_tag_counts(posts):
     c = Counter()
@@ -271,7 +276,7 @@ def related_posts(current, all_posts, n=3):
 
 # ===== SHARED COMPONENTS =====
 HEAD = """<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -280,126 +285,148 @@ HEAD = """<!DOCTYPE html>
 <link rel="canonical" href="{canonical}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 {json_ld}
 </head>"""
 
-NAV = """<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+NAV = """<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-</div>
-</div></nav>"""
+</nav>"""
 
-FOOTER = """<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+FOOTER = """<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>"""
 
 SCRIPTS = """<script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>"""
+<script src="/js/tweaks.js"></script>"""
 
 def build_listing(posts, page=1, total_pages=1, tag_counts=None, active_tag=None):
     start, end = (page-1)*PER_PAGE, page*PER_PAGE
     page_posts = posts[start:end]
-    tag_chips = [f'<a href="/blog/?tag={html_mod.escape(t)}" class="blog-tag-chip {"active" if t == active_tag else ""}" data-tag="{html_mod.escape(t)}">{html_mod.escape(t)} <span class="tag-count">{c}</span></a>' for t, c in tag_counts]
-    tag_chips.insert(0, f'<a href="/blog/" class="blog-tag-chip {"active" if not active_tag else ""}" data-tag="all">All <span class="tag-count">{len(posts)}</span></a>')
-    
-    cards = []
-    for p in page_posts:
+
+    # Tag chips
+    chips = [f'<button class="tag-chip{" on" if not active_tag else ""}" data-tag="all">All <span class="n">{len(posts)}</span></button>']
+    for t, c in tag_counts:
+        on = ' on' if t == active_tag else ''
+        chips.append(f'<button class="tag-chip{on}" data-tag="{html_mod.escape(t)}">{html_mod.escape(t)} <span class="n">{c}</span></button>')
+
+    # Hero post (first item on page 1)
+    hero_html = ''
+    row_posts = page_posts
+    if page == 1 and page_posts:
+        hp = page_posts[0]
+        row_posts = page_posts[1:]
+        excerpt = hp['excerpt'][:200] + ('…' if len(hp['excerpt']) > 200 else '')
+        tag0 = html_mod.escape(hp['tags'][0]) if hp['tags'] else 'Research'
+        hero_html = f'''<div class="hero-post" data-slug="{hp['slug']}">
+<div class="hero-eyebrow">{hp['date']}</div>
+<h2 class="hero-title"><a href="/blog/{hp['slug']}/">{html_mod.escape(hp['title'])}</a></h2>
+<p class="hero-excerpt">{html_mod.escape(excerpt)}</p>
+<div class="hero-foot">
+<div class="hero-meta"><span>{hp['reading_time']}</span><span class="dot">&middot;</span><span>{tag0}</span></div>
+<a href="/blog/{hp['slug']}/" class="hero-cta">Read &#8594;</a>
+</div>
+</div>'''
+
+    # Post rows
+    offset = 1 if (page == 1 and page_posts) else 0
+    rows = []
+    for i, p in enumerate(row_posts, start + offset + 1):
         tags_csv = ','.join(p['tags'])
-        tags_html = ''.join(f'<span class="tag">{html_mod.escape(t)}</span>' for t in p['tags'])
-        excerpt = p['excerpt'][:160] + ('...' if len(p['excerpt']) > 160 else '')
-        cards.append(f'''<div class="blog-grid-item" data-title="{html_mod.escape(p['title'].lower())}" data-excerpt="{html_mod.escape(p['excerpt'].lower())}" data-tags="{html_mod.escape(tags_csv)}" data-date="{p['date']}" data-slug="{p['slug']}">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>{p['date']}</span><span class="reading-time"><i class="far fa-clock"></i> {p['reading_time']}</span></div>
-<h2><a href="/blog/{p['slug']}/">{html_mod.escape(p['title'])}</a></h2>
-</div>
-<p class="card-excerpt">{html_mod.escape(excerpt)}</p>
-<div class="card-footer">
-<div class="card-tags">{tags_html}</div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="{p['slug']}" title="Save for later" aria-label="Save {html_mod.escape(p['title'])} for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/{p['slug']}/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div>''')
-    
+        tag0 = html_mod.escape(p['tags'][0]) if p['tags'] else ''
+        rows.append(
+            f'<div class="post-row" data-title="{html_mod.escape(p["title"].lower())}"'
+            f' data-tags="{html_mod.escape(tags_csv)}" data-date="{p["date"]}" data-slug="{p["slug"]}"'
+            f' onclick="location.href=\'/blog/{p["slug"]}/\'">'
+            f'<div class="pr-n">{i:02d}</div>'
+            f'<div class="pr-body">'
+            f'<div class="pr-title"><a href="/blog/{p["slug"]}/">{html_mod.escape(p["title"])}</a></div>'
+            f'<div class="pr-meta"><span>{p["date"]}</span><span class="mdot">&middot;</span><span>{tag0}</span></div>'
+            f'</div>'
+            f'<div class="pr-side"><span class="pr-rt">{p["reading_time"]}</span></div>'
+            f'</div>'
+        )
+
+    # Pagination
     pag = ''
     if total_pages > 1:
-        pages = []
+        prev_btn = f'<a href="{"/blog/" if page==2 else f"/blog/page/{page-1}/"}" class="pgn-step">&#8592; Prev</a>' if page > 1 else '<span></span>'
+        next_btn = f'<a href="/blog/page/{page+1}/" class="pgn-step">Next &#8594;</a>' if page < total_pages else '<span></span>'
+        nums = []
         for i in range(1, total_pages+1):
-            if i == page: pages.append(f'<span class="current">{i}</span>')
-            elif i == 1: pages.append(f'<a href="/blog/">{i}</a>')
-            else: pages.append(f'<a href="/blog/page/{i}/">{i}</a>')
-        pag = f'<div class="blog-pagination">{ "".join(pages) }</div>'
-    
-    meta = f'<title>Blog | Ali Safari</title><meta name="description" content="Ali Safari\'s blog on Information Systems research, AI, security, and theory. {len(posts)} posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Blog | Ali Safari"><meta property="og:description" content="Information Systems research, AI, and theory — {len(posts)} posts."><meta property="og:type" content="website"><meta property="og:url" content="{SITE}/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">'
+            if i == page:
+                nums.append(f'<span class="cur">{i}</span>')
+            elif i == 1:
+                nums.append(f'<button onclick="location.href=\'/blog/\'">{i}</button>')
+            else:
+                nums.append(f'<button onclick="location.href=\'/blog/page/{i}/\'">{i}</button>')
+        pag = f'<div class="pgn">{prev_btn}<div class="pgn-nums">{"".join(nums)}</div>{next_btn}</div>'
+
+    meta = f'<title>Field Notes | Ali Safari</title><meta name="description" content="Ali Safari\'s notes on Information Systems research, AI, and theory. {len(posts)} posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Field Notes | Ali Safari"><meta property="og:description" content="Notes on IS research, AI, and theory — {len(posts)} posts."><meta property="og:type" content="website"><meta property="og:url" content="{SITE}/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">'
     canonical = f'{SITE}/blog/'
-    json_ld = f'<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Blog","name":"Ali Safari Blog","description":"Thoughts on IS theory, AI, technology, and comps studying.","url":"{SITE}/blog/","author":{{"@type":"Person","name":"Ali Safari","url":"{SITE}"}}}}</script>'
-    
+    json_ld = f'<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Blog","name":"Field Notes — Ali Safari","description":"Notes on IS theory, AI, technology, and comps studying.","url":"{SITE}/blog/","author":{{"@type":"Person","name":"Ali Safari","url":"{SITE}"}}}}</script>'
+
     return f"""{HEAD.format(meta=meta, canonical=canonical, json_ld=json_ld)}
-<body class="blog-page">
+<body>
 {NAV}
-<header class="blog-header">
-<h1>Blog</h1>
-<p class="blog-subtitle">Thoughts on IS theory, AI, technology, and comps studying. No summaries, just honest reactions.</p>
-<div class="blog-meta">
-<span class="blog-meta-item"><i class="fas fa-pen-nib"></i> {len(posts)} posts</span>
-<span class="blog-meta-item"><i class="fas fa-tags"></i> {len(tag_counts)} topics</span>
+<div class="index">
+<header class="masthead">
+<div class="masthead-kicker">Field Notes &mdash; Ali Safari &mdash; {len(posts)} notes</div>
+<h1 class="masthead-title">Field<br>Notes.</h1>
+<div class="masthead-bottom">
+<p class="masthead-dek">Honest reactions to IS research, AI, and the theory I'm studying for comps. No summaries.</p>
+<div class="masthead-stats">
+<div><b>{len(posts)}</b> Posts</div>
+<div><b>{len(tag_counts)}</b> Topics</div>
+</div>
 </div>
 </header>
-<section class="blog-stats-bar">
-<div class="blog-stat"><span class="blog-stat-value">{len(posts)}</span><div class="blog-stat-label">Posts</div></div>
-<div class="blog-stat"><span class="blog-stat-value">{len(tag_counts)}</span><div class="blog-stat-label">Topics</div></div>
-<div class="blog-stat"><span class="blog-stat-value">{posts[0]['date'][:4] if posts else '2026'}</span><div class="blog-stat-label">Latest</div></div>
-</section>
-<div class="blog-controls">
-<div class="blog-search-box"><i class="fas fa-search"></i><input type="text" id="blogSearch" placeholder="Search posts by title or content..." autocomplete="off"></div>
-<div class="blog-filter-sort">
-<button class="blog-filter-btn active" data-sort="newest"><i class="fas fa-sort-amount-down"></i> Newest</button>
-<button class="blog-filter-btn" data-sort="oldest"><i class="fas fa-sort-amount-up"></i> Oldest</button>
+<div class="controls">
+<div class="search-wrap">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="blogSearch" placeholder="Search notes…" autocomplete="off">
+</div>
+<div class="seg">
+<button class="on" data-sort="newest">Newest</button>
+<button data-sort="oldest">Oldest</button>
 </div>
 </div>
-<div class="blog-tag-filters">{''.join(tag_chips)}</div>
-<div class="blog-grid" id="blogGrid">
-{''.join(cards)}
-<div class="blog-empty-state" style="display:none"><i class="fas fa-search"></i><h3>No posts found</h3><p>Try a different search term.</p></div>
-</div>
+<div class="tags" id="tagFilters">{''.join(chips)}</div>
+{hero_html}
+<div class="post-list" id="postList">
+{''.join(rows)}
+<div id="emptyState" style="display:none;padding:64px 0;font-family:var(--f-mono);font-size:13px;color:var(--ink-4);letter-spacing:.07em;text-transform:uppercase;">No notes found</div>
 {pag}
+</div>
 {FOOTER}
 {SCRIPTS}
 </body></html>"""
 
 def build_article(post, all_posts, series_map):
     body_html_raw = md_html(post['body'])
-    toc_html, body_html = generate_toc(body_html_raw)
+    toc_li_items, body_html = generate_toc(body_html_raw)
     tags_html = ''.join(f'<span class="tag">{html_mod.escape(t)}</span>' for t in post['tags'])
+    art_tags_html = ''.join(f'<span class="art-tag">{html_mod.escape(t)}</span>' for t in post['tags'][:3])
     primary = post['tags'][0] if post['tags'] else 'Research'
     
     # Series badge
@@ -422,18 +449,24 @@ def build_article(post, all_posts, series_map):
         next_link = ''
         if idx < len(all_posts) - 1:
             np = all_posts[idx + 1]
-            prev_link = f'<a href="/blog/{np["slug"]}/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">{html_mod.escape(np["title"])}</div></a>'
+            prev_link = f'<a href="/blog/{np["slug"]}/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">{html_mod.escape(np["title"])}</div></a>'
         if idx > 0:
             pp = all_posts[idx - 1]
-            next_link = f'<a href="/blog/{pp["slug"]}/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">{html_mod.escape(pp["title"])}</div><i class="fas fa-arrow-right"></i></a>'
+            next_link = f'<a href="/blog/{pp["slug"]}/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">{html_mod.escape(pp["title"])}</div></a>'
         if prev_link or next_link:
-            prev_next = f'<nav class="prev-next-nav" aria-label="Post navigation">{prev_link}{next_link}</nav>'
+            prev_next = f'<p class="end-label">More notes</p><div class="prev-next">{prev_link}{next_link}</div>'
     
     related = related_posts(post, all_posts)
     rel_html = ''
     if related:
-        rc = ''.join(f'<a href="/blog/{p["slug"]}/" class="blog-related-card"><h4>{html_mod.escape(p["title"])}</h4><div class="related-meta">{p["date"]} &middot; {p["reading_time"]}</div></a>' for p in related)
-        rel_html = f'<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid">{rc}</div></section>'
+        rc = ''.join(
+            f'<a href="/blog/{p["slug"]}/" class="related-item">'
+            f'<div><div class="related-cat">{html_mod.escape(p["tags"][0] if p["tags"] else "Research")}</div>'
+            f'<div class="related-title">{html_mod.escape(p["title"])}</div></div>'
+            f'<span class="related-rt">{p["reading_time"]}</span></a>'
+            for p in related
+        )
+        rel_html = f'<p class="end-label">Related notes</p><div class="related-list">{rc}</div>'
     
     meta = f'<title>{html_mod.escape(post["title"])} | Ali Safari</title><meta name="description" content="{html_mod.escape(post["excerpt"])}"><meta name="keywords" content={", ".join(post["tags"])}, information systems, research"><meta property="og:title" content="{html_mod.escape(post["title"])}"><meta property="og:description" content="{html_mod.escape(post["excerpt"])}"><meta property="og:type" content="article"><meta property="og:url" content="{SITE}/blog/{post["slug"]}/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="{post["date"]}"><meta property="article:tag" content={", ".join(post["tags"])}"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">'
     canonical = f'{SITE}/blog/{post["slug"]}/'
@@ -445,63 +478,78 @@ def build_article(post, all_posts, series_map):
     }}
     </script>'''
     
-    toc_widget = f'<div class="toc-sidebar">{toc_html}</div>' if toc_html else ''
-    toc_mobile = f'<button class="toc-toggle" aria-expanded="false" aria-controls="toc-panel"><i class="fas fa-list-ul"></i> Contents</button><div class="toc-panel" id="toc-panel">{toc_html}</div>' if toc_html else ''
-    
+    art_class = 'article-page'
+    if toc_li_items:
+        toc_rail = f'''<div class="article-toc-rail">
+<div class="article-toc-sticky">
+<div class="art-toc">
+<div class="art-toc-label">Contents</div>
+<ol>{toc_li_items}</ol>
+</div>
+</div>
+</div>'''
+        art_body_wrap = f'<div class="article-with-toc">{toc_rail}<div class="art-body drop-cap">{body_html}</div></div>'
+    else:
+        art_body_wrap = f'<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;">{body_html}</div>'
+
     return f"""{HEAD.format(meta=meta, canonical=canonical, json_ld=json_ld)}
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<body class="{art_class}">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
 {NAV}
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">{html_mod.escape(post['title'])}</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="{post['slug']}" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>{html_mod.escape(primary)}</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">{html_mod.escape(primary)}</div>
+<h1 class="art-title">{html_mod.escape(post['title'])}</h1>
+{f'<p class="art-dek">{html_mod.escape(post["excerpt"])}</p>' if post['excerpt'] else ''}
+<div class="art-meta">
+<span>{post['date']}</span>
+<span class="dot">&middot;</span>
+<span>{post['reading_time']}</span>
+{art_tags_html}
 </div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">{html_mod.escape(primary)}</span>
-<h1>{html_mod.escape(post['title'])}</h1>
-<div class="article-meta-bar">
-<span>{post['date']}</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> {post['reading_time']}</span>
-<span class="meta-sep"></span>
-<div class="card-tags">{tags_html}</div>
-</div>
-</article>
+</header>
 {series_badge}
-<div class="blog-article-layout">
-{toc_widget}
-<div class="blog-article-body">
-{toc_mobile}
-{body_html}
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+{art_body_wrap}
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
-</div>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
 {prev_next}
 {rel_html}
+</div>
 {FOOTER}
 {SCRIPTS}
+<script>
+(function(){{
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){{
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  }},{{passive:true}});
+}})();
+</script>
 </body></html>"""
 
 def build_category_page(category, posts_in_cat, all_posts, tag_counts):

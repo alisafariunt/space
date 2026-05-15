@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Week 7: Analytical Modeling in IS Research - Game Theory, Platform Economics, and Mathematical Models">
+    <meta name="theme-color" content="#1e40af">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Week 7: Analytical Modeling in IS | BCIS 6670 Study Guide</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/study-header.css">
+
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-brand">BCIS 6670 Study Guide</a>
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="exam_guide.html">🎯 Exam Guide</a></li>
+                <li><a href="exam_answers.html">📝 Exam Answers</a></li>
+                <li><a href="frameworks.html">📐 Frameworks</a></li>
+                <li><a href="session1.html">Wk 1</a></li>
+                <li><a href="session2.html">Wk 2</a></li>
+                <li><a href="session3.html">Wk 3+4</a></li>
+                <li><a href="session5.html">Wk 5</a></li>
+                <li><a href="session6.html">Wk 6</a></li>
+                <li><a href="session7.html" class="active">Wk 7</a></li>
+            </ul>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">Reading Progress: 0%</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- Session Header -->
+        <div class="session-header">
+            <h1>Week 7: Analytical Modeling in IS Research</h1>
+            <p class="session-meta">Feb 24, 2026 | Guest Researcher: Dr. Zhiling Guo (SMU) | Game Theory, Platform
+                Economics, and Crowdfunding</p>
+        </div>
+
+        <!-- Session Overview -->
+        <div class="info-box">
+            <h4>🎯 This Week's Focus</h4>
+            <p>Week 7 is a guest researcher week. Dr. Zhiling Guo from Singapore Management University visits and
+                presents her work. All four papers this week use <strong>mathematical/analytical methods</strong> —
+                game theory, empirical causal identification, or optimization-based task allocation. The masterclass
+                slides explain what analytical
+                modeling is and why it counts as legitimate IS research. Key question: <em>How can IS research answer
+                    questions that surveys and experiments cannot?</em></p>
+        </div>
+
+        <!-- This Week's Requirements -->
+        <div class="warning-box">
+            <h4>📋 This Week's Requirements (Feb 24, 2026)</h4>
+            <ul>
+                <li><strong>Article critique due:</strong> One paper of your choice from this week's readings.</li>
+                <li><strong>Paper draft due:</strong> Full draft of your research paper is due this week (Week 7).</li>
+                <li>Read all five items (4 papers + masterclass slides) and be ready to discuss the <strong>
+                        research method</strong> in class.</li>
+                <li>Focus question: <em>What makes analytical modeling a valid research method? What can it do that
+                        empirical methods cannot?</em></li>
+            </ul>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="paper-card quick-nav">
+            <h4>🔗 فهرست سریع - Quick Navigation</h4>
+            <div class="quick-nav-links">
+                <a href="#masterclass" class="quick-nav-link">📐 Analytical Modeling Masterclass</a>
+                <a href="#platform" class="quick-nav-link">🛒 Chen & Guo (2022) — Platform Openness</a>
+                <a href="#rebates" class="quick-nav-link">⭐ Chen, Guo & Huang (2022) — Rebates & Reviews</a>
+                <a href="#crowdfunding" class="quick-nav-link">🌍 Luo et al. — Crowdfunding & MFI</a>
+                <a href="#ai-roles" class="quick-nav-link">🤖 Fügener et al. (2026) — AI Automation vs. Augmentation</a>
+                <a href="#fugener-math" class="quick-nav-link">🔢 Fügener — Math Deep Dive + Figures</a>
+                <a href="#mental-map" class="quick-nav-link">🗺️ Mental Map</a>
+                <a href="#integration" class="quick-nav-link">📚 Integration</a>
+            </div>
+        </div>
+
+        <!-- Papers at a Glance -->
+        <div class="paper-card">
+            <h2>Papers at a Glance</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paper</th>
+                        <th>Research Question</th>
+                        <th>Method</th>
+                        <th>Key Finding</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>MISQ Masterclass (2023)</strong></td>
+                        <td>What is analytical modeling and how do you do it?</td>
+                        <td>Tutorial / Methodology</td>
+                        <td>3 types: Game Theory, OR, Optimal Control. Nash Eq. is the core solution concept.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chen & Guo (2022) — MISQ</strong></td>
+                        <td>How does low-cost new-media advertising affect platform openness?</td>
+                        <td>Game Theory (3-stage sequential)</td>
+                        <td>Cheap advertising pressures Amazon to OPEN its platform — counter-intuitive.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Chen, Guo & Huang (2022) — ISR</strong></td>
+                        <td>When is it rational to offer rebates conditional on positive reviews?</td>
+                        <td>Game Theory (2-period)</td>
+                        <td>Conditional rebates can INCREASE social welfare even when they generate fake reviews.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Luo, Ge & Wang — MISQ</strong></td>
+                        <td>Does Kiva crowdfunding help microfinance institutions?</td>
+                        <td>Empirical — Difference-in-Differences</td>
+                        <td>Kiva partnership improves MFI sustainability and lowers borrower interest rates.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fügener, Walzner & Gupta (2026) — Mgmt Sci</strong></td>
+                        <td>When should AI automate vs. augment humans in judgment tasks?</td>
+                        <td>Analytical Modeling + Empirical Validation</td>
+                        <td>Combined framework (88%) beats humans (68%), automation (77%), and augmentation (80%).
+                            Pattern: AI automates easy, augments medium, crowds handle hard tasks.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- ===================== MASTERCLASS ===================== -->
+        <div class="paper-card" id="masterclass">
+            <h2>📐 Analytical Modeling in IS Research</h2>
+            <h3>MISQ Masterclass Series — May 17, 2023</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>MISQ Masterclass Series (2023, May 17). <em>Analytical Modeling in IS Research.</em> MIS Quarterly
+                    Masterclass Presentation Slides.</p>
+            </div>
+
+            <!-- Persian RTL -->
+            <div class="analysis-section rtl-section">
+                <h4>📚 توضیح فارسی — مدل‌سازی تحلیلی چیست؟</h4>
+
+                <p><strong>🔴 مشکل اصلی این هفته چیست؟</strong> این هفته با یک روش تحقیق کاملاً متفاوت روبرو می‌شویم.
+                    تا حالا ما با <mark>پژوهش پوزیتیویستی</mark> آشنا بودیم — جایی که داده جمع می‌کنیم (نظرسنجی یا
+                    آزمایش) و با آمار تست می‌کنیم. این هفته روش دیگری است: <mark>مدل‌سازی تحلیلی</mark>. در این روش
+                    <strong>اصلاً داده جمع نمی‌کنیم</strong>. به جایش معادله می‌نویسیم و ریاضی به ما جواب می‌دهد.
+                </p>
+
+                <p><strong>🎯 چرا این روش وجود دارد؟</strong> بعضی سوالات را نمی‌توان با داده واقعی جواب داد.
+                    مثال ساده: فرض کن می‌خواهی بدانی «اگر آمازون کمیسیونش را ۵٪ بالا ببرد، فروشندگان چه می‌کنند؟»
+                    نمی‌توانی یک آزمایش بکنی چون آمازون واقعاً این کار را نکرده. اما اگر یک مدل ریاضی داشته باشی که
+                    رفتار فروشنده را توصیف کند، می‌توانی با حساب کردن جواب بگیری. این <mark>قدرت اصلی</mark>
+                    مدل‌سازی تحلیلی است.</p>
+
+                <p><strong>📖 تفاوت سه نوع:</strong></p>
+                <ul>
+                    <li><strong>تئوری بازی (Game Theory):</strong> وقتی چند بازیگر داریم که هر کدام سود خودشان را
+                        بیشینه می‌کنند و تصمیم‌هایشان به هم وابسته است. مثلاً آمازون و فروشنده، یا دو رقیب.
+                        <mark>هفته ۷ دو پیپر از این نوع دارد.</mark>
+                    </li>
+                    <li><strong>OR / بهینه‌سازی:</strong> وقتی فقط یک تصمیم‌گیرنده داریم که می‌خواهد بهترین انتخاب
+                        را بکند. مثلاً یک شرکت که می‌خواهد بهترین بودجه IT را تعیین کند.</li>
+                    <li><strong>کنترل بهینه:</strong> مثل بهینه‌سازی ولی در طول زمان. مثلاً چند سال برنامه‌ریزی
+                        برای سرمایه‌گذاری IT.</li>
+                </ul>
+
+                <p><strong>⚡ نکته کلیدی برای امتحان:</strong> وقتی استاد می‌پرسد «چرا این پیپر از تئوری بازی استفاده
+                    کرد؟»، جواب این است: چون <mark>دو بازیگر مستقل وجود دارند که سود خودشان را بیشینه می‌کنند و
+                        تصمیم یکی روی دیگری اثر می‌گذارد</mark>. این وضعیتی است که فقط Game Theory می‌تواند به درستی
+                    مدل کند.</p>
+
+                <p><strong>🧠 Nash Equilibrium یعنی چه؟</strong> فرض کن دو نفر (A و B) بازی می‌کنند. وقتی به تعادل
+                    نش رسیدیم، یعنی: اگر A استراتژی‌اش را عوض کند، فقط به خودش ضرر می‌زند (با فرض اینکه B عوض
+                    نمی‌کند). پس هیچ‌کدام انگیزه‌ای برای تغییر ندارند. این <mark>ثبات استراتژیک</mark> است.
+                    در دو پیپر این هفته، ما این تعادل را حساب می‌کنیم و از روی آن نتیجه‌گیری IS می‌کنیم.</p>
+
+                <p><strong>💡 نکته مهم برای نقد این نوع پیپر:</strong> وقتی می‌خواهی یک پیپر تحلیلی را نقد کنی،
+                    به جای اینکه بپرسی «آیا داده‌ها درست است؟»، باید بپرسی: آیا <mark>فرض‌های مدل</mark> منطقی
+                    هستند؟ مثلاً آیا واقعاً مصرف‌کنندگان rational هستند؟ آیا اطلاعات کامل است؟ این فرض‌ها زیربنای
+                    همه چیز هستند.</p>
+            </div>
+
+            <!-- Core Question -->
+            <div class="paper-card">
+                <h4>🎯 Core Question</h4>
+                <p><strong>English:</strong> What is analytical modeling, when should IS researchers use it, and how
+                    does it contribute to theory?</p>
+                <p><strong>فارسی:</strong> مدل‌سازی تحلیلی چیست، چه زمانی باید از آن استفاده کرد، و چگونه به
+                    نظریه‌پردازی IS کمک می‌کند؟</p>
+            </div>
+
+            <!-- 3 Types -->
+            <div class="paper-card">
+                <h4>📊 Three Types of Analytical Modeling in IS</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>When to Use</th>
+                            <th>Solution Concept</th>
+                            <th>Example Problem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Game Theory</strong></td>
+                            <td>Multiple rational players, each maximizing their own payoff strategically</td>
+                            <td>Nash Equilibrium, Subgame-Perfect NE, Bayesian NE</td>
+                            <td>Platform openness, pricing wars, review manipulation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Operations Research / Decision Theory</strong></td>
+                            <td>One decision-maker optimizing an objective function; no strategic interaction</td>
+                            <td>Maximization / Minimization (calculus, Lagrange)</td>
+                            <td>Optimal IT investment, staffing decisions, project scheduling</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Optimal Control</strong></td>
+                            <td>Dynamic decisions that change over time across a planning horizon</td>
+                            <td>Pontryagin's Maximum Principle, Bellman's dynamic programming</td>
+                            <td>How firms should shift IT budget allocations over quarters</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Game Theory Deep Dive -->
+            <div class="paper-card">
+                <h4>🎮 Game Theory: Key Concepts</h4>
+                <p>A <strong>game</strong> has three elements:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Symbol</th>
+                            <th>Meaning</th>
+                            <th>Example (Week 7)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Players</td>
+                            <td><strong>N</strong></td>
+                            <td>Who makes decisions?</td>
+                            <td>Amazon + Third-Party Seller</td>
+                        </tr>
+                        <tr>
+                            <td>Strategy space</td>
+                            <td><strong>S<sub>i</sub></strong></td>
+                            <td>What choices does each player have?</td>
+                            <td>Open/Close platform; Join/Advertise; Set price</td>
+                        </tr>
+                        <tr>
+                            <td>Payoff function</td>
+                            <td><strong>u<sub>i</sub></strong></td>
+                            <td>What does each player maximize?</td>
+                            <td>Each player's profit</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4>Nash Equilibrium — Definition</h4>
+                    <p>Strategies (s₁*, s₂*, …, sₙ*) form a <strong>Nash Equilibrium</strong> if no player can
+                        increase their payoff by <em>unilaterally</em> changing their own strategy, given the other
+                        players keep theirs fixed. Everyone is playing their <strong>best response</strong>.</p>
+                </div>
+
+                <h5>Types of Games by Information Structure</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Game Type</th>
+                            <th>Timing</th>
+                            <th>Info</th>
+                            <th>Solution Concept</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Static, complete info</td>
+                            <td>Simultaneous</td>
+                            <td>All payoffs known</td>
+                            <td>Nash Equilibrium</td>
+                        </tr>
+                        <tr>
+                            <td>Dynamic, complete info</td>
+                            <td>Sequential</td>
+                            <td>All payoffs known</td>
+                            <td>Subgame-Perfect NE (backward induction)</td>
+                        </tr>
+                        <tr>
+                            <td>Static, incomplete info</td>
+                            <td>Simultaneous</td>
+                            <td>Some private info</td>
+                            <td>Bayesian NE</td>
+                        </tr>
+                        <tr>
+                            <td>Dynamic, incomplete info</td>
+                            <td>Sequential</td>
+                            <td>Some private info</td>
+                            <td>Perfect Bayesian Equilibrium</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Why Analytical in IS -->
+            <div class="paper-card">
+                <h4>💡 Why Analytical Modeling Belongs in IS Research</h4>
+                <ul>
+                    <li><strong>Counterfactual questions:</strong> "What would happen IF Amazon changed its policy?"
+                        — no data exists for this, but a model can answer it</li>
+                    <li><strong>Causal mechanism:</strong> Analytical models explain the WHY, not just the WHAT.
+                        They show the mathematical logic behind observed patterns</li>
+                    <li><strong>Counter-intuitive insights:</strong> The best analytical papers find results that
+                        surprise us — like "cheap advertising makes Amazon more, not less, willing to share its
+                        platform"</li>
+                    <li><strong>Generates testable hypotheses:</strong> Analytical predictions that empirical papers
+                        later test with real data</li>
+                </ul>
+            </div>
+
+            <!-- How to Review -->
+            <div class="warning-box">
+                <h4>⚠️ How to Review an Analytical Paper (vs. Positivist)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Criterion</th>
+                            <th>Positivist Paper</th>
+                            <th>Analytical Paper</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Evidence</td>
+                            <td>Survey / experimental data, statistics</td>
+                            <td>Mathematical proofs and lemmas</td>
+                        </tr>
+                        <tr>
+                            <td>Key question</td>
+                            <td>"Are the hypotheses supported by the data?"</td>
+                            <td>"Are the assumptions reasonable and are the proofs correct?"</td>
+                        </tr>
+                        <tr>
+                            <td>Contribution check</td>
+                            <td>New empirical finding</td>
+                            <td>Novel mechanism or counter-intuitive proposition</td>
+                        </tr>
+                        <tr>
+                            <td>Generalizability</td>
+                            <td>External validity, sample size</td>
+                            <td>Do the model's assumptions cover enough realistic cases?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- ===================== PAPER 1: PLATFORM OPENNESS ===================== -->
+        <div class="paper-card" id="platform">
+            <h2>🛒 Chen & Guo (2022) — New-Media Advertising and Retail Platform Openness</h2>
+            <h3>MIS Quarterly, 46(1), 431–456</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>Chen, J., & Guo, Z. (2022). New-media advertising and retail platform openness. <em>MIS
+                        Quarterly, 46</em>(1), 431–456.</p>
+            </div>
+
+            <!-- Persian RTL -->
+            <div class="analysis-section rtl-section">
+                <h4>📚 توضیح فارسی — بازی آمازون و فروشنده چطور کار می‌کند؟</h4>
+
+                <p><strong>🔴 منطق اصلی را قدم به قدم درک کنیم:</strong></p>
+                <p>تصور کن یک فروشنده کوچک (مثلاً یک کارخانه کوچک کفش) می‌خواهد آنلاین بفروشد. دو گزینه دارد:</p>
+                <ul>
+                    <li><strong>گزینه ۱:</strong> به آمازون بپیوندد و کمیسیون بدهد. مزیت: همه مشتریان آمازون
+                        او را می‌بینند.</li>
+                    <li><strong>گزینه ۲:</strong> سایت خودش را داشته باشد ولی با تبلیغات (مثل فیسبوک ادز)
+                        مشتری جذب کند.</li>
+                </ul>
+
+                <p><strong>🤔 حالا آمازون چه می‌کند؟</strong> آمازون هم باید تصمیم بگیرد: پلتفرم را باز کند
+                    (اجازه بدهد رقبا بفروشند) یا نه.</p>
+
+                <p><strong>🔑 نقطه کلیدی:</strong> وقتی تبلیغات آنلاین گران بود (۱۰ سال پیش)، فروشنده کوچک
+                    نمی‌توانست به تنهایی رقیب آمازون باشد. آمازون می‌توانست پلتفرمش را ببندد. <mark>اما الان با
+                        فیسبوک ادز و گوگل ادز ارزان، فروشنده می‌تواند مستقلاً تبلیغ کند و به آمازون نیاز نداشته
+                        باشد.</mark> این یعنی تهدید فروشنده <strong>واقعی</strong> شده.</p>
+
+                <p><strong>💡 پس چرا آمازون پلتفرم را باز می‌کند؟</strong> چون آمازون حساب می‌کند:
+                    «اگر این فروشنده از پلتفرم من استفاده نکند، مستقلاً تبلیغ می‌کند، مشتریان من را می‌گیرد،
+                    و من هیچ کمیسیونی نمی‌گیرم. بهتر است پلتفرم را باز کنم، کمیسیون بگیرم، و حداقل یک بخشی
+                    از سود را ببرم.» این منطق <mark>backward induction</mark> است — از آخر به اول فکر می‌کنیم.</p>
+
+                <p><strong>📊 نتیجه counter-intuitive:</strong> هرچه تبلیغات آنلاین <mark>ارزان‌تر</mark> شود،
+                    آمازون <mark>بیشتر</mark> تمایل دارد پلتفرمش را باز کند — نه کمتر. این خلاف شهود است!
+                    اما ریاضی نشان می‌دهد که این درست است.</p>
+
+                <p><strong>⚡ برای امتحان:</strong> اگر پرسیدند «چرا این پیپر از بازی سه مرحله‌ای استفاده کرد؟»:
+                    چون تصمیمات <mark>sequential</mark> هستند (اول آمازون، بعد فروشنده، بعد قیمت‌گذاری).
+                    نمی‌توانی همه را یکجا حل کنی — باید از Stage 3 برگردی به Stage 1. این subgame-perfect NE
+                    با backward induction است.</p>
+
+                <p><strong>🔗 ربط به IS:</strong> این پیپر اقتصاد پلتفرم‌های دیجیتال را توضیح می‌دهد.
+                    آمازون، eBay، App Store، Google Play — همه این‌ها تصمیمات «باز یا بسته بودن» دارند.
+                    این مدل به ما می‌گوید که <mark>ارزانی تبلیغات دیجیتال در دهه اخیر</mark> یکی از دلایل
+                    بازتر شدن پلتفرم‌ها بوده است.</p>
+            </div>
+
+            <!-- Core Question -->
+            <div class="paper-card">
+                <h4>🎯 Core Question — سوال اصلی</h4>
+                <p><strong>English:</strong> How does the emergence of low-cost new-media advertising affect a
+                    leading retailer's (Amazon's) incentive to open its platform to a competing third-party seller?</p>
+                <p><strong>فارسی:</strong> چگونه ظهور تبلیغات دیجیتال ارزان (مثل فیسبوک ادز) بر انگیزه یک خرده‌فروش
+                    پیشرو مثل آمازون برای باز کردن پلتفرمش به فروشندگان رقیب تاثیر می‌گذارد؟</p>
+            </div>
+
+            <!-- Model Setup -->
+            <div class="paper-card">
+                <h4>📐 The Model Setup</h4>
+                <p>This is a <strong>3-stage sequential game</strong> with complete information, solved by backward
+                    induction (Subgame-Perfect Nash Equilibrium).</p>
+
+                <h5>Players</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Player</th>
+                            <th>Advantage</th>
+                            <th>Strategic Choice</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Amazon (A)</strong></td>
+                            <td>All consumers know about A. Full awareness advantage.</td>
+                            <td>Open platform (announce commission ρ) OR keep closed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Third-Party Seller (B)</strong></td>
+                            <td>Discount: consumer value = k·v where k ~ Uniform[0,1]. Only α% of consumers
+                                know B initially.</td>
+                            <td>Join Amazon's platform OR advertise independently to reach awareness ψ at cost C(ψ)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h5>The 3-Stage Game</h5>
+                <pre
+                    style="background:#f0f4f8; border:1px solid #c7d2e0; border-radius:6px; padding:1rem; font-size:0.82rem; line-height:1.8; white-space:pre-wrap; overflow-x:auto;">Stage 1 — Amazon decides: Open platform (set commission ρ)  OR  Stay closed
+  ↓
+Stage 2 — Seller B decides: Join platform (pay ρ, gain full awareness + boost δ)  OR  Advertise to awareness ψ at cost C(ψ)
+  ↓
+Stage 3 — Both simultaneously set prices p_A and p_B → Consumers choose
+  ↓
+Profits computed. Solved by BACKWARD INDUCTION: Stage 3 → Stage 2 → Stage 1.</pre>
+
+                <div class="info-box">
+                    <h4>Key Modeling Assumptions</h4>
+                    <ul>
+                        <li>Consumer value v ~ Uniform[0,1] → tractable closed-form solutions</li>
+                        <li>Advertising cost C(ψ) is increasing and <strong>convex</strong> (diminishing returns)</li>
+                        <li>Both players are rational profit-maximizers</li>
+                        <li>The seller's discount factor k captures B's competitive disadvantage vs. Amazon</li>
+                    </ul>
+                </div>
+
+                <!-- Mermaid diagram -->
+                <div class="mermaid">
+                    graph LR
+                    C["Cheap Advertising\n(low C(ψ))"] -->|"B can threaten\nexternal competition"| T["Credible Threat"]
+                    T -->|"Amazon prefers\ncommission revenue"| O["Platform OPENS"]
+                    O -->|"B joins, gets\nawareness + δ"| CS["Consumer Surplus ↑"]
+                    C -->|"If platform stays closed"| AD["B Advertises\nprices fall"]
+                    AD --> CS2["Consumer Surplus ↑"]
+
+                    style C fill:#fef3c7,stroke:#f59e0b
+                    style T fill:#fee2e2,stroke:#ef4444
+                    style O fill:#d1fae5,stroke:#059669
+                    style CS fill:#e1f5ff,stroke:#3b82f6
+                    style CS2 fill:#e1f5ff,stroke:#3b82f6
+                </div>
+            </div>
+
+            <!-- Key Findings -->
+            <div class="paper-card">
+                <h4>🔑 Key Findings — یافته‌های کلیدی</h4>
+
+                <div class="success-box">
+                    <h4>✅ Finding 1: Low-Cost Advertising Drives Platform Openness</h4>
+                    <p>When new-media advertising becomes cheaper, Seller B's threat to compete externally becomes
+                        more credible. Amazon prefers to collect commission rather than face a competitor with full
+                        market reach. So Amazon <strong>opens its platform</strong> — a counter-intuitive result.</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ Finding 2: Consumers Always Benefit</h4>
+                    <p>Regardless of whether B joins Amazon or advertises independently: (1) if B joins, more
+                        product variety raises competition and lowers prices; (2) if B advertises, competition
+                        also increases. Consumer surplus increases in both equilibria.</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ Finding 3: Network Effects Amplify Openness Incentive</h4>
+                    <p>When Amazon's platform has positive network effects (more sellers = more consumers), Amazon
+                        has an even stronger reason to open its platform to additional sellers.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Extension: Budget Constraints Reduce Openness</h4>
+                    <p>If Seller B has an advertising budget cap, B's external threat is weaker. Amazon has less
+                        reason to open — so with constrained small sellers, we <strong>expect less openness</strong>.
+                        This matches real-world patterns where small businesses struggle to advertise.</p>
+                </div>
+            </div>
+
+            <!-- Why this matters -->
+            <div class="paper-card">
+                <h4>💡 Why This Paper Matters for IS Research</h4>
+                <ul>
+                    <li><strong>Explains platform economics:</strong> Why do Amazon, Apple App Store, Google Play
+                        have different openness levels? This framework can explain it.</li>
+                    <li><strong>Counter-intuitive insight:</strong> Everyone thinks cheap advertising hurts big
+                        platforms. This paper shows it can actually benefit them (by making openness profitable).</li>
+                    <li><strong>Policy implications:</strong> If new-media advertising becomes more accessible to
+                        small sellers, platforms are more likely to open — good for competition.</li>
+                    <li><strong>Only possible with analytical modeling:</strong> You cannot run an experiment to
+                        test "what would Amazon do if Facebook ads got cheaper." Only a formal model can answer this.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- ===================== PAPER 2: REBATES ===================== -->
+        <div class="paper-card" id="rebates">
+            <h2>⭐ Chen, Guo & Huang (2022) — Rebates Conditional on Positive Reviews</h2>
+            <h3>Information Systems Research, 33(1), 224–243</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>Chen, J., Guo, Z., & Huang, J. (2022). An economic analysis of rebates conditional on positive
+                    reviews. <em>Information Systems Research, 33</em>(1), 224–243.
+                    https://doi.org/10.1287/isre.2021.1048</p>
+            </div>
+
+            <!-- Persian RTL -->
+            <div class="analysis-section rtl-section">
+                <h4>📚 توضیح فارسی — ریبیت مشروط: بد است یا خوب؟</h4>
+
+                <p><strong>🔴 اول مشکل را بفهمیم:</strong> فرض کن یک کالا می‌خری از آمازون. بعد فروشنده برایت
+                    ایمیل می‌زند: «اگر یک نظر ۵ ستاره بنویسی، ۱۰ دلار پول پس می‌دیم.» این
+                    <mark>conditional rebate</mark> است — یعنی تخفیف مشروط به نظر مثبت. آمازون این کار را در
+                    ۲۰۱۶ ممنوع کرد. سوال پیپر این است: آیا این ممنوعیت درست بود؟
+                </p>
+
+                <p><strong>📖 چرا این سوال سخت است؟</strong> شهود ما می‌گوید «نظر جعلی = بد». اما مدل ریاضی
+                    نشان می‌دهد که دو اثر متضاد وجود دارد:</p>
+                <ul>
+                    <li><strong>Social Gain (سود اجتماعی):</strong> ریبیت باعث می‌شود نظرات بیشتری نوشته شود.
+                        مشتری‌های بعدی اطلاعات بیشتری دارند → خریدهای بهتری می‌کنند → رفاه کل جامعه بالا
+                        می‌رود. <mark>حتی اگر بعضی نظرها جعلی باشند!</mark></li>
+                    <li><strong>Social Loss (زیان اجتماعی):</strong> مشتریان ناراضی که برای پول نظر مثبت
+                        می‌دهند، اطلاعات غلط ایجاد می‌کنند. مشتریان بعدی تصمیمات بدتری می‌گیرند.</li>
+                </ul>
+
+                <p><strong>🎯 سوال کلیدی مدل:</strong> کدام اثر بزرگتر است؟ این به
+                    <mark>هزینه نوشتن نظر (c)</mark> بستگی دارد. اگر c متوسط باشد، social gain بیشتر است
+                    و ریبیت به نفع جامعه است. اگر c خیلی کم یا خیلی زیاد باشد، نتیجه فرق می‌کند.
+                </p>
+
+                <p><strong>🧩 دو تعادل وجود دارد:</strong></p>
+                <ul>
+                    <li><strong>Low-Rebate Equilibrium (تعادل ریبیت پایین):</strong> فروشنده مقدار کمی ریبیت
+                        می‌دهد. فقط مشتریان راضی نظر می‌دهند چون برایشان ارزش دارد. <mark>هیچ نظر جعلی
+                            نداری.</mark> قیمت کالا معمولی است.</li>
+                    <li><strong>High-Rebate Equilibrium (تعادل ریبیت بالا):</strong> فروشنده ریبیت بالا
+                        می‌دهد. بعضی مشتریان ناراضی هم برای پول نظر مثبت می‌دهند. <mark>نظرات جعلی وجود
+                            دارد.</mark> اما قیمت کالا پایین‌تر است چون فروشنده از سود اضافه به مشتری می‌دهد.</li>
+                </ul>
+
+                <p><strong>💡 نتیجه‌ای که هوش ما قبول نمی‌کند:</strong> در تعادل ریبیت بالا، حتی با
+                    وجود نظرات جعلی، ممکن است <mark>مصرف‌کننده بهتر باشد</mark> (قیمت پایین‌تر + اطلاعات
+                    بیشتر) و <mark>رفاه اجتماعی هم بالاتر باشد</mark>. پس آمازون شاید اشتباه کرده که این
+                    کار را ممنوع کرد!</p>
+
+                <p><strong>⚡ برای امتحان:</strong> مهم‌ترین نکته Lemma 1 است — جدول کوچکی که توضیح
+                    می‌دهد چه زمانی مشتری نظر واقعی، نظر جعلی، یا اصلاً نظر نمی‌دهد. شرط نظر جعلی این است:
+                    <mark>s - m ≥ max(v, c)</mark> — یعنی ریبیت منهای هزینه اخلاقی از حداکثر (ارزش مشارکت
+                    و هزینه نوشتن) بیشتر باشد.
+                </p>
+
+                <p><strong>🔗 ربط به IS:</strong> این پیپر به ما می‌گوید که سیستم‌های نظر آنلاین (review
+                    systems) در پلتفرم‌های IS انگیزه‌های پیچیده ایجاد می‌کنند. نمی‌توان گفت «نظر جعلی
+                    همیشه بد است» بدون اینکه مدل کامل اثرات را بررسی کنیم. این فقط با مدل‌سازی تحلیلی
+                    ممکن است.</p>
+            </div>
+
+
+            <!-- Core Question -->
+            <div class="paper-card">
+                <h4>🎯 Core Question — سوال اصلی</h4>
+                <p><strong>English:</strong> When is it rational for an online seller to offer rebates conditional
+                    on posting positive reviews, and what are the effects on seller profit, consumer surplus, and
+                    social welfare?</p>
+                <p><strong>فارسی:</strong> چه زمانی برای یک فروشنده آنلاین منطقی است که ریبیت مشروط به نظر مثبت
+                    ارائه دهد، و اثرات آن بر سود فروشنده، مازاد مصرف‌کننده، و رفاه اجتماعی چیست؟</p>
+            </div>
+
+            <!-- Product types -->
+            <div class="paper-card">
+                <h4>📖 Two Types of Product Attributes</h4>
+                <p>This distinction is the theoretical foundation of the model:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Attribute Type</th>
+                            <th>Knowable Before Purchase?</th>
+                            <th>How Learned</th>
+                            <th>Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Digital Attributes (X)</strong></td>
+                            <td>✅ Yes</td>
+                            <td>Product description, specs</td>
+                            <td>Screen size, RAM, color</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Non-Digital Attributes (Y)</strong></td>
+                            <td>❌ No — only after use</td>
+                            <td>Online reviews from other buyers</td>
+                            <td>Fit, comfort, taste, smell</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="info-box">
+                    <h4>Why this matters</h4>
+                    <p>Non-digital attributes create information asymmetry: sellers know product quality, buyers do
+                        not until after purchase. This is exactly why online reviews are valuable — and why a seller
+                        might want to manipulate them.</p>
+                </div>
+            </div>
+
+            <!-- The Game -->
+            <div class="paper-card">
+                <h4>📐 The 2-Period Game Model</h4>
+
+                <pre
+                    style="background:#f0f4f8; border:1px solid #c7d2e0; border-radius:6px; padding:1rem; font-size:0.82rem; line-height:1.8; white-space:pre-wrap; overflow-x:auto;">Period 1:
+  Seller sets price p₁ and rebate amount s → First-period consumers buy
+  ↓
+  Consumers experience product → Satisfied (value = 2y)  OR  Unsatisfied (value = 0)
+  ↓ Satisfied consumer:   post positive review if  v + s ≥ c  (benefit + rebate ≥ posting cost)
+  ↓ Unsatisfied consumer: post FAKE positive review if  s − m ≥ max(v, c)  (rebate ≥ moral cost + posting cost)
+
+Period 2:
+  Second-period consumers observe review ratio (n_g / n_b) → Update beliefs λ̂ → Buy at price p₂
+  ↓
+  Seller profit  Π = p₁·D₁ + p₂·D₂ − s·n_g  (rebate costs subtracted)</pre>
+
+                <h5>Key Variables in the Model — Notation Table 1 from Paper</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Definition</th>
+                            <th>Role in Model</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>s</strong></td>
+                            <td>Rebate amount</td>
+                            <td>The seller's strategic choice — how big a reward for a positive review</td>
+                        </tr>
+                        <tr>
+                            <td><strong>c</strong></td>
+                            <td>Review-posting cost</td>
+                            <td>Time and effort a consumer spends writing a review</td>
+                        </tr>
+                        <tr>
+                            <td><strong>v</strong></td>
+                            <td>Review-sharing benefit</td>
+                            <td>Intrinsic satisfaction from sharing one's opinion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>m</strong></td>
+                            <td>Moral cost of lying</td>
+                            <td>Internal discomfort of writing a fake positive review</td>
+                        </tr>
+                        <tr>
+                            <td><strong>n_g / n_b</strong></td>
+                            <td>Number of positive / negative reviews</td>
+                            <td>The signal that Period-2 consumers observe</td>
+                        </tr>
+                        <tr>
+                            <td><strong>λ̂</strong></td>
+                            <td>Perceived likelihood product is good fit</td>
+                            <td>Bayesian updated belief from reviews</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Lemma 1 -->
+            <div class="paper-card">
+                <h4>📋 Lemma 1 — Review-Posting Decisions (The Core Result)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Consumer Type</th>
+                            <th>Condition to Post</th>
+                            <th>What They Post</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Satisfied</td>
+                            <td>v + s ≥ c (rebate + sharing benefit covers posting cost)</td>
+                            <td>✅ Genuine positive review</td>
+                        </tr>
+                        <tr>
+                            <td>Unsatisfied</td>
+                            <td>v ≥ max(s − m, c) (sharing benefit outweighs net rebate and cost)</td>
+                            <td>❌ Genuine negative review</td>
+                        </tr>
+                        <tr>
+                            <td>Unsatisfied</td>
+                            <td>s − m ≥ max(v, c) (rebate minus moral cost exceeds alternatives)</td>
+                            <td>⚠️ FAKE positive review</td>
+                        </tr>
+                        <tr>
+                            <td>Any</td>
+                            <td>Otherwise</td>
+                            <td>No review posted</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Key Findings -->
+            <div class="paper-card">
+                <h4>🔑 Key Findings — یافته‌های کلیدی</h4>
+
+                <div class="success-box">
+                    <h4>✅ Finding 1: Three Equilibria Exist (from the paper's abstract)</h4>
+                    <p>The paper derives <strong>three</strong> equilibrium outcomes:</p>
+                    <ul>
+                        <li><strong>No-rebate, organic-review equilibrium:</strong> When posting cost is low but moral
+                            cost is high — seller doesn't offer any rebate; only genuine reviews appear naturally.</li>
+                        <li><strong>Low-rebate, boosted-authentic-review equilibrium:</strong> Small rebate incentivizes
+                            more <em>genuine</em> positive reviews from satisfied consumers, no fake reviews.</li>
+                        <li><strong>High-rebate, partially-fake-review equilibrium:</strong> Large rebate is so tempting
+                            that some unsatisfied consumers post fake positive reviews to get it.</li>
+                    </ul>
+                    <p>Which equilibrium arises depends on the <strong>review-posting cost (c)</strong> and
+                        <strong>moral cost of lying (m)</strong>.
+                    </p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ Finding 2: Social Welfare Can Increase Even with Fake Reviews</h4>
+                    <p>Conditional rebates create both <strong>social gain</strong> (more transactions from boosted
+                        reviews) and <strong>social loss</strong> (distorted review behavior). When the posting cost
+                        is moderate, the social gain outweighs the social loss — conditional rebates are net
+                        beneficial. This is the key counter-intuitive insight.</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ Finding 3: Consumers Can Also Benefit</h4>
+                    <p>In the high-rebate equilibrium, the seller transfers part of its profit gain to consumers
+                        through <strong>lower product prices</strong>, increasing consumer surplus. The rebate
+                        doesn't just go to the seller.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Finding 4: Context-Dependence</h4>
+                    <p>The welfare effects depend critically on the review-posting cost (c). When c is too low (many
+                        people already post without incentive), the rebate adds little social gain. When c is very
+                        high, the rebate induces mostly fake reviews. The "sweet spot" is a moderate c value.</p>
+                </div>
+            </div>
+
+            <!-- Why this matters -->
+            <div class="paper-card">
+                <h4>💡 Why This Paper Matters for IS Research</h4>
+                <ul>
+                    <li><strong>Information asymmetry in platforms:</strong> This paper shows how sellers respond
+                        rationally to the review system's incentive structure — an important IS governance question</li>
+                    <li><strong>Policy implication:</strong> Amazon banned cash rebates in 2016. This paper
+                        provides a formal framework to evaluate whether that was the right policy</li>
+                    <li><strong>Connects to trust in IS:</strong> Online reviews are a trust mechanism. Understanding
+                        how sellers manipulate them is central to e-commerce trust research</li>
+                    <li><strong>Counter-intuitive:</strong> Without modeling, intuition says "fake reviews = bad,
+                        always." The model shows the answer is much more nuanced — it depends on posting costs,
+                        moral costs, and the balance of effects</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- ===================== PAPER 3: CROWDFUNDING ===================== -->
+        <div class="paper-card" id="crowdfunding">
+            <h2>🌍 Luo, Ge & Wang — Crowdfunding for Microfinance Institutions: The New Hope?</h2>
+            <h3>MIS Quarterly [UNT co-authored — Ling Ge is at G. Brint Ryan College of Business!]</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>Luo, X., Ge, L., & Wang, C. (2022). Crowdfunding for microfinance institutions: The new hope?
+                    <em>MIS Quarterly, 46</em>(1), 373–400.
+                </p>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Different Method Alert — این پیپر فرق دارد</h4>
+                <p>Unlike the other three analytical papers this week, this paper is <strong>NOT</strong> a game
+                    theory or optimization paper. It uses <strong>Difference-in-Differences (DID)</strong> — an
+                    empirical causal
+                    identification strategy. It was included this week because Dr. Zhiling Guo (co-author of the
+                    other two papers) is the guest researcher and this paper represents her broader research
+                    portfolio. Good lesson: the same researcher can use very different methods.</p>
+            </div>
+
+            <!-- Persian RTL -->
+            <div class="analysis-section rtl-section">
+                <h4>چرا این پیپر مهم است؟</h4>
+                <p><strong>موضوع:</strong> پلتفرم <mark>Kiva.org</mark> به مردم سراسر جهان اجازه می‌دهد مبالغ کمی
+                    به کارآفرینان فقیر در کشورهای در حال توسعه قرض بدهند. موسسات خُردمالی (MFI) واسطه‌اند — آنها
+                    وام کیوا را می‌گیرند و به وام‌گیرندگان می‌دهند. سوال: آیا این کراودفاندینگ واقعاً به MFI‌ها کمک
+                    می‌کند؟</p>
+                <p><strong>سه نیرو:</strong> (۱) سرمایه ارزان‌تر (مثبت)، (۲) فشار کمتر روی مدیریت = slack
+                    مالی (منفی)، (۳) نظارت جمعی و شفافیت کیوا (مثبت). نتیجه تجربی: اثر مثبت بر می‌چربد.</p>
+                <p><strong>روش:</strong> Difference-in-Differences با Propensity Score Matching. این روش
+                    <mark>اثر علّی</mark> می‌دهد، نه فقط همبستگی.
+                </p>
+            </div>
+
+            <!-- Core Question -->
+            <div class="paper-card">
+                <h4>🎯 Core Question — سوال اصلی</h4>
+                <p><strong>English:</strong> Does partnering with Kiva crowdfunding platform improve microfinance
+                    institutions' financial sustainability and allow them to lower interest rates for poor borrowers?
+                </p>
+                <p><strong>فارسی:</strong> آیا شراکت با پلتفرم کراودفاندینگ کیوا، پایداری مالی موسسات خُردمالی را
+                    بهبود می‌بخشد و به آنها اجازه می‌دهد نرخ بهره را برای وام‌گیرندگان فقیر کاهش دهند؟</p>
+            </div>
+
+            <!-- Theoretical Model -->
+            <div class="paper-card">
+                <h4>📖 Theoretical Mechanism — Three Forces</h4>
+                <div class="mermaid">
+                    graph TB
+                    K["Kiva Partnership"] --> LC["1. Lower Capital Costs ❌\n(NOT supported by Table 9 — \nfinancial
+                    expenses did NOT decrease)"]
+                    K --> FS["2. Financial Slack ❌\n(reduced management pressure\n→ inefficiency)"]
+                    K --> CM["3. Crowd Monitoring ✅\n(public info disclosure\n→ more accountability)"]
+                    CM --> EI["Efficiency Improvement ✅\n(operating costs ↓,\nloans per officer ↑)"]
+                    CM --> RM["Risk Management ✅\n(portfolio at risk ↓,\nimpairment costs ↓)"]
+                    EI --> S["MFI Sustainability ↑"]
+                    RM --> S
+                    FS --> S2["MFI Sustainability ↓ (potential)"]
+                    S --> IR["Interest Rate ↓\n(but delayed: starts at t+3)"]
+
+                    style K fill:#dbeafe,stroke:#3b82f6
+                    style LC fill:#fee2e2,stroke:#ef4444
+                    style FS fill:#fee2e2,stroke:#ef4444
+                    style CM fill:#dcfce7,stroke:#16a34a
+                    style EI fill:#dcfce7,stroke:#16a34a
+                    style RM fill:#dcfce7,stroke:#16a34a
+                    style S fill:#d1fae5,stroke:#059669
+                    style IR fill:#d1fae5,stroke:#059669
+                </div>
+                <p><strong>Key finding:</strong> The benefit of Kiva partnership comes from <strong>crowd monitoring →
+                        efficiency improvement</strong>, NOT from cheaper capital. Table 9 shows financial expenses do
+                    not significantly change, but operating efficiency and risk management improve significantly. OSS
+                    improves at t₀/t₊₁, but interest rates drop only starting at t₊₃.</p>
+            </div>
+
+            <!-- Research Design -->
+            <div class="paper-card">
+                <h4>📊 Research Design: Difference-in-Differences (DID)</h4>
+
+                <div class="info-box">
+                    <h4>DID Setup</h4>
+                    <p>
+                        <strong>Treatment group:</strong> MFIs that became Kiva field partners<br>
+                        <strong>Control group:</strong> MFIs that did NOT join Kiva (matched via PSM)<br>
+                        <strong>Key dummy variable:</strong> AfterKiva<sub>it</sub> = 1 if MFI i is a Kiva partner
+                        in year t<br><br>
+                        <strong>DID Equation:</strong><br>
+                        Dep<sub>it</sub> = β₀ + β₁(AfterKiva<sub>it</sub>) + ControlVariables<sub>it</sub> +
+                        u<sub>i</sub> + δ<sub>t</sub> + ε<sub>it</sub><br><br>
+                        β₁ = the causal effect of Kiva partnership on MFI performance (the key coefficient)
+                    </p>
+                </div>
+
+                <h5>Data Sources</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Source</th>
+                            <th>What It Provides</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Kiva.org</strong></td>
+                            <td>List of MFI field partners, loan projects, joining dates, Kiva ratings</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MIX Market</strong></td>
+                            <td>Financial performance data (OSS, interest rates, assets) for MFIs worldwide</td>
+                        </tr>
+                        <tr>
+                            <td><strong>World Bank / CEIC / FRED</strong></td>
+                            <td>Country-level controls: GDP/capita, population, workforce participation, inflation</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h5>Key Dependent Variables</h5>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Formula</th>
+                            <th>What It Measures</th>
+                            <th>Threshold</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>OSS</strong> (Operational Self-Sufficiency)</td>
+                            <td>Financial revenue ÷ (Financial expense + Impairment + Operating expense)</td>
+                            <td>Can MFI cover its own costs?</td>
+                            <td>OSS > 100% = self-sufficient</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interest Rate</strong></td>
+                            <td>Yield on gross portfolio = Interest & fees ÷ Loan portfolio</td>
+                            <td>Cost of borrowing for the poor</td>
+                            <td>Lower = better for social mission</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h5>Robustness Checks</h5>
+                <ul>
+                    <li><strong>Propensity Score Matching (PSM):</strong> Matched 107 Kiva MFIs with 146 control
+                        MFIs on observable characteristics; 990 MFI-year observations</li>
+                    <li><strong>Tree-based approach:</strong> Alternative method to identify treatment effects
+                        without regression assumptions</li>
+                    <li><strong>Heckman selection model:</strong> Controls for self-selection bias (MFIs that join
+                        Kiva may be different from those that don't)</li>
+                </ul>
+            </div>
+
+            <!-- Key Findings -->
+            <div class="paper-card">
+                <h4>🔑 Key Findings — یافته‌های کلیدی</h4>
+
+                <div class="success-box">
+                    <h4>✅ Finding 1: Kiva Partnership Improves Sustainability</h4>
+                    <p>After joining Kiva, MFIs' OSS increases significantly. The crowd monitoring effect offsets
+                        the financial slack problem. MFIs become more efficient when they know thousands of lenders
+                        are watching their performance metrics.</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ Finding 2: Interest Rates Fall</h4>
+                    <p>MFIs that join Kiva eventually <strong>lower their interest rates</strong> to borrowers.
+                        This is the main social mission outcome — the poor pay less for loans. The gain from
+                        sustainability is shared downward to borrowers.</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ Finding 3: Crowd Monitoring Is the Key Mechanism (Table 9)</h4>
+                    <p>The improved efficiency comes from transparency and accountability pressure from
+                        Kiva's platform — <strong>not</strong> from cheaper capital. Table 9 shows: (1) capital costs do
+                        NOT
+                        significantly decrease, (2) operating costs decrease significantly, (3) loans per loan officer
+                        increase,
+                        (4) portfolio at risk and impairment expenses decrease. The benefit is purely from the
+                        monitoring/governance
+                        channel.</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Important Limitation</h4>
+                    <p>The data are at the MFI-year level, not the individual borrower level. The dataset covers
+                        107 Kiva MFIs matched to controls from MIX Market. The findings may not generalize to
+                        all types of crowdfunding or all regions equally.</p>
+                </div>
+            </div>
+
+            <!-- Why this matters -->
+            <div class="paper-card">
+                <h4>💡 Why This Paper Matters for IS Research</h4>
+                <ul>
+                    <li><strong>Platforms and social good:</strong> Shows that IS platforms (Kiva) can have real,
+                        measurable positive social impacts beyond convenience or profit</li>
+                    <li><strong>Crowd monitoring as a mechanism:</strong> Provides empirical evidence that
+                        information disclosure requirements on platforms create accountability and efficiency</li>
+                    <li><strong>Causal, not just correlational:</strong> The DID design with PSM and multiple
+                        robustness checks provides strong causal evidence, not just correlation</li>
+                    <li><strong>Connection to my research:</strong> Trust, delegation, and agent accountability —
+                        Kiva borrowers trust the platform and MFIs to act as responsible agents. Crowd monitoring
+                        is a governance mechanism to ensure this trust is warranted.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- ===================== PAPER 4: FÜGENER, WALZNER & GUPTA (2026) ===================== -->
+        <div class="paper-card" id="ai-roles">
+            <h2>🤖 Fügener, Walzner & Gupta (2026) — Roles of AI in Collaboration with Humans</h2>
+            <h3>Management Science, 72(1), 538–557</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>Fügener, A., Walzner, D. D., & Gupta, A. (2026). Roles of artificial intelligence in collaboration
+                    with humans: Automation, augmentation, and the future of work. <em>Management Science, 72</em>(1),
+                    538–557. https://doi.org/10.1287/mnsc.2024.05684</p>
+            </div>
+
+            <!-- Persian RTL -->
+            <div class="analysis-section rtl-section">
+                <h4>📚 توضیح فارسی — AI باید جایگزین انسان شود یا کمک‌حالش؟</h4>
+
+                <p><strong>🔴 مشکل اصلی:</strong> وقتی سازمانی هوش مصنوعی (AI) وارد کارش می‌کند، دو گزینه دارد:</p>
+                <ul>
+                    <li><strong>اتوماسیون (Automation):</strong> AI کامل
+                        <mark>جایگزین</mark> انسان بشود. مثلاً AI تصاویر پزشکی را خودش تشخیص بدهد.
+                    </li>
+                    <li><strong>افزایش توانایی (Augmentation):</strong> AI <mark>مشاوره</mark> بدهد و انسان تصمیم نهایی
+                        را بگیرد. مثلاً AI به پزشک پیشنهاد بدهد ولی پزشک تصمیم بگیرد.</li>
+                </ul>
+
+                <p><strong>🔑 نکته کلیدی مقاله:</strong> جواب به اینکه کدام بهتر است، بستگی دارد به <mark>نوع مکمل
+                        بودن</mark> (complementarity) انسان و AI:</p>
+                <ul>
+                    <li><strong>مکمل بودن بین وظایف (Between-task):</strong> وقتی AI در بعضی کارها بهتر از انسان است و
+                        در بعضی بدتر → <mark>اتوماسیون</mark> سودمندتر است. چون می‌توانیم هر کار را به کسی بدهیم که
+                        بهترش را بلد است.</li>
+                    <li><strong>مکمل بودن درون وظیفه (Within-task):</strong> وقتی انسان و AI روی یک کار با هم بهتر عمل
+                        می‌کنند → <mark>افزایش توانایی</mark> سودمندتر است. چون انسان می‌تواند مشاوره درست AI را بپذیرد
+                        و نادرست را رد کند.</li>
+                </ul>
+
+                <p><strong>📊 نتایج تجربی:</strong> در آزمایش طبقه‌بندی تصاویر:</p>
+                <ul>
+                    <li>انسان تنها: <mark>68%</mark> دقت</li>
+                    <li>فقط AI (اتوماسیون): <mark>77%</mark> دقت</li>
+                    <li>انسان + مشاوره AI (افزایش): <mark>80%</mark> دقت</li>
+                    <li>چارچوب ترکیبی مقاله: <mark>88%</mark> دقت!</li>
+                </ul>
+
+                <p><strong>💡 الگوی آینده کار:</strong> AI کارهای <mark>آسان</mark> را اتوماسیون می‌کند ← AI انسان‌ها را
+                    در کارهای <mark>متوسط</mark> کمک می‌کند ← گروه‌های انسانی (بدون AI) روی کارهای <mark>سخت‌ترین</mark>
+                    کار می‌کنند. انسان‌هایی که از کارهای آسان آزاد شدند، به کارهای سخت‌تر اختصاص داده می‌شوند.</p>
+
+                <p><strong>🔗 ربط خیلی مهم به تحقیق من:</strong> این مقاله مستقیماً از <mark>Baird & Maruping
+                        (2021)</mark> نقل قول می‌کند — همان مقاله‌ای که درباره «تفویض به IS آژانتیک» صحبت می‌کند. این
+                    یعنی مبحث اتوماسیون در اینجا = تفویض اختیار به AI = درست همان چیزی که من درباره Trust-Delegation
+                    Framework کار می‌کنم!</p>
+            </div>
+
+            <!-- Core Question -->
+            <div class="paper-card">
+                <h4>🎯 Core Questions — سوالات اصلی</h4>
+                <p><strong>RQ1:</strong> How does the type of complementarity between humans and AI in judgment tasks
+                    affect the different benefits that AI can provide through automation and augmentation?</p>
+                <p><strong>RQ2:</strong> How does the introduction of AI for automation and augmentation in judgment
+                    tasks affect the distribution of work between humans and AI?</p>
+            </div>
+
+            <!-- Key Concepts -->
+            <div class="paper-card">
+                <h4>📚 Key Concepts from the Paper</h4>
+
+                <div class="info-box">
+                    <h4>🔄 Two Types of Complementarity</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Definition</th>
+                                <th>Drives Which Role?</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Between-task complementarity</strong></td>
+                                <td>Humans and AI perform differently across tasks — each has strengths on different
+                                    tasks</td>
+                                <td>Automation ↑</td>
+                                <td>AI is 60% accurate on Task A, 80% on Task B; Human is 80% on A, 60% on B → allocate
+                                    each to their strength = 80% combined</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Within-task complementarity</strong></td>
+                                <td>Humans and AI working together on the SAME task outperform either alone</td>
+                                <td>Augmentation ↑</td>
+                                <td>Both at 70% on Task C, but human can filter correct/incorrect advice → 91% augmented
+                                    accuracy</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box">
+                    <h4>🏗️ Three Work Constellations</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Constellation</th>
+                                <th>Who Does the Task?</th>
+                                <th>When Is It Best?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Humans alone</strong></td>
+                                <td>One or more humans (wisdom of crowds via majority voting)</td>
+                                <td>Difficult tasks where AI performs poorly — low AI certainty</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Automation</strong></td>
+                                <td>AI works alone, no human input</td>
+                                <td>Easy tasks with high AI certainty + high between-task complementarity</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Augmentation</strong></td>
+                                <td>Human makes final decision, AI gives advice (judge-advisor system)</td>
+                                <td>Medium tasks where human and AI perform similarly + high within-task complementarity
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box">
+                    <h4>📊 Three Benefits of AI</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Benefit</th>
+                                <th>Source</th>
+                                <th>Formula Intuition</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Substitution benefit</strong></td>
+                                <td>AI replaces humans where AI is better</td>
+                                <td>V<sub>sub</sub> = AI performance − human performance on automated tasks</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Reallocation benefit</strong></td>
+                                <td>Freed humans move to harder tasks → crowd performance improves</td>
+                                <td>V<sub>re</sub> = crowd performance − individual performance on remaining tasks</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Augmentation benefit</strong></td>
+                                <td>AI advice improves human accuracy on same task</td>
+                                <td>V<sub>aug</sub> = augmented performance − solo human performance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Task Allocation Framework -->
+            <div class="paper-card">
+                <h4>📐 The Task Allocation Framework</h4>
+                <p><strong>Methodology:</strong> The paper first develops the <strong>analytical (theoretical)
+                        framework</strong> (Section 3), deriving formal statements about when each work constellation
+                    dominates. Then it <strong>validates</strong> these theoretical predictions using experimental data
+                    from a real image classification study (Sections 4–5). This theory-first → empirical-validation
+                    approach is what makes it analytical modeling.</p>
+                <p>The core contribution is a <strong>mathematical optimization model</strong> that allocates judgment
+                    tasks to humans, AI, or human+AI.</p>
+
+                <pre
+                    style="background:#f0f4f8; border:1px solid #c7d2e0; border-radius:6px; padding:1rem; font-size:0.82rem; line-height:1.8; white-space:pre-wrap; overflow-x:auto;">Two Conditions for the Framework to Apply:
+
+1. Polanyi Condition — The procedure for solving tasks cannot be fully formalized
+   → Ensures complementarity exists (humans have tacit knowledge AI lacks)
+
+2. Ground Truth Condition — Tasks have one correct answer, choices can be aggregated
+   → Enables majority voting and performance measurement
+
+Optimization:
+   Maximize: average accuracy across all tasks
+   Subject to: fixed human resources (R task units)
+   Decision: allocate each task to humans, automation, or augmentation</pre>
+
+                <div class="info-box" style="border-left: 3px solid #e74c3c;">
+                    <h4>⚠️ The Reallocation Benefit — Often Ignored!</h4>
+                    <p>Most debates about AI focus only on substitution: "AI takes your job." But this paper shows the
+                        <strong>reallocation benefit</strong> is equally important. When AI automates easy tasks, freed
+                        humans can form <strong>crowds</strong> to tackle harder tasks (wisdom of crowds via majority
+                        voting). In the empirical study, <strong>80% of humans were reallocated to the 20% hardest
+                            tasks</strong>, boosting accuracy on those tasks from 59% to 74%.
+                    </p>
+                    <p><strong>Even if AI is inferior on some tasks</strong>, automation can still be net positive if
+                        the reallocation benefit exceeds the negative substitution benefit!</p>
+                </div>
+            </div>
+
+            <!-- Empirical Results -->
+            <div class="paper-card">
+                <h4>🔬 Empirical Validation — Image Classification (Section 4–5)</h4>
+                <p><strong>Context:</strong> Data from an experiment by Fügener et al. (2021). 100 images from ImageNet,
+                    classified by humans ± GoogLeNet Inception v3 AI. Three treatments: (1) humans alone, (2) humans
+                    with AI class recommendation, (3) humans with AI recommendation + certainty score. The paper uses
+                    treatments 1 and 2 for main analysis.</p>
+                <p><strong>Confirming complementarity:</strong></p>
+                <ul>
+                    <li><strong>Between-task:</strong> Regression p<sup>H</sup><sub>t</sub> = 0.44 +
+                        0.31·p<sup>AI</sup><sub>t</sub>. The slope b = 0.31 is well below 1, meaning <mark>humans and AI
+                            classify different images correctly</mark> → complementarity exists.</li>
+                    <li><strong>Within-task:</strong> Weight of correct advice r<sup>AI</sup> = 0.78, weight of
+                        incorrect advice r̄<sup>AI</sup> = 0.52. Relative weight r̂ = 0.78/0.52 = <mark>1.52</mark> →
+                        humans can differentiate correct from incorrect AI advice.</li>
+                </ul>
+
+                <table>
+                    <thead>
+                        <tr style="background: rgba(52,152,219,0.2);">
+                            <th>Work Constellation</th>
+                            <th>Accuracy</th>
+                            <th>Improvement vs. Baseline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Baseline (1 human per task)</td>
+                            <td><strong>68%</strong></td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Full Automation (AI only)</td>
+                            <td>77%</td>
+                            <td>+9 pp</td>
+                        </tr>
+                        <tr>
+                            <td>Full Augmentation (human + AI advice)</td>
+                            <td>80%</td>
+                            <td>+12 pp</td>
+                        </tr>
+                        <tr style="background: rgba(46,204,113,0.15);">
+                            <td><strong>Combined Framework</strong></td>
+                            <td><strong>88%</strong></td>
+                            <td><strong>+20 pp</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning-box">
+                    <h4>⚠️ Surprising Finding: Augmentation Benefit Was ZERO in Full Data Set!</h4>
+                    <p>In the full data set analysis (Figure 4), the paper found that the <strong>entire 20pp
+                            improvement came from substitution and reallocation benefits</strong>. Augmentation
+                        "<em>does not provide any benefit</em>" (p. 549). This is because the framework chose to
+                        automate the easy tasks AND reallocate freed humans to hard tasks as crowds — rather than
+                        augmenting. This shows that <strong>the reallocation benefit alone can be extremely
+                            powerful</strong>.</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ Statement 1 Validated (Figure 5, Table 1)</h4>
+                    <p>The authors split 100 images into two groups of 50. Higher <strong>between-task</strong>
+                        complementarity (b = −0.13, low group: b = 0.89) → greater share of <strong>substitution +
+                            reallocation</strong> benefit, lower share of augmentation benefit. The high-complementarity
+                        group showed much greater framework benefits overall.</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ Statement 2 Validated (Figure 6, Table 1)</h4>
+                    <p>Higher <strong>within-task</strong> complementarity (r<sup>AI</sup> = 0.84 vs. 0.72;
+                        r̄<sup>AI</sup> = 0.41 vs. 0.61) → greater share of <strong>augmentation</strong> benefit, lower
+                        share of automation benefit.</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>📊 Subgroup Analysis: Inferior vs. Superior AI (Figure 7)</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Group</th>
+                                <th>AI Accuracy</th>
+                                <th>Human Accuracy</th>
+                                <th>Framework Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Inferior AI</strong></td>
+                                <td>70%</td>
+                                <td>78%</td>
+                                <td>Framework achieves <strong>86%</strong> — humans profit from an inferior AI! (via
+                                    reallocation)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Superior AI</strong></td>
+                                <td>84%</td>
+                                <td>58%</td>
+                                <td>Framework <strong>cannot surpass full automation</strong> — limited human value when
+                                    complementarity is low</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><em>Key takeaway:</em> When AI dominates and complementarity is low, humans add no value. But
+                        when both types of complementarity exist, even an inferior AI helps because of the reallocation
+                        benefit.</p>
+                </div>
+            </div>
+
+            <!-- Distribution of Work -->
+            <div class="paper-card">
+                <h4>📊 The Future of Work Pattern</h4>
+                <p>When both types of complementarity exist, the framework reveals a <strong>consistent distribution of
+                        work</strong>:</p>
+
+                <pre
+                    style="background:#f0f4f8; border:1px solid #c7d2e0; border-radius:6px; padding:1rem; font-size:0.82rem; line-height:1.8; white-space:pre-wrap; overflow-x:auto;">┌─────────────────────────────────────────────────────────────────────┐
+│  AI Certainty High  →  🤖 AUTOMATION (AI works alone)              │
+│  (Easy tasks)           AI takes over standardized tasks            │
+│                                                                     │
+│  AI Certainty Medium →  🤝 AUGMENTATION (Human + AI advice)         │
+│  (Medium tasks)          Human decides, AI recommends               │
+│                                                                     │
+│  AI Certainty Low   →  👥 HUMAN CROWDS (No AI)                      │
+│  (Hard tasks)            Multiple humans via majority voting         │
+│                          80% of freed humans go HERE                 │
+└─────────────────────────────────────────────────────────────────────┘</pre>
+
+                <p><strong>Real-world example (from paper):</strong> Skin cancer detection — AI screens all cases.
+                    High-certainty cases automated. Medium-certainty: physician reviews AI suggestion. Low-certainty:
+                    team of physicians handles the hardest cases.</p>
+            </div>
+
+            <!-- Key Theoretical Points -->
+            <div class="paper-card">
+                <h4>🧠 Key Theoretical Insights</h4>
+                <ul>
+                    <li><strong>Augmentation is NOT always better than automation</strong> — contrary to common belief
+                        that "keeping humans in the loop is always good." It depends on the type of complementarity.
+                    </li>
+                    <li><strong>Automation and augmentation are interdependent</strong> (Raisch & Krakowski, 2021) — you
+                        cannot analyze them in isolation. The reallocation benefit from automation feeds into
+                        augmentation's effectiveness.</li>
+                    <li><strong>Jagged technological frontier</strong> (Dell'Acqua et al., 2023) — AI capabilities are
+                        not uniform. The framework operationalizes this frontier through between-task and within-task
+                        complementarity.</li>
+                    <li><strong>Loss of tacit knowledge</strong> — a critical warning: if humans rely too heavily on AI
+                        advice, they may <em>lose</em> tacit knowledge over time, reducing within-task complementarity
+                        and eventually leading to more automation (a feedback loop).</li>
+                    <li><strong>Polanyi's Paradox</strong> — humans "know more than they can tell." This tacit knowledge
+                        is the source of human-AI complementarity. When AI training data only capture explicit
+                        (know-what) knowledge, humans retain a complementary edge through know-how.</li>
+                </ul>
+            </div>
+
+            <!-- Connection to my research -->
+            <div class="paper-card">
+                <h4>🔗 Connection to My Research (Trust-Delegation Framework)</h4>
+                <div class="info-box" style="border-left: 3px solid #9b59b6;">
+                    <h4>💜 Very Important Connection</h4>
+                    <p>This paper directly cites <strong>Baird & Maruping (2021)</strong> — the foundational paper on
+                        delegation to and from agentic IS artifacts. The automation role in this framework =
+                        <em>delegation TO AI</em>. The augmentation role = <em>delegation shared between human and
+                            AI</em>.
+                    </p>
+                    <p>Trust is implicit throughout: deciding when to automate (high trust in AI), when to augment
+                        (moderate trust — human verifies), and when to use humans only (low trust in AI for that task).
+                        This maps directly onto my trust-delegation continuum!</p>
+                    <p><strong>Research question:</strong> How does the type of complementarity affect the level of
+                        trust required for delegation? Does between-task complementarity require less trust (because the
+                        decision is binary: delegate or not) while within-task complementarity requires deeper, more
+                        nuanced trust?</p>
+                </div>
+            </div>
+
+            <!-- Why This Matters -->
+            <div class="paper-card">
+                <h4>💡 Why This Paper Matters for IS Research</h4>
+                <ul>
+                    <li><strong>Bridges IS and Management Science:</strong> Combines analytical modeling (optimization
+                        framework) with empirical behavioral data — a multi-method approach</li>
+                    <li><strong>Analytical modeling + empirical validation:</strong> Unlike the other two game theory
+                        papers this week that are purely analytical, this paper validates its framework with real
+                        experimental data</li>
+                    <li><strong>Practical job design:</strong> Provides a concrete algorithm for managers deciding how
+                        to integrate AI into their organizations</li>
+                    <li><strong>Counters AI hype AND AI fear:</strong> Neither "AI will take all jobs" nor "humans must
+                        always be in the loop" — the answer depends on complementarity</li>
+                    <li><strong>Only possible with analytical modeling:</strong> The optimization framework
+                        mathematically proves when each work constellation dominates — you cannot discover these
+                        thresholds with surveys alone</li>
+                </ul>
+            </div>
+
+            <!-- Methodology -->
+            <div class="warning-box">
+                <h4>⚠️ Key Methodology Notes — For Article Critique</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspect</th>
+                            <th>Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Method Type</td>
+                            <td>Analytical modeling (optimization) + empirical validation (Monte Carlo simulation on
+                                experimental data)</td>
+                        </tr>
+                        <tr>
+                            <td>Data</td>
+                            <td>100 ImageNet images, GoogLeNet Inception v3, human participants from Fügener et al.
+                                (2021)</td>
+                        </tr>
+                        <tr>
+                            <td>Key Assumptions</td>
+                            <td>Independence of crowd members, homogeneous human performance (uses averages), rational
+                                advice taking</td>
+                        </tr>
+                        <tr>
+                            <td>Limitations</td>
+                            <td>Image classification is idealized; real-world tasks have task switching costs,
+                                heterogeneous humans, and non-independent errors</td>
+                        </tr>
+                        <tr>
+                            <td>Strength</td>
+                            <td>Framework is general — applies to any judgment task satisfying Polanyi and Ground Truth
+                                conditions</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- ===== MATH DEEP DIVE ===== -->
+        <div class="paper-card" id="fugener-math" style="border-top: 3px solid #3498db;">
+            <h4>🔢 Math Deep Dive — Full Model Walkthrough (For Presentation)</h4>
+
+            <!-- Figure 1 -->
+            <div class="info-box">
+                <h4>Figure 1 — Task Allocation Framework</h4>
+                <p>AI first <strong>assesses</strong> each task (assigns a certainty score). Then a <strong>decision
+                        branching</strong> step allocates the task to one of three constellations: AI alone
+                    (automation), advised human (augmentation), or crowd of humans (human-only).</p>
+                <img src="img/fugener_fig1_framework.png" alt="Figure 1 - Task Allocation Framework"
+                    style="width:100%; max-width:750px; border-radius:8px; border:1px solid #ddd; margin:0.5rem 0;">
+            </div>
+
+            <!-- Core Formulas -->
+            <div class="info-box">
+                <h4>📐 Core Formulas — The Math Behind Augmented Performance</h4>
+                <img src="img/fugener_formulas.png" alt="Augmented Performance Formulas (Eq. 1 and 2)"
+                    style="width:100%; max-width:750px; border-radius:8px; border:1px solid #ddd; margin:0.5rem 0;">
+                <p><strong>Equation 1 — Crowd of n humans WITH AI advice:</strong></p>
+                <pre
+                    style="background:#f0f4f8; border:1px solid #c7d2e0; border-radius:6px; padding:1rem; font-size:0.85rem; line-height:2.0; white-space:pre-wrap;">P_mt^HAI = p_t^AI · P_mt(p_t^H + r^AI(1 − p_t^H))
+         + (1 − p_t^AI) · P_mt(p_t^H − r̄^AI · p_t^H)
+
+Where:
+  p_t^AI  = AI's probability of being correct on task t
+  p_t^H   = Human's probability of being correct on task t
+  r^AI    = weight a human puts on AI advice when AI is CORRECT   (between 0 and 1)
+  r̄^AI   = weight a human puts on AI advice when AI is INCORRECT  (between 0 and 1)
+  P_mt()  = crowd majority-voting performance with m humans</pre>
+                <p><strong>Equation 2 — Single human WITH AI advice (special case, n=1):</strong></p>
+                <pre
+                    style="background:#f0f4f8; border:1px solid #c7d2e0; border-radius:6px; padding:1rem; font-size:0.85rem; line-height:2.0; white-space:pre-wrap;">P_1t^HAI = p_t^AI(p_t^H + r^AI(1 − p_t^H))
+         + (1 − p_t^AI)(p_t^H − r̄^AI · p_t^H)
+
+Intuition:
+  When AI is RIGHT  (prob = p^AI):  Human's effective accuracy = p^H + r^AI(1 − p^H)
+                                     → Boosted above solo performance
+  When AI is WRONG (prob = 1−p^AI): Human's effective accuracy = p^H − r̄^AI · p^H
+                                     → Hurt below solo performance</pre>
+                <p><strong>Key ratio — Within-task complementarity (r̂):</strong></p>
+                <pre
+                    style="background:#eaf4fb; border:1px solid #aed9f2; border-radius:6px; padding:1rem; font-size:0.88rem; line-height:2.0;">r̂ = r^AI / r̄^AI
+
+Empirical result from image classification:
+  r^AI  = 0.78 (weight on correct AI advice)
+  r̄^AI  = 0.52 (weight on incorrect AI advice)
+  r̂     = 0.78 / 0.52 = 1.52  ✅ > 1 → Within-task complementarity EXISTS
+
+Intuition: Humans weight correct AI advice 52% more than incorrect advice.
+They are not perfect judges, but they do better than random.</pre>
+            </div>
+
+            <!-- Optimization Model -->
+            <div class="info-box">
+                <h4>⚙️ The Optimization Model (Integer Linear Programming)</h4>
+                <img src="img/fugener_optimization.png" alt="Optimization objective and between-task regression"
+                    style="width:100%; max-width:750px; border-radius:8px; border:1px solid #ddd; margin:0.5rem 0;">
+                <pre
+                    style="background:#f0f4f8; border:1px solid #c7d2e0; border-radius:6px; padding:1rem; font-size:0.85rem; line-height:2.0; white-space:pre-wrap;">OBJECTIVE: Maximize total accuracy across all T tasks
+
+Max  Σ_t [ x_t^AI · p_t^AI  +  Σ_n x_t^H(n) · P_nt^H  +  Σ_n x_t^HAI(n) · P_nt^HAI ]
+
+Subject to:
+  (1) Each task gets exactly one allocation:
+      x_t^AI + Σ_n x_t^H(n) + Σ_n x_t^HAI(n) = 1   for all tasks t
+
+  (2) Total human resources ≤ budget R:
+      Σ_t [ Σ_n n·x_t^H(n) + Σ_n n·x_t^HAI(n) ] ≤ R
+
+  (3) Binary decisions (each variable is 0 or 1)
+
+KEY POINT: AI has NO resource cost. Only humans use up the budget (R).
+→ This is why automating easy tasks FREES resources for reallocation.</pre>
+            </div>
+
+            <!-- Between-task complementarity regression -->
+            <div class="info-box">
+                <h4>📊 Between-Task Complementarity — Regression (Eq. 6)</h4>
+                <img src="img/fugener_fig3_complementarity.png" alt="Figure 3 - Empirical Complementarity Measurement"
+                    style="width:100%; max-width:750px; border-radius:8px; border:1px solid #ddd; margin:0.5rem 0;">
+                <pre
+                    style="background:#f0f4f8; border:1px solid #c7d2e0; border-radius:6px; padding:1rem; font-size:0.85rem; line-height:2.0; white-space:pre-wrap;">p_t^H = a + b · p_t^AI     (Equation 6)
+
+Empirical result (image classification):
+  p_t^H = 0.44 + 0.31 · p_t^AI
+
+Interpretation of slope b = 0.31:
+  • If b = 1.0 → Humans and AI are ALWAYS right/wrong on same tasks (no complementarity)
+  • If b = 0.0 → Humans and AI are completely INDEPENDENT (max complementarity)
+  • b = 0.31  → STRONG between-task complementarity EXISTS ✅
+                (humans and AI correct on different tasks)
+
+Parameter b is also the measure of between-task complementarity:
+  Lower b  →  Higher between-task complementarity
+  Higher b →  Lower between-task complementarity</pre>
+            </div>
+
+            <!-- Statement 1 and 2 -->
+            <div class="info-box">
+                <h4>📋 Statement 1 and Statement 2 — With Empirical Validation</h4>
+                <img src="img/fugener_fig5_6_validation.png" alt="Figures 5 and 6 - Validation of Statements 1 and 2"
+                    style="width:100%; max-width:750px; border-radius:8px; border:1px solid #ddd; margin:0.5rem 0;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Statement 1</th>
+                            <th>Statement 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Condition</strong></td>
+                            <td>Higher <strong>between-task</strong> complementarity (lower b)</td>
+                            <td>Higher <strong>within-task</strong> complementarity (higher r̂)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Effect on automation</strong></td>
+                            <td>↑ substitution + reallocation benefit</td>
+                            <td>↓ substitution + reallocation benefit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Effect on augmentation</strong></td>
+                            <td>↓ augmentation benefit</td>
+                            <td>↑ augmentation benefit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Empirical test</strong></td>
+                            <td>Split 100 images into 2 halves by b value. High-comp group (b=−0.13) showed much bigger
+                                total gain</td>
+                            <td>Split by r̂ value. High-comp group (r̂=0.84/0.41=2.0) showed bigger augmentation share
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Figure 2 Dominance Map -->
+            <div class="info-box">
+                <h4>🗺️ Figure 2 — Dominant Work Constellation Map</h4>
+                <p>Shows which work mode wins depending on AI performance (x-axis) and within-task
+                    complementarity/relative advice weight (y-axis). <strong>Left panel</strong>: low between-task
+                    complementarity (b=0.8) — augmentation dominates in the middle. <strong>Right panel</strong>: high
+                    between-task complementarity (b=0.2) — automation + human-only dominate, augmentation zone shrinks.
+                </p>
+                <img src="img/fugener_fig2_dominance.png" alt="Figure 2 - Dominant Work Constellation"
+                    style="width:100%; max-width:750px; border-radius:8px; border:1px solid #ddd; margin:0.5rem 0;">
+            </div>
+
+            <!-- Accuracy Results Table -->
+            <div class="success-box">
+                <h4>✅ Final Accuracy Results — The Key Numbers</h4>
+                <img src="img/fugener_table1.png" alt="Table 1 - Summary Statistics and Accuracy Results"
+                    style="width:100%; max-width:750px; border-radius:8px; border:1px solid #ddd; margin:0.5rem 0;">
+                <table>
+                    <thead>
+                        <tr style="background: rgba(46,204,113,0.15);">
+                            <th>Work Mode</th>
+                            <th>Accuracy</th>
+                            <th>vs Baseline</th>
+                            <th>What drives this</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Baseline (1 human/task)</td>
+                            <td><strong>68%</strong></td>
+                            <td>—</td>
+                            <td>No AI, no crowds</td>
+                        </tr>
+                        <tr>
+                            <td>Full Automation (AI only)</td>
+                            <td>77%</td>
+                            <td>+9 pp</td>
+                            <td>Substitution benefit only</td>
+                        </tr>
+                        <tr>
+                            <td>Full Augmentation (human + AI)</td>
+                            <td>80%</td>
+                            <td>+12 pp</td>
+                            <td>Augmentation benefit only</td>
+                        </tr>
+                        <tr style="background: rgba(46,204,113,0.2);">
+                            <td><strong>Combined Framework</strong></td>
+                            <td><strong>88%</strong></td>
+                            <td><strong>+20 pp (+29%)</strong></td>
+                            <td>Substitution + <mark>Reallocation</mark> + Augmentation</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Surprise:</strong> In the full dataset analysis, augmentation benefit was ZERO. The entire
+                    20pp gain came from substitution + reallocation. 80% of freed humans moved to the hardest 20% of
+                    tasks, boosting hard-task accuracy from 59% → 74%.</p>
+            </div>
+
+            <!-- Distribution of Work figure -->
+            <div class="info-box">
+                <h4>📊 Figure 8 — Distribution of Work Pattern</h4>
+                <p>Heatmap showing which tasks get automated, augmented, or assigned to human crowds at different
+                    resource levels (R). The three-zone pattern is consistent: AI automates easy tasks (high AI
+                    certainty), augments medium tasks, humans handle the hardest tasks.</p>
+                <img src="img/fugener_fig8_distribution.png" alt="Figure 8 - Work Distribution Heatmap"
+                    style="width:100%; max-width:750px; border-radius:8px; border:1px solid #ddd; margin:0.5rem 0;">
+            </div>
+
+            <!-- Three Benefit Decomposition -->
+            <div class="info-box">
+                <h4>📐 Benefit Decomposition — The 3 Parts</h4>
+                <pre
+                    style="background:#f0f4f8; border:1px solid #c7d2e0; border-radius:6px; padding:1rem; font-size:0.85rem; line-height:2.2; white-space:pre-wrap;">Total benefit = V_sub + V_re + V_aug
+
+V_sub (Substitution benefit):
+  = AI accuracy − Human accuracy  on automated tasks
+  = Direct gain from AI doing something better than humans
+
+V_re (Reallocation benefit):
+  = Crowd accuracy − Solo human accuracy  on reallocated tasks
+  = Gain from freed humans forming crowds on harder tasks
+  = THIS IS THE HIDDEN GEM — often ignored in AI debates
+
+V_aug (Augmentation benefit):
+  = Human+AI accuracy − Solo human accuracy  on augmented tasks
+  = Direct gain from AI advice improving human decisions
+
+Total framework gain in the empirical study:
+  V_sub ≈ 9 pp  (automation effect)
+  V_re  ≈ 11 pp (reallocation — biggest!)
+  V_aug ≈ 0 pp  (in this specific dataset setup)
+  ─────────────────
+  Total: +20 pp improvement over baseline</pre>
+            </div>
+        </div>
+
+        <!-- Article Critique -->
+
+        <div class="paper-card" style="border-left: 4px solid #9b59b6;">
+            <h4>📝 Article Critique — Ali Safari</h4>
+
+            <div class="info-box">
+                <h4>Motivation and Theoretical Tension</h4>
+                <p>The paper is basically asking a question that seems simple but actually nobody has a good answer
+                    for. Should AI replace humans or help them? Most research so far looks at automation and
+                    augmentation as two separate things. People study one or the other. But in real life companies
+                    don't just pick one, they do both at same time across different tasks. The tension is that we
+                    don't have a good way to decide which tasks go where. Fugener et al. (2026) say that when you
+                    study them separately you miss something important which is reallocation. Basically when AI
+                    takes over the easy stuff, you free up human workers and they can go work on harder problems.
+                </p>
+            </div>
+
+            <div class="info-box">
+                <h4>Research Question</h4>
+                <p>The research question is basically how should organizations split work between humans and AI when
+                    they have a bunch of judgment tasks to do. The authors want to know what types of
+                    "complementarity" between humans and AI make automation better versus augmentation, and whats
+                    the best way to divide tasks when you have limited number of humans but AI can do as many tasks
+                    as you want.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Background Literature and Assumptions</h4>
+                <p>The paper uses research on human-AI collaboration and judgment tasks. Judgment tasks are things
+                    like image classification or medical diagnosis where there is actually a correct answer. They
+                    also use the "wisdom of crowds" idea, which says combining multiple judgments usually gives
+                    better results. And then there is literature on how to assign work when resources are limited.
+                </p>
+                <p>For assumptions, the big one is that human labor is limited by a fixed budget so you can only put
+                    so many humans on tasks. But AI can basically do unlimited tasks at very low cost. They also
+                    assume all tasks are judgment tasks with clear right or wrong answers.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Variables</h4>
+                <p>Because this is analytical model not a survey, the variables are model parameters not traditional
+                    constructs.</p>
+                <p><strong>IVs:</strong> Between-task complementarity (how much the gap between humans and AI
+                    changes across tasks) and within-task complementarity (how well human and AI work together on
+                    same task).</p>
+                <p><strong>DVs:</strong> Total performance (accuracy across all tasks) and three benefit components:
+                    substitution benefit (replacing worse performer with better one), reallocation benefit (freeing
+                    up humans for harder tasks), and augmentation benefit (extra gain from human-AI teamwork).</p>
+                <p><strong>Other parameters:</strong> Resource budget (how many humans you have) and AI certainty
+                    scores for each task.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Key Propositions and Relationships</h4>
+                <p><strong>Statement 1:</strong> When between-task complementarity is high, automation benefit goes
+                    up, mostly because of reallocation. So when humans and AI are good at very different tasks, you
+                    should let AI handle easy ones and move humans to hard ones.</p>
+                <p><strong>Statement 2:</strong> When within-task complementarity is high, augmentation benefit goes
+                    up. When humans can use AI advice well on a task, working together is the best option.</p>
+                <p><strong>Three-way split:</strong> AI should automate easy tasks, augment humans on moderate
+                    tasks, and humans should work alone on the hardest tasks. The surprising part is why humans
+                    should work without AI on hard tasks — its because on very hard tasks AI advice is usually wrong
+                    and it can actually make humans do worse.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Causal Explanations (Why)</h4>
+                <p>It comes down to knowledge types. AI is good at "codified" knowledge which is things you can
+                    learn from data patterns. But hard tasks need "tacit knowledge" which is the kind of expertise
+                    humans build from experience. The reallocation part works because when you take humans off easy
+                    tasks, you can group them together on hard tasks — more human opinions on a difficult problem
+                    gives better answers (wisdom of crowds). Augmentation works on moderate tasks because humans and
+                    AI have different information and the human can tell when AI is right versus wrong.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Boundary Conditions (Where/When/Who)</h4>
+                <p>Only works for judgment tasks with clear right answers. Needs a situation where humans are the
+                    bottleneck but AI can scale easily. Doesn't work for creative tasks. If AI is "superior" on
+                    every task, augmentation almost goes away. The model assumes you make the allocation once
+                    (static), doesn't consider how humans might learn or lose skills over time.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Method</h4>
+                <p>Integer linear programming (optimization) + empirical validation with image classification data.
+                    Results: the combined framework (88%) beats humans alone (68%), automation alone (77%), and
+                    augmentation alone (80%). The reallocation effect accounts for most of the improvement.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Theory Classification</h4>
+                <p><strong>Gregor:</strong> Mainly Type IV (Explanation and Prediction) — explains why some task
+                    allocations work better and predicts how performance changes. Also some Type V (Design and
+                    Action) because the optimization model tells organizations what to do.</p>
+                <p><strong>Markus & Robey:</strong> Variance theory — complementarity levels predict how benefit
+                    shares change. "If this condition is true then this outcome happens."</p>
+            </div>
+
+            <div class="success-box">
+                <h4>💡 Proposed Extension</h4>
+                <p>"How does long-term use of AI automation on easy tasks affect human skill development needed for
+                    difficult tasks?" The model is static but if you always let AI do easy tasks, new workers might
+                    never build the basic skills they need for harder tasks later. What looks like the best strategy
+                    now could actually hurt the organization in the long run.</p>
+            </div>
+
+            <div class="info-box" style="border-left: 4px solid #9b59b6;">
+                <h4>🔗 Connection to My Research — Trust and Delegation</h4>
+                <p>This paper is really relevant to my research on delegation and trust. The three work modes in the
+                    paper basically map to three levels of delegation. Automation means full delegation to AI, you
+                    trust it completely and no human checks anything. Augmentation means partial delegation, AI
+                    gives advice but human makes the final call. And human only means no delegation at all because
+                    trust in AI for that task is too low.</p>
+                <p>So the decision between automation vs augmentation is not just about performance, it is really
+                    about <strong>how much you trust the AI for that specific task</strong>. This connects to
+                    between-task complementarity in an interesting way. When between-task complementarity is high,
+                    you can clearly see which tasks AI is good at and which humans are good at. That makes it easier
+                    to trust AI on the easy tasks. But when within-task complementarity is high, you need a
+                    different kind of trust, you need to trust that AI advice is right in each moment, not just
+                    overall.</p>
+                <p><em>The question I keep thinking about: Does the type of complementarity determine the type of
+                        trust needed?</em> Between-task might need <strong>competence trust</strong> ("I know AI is
+                    better on this category of task"). Within-task might need <strong>process trust</strong> ("I
+                    trust what AI is saying right now in this moment"). These are very different cognitive
+                    processes.</p>
+            </div>
+
+            <div class="warning-box" style="border-left: 4px solid #e74c3c;">
+                <h4>⚠️ Big Gap in This Paper — Opportunity for My Dissertation</h4>
+                <p>The paper looks at everything from the <strong>organization's perspective</strong>. A manager
+                    optimizes who does which task. But what about the human worker doing the task? What if they
+                    don't trust the AI?</p>
+                <p>Think about Liu et al. (2025). The store managers with <strong>low willingness to
+                        delegate</strong> kept overriding the AI even when the AI was performing well. They were
+                    stuck in a low-trust trap. Fugener et al. completely ignore this. They assume that when a human
+                    is assigned to augmentation, they will use the AI advice correctly. They assume within-task
+                    complementarity (r̂) is a fixed property of the task. But in reality, r̂ depends on the human's
+                    <strong>trust and willingness to listen to AI</strong>. A manager who doesn't trust AI will
+                    weight the AI's correct advice the same as incorrect advice, basically r̂ = 1, which means no
+                    augmentation benefit at all.
+                </p>
+                <p><strong>So the optimal task allocation from the paper breaks down completely if workers don't
+                        trust the AI.</strong> This is a direct connection to my dissertation. The organization can
+                    set the perfect allocation on paper, but if trust is missing at the individual level, the
+                    reallocation and augmentation benefits disappear.</p>
+                <p><em>My potential contribution: Extend the Fugener et al. framework by making within-task
+                        complementarity a function of trust, not a fixed parameter.</em></p>
+            </div>
+
+            <div class="info-box" style="border-left: 4px solid #e67e22;">
+                <h4>🔄 One More Insight — Loss of Tacit Knowledge (Feedback Loop)</h4>
+                <p>The paper itself warns about <strong>"loss of tacit knowledge."</strong> If humans use AI too
+                    much over time, they slowly lose the expertise they built from experience. This means
+                    within-task complementarity actually <em>decreases</em> over time. And this creates a dangerous
+                    loop:</p>
+                <p
+                    style="font-family: monospace; background: #f8f9fa; padding: 0.75rem; border-radius: 6px; font-size: 0.88rem; line-height: 1.9;">
+                    Use AI more → Learn less from doing tasks yourself<br>
+                    → Can't evaluate AI advice well anymore<br>
+                    → Start trusting AI blindly (over-reliance)<br>
+                    → Performance drops → Need more AI → ...
+                </p>
+                <p>This connects to <strong>automation bias</strong> and <strong>deskilling</strong> literature. For
+                    my research it adds another layer: trust in AI should not just be calibrated <em>in the
+                        moment</em>, it should be <em>dynamic over time</em>. As humans lose tacit knowledge, their
+                    ability to recognize when AI is wrong goes down too. So the trust calibration problem gets worse
+                    the more people over-delegate.</p>
+            </div>
+        </div>
+        </div>
+
+
+        <!-- ===================== MENTAL MAP ===================== -->
+        <div class="paper-card" id="mental-map">
+            <h2>🗺️ Mental Map — How the Week 7 Papers Connect</h2>
+
+            <div class="mermaid">
+                graph TD
+                AM["📐 Analytical Modeling Masterclass\n(methodology foundation)"]
+                AM -->|"method used"| P1["🛒 Chen & Guo (2022)\nPlatform Openness\nGame Theory"]
+                AM -->|"method used"| P2["⭐ Chen, Guo & Huang (2022)\nConditional Rebates\nGame Theory"]
+                AM -->|"different method"| P3["🌍 Luo et al. (2022)\nCrowdfunding & MFI\nDifference-in-Differences"]
+                AM -->|"method used"| P4["🤖 Fügener et al. (2026)\nAI Automation vs. Augmentation\nOptimization +
+                Empirical"]
+
+                P1 -->|"platform economics\n= information asymmetry"| PI["IS Theme:\nPlatform Governance\n& Information
+                Asymmetry"]
+                P2 -->|"review manipulation\n= information distortion"| PI
+                P3 -->|"crowd monitoring\n= information disclosure"| PI
+
+                P4 -->|"task allocation\n= human-AI complementarity"| HAI["IS Theme:\nHuman-AI Collaboration\n& Future
+                of Work"]
+
+                PI --> KI["Key Insight:\nHow IS platforms manage\ninformation asymmetry\ndetermines welfare outcomes"]
+                HAI --> KI2["Key Insight:\nAI benefits depend on\ntype of complementarity —\nnot automation vs.
+                augmentation alone"]
+
+                style AM fill:#ede9fe,stroke:#7c3aed
+                style P1 fill:#fef3c7,stroke:#d97706
+                style P2 fill:#fef3c7,stroke:#d97706
+                style P3 fill:#d1fae5,stroke:#059669
+                style P4 fill:#e0f2fe,stroke:#0284c7
+                style PI fill:#dbeafe,stroke:#3b82f6
+                style HAI fill:#e0f2fe,stroke:#0284c7
+                style KI fill:#fce7f3,stroke:#db2777
+                style KI2 fill:#fce7f3,stroke:#db2777
+            </div>
+
+            <div class="info-box">
+                <h4>The Common Thread</h4>
+                <p>The first three papers deal with <strong>information asymmetry in digital markets</strong>: consumers
+                    don't know product quality (rebates paper), sellers don't know each other's awareness levels
+                    (platform paper), and lenders don't know MFI efficiency (crowdfunding paper). The fourth paper
+                    (Fügener et al.) shifts focus to <strong>human-AI collaboration</strong>, showing that the optimal
+                    division
+                    of labor depends on complementarity type — connecting to the week's theme of using analytical
+                    modeling to derive insights impossible through surveys alone.</p>
+            </div>
+        </div>
+
+
+        <!-- ===================== INTEGRATION ===================== -->
+        <div class="paper-card" id="integration">
+            <h2>📚 Integration — Week 7 Cross-Paper Analysis</h2>
+
+            <div class="paper-card">
+                <h4>🔑 Key Exam Questions and Answers</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Question</th>
+                            <th>Key Answer Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>What is Nash Equilibrium and why is it used?</td>
+                            <td>No player can gain by unilaterally deviating. It is the standard solution concept
+                                for static games because it captures stable strategic outcomes where everyone is
+                                playing their best response.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>How is analytical modeling different from positivist research?</td>
+                            <td>Analytical: derives results from mathematical proofs, no empirical data. Positivist:
+                                tests hypotheses with real survey/experimental data. Analytical answers counterfactual
+                                questions; positivist tests existing phenomena.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Why does cheap advertising make Amazon MORE likely to open its platform?</td>
+                            <td>Because cheap advertising gives the third-party seller a credible external threat
+                                (B can compete without joining Amazon). To capture commission revenue instead of
+                                facing a fully-aware competitor, Amazon prefers to open the platform.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>What are the three forces through which Kiva affects MFIs?</td>
+                            <td>(1) Lower capital costs (expected + but NOT supported), (2) Financial slack/reduced
+                                pressure (-), (3) Crowd
+                                monitoring from public disclosure (+). Net positive because efficiency improvement and
+                                risk management
+                                through monitoring outweigh slack. Capital cost channel was NOT the mechanism.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>What is the "social gain vs. social loss" from conditional rebates?</td>
+                            <td>Social gain: more transactions due to boosted (even inflated) reviews = more value
+                                created. Social loss: distorted posting behavior (some consumers post fake reviews
+                                = moral and efficiency costs). Net effect depends on posting cost c.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>What is backward induction and why is it used?</td>
+                            <td>Backward induction solves sequential games by first computing the optimal action at
+                                the LAST stage, then working backward. It finds Subgame-Perfect Nash Equilibrium —
+                                eliminating non-credible threats.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="paper-card">
+                <h4>🔗 Connection to My Research (Trust & Delegation in Agentic IS)</h4>
+                <p>What I find interesting from Week 7 is that all three papers are really about trust and
+                    accountability in digital platforms. In the platform openness model, Amazon has to trust that
+                    Seller B won't completely undercut it. In the rebates paper, consumers trust online reviews —
+                    and sellers exploit that trust through conditional rebates. In the crowdfunding paper, Kiva
+                    lenders trust MFIs to act well, and the crowd monitoring mechanism is literally a governance
+                    structure to enforce that trust.</p>
+                <p>In my own research on agentic IS, a similar dynamic applies: when we delegate tasks to an AI
+                    agent, we need monitoring mechanisms (like Kiva's information disclosure requirement) to ensure
+                    the agent acts in our interest. The analytical modeling approach could be useful for showing
+                    conditions under which trust-based delegation is rational — something that is hard to test
+                    empirically.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="/js/study-navbar.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/search.js"></script>
+    <!-- Mermaid JS -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
+
+    <!-- Reading Progress Bar -->
+    <script>
+        window.addEventListener('scroll', function () {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            var bar = document.querySelector('.progress-fill');
+            var text = document.querySelector('.progress-text');
+            if (bar) bar.style.width = scrolled + '%';
+            if (text) text.textContent = 'Reading Progress: ' + Math.round(scrolled) + '%';
+        });
+    </script>
+
+</body>
+
+</html>
