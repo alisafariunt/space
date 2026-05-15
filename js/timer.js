@@ -175,7 +175,7 @@
             timerWidget.classList.toggle('hidden');
         });
 
-        const nav = document.querySelector('.main-nav') || document.querySelector('nav');
+        const nav = document.querySelector('.nav-actions') || document.querySelector('.navbar-content') || document.querySelector('nav');
         if (nav) {
             nav.appendChild(btn);
         }

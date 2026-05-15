@@ -1,68 +1,26 @@
-import { createClient } from '@libsql/client';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import { randomUUID } from 'crypto';
+import {
+    db,
+    bcrypt,
+    randomUUID,
+    BCRYPT_ROUNDS,
+    JWT_REFRESH_EXPIRY,
+    parseExpiry,
+    initializeDatabase,
+    validateUsername,
+    validatePassword,
+    generateAccessToken,
+    generateRefreshToken,
+    hashToken,
+    setRefreshTokenCookie,
+    applyCors,
+} from '../_lib/auth-core.js';
 
 export default async function handler(req, res) {
-    // Configuration - use hardcoded values that JWT understands
-    const JWT_SECRET = process.env.JWT_SECRET || 'study-guide-secret-key-2024';
-    const JWT_ACCESS_EXPIRY = '30m';  // 30 minutes
-    const JWT_REFRESH_EXPIRY = '30d'; // 30 days
+    applyCors(req, res, 'POST, OPTIONS');
 
-    const isProduction = process.env.NODE_ENV === 'production';
-    const cookieDomain = isProduction ? 'alisafari.space' : null;
-
-    function buildRefreshTokenCookie(value, maxAgeSeconds) {
-        const attrs = ['HttpOnly', 'SameSite=Lax', 'Path=/'];
-        if (isProduction) {
-            attrs.push('Secure');
-        }
-        if (cookieDomain) {
-            attrs.push(`Domain=${cookieDomain}`);
-        }
-        if (typeof maxAgeSeconds === 'number') {
-            attrs.push(`Max-Age=${maxAgeSeconds}`);
-        }
-        return `refreshToken=${value}; ${attrs.join('; ')}`;
-    }
-
-    // CORS headers
-    function getCorsHeaders(req) {
-        const allowedOrigins = process.env.NODE_ENV === 'production'
-            ? (process.env.ALLOWED_ORIGINS || 'https://alisafari.space,https://www.alisafari.space,https://flow.alisafari.space').split(',')
-            : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080'];
-
-        const origin = req.headers.origin;
-
-        if (allowedOrigins.includes(origin)) {
-            return {
-                'Access-Control-Allow-Origin': origin,
-                'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-                'Access-Control-Allow-Credentials': 'true',
-            };
-        }
-
-        return {
-            'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-        };
-    }
-
-    // Handle CORS preflight
     if (req.method === 'OPTIONS') {
-        const corsHeaders = getCorsHeaders(req);
-        Object.entries(corsHeaders).forEach(([key, value]) => {
-            res.setHeader(key, value);
-        });
         return res.status(200).json({ ok: true });
     }
-
-    // Set CORS headers
-    const corsHeaders = getCorsHeaders(req);
-    Object.entries(corsHeaders).forEach(([key, value]) => {
-        res.setHeader(key, value);
-    });
 
     if (req.method !== 'POST') {
         return res.status(405).json({
@@ -72,70 +30,20 @@ export default async function handler(req, res) {
     }
 
     try {
-        // Create Turso client
-        const db = createClient({
-            url: process.env.TURSO_DATABASE_URL,
-            authToken: process.env.TURSO_AUTH_TOKEN,
-        });
+        await initializeDatabase();
 
-        // Initialize database tables
-        await db.execute(`
-            CREATE TABLE IF NOT EXISTS users (
-                id TEXT PRIMARY KEY,
-                device_id TEXT UNIQUE,
-                email TEXT,
-                password_hash TEXT,
-                password_reset_required INTEGER DEFAULT 1,
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                last_sync DATETIME
-            )
-        `);
+        const { username, password } = req.body || {};
+
         try {
-            await db.execute("ALTER TABLE users ADD COLUMN password_hash TEXT");
-        } catch (e) {
-            // Column likely exists
-        }
-        try {
-            await db.execute("ALTER TABLE users ADD COLUMN password_reset_required INTEGER DEFAULT 1");
-        } catch (e) {
-            // Column likely exists
-        }
-
-        await db.execute(`
-            CREATE TABLE IF NOT EXISTS refresh_tokens (
-                id TEXT PRIMARY KEY,
-                user_id TEXT NOT NULL,
-                token_hash TEXT NOT NULL,
-                expires_at DATETIME NOT NULL,
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-                FOREIGN KEY (user_id) REFERENCES users(id)
-            )
-        `);
-        try {
-            await db.execute(`CREATE INDEX IF NOT EXISTS idx_refresh_tokens_user_id ON refresh_tokens(user_id)`);
-            await db.execute(`CREATE INDEX IF NOT EXISTS idx_refresh_tokens_expires ON refresh_tokens(expires_at)`);
-        } catch (e) {
-            // Indexes might already exist
-        }
-
-        const { username, password } = req.body;
-
-        // Simple validation
-        if (!username || username.length < 3) {
+            validateUsername(username);
+            validatePassword(password);
+        } catch (err) {
             return res.status(400).json({
                 error: 'VALIDATION_ERROR',
-                message: 'Username must be at least 3 characters'
+                message: err.message,
             });
         }
 
-        if (!password || password.length < 3) {
-            return res.status(400).json({
-                error: 'VALIDATION_ERROR',
-                message: 'Password must be at least 3 characters'
-            });
-        }
-
-        // Check if user exists
         const userResult = await db.execute({
             sql: `SELECT id, password_hash FROM users WHERE id = ?`,
             args: [username]
@@ -144,9 +52,7 @@ export default async function handler(req, res) {
         const user = userResult.rows[0];
 
         if (user && user.password_hash) {
-            // Existing user - verify password
             const isValid = await bcrypt.compare(password, user.password_hash);
-
             if (!isValid) {
                 return res.status(401).json({
                     error: 'INVALID_CREDENTIALS',
@@ -154,9 +60,7 @@ export default async function handler(req, res) {
                 });
             }
         } else {
-            // New user - create account
-            const passwordHash = await bcrypt.hash(password, 10);
-
+            const passwordHash = await bcrypt.hash(password, BCRYPT_ROUNDS);
             await db.execute({
                 sql: `INSERT INTO users (id, device_id, password_hash, password_reset_required, created_at)
                       VALUES (?, ?, ?, 0, datetime('now'))`,
@@ -164,50 +68,31 @@ export default async function handler(req, res) {
             });
         }
 
-        // Generate tokens
-        const accessToken = jwt.sign({ userId: username }, JWT_SECRET, { expiresIn: JWT_ACCESS_EXPIRY });
+        const accessToken = generateAccessToken(username);
         const tokenId = randomUUID();
-        const refreshToken = jwt.sign({ userId: username, tokenId }, JWT_SECRET, { expiresIn: JWT_REFRESH_EXPIRY });
-
-        // Store refresh token
-        const tokenHash = await bcrypt.hash(refreshToken, 10);
-        const expiryMs = 30 * 24 * 60 * 60 * 1000; // 30 days
+        const refreshToken = generateRefreshToken(username, tokenId);
+        const tokenHashed = await hashToken(refreshToken);
+        const expiryMs = parseExpiry(JWT_REFRESH_EXPIRY);
         const expiresAt = new Date(Date.now() + expiryMs).toISOString();
 
         await db.execute({
             sql: `INSERT INTO refresh_tokens (id, user_id, token_hash, expires_at, created_at)
                   VALUES (?, ?, ?, ?, datetime('now'))`,
-            args: [tokenId, username, tokenHash, expiresAt]
+            args: [tokenId, username, tokenHashed, expiresAt]
         });
 
-        // Set refresh token cookie
-        // Use SameSite=None for cross-origin requests, Secure required for SameSite=None
-        const maxAge = Math.floor(expiryMs / 1000);
-        res.setHeader('Set-Cookie', buildRefreshTokenCookie(refreshToken, maxAge));
+        setRefreshTokenCookie(res, refreshToken);
 
-        // Return access token
         return res.status(200).json({
             accessToken,
-            user: {
-                id: username,
-                username
-            }
+            user: { id: username, username }
         });
 
     } catch (error) {
         console.error('[Login Error]', error);
-        console.error('[Login Error Stack]', error.stack);
-        console.error('[Login Error - ENV Check]', {
-            hasTursoUrl: !!process.env.TURSO_DATABASE_URL,
-            hasTursoToken: !!process.env.TURSO_AUTH_TOKEN,
-            hasJwtSecret: !!process.env.JWT_SECRET
-        });
-
         return res.status(500).json({
             error: 'INTERNAL_ERROR',
-            message: 'An error occurred during login',
-            details: error.message,
-            stack: error.stack?.split('\n').slice(0, 3).join('\n')
+            message: 'An error occurred during login'
         });
     }
 }

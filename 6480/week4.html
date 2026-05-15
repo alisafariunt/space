@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Week 4 - BUSI 6480: Effect size, power, Type I and Type III, and reporting quality">
+    <title>Week 4 - BUSI 6480 Study Guide</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/study-header.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-brand">BUSI 6480 Study Guide</a>
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="week1.html">Week 1</a></li>
+                <li><a href="week2.html">Week 2</a></li>
+                <li><a href="week3.html">Week 3</a></li>
+                <li><a href="week4.html" class="active">Week 4</a></li>
+                <li><a href="week5.html">Week 5</a></li>
+                <li><a href="exam1.html">Exam 1</a></li>
+            </ul>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">Reading Progress: 0%</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <div class="session-header">
+            <h1>Week 4: Effect Size, Power, and Type I vs Type III (Deep Guide)</h1>
+            <p class="session-meta">How big is the effect, how stable is the inference, and how to report clearly</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>What Changes in Week 4</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: هفته 4 چی را از هفته 3 متفاوت می‌کند؟</h4>
+                <p>هفته 3 بیشتر دنبال این بود که "کدام گروه‌ها با هم فرق دارند". هفته 4 یک قدم بالاتر می‌رود و می‌پرسد "این فرق چقدر بزرگ است و آیا ارزش حرف زدن دارد یا نه". این تغییر خیلی مهم است چون در پژوهش واقعی، فقط p-value کافی نیست.</p>
+                <p>اینجا شما باید دو تا داستان را کنار هم تعریف کنی: معنی‌داری آماری و اندازه اثر. ممکن است با نمونه بزرگ، یک اختلاف خیلی کوچک هم معنی دار شود. یا برعکس، با نمونه کوچک یک اختلاف خوب داشته باشی ولی p-value معنی دار نشود. پس شما باید بتوانی هر دو را تفسیر کنی.</p>
+                <p>یک بخش دیگر هم که هفته 4 پررنگ می‌شود Type I و Type III است. خیلی وقت‌ها نرم‌افزار هر دو را نشان می‌دهد و اگر این را درست نفهمی، مخصوصا در طرح‌های نامتعادل، تفسیرت اشتباه می‌شود.</p>
+                <p>اگر این هفته را خوب ببندی، جواب‌هایت از حالت "فقط خروجی" خارج می‌شود و شبیه یک گزارش پژوهشی واقعی می‌شود.</p>
+            </div>
+            <p>In Week 3 we asked "which differences are significant". In Week 4 we ask a harder question: "how big is the difference and does it matter". This shift is very important for research quality and exam quality. If your answer has only p-values, it is incomplete.</p>
+            <p>You also need to understand Type I and Type III tests because software output often shows both. If you do not explain this correctly, interpretation can be wrong, especially in non-orthogonal settings.</p>
+
+            <div class="info-box">
+                <h4>Main writing rule</h4>
+                <p>Report significance, effect size, and practical meaning together. Not one of them alone.</p>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Type I and Type III: Clear Understanding</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: Type I و Type III را ساده و درست بفهمیم</h4>
+                <p>Type I یعنی آزمون‌ها به شکل ترتیبی انجام می‌شوند. یعنی ترتیب وارد کردن متغیرها در مدل مهم است. مثلا اگر اول A را وارد کنی و بعد B را، Type I برای B اثر B را بعد از A می‌سنجد. اگر ترتیب را عوض کنی، نتیجه Type I هم می‌تواند عوض شود.</p>
+                <p>Type III معمولا می‌گوید "اثر هر متغیر را در حضور بقیه متغیرها" بسنج. برای همین، در گزارش‌های فاکتوری و مدل‌هایی که ترتیب طبیعی مشخص ندارند، Type III را زیاد می‌بینیم. در SAS خیلی وقت‌ها Type III به عنوان خروجی استاندارد مطرح است.</p>
+                <p>یک نکته خیلی مهم: در طرح‌های متعادل و orthogonal، Type I و Type III معمولا شبیه هم می‌شوند. اختلاف بزرگ معمولا وقتی اتفاق می‌افتد که طرح نامتعادل باشد یا هم‌پوشانی (non-orthogonality) داشته باشیم. این را اگر در امتحان بگویی، معمولا امتیاز می‌گیری.</p>
+                <p>اگر استاد بپرسد چرا این دو فرق دارند، یک جواب قوی این است: Type I ترتیبی است و به order حساس است، Type III هر اثر را با کنترل بقیه اثرها تست می‌کند و کمتر order-dependent است.</p>
+            </div>
+            <p>Type I sum of squares is sequential. That means variable order in model entry matters. Type III tests each effect while controlling for the other effects in the model. In many applied papers, Type III is reported because it is not order-dependent in the same way.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Type I</th>
+                        <th>Type III</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Order sensitive</td>
+                        <td>Yes</td>
+                        <td>No for term testing structure</td>
+                    </tr>
+                    <tr>
+                        <td>Best use case</td>
+                        <td>Planned sequential models</td>
+                        <td>General factorial reporting</td>
+                    </tr>
+                    <tr>
+                        <td>Risk</td>
+                        <td>Arbitrary order can mislead</td>
+                        <td>Still depends on correct model setup</td>
+                    </tr>
+                    <tr>
+                        <td>When they match</td>
+                        <td colspan="2">Often in orthogonal balanced designs</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>Exam tip</h4>
+                <p>If asked "why are Type I and Type III different", answer with one sentence about sequential order and one sentence about non-orthogonality.</p>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Effect Size: What and Why</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: اندازه اثر یعنی چه و چرا باید گزارشش کنیم؟</h4>
+                <p>اندازه اثر یعنی "بزرگی واقعی اختلاف" یا "میزان توضیح داده شدن واریانس". این یک چیز جدا از p-value است. p-value فقط می‌گوید آیا تحت فرض صفر، این نتیجه بعید است یا نه. ولی اندازه اثر می‌گوید اختلاف چقدر مهم است.</p>
+                <p>در ANOVA چند نوع اندازه اثر را زیاد می‌بینیم: eta squared (eta^2)، partial eta squared و omega squared (omega^2). خیلی ساده اگر بخواهم بگویم، eta^2 و omega^2 شبیه هم هستند ولی omega^2 معمولا کمتر خوش‌بینانه است و برای برآورد اثر در جامعه بهتر رفتار می‌کند.</p>
+                <p>یک اشتباه رایج این است که فقط بنویسیم "اثر بزرگ بود". بهتر است عدد را بدهیم و بعد در یک جمله بگوییم این یعنی چه. مثلا بگوییم "omega^2 = 0.12 یعنی حدود 12 درصد از تغییرات Y توسط گروه توضیح داده می‌شود" و بعد هم یک جمله بزنیم که این 12 درصد در این موضوع واقعا مهم است یا نه.</p>
+                <p>بنچمارک‌ها (مثل small/medium/large) کمک می‌کنند، ولی نباید جای تفسیر واقعی را بگیرند. همیشه یک جمله در واحد واقعی داده‌ها اضافه کن.</p>
+            </div>
+            <p>Effect size tells magnitude, not just detectability. A result can be statistically significant but practically small. That is why strong reporting includes both p-value and effect size.</p>
+
+            <h3>Common measures in this course</h3>
+            <p>For ANOVA contexts you will see eta squared, partial eta squared, omega squared, and Cohen f. For mean differences, d may also appear in some references.</p>
+
+            <pre><code>eta_sq = SS_effect / SS_total
+
+omega_sq (one-way fixed effects, common form):
+omega_sq = (SS_effect - (df_effect * MS_error)) / (SS_total + MS_error)
+
+Cohen f from omega_sq:
+f = sqrt(omega_sq / (1 - omega_sq))</code></pre>
+
+            <p>Rough interpretation for f: 0.10 small, 0.25 medium, 0.40 large.</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>Effect Size Reporting Style</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: چطور اندازه اثر را طوری بنویسیم که نمره بگیرد</h4>
+                <p>نوشتن اندازه اثر فقط این نیست که یک عدد کنار p-value بچسبانیم. گزارش خوب باید سه چیز را کنار هم داشته باشد: (1) معنی‌داری، (2) اندازه اثر، (3) معنای عملی.</p>
+                <p>یک سبک نوشتن ساده و قوی این است که اول بگویی آزمون معنی دار شد یا نه. بعد اندازه اثر را گزارش کنی. بعد در یک جمله بگویی این اندازه اثر برای موضوع تو چه معنایی دارد. اگر بتوانی میانگین‌ها را هم کوتاه اشاره کنی، خیلی بهتر می‌شود.</p>
+                <p><strong>نمونه متن کوتاه:</strong> اثر گروه بر Y معنی دار بود (p &lt; 0.05) و اندازه اثر هم متوسط رو به بالا بود (omega^2 = ...). یعنی تفاوت بین گروه‌ها فقط به خاطر نمونه بزرگ نیست و از نظر عملی هم می‌تواند قابل توجه باشد، مخصوصا وقتی میانگین گروه A حدود ... واحد بالاتر از گروه B است.</p>
+                <p>اگر نتیجه معنی دار نبود، باز هم می‌توانی اندازه اثر را بگویی و بعد اشاره کنی که شاید توان کم بوده. این نگاه بالغ‌تر است تا اینکه فقط بگویی "هیچ اثری نیست".</p>
+            </div>
+            <p>Good reporting is reader-first. First say what happened, then how large it is, then why it matters. Keep it concrete. If possible, mention original unit interpretation so readers understand real-world impact.</p>
+
+            <pre><code>Template:
+"The treatment effect was significant (p = ...). The effect size was omega_sq = ...,
+which indicates a [small/medium/large] practical impact in this context."
+
+Better template with context:
+"The method improved average score by X points, with omega_sq = ..., suggesting
+that this effect is not only statistically detectable but also practically meaningful."</code></pre>
+        </div>
+
+        <div class="paper-card">
+            <h2>Power in Plain Language</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: Power را با زبان ساده بفهمیم</h4>
+                <p>Power یعنی احتمال اینکه اگر واقعا یک اثر وجود داشته باشد، آزمون ما آن را پیدا کند. پس power پایین یعنی ممکن است اثر واقعی باشد ولی ما نبینیم و نتیجه غیرمعنی دار شود. به همین خاطر، نتیجه non-significant همیشه به معنای "هیچ اثری نیست" نیست.</p>
+                <p>چه چیزهایی power را بالا و پایین می‌کند؟ معمولا چهار عامل مهم است: اندازه نمونه (N)، اندازه اثر، سطح alpha و میزان پراکندگی (variance). اگر N بیشتر شود، power بالا می‌رود. اگر داده‌ها خیلی پراکنده باشند، power پایین می‌آید. اگر alpha را سخت گیرانه‌تر کنی (مثلا 0.01 به جای 0.05)، power کمتر می‌شود.</p>
+                <p>در امتحان ممکن است بپرسند "اگر نتیجه معنی دار نشد، چه می‌گوییم؟" جواب خوب این است که علاوه بر p-value، به اندازه اثر و power هم نگاه می‌کنیم. اگر اندازه اثر بد نیست ولی N کم بوده، می‌توانیم بگوییم احتمال خطای نوع دوم وجود دارد.</p>
+                <p>تو گزارش نوشتاری، power را لازم نیست خیلی پیچیده کنی. همین که یک یا دو جمله بگویی نمونه ممکن است حساسیت کافی نداشته باشد، معمولا کافی است.</p>
+            </div>
+            <p>Power is the chance to detect a real effect. If power is low, real differences can be missed. If power is very high, even tiny effects can be detected. So interpretation still needs effect size.</p>
+
+            <h3>Power grows when</h3>
+            <ul>
+                <li>Sample size increases</li>
+                <li>Error variance decreases</li>
+                <li>True effect size increases</li>
+                <li>Alpha threshold is less strict</li>
+            </ul>
+
+            <h3>Power drops when</h3>
+            <ul>
+                <li>Sample size is small</li>
+                <li>Data are noisy</li>
+                <li>Effect is weak</li>
+                <li>Alpha is very strict</li>
+            </ul>
+
+            <div class="info-box">
+                <h4>Practical line for exam</h4>
+                <p>Power is about sensitivity. Effect size is about magnitude. They are connected but not the same thing.</p>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Worked Example: From F to Effect Size</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: مثال حل شده، از F به اندازه اثر</h4>
+                <p>یکی از سوال‌های خوب امتحانی این است که از شما بخواهند اندازه اثر را از روی خروجی ANOVA دربیاوری. مثلا با F و درجه آزادی‌ها، می‌توانی partial eta squared را حساب کنی. فرمولش این است:</p>
+                <pre><code>eta_p^2 = (F * df1) / (F * df1 + df2)</code></pre>
+                <p>حالا اگر مثلا F = 6.2 و df1 = 2 و df2 = 27 باشد:</p>
+                <pre><code>eta_p^2 = (6.2*2) / (6.2*2 + 27)
+                eta_p^2 = 12.4 / 39.4 = 0.314</code></pre>
+                <p>یعنی حدود 0.31 که در بسیاری از معیارها عدد نسبتا بزرگی حساب می‌شود. بعد اگر لازم باشد می‌توانی آن را به Cohen's f هم تبدیل کنی:</p>
+                <pre><code>f = sqrt(eta_p^2 / (1 - eta_p^2))
+                # اینجا حدودا f ≈ 0.68</code></pre>
+                <p>دو تا نکته: یکی اینکه partial eta squared با omega squared یکی نیست و تفسیرشان دقیقا یکسان نیست. دوم اینکه بعد از گفتن "بزرگ یا متوسط"، حتما یک جمله در بافت واقعی بنویس. مثلا بگو این اختلاف در واحد اصلی Y چه قدر است و آیا از نظر موضوع درس مهم است یا نه.</p>
+            </div>
+            <p>Suppose one-way ANOVA with p=3 groups gives F=6.2, df_effect=2, df_error=27, N=30. You can move from test statistic to effect size estimate.</p>
+
+            <pre><code>Step 1: estimate omega_sq from ANOVA components
+Step 2: convert to f if needed
+Step 3: interpret in words
+
+If omega_sq = 0.18, then:
+f = sqrt(0.18 / 0.82) = 0.468
+Interpretation: large effect by rough benchmarks</code></pre>
+
+            <p>Do not forget context sentence: "large effect" in benchmark terms does not automatically mean large managerial value. Always connect to subject context.</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>Trend Contrasts (Linear, Quadratic, Cubic)</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: کنتراست‌های روند (Trend) وقتی سطح‌ها مرتب هستند</h4>
+                <p>بعضی وقت‌ها سطح‌های عامل ترتیب طبیعی دارند. مثلا سطح تبلیغات کم، متوسط، زیاد. یا دوز دارو 0، 5، 10، 15. در این حالت فقط اینکه بگویی "فرق هست" کافی نیست. می‌خواهی بفهمی الگو چیست: آیا به صورت خطی بالا می‌رود؟ آیا حالت خمیدگی (quadratic) دارد؟</p>
+                <p>Trend contrast کمک می‌کند این شکل را تست کنی. اگر linear معنی دار شود، یعنی با افزایش سطح عامل، پاسخ به شکل تقریبا یکنواخت بالا یا پایین می‌رود. اگر quadratic معنی دار شود، یعنی یک حالت U شکل یا وارونه دارد. cubic برای الگوهای پیچیده‌تر است و معمولا وقتی سطح‌ها زیادتر باشند کاربرد دارد.</p>
+                <p>دو نکته مهم در جواب: اول اینکه بگو سطح‌ها ordered هستند و چرا trend مناسب است. دوم اینکه تفسیر را به زبان ساده بگو، نه فقط اسم linear و quadratic. مثلا بنویس "اثر به شکل خطی افزایش دارد" یا "در سطح‌های میانی بهتر است و بعد افت می‌کند".</p>
+            </div>
+            <p>If treatment levels are ordered, trend contrasts help decompose pattern. Instead of only asking "different or not", you ask "linear increase", "curvature", and higher order structure.</p>
+
+            <pre><code>For four ordered levels, common polynomial contrast sets:
+Linear:    -3 -1  1  3
+Quadratic:  1 -1 -1  1
+Cubic:     -1  3 -3  1</code></pre>
+
+            <p>In write-up, name the significant trend and explain practical meaning. For example: "A significant linear trend means response increases steadily with level".</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>R Workflow for Week 4</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: روال عملی R برای هفته 4 (اندازه اثر و Type)</h4>
+                <p>در هفته 4 معمولا دو کار اصلی در R انجام می‌دهیم: محاسبه اندازه اثر و بررسی نوع آزمون‌ها (Type I/III) در صورت نیاز. خیلی وقت‌ها برای one-way ANOVA همین که omega^2 را حساب کنی و گزارش بدهی کافی است.</p>
+                <p>اگر مدل شما چند فاکتور دارد یا طرح نامتعادل است، آن وقت بحث Type III مهم‌تر می‌شود. در R معمولا با بسته car می‌توانیم Type III را بگیریم. برای اندازه اثر هم بسته effectsize خیلی راحت است.</p>
+                <pre><code>fit <- aov(Y ~ Group, data = df)
+                summary(fit)
+
+                # اندازه اثر
+                library(effectsize)
+                omega_squared(fit)
+                eta_squared(fit)
+
+                # Type III (وقتی چند فاکتور/کوواریت داریم)
+                library(car)
+                Anova(lm(Y ~ A*B, data=df), type=3)</code></pre>
+                <p>یادت باشد: عدد اندازه اثر را بگیر، ولی بعدش حتما یک جمله تفسیر بنویس. در امتحان، تفسیر را نمی‌توانی با کد جایگزین کنی.</p>
+            </div>
+            <pre><code># Fit model
+fit <- aov(Y ~ Group, data = df)
+summary(fit)
+
+# Extract ANOVA components
+anova_tab <- summary(fit)[[1]]
+
+# Example of manual omega_sq style computation
+SS_effect <- anova_tab[1, "Sum Sq"]
+SS_total  <- sum(anova_tab[, "Sum Sq"], na.rm = TRUE)
+MS_error  <- anova_tab[2, "Mean Sq"]
+df_effect <- anova_tab[1, "Df"]
+
+omega_sq <- (SS_effect - df_effect * MS_error) / (SS_total + MS_error)
+f_effect <- sqrt(omega_sq / (1 - omega_sq))</code></pre>
+
+            <p>For reporting, keep your formula and your final interpretation in the output note.</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>SAS Workflow for Week 4</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: روال عملی SAS برای هفته 4 (Type و power)</h4>
+                <p>در SAS معمولا با PROC GLM کار می‌کنیم و خروجی Type I و Type III را می‌بینیم. اگر طرح متعادل باشد، خیلی وقت‌ها تفاوت بزرگی نمی‌بینی. ولی در طرح نامتعادل، باید حواست باشد کدام را گزارش می‌کنی و چرا.</p>
+                <p>برای power هم SAS ابزارهای خاص دارد مثل PROC POWER یا GLMPOWER (بسته به نسخه و روش). اگر استاد از شما محاسبه دقیق power نخواهد، حداقل باید بتوانی در حد مفهومی بگویی power به N و اندازه اثر و alpha وابسته است.</p>
+                <pre><code>proc glm data=mydata;
+                  class Group;
+                  model Y = Group;
+                run;
+                quit;
+
+                /* اگر خواستی power را سناریویی بررسی کنی */
+                proc power;
+                  onewayanova
+                    groupmeans = (10 12 13)
+                    stddev = 4
+                    alpha = 0.05
+                    power = .
+                    ntotal = .;
+                run;</code></pre>
+                <p>برای اندازه اثر در SAS گاهی باید از ODS OUTPUT استفاده کنی و بعد با data step فرمول omega^2 را حساب کنی. این کار را اگر یک بار انجام بدهی، برای پروژه و امتحان خیلی کمک می‌کند.</p>
+            </div>
+            <pre><code>proc glm data=mydata;
+  class Group;
+  model Y = Group;
+  means Group / Tukey;
+run;
+quit;
+
+/* Then compute omega_sq and f from ANOVA output data step */
+
+proc glmpower data=MyResponseMeans;
+  class Group;
+  model Y = Group;
+  power stddev = .
+        ntotal = .
+        alpha = 0.05
+        power = .;
+run;</code></pre>
+        </div>
+
+        <div class="paper-card">
+            <h2>High-Value Writing Templates</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: چند قالب نوشتن که هم ساده است هم نمره می‌دهد</h4>
+                <p>برای هفته 4، قالب‌های نوشتن باید هم p-value را داشته باشد هم اندازه اثر را. اگر فقط یکی باشد، جواب ناقص به نظر می‌آید. چند جمله ساده که می‌توانی ازشان الگو بگیری:</p>
+                <p><strong>قالب 1:</strong> اثر عامل بر Y معنی دار بود (p = ...). اندازه اثر هم ... بود (omega^2 = ...)، پس اختلاف بین گروه‌ها فقط آماری نیست و از نظر اندازه هم قابل توجه است.</p>
+                <p><strong>قالب 2:</strong> با وجود معنی دار شدن آزمون، اندازه اثر کوچک بود (omega^2 = ...)، پس ممکن است از نظر عملی تفاوت زیادی ایجاد نکند و باید به واحدهای واقعی و هزینه تصمیم هم توجه کرد.</p>
+                <p><strong>قالب 3 (Type):</strong> Type I و Type III متفاوت شدند چون Type I ترتیبی و وابسته به ترتیب ورود متغیرهاست، ولی Type III اثر هر متغیر را در حضور بقیه تست می‌کند.</p>
+                <p>حرف اصلی این است: جمله‌ها کوتاه باشد، ولی باید "معنی" داشته باشد. یعنی عدد را بگویی و بعد ترجمه‌اش کنی.</p>
+            </div>
+            <p>Use these short templates in assignment answers.</p>
+
+            <pre><code>Template A (test + size):
+"The factor was statistically significant (p = ...), with omega_sq = ...,
+indicating a [small/medium/large] effect."
+
+Template B (size + context):
+"Although p-value was significant, the effect size was small (omega_sq = ...),
+so practical impact may be limited in this setting."
+
+Template C (Type I vs Type III):
+"Type I and Type III differed because Type I is sequential and order-sensitive,
+while Type III evaluates each effect controlling for other model terms."</code></pre>
+        </div>
+
+        <div class="paper-card">
+            <h2>Common Mistakes and Corrections</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: اشتباهات رایج هفته 4 و راه اصلاح</h4>
+                <p>هفته 4 چندتا اشتباه کلاسیک دارد. اگر این‌ها را کنترل کنی، نوشتنت خیلی قوی‌تر می‌شود.</p>
+                <ul>
+                  <li><strong>فقط p-value:</strong> باید اندازه اثر را هم گزارش کنی، وگرنه جواب ناقص است.</li>
+                  <li><strong>گرفتن بنچمارک‌ها بدون بافت:</strong> small/medium/large کمک می‌کند، ولی باید در واحد واقعی هم تفسیر کنی.</li>
+                  <li><strong>قاطی کردن eta^2 و partial eta^2:</strong> اسم دقیق را بنویس و بگو کدام را گزارش دادی.</li>
+                  <li><strong>نادیده گرفتن Type I/III در طرح نامتعادل:</strong> اگر خروجی تفاوت دارد، حداقل یک جمله دلیل بده.</li>
+                  <li><strong>گفتن "non-significant یعنی اثر نیست":</strong> اینجا power را یادت بیاور. ممکن است حساسیت کم بوده باشد.</li>
+                </ul>
+                <p>اگر شک داشتی، یک قانون ساده: هر نتیجه را با یک جمله "چه شد" و یک جمله "یعنی چه" تمام کن.</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mistake</th>
+                        <th>Problem</th>
+                        <th>Fix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Only reporting p-values</td>
+                        <td>No magnitude insight</td>
+                        <td>Add omega_sq or eta_sq and interpretation</td>
+                    </tr>
+                    <tr>
+                        <td>Using benchmarks only</td>
+                        <td>No domain meaning</td>
+                        <td>Add context sentence in original units</td>
+                    </tr>
+                    <tr>
+                        <td>Ignoring Type I/III differences</td>
+                        <td>Wrong interpretation risk</td>
+                        <td>State model order and design structure</td>
+                    </tr>
+                    <tr>
+                        <td>No power discussion</td>
+                        <td>Weak methodological argument</td>
+                        <td>Add one line on sensitivity and sample size</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="paper-card">
+            <h2>Exam Drills with Answers</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: تمرین‌های امتحانی هفته 4 (هم p هم اندازه اثر)</h4>
+                <p>این تمرین‌ها را طوری حل کن که انگار سر جلسه هستی. یعنی جواب را در 1 تا 3 جمله بنویس. مخصوصا سوال‌های Type I/III را با "چرا" جواب بده، نه فقط تعریف.</p>
+                <p>چند تمرین کوتاه فارسی هم اینجا می‌گذارم که روی نقطه‌های حساس هفته 4 است:</p>
+                <p><strong>سوال تمرینی:</strong> چطور ممکن است p-value معنی دار باشد ولی اندازه اثر کوچک باشد؟ <strong>پاسخ:</strong> وقتی N خیلی بزرگ است، اختلاف کوچک هم از نظر آماری قابل کشف می‌شود، ولی از نظر عملی ممکن است مهم نباشد.</p>
+                <p><strong>سوال تمرینی:</strong> اگر نتیجه معنی دار نشد، چه جمله‌ای در مورد power می‌توانی اضافه کنی؟ <strong>پاسخ:</strong> می‌نویسم ممکن است توان آزمون برای کشف اثر کافی نبوده باشد، پس نتیجه non-significant را با احتیاط تفسیر می‌کنیم.</p>
+                <p><strong>سوال تمرینی:</strong> یک جمله برای تفاوت Type I و Type III بنویس. <strong>پاسخ:</strong> Type I ترتیبی است و به ترتیب ورود عوامل حساس است، Type III اثر هر عامل را با کنترل بقیه عوامل تست می‌کند.</p>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q1</span>
+                <p>Can p-value and effect size tell different stories?</p>
+                <div class="success-box">
+                    <p>Yes. A result can be significant but have small effect size, or non-significant with moderate effect under low power.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q2</span>
+                <p>Why is omega squared often preferred to eta squared in one-way fixed effects?</p>
+                <div class="success-box">
+                    <p>Because omega squared is usually less upward-biased as a population effect estimate.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q3</span>
+                <p>What does low power mean for interpretation?</p>
+                <div class="success-box">
+                    <p>You may miss real effects, so non-significant findings should be interpreted carefully.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q4</span>
+                <p>When can Type I and Type III be similar?</p>
+                <div class="success-box">
+                    <p>Often in balanced orthogonal designs.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q5</span>
+                <p>If f = 0.30, what is rough benchmark category?</p>
+                <div class="success-box">
+                    <p>Medium to large, closer to medium-high by common rules.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q6</span>
+                <p>What are the three minimum elements of good result reporting?</p>
+                <div class="success-box">
+                    <p>Statistical significance, effect size, and practical interpretation.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q7</span>
+                <p>Can large sample produce significant but trivial effects?</p>
+                <div class="success-box">
+                    <p>Yes, which is exactly why effect size must be reported.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q8</span>
+                <p>What is one sentence on trend contrast interpretation?</p>
+                <div class="success-box">
+                    <p>Trend contrast shows the shape of mean change across ordered levels, not just whether any difference exists.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q9</span>
+                <p>Why is "significant" not enough for managerial decision?</p>
+                <div class="success-box">
+                    <p>Decision quality depends on effect magnitude and practical cost-benefit, not p-value alone.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q10</span>
+                <p>What does power primarily represent?</p>
+                <div class="success-box">
+                    <p>The chance of detecting a real effect under the assumed model and design.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q11</span>
+                <p>How do you justify using Type III in one short sentence?</p>
+                <div class="success-box">
+                    <p>Type III tests each effect while controlling for other effects, which is usually preferred in multi-factor reporting.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q12</span>
+                <p>What is the most common reporting weakness in student answers?</p>
+                <div class="success-box">
+                    <p>They report output numbers but do not explain what those numbers mean for the research question.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Week 4 Final Checklist</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: چک لیست نهایی هفته 4</h4>
+                <p>اگر این موارد را راحت توضیح بدهی، یعنی هفته 4 را خوب یاد گرفتی. این چک لیست را بهتر است قبل از امتحان یک بار با صدای بلند مرور کنی.</p>
+                <ul>
+                  <li>می‌توانم فرق p-value و اندازه اثر را توضیح بدهم.</li>
+                  <li>می‌توانم حداقل یک اندازه اثر (مثل omega^2 یا eta^2) را حساب و تفسیر کنم.</li>
+                  <li>می‌توانم مفهوم power را ساده بگویم و بگویم چه چیزهایی روی آن اثر دارد.</li>
+                  <li>می‌توانم Type I و Type III را بدون قاطی کردن تعریف کنم و بگویم کی شبیه هم می‌شوند.</li>
+                  <li>می‌توانم یک پاراگراف نتیجه بنویسم که هم معنی داری را بگوید هم بزرگی اثر را.</li>
+                </ul>
+            </div>
+            <ul>
+                <li>I can explain Type I vs Type III without confusion.</li>
+                <li>I can compute and interpret at least one effect size.</li>
+                <li>I can explain power in clear non-technical language.</li>
+                <li>I can write a result paragraph that includes significance and magnitude.</li>
+                <li>I can explain trend contrasts when levels are ordered.</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>BUSI 6480 Study Guide | Ali Safari | Spring 2026</p>
+    </footer>
+
+    <script src="/js/study-navbar.js"></script>
+    <script src="/js/toast.js"></script>
+    <script src="/js/course-loader.js"></script>
+    <script src="/js/sync.js"></script>
+    <script src="/js/highlights.js"></script>
+    <script src="/js/tts.js"></script>
+    <script src="/js/progress.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/flashcards.js"></script>
+    <script src="/js/timer.js"></script>
+
+</body>
+
+</html>

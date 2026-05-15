@@ -1,17 +1,6 @@
-import { createClient } from '@libsql/client';
-import jwt from 'jsonwebtoken';
+import { db, applyCors, getOrCreateUserId } from './_lib/auth-core.js';
 
-// Create Turso client
-const db = createClient({
-    url: process.env.TURSO_DATABASE_URL,
-    authToken: process.env.TURSO_AUTH_TOKEN,
-});
-
-// JWT Configuration
-const JWT_SECRET = process.env.JWT_SECRET || 'study-guide-secret-key-2024';
-
-// Rate limiting (in-memory, upgrade to Redis for production)
-const requestCounts = new Map();
+const ISO_DATE_RE = /^\d{4}-\d{2}-\d{2}([T ]\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:?\d{2})?)?$/;
 
 // Initialize database tables
 async function initializeDatabase() {
@@ -114,103 +103,13 @@ async function initializeDatabase() {
     ]);
 }
 
-// CORS configuration
-function getCorsHeaders(req) {
-    const allowedOrigins = process.env.NODE_ENV === 'production'
-        ? (process.env.ALLOWED_ORIGINS || 'https://alisafari.space,https://www.alisafari.space').split(',')
-        : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:8080'];
-
-    const origin = req.headers.origin;
-
-    if (allowedOrigins.includes(origin)) {
-        return {
-            'Access-Control-Allow-Origin': origin,
-            'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
-            'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-            'Access-Control-Allow-Credentials': 'true',
-        };
-    }
-
-    // Default headers for non-matching origins
-    return {
-        'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    };
-}
-
-// JWT verification middleware
-function verifyAccessToken(req) {
-    const authHeader = req.headers.authorization;
-
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        throw new Error('MISSING_TOKEN');
-    }
-
-    const token = authHeader.substring(7);
-
-    try {
-        const decoded = jwt.verify(token, JWT_SECRET);
-        return decoded.userId;
-    } catch (error) {
-        if (error.name === 'TokenExpiredError') {
-            throw new Error('TOKEN_EXPIRED');
-        }
-        throw new Error('INVALID_TOKEN');
-    }
-}
-
-// Rate limiting function
-function rateLimit(userId) {
-    const limit = parseInt(process.env.RATE_LIMIT_MAX || '60');
-    const windowMs = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '60000');
-    const now = Date.now();
-
-    const userRequests = requestCounts.get(userId) || [];
-
-    // Clean old requests outside the window
-    const recentRequests = userRequests.filter(time => now - time < windowMs);
-
-    if (recentRequests.length >= limit) {
-        throw new Error('RATE_LIMIT_EXCEEDED');
-    }
-
-    recentRequests.push(now);
-    requestCounts.set(userId, recentRequests);
-
-    return true;
-}
-
-// Clean up rate limit map periodically
-setInterval(() => {
-    const now = Date.now();
-    const windowMs = parseInt(process.env.RATE_LIMIT_WINDOW_MS || '60000');
-
-    for (const [userId, requests] of requestCounts.entries()) {
-        const recent = requests.filter(time => now - time < windowMs);
-        if (recent.length === 0) {
-            requestCounts.delete(userId);
-        } else {
-            requestCounts.set(userId, recent);
-        }
-    }
-}, 60000); // Clean every minute
-
 export default async function handler(req, res) {
-    // Get CORS headers
-    const corsHeaders = getCorsHeaders(req);
+    // Apply CORS (preflight + actual response).
+    applyCors(req, res, 'GET, POST, DELETE, OPTIONS');
 
-    // Handle CORS preflight
     if (req.method === 'OPTIONS') {
-        Object.entries(corsHeaders).forEach(([key, value]) => {
-            res.setHeader(key, value);
-        });
         return res.status(200).json({ ok: true });
     }
-
-    // Set CORS headers
-    Object.entries(corsHeaders).forEach(([key, value]) => {
-        res.setHeader(key, value);
-    });
 
     try {
         // Ensure tables exist
@@ -424,36 +323,16 @@ export default async function handler(req, res) {
 
         const { method } = req;
 
-        // Verify JWT and extract userId
-        let userId;
-        try {
-            userId = verifyAccessToken(req);
-        } catch (error) {
-            if (error.message === 'MISSING_TOKEN') {
-                return res.status(401).json({ error: 'Authentication required' });
-            }
-            if (error.message === 'TOKEN_EXPIRED') {
-                return res.status(401).json({ error: 'Token expired' });
-            }
-            if (error.message === 'INVALID_TOKEN') {
-                return res.status(401).json({ error: 'Invalid token' });
-            }
-            throw error;
-        }
-
-        // Apply rate limiting
-        try {
-            rateLimit(userId);
-        } catch (error) {
-            if (error.message === 'RATE_LIMIT_EXCEEDED') {
-                return res.status(429).json({ error: 'Too many requests. Please try again later.' });
-            }
-            throw error;
-        }
+        // Resolve userId: JWT for authenticated users, server-set httpOnly cookie for anon users.
+        // Never trust client-supplied userId from query/body (legacy migration only on first visit).
+        const { userId } = getOrCreateUserId(req, res);
 
         if (method === 'GET') {
-            // Fetch user data (userId already extracted from JWT)
+            // Fetch user data
             const { since, courseId } = req.query;
+            if (since !== undefined && !ISO_DATE_RE.test(String(since))) {
+                return res.status(400).json({ error: 'Invalid `since` parameter; expected ISO-8601' });
+            }
 
             // Fetch highlights
             let highlightsQuery = `SELECT * FROM highlights WHERE user_id = ?`;
@@ -563,7 +442,7 @@ export default async function handler(req, res) {
             });
 
         } else if (method === 'POST') {
-            // Push changes (userId already extracted from JWT)
+            // Push changes (userId from request body)
             const { changes } = req.body;
 
             const results = { created: 0, updated: 0, deleted: 0 };
@@ -728,15 +607,7 @@ export default async function handler(req, res) {
             });
 
         } else if (method === 'DELETE') {
-            // Hard delete all data for the authenticated user (for testing/reset)
-            const requestedUserId = Array.isArray(req.query.userId)
-                ? req.query.userId[0]
-                : req.query.userId;
-
-            if (requestedUserId && requestedUserId !== userId) {
-                return res.status(403).json({ error: 'Forbidden' });
-            }
-
+            // Hard delete the caller's own data only. userId comes from auth/cookie, never query.
             await db.batch([
                 { sql: `DELETE FROM highlights WHERE user_id = ?`, args: [userId] },
                 { sql: `DELETE FROM progress WHERE user_id = ?`, args: [userId] },
@@ -754,6 +625,6 @@ export default async function handler(req, res) {
 
     } catch (error) {
         console.error('Sync API Error:', error);
-        return res.status(500).json({ error: 'Internal server error', details: error.message });
+        return res.status(500).json({ error: 'Internal server error' });
     }
 }

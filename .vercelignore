@@ -1,0 +1,26 @@
+# Files that should NOT be deployed to Vercel.
+# These exist for local development / planning only.
+
+debug-dashboard.html
+
+# Internal planning / analysis docs
+FILE_VERSION_ANALYSIS.md
+THEORIES_HTML_REVISION_REPORT.md
+continuation-prompt.md
+CLAUDE.md
+**/CLAUDE.md
+
+# Stray screenshots
+Screenshot*.png
+Screenshot*.jpg
+Screenshot*.jpeg
+
+# Python artifacts
+**/__pycache__/
+*.pyc
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key

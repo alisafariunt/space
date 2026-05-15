@@ -3,7 +3,7 @@
     "code": "BUSI 6480",
     "title": "Experimental Design & Analysis",
     "semester": "Spring 2026",
-    "instructor": "Dr. [Instructor Name]",
+    "instructor": "Dr. Robert Pavur",
     "university": "University of North Texas"
   },
   "sessions": [
@@ -11,15 +11,42 @@
       "week": 1,
       "id": "week1",
       "title": "Introduction & ANOVA",
-      "description": "Kirk Chapters 1-3, ANOVA fundamentals, mediation analysis (Zhao et al. 2010), SAS & R basics, and homework guidance.",
+      "description": "Kirk Chapters 1-3, ANOVA basics, mediation logic, and software syntax foundation.",
       "file": "week1.html"
     },
     {
       "week": 2,
       "id": "week2",
-      "title": "Completely Randomized Design & One-Way ANOVA",
-      "description": "Kirk Chapter 3, Sums of Squares decomposition, F-test, homogeneity of variance testing, data transformations, and nonparametric alternatives.",
+      "title": "CRD & One-Way ANOVA",
+      "description": "CRD model setup, assumptions, HOV checks, transformations, and nonparametric alternatives.",
       "file": "week2.html"
+    },
+    {
+      "week": 3,
+      "id": "week3",
+      "title": "Multiple Comparisons & Contrasts",
+      "description": "Family-wise error control, Bonferroni Holm FDR, orthogonal contrasts, and pairwise logic.",
+      "file": "week3.html"
+    },
+    {
+      "week": 4,
+      "id": "week4",
+      "title": "Effect Size, Power, and Type I vs Type III",
+      "description": "Interpret effect sizes, power planning, and understand Type I and Type III sum of squares.",
+      "file": "week4.html"
+    },
+    {
+      "week": 5,
+      "id": "week5",
+      "title": "Project 1 Methods Playbook",
+      "description": "Mediation moderation serial mediation, GLM vs Gamma vs nonparametric, and threshold contrasts.",
+      "file": "week5.html"
+    },
+    {
+      "id": "exam1",
+      "title": "Exam 1 Mega Notes (Bilingual)",
+      "description": "Printable, exam-style notes based on the 2025 Exam 1: T/F traps, ANOVA as regression, effect size, Tukey, contrasts, and power.",
+      "file": "exam1.html"
     }
   ]
 }

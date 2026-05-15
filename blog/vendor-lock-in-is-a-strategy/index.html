@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vendor Lock-In Is a Strategy, Not an Accident | Ali Safari</title><meta name="description" content="Enterprise vendors don&#x27;t accidentally create lock-in. They engineer it. Understanding this changes how you evaluate software contracts."><meta name="keywords" content=IT Governance & Strategy, Platforms & Ecosystems, information systems, research"><meta property="og:title" content="Vendor Lock-In Is a Strategy, Not an Accident"><meta property="og:description" content="Enterprise vendors don&#x27;t accidentally create lock-in. They engineer it. Understanding this changes how you evaluate software contracts."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/vendor-lock-in-is-a-strategy/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IT Governance & Strategy, Platforms & Ecosystems"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/vendor-lock-in-is-a-strategy/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Vendor Lock-In Is a Strategy, Not an Accident","description":"Enterprise vendors don&#x27;t accidentally create lock-in. They engineer it. Understanding this changes how you evaluate software contracts.","url":"https://alisafari.space/blog/vendor-lock-in-is-a-strategy/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy, Platforms & Ecosystems"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Vendor Lock-In Is a Strategy, Not an Accident</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="vendor-lock-in-is-a-strategy" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IT Governance &amp; Strategy</span>
+<h1>Vendor Lock-In Is a Strategy, Not an Accident</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>Most organizations realize they are locked into a vendor when they try to leave, not when they sign the contract. That sequence is not a coincidence. It is the vendor's strategy working exactly as designed.</p>
+<p>I have been thinking about this because a pattern keeps repeating in enterprise IT conversations I follow. A company gets frustrated with Salesforce, or ServiceNow, or Oracle. Leadership decides to evaluate alternatives. The evaluation goes well until someone asks the migration question: what would it actually take to move? That is when the room goes quiet. The answer is usually "years" and "millions," and the alternative that looked attractive three months ago starts looking a lot less attractive. The switch never happens. The vendor renewal gets signed. Often with a price increase.</p>
+<p>There is nothing accidental about how that situation comes to be.</p>
+<p>The mechanism that creates lock-in is not one thing. It is a stack. At the bottom is data: your records, your history, your customer interactions, all stored in formats and schemas the vendor controls. Data can usually be exported, so data alone is not the trap. The trap is everything built on top of the data. In Salesforce, that means Apex code, custom objects, workflow rules, approval processes, and validation logic that have accumulated over years of customization. None of that logic is portable. It does not export. It lives only inside Salesforce's runtime environment, written in Salesforce's proprietary language, running on Salesforce's proprietary platform. When an organization tries to move to HubSpot or any other CRM, it faces a choice: rebuild all of that logic from scratch, or accept that the new system will not work the same way. Either option costs years of work and carries serious risk of breaking processes that the business depends on.</p>
+<p>AWS does the same thing through a different mechanism. The cloud provider offers managed services that are dramatically more convenient than running your own infrastructure: Lambda for serverless compute, DynamoDB for key-value storage, SageMaker for machine learning workflows. Using these services is rational. They save engineering time. They scale automatically. They are good products. But every Lambda function you write, every DynamoDB table you design, every SageMaker pipeline you build is written against AWS-specific APIs. None of it runs on Google Cloud Platform or Microsoft Azure without a rewrite. The more of your system you move into managed services, the more rewriting a migration would require. And because AWS keeps adding services, the set of AWS-specific dependencies only grows over time.</p>
+<p>ServiceNow is perhaps the clearest example of this dynamic. Their platform is sold to large organizations as a way to manage IT service management, HR workflows, and enterprise-wide approvals. Organizations take that pitch seriously. They spend years building processes on top of ServiceNow's proprietary workflow engine. The platform becomes the system of record for every approval, every change ticket, every onboarding task. At that point, leaving ServiceNow is not a software migration. It is a multi-year rip-and-replace project that touches every department in the organization. Consulting firms have built entire practices around SAP migrations, which have a similar profile, and they charge millions because the complexity of unwinding years of vendor-specific customization is genuinely enormous.</p>
+<p>Transaction cost economics gives this a formal name. Williamson (1975, 1985) described asset specificity as one of the central drivers of transaction costs. When you invest in assets that have high value inside a specific relationship but low value outside it, you create a dependency. Williamson's original concern was physical assets, but the logic applies directly to vendor-specific customization. Every Apex class you write for Salesforce, every ServiceNow workflow you build, is an asset with near-zero value outside the vendor relationship. The investment is real. The portability is close to zero. This is exactly what vendors want. Once your specific investments are large enough, the economic case for switching becomes almost impossible to make.</p>
+<p>Platform theory adds another dimension. Parker, Van Alstyne, and Choudary's work on platform ecosystems points out that platforms grow by expanding their ecosystem. Every additional product integrated through Salesforce's AppExchange, every new Microsoft 365 application connected to SharePoint and Azure Active Directory, every AWS service added to an architecture makes the platform more useful. And more sticky. This is not a flaw in the platform model. It is the model. The platform captures value as the ecosystem grows. Users perceive genuine benefits from integration. But the same integration that creates value also creates switching costs, because leaving the platform means leaving the entire ecosystem, not just one application.</p>
+<p>Microsoft's approach to this is particularly clear if you watch it carefully. Teams, SharePoint, Exchange, Azure Active Directory (now Entra ID), and Azure cloud services are designed to work together so deeply that removing one requires renegotiating relationships with all the others. A company that moves off Azure still has Teams and SharePoint. But its identity management is now split between Entra ID and whatever identity provider it moved to. A company that moves off Teams still has Exchange. But its collaboration workflows are now fragmented. Each piece, taken alone, might seem replaceable. Taken together, they form an integration web that is extremely hard to unwind without disrupting the whole. I wrote about why <a href="/blog/platform-governance-multi-sided-markets">platform governance structures reflect platform interests, not user interests</a>, and Microsoft's product architecture is a textbook case of this logic in practice.</p>
+<p>There is also a human capital dimension that gets underweighted in these conversations. The more people in an organization who are trained on Salesforce, certified on ServiceNow, or fluent in AWS, the more the organization has invested in vendor-specific skills that do not transfer easily. Even if a technically superior alternative exists, switching means retraining an entire IT organization and potentially losing staff who have built their careers on the incumbent platform's certifications. The switching cost is not just the migration project. It is also the productivity loss during the learning curve and the recruitment premium you pay for people already skilled in the new system.</p>
+<p>The result is a situation where "best of breed" is largely theoretical. Procurement teams evaluate software in an idealized state, comparing capabilities side by side. But capabilities are only part of the decision. The real question is what it would cost to change your mind in five years. That question is almost never asked at the point of signing, because at that point the switching costs are zero. They accumulate slowly, through customization and integration and training, until leaving becomes economically irrational. And the vendors know this. Their product roadmaps, their professional services offerings, their partner ecosystems, and their pricing structures are all shaped by the goal of making that future calculation come out in their favor.</p>
+<p>I wrote before about <a href="/blog/enterprise-software-universally-hated">why enterprise software is universally hated but rarely replaced</a>, and vendor lock-in is a big part of why the "rarely replaced" half of that sentence is true. The buyer who signs the contract has no lock-in problem. The buyer who inherits a system that has been customized for seven years has a very different calculation. The vendor built that gap on purpose.</p>
+<p>Organizations that understand this should evaluate software contracts differently. The question is not just "what does this platform do today?" It is "what does our exit look like in year five, and who owns that exit cost?" The answer to that second question is usually already embedded in the vendor's architecture decisions. You just have to look for it.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/vibe-coding-sociotechnical-systems/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Vibe Coding Is Sociotechnical Systems Theory Testing Its Limits</div></a><a href="/blog/variance-vs-process-theory-is-research/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Your Regression Can&#x27;t Explain a Divorce</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

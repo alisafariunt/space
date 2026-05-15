@@ -85,14 +85,20 @@
         }
     }
 
-    // Auto-detect and load sessions.json
+    // Auto-detect and load sessions.json. Restrict the derived path to a
+    // safe character set so a crafted URL cannot point fetch() at an unexpected
+    // origin or traverse the filesystem.
+    const SAFE_DIR_RE = /^\/(?:[a-zA-Z0-9_\-]+\/?)*$/;
+
     function autoLoadSessions() {
-        // Try to find sessions.json in the current directory
         const currentPath = window.location.pathname;
         const courseDir = currentPath.substring(0, currentPath.lastIndexOf('/'));
+        if (!SAFE_DIR_RE.test(courseDir + '/')) {
+            console.warn('[CourseLoader] Refusing to load sessions from unsafe path:', courseDir);
+            return;
+        }
         const jsonPath = `${courseDir}/sessions.json`;
-        
-        // Look for session grid container
+
         const container = document.querySelector('.session-grid');
         if (container) {
             loadCourseSessions(jsonPath, '.session-grid');

@@ -6,7 +6,11 @@
     const ACCESS_TOKEN_REFRESH_BUFFER = 5 * 60 * 1000; // Refresh 5 min before expiry
     const SESSION_TIMEOUT_MS = 30 * 60 * 1000; // 30 minutes
     const SESSION_WARNING_MS = 5 * 60 * 1000; // Warning 5 min before timeout
-    const ACCESS_TOKEN_STORAGE_KEY = 'studyGuide_accessToken';
+
+    // Clean up the legacy sessionStorage access token if present (was a security
+    // hazard — XSS-readable). The token now lives only in memory, and persistence
+    // across reloads is handled by the httpOnly refresh-token cookie.
+    try { sessionStorage.removeItem('studyGuide_accessToken'); } catch (_) {}
 
     // ==========================================
     // AuthManager Class
@@ -18,22 +22,8 @@
             this.onAuthStateChanged = null;
             this.username = localStorage.getItem('studyGuide_username') || null;
             this.initialAuthPromise = null;
-
-            const storedToken = sessionStorage.getItem(ACCESS_TOKEN_STORAGE_KEY);
-            if (storedToken) {
-                const payload = this.decodeJWT(storedToken);
-                const expiresAt = payload?.exp ? payload.exp * 1000 : 0;
-                if (expiresAt > Date.now()) {
-                    this.accessToken = storedToken;
-                    if (!this.username && payload?.userId) {
-                        this.username = payload.userId;
-                        localStorage.setItem('studyGuide_username', this.username);
-                    }
-                    this.scheduleTokenRefresh();
-                } else {
-                    sessionStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
-                }
-            }
+            // No persisted access token — tryInitialAuth() below uses the
+            // httpOnly refresh cookie to mint a fresh one on page load.
         }
 
         // Login with username and password
@@ -58,9 +48,10 @@
                     throw new Error(data.message || 'Login failed');
                 }
 
-                // Store access token in memory (NOT localStorage for security)
+                // Store access token in memory only (no Web Storage — too easy
+                // to exfiltrate via XSS). Persistence across reloads comes from
+                // the httpOnly refresh cookie.
                 this.accessToken = data.accessToken;
-                sessionStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, this.accessToken);
                 this.username = data.user.username;
 
                 // Store username in localStorage for convenience (non-sensitive)
@@ -101,7 +92,6 @@
 
                 const data = await response.json();
                 this.accessToken = data.accessToken;
-                sessionStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, this.accessToken);
 
                 // Restore user info from refresh response
                 if (data.user) {
@@ -189,7 +179,6 @@
             // Clear local state
             this.accessToken = null;
             this.username = null;
-            sessionStorage.removeItem(ACCESS_TOKEN_STORAGE_KEY);
             if (this.refreshTimer) {
                 clearTimeout(this.refreshTimer);
                 this.refreshTimer = null;

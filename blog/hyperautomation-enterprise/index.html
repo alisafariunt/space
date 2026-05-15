@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyperautomation: The Gap Between the Gartner Term and the Factory Floor | Ali Safari</title><meta name="description" content="Gartner coined hyperautomation to describe end-to-end automation of any automatable process. Most organizations are still struggling to automate one process well."><meta name="keywords" content=IS Research Methods, IT Governance & Strategy, information systems, research"><meta property="og:title" content="Hyperautomation: The Gap Between the Gartner Term and the Factory Floor"><meta property="og:description" content="Gartner coined hyperautomation to describe end-to-end automation of any automatable process. Most organizations are still struggling to automate one process well."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/hyperautomation-enterprise/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IS Research Methods, IT Governance & Strategy"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/hyperautomation-enterprise/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Hyperautomation: The Gap Between the Gartner Term and the Factory Floor","description":"Gartner coined hyperautomation to describe end-to-end automation of any automatable process. Most organizations are still struggling to automate one process well.","url":"https://alisafari.space/blog/hyperautomation-enterprise/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IS Research Methods","keywords":"IS Research Methods, IT Governance & Strategy"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Hyperautomation: The Gap Between the Gartner Term and the Factory Floor</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="hyperautomation-enterprise" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IS Research Methods</span>
+<h1>Hyperautomation: The Gap Between the Gartner Term and the Factory Floor</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 7 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IT Governance &amp; Strategy</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>Gartner introduced the term "hyperautomation" to describe a disciplined approach to identifying, vetting, and automating as many business and IT processes as possible, combining robotic process automation, artificial intelligence, machine learning, process mining, and intelligent document processing into something larger than any one tool. According to Gartner's research (see the <a href="https://www.gartner.com/en/newsroom">Gartner newsroom</a> for current reporting), hyperautomation has appeared repeatedly on its lists of top strategic technology trends. I hedge any specific numbers from Gartner because I am working from public reporting rather than a verified report in front of me. What I can say is that the concept resonated in enterprise technology circles fast, because it gave a name to an aspiration that many CIOs had already been feeling toward: automate everything automatable and free humans for higher-value work.</p>
+<p>The aspiration is coherent. The word "hyper" is doing a lot of work, though.</p>
+<p>The problem is that the "any automatable process" promise assumes organizations have already solved "a specific automatable process," which most have not. My post on <a href="/blog/rpa-adoption-what-works">RPA adoption</a> gets into this in more depth, but the short version is this: RPA bots are brittle, they break when the systems they navigate change, and the governance of bot estates grows complicated fast. Hyperautomation takes those challenges and scales them. Instead of automating one process, you are committing to an organizational capability for automating at volume, continuously discovering new candidates, and maintaining the automation estate as the underlying systems evolve. The engineering and governance requirements are substantially larger than a single bot deployment, even if the individual automation units are similar.</p>
+<p>Process mining is the piece of the hyperautomation stack that I find genuinely interesting. Tools from vendors like Celonis and the process mining capabilities now built into UiPath use event log data from enterprise systems to reconstruct the actual paths that business processes take. Not the process as documented in a manual, which is usually an idealized version, but the process as it actually executes, with all the deviations, exceptions, workarounds, and rework loops that the documentation never acknowledges. This is useful precisely because organizations are often wrong about what their processes actually look like. They think a purchase order approval takes three steps and two days. The process mining output shows forty-two variants of the process, some of which take three weeks and involve six systems. You cannot automate what you do not understand, and process mining gives you a factual baseline for what you are actually dealing with.</p>
+<p>But even with process mining providing the discovery capability, the question of what to automate and in what order is still a judgment call. The criteria are not obvious. High volume and high frequency push a process toward automation candidacy. But so does stability, because unstable processes produce brittle automations. So does process quality, because automating a broken process just produces faster brokenness. So does data quality, because AI-based automation that depends on clean structured data breaks down when the actual data is messy and inconsistently formatted. A process can be high-volume, high-frequency, and still a terrible automation candidate because it is poorly designed, depends on judgment calls that cannot be encoded into rules, or runs on systems that change quarterly.</p>
+<p>The governance question is where hyperautomation programs most consistently struggle at the organizational level. Who owns hyperautomation? IT owns the technical infrastructure for running bots and AI models. Operations owns the processes being automated. Finance owns the business case and the benefits realization. Compliance and legal own the risk exposure when an automated process produces a wrong outcome at scale. In a traditional IT project, these ownership questions are settled at the start. With hyperautomation as an ongoing organizational capability, they have to be settled continuously, because new processes are being automated on an ongoing basis and each one involves a different combination of business unit, IT infrastructure, and risk profile. Organizations that have not resolved the governance model before starting to automate at scale tend to find themselves with an automation portfolio that nobody can fully account for.</p>
+<p>The sustainability issue is concrete. An RPA bot is a piece of software that navigates a user interface. If the UI changes, the bot fails. Enterprise software updates, vendor-managed applications, and browser version changes all have the potential to break bots silently, meaning the bot continues to run but produces incorrect outputs until someone notices the downstream problem. At one or two bots, this is manageable. At several hundred bots running across a large enterprise, each one a potential failure point every time a system changes, the monitoring and maintenance burden becomes material. Organizations that have not built robust bot monitoring, meaning real-time detection of bot failures rather than discovery through downstream complaints, find that their automation estate is not an asset but a liability, a collection of fragile dependencies that require constant attention.</p>
+<p>Intelligent document processing, another piece of the hyperautomation stack, has real limitations that the vendor pitch does not always surface. Extracting structured data from unstructured documents like invoices, contracts, or insurance claims using machine learning models works well in two conditions: when the documents are relatively standardized and when you have enough labeled training data. Real enterprise document environments are neither. Vendors have different invoice formats. Contracts come from multiple counterparties with different templates. The edge cases, handwritten fields, unusual layouts, missing data in expected fields, can represent a significant fraction of total volume while accounting for a disproportionate share of processing errors. The automation handles the standard cases and pushes the exceptions to humans. If the exception rate is high, you have not reduced human work in the document process as much as the headline accuracy figure suggests.</p>
+<p>None of this means hyperautomation is the wrong direction. The underlying logic, identify processes that are automatable, automate them systematically, and build the organizational capability to do this continuously rather than in one-off projects, is sound. The mistake is treating hyperautomation as a technology program rather than an organizational capability program. The technology stack is relatively well developed. The organizational change, the governance design, the maintenance model, the process quality work that has to precede automation, and the workforce transition that follows it, those are the harder problems, and they are the ones that most hyperautomation programs underinvest in relative to the tool procurement.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/identity-theory-information-systems/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">You Are Not Your Job Title</div></a><a href="/blog/health-it-interoperability-fax-problem/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Health IT Interoperability: Why Your Doctor Still Sends Faxes</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/action-research-is-method/" class="blog-related-card"><h4>Action Research in IS: When the Researcher Is Also the Intervener</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

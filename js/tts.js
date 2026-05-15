@@ -456,7 +456,7 @@
         btn.title = 'Natural Voice Reader';
         btn.addEventListener('click', toggleTTSPanel);
 
-        const nav = document.querySelector('.navbar-content') || document.querySelector('nav');
+        const nav = document.querySelector('.nav-actions') || document.querySelector('.navbar-content') || document.querySelector('nav');
         if (nav) {
             btn.style.cssText = `
                 background: rgba(255,255,255,0.1);
@@ -465,8 +465,7 @@
                 padding: 8px 12px;
                 font-size: 0.9rem;
                 cursor: pointer;
-                margin-left: 10px;
-                color: white;
+                color: inherit;
             `;
             nav.appendChild(btn);
         }

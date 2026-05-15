@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confidential Computing Changes the Privacy Calculus | Ali Safari</title><meta name="description" content="Hardware-level encryption during processing changes the risk side of the privacy calculus. IS privacy models were built for a world that no longer exists."><meta name="keywords" content=AI & Agentic Systems, Comps & Reflections, Platforms & Ecosystems, Trust & Security, information systems, research"><meta property="og:title" content="Confidential Computing Changes the Privacy Calculus"><meta property="og:description" content="Hardware-level encryption during processing changes the risk side of the privacy calculus. IS privacy models were built for a world that no longer exists."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/confidential-computing-privacy-calculus/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=AI & Agentic Systems, Comps & Reflections, Platforms & Ecosystems, Trust & Security"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/confidential-computing-privacy-calculus/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Confidential Computing Changes the Privacy Calculus","description":"Hardware-level encryption during processing changes the risk side of the privacy calculus. IS privacy models were built for a world that no longer exists.","url":"https://alisafari.space/blog/confidential-computing-privacy-calculus/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"AI & Agentic Systems","keywords":"AI & Agentic Systems, Comps & Reflections, Platforms & Ecosystems, Trust & Security"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Confidential Computing Changes the Privacy Calculus</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="confidential-computing-privacy-calculus" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">AI &amp; Agentic Systems</span>
+<h1>Confidential Computing Changes the Privacy Calculus</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span><span class="tag">Trust &amp; Security</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>The privacy calculus model in IS research has been doing the same thing for almost twenty years. Dinev and Hart (2006) made the mechanism explicit. People weigh perceived benefits against perceived risks when they decide whether to disclose personal information. When the benefit side wins, they share. When the risk side wins, they withhold. The model has generated hundreds of studies and it explains a lot about why people accept cookies, join loyalty programs, or upload health data to fitness apps. But I kept noticing something missing. Both sides of the equation are about what happens before and after processing. The benefit is the service. The risk is what might happen to the stored data later. The actual moment of processing, when a cloud provider's CPU touches your data, is an empty space in the model. That empty space is what confidential computing fills.</p>
+<p>Confidential computing uses hardware-based Trusted Execution Environments, or TEEs, to encrypt data while it is being processed, not just while it is stored or in transit. The cloud provider's operating system cannot see the data. The hypervisor cannot see it. Even the system administrator with full root access cannot see it. Only the authorized application code inside the TEE can decrypt and process the data, and the TEE provides cryptographic attestation that the code is exactly what it claims to be. Gartner projects that by 2029, three-quarters of processing in untrusted infrastructure will be secured this way. Whether the exact number holds matters less than what it signals. Data in use is finally being treated as a protection domain, not just a vulnerability window.</p>
+<p>The reason this changes the privacy calculus is straightforward. Perceived risk in the Dinev and Hart model includes the possibility that data will be mishandled by the party collecting or processing it. When a hospital sends patient records to a cloud platform for analysis, the risk side of the tradeoff includes the possibility that the provider might access, leak, or misuse the data during computation. That risk perception has been one of the main reasons regulated industries stalled on cloud adoption. Healthcare and financial services knew they could not trust the cloud with data in use because the data had to be decrypted in memory, where the provider could access it. Confidential computing removes that specific risk. The provider cannot access the data even during processing. The perceived risk side of the calculus shrinks, the benefit side stays the same, and the decision tips.</p>
+<p>Malhotra et al. (2004) structured privacy concern around three IUIPC dimensions: collection, control, and awareness. Each one shifts when TEEs are in place. Collection risk changes because the data is never visible to the collector in decrypted form; the provider collects encrypted inputs and returns encrypted outputs without ever having a plaintext copy. Control changes because the data owner can specify exactly which code may process the data, and the TEE enforces that boundary at the hardware level, not through a contractual promise. Awareness changes because attestation provides cryptographic proof of the processing conditions, replacing vague privacy policies with verifiable evidence. The dimension that shifts most, I think, is control. IUIPC measures perceived control as a subjective feeling. Confidential computing turns control from a perception into a technical fact. The data owner no longer has to hope the cloud provider will behave. They can verify that the provider cannot behave otherwise, at least for the data inside the TEE. That is a different kind of control from what IUIPC was designed to measure, and it suggests the privacy calculus model needs to account for a new category of risk mitigation that operates at the infrastructure level rather than the decision level.</p>
+<p>Leidner and Tona (2021) add a deeper layer through CARE theory. I wrote about this before in <a href="/blog/care-is-not-about-privacy">CARE Is Not About Privacy</a>, so I will keep the connection brief. CARE frames personal data practices through dignity rather than only through information control. When a cloud provider processes your data in opaque infrastructure that you cannot see or audit, that opacity is an affront. It reduces your agency and recognition because you cannot know what is happening to your data or challenge it. Confidential computing reduces this affront by making the processing attestable. The data owner can ask whether their data ran through the authorized code, and the TEE can answer with a cryptographic signature. In CARE terms, TEEs reduce a specific class of affronts that come from opaque processing by third parties, and that reduction shifts the dignity calculus toward equilibrium. The technology does not fully restore dignity because attestation does not solve every problem a cloud provider might create. But it changes the relationship from blind trust to verifiable processing, and that is a real change.</p>
+<p>I also wrote about the privacy calculus itself in <a href="/blog/privacy-paradox-is-rational">The Privacy Paradox Is Rational If You Stop Calling It Irrational</a>. The confidential computing angle extends that argument. The original privacy paradox framing assumed people were irrational because they disclosed data despite expressing concern. The correction is that the calculus is rational when perceived benefits are properly modeled. Confidential computing makes the risk side more transparent, which means the calculus becomes more accurate. The person can now perceive that their data is protected during processing, and that perception correctly reflects the technical reality. That is a better information environment for a rational decision, not a more confused one.</p>
+<p>My own view is that confidential computing is the first privacy technology that addresses the data in use gap that IS privacy research has been flagging for years. The APCO model from Smith et al. (2011) maps antecedents to privacy concerns to outcomes, but it treats processing as a black box. The privacy calculus treats processing risk as an aggregate perception. IUIPC measures concern about collection and control without specifying the technical mechanism that makes either one meaningful. All of these models were built in a world where encryption existed only at rest and in transit. Data in use was, by hardware design, unencrypted. That assumption was so fundamental that it never appeared as a boundary condition in the models. The models just assumed that processing meant exposure, because that was the technological reality of the time.</p>
+<p>TEEs break that assumption. And I think IS theory needs to catch up. The privacy calculus still works, but it needs an additional variable. The perceived risk side now has a subcomponent that varies independently: processing exposure risk. When a user knows that data is processed inside a TEE, that subcomponent drops to near zero. The overall perceived risk drops proportionally. Collection risk and storage risk remain, because data still enters and leaves the TEE, but the processing window is no longer a vulnerability by default.</p>
+<p>The same logic applies to CARE. Leidner and Tona name three forms of dignity: behavioral, meritocratic, and inherent. The affront of opaque processing targets all three. Your behavioral dignity is reduced because you acted to provide data but cannot verify what happened to it. Your meritocratic dignity is reduced because you earned access to a service and the system can still process your data without accountability. Your inherent dignity is reduced because you are treated as a data source rather than as a person with a right to know how your data is used. Confidential computing addresses all three by making processing verifiable. It cannot restore agency around every data practice, but it removes the specific affront of invisible processing, and that removal is a dignity improvement that CARE theory can recognize.</p>
+<p>I am not sure the IS field has fully processed what TEEs mean for privacy research. Most privacy papers still treat data in use as a theoretical blind spot, which made sense when there was no technical solution. That blind spot is closing. The models that assumed processing equals exposure need to be updated with a parameter for whether the processing environment provides hardware-enforced confidentiality. The privacy calculus can absorb this change. IUIPC can absorb it. CARE can absorb it. But the models need to be asked to do that work, and I have not seen it happen yet in the published literature.</p>
+<p>The privacy calculus has been a stable model for nearly two decades because it captures a real mechanism. People weigh benefits against risks. Confidential computing changes one of the risk components so fundamentally that the equilibrium of the model shifts. The theoretical apparatus is still correct. But the world it describes has changed, and the models need to be re-calibrated to the new technical reality.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/contingency-theory-no-best-it-strategy/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">There Is No Best IT Strategy</div></a><a href="/blog/comps-third-read-sarker-sociotechnical/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">56% of IS Papers Do Not Theorize Technology</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/agile-at-enterprise-scale/" class="blog-related-card"><h4>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

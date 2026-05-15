@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinical Decision Support: When the Algorithm Disagrees With the Doctor | Ali Safari</title><meta name="description" content="CDSS tools fire alerts, suggest diagnoses, flag drug interactions. But when the algorithm is wrong and the doctor follows it anyway, who is responsible for the outcome?"><meta name="keywords" content=AI & Agentic Systems, Comps & Reflections, Platforms & Ecosystems, information systems, research"><meta property="og:title" content="Clinical Decision Support: When the Algorithm Disagrees With the Doctor"><meta property="og:description" content="CDSS tools fire alerts, suggest diagnoses, flag drug interactions. But when the algorithm is wrong and the doctor follows it anyway, who is responsible for the outcome?"><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/clinical-decision-support-algorithm-doctor/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=AI & Agentic Systems, Comps & Reflections, Platforms & Ecosystems"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/clinical-decision-support-algorithm-doctor/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Clinical Decision Support: When the Algorithm Disagrees With the Doctor","description":"CDSS tools fire alerts, suggest diagnoses, flag drug interactions. But when the algorithm is wrong and the doctor follows it anyway, who is responsible for the outcome?","url":"https://alisafari.space/blog/clinical-decision-support-algorithm-doctor/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"AI & Agentic Systems","keywords":"AI & Agentic Systems, Comps & Reflections, Platforms & Ecosystems"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Clinical Decision Support: When the Algorithm Disagrees With the Doctor</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="clinical-decision-support-algorithm-doctor" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">AI &amp; Agentic Systems</span>
+<h1>Clinical Decision Support: When the Algorithm Disagrees With the Doctor</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>The alert fires and the physician clicks through it. This is a daily occurrence in most hospitals. Electronic health record systems generate alerts for drug interactions, duplicate orders, abnormal lab values, and potential contraindications. Some of those alerts matter. Many of them, in most health systems, are so frequent and of such variable clinical importance that physicians have learned to dismiss them almost reflexively. Clinical informaticists have a name for this: alert fatigue. The phenomenon is well-documented in the health IT literature, though I want to be careful about citing specific numbers because the rates vary considerably across institutions, EHR systems, and clinical settings.</p>
+<p>The thing that bothers me about alert fatigue is not the operational problem, though it is real. It is the accountability question hiding underneath it.</p>
+<p>Clinical decision support systems, usually abbreviated as CDSS, are a broad category of health IT tools that provide clinicians with patient-specific information or recommendations at the point of care. The simplest versions are the drug interaction alerts that have been in EHR systems for decades. The more sophisticated versions include diagnostic support tools, sepsis prediction algorithms, early warning systems for patient deterioration, and increasingly, AI-driven tools that analyze imaging or pathology data and suggest diagnoses. The category spans an enormous range of technical complexity, clinical stakes, and regulatory treatment.</p>
+<p>The basic CDSS functionality, drug interaction checking, allergy alerts, duplicate order detection, is mature. It is integrated into essentially every major EHR platform, and few people argue seriously that hospitals were better off without it. The problem is that maturity created its own failure mode. When an alert fires for every low-severity interaction alongside the high-severity ones, and when there are dozens of alerts per shift, the clinician's ability to sort signal from noise degrades. The alert that eventually gets dismissed as routine might be the one that mattered. Alert fatigue is not a sign that CDSS is bad. It is a sign that CDSS implementation was not designed with the cognitive load of the clinician in mind, which is a recognizable IS design failure.</p>
+<p>The regulatory boundary is where things get more interesting. The FDA has authority over some clinical decision support tools as medical devices, depending on the intended use and the degree to which a clinician can independently review the basis for the recommendation. The 21st Century Cures Act, signed into law in 2016, included provisions that tried to define the line between regulated and non-regulated clinical decision support. The general logic is that if a tool provides a recommendation and a clinician can independently verify the basis for it, the tool is lower regulatory risk than one that provides a recommendation without surfacing the underlying reasoning. A drug interaction alert that shows the patient's medication list and the specific pharmacological mechanism is different, regulatorily, from a black-box algorithm that says "this patient is at high risk" without explaining why. The specifics of that regulatory line have been contested and clarified through FDA guidance documents in the years since the Act. I am hedging here deliberately because the regulatory landscape around AI-based CDSS is genuinely evolving and I do not want to state as settled what is still moving.</p>
+<p>What strikes me as under-discussed in the health IT space is the accountability question when the recommendation is wrong and followed. There are several parties involved when a CDSS is deployed in a clinical setting. The vendor who built the tool. The hospital that licensed it, configured it, and decided how to present its outputs. The EHR system it is integrated into. The institution's clinical informatics team that made implementation decisions. And the physician who saw the alert and made a clinical decision. When an adverse event occurs and an investigation finds that the CDSS generated a flawed recommendation that the physician followed, who bears legal and ethical responsibility for the outcome?</p>
+<p>The honest answer is that this is contested territory and differs significantly by jurisdiction. In most US malpractice frameworks, the physician's clinical judgment remains the standard of care, meaning a physician is generally expected to exercise independent clinical judgment rather than simply follow algorithmic outputs. But this creates a paradox. If physicians are expected to override flawed algorithms and their malpractice liability follows their independent judgment, then the algorithm serves mostly as a safety net below that judgment. But if alert fatigue has made the alerts effectively invisible, the safety net is not actually functioning. The hospital that deployed the system may have created an accountability structure where the physician is expected to catch the algorithm's errors in an environment that the hospital itself designed to make error-catching harder.</p>
+<p>Gartner has tracked AI augmentation in clinical workflows as an emerging and growing area of health IT investment, though I want to be careful not to attribute specific adoption figures from sources I have not directly verified. The directional claim, that health systems are investing in more sophisticated CDSS and that AI-driven tools are being integrated into more clinical decision points, is consistent with what I see in industry reporting. The accountability infrastructure has not kept pace with the technology deployment, and that gap is not unique to healthcare. It shows up anywhere that consequential algorithmic decisions are made by systems embedded in professional workflows without clear governance for who is responsible when the system fails.</p>
+<p>The version of this problem that I think about most is the case where the CDSS is right and the physician overrides it. Overtrust is the more discussed failure mode: physician follows a wrong recommendation. But undertrust has its own costs. A physician who has learned through experience that a particular alert type is usually not clinically significant will develop a heuristic to dismiss it, and that heuristic can fail when the alert is eventually correct. The system gave the right signal. The human missed it because the signal-to-noise ratio had conditioned them to ignore that channel. Neither the physician nor the system failed by any obvious individual standard. The failure is in the sociotechnical design of the whole.</p>
+<p>The design principle that seems right to me is that clinical decision support should surface not just the recommendation but the basis for it, with enough transparency that a clinician can make a genuine independent judgment rather than a reflexive accept or dismiss. This is exactly what the 21st Century Cures Act tried to encode in law. Whether deployed systems actually achieve it is a different empirical question, and the answer probably varies considerably across institutions and system types.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/cloud-migration-hidden-costs/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">The Cloud Migration Nobody Talks About Honestly</div></a><a href="/blog/cio-role-evolution/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">The CIO Role Has Changed But Job Descriptions Have Not</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/agile-at-enterprise-scale/" class="blog-related-card"><h4>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

@@ -581,30 +581,61 @@
 
         const modal = document.createElement('div');
         modal.className = 'note-modal-overlay';
-        modal.innerHTML = `
-            <div class="note-modal">
-                <div class="note-modal-header">
-                    <h3>📝 ${existingNote ? 'Edit' : 'Add'} Note</h3>
-                    <button class="note-modal-close">×</button>
-                </div>
-                <div class="note-modal-body">
-                    <div class="note-selected-text">
-                        <strong>Highlighted text:</strong>
-                        <p>"${highlight.text}"</p>
-                    </div>
-                    <textarea
-                        id="note-content"
-                        placeholder="Type your note here..."
-                        rows="8"
-                    >${existingNote ? existingNote.noteContent : ''}</textarea>
-                </div>
-                <div class="note-modal-footer">
-                    ${existingNote ? '<button class="note-delete-btn">🗑️ Delete Note</button>' : ''}
-                    <button class="note-cancel-btn">Cancel</button>
-                    <button class="note-save-btn">💾 Save</button>
-                </div>
-            </div>
-        `;
+
+        // Build modal with DOM APIs — user-controlled fields (highlight.text,
+        // existingNote.noteContent) inserted as text, never HTML.
+        const wrap = document.createElement('div');
+        wrap.className = 'note-modal';
+
+        const header = document.createElement('div');
+        header.className = 'note-modal-header';
+        const h3 = document.createElement('h3');
+        h3.textContent = `📝 ${existingNote ? 'Edit' : 'Add'} Note`;
+        const closeX = document.createElement('button');
+        closeX.className = 'note-modal-close';
+        closeX.textContent = '×';
+        header.appendChild(h3);
+        header.appendChild(closeX);
+
+        const body = document.createElement('div');
+        body.className = 'note-modal-body';
+        const selWrap = document.createElement('div');
+        selWrap.className = 'note-selected-text';
+        const strong = document.createElement('strong');
+        strong.textContent = 'Highlighted text:';
+        const p = document.createElement('p');
+        p.textContent = `"${String(highlight.text || '')}"`;
+        selWrap.appendChild(strong);
+        selWrap.appendChild(p);
+        const ta = document.createElement('textarea');
+        ta.id = 'note-content';
+        ta.placeholder = 'Type your note here...';
+        ta.rows = 8;
+        ta.value = existingNote ? String(existingNote.noteContent || '') : '';
+        body.appendChild(selWrap);
+        body.appendChild(ta);
+
+        const footer = document.createElement('div');
+        footer.className = 'note-modal-footer';
+        if (existingNote) {
+            const delBtn = document.createElement('button');
+            delBtn.className = 'note-delete-btn';
+            delBtn.textContent = '🗑️ Delete Note';
+            footer.appendChild(delBtn);
+        }
+        const cancelBtn0 = document.createElement('button');
+        cancelBtn0.className = 'note-cancel-btn';
+        cancelBtn0.textContent = 'Cancel';
+        const saveBtn0 = document.createElement('button');
+        saveBtn0.className = 'note-save-btn';
+        saveBtn0.textContent = '💾 Save';
+        footer.appendChild(cancelBtn0);
+        footer.appendChild(saveBtn0);
+
+        wrap.appendChild(header);
+        wrap.appendChild(body);
+        wrap.appendChild(footer);
+        modal.appendChild(wrap);
 
         document.body.appendChild(modal);
 
@@ -716,27 +747,56 @@
 
         const modal = document.createElement('div');
         modal.className = 'note-modal-overlay';
-        modal.innerHTML = `
-            <div class="note-modal">
-                <div class="note-modal-header">
-                    <h3>📝 Note</h3>
-                    <button class="note-modal-close">×</button>
-                </div>
-                <div class="note-modal-body">
-                    <div class="note-selected-text">
-                        <strong>Highlighted text:</strong>
-                        <p>"${note.selectedText}"</p>
-                    </div>
-                    <div class="note-content-display">
-                        ${note.noteContent.replace(/\n/g, '<br>')}
-                    </div>
-                </div>
-                <div class="note-modal-footer">
-                    <button class="note-edit-btn">✏️ Edit</button>
-                    <button class="note-close-btn">Close</button>
-                </div>
-            </div>
-        `;
+
+        const wrap = document.createElement('div');
+        wrap.className = 'note-modal';
+
+        const header = document.createElement('div');
+        header.className = 'note-modal-header';
+        const h3 = document.createElement('h3');
+        h3.textContent = '📝 Note';
+        const closeX = document.createElement('button');
+        closeX.className = 'note-modal-close';
+        closeX.textContent = '×';
+        header.appendChild(h3);
+        header.appendChild(closeX);
+
+        const body = document.createElement('div');
+        body.className = 'note-modal-body';
+        const selWrap = document.createElement('div');
+        selWrap.className = 'note-selected-text';
+        const strong = document.createElement('strong');
+        strong.textContent = 'Highlighted text:';
+        const p = document.createElement('p');
+        p.textContent = `"${String(note.selectedText || '')}"`;
+        selWrap.appendChild(strong);
+        selWrap.appendChild(p);
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'note-content-display';
+        // Render newlines as <br> safely: split text, append text nodes and <br> elements.
+        const lines = String(note.noteContent || '').split('\n');
+        lines.forEach((line, i) => {
+            contentDiv.appendChild(document.createTextNode(line));
+            if (i < lines.length - 1) contentDiv.appendChild(document.createElement('br'));
+        });
+        body.appendChild(selWrap);
+        body.appendChild(contentDiv);
+
+        const footer = document.createElement('div');
+        footer.className = 'note-modal-footer';
+        const editBtn0 = document.createElement('button');
+        editBtn0.className = 'note-edit-btn';
+        editBtn0.textContent = '✏️ Edit';
+        const closeBtn0 = document.createElement('button');
+        closeBtn0.className = 'note-close-btn';
+        closeBtn0.textContent = 'Close';
+        footer.appendChild(editBtn0);
+        footer.appendChild(closeBtn0);
+
+        wrap.appendChild(header);
+        wrap.appendChild(body);
+        wrap.appendChild(footer);
+        modal.appendChild(wrap);
 
         document.body.appendChild(modal);
 
@@ -814,33 +874,64 @@
 
         const modal = document.createElement('div');
         modal.className = 'review-modal-overlay';
-        modal.innerHTML = `
-            <div class="review-modal">
-                <div class="review-modal-header">
-                    <h3>🧠 Quick Review</h3>
-                    <button class="review-modal-close">×</button>
-                </div>
-                <div class="review-modal-body">
-                    ${items.map(item => {
-                        const color = COLORS[item.color]?.bg || '#e5e7eb';
-                        const highlightText = (item.text || '').trim();
-                        const noteText = item.note?.noteContent || '';
-                        return `
-                            <div class="review-item" data-id="${item.id}">
-                                <div class="review-item-header">
-                                    <span class="review-dot" style="background: ${color}"></span>
-                                    <span class="review-text">${highlightText.length > 180 ? `${highlightText.slice(0, 180)}...` : highlightText}</span>
-                                </div>
-                                ${noteText ? `<div class="review-note">${noteText.length > 200 ? `${noteText.slice(0, 200)}...` : noteText}</div>` : ''}
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
-                <div class="review-modal-footer">
-                    <button class="review-modal-close-btn">Close</button>
-                </div>
-            </div>
-        `;
+
+        const wrap = document.createElement('div');
+        wrap.className = 'review-modal';
+
+        const header = document.createElement('div');
+        header.className = 'review-modal-header';
+        const h3 = document.createElement('h3');
+        h3.textContent = '🧠 Quick Review';
+        const closeX = document.createElement('button');
+        closeX.className = 'review-modal-close';
+        closeX.textContent = '×';
+        header.appendChild(h3);
+        header.appendChild(closeX);
+
+        const bodyEl = document.createElement('div');
+        bodyEl.className = 'review-modal-body';
+        items.forEach(item => {
+            const color = (COLORS[item.color] && COLORS[item.color].bg) || '#e5e7eb';
+            const highlightText = (item.text || '').trim();
+            const noteText = (item.note && item.note.noteContent) || '';
+            const trunc = (s, n) => s.length > n ? s.slice(0, n) + '…' : s;
+
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'review-item';
+            itemDiv.dataset.id = String(item.id || '');
+
+            const itemHeader = document.createElement('div');
+            itemHeader.className = 'review-item-header';
+            const dot = document.createElement('span');
+            dot.className = 'review-dot';
+            dot.style.background = color;
+            const textSpan = document.createElement('span');
+            textSpan.className = 'review-text';
+            textSpan.textContent = trunc(highlightText, 180);
+            itemHeader.appendChild(dot);
+            itemHeader.appendChild(textSpan);
+            itemDiv.appendChild(itemHeader);
+
+            if (noteText) {
+                const noteDiv = document.createElement('div');
+                noteDiv.className = 'review-note';
+                noteDiv.textContent = trunc(noteText, 200);
+                itemDiv.appendChild(noteDiv);
+            }
+            bodyEl.appendChild(itemDiv);
+        });
+
+        const footer = document.createElement('div');
+        footer.className = 'review-modal-footer';
+        const closeBtn0 = document.createElement('button');
+        closeBtn0.className = 'review-modal-close-btn';
+        closeBtn0.textContent = 'Close';
+        footer.appendChild(closeBtn0);
+
+        wrap.appendChild(header);
+        wrap.appendChild(bodyEl);
+        wrap.appendChild(footer);
+        modal.appendChild(wrap);
 
         document.body.appendChild(modal);
 
@@ -1095,42 +1186,87 @@
         }
 
         if (items.length === 0) {
-            list.innerHTML = '<p class="empty-message">No items on this page.</p>';
+            list.replaceChildren();
+            const empty = document.createElement('p');
+            empty.className = 'empty-message';
+            empty.textContent = 'No items on this page.';
+            list.appendChild(empty);
             return;
         }
 
-        list.innerHTML = items.map(item => {
+        // Build the list with DOM APIs so user-controlled fields (title,
+        // selectedText, noteContent, text, id) are inserted as text, never HTML.
+        const truncate = (s, n) => (s && s.length > n) ? s.substring(0, n) + '…' : (s || '');
+        const colorEmoji = { yellow: '🟡', green: '🟢', red: '🔴', blue: '🔵' };
+
+        const buildDeleteBtn = (id, type) => {
+            const btn = document.createElement('button');
+            btn.className = 'item-delete';
+            btn.dataset.id = String(id);
+            btn.dataset.type = type;
+            btn.textContent = '×';
+            return btn;
+        };
+
+        const frag = document.createDocumentFragment();
+        items.forEach(item => {
+            const id = String(item.id || '');
+            const wrap = document.createElement('div');
+            wrap.className = 'highlight-item';
+            wrap.dataset.id = id;
+
             if (item.type === 'bookmark') {
-                return `
-                    <div class="highlight-item bookmark-item" data-id="${item.id}">
-                        <span class="item-icon">📌</span>
-                        <span class="item-text">${item.title}</span>
-                        <button class="item-delete" data-id="${item.id}" data-type="bookmark">×</button>
-                    </div>
-                `;
+                wrap.classList.add('bookmark-item');
+                const icon = document.createElement('span');
+                icon.className = 'item-icon';
+                icon.textContent = '📌';
+                const text = document.createElement('span');
+                text.className = 'item-text';
+                text.textContent = String(item.title || '');
+                wrap.appendChild(icon);
+                wrap.appendChild(text);
+                wrap.appendChild(buildDeleteBtn(id, 'bookmark'));
             } else if (item.type === 'note') {
-                return `
-                    <div class="highlight-item note-item" data-id="${item.id}" data-note-id="${item.id}">
-                        <span class="item-icon">📝</span>
-                        <div class="item-content">
-                            <div class="item-text"><em>"${item.selectedText.substring(0, 50)}${item.selectedText.length > 50 ? '...' : ''}"</em></div>
-                            <div class="note-preview">${item.noteContent.substring(0, 100)}${item.noteContent.length > 100 ? '...' : ''}</div>
-                        </div>
-                        <button class="item-delete" data-id="${item.id}" data-type="note">×</button>
-                    </div>
-                `;
+                wrap.classList.add('note-item');
+                wrap.dataset.noteId = id;
+                const icon = document.createElement('span');
+                icon.className = 'item-icon';
+                icon.textContent = '📝';
+                const content = document.createElement('div');
+                content.className = 'item-content';
+                const textRow = document.createElement('div');
+                textRow.className = 'item-text';
+                const em = document.createElement('em');
+                em.textContent = `"${truncate(String(item.selectedText || ''), 50)}"`;
+                textRow.appendChild(em);
+                const preview = document.createElement('div');
+                preview.className = 'note-preview';
+                preview.textContent = truncate(String(item.noteContent || ''), 100);
+                content.appendChild(textRow);
+                content.appendChild(preview);
+                wrap.appendChild(icon);
+                wrap.appendChild(content);
+                wrap.appendChild(buildDeleteBtn(id, 'note'));
             } else {
                 const rawText = typeof item.text === 'string' ? item.text.trim() : '';
-                const displayText = rawText.length > 160 ? `${rawText.substring(0, 160)}...` : rawText;
-                return `
-                    <div class="highlight-item" data-id="${item.id}">
-                        <span class="item-icon" style="background: ${COLORS[item.color].bg}">${item.color === 'yellow' ? '🟡' : item.color === 'green' ? '🟢' : item.color === 'red' ? '🔴' : '🔵'}</span>
-                        <span class="item-text">${displayText}${item.hasNote ? ' 📝' : ''}</span>
-                        <button class="item-delete" data-id="${item.id}" data-type="highlight">×</button>
-                    </div>
-                `;
+                const displayText = truncate(rawText, 160);
+                const icon = document.createElement('span');
+                icon.className = 'item-icon';
+                // COLORS lookup is validated against an internal enum; only
+                // assign the resolved bg, never raw user input.
+                const color = COLORS[item.color] ? item.color : 'yellow';
+                icon.style.background = COLORS[color].bg;
+                icon.textContent = colorEmoji[color] || '🟡';
+                const text = document.createElement('span');
+                text.className = 'item-text';
+                text.textContent = displayText + (item.hasNote ? ' 📝' : '');
+                wrap.appendChild(icon);
+                wrap.appendChild(text);
+                wrap.appendChild(buildDeleteBtn(id, 'highlight'));
             }
-        }).join('');
+            frag.appendChild(wrap);
+        });
+        list.replaceChildren(frag);
 
         // Add delete handlers
         list.querySelectorAll('.item-delete').forEach(btn => {
@@ -1378,7 +1514,7 @@
         btn.title = 'Bookmarks & Highlights';
         btn.addEventListener('click', togglePanel);
 
-        const nav = document.querySelector('.navbar-content') || document.querySelector('nav');
+        const nav = document.querySelector('.nav-actions') || document.querySelector('.navbar-content') || document.querySelector('nav');
         if (nav) {
             btn.style.cssText = `
                 background: rgba(255,255,255,0.1);
@@ -1387,7 +1523,6 @@
                 padding: 8px 12px;
                 font-size: 1.2rem;
                 cursor: pointer;
-                margin-left: 10px;
             `;
             nav.appendChild(btn);
         }

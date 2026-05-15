@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="robots" content="noindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description"
+		content="BUSI 6480 Exam 1 Mega Notes (Bilingual) - Based on the 2025 exam style: ANOVA, effect size, multiple comparisons, contrasts, power, and mediation traps.">
+	<title>Exam 1 Mega Notes - BUSI 6480 Study Guide</title>
+	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/study-header.css">
+</head>
+
+<body>
+
+	<nav class="navbar">
+		<div class="navbar-content">
+			<a href="index.html" class="navbar-brand">BUSI 6480 Study Guide</a>
+			<ul class="navbar-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="week1.html">Week 1</a></li>
+				<li><a href="week2.html">Week 2</a></li>
+				<li><a href="week3.html">Week 3</a></li>
+				<li><a href="week4.html">Week 4</a></li>
+				<li><a href="week5.html">Week 5</a></li>
+				<li><a href="exam1.html" class="active">Exam 1</a></li>
+			</ul>
+		</div>
+		<div class="progress-container">
+			<div class="progress-bar-wrapper">
+				<div class="progress-bar">
+					<div class="progress-fill"></div>
+				</div>
+				<span class="progress-text">Reading Progress: 0%</span>
+			</div>
+		</div>
+	</nav>
+
+	<main class="container">
+
+		<div class="session-header">
+			<h1>Exam 1 Mega Notes (Bilingual)</h1>
+			<p class="session-meta">Built from the BUSI 6480 Exam I (2025) style: traps, computations, and how to write
+				answers</p>
+		</div>
+
+		<div class="paper-card toc-card" id="toc">
+			<h2>Jump List (TOC)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: لیست پرش سریع</h4>
+				<p>این صفحه طولانی است. این لیست کمک می‌کند سریع بری سراغ همون بخشی که لازم داری. برای پرینت هم خوبه چون
+					بعدا اگر خواستی چیزی را مرور کنی، راحت پیدا می‌کنی کجا بود.</p>
+			</div>
+
+			<p>Use this to jump fast to the exact section you need.</p>
+			<ul class="toc-list">
+				<li><a href="#how">How to use</a></li>
+				<li><a href="#blueprint">Exam blueprint</a></li>
+				<li><a href="#formulas">One-page formulas</a></li>
+				<li><a href="#common-mistakes">Common number mistakes</a></li>
+				<li><a href="#partial-credit">Partial credit strategy</a></li>
+				<li><a href="#flowcharts">Decision flowcharts</a></li>
+				<li><a href="#tf-traps">True/False traps</a></li>
+				<li><a href="#anova-regression">ANOVA as regression</a></li>
+				<li><a href="#two-way">Two-way ANOVA (optional)</a></li>
+				<li><a href="#type1-unequal">Unequal variances + unequal n</a></li>
+				<li><a href="#effect-size">Effect size from F</a></li>
+				<li><a href="#tukey-cd">Tukey CD + reading output</a></li>
+				<li><a href="#tukey-scheffe">Tukey vs Scheffe</a></li>
+				<li><a href="#orthogonal-contrasts">Orthogonal contrasts</a></li>
+				<li><a href="#power">Power + sample size</a></li>
+				<li><a href="#walkthrough-q16">Full walkthrough (Q16 style)</a></li>
+				<li><a href="#mediation-traps">Mediation trap notes</a></li>
+				<li><a href="#serial-mediation">Serial mediation quick guide</a></li>
+				<li><a href="#project1-numbers">Project 1 key numbers</a></li>
+				<li><a href="#exam-drills">Exam drills</a></li>
+				<li><a href="#mini-practice">Mini practice set</a></li>
+				<li><a href="#final-checklist">Final checklist</a></li>
+			</ul>
+		</div>
+
+		<div class="paper-card" id="how">
+			<h2>How to Use This Page (Print-Friendly)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: چطور از این صفحه استفاده کنی (برای پرینت)</h4>
+				<p>این صفحه را من از روی سبک سوال‌های امتحان پارسال ساختم. هدفش این نیست که فقط تعریف‌ها را بگوید. هدفش
+					این است که تو همان کارهایی که سر امتحان ازت می‌خواهند انجام بدهی را تمرین کنی: انتخاب روش،
+					محاسبه‌های کوتاه، و نوشتن تفسیر درست.</p>
+				<p>به نظرم بهترین مدل استفاده این است: اول هر بخش را بخوان، بعد تمرین‌های همان بخش را بدون نگاه کردن به
+					جواب حل کن، بعد جواب را چک کن. اگر یک سوال را اشتباه زدی، فقط یک جمله بنویس که "اشکال من چی بود".
+					همین یک جمله باعث می‌شود دفعه بعد همان دام را تکرار نکنی.</p>
+				<p>این صفحه طولانی است چون قرار است جزوه باشد. اگر می‌خواهی پرینت بگیری، از مرورگر Print بزن. اگر دیدی
+					کاغذ زیاد می‌شود، قسمت‌هایی که ضعف بیشتر داری را اول پرینت بگیر (مثلا Tukey، contrasts، power).</p>
+			</div>
+
+			<p>This is a single, printable study sheet built directly from the question style of a graded Exam 1 (2025).
+				It focuses on what actually showed up: T/F traps, one-way ANOVA as regression, unequal variances with
+				unequal <code>n</code>, effect size from <code>F</code>, Tukey critical difference, Tukey vs Scheffe,
+				orthogonal contrasts, and power/sample-size questions.</p>
+			<p>Best way to study: read a section, then answer its practice blocks without notes, then compare. If you
+				miss something, write one short sentence about why you missed it. That is how you stop repeating the
+				same exam mistakes.</p>
+		</div>
+
+		<div class="paper-card" id="blueprint">
+			<h2>Exam Blueprint: What Earns Points</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: تو امتحان، چی نمره می‌آورد؟</h4>
+				<p>تو سبک امتحان پارسال، فقط "عدد" مهم نبود. باید بتونی بگی چرا این روش را انتخاب کردی و نتیجه یعنی چه.
+					خیلی‌ها کد می‌زنند، ولی نمره را از تفسیر می‌گیرند یا از دست می‌دهند.</p>
+				<p>سوال‌ها معمولا چند مدل هستند. بعضی‌ها دام True/False هستند. بعضی‌ها محاسبه کوتاه دارند (مثل Tukey
+					critical difference یا effect size). بعضی‌ها هم نوشتن دارند: "چه نتیجه‌ای گزارش می‌کنی و چرا".</p>
+				<p>اگر بخواهم ساده بگویم، جواب قوی سه قسمت دارد: روش، عدد کلیدی، تفسیر. اگر فقط یکی از این‌ها باشد، جواب
+					نصفه می‌شود.</p>
+			</div>
+
+			<p>A strong answer almost always has these three elements:</p>
+			<ul>
+				<li><strong>Method choice:</strong> name the method and one reason why it fits the question</li>
+				<li><strong>One key computation/output:</strong> the number that drives the decision</li>
+				<li><strong>Plain interpretation:</strong> what it means for the research question</li>
+			</ul>
+
+			<div class="info-box">
+				<h4>Fast scoring rule</h4>
+				<p>If you can explain your reasoning in 2 to 4 sentences without reading software output, you are
+					probably ready.</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="toc">
+			<h2>Table of Contents</h2>
+			<ul style="line-height: 1.8;">
+				<li><a href="#formula-sheet">One-Page Formula Sheet</a></li>
+				<li><a href="#flowcharts">Decision Flowcharts (Fast Rules)</a></li>
+				<li><a href="#trap-zone">True/False Trap Zone</a></li>
+				<li><a href="#dummy-regression">One-Way ANOVA as Regression</a></li>
+				<li><a href="#unequal-variance">Unequal Variances + Unequal n</a></li>
+				<li><a href="#effect-size">Effect Size from F</a></li>
+				<li><a href="#tukey-hsd">Tukey HSD</a></li>
+				<li><a href="#tukey-vs-scheffe">Tukey vs Scheffe</a></li>
+				<li><a href="#orthogonal-contrasts">Orthogonal Contrasts</a></li>
+				<li><a href="#power">Power + Sample Size</a></li>
+				<li><a href="#walkthrough-q16">Full Walkthrough (Social Media)</a></li>
+				<li><a href="#mediation-traps">Mediation Trap Notes</a></li>
+				<li><a href="#serial-mediation">Serial Mediation</a></li>
+				<li><a href="#exam-drills">Exam Drills</a></li>
+				<li><a href="#project-1-numbers">Project 1 Key Numbers</a></li>
+				<li><a href="#common-mistakes">Common Number Mistakes</a></li>
+				<li><a href="#extra-tf">Extra T/F Traps (Other Years)</a></li>
+				<li><a href="#fwer-formula">FWER Formula</a></li>
+				<li><a href="#tukey-letters">Tukey Grouping Letters</a></li>
+				<li><a href="#omega-from-anova-table">Omega² from ANOVA Table</a></li>
+				<li><a href="#mediation-types">Mediation Types Classification</a></li>
+			</ul>
+		</div>
+
+		<div class="paper-card" id="formulas">
+			<h2 id="formula-sheet">One-Page Formula Sheet (Exam 1)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: برگه فرمول یک صفحه‌ای</h4>
+				<p>این قسمت را می‌تونی جدا پرینت بگیری و شب قبل امتحان سریع مرور کنی. هدفش این است که سر جلسه اگر فرمول
+					یادت رفت، حداقل منطق و شکل کلی را بلد باشی و بتوانی مراحل را بنویسی (برای نمره جزئی هم خیلی کمک
+					می‌کند).</p>
+				<p>این فرمول‌ها مخصوص همان چیزهایی است که تو امتحان پارسال دیدیم: one-way ANOVA، effect size، Tukey،
+					contrasts، و power.</p>
+			</div>
+
+			<p>This is a quick formula sheet for the exact topics that appeared in the graded Exam 1 (2025).</p>
+
+			<pre><code>One-way ANOVA
+df1 = p - 1
+df2 = N - p
+F = MSA / MSE
+
+Multiple comparisons
+m (pairwise count) = p*(p-1)/2
+Bonferroni alpha* = alpha / m
+
+Effect size from ANOVA table
+eta^2 = SS_A / SS_T
+omega^2 = (SS_A - df1*MSE) / (SS_T + MSE)
+omega^2 = max(0, omega^2)
+
+Effect size conversions
+f = sqrt( eta^2 / (1 - eta^2) )
+f = sqrt( omega^2 / (1 - omega^2) )
+
+Effect size for power (balanced one-way, exam-style)
+f = sqrt( (df1 * F) / N )
+
+Tukey critical difference (equal n)
+CD = q_{alpha}(p, df_error) * sqrt(MSE / n)
+
+Contrasts
+Valid contrast: sum(c_j) = 0
+Orthogonal (equal n): sum(cA_j * cB_j) = 0</code></pre>
+		</div>
+
+		<div class="paper-card" id="common-mistakes">
+			<h2>Common Number Mistakes (Quick Fixes)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: اشتباه‌های عددی رایج (که نمره را می‌سوزاند)</h4>
+				<p>خیلی وقت‌ها تو امتحان، مسئله سخت نیست. اشتباه‌های ریز عددی باعث می‌شود جواب غلط شود. این قسمت را چند
+					بار مرور کن چون واقعا نمره‌اش راحت است.</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SCM1</span>
+				<p>If <code>omega^2</code> becomes negative in your computation, what do you report?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Report <code>omega^2 = 0</code>. Negative <code>omega^2</code> is truncated
+						to 0 (do not report a negative effect size).</p>
+					<p class="fa-text"><strong>FA:</strong> باید <code>omega^2</code> را 0 گزارش کنی. اگر منفی شد،
+						truncate می‌شود و منفی گزارش نمی‌شود.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SCM2</span>
+				<p>For Tukey critical difference, what is <code>p</code> in the <code>q</code>-table lookup?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> <code>p</code> is the number of groups (treatments), not a degrees of
+						freedom number.</p>
+					<p class="fa-text"><strong>FA:</strong> <code>p</code> یعنی تعداد گروه‌ها، نه df.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SCM3</span>
+				<p>In mediation, if <code>indirect/total</code> ratio is bigger than 1, is that an error?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> No. It can happen under competitive mediation when direct and indirect have
+						opposite signs and partially cancel.</p>
+					<p class="fa-text"><strong>FA:</strong> نه. این در competitive mediation طبیعی است وقتی direct و
+						indirect علامت مخالف دارند و همدیگر را cancel می‌کنند.</p>
+				</div>
+			</div>
+
+			<div class="info-box">
+				<h4>Memory line</h4>
+				<p><strong>EN:</strong> If a number looks "weird", ask: "Is this a known trap?" Many times, yes.</p>
+				<p class="fa-text"><strong>FA:</strong> اگر یک عدد عجیب به نظر می‌آید، اول فکر کن "دام امتحانی است یا
+					اشتباه من؟" خیلی وقت‌ها دام است.</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="partial-credit">
+			<h2>Partial Credit Strategy (If You Get Stuck)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: اگر گیر کردی، برای نمره جزئی چی بنویس؟</h4>
+				<p>تو همین امتحان پارسال خود برگه نوشته بود "Partial credit is given" و گفته بود اگر نتوانستی حل کنی،
+					بنویس چطور حل می‌کنی. این یعنی اگر تو مراحل را درست بنویسی، حتی اگر عدد آخر را اشتباه دربیاوری، باز
+					نمره می‌گیری.</p>
+				<p>پس اگر گیر کردی، به جای خالی گذاشتن، این‌ها را بنویس: مدل چی هست، H0/H1 چی هست، از چه خروجی‌هایی چه
+					چیزی برمی‌دارم (مثل MSE، df، N)، فرمول چی هست، و آخرش یک جمله تفسیر که اگر p&lt;alpha بود چه
+					نتیجه‌ای می‌گرفتم.</p>
+			</div>
+
+			<div class="info-box">
+				<h4>Template you can copy (EN)</h4>
+				<p>1) State the model and define groups/variables. 2) Write H0/H1. 3) Identify what numbers you need
+					from output (F, df, MSE, n). 4) Write the formula and show substitution. 5) Write one sentence
+					interpretation tied to alpha.</p>
+				<p class="fa-text"><strong>قالب (FA):</strong> 1) مدل را بنویس و متغیرها را تعریف کن. 2) H0/H1 را بنویس.
+					3) بگو از خروجی کدام عددها را لازم داری (F، df، MSE، n). 4) فرمول را بنویس و جایگذاری کن. 5) یک
+					جمله تفسیر که به alpha وصل باشد.</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="flowcharts">
+			<h2 id="flowcharts">Decision Flowcharts (Fast Decision Rules)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: چند تا قانون تصمیم سریع که تو امتحان نجاتت می‌دهد</h4>
+				<p>تو امتحان پارسال، سوال‌ها طوری بود که اگر فقط "خروجی نرم‌افزار" را نگاه کنی، ممکن است ندانی چی باید
+					گزارش کنی. نمره اصلی معمولا برای این است که تو روش درست را انتخاب کنی و بعد یک جمله تفسیر درست
+					بنویسی.</p>
+				<p>این flowchartها برای همین است. مثل یک نقشه سریع است. اگر وسط سوال گیر کردی، یک لحظه برگرد به این قسمت
+					و ببین مسیر درست کدام است. بعد جواب را خیلی ساده و روشن بنویس.</p>
+			</div>
+
+			<p>On this exam style, most points come from good decision making. The math is usually short. These
+				are the same decision rules I use when I answer questions fast.</p>
+
+			<h3>Flow 1: One-way group comparison (ANOVA family)</h3>
+			<pre><code>Start: compare group means
+
+1) What is the goal?
+- "All pairwise comparisons" -> Tukey
+- "Only a few planned comparisons" -> planned contrasts + Holm/Bonferroni
+- "Every group vs a control" -> Dunnett (if allowed)
+
+2) Are assumptions OK?
+- Levene p &gt; alpha AND residuals look OK -> standard one-way ANOVA (GLM)
+- Levene p &lt; alpha -> Welch ANOVA + Games-Howell (pairwise)
+
+3) Is Y positive and right-skewed? (time, money, wait time)
+- Yes -> Gamma GLM (GENMOD-style) with log link
+- Also run a nonparametric method (Kruskal-Wallis + DSCF) and compare results</code></pre>
+
+			<h3>Flow 2: Mediation (what counts as "mediation exists")</h3>
+			<pre><code>Key test: bootstrap CI for indirect effect (a*b)
+
+CI excludes 0 -> indirect effect is significant -> mediation exists
+
+Then classify pattern:
+- Indirect sig, direct (c') not sig -> full mediation
+- Indirect sig AND direct sig, same sign -> partial mediation
+- Indirect sig AND direct sig, opposite signs -> competitive mediation
+  (Total effect can be near 0 and non-significant. That is not an error.)</code></pre>
+
+			<h3>Flow 3: Moderation (interaction test)</h3>
+			<pre><code>Test the interaction term X*W
+
+If p &lt; alpha -> moderation supported
+If p &gt;= alpha -> do NOT claim moderation
+
+Exam tip: always write the alpha you used (0.05 or 0.01)</code></pre>
+
+			<div class="info-box">
+				<h4>One sentence you can reuse</h4>
+				<p><strong>EN:</strong> "Based on the goal of the question and the assumption checks, I used [METHOD],
+					and I report significance using alpha = [VALUE]."</p>
+				<p class="fa-text"><strong>FA:</strong> "با توجه به هدف سوال و چک کردن فرض‌ها، من از [روش] استفاده کردم
+					و معنی‌داری را با alpha = [عدد] گزارش می‌کنم."</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="tf-traps">
+			<h2 id="trap-zone">True/False Trap Zone (10 Core Traps from Exam 2025)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: 10 دام مهم True/False که تو امتحان پارسال بود</h4>
+				<p>این بخش را واقعا باید قوی ببندی، چون سوال‌ها خیلی ریز هستند و اگر کلمات را دقیق نخونی راحت غلط
+					می‌زنی. نکته‌اش این است که معمولا هر جمله یک دام دارد: "always"، "must"، "at least one"، یا قاطی
+					کردن Type I و Type II.</p>
+				<p>من هر سوال را با جواب و دلیل کوتاه نوشتم. از خودت بخواه که قبل از نگاه کردن به جواب، 10 تا را سریع
+					جواب بدهی و بعد دلیل خودت را با دلیل اینجا مقایسه کنی.</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q1</span>
+				<p><strong>Statement:</strong> Cohen's effect size is always larger than omega-square for a treatment in
+					a one-way ANOVA.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True (in this course, "Cohen's effect size" for one-way ANOVA usually
+						means Cohen's <em>f</em>).</p>
+					<p><strong>Why (EN):</strong> If you compute <code>f</code> from <code>omega^2</code>, then
+						<code>f = sqrt(omega^2 / (1 - omega^2))</code>. For any <code>0 &lt; omega^2 &lt; 1</code>,
+						<code>f</code> is bigger than <code>omega^2</code> (because you take a square root and also
+						divide by something smaller than 1).
+					</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> تو این درس وقتی می‌گوین Cohen effect size برای ANOVA،
+						معمولا منظور Cohen's f است. اگر f را از omega^2 بسازی، f همیشه از omega^2 بزرگ‌تر می‌شود (به جز
+						حالت صفر). پس جمله درست است.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q2</span>
+				<p><strong>Statement:</strong> If an experimental design is orthogonal, then the p-values of the Type I
+					and Type II sum of squares do not always have to be the same.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False.</p>
+					<p><strong>Why (EN):</strong> In an orthogonal (balanced) design, the different SS "types" usually
+						match for the main effects, so the p-values match. Differences show up mainly when the design
+						is <em>not</em> orthogonal (imbalance, correlation between predictors, etc.).</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> اگر طرح orthogonal و متعادل باشد، Type I و Type II (و
+						اغلب Type III) برای اثرهای اصلی معمولا یکی می‌شوند. اختلاف‌ها بیشتر وقتی است که طرح نامتعادل یا
+						غیرمتعامد باشد.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q3</span>
+				<p><strong>Statement:</strong> In a one-way ANOVA model in which the medians are not equal, but the
+					means of the treatment levels are exactly equal, the parametric one-way ANOVA may sometimes reject
+					the null hypothesis.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False (for the exam logic).</p>
+					<p><strong>Why (EN):</strong> One-way ANOVA is about means, not medians. Different medians alone do
+						not force rejection. If the group means are exactly equal in the <em>sample</em>, then
+						<code>SS_between = 0</code>, so <code>F = 0</code> and you cannot reject.
+					</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> ANOVA برای میانگین‌هاست نه median. فقط اینکه medianها
+						فرق کنند، به تنهایی باعث رد شدن H0 نمی‌شود. اگر میانگین‌ها در نمونه واقعا دقیقا برابر باشد،
+						SS_between صفر می‌شود و دیگر چیزی برای رد کردن نداریم.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q4</span>
+				<p><strong>Statement:</strong> One-way ANOVA has 4 levels. The overall model is significant at 5%. Using
+					Bonferroni for all pairwise comparisons at 5%, at least one pairwise difference will be
+					significant.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False.</p>
+					<p><strong>Why (EN):</strong> A significant omnibus <code>F</code> does not guarantee any specific
+						pairwise comparison will survive a strict correction like Bonferroni. The overall test can be
+						significant while all corrected pairwise p-values are above 0.05.</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> معنی دار شدن آزمون کلی ANOVA تضمین نمی‌کند که حتما یک
+						مقایسه جفتی بعد از Bonferroni هم معنی دار شود. ممکن است اختلاف‌ها پخش باشند و هیچ جفتی بعد از
+						اصلاح معنی دار نشود.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q5</span>
+				<p><strong>Statement:</strong> If <code>MS_Treatment = MS_Error</code>, then the estimate of the effect
+					size is zero.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True.</p>
+					<p><strong>Why (EN):</strong> If <code>MS_Treatment = MS_Error</code>, then <code>F = 1</code>. Most
+						effect size estimates like <code>omega^2</code> become 0 (and are often truncated to 0 when the
+						formula gives a negative number).</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> وقتی MS_treat و MS_error برابر شوند، F می‌شود 1. در
+						این حالت اثر بین گروهی اضافه‌ای نسبت به خطا نداریم و omega^2 عملا صفر می‌شود.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q6</span>
+				<p><strong>Statement:</strong> In a 3-level treatment coded with two dummy variables, if the two dummy
+					betas are equal, then the means of all three levels are equal.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False.</p>
+					<p><strong>Why (EN):</strong> With dummy coding, <code>beta1</code> and <code>beta2</code> are
+						differences versus the reference mean. If <code>beta1 = beta2</code>, it only implies groups 2
+						and 3 are equally far from the reference. The three means are equal only if
+						<code>beta1 = beta2 = 0</code>.
+					</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> تو dummy coding، betaها اختلاف نسبت به گروه مرجع
+						هستند.
+						اگر beta1=beta2، فقط یعنی گروه 2 و 3 نسبت به مرجع به یک اندازه فرق دارند. برابری هر سه میانگین
+						وقتی است که هر دو beta صفر باشند.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q7</span>
+				<p><strong>Statement:</strong> If <code>omega^2 = 0</code> for the treatment, then the <code>F</code>
+					statistic must be 0.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False.</p>
+					<p><strong>Why (EN):</strong> <code>F</code> is a ratio of mean squares, so it is not 0 in general.
+						In many formulas, <code>omega^2 = 0</code> happens when <code>F &lt;= 1</code> (especially after
+						truncating negative values to 0). A common case is <code>F = 1</code>, not <code>F = 0</code>.
+					</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> F نسبت دو MS است و معمولا صفر نمی‌شود. omega^2=0
+						معمولا
+						وقتی رخ می‌دهد که F خیلی کوچک باشد و مخصوصا وقتی F=1 (یا کمتر از 1 و بعد truncation). پس جمله
+						غلط است.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q8</span>
+				<p><strong>Statement:</strong> Holm's multiple comparison test for pairwise means controls the Type II
+					familywise error rate.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False.</p>
+					<p><strong>Why (EN):</strong> Holm controls familywise <strong>Type I</strong> error (false
+						positives). Type II error is about false negatives, and Holm is not designed to control that as
+						a familywise rate.</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> Holm برای کنترل خطای نوع اول خانواده‌ای است (FWER).
+						نوع
+						دوم یعنی missed detection و این روش برای آن طراحی نشده.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q9</span>
+				<p><strong>Statement:</strong> If in each group the median equals the mean, then Brown-Forsythe and
+					SPSS Levene test will be exactly equal.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True.</p>
+					<p><strong>Why (EN):</strong> Levene uses deviations from group means. Brown-Forsythe uses
+						deviations from group medians. If mean = median in each group, those deviations are the same,
+						so the tests match.</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> Levene فاصله از میانگین را می‌گیرد، Brown-Forsythe
+						فاصله
+						از median. اگر در هر گروه mean=median باشد، عملا همان فاصله‌ها می‌شود و نتیجه برابر می‌شود.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q10</span>
+				<p><strong>Statement:</strong> In mediation, if indirect effect is significant and positive but direct
+					effect is significant and negative, you should consider an omitted mediator.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True.</p>
+					<p><strong>Why (EN):</strong> This is a classic "inconsistent" or "competitive" pattern where the
+						direct and indirect paths have opposite signs. It can be a sign the model is missing another
+						mechanism (another mediator) or there is suppression.</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> وقتی اثر مستقیم و غیرمستقیم علامت مخالف دارند، مدل
+						"inconsistent/competitive mediation" می‌شود. این معمولا یعنی مکانیزم دیگری هم هست که در مدل
+						نیومده و باید به omitted mediator یا suppression شک کرد.</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="paper-card" id="anova-regression">
+			<h2 id="dummy-regression">One-Way ANOVA as Regression (Dummy Variables)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: ANOVA را مثل رگرسیون با dummy variables ببین</h4>
+				<p>یک دام مهم امتحان این است که استاد ANOVA را به شکل رگرسیون می‌نویسد و ازت می‌خواهد تفسیر betaها را
+					بگویی. اگر این را خوب بلد باشی، چند سوال پشت سر هم را راحت می‌گیری.</p>
+				<p>در مدل effects (Y = mu + alpha_j + error)، معمولا mu را می‌توانیم "میانگین کل" بگیریم، البته وقتی
+					محدودیت‌های استاندارد مثل sum(alpha)=0 را داشته باشیم. در مدل dummy، beta0 معمولا میانگین گروه مرجع
+					است. beta1 و beta2 اختلاف گروه‌های دیگر نسبت به مرجع هستند.</p>
+				<p>دام معروف همان سوال True/False بود: اگر beta1=beta2، یعنی گروه 2 و 3 نسبت به مرجع به یک اندازه اختلاف
+					دارند، ولی لزوما یعنی هر سه گروه برابرند؟ نه. برای برابری هر سه میانگین باید هر دو beta صفر باشند.
+				</p>
+			</div>
+
+			<p>In Exam 2025, a core skill was translating a one-way ANOVA into regression with dummy variables and then
+				writing hypotheses in beta language.</p>
+
+			<h3>Two equivalent models</h3>
+			<pre><code>Effects model:
+	Y_ij = mu + alpha_j + epsilon_{i(j)}
+
+Dummy regression model (3 levels):
+Y_ij = beta0 + beta1 X1 + beta2 X2 + epsilon_ij</code></pre>
+
+			<h3>Dummy coding table (3 groups)</h3>
+			<p>This is the quickest way to not get confused on the exam. Pick a reference group (often level 1). Then
+				define dummies like this:</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Group</th>
+						<th>X1</th>
+						<th>X2</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Group 1 (reference)</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>Group 2</td>
+						<td>1</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td>Group 3</td>
+						<td>0</td>
+						<td>1</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p class="fa-text"><strong>فارسی:</strong> تو امتحان اگر جدول را تو ذهنت داشته باشی، تفسیر betaها هم راحت
+				می‌شود. گروه مرجع هر دو dummy اش صفر است.</p>
+
+			<h3>How betas map to group means</h3>
+			<pre><code>mu_1 = beta0
+mu_2 = beta0 + beta1
+mu_3 = beta0 + beta2</code></pre>
+			<p>So:</p>
+			<ul>
+				<li><code>beta1 = mu2 - mu1</code></li>
+				<li><code>beta2 = mu3 - mu1</code></li>
+			</ul>
+			<p class="fa-text"><strong>فارسی:</strong> اگر beta1 = beta2 باشد، فقط یعنی (mu2 - mu1) = (mu3 - mu1) و
+				نتیجه می‌شود mu2 = mu3. ولی این هنوز یعنی هر سه تا برابرند؟ نه. برای برابری هر سه، باید هر دو beta
+				صفر باشند.</p>
+
+			<h3>What is mu in the effects model?</h3>
+			<p>In the effects model, <code>mu</code> is the grand mean when we use the usual constraint
+				<code>sum(alpha_j) = 0</code>. In a balanced design (equal <code>n</code>), that is the simple average
+				of the group means. In an unbalanced design, it is a weighted average.
+			</p>
+			<p class="fa-text"><strong>فارسی:</strong> mu تو مدل effects معمولا "میانگین کل" است (با محدودیت
+				sum(alpha)=0). اگر nها برابر باشند، میانگین ساده میانگین‌های گروه‌ها می‌شود. اگر nها برابر نباشد،
+				میانگین وزن‌دار می‌شود.</p>
+
+			<h3>What does epsilon_{i(j)} mean?</h3>
+			<p><code>epsilon</code> is the random error term. The parentheses <code>i(j)</code> simply mean "the i-th
+				observation inside group j" (nested indexing). On an exam, one clean sentence is enough.</p>
+			<p class="fa-text"><strong>فارسی:</strong> epsilon همان خطای تصادفی است. i(j) یعنی مشاهده iام داخل گروه
+				jام. یعنی indexها تو در تو هستند، همین.</p>
+
+			<h3>Interpretation</h3>
+			<ul>
+				<li><code>beta0</code> is the mean of the <strong>reference group</strong> (the group where
+					<code>X1=0</code> and <code>X2=0</code>).
+				</li>
+				<li><code>beta1</code> is the mean difference between group 2 and the reference group.</li>
+				<li><code>beta2</code> is the mean difference between group 3 and the reference group.</li>
+			</ul>
+
+			<h3>Hypotheses for "equal means"</h3>
+			<pre><code>H0: beta1 = 0 AND beta2 = 0
+	H1: at least one beta is not 0</code></pre>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q11a</span>
+				<p>In the dummy regression model, what does <code>beta0</code> represent? In the effects model, what
+					does
+					<code>mu</code> represent?
+				</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> In the dummy model, <code>beta0</code> is the mean of the reference group.
+						In the
+						effects model, <code>mu</code> is the grand mean (under the usual constraint like
+						<code>sum(alpha_j)=0</code>).
+					</p>
+					<p class="fa-text"><strong>FA:</strong> تو مدل dummy، <code>beta0</code> یعنی میانگین گروه مرجع. تو
+						مدل
+						effects، <code>mu</code> یعنی میانگین کل (با محدودیت‌های استاندارد مثل
+						<code>sum(alpha)=0</code>).
+					</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q11b</span>
+				<p>Write the null and alternative hypotheses for "equal means" using the dummy regression model with two
+					dummy variables.</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> <code>H0: beta1 = 0 AND beta2 = 0</code>.
+						<code>H1: beta1 != 0 OR beta2 != 0</code>.
+					</p>
+					<p class="fa-text"><strong>FA:</strong> <code>H0</code>: هر دو beta صفر هستند. <code>H1</code>:
+						حداقل یکی از betaها
+						صفر نیست.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q11c</span>
+				<p>What does <code>epsilon_{i(j)}</code> mean? What does the parenthesis <code>i(j)</code> mean?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> <code>epsilon</code> is the random error. <code>i(j)</code> just means "the
+						i-th
+						observation within group j" (nested indexing).</p>
+					<p class="fa-text"><strong>FA:</strong> <code>epsilon</code> همان خطای تصادفی است. <code>i(j)</code>
+						یعنی مشاهده iام
+						داخل گروه jام (اندیس تو در تو).</p>
+				</div>
+			</div>
+
+			<div class="warning-box">
+				<h4>Exam trap</h4>
+				<p><code>beta1 = beta2</code> does <strong>not</strong> mean all three means are equal. It only means
+					groups 2 and 3 are equally far from the reference.</p>
+			</div>
+
+			<h3>R quick code</h3>
+			<pre><code># df$group is a factor with 3 levels
+fit <- lm(Y ~ group, data = df)
+summary(fit)
+
+# H0: beta1 = beta2 = 0 is the same as the overall F test for group
+anova(fit)</code></pre>
+
+			<h3>SAS quick code</h3>
+			<pre><code>proc glm data=mydata;
+  class group;
+  model Y = group;
+run;
+quit;</code></pre>
+		</div>
+
+		<div class="paper-card" id="two-way">
+			<h2>Optional: Two-Way (Factorial) ANOVA + Interaction</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: اگر از factorial ANOVA و interaction سوال شد</h4>
+				<p>امتحان پارسال بیشتر one-way بود، ولی بعضی وقت‌ها استاد یک سوال کوتاه از factorial ANOVA هم می‌پرسد.
+					اگر این آمد، دامش معمولا "interaction" است.</p>
+				<p>interaction یعنی اثر عامل A به سطح عامل B بستگی دارد. اگر interaction معنی‌دار باشد، دیگه تفسیر main
+					effect تنها خیلی قابل اعتماد نیست. باید ساده بگویی: "اثر A در سطح‌های مختلف B فرق می‌کند" و بعد از
+					simple effects حرف بزنی.</p>
+			</div>
+
+			<p>Two-way ANOVA means you have two factors (A and B). The key idea is the interaction term.</p>
+
+			<pre><code>Two-way ANOVA model:
+Y_ijk = mu + A_i + B_j + (A*B)_ij + error</code></pre>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC-TW1</span>
+				<p>If the <strong>interaction</strong> is significant, what do you report first?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Report and interpret the interaction first. Then discuss simple effects (how
+						A changes across levels of B, or how B changes across levels of A).</p>
+					<p class="fa-text"><strong>FA:</strong> اول interaction را گزارش و تفسیر کن. بعد درباره simple
+						effects بنویس (اثر A در سطح‌های مختلف B، یا برعکس).</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC-TW2</span>
+				<p>If the interaction is NOT significant, what is the usual next step?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> You can interpret main effects (A and B). If a factor has more than 2 levels
+						and is significant, use post hoc comparisons (like Tukey) for that factor.</p>
+					<p class="fa-text"><strong>FA:</strong> می‌توانی main effectها را تفسیر کنی (A و B). اگر یک عامل چند
+						سطح داشته باشد و معنی‌دار شود، post hoc مناسب مثل Tukey را برای همان عامل اجرا کن.</p>
+				</div>
+			</div>
+
+			<div class="info-box">
+				<h4>Memory line</h4>
+				<p><strong>EN:</strong> Interaction significant = "it depends", so do not oversell main effects.</p>
+				<p class="fa-text"><strong>FA:</strong> interaction معنی‌دار = "بستگی دارد"، پس main effect تنها را
+					زیادی قطعی تفسیر نکن.</p>
+			</div>
+
+			<h3>Quick code (just for recognition)</h3>
+			<pre><code># SAS
+proc glm data=mydata;
+  class A B;
+  model Y = A B A*B;
+run;
+quit;</code></pre>
+		</div>
+
+		<div class="paper-card" id="type1-unequal">
+			<h2 id="unequal-variance">Unequal Variances + Unequal n: What Happens to Type I Error?</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: وقتی واریانس‌ها برابر نیست و n هم برابر نیست، Type I error چه می‌شود؟</h4>
+				<p>این سوال تو امتحان پارسال آمد. قانونش ساده است ولی خیلی‌ها قاطی می‌کنند. وقتی گروه با واریانس بزرگ‌تر
+					نمونه کوچک‌تر داشته باشد، تست ANOVA معمولا "liberal" می‌شود یعنی احتمال خطای نوع اول بالا می‌رود.
+					برعکس، اگر گروه با واریانس بزرگ‌تر نمونه بزرگ‌تر داشته باشد، تست "conservative" می‌شود یعنی احتمال
+					رد کردن اشتباه کمتر می‌شود.</p>
+				<p>به زبان خیلی ساده، بدترین حالت این است که گروه شلوغ‌تر (variance بالا) را با n کوچک بگیری. چون برآورد
+					واریانس ناپایدار می‌شود و F-test رفتار بدتری پیدا می‌کند.</p>
+				<p>اگر استاد بپرسد در این شرایط چه کار می‌کنیم، جواب خوب این است: Welch ANOVA یا روش‌های robust و بعد
+					pairwise مناسب مثل Games-Howell. اگر داده skew باشد، گاهی transformation یا روش ناپارامتریک هم کمک
+					می‌کند.</p>
+			</div>
+
+			<p>This is a classic exam concept: if the homogeneity of variance assumption is violated and sample sizes
+				are unequal, the actual Type I error rate can move away from the nominal alpha.</p>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Pattern</th>
+						<th>What happens</th>
+						<th>Memory Hook</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Small n from high-variance groups</td>
+						<td>Type I error increases (test becomes liberal)</td>
+						<td>noisy + small = danger</td>
+					</tr>
+					<tr>
+						<td>Small n from low-variance groups</td>
+						<td>Type I error decreases (test becomes conservative)</td>
+						<td>noisy + big = safer</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p class="fa-text"><strong>یادآوری سریع:</strong> noisy + small = danger (liberal). noisy + big = safer
+				(conservative).</p>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q12a</span>
+				<p>When population variances are not homogeneous and sample sizes are unequal: if the <em>smaller</em>
+					samples
+					come from the <em>more heterogeneous</em> populations, what happens to the actual Type I error rate?
+				</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Type I error increases. The test becomes liberal.</p>
+					<p class="fa-text"><strong>FA:</strong> خطای نوع اول بالا می‌رود و آزمون liberal می‌شود.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q12b</span>
+				<p>Same setup: if the <em>smaller</em> samples come from the <em>more homogeneous</em> populations, what
+					happens
+					to the actual Type I error rate?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Type I error decreases. The test becomes conservative.</p>
+					<p class="fa-text"><strong>FA:</strong> خطای نوع اول کم می‌شود و آزمون conservative می‌شود.</p>
+				</div>
+			</div>
+
+			<h3>Why this happens (simple intuition)</h3>
+			<p>ANOVA uses a pooled error estimate (<code>MSE</code>). When group sizes are unequal, the pooled error is
+				influenced more by the large groups. So if the large groups happen to be the low-variance groups, the
+				pooled <code>MSE</code> can look "too small" compared to the noisy small group. That can make the
+				<code>F</code> test too aggressive and inflate Type I error.
+			</p>
+			<p class="fa-text"><strong>فارسی:</strong> وقتی nها برابر نیست، MSE بیشتر تحت تاثیر گروه‌های بزرگ‌تر است.
+				اگر گروه بزرگ‌تر واریانسش کم باشد، MSE کوچک‌تر دیده می‌شود و آزمون F راحت‌تر معنی‌دار می‌شود. برای همین
+				Type I error بالا می‌رود (liberal).</p>
+
+			<h3>What to write on the exam (2 sentences)</h3>
+			<div class="info-box">
+				<p><strong>EN:</strong> "With heteroscedasticity and unequal sample sizes, the nominal 5% Type I error
+					can change. If smaller groups come from higher-variance populations, the test becomes liberal
+					(Type I increases), so I would use Welch ANOVA and a heteroscedastic-friendly pairwise method."</p>
+				<p class="fa-text"><strong>FA:</strong> "اگر واریانس‌ها برابر نباشد و nها هم برابر نباشد، احتمال خطای
+					نوع اول می‌تواند از 5% منحرف شود. اگر گروه‌های کوچک‌تر از جامعه پرنوسان‌تر بیایند، آزمون liberal
+					می‌شود (Type I بالا می‌رود)، پس Welch و مقایسه‌های مناسب‌تر لازم است."</p>
+			</div>
+
+			<h3>What you do in practice</h3>
+			<ul>
+				<li>Use <strong>Welch ANOVA</strong> if variances are not equal.</li>
+				<li>Use <strong>Games-Howell</strong> style pairwise comparisons (works better under
+					heteroscedasticity).
+				</li>
+				<li>If the distribution is very skewed, consider a transformation or a nonparametric approach.</li>
+			</ul>
+		</div>
+
+		<div class="paper-card" id="effect-size">
+			<h2 id="effect-size">Effect Size from F (Fixed Effects) + Association for Random Effects</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: محاسبه effect size از روی F (مثل سوال 13 امتحان)</h4>
+				<p>سوال پارسال یک پاراگراف داد و فقط از روی F و dfها ازت effect size خواست. این مدل سوال خیلی محتمل است
+					چون هم مفهوم را تست می‌کند هم محاسبه کوتاه را.</p>
+				<p>تو one-way ANOVA چند عدد مهم داریم: eta^2، omega^2 و Cohen's f. معمولا omega^2 نسبت به eta^2 کمتر
+					خوش‌بینانه است. Cohen's f را هم می‌شود از eta^2 یا omega^2 ساخت و برای power هم استفاده می‌شود.</p>
+				<p>تو همین امتحان پارسال، با F(1,194)=9.08 و N=196 برای دو گروه، omega^2 حدود 0.0396 شد و Cohen's f حدود
+					0.203. این یعنی اثر کوچک تا متوسط (نزدیک کوچک).</p>
+				<p>برای random effects هم دنبال یک strength of association مثل ICC می‌گردیم. در سبک سوال پارسال، همان
+					rho_I را از روی F و N ساختند و تفسیر مشابه دادند.</p>
+			</div>
+
+			<h3>From an F test to omega squared</h3>
+			<p>If you have a one-way ANOVA with <code>p</code> groups and total sample size <code>N</code>, and you
+				know the omnibus <code>F</code>, a useful exam-ready formula is:</p>
+			<pre><code>df1 = p - 1
+
+omega^2 = (df1 * (F - 1)) / (df1 * (F - 1) + N)
+
+# Same idea written another common way:
+omega^2 = (df1 * (F - 1)) / (df1 * F + df2 + 1)</code></pre>
+
+			<h3>Cohen's f from omega squared (or eta squared)</h3>
+			<pre><code>f = sqrt( omega^2 / (1 - omega^2) )
+
+# If you have eta^2 instead:
+f = sqrt( eta^2 / (1 - eta^2) )</code></pre>
+
+			<h3>If eta squared is given (this happened in Exam 2025)</h3>
+			<p>In the exam paragraph, they reported <code>eta^2 = 0.045</code>. You can compute Cohen's
+				<code>f</code> directly (no extra steps):
+			</p>
+			<pre><code>eta^2 = 0.045
+f = sqrt(0.045 / (1 - 0.045)) = 0.217</code></pre>
+			<p class="fa-text"><strong>فارسی:</strong> اگر eta^2 را خود سوال داده باشد، راحت‌ترین کار این است که مستقیم
+				Cohen's f را از همان بسازی. این هم سریع است هم احتمال اشتباه کمتر دارد.</p>
+
+			<h3>Quick eta squared from F and df (if eta^2 is NOT given)</h3>
+			<pre><code>eta^2 = (F * df1) / (F * df1 + df2)</code></pre>
+			<p>Example: for <code>F(1, 194) = 9.08</code>:</p>
+			<pre><code>eta^2 = (9.08*1) / (9.08*1 + 194) = 0.0447</code></pre>
+
+			<h3>Worked example (matches the 2025 exam style)</h3>
+			<pre><code>Given: F(1, 194) = 9.08
+p = 2  => df1 = 1
+N = 196
+
+omega^2 = (1*(9.08 - 1)) / (1*(9.08 - 1) + 196)
+        = 8.08 / 204.08
+        = 0.0396
+
+f = sqrt(0.0396 / (1 - 0.0396)) = 0.203</code></pre>
+
+			<div class="info-box">
+				<h4>Interpretation (simple)</h4>
+				<p><strong>EN:</strong> <code>omega^2 = 0.04</code> means about 4% of outcome variance is explained by
+					the
+					condition in this setting. <code>f ≈ 0.20</code> is around small-to-medium by common benchmarks.</p>
+				<p class="fa-text"><strong>FA:</strong> omega^2 حدود 0.04 یعنی حدود 4 درصد از تغییرات Y با شرط آزمایش
+					توضیح داده می‌شود. f حدود 0.20 معمولا کوچک تا متوسط حساب می‌شود.</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q13a</span>
+				<p>Fixed effects version (Exam 2025 style): given <code>F(1,194)=9.08</code> and <code>N=196</code>,
+					compute an
+					effect size and interpret it.</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> One clean way is to compute <code>omega^2</code> then convert to Cohen's
+						<code>f</code>.
+						Here <code>omega^2 ≈ 0.0396</code> and <code>f ≈ 0.203</code>, so the effect is small-to-medium.
+					</p>
+					<p class="fa-text"><strong>FA:</strong> یک راه خوب این است که <code>omega^2</code> را بسازی و بعد
+						Cohen's <code>f</code>
+						را حساب کنی. اینجا <code>omega^2 ≈ 0.0396</code> و <code>f ≈ 0.203</code> می‌شود، یعنی اثر کوچک
+						تا متوسط.</p>
+				</div>
+				<p><strong>Extra note:</strong> If the question already gives <code>eta^2 = 0.045</code>, you can also
+					compute
+					<code>f = sqrt(eta^2/(1-eta^2)) ≈ 0.217</code>. It tells the same story (small-to-medium).
+				</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q13b</span>
+				<p>Random effects version (Exam 2025 style): compute a strength of association measure and interpret it.
+				</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> A simple exam-friendly measure is <code>rho_I = (F - 1)/(F - 1 + N)</code>.
+						Here <code>rho_I ≈ 0.0396</code>, meaning the association is weak (around 4%).</p>
+					<p class="fa-text"><strong>FA:</strong> یک معیار ساده برای امتحان این است:
+						<code>rho_I = (F - 1)/(F - 1 + N)</code>.
+						اینجا <code>rho_I ≈ 0.0396</code> است، یعنی ارتباط ضعیف است (حدود 4%).
+					</p>
+				</div>
+				<p class="fa-text"><strong>نکته:</strong> تو این مثال ساده، عدد <code>rho_I</code> خیلی شبیه
+					<code>omega^2</code> می‌شود. ولی
+					تفسیرشان فرق دارد: یکی effect size برای fixed effects، یکی strength of association برای random
+					effects.
+				</p>
+			</div>
+
+			<h3>Random effects association (exam-friendly version)</h3>
+			<p>For a simple one-way random effects interpretation, one exam-friendly association measure is:</p>
+			<pre><code>rho_I = (F - 1) / (F - 1 + N)</code></pre>
+			<p>This produces a number in the same 0 to 1 range. In plain language, it is the share of outcome
+				variation that is "linked to the condition" in this setup (bigger means stronger association).</p>
+			<p class="fa-text"><strong>فارسی:</strong> این عدد بین 0 تا 1 است و می‌توانی بگویی "چه سهمی از تغییرات به
+				شرط/گروه مربوط است". عدد بزرگ‌تر یعنی ارتباط قوی‌تر.</p>
+		</div>
+
+		<div class="paper-card" id="tukey-cd">
+			<h2 id="tukey-hsd">Tukey HSD: Reading Output + Critical Difference (Show Computation)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: Tukey تو امتحان خیلی مهم است (هم خوندن خروجی هم محاسبه)</h4>
+				<p>دو مدل سوال Tukey تو امتحان پارسال بود: یکی اینکه یک جدول Tukey grouping داد و گفت با critical
+					difference کدام جفت‌ها معنی دار هستند. دومی اینکه یک ANOVA table داد و گفت critical difference را
+					حساب کن.</p>
+				<p>اشتباه رایج این است که فقط بزرگ‌ترین و کوچک‌ترین را نگاه کنند و سریع بگوین "همه فرق دارند". در حالی
+					که باید تک تک اختلاف‌ها را با critical difference مقایسه کنی. تو همون امتحان، یکی از جفت‌ها دقیقا
+					نزدیک مرز بود و اشتباه زیاد اتفاق افتاد.</p>
+			</div>
+
+			<h3>Critical difference formula (equal n)</h3>
+			<pre><code>CD = q_{alpha}(p, df_error) * sqrt(MSE / n)</code></pre>
+
+			<p>Where:</p>
+			<ul>
+				<li><code>p</code> = number of groups</li>
+				<li><code>df_error</code> = error degrees of freedom</li>
+				<li><code>MSE</code> = mean square error (within)</li>
+				<li><code>n</code> = observations per group (equal n case)</li>
+				<li><code>q</code> = studentized range critical value</li>
+			</ul>
+
+			<h3>Worked example (from Exam 2025 style)</h3>
+			<p>SPSS ANOVA output shows: <code>MSE = 7.545</code>, <code>df_error = 12</code>, <code>p = 3</code>, total
+				<code>N = 15</code>, so <code>n = 5</code> per group. If <code>q = 3.77</code>:
+			</p>
+			<pre><code>CD = 3.77 * sqrt(7.545/5)
+  	   = 3.77 * 1.228
+  	   = 4.62</code></pre>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q15</span>
+				<p>Compute Tukey's critical difference. Given <code>MSE = 7.545</code>, <code>n = 5</code>, and
+					<code>q = 3.77</code>, what is
+					<code>CD</code>?
+				</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> <code>CD = 3.77 * sqrt(7.545/5) = 4.62</code>.</p>
+					<p class="fa-text"><strong>FA:</strong> <code>CD = 3.77 * sqrt(7.545/5) = 4.62</code>.</p>
+				</div>
+			</div>
+
+			<div class="warning-box">
+				<h4>Exam detail</h4>
+				<p>Always show the steps: identify <code>MSE</code>, identify <code>n</code>, look up <code>q</code>,
+					then compute. "Just giving a number" often loses points.</p>
+			</div>
+
+			<h3>How to decide significance (critical difference method)</h3>
+			<p>For any pair of means <code>|ybar_i - ybar_j|</code>:</p>
+			<ul>
+				<li>If the difference is <strong>greater than CD</strong>, the pair is significant.</li>
+				<li>If the difference is <strong>less than or equal to CD</strong>, the pair is not significant.</li>
+			</ul>
+
+			<h3>Worked pair decisions (Exam 2025 Question 14 style)</h3>
+			<p>The exam gave these means and <code>CD = 1.51</code> (each <code>N = 30</code>):</p>
+			<table>
+				<thead>
+					<tr>
+						<th>Level</th>
+						<th>Mean</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2</td>
+						<td>29.700</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>29.200</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>28.100</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>26.600</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>26.200</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p class="fa-text"><strong>فارسی:</strong> برای جواب دادن، باید تک تک اختلاف‌ها را حساب کنی و با 1.51 مقایسه
+				کنی. با نگاه کردن به بزرگ‌ترین و کوچک‌ترین نمی‌شود گفت "همه جفت‌ها فرق دارند".</p>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Pair (Levels)</th>
+						<th>|Difference|</th>
+						<th>Decision (CD = 1.51)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2 vs 4</td>
+						<td>0.5</td>
+						<td>Not significant</td>
+					</tr>
+					<tr>
+						<td>2 vs 5</td>
+						<td>1.6</td>
+						<td>Significant</td>
+					</tr>
+					<tr>
+						<td>2 vs 3</td>
+						<td>3.1</td>
+						<td>Significant</td>
+					</tr>
+					<tr>
+						<td>2 vs 1</td>
+						<td>3.5</td>
+						<td>Significant</td>
+					</tr>
+					<tr>
+						<td>4 vs 5</td>
+						<td>1.1</td>
+						<td>Not significant</td>
+					</tr>
+					<tr>
+						<td>4 vs 3</td>
+						<td>2.6</td>
+						<td>Significant</td>
+					</tr>
+					<tr>
+						<td>4 vs 1</td>
+						<td>3.0</td>
+						<td>Significant</td>
+					</tr>
+					<tr>
+						<td>5 vs 3</td>
+						<td>1.5</td>
+						<td>Not significant (borderline)</td>
+					</tr>
+					<tr>
+						<td>5 vs 1</td>
+						<td>1.9</td>
+						<td>Significant</td>
+					</tr>
+					<tr>
+						<td>3 vs 1</td>
+						<td>0.4</td>
+						<td>Not significant</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="info-box">
+				<h4>Final exam-style sentence</h4>
+				<p><strong>EN:</strong> Significant pairs are (2,5), (2,3), (2,1), (4,3), (4,1), (5,1). The pairs (2,4)
+					and (5,3) are not significant because their differences are below the critical difference.</p>
+				<p class="fa-text"><strong>FA:</strong> جفت‌های معنی‌دار: (2,5)، (2,3)، (2,1)، (4,3)، (4,1)، (5,1). جفت
+					(2,4) و (5,3) معنی‌دار نیستند چون اختلاف‌شان از 1.51 کمتر است.</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q14a</span>
+				<p>Means are 29.7 (Level 2) and 29.2 (Level 4). If CD = 1.51, are they significantly different?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> No. The difference is 0.5, which is less than 1.51.</p>
+					<p class="fa-text"><strong>FA:</strong> نه. اختلاف 0.5 است و از 1.51 کمتر است.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q14b</span>
+				<p>Means are 28.1 (Level 5) and 26.6 (Level 3). If CD = 1.51, are they significantly different?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> No. The difference is 1.5, which is just below 1.51.</p>
+					<p class="fa-text"><strong>FA:</strong> نه. اختلاف 1.5 است و از 1.51 کمتر است (خیلی مرزی است).</p>
+				</div>
+			</div>
+
+			<div class="warning-box">
+				<h4>Borderline trap (very common)</h4>
+				<p><strong>EN:</strong> This is the classic trap. People see "1.5 is basically 1.51" and mark it
+					significant.
+					But Tukey CD is a hard cutoff: if it is below CD, it is not significant.</p>
+				<p class="fa-text"><strong>FA:</strong> این دقیقا دام رایج است. بعضی‌ها می‌گوین "1.5 خیلی نزدیک 1.51
+					است، پس معنی‌دار".
+					ولی قانون CD واضح است: اگر اختلاف از CD کمتر باشد، معنی‌دار نیست.</p>
+			</div>
+
+			<h3>R quick code</h3>
+			<pre><code>fit <- aov(Y ~ Group, data = df)
+TukeyHSD(fit)</code></pre>
+
+			<h3>SAS quick code</h3>
+			<pre><code>proc glm data=mydata;
+  class Group;
+  model Y = Group;
+  means Group / tukey;
+run;
+quit;</code></pre>
+		</div>
+
+		<div class="paper-card" id="tukey-scheffe">
+			<h2 id="tukey-vs-scheffe">Tukey vs Scheffe: Why They Can Disagree</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: چرا Tukey و Scheffe ممکن است نتیجه متفاوت بدهند؟</h4>
+				<p>این هم تو امتحان پارسال بود. Tukey برای "همه مقایسه‌های جفتی" طراحی شده و معمولا نسبت به Scheffe توان
+					بیشتری دارد. Scheffe محافظه‌کارتر است چون برای هر نوع contrast قابل استفاده است.</p>
+				<p>پس کاملا طبیعی است که یک جفت در Tukey معنی دار شود ولی در Scheffe مرزی یا غیرمعنی دار شود. اینجا باید
+					تو تفسیر بنویسی که اختلاف وجود دارد ولی با روش محافظه‌کارتر تایید قوی نگرفت. همین جمله‌ها نمره
+					می‌آورد.</p>
+			</div>
+
+			<p>In Exam 2025, there was a question asking to run both Tukey and Scheffe and explain differences. The key
+				story is simple:</p>
+			<ul>
+				<li><strong>Tukey</strong> is designed for <em>all pairwise mean comparisons</em>, so it is efficient
+					for
+					that goal.</li>
+				<li><strong>Scheffe</strong> protects against a wider class of comparisons (any contrast), so it is more
+					conservative.</li>
+			</ul>
+
+			<h3>Mini example (matches the social media question)</h3>
+			<p>In the graded example, Tukey reported <code>p = 0.0416</code> for WebS2 vs WebS1 (significant at 5%),
+				but Scheffe reported <code>p = 0.0528</code> (not significant at 5%). That is not a contradiction. It
+				just means the evidence is not strong enough under Scheffe's stricter protection.</p>
+			<p class="fa-text"><strong>فارسی:</strong> اینجا می‌تونی همزمان دو جمله بنویسی: "Tukey معنی‌دار گفت" و
+				"Scheffe تایید نکرد چون محافظه‌کارتر است". همین می‌شود تفسیر درست و نمره‌دار.</p>
+
+			<div class="info-box">
+				<h4>One good exam sentence</h4>
+				<p><strong>EN:</strong> "Tukey suggests pair A vs B is significant, but Scheffe does not; this is
+					expected because Scheffe is more conservative, so the evidence is weaker under stricter familywise
+					protection."</p>
+				<p class="fa-text"><strong>FA:</strong> "Tukey یک تفاوت را معنی دار نشان داد ولی Scheffe تایید نکرد. این
+					طبیعی است چون Scheffe محافظه‌کارتر است، پس شواهد تحت معیار سخت‌تر ضعیف‌تر می‌شود."</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="orthogonal-contrasts">
+			<h2 id="orthogonal-contrasts">Orthogonal Contrasts (3 Groups) + How to Test Them</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: کنتراست‌های متعامد (اینجا معمولا نمره از دست می‌رود)</h4>
+				<p>تو امتحان پارسال یک سوال داشت که گفت دو تا کنتراست orthogonal بساز. دانشجو نمره از دست داد چون
+					کنتراست‌ها orthogonal نبودند. پس این بخش را جدی بگیر.</p>
+				<p>برای 3 گروه، حداکثر 2 کنتراست orthogonal داریم. یک انتخاب ساده این است: C1 گروه 1 در برابر گروه 2، و
+					C2 میانگین گروه 1 و 2 در برابر گروه 3. این دو تا هم جمع ضرایبشان صفر است و هم ضرب داخلی‌شان صفر
+					می‌شود.</p>
+				<p>بعد از ساختن ضرایب، باید تفسیر کنی: هر کنتراست چه سوالی را می‌پرسد. و بعد با t-test (یا F تک درجه
+					آزادی) معنی‌داری را گزارش کنی.</p>
+			</div>
+
+			<h3>Two orthogonal contrasts for 3 groups (equal n)</h3>
+			<p>Let group means be <code>mu1, mu2, mu3</code>. A clean orthogonal pair is:</p>
+			<pre><code>C1: [  1, -1,  0 ]   # Group 1 vs Group 2
+C2: [  1,  1, -2 ]   # Average(Group 1,2) vs Group 3</code></pre>
+
+			<p>They are valid contrasts because coefficients sum to 0. They are orthogonal (equal n case) because:</p>
+			<pre><code>1*1 + (-1)*1 + 0*(-2) = 0</code></pre>
+
+			<h3>How to test a contrast (formula)</h3>
+			<pre><code>psi_hat = sum(c_j * ybar_j)
+SE(psi_hat) = sqrt( MSE * sum( c_j^2 / n_j ) )
+t = psi_hat / SE(psi_hat)</code></pre>
+
+			<h3>R quick code (recommended for exam prep)</h3>
+			<pre><code>fit <- aov(Rating ~ Website, data = df)
+emm <- emmeans::emmeans(fit, ~ Website)
+
+contrast(emm, list(
+  C1 = c( 1, -1,  0),
+  C2 = c( 1,  1, -2)
+))</code></pre>
+
+			<div class="warning-box">
+				<h4>Common mistake</h4>
+				<p>People write two contrasts that each sum to 0, but they forget to check orthogonality (dot product
+					= 0 for equal n). Both checks matter.</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="power">
+			<h2 id="power">Power + Sample Size for One-Way ANOVA (5% vs 1%)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: power و sample size هم مثل پارسال می‌آید</h4>
+				<p>تو امتحان پارسال ازت power در 5% و 1% خواست. نکته‌اش این است که وقتی alpha را سخت‌تر می‌کنی (مثلا
+					0.01)، power کم می‌شود. پس انتظار نداشته باشی power در 1% بالاتر باشد. برعکس است.</p>
+				<p>بعد هم سوال sample size برای power = 0.85 بود. اینجا دام بزرگ این است که جواب را رند نکرده یا روش را
+					ننوشته باشی. باید نشان بدهی با چه روشی n را پیدا کردی (مثلا با pwr.anova.test) و آخرش هم رو به بالا
+					گرد کنی.</p>
+				<p>یه نکته خیلی کلیدی که تو سوال پارسال لازم شد این بود که اول effect size (Cohen's f) را بسازی و بعد
+					power را حساب کنی. یک روش سریع (سبک همون امتحان) این است: <code>f = sqrt(((k-1)*F)/N)</code>.</p>
+			</div>
+
+			<h3>Core relationships</h3>
+			<ul>
+				<li>Bigger <code>N</code> or bigger effect size <code>f</code> makes power higher.</li>
+				<li>Smaller <code>alpha</code> (like 0.01) makes power lower.</li>
+				<li>More noise (bigger variance) makes power lower.</li>
+			</ul>
+
+			<h3>R code for power (matches the 2025 exam style)</h3>
+			<p>From the Social Media ANOVA example in Exam 2025: <code>F(2,27) = 3.409</code>, <code>k = 3</code>,
+				<code>n = 10</code> per group, so <code>N = 30</code>. A fast way to get Cohen's <code>f</code> is:
+			</p>
+			<pre><code>f = sqrt(((k-1)*F)/N)
+  = sqrt((2*3.409)/30)
+  = 0.477</code></pre>
+			<pre><code>library(pwr)
+
+k <- 3           # number of groups
+n <- 10          # n per group
+F_value <- 3.409 # from ANOVA output
+N <- k * n
+df1 <- k - 1
+f <- sqrt((df1 * F_value) / N)
+
+pwr.anova.test(k = k, n = n, f = f, sig.level = 0.05)$power
+pwr.anova.test(k = k, n = n, f = f, sig.level = 0.01)$power</code></pre>
+			<div class="success-box">
+				<p><strong>Power (EN):</strong> At 5% level, power is about <strong>0.591</strong>. At 1% level, power
+					is about <strong>0.327</strong>.</p>
+				<p class="fa-text"><strong>Power (FA):</strong> در سطح 5% حدود <strong>0.591</strong> و در سطح 1% حدود
+					<strong>0.327</strong> است.
+				</p>
+			</div>
+
+			<div class="info-box">
+				<h4>What to say in words</h4>
+				<p><strong>EN:</strong> Power is lower at 1% than at 5% because the decision threshold is stricter.</p>
+				<p class="fa-text"><strong>FA:</strong> وقتی alpha از 0.05 به 0.01 می‌رود، آستانه سخت‌تر می‌شود و power
+					کاهش پیدا می‌کند.</p>
+			</div>
+
+			<h3>R code for required sample size (power = 0.85)</h3>
+			<pre><code># Solve for n per group
+res <- pwr.anova.test(k = k, f = f, sig.level = 0.05, power = 0.85)
+res$n
+
+# Always round UP for required sample size
+ceiling(res$n)</code></pre>
+			<p><strong>Exam-style conclusion:</strong> <code>res$n</code> is about 17.04, so you report <strong>18
+					observations per treatment level</strong>.</p>
+
+			<div class="warning-box">
+				<h4>Exam points</h4>
+				<p>Write: "n per group = X, so I round up to Y participants per group." If you do not show rounding,
+					you can lose points.</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="walkthrough-q16">
+			<h2>Full Walkthrough: Social Media Websites (Exam 2025 Q16 Style)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: این مدل سوال چندبخشی را چطور جواب بدهی؟</h4>
+				<p>این سوال شبیه یک "mini project" است. چند قسمت دارد: ANOVA، بعد post-hoc، بعد contrasts، و بعد هم
+					power و sample size.
+					من اینجا قسمت‌های (a) تا (c) را قدم به قدم نوشتم. برای (d) و (e) که power و sample size هستند، برو
+					بخش Power بالا.</p>
+				<p>اینجا من همون سبک امتحان پارسال را قدم به قدم نوشتم. برای هر قسمت، اول یک جمله جواب آماده دادم که سر
+					جلسه
+					می‌تونی عین همین را بنویسی. بعدش هم کمی توضیح اضافه دادم که مفهومش تو ذهنت بماند.</p>
+			</div>
+
+			<p><strong>Setup (same as the graded example):</strong> 3 websites, ratings from 1 to 20, total
+				<code>N = 30</code> with <code>n = 10</code> per website. One-way ANOVA at alpha = 0.05.
+			</p>
+
+			<div class="info-box">
+				<h4>Key numbers used in the graded example</h4>
+				<p><strong>ANOVA:</strong> <code>F(2,27) = 3.409</code>, <code>p = 0.0479</code></p>
+				<p><strong>Tukey:</strong> WebS2 vs WebS1 had <code>p = 0.0416</code> (significant at 5%)</p>
+				<p><strong>Scheffe:</strong> WebS2 vs WebS1 had <code>p = 0.0528</code> (not significant at 5%)</p>
+				<p><strong>Two orthogonal contrasts:</strong> one was not significant (<code>p = 0.4002</code>), one was
+					significant
+					(<code>p = 0.0162</code>)</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q16a</span>
+				<p>At the 5% significance level, what conclusion do you report from <code>F(2,27) = 3.409</code>,
+					<code>p = 0.0479</code>?
+				</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Because <code>p = 0.0479 &lt; 0.05</code>, I reject <code>H0</code>. The
+						mean ratings are not all equal, so
+						at least one website has a different mean rating.</p>
+					<p class="fa-text"><strong>FA:</strong> چون <code>p = 0.0479</code> از <code>0.05</code> کمتر است،
+						<code>H0</code> رد می‌شود. یعنی میانگین‌ها
+						همگی برابر نیستند و حداقل یک سایت میانگین متفاوت دارد.
+					</p>
+				</div>
+				<p class="fa-text"><strong>نکته:</strong> تو جواب نوشتاری، حتما بنویس "at least one mean differs". ANOVA
+					به تنهایی نمی‌گوید کدام جفت‌ها.</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q16b</span>
+				<p>Tukey says WebS2 vs WebS1 is significant at 5% (<code>p = 0.0416</code>), but Scheffe says it is not
+					(<code>p = 0.0528</code>). How do you explain/report this?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> This is expected. Tukey is designed for all pairwise comparisons and is
+						usually more
+						powerful for that goal. Scheffe is more conservative, so it may not confirm a borderline pair. I
+						would
+						report the difference as weak evidence: supported by Tukey but not under the stricter Scheffe
+						control.</p>
+					<p class="fa-text"><strong>FA:</strong> این طبیعی است. Tukey برای مقایسه‌های جفتی طراحی شده و معمولا
+						توان بیشتری دارد.
+						Scheffe محافظه‌کارتر است، پس ممکن است یک تفاوت مرزی را تایید نکند. پس گزارش درست این است که
+						شواهد برای این جفت
+						ضعیف و مرزی است: Tukey معنی‌دار گفت، ولی Scheffe تایید نکرد.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">Q16c</span>
+				<p>Form two <em>orthogonal</em> contrasts for the 3 website means and interpret them.</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> One clean orthogonal set (equal <code>n</code>) is:</p>
+					<pre><code>C1: [  1, -1,  0 ]  (WebS1 vs WebS2)
+C2: [  1,  1, -2 ]  (Average(WebS1,WebS2) vs WebS3)</code></pre>
+					<p><strong>EN:</strong> In the graded example, C1 was not significant (<code>p = 0.4002</code>) but
+						C2 was significant
+						(<code>p = 0.0162</code>). So WebS1 and WebS2 look similar, and WebS3 differs from their
+						average.</p>
+					<p class="fa-text"><strong>FA:</strong> یک جفت کنتراست متعامد خوب (وقتی nها برابر است) این است:</p>
+					<pre><code>C1: [  1, -1,  0 ]  (WebS1 در برابر WebS2)
+C2: [  1,  1, -2 ]  (میانگین WebS1 و WebS2 در برابر WebS3)</code></pre>
+					<p class="fa-text"><strong>FA:</strong> تو مثال نمره‌دار، C1 معنی‌دار نبود (<code>p = 0.4002</code>)
+						ولی C2 معنی‌دار بود (<code>p = 0.0162</code>).
+						یعنی WebS1 و WebS2 شبیه هم هستند، ولی WebS3 با میانگین آن دو فرق دارد.</p>
+				</div>
+				<p><strong>Exam trap:</strong> For 3 groups, you can only have 2 orthogonal contrasts (max is
+					<code>p - 1</code>).
+				</p>
+			</div>
+
+			<div class="info-box">
+				<h4>Parts (d) and (e)</h4>
+				<p><strong>EN:</strong> The power and required sample size calculations for this same example are in the
+					<a href="#power">Power + Sample Size</a> section above.
+				</p>
+				<p class="fa-text"><strong>FA:</strong> محاسبه power و sample size برای همین مثال را در بخش
+					<a href="#power">Power + Sample Size</a> بالا گذاشتم. همانجا را نگاه کن.
+				</p>
+			</div>
+
+			<h3>R quick code (full workflow)</h3>
+			<pre><code># ANOVA
+fit <- aov(Rating ~ Website, data = Ratings_long)
+summary(fit)
+
+# Tukey
+TukeyHSD(fit)
+
+# Scheffe (one common approach in R)
+# DescTools::PostHocTest(fit, method = "scheffe")
+
+# Orthogonal contrasts (use emmeans)
+# emm <- emmeans::emmeans(fit, ~ Website)
+# emmeans::contrast(emm, list(
+#   C1 = c( 1, -1,  0),
+#   C2 = c( 1,  1, -2)
+# ))
+
+# Power + sample size: see the Power section above</code></pre>
+		</div>
+
+		<div class="paper-card" id="mediation-traps">
+			<h2>Mediation Trap Notes (Small but High-Value)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: یک نکته کوچیک mediation که تو True/False آمد</h4>
+				<p>تو True/False پارسال یک سوال mediation داشت. پس حتما حداقل این را بلد باش: ممکن است indirect مثبت و
+					معنی دار باشد، و direct منفی و معنی دار. این حالت اسمش inconsistent mediation یا competitive
+					mediation است.</p>
+				<p>این حالت می‌تواند یعنی مکانیزم‌های مختلف همزمان کار می‌کنند یا یک mediator دیگر جا افتاده. پس در
+					تفسیر خوب، با احتیاط می‌نویسی که احتمال omitted mediator وجود دارد.</p>
+			</div>
+
+			<p>If you see: indirect significant and positive, direct significant and negative, write a clean exam
+				sentence:</p>
+			<div class="success-box">
+				<p><strong>EN:</strong> "The model shows competitive mediation: the indirect path is positive while the
+					direct path is negative, suggesting multiple mechanisms or a possible omitted mediator."</p>
+				<p class="fa-text"><strong>FA:</strong> "اینجا competitive mediation داریم: اثر غیرمستقیم مثبت است ولی
+					اثر
+					مستقیم منفی. این می‌تواند نشان دهد مکانیزم‌های دیگر هم هست یا یک mediator جا افتاده."</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="serial-mediation">
+			<h2>Serial Mediation (Model 6 Style) Quick Guide</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: سریال مدیاسیون را ساده و امتحانی یاد بگیر</h4>
+				<p>اگر تو امتحان ازت مدل سریال بخواهد، معمولا دنبال این است که بفهمی "چند تا مسیر غیرمستقیم داریم" و هر
+					کدام چه معنایی دارد. مهم‌ترین دام هم این است که فکر کنی اگر total effect معنی‌دار نبود پس mediation
+					نیست. این غلط است.</p>
+				<p>تو مدل سریال (مثل Hayes Model 6)، X می‌تواند هم از طریق M1 به Y برسد، هم از طریق M2، هم از طریق
+					زنجیره M1 بعد M2. پس باید CI هر کدام را جدا چک کنی.</p>
+			</div>
+
+			<p>Serial mediation means the mediators have an order: <code>X -> M1 -> M2 -> Y</code>. In Hayes language,
+				this is Model 6.</p>
+
+			<h3>The 3 indirect paths (what you report)</h3>
+			<pre><code>Path a1: X -> M1
+Path a2: X -> M2
+Path d21: M1 -> M2
+Path b1: M1 -> Y (controlling X and M2)
+Path b2: M2 -> Y (controlling X and M1)
+
+Indirect via M1 only:      ind_m1     = a1 * b1
+Indirect via M2 only:      ind_m2     = a2 * b2
+Serial (chain) indirect:   ind_serial = a1 * d21 * b2
+
+Total indirect = ind_m1 + ind_m2 + ind_serial
+Total effect c = direct c' + total indirect</code></pre>
+
+			<div class="info-box">
+				<h4>How to decide significance (exam style)</h4>
+				<p><strong>EN:</strong> Use bootstrap CI for each indirect path. If the CI does not include 0, that
+					indirect path is significant.</p>
+				<p class="fa-text"><strong>FA:</strong> برای هر مسیر غیرمستقیم جداگانه CI بوت‌استرپ را نگاه کن. اگر صفر
+					داخل CI نباشد، آن مسیر معنی‌دار است.</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC-SM1</span>
+				<p>In serial mediation, how many specific indirect effects do you usually report?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Three: <code>ind_m1</code>, <code>ind_m2</code>, and
+						<code>ind_serial</code>.
+					</p>
+					<p class="fa-text"><strong>FA:</strong> سه تا: مسیر از طریق M1، مسیر از طریق M2، و مسیر زنجیره‌ای
+						(M1 بعد M2).</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC-SM2</span>
+				<p>If the serial indirect effect is negative and significant, what does that mean in plain language?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> The chain <code>X -> M1 -> M2 -> Y</code> carries a real effect that
+						decreases <code>Y</code> overall. It often happens when one link in the chain is negative (for
+						example <code>b2</code> is negative).</p>
+					<p class="fa-text"><strong>FA:</strong> یعنی زنجیره <code>X -> M1 -> M2 -> Y</code> یک اثر واقعی
+						دارد که در مجموع <code>Y</code> را کم می‌کند. معمولا وقتی یکی از لینک‌ها منفی باشد (مثلا
+						<code>b2</code>) این اتفاق می‌افتد.
+					</p>
+				</div>
+			</div>
+
+			<h3>One good exam sentence (template)</h3>
+			<div class="success-box">
+				<p><strong>EN:</strong> "The indirect effect through M1 is significant (bootstrap CI excludes 0), and
+					the serial indirect effect is [positive/negative]. This suggests X influences Y partly through the
+					ordered mechanism M1 then M2."</p>
+				<p class="fa-text"><strong>FA:</strong> "اثر غیرمستقیم از طریق M1 معنی‌دار است (CI صفر را شامل نمی‌شود)
+					و اثر زنجیره‌ای [مثبت/منفی] است. یعنی X بخشی از اثرش را از طریق مکانیزم مرتب M1 بعد M2 به Y منتقل
+					می‌کند."</p>
+			</div>
+
+			<h3>Minimal code references (if needed)</h3>
+			<pre><code># SAS PROCESS (Hayes Model 6)
+proc process data=D model=6 y=Y x=X m1=M1 m2=M2 boot=5000 conf=99;
+run;</code></pre>
+			<pre><code># R (one option) - lavaan
+# You usually report the 3 indirect paths with bootstrap CI.</code></pre>
+		</div>
+
+		<div class="paper-card" id="project1-numbers">
+			<h2>Project 1 Key Numbers (Fast Reference)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: اعداد کلیدی پروژه 1 که سریع به درد امتحان می‌خورند</h4>
+				<p>این بخش مثل یه "cheat sheet" است، ولی برای یادگیری. یعنی لازم نیست همه را حفظ کنی. فقط می‌خواهم اگر
+					سر امتحان گفت "مثل پروژه" یا یک سناریو شبیه پروژه داد، ذهنت سریع قفل نکند.</p>
+				<p>من اینجا فقط اعدادی را گذاشتم که زیاد تو بحث‌ها می‌آید: الگوهای mediation (competitive/full)، عددهای
+					Levene و ANOVA برای hold time، و قانون stop برای sequential contrasts.</p>
+			</div>
+
+			<p>These are the key numbers from Project 1 that show up in the drills and are easy to reuse in exam-style
+				writing.</p>
+
+			<h3>Problem 1 (Entrepreneurial Success, alpha = 0.01)</h3>
+			<pre><code>Model 1a (M = Entrep_Self_Eff):
+indirect = 0.2249, 99% CI [0.151, 0.313]  -> sig
+direct c' = -0.1867 (sig), total c = 0.0382 (p = 0.403)  -> competitive mediation
+ratio indirect/total = 5.895 (not an error)
+
+Model 1b (M = Religiosity):
+indirect = 0.1270, 99% CI [0.047, 0.214]  -> sig
+direct c' = -0.0889 (p = 0.094) -> n.s., total c = 0.0382 (p = 0.403) -> full mediation pattern
+
+Model 2 (serial):
+ind_m1 = 0.3336 (positive)  -> sig
+ind_m2 = -0.1143 (negative) -> sig
+ind_serial = -0.1087        -> sig
+direct c' = -0.0724         -> n.s.</code></pre>
+
+			<div class="info-box">
+				<p><strong>EN:</strong> The big takeaway: a non-significant total effect does not kill mediation.
+					Competitive mediation is the classic reason.</p>
+				<p class="fa-text"><strong>FA:</strong> نکته مهم: total effect اگر غیرمعنی‌دار باشد، دلیل نمی‌شود
+					mediation نیست. competitive mediation یکی از علت‌های مهمش است.</p>
+			</div>
+
+			<h3>Problem 2 (Call Center Hold Times, alpha = 0.05)</h3>
+			<pre><code>Levene (HOV): F(3,377) = 2.16, p = 0.092  -> NOT sig (variances OK)
+ANOVA:        F(3,377) = 8.39, p = 2.06e-5 -> sig (means differ)
+Welch:        p = 4.02e-6 -> also sig
+Residual skewness = 1.41 -> motivates Gamma + DSCF</code></pre>
+
+			<h3>Problem 3 (Green Shipping, alpha = 0.05)</h3>
+			<p><strong>Mapping trap:</strong> the prompt uses X3, X4, X6, X8, X10 but the file columns are Donate1,
+				Donate2, Donate4, Donate6, Donate8.</p>
+			<pre><code>Sequential decision (stop rule):
+C1 sig, C2 sig, C3 n.s. -> STOP -> choose X6 ($6)
+(C4 is "not reached" under the rule)</code></pre>
+
+			<div class="success-box">
+				<p><strong>EN:</strong> Memory line: stop at the first non-significant contrast. Do not keep testing
+					just because C4 exists.</p>
+				<p class="fa-text"><strong>FA:</strong> جمله حفظی: همون جایی که اولین non-significant شد، متوقف شو. صرفا
+					چون C4 هست، ادامه نده.</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="exam-drills">
+			<h2>Exam Drills (12 High-Value Q&amp;A, Based on Real Exam Traps)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: تمرین‌های مهم (بدون نگاه کردن به جواب)</h4>
+				<p>این 12 تا تمرین را من برای این گذاشتم که مثل امتحان، سریع تصمیم بگیری و درست جمله‌بندی کنی. لطفا اول
+					سوال را بخوان و خودت 2 تا 4 جمله جواب بنویس. بعد جواب اینجا را چک کن.</p>
+				<p>اگر جایی گیر کردی، فقط همون یک جمله را بنویس که "اشتباه من چی بود". این کار ساده، واقعا باعث می‌شود
+					دفعه بعد همون دام را تکرار نکنی.</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC1</span>
+				<p><strong>Question:</strong> The indirect effect is 0.22, 99% CI [0.15, 0.31]. The total effect is
+					0.04,
+					<code>p = .40</code>. Is mediation present? What type?
+				</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Yes, mediation is present because the indirect effect is significant (the CI
+						does
+						not include 0). A non-significant total effect does not kill mediation. This pattern is often
+						competitive mediation (direct and indirect have opposite signs), so an indirect/total ratio
+						above 1 can
+						happen.</p>
+					<p class="fa-text"><strong>FA:</strong> بله، mediation داریم چون CI اثر غیرمستقیم صفر را شامل
+						نمی‌شود. غیرمعنی‌دار بودن total
+						effect به معنای نبود mediation نیست. این حالت معمولا competitive mediation است (اثر مستقیم و
+						غیرمستقیم علامت مخالف دارند)،
+						پس نسبت indirect/total می‌تواند بالاتر از 1 باشد.</p>
+				</div>
+				<p class="fa-text"><strong>یک جمله نمره‌دار:</strong> "Indirect معنی‌دار است، پس mediation وجود دارد.
+					Total غیرمعنی‌دار می‌تواند به خاطر
+					cancel شدن direct و indirect باشد (competitive mediation)."</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC2</span>
+				<p><strong>Question:</strong> Interaction term <code>X × W</code>: <code>p = .03</code>. Alpha is
+					<code>.01</code>. Can you claim moderation?
+				</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> No. At alpha = 0.01, <code>p = .03</code> is not significant, so moderation
+						is not supported.</p>
+					<p class="fa-text"><strong>FA:</strong> نه. چون alpha = 0.01 است و <code>p = 0.03</code> بزرگ‌تر
+						است، interaction معنی‌دار نیست، پس moderation تایید نمی‌شود.</p>
+				</div>
+				<div class="info-box">
+					<p><strong>Exam sentence (EN):</strong> "The interaction was not significant at the 1% level (p =
+						.03), so moderation is not supported."</p>
+					<p class="fa-text"><strong>جمله امتحانی (FA):</strong> "اثر تعاملی در سطح 1% معنی‌دار نبود، پس شواهد
+						برای moderation نداریم."</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC3</span>
+				<p><strong>Question:</strong> Hold-time residuals are right-skewed (skewness = 1.41). Why does this
+					matter?
+					What do you do?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Right-skewed residuals are a normality concern for standard GLM ANOVA.
+						Levene can still pass
+						because Levene is about variance equality, not normality. So GLM is not "blocked", but skewness
+						is a reason to also
+						fit a Gamma model with log link (GENMOD style) and run a nonparametric method (DSCF). Then I
+						compare conclusions and
+						report stable vs method-sensitive pairs.</p>
+					<p class="fa-text"><strong>FA:</strong> کجی راست یعنی از نظر نرمال بودن residualها برای GLM مشکل
+						داریم. ولی Levene ممکن است
+						پاس شود چون Levene برای برابری واریانس‌هاست، نه نرمال بودن. پس GLM قابل اجرا هست، اما skewness
+						باعث می‌شود Gamma با log link
+						(مثل GENMOD) و nonparametric (DSCF) را هم اجرا کنم. بعد نتیجه‌ها را مقایسه می‌کنم و جفت‌های
+						stable و method-sensitive را جدا
+						گزارش می‌کنم.</p>
+				</div>
+				<p class="fa-text"><strong>نکته:</strong> اینجا هدف این نیست که بگویی "ANOVA غلط است". هدف این است که
+					بگویی "برای robustness، مدل‌های مناسب skew هم اجرا می‌کنم".</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC4</span>
+				<p><strong>Question:</strong> What is the difference between Tukey and Bonferroni?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Tukey is built for all pairwise comparisons after ANOVA (studentized range)
+						and is
+						usually more powerful for that goal. Bonferroni is a general correction (alpha/m) and gets
+						conservative
+						fast as the number of tests grows. Use Tukey for all pairs. Use Bonferroni (or Holm) for a small
+						number
+						of planned tests.</p>
+					<p class="fa-text"><strong>FA:</strong> Tukey مخصوص مقایسه‌های جفتی بعد از ANOVA است و معمولا برای
+						همین هدف توان بیشتری دارد.
+						Bonferroni یک قانون کلی است (alpha تقسیم بر تعداد تست‌ها) و وقتی تست زیاد شود خیلی محافظه‌کار
+						می‌شود.
+						برای همه جفت‌ها Tukey بهتر است، برای چند فرضیه مشخص Bonferroni یا Holm.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC5</span>
+				<p><strong>Question:</strong> Problem 3 style: in a sequential planned-contrast rule (X3, X4, X6, X8,
+					X10), C1 and C2 are
+					significant but C3 is not. Which option does the retailer choose?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Choose X6 ($6). The sequential rule requires stopping at the *first*
+						non-significant contrast. Since C3 is not significant, the sequence stops immediately. C4 is
+						never tested. We conclude X6 is the lowest amount not significantly worse than higher amounts.
+					</p>
+					<p class="fa-text"><strong>FA:</strong> باید همان جایی که اولین بار non-significant می‌شود توقف کنی
+						و همان گزینه را انتخاب کنی.
+						چون از آن به بعد، تفاوت عملی/آماری با گزینه‌های بالاتر ثابت نشده و هزینه کمتر است.</p>
+				</div>
+				<p class="fa-text"><strong>یادآوری:</strong> این همون منطق "stop at the first non-significant contrast"
+					است.</p>
+				<div class="info-box">
+					<p><strong>EN:</strong> Important detail: once C3 is not significant, you stop. That means C4 is not
+						tested and it does not
+						affect the decision. If someone asks, C4 is the next contrast (like X8 vs X10), but you never
+						reach it under the rule.</p>
+					<p class="fa-text"><strong>FA:</strong> نکته مهم: وقتی C3 غیرمعنی‌دار شد، دیگه متوقف می‌شوی. یعنی C4
+						اصلا تست نمی‌شود و برای تصمیم
+						انتخاب گزینه، دیگه نقشی ندارد. اگر سوال بپرسد، C4 کنتراست بعدی است (مثل X8 در برابر X10)، ولی
+						طبق قانون ترتیبی به آن نمی‌رسیم.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC6</span>
+				<p><strong>Question:</strong> Why is a serial mediation model (like Model 2) preferred over running two
+					single
+					mediator models separately?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Model 2 tests all indirect paths together, accounts for relationships
+						between mediators,
+						and allows formal contrast tests between indirect effects. Separate models can be biased because
+						each
+						ignores the other mediator.</p>
+					<p class="fa-text"><strong>FA:</strong> مدل سریال همه مسیرها را همزمان تست می‌کند، ارتباط بین
+						mediatorها را کنترل می‌کند و
+						امکان contrast بین مسیرهای غیرمستقیم را می‌دهد. مدل‌های جدا جدا می‌توانند bias داشته باشند چون
+						هر کدام یکی
+						از mediatorها را حذف می‌کند.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC7</span>
+				<p><strong>Question:</strong> Levene's test: <code>F(3,377) = 2.16</code>, <code>p = .092</code>. What
+					does this mean?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Not significant at 5%. We fail to reject equal variances, so the homogeneity
+						assumption
+						looks OK and standard ANOVA is fine (no need for Welch based on this test).</p>
+					<p class="fa-text"><strong>FA:</strong> در سطح 5% معنی‌دار نیست. پس فرض برابری واریانس‌ها رد نمی‌شود
+						و ANOVA استاندارد قابل دفاع است
+						(بر اساس این تست، نیازی به Welch نیست).</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC8</span>
+				<p><strong>Question:</strong> Define full mediation, partial mediation, and competitive mediation.</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Full: indirect significant, direct (c') not significant. Partial: both
+						indirect and direct
+						significant (same sign). Competitive: indirect and direct significant with opposite signs, so
+						total can be
+						near zero.</p>
+					<p class="fa-text"><strong>FA:</strong> Full: اثر غیرمستقیم معنی‌دار، اثر مستقیم غیرمعنی‌دار.
+						Partial: هر دو معنی‌دار (هم‌علامت).
+						Competitive: اثر مستقیم و غیرمستقیم معنی‌دار ولی با علامت مخالف، پس total ممکن است نزدیک صفر
+						شود.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC9</span>
+				<p><strong>Question:</strong> Are orthogonal contrasts independent? Give a two-layer answer.</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> In coefficient space (math), yes: dot products are 0 so they partition
+						variance without overlap.
+						In data space, not always: if responses are correlated (like within-subject designs), test
+						statistics can co-move.</p>
+					<p class="fa-text"><strong>FA:</strong> از نظر ضرایب (ریاضی)، بله: ضرب داخلی صفر است و همپوشانی
+						ندارند. از نظر داده‌ها، همیشه نه:
+						اگر پاسخ‌ها همبسته باشند (مثلا within-subject)، آماره‌ها می‌توانند با هم حرکت کنند.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC10</span>
+				<p><strong>Question:</strong> Three pairs show full agreement across methods, three pairs are
+					method-sensitive. How do you report this?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Report the stable pairs as strong conclusions (robust to assumptions). For
+						the method-sensitive pairs,
+						report them as cautionary and explain the disagreement (skew, different assumptions, different
+						sensitivity).</p>
+					<p class="fa-text"><strong>FA:</strong> جفت‌های stable را با اطمینان گزارش کن چون در همه روش‌ها یکی
+						هستند. جفت‌های method-sensitive را
+						با احتیاط گزارش کن و بگو چرا ممکن است اختلاف باشد (skew، فرض‌های مختلف، حساسیت متفاوت).</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC11</span>
+				<p><strong>Question:</strong> Why is omega-squared (<code>omega^2</code>) preferred over eta-squared
+					(<code>eta^2</code>)?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> <code>eta^2</code> is biased upward in small samples and does not penalize
+						for the number of groups. <code>omega^2</code>
+						adjusts using <code>MSE</code>, so it is usually a less biased estimate of the population effect
+						size.</p>
+					<p class="fa-text"><strong>FA:</strong> <code>eta^2</code> در نمونه‌های کوچک معمولا خوش‌بینانه است و
+						بابت تعداد گروه‌ها جریمه ندارد.
+						<code>omega^2</code> با <code>MSE</code> اصلاح می‌کند، پس معمولا bias کمتر دارد.
+					</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC12</span>
+				<p><strong>Question:</strong> When should you use FDR instead of Bonferroni or Holm?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Use FDR when you have many tests and the goal is discovery (you can tolerate
+						a small proportion of false positives).
+						Use Bonferroni/Holm when you want strict familywise Type I control (confirmatory settings).</p>
+					<p class="fa-text"><strong>FA:</strong> وقتی تعداد تست زیاد است و هدف کشف است، FDR بهتر است چون توان
+						بیشتری می‌دهد و فقط نسبت خطا را کنترل می‌کند.
+						وقتی می‌خواهی خیلی سخت‌گیر باشی و FWER کنترل شود، Bonferroni یا Holm مناسب‌تر است.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="paper-card" id="mini-practice">
+			<h2>Mini Practice Set (Mixed Style, Like the Exam)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: یک بسته تمرین جمع و جور شبیه امتحان</h4>
+				<p>این تمرین‌ها را بدون نگاه کردن به جواب حل کن. هدف این است که هم سرعتت بالا برود هم جمله‌بندی‌ات. اگر
+					فقط تو ذهن جواب بدهی، سر جلسه ممکن است گیر کنی چون باید بنویسی.</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC13</span>
+				<p>In dummy coding with 3 groups, what does <code>beta0</code> represent?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> The mean of the reference group.</p>
+					<p class="fa-text"><strong>FA:</strong> میانگین گروه مرجع.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC14</span>
+				<p>Write the null hypothesis for equal means in the dummy regression model with 2 dummies.</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> <code>H0: beta1 = 0 AND beta2 = 0</code>.</p>
+					<p class="fa-text"><strong>FA:</strong> H0: هر دو beta (اختلاف‌ها نسبت به مرجع) صفر هستند.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC15</span>
+				<p>In unequal variance + unequal n, which pattern makes the ANOVA test more liberal?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Smaller n from higher-variance groups.</p>
+					<p class="fa-text"><strong>FA:</strong> وقتی گروه با واریانس بالاتر n کوچک‌تر داشته باشد.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC16</span>
+				<p>Give one reason why Scheffe may not find a difference that Tukey finds.</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Scheffe is more conservative because it protects against a broader set of
+						possible contrasts, so it has less power for pairwise-only goals.</p>
+					<p class="fa-text"><strong>FA:</strong> Scheffe محافظه‌کارتر است چون برای هر نوع کنتراست حفاظت
+						می‌کند، پس توانش برای pairwise کمتر می‌شود.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC17</span>
+				<p>For 3 groups, can you have 3 orthogonal contrasts?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> No. Max orthogonal contrasts is <code>p - 1</code>, so max is 2.</p>
+					<p class="fa-text"><strong>FA:</strong> نه. حداکثر تعداد کنتراست‌های متعامد p-1 است، اینجا 2 تا.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">SC18</span>
+				<p>What happens to power when alpha goes from 0.05 to 0.01 (all else equal)?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> Power decreases because the test becomes stricter.</p>
+					<p class="fa-text"><strong>FA:</strong> power کم می‌شود چون معیار سخت‌تر می‌شود.</p>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="paper-card" id="project-1-numbers">
+			<h2>Project 1 Key Numbers (Quick Reference)</h2>
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: اعداد مهم پروژه ۱</h4>
+				<p>اگر تو امتحان دقیقا از داده‌های پروژه ۱ (Hold Times یا Green Shipping) سوال آمد، این عددها رو داشته
+					باش:</p>
+			</div>
+			<ul>
+				<li><strong>Mediation (Cultural Values & Entrep_Self_Eff):</strong> Total effect is near 0 (p = .403)
+					but indirect is strong (0.2249, CI: [0.15, 0.31]) and direct is negative (-0.1867). This is
+					<em>competitive mediation</em>.
+				</li>
+				<li><strong>Moderation:</strong> Both interactions (Entrep_Self_Eff and Religiosity) were <em>not
+						significant</em> (p = .892 and p = .946).</li>
+				<li><strong>Hold Times ANOVA (P2):</strong> Levene passed (p = .092), GLM F(3,377)=8.39 (p=2.06e-05),
+					Welch F=9.89. NorthHub is significantly longest.</li>
+				<li><strong>Hold Times Post-Hoc:</strong> GLM Tukey exact diff for PrairieSupport vs MetroAssist is
+					+0.719 (p = .074, not sig). DSCF finds it significant (p = .002).</li>
+				<li><strong>Green Shipping Contrasts (P3):</strong> C1 (t=-5.76) and C2 (t=-4.47) are significant. C3
+					(t=-1.979, raw p=.0625) is NOT significant under any correction (Holm, FDR, Bonferroni). Decision:
+					X6 ($6).</li>
+			</ul>
+		</div>
+
+		<div class="paper-card" id="common-mistakes">
+			<h2>Common Number Mistakes</h2>
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: خطاهای عدددهی شایع</h4>
+				<p>اینها مواردی هستند که دانشجوها معمولا در محاسبات یا نوشتن گزارش اشتباه می‌کنند:</p>
+			</div>
+			<ul>
+				<li>If <code>omega^2</code> computes to a negative number, always report it as <strong>0</strong>
+					(truncate at zero). Never report negative effect size metrics.</li>
+				<li>For Tukey critical difference, make sure to use <code>p</code> (number of groups) to look up the
+					<code>q</code> value, not <code>df_error</code>.
+				</li>
+				<li>In mediation, the indirect-to-total ratio can be greater than 1. This is mathematically correct in
+					competitive mediation. Don't assume it's an error.</li>
+			</ul>
+		</div>
+
+
+		<div class="paper-card" id="extra-tf">
+			<h2>Extra True/False Traps (From Other Exam Years)</h2>
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: سوال‌های True/False از سال‌های دیگر</h4>
+				<p>اینها سوال‌هایی است که تو سال‌های دیگر آمده و تو بخش اصلی نبود. بعضی‌ها خیلی ریز و دام‌دار هستند.</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ1</span>
+				<p><strong>Statement:</strong> A highly significant p-value (e.g., <code>p = .001</code>) is associated
+					with a large effect size.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False.</p>
+					<p><strong>Why (EN):</strong> P-value depends on sample size. A tiny effect with large n can give
+						very small p. You need effect size measures separately.</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> p-value به حجم نمونه بستگی دارد. اثر کوچک با n بزرگ
+						می‌تواند p خیلی کوچک بدهد.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ2</span>
+				<p><strong>Statement:</strong> For a given set of effects, the noncentrality parameter increases if
+					error variance increases.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False.</p>
+					<p><strong>Why (EN):</strong> <code>lambda = n * sum(alpha_j^2) / sigma^2</code>. If sigma^2 goes
+						up, lambda goes down.</p>
+					<p class="fa-text"><strong>چرا (FA):</strong> اگر واریانس خطا زیاد شود، lambda کم می‌شود.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ3</span>
+				<p><strong>Statement:</strong> If H0 is exactly true, the noncentrality parameter is exactly zero.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True. All alpha_j = 0, so lambda = 0.</p>
+					<p class="fa-text"><strong>FA:</strong> اگر H0 درست باشد، lambda = 0.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ4</span>
+				<p><strong>Statement:</strong> If F = 1.0, you always fail to reject at 5% regardless of sample size.
+				</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True. The critical F at 5% is always &gt; 1 for any df combination.</p>
+					<p class="fa-text"><strong>FA:</strong> مقدار بحرانی F در 5% همیشه بزرگ‌تر از 1 است.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ5</span>
+				<p><strong>Statement:</strong> Omega squared changes if significance level goes from .05 to .01.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False. Omega^2 is computed from SS and df, not alpha.</p>
+					<p class="fa-text"><strong>FA:</strong> omega squared از SS و df حساب می‌شود، نه alpha.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ6</span>
+				<p><strong>Statement:</strong> Contrasts <code>[8, -2, -2, -2, -2]</code> and
+					<code>[-.8944, .2236, .2236, .2236, .2236]</code> give same p-values.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True. Second set is first scaled by a constant. Scaling does not change
+						t or p.</p>
+					<p class="fa-text"><strong>FA:</strong> ضرب کنتراست در عدد ثابت، t و p را عوض نمی‌کند.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ7</span>
+				<p><strong>Statement:</strong> Bootstrap CI bounds for indirect effect are symmetric about the estimate.
+				</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False. Bootstrap CIs can be asymmetric. Indirect effect distribution is
+						often skewed.</p>
+					<p class="fa-text"><strong>FA:</strong> CI بوت‌استرپ نرمال فرض نمی‌کند و می‌تواند نامتقارن باشد.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ8</span>
+				<p><strong>Statement:</strong> In one-way ANOVA, partial eta squared equals R-squared.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True. With one factor, partial eta^2 = SS_treat / (SS_treat + SS_error)
+						= R^2.</p>
+					<p class="fa-text"><strong>FA:</strong> وقتی فقط یک عامل داریم، partial eta squared و R^2 یکی هستند.
+					</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ9</span>
+				<p><strong>Statement:</strong> For both a priori and post hoc contrasts, FWER needs to be controlled.
+				</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> False. A priori (planned) contrasts can use uncorrected alpha if few.
+						Post hoc needs FWER control.</p>
+					<p class="fa-text"><strong>FA:</strong> a priori اگر کم و از قبل تعیین شده باشند لزوما اصلاح
+						نمی‌خواهند.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ10</span>
+				<p><strong>Statement:</strong> F sig at 5%. Using <strong>Tukey</strong> at 5%, at least one pair is
+					significant.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True (with Tukey). Different from Q4 in main section (Bonferroni =
+						False)! Tukey guarantees it.</p>
+					<p class="fa-text"><strong>FA:</strong> با Q4 بالا (Bonferroni) فرق دارد! Tukey تضمین می‌کند. اسم
+						تست را دقیق بخون.</p>
+				</div>
+			</div>
+
+			<div class="warning-box">
+				<h4>Tukey vs Bonferroni: exam trap</h4>
+				<p><strong>EN:</strong> "F sig + Tukey" = at least one pair sig (True). "F sig + Bonferroni" = not
+					guaranteed (False).</p>
+				<p class="fa-text"><strong>FA:</strong> "F معنی‌دار + Tukey" = True. "F معنی‌دار + Bonferroni" = False.
+				</p>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ11</span>
+				<p><strong>Statement:</strong> If omega^2 = 0, the F statistic must equal 1.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True. If no effect, E[MST] = E[MSE] so E[F] = 1.</p>
+					<p class="fa-text"><strong>FA:</strong> اگر اثری نباشد، E[F] = 1.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ12</span>
+				<p><strong>Statement:</strong> Tukey, Bonferroni, and Scheffe all control FWER.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True. All three control FWER Type I, just with different methods.</p>
+					<p class="fa-text"><strong>FA:</strong> هر سه خطای خانواده‌ای نوع اول را کنترل می‌کنند.</p>
+				</div>
+			</div>
+
+			<div class="analysis-section">
+				<span class="analysis-label">EQ13</span>
+				<p><strong>Statement:</strong> Power is higher at alpha = 0.10 than at alpha = 0.05.</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True. Higher alpha = easier to reject = higher power.</p>
+					<p class="fa-text"><strong>FA:</strong> alpha بالاتر = power بیشتر.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="paper-card" id="fwer-formula">
+			<h2>Family-Wise Error Rate Formula (No Adjustment)</h2>
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: محاسبه FWER بدون اصلاح</h4>
+				<p>اگر t-test های جفتی بدون هیچ اصلاحی انجام شود، FWER چقدر می‌شود؟</p>
+			</div>
+			<h3>The formula</h3>
+			<pre><code>m = p*(p-1)/2    (number of pairwise comparisons)
+FWER = 1 - (1 - alpha)^m</code></pre>
+			<h3>Worked example (5 groups)</h3>
+			<pre><code>p = 5, alpha = 0.05, m = 10
+FWER = 1 - (0.95)^10 = 1 - 0.5987 = 0.4013</code></pre>
+			<div class="success-box">
+				<p><strong>EN:</strong> About 40% chance of false positive with no correction.</p>
+				<p class="fa-text"><strong>FA:</strong> حدود 40% احتمال false positive بدون اصلاح.</p>
+			</div>
+			<div class="analysis-section">
+				<span class="analysis-label">FW1</span>
+				<p>4 groups, alpha = 0.05. What is FWER with no adjustment?</p>
+				<div class="success-box">
+					<p><strong>EN:</strong> m = 6, FWER = 1 - (0.95)^6 = 0.265. About 26.5%.</p>
+					<p class="fa-text"><strong>FA:</strong> m = 6, FWER = 0.265. حدود 26.5%.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="paper-card" id="tukey-letters">
+			<h2>Reading Tukey Grouping Letters (SAS Output)</h2>
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: خواندن حروف Tukey از خروجی SAS</h4>
+				<p>حرف مشترک = فرق ندارند. هیچ حرف مشترکی = فرق دارند.</p>
+			</div>
+			<h3>The rule</h3>
+			<ul>
+				<li>Shared letter = NOT significantly different</li>
+				<li>No shared letters = significantly different</li>
+			</ul>
+			<h3>Example from past exam</h3>
+			<pre><code>Tukey Grouping    Mean     N    Level
+         A       9.700    10    2
+         A
+   B     A       9.200    10    4
+   B
+   C     B       8.100    10    5
+   C
+   C              6.600    10    3
+
+         D       6.200    10    1</code></pre>
+			<table>
+				<thead>
+					<tr>
+						<th>Level</th>
+						<th>Letters</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2</td>
+						<td>A</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>A, B</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>B, C</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>C</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>D</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>Pair decisions:</p>
+			<ul>
+				<li>2 vs 4: share "A" = NOT significant</li>
+				<li>2 vs 5: no shared = significant</li>
+				<li>2 vs 3: no shared = significant</li>
+				<li>2 vs 1: no shared = significant</li>
+				<li>4 vs 5: share "B" = NOT significant</li>
+				<li>4 vs 3: no shared = significant</li>
+				<li>4 vs 1: no shared = significant</li>
+				<li>5 vs 3: share "C" = NOT significant</li>
+				<li>5 vs 1: no shared = significant</li>
+				<li>3 vs 1: no shared = significant</li>
+			</ul>
+			<div class="warning-box">
+				<h4>Common mistake</h4>
+				<p><strong>EN:</strong> Check ALL pairs, not just adjacent rows.</p>
+				<p class="fa-text"><strong>FA:</strong> همه جفت‌ها را چک کن نه فقط ردیف‌های مجاور.</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="omega-from-anova-table">
+			<h2>Omega Squared from Full ANOVA Table</h2>
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: omega squared از جدول کامل ANOVA</h4>
+				<p>تو امتحان ستاره با F = 236.35 و p=4 و n=16 این فرمول لازم شد.</p>
+			</div>
+			<h3>Original formula (with SS)</h3>
+			<pre><code>omega^2 = (SS_treat - df_treat * MSE) / (SS_total + MSE)</code></pre>
+			<h3>Shortcut (from F, p, n)</h3>
+			<pre><code>omega^2 = (p-1)(F-1) / ((p-1)(F-1) + n*p)   [n per group]
+omega^2 = (p-1)(F-1) / ((p-1)(F-1) + N)      [N total]</code></pre>
+			<div class="warning-box">
+				<h4>Watch the denominator</h4>
+				<p><strong>EN:</strong> Two versions: n*p (n per group) or N (total). Check the exam.</p>
+				<p class="fa-text"><strong>FA:</strong> دقت کن n هر گروه یا N کل؟</p>
+			</div>
+			<h3>Worked example (F = 236.35, p = 4, n = 16)</h3>
+			<pre><code>omega^2 = (3)(235.35) / ((3)(235.35) + 64)
+        = 706.05 / 770.05 = 0.917
+
+f = sqrt(0.917 / 0.083) = 3.32</code></pre>
+			<div class="info-box">
+				<p><strong>EN:</strong> omega^2 = 0.917 (92% variance explained). f = 3.32. Both extremely large.</p>
+				<p class="fa-text"><strong>FA:</strong> omega^2 = 0.917. f = 3.32. هر دو خیلی بزرگ.</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="mediation-types">
+			<h2>Mediation Types: Complete Classification</h2>
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: طبقه‌بندی کامل انواع mediation</h4>
+				<p>تو سال‌های مختلف سوال T/F درباره consistent و competitive mediation آمده.</p>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>Pattern</th>
+						<th>Indirect (a*b)</th>
+						<th>Direct (c')</th>
+						<th>Same sign?</th>
+						<th>Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Sig</td>
+						<td>Not sig</td>
+						<td>N/A</td>
+						<td>Indirect-only (full mediation)</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Sig</td>
+						<td>Sig</td>
+						<td>Yes</td>
+						<td>Complementary (partial)</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>Sig</td>
+						<td>Sig</td>
+						<td>No</td>
+						<td>Competitive (inconsistent)</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>Not sig</td>
+						<td>Sig</td>
+						<td>N/A</td>
+						<td>Direct-only (no mediation)</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>Not sig</td>
+						<td>Not sig</td>
+						<td>N/A</td>
+						<td>No effect</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="analysis-section">
+				<span class="analysis-label">MT1</span>
+				<p><strong>Statement:</strong> If a and b are both negative and c is positive, mediation is consistent.
+				</p>
+				<div class="success-box">
+					<p><strong>Answer:</strong> True. a*b = positive (neg*neg). c = positive. Same direction =
+						complementary/consistent.</p>
+					<p class="fa-text"><strong>FA:</strong> a*b مثبت. c مثبت. هم‌جهت = complementary/consistent.</p>
+				</div>
+			</div>
+			<div class="info-box">
+				<h4>Memory line</h4>
+				<p><strong>EN:</strong> Same sign of (a*b) and c' = complementary. Opposite signs = competitive.</p>
+				<p class="fa-text"><strong>FA:</strong> هم‌علامت = complementary. مخالف‌علامت = competitive.</p>
+			</div>
+		</div>
+
+		<div class="paper-card" id="final-checklist">
+			<h2>Final Checklist (Night Before Exam)</h2>
+
+			<div class="persian-section" lang="fa" dir="rtl">
+				<h4>توضیح فارسی: چک لیست شب قبل امتحان</h4>
+				<p>اگر بتوانی این موارد را بدون نگاه کردن به جزوه توضیح بدهی، احتمال اینکه سر جلسه هم خوب بنویسی خیلی
+					بالاست.</p>
+				<ul>
+					<li>می‌توانم ANOVA را به زبان dummy regression بنویسم و تفسیر betaها را بگویم.</li>
+					<li>می‌توانم بگویم در heteroscedasticity + unequal n، Type I error چه وقت بالا می‌رود و چه وقت
+						پایین.</li>
+					<li>می‌توانم omega^2 و Cohen's f را از روی F و N حساب کنم.</li>
+					<li>می‌توانم Tukey critical difference را قدم به قدم حساب کنم.</li>
+					<li>می‌توانم دو کنتراست orthogonal برای 3 گروه بسازم و تست کنم.</li>
+					<li>می‌توانم power و sample size را با منطق درست توضیح بدهم.</li>
+				</ul>
+			</div>
+
+			<p>If you can explain these without notes, you are in good shape.</p>
+			<ul>
+				<li>I can explain one-way ANOVA as dummy regression and write <code>H0</code> in beta language.</li>
+				<li>I can state the unequal variance + unequal n rule (liberal vs conservative).</li>
+				<li>I can compute <code>omega^2</code> and <code>f</code> from an <code>F</code> statement.</li>
+				<li>I can compute Tukey critical difference and use it correctly for pairs.</li>
+				<li>I can construct orthogonal contrasts for 3 groups and interpret them.</li>
+				<li>I can compute power and required sample size and I remember to round up.</li>
+			</ul>
+		</div>
+
+	</main>
+
+	<footer class="footer">
+		<p>BUSI 6480 Study Guide | Ali Safari | Spring 2026</p>
+	</footer>
+
+	<script src="/js/study-navbar.js"></script>
+    <script src="/js/toast.js"></script>
+	<script src="/js/course-loader.js"></script>
+	<script src="/js/sync.js"></script>
+	<script src="/js/highlights.js"></script>
+	<script src="/js/tts.js"></script>
+	<script src="/js/progress.js"></script>
+	<script src="/js/theme.js"></script>
+	<script src="/js/search.js"></script>
+	<script src="/js/flashcards.js"></script>
+	<script src="/js/timer.js"></script>
+
+</body>
+
+</html>

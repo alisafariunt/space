@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RPA Adoption: What Works and What Becomes Automated Chaos | Ali Safari</title><meta name="description" content="RPA bots are brittle. Automate a stable, high-volume, rules-based process and you have a useful tool. Automate a bad process and you have automated chaos."><meta name="keywords" content=IT Governance & Strategy, information systems, research"><meta property="og:title" content="RPA Adoption: What Works and What Becomes Automated Chaos"><meta property="og:description" content="RPA bots are brittle. Automate a stable, high-volume, rules-based process and you have a useful tool. Automate a bad process and you have automated chaos."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/rpa-adoption-what-works/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IT Governance & Strategy"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/rpa-adoption-what-works/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"RPA Adoption: What Works and What Becomes Automated Chaos","description":"RPA bots are brittle. Automate a stable, high-volume, rules-based process and you have a useful tool. Automate a bad process and you have automated chaos.","url":"https://alisafari.space/blog/rpa-adoption-what-works/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">RPA Adoption: What Works and What Becomes Automated Chaos</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="rpa-adoption-what-works" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IT Governance &amp; Strategy</span>
+<h1>RPA Adoption: What Works and What Becomes Automated Chaos</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>A few years ago I sat through a demo from one of the major RPA vendors where a bot filled out a web form, copied a row from a spreadsheet, pasted it into a second system, and clicked submit. It did this perfectly, in about twelve seconds, over and over. The audience applauded. The promise was obvious: anything a human does by clicking, copying, and pasting, a bot can do faster and without making typos. The demo was accurate. The demo was also not reality.</p>
+<p>Robotic process automation is genuinely useful for a specific class of work. The classic case is this: you have two legacy systems that cannot talk to each other, integrating them directly would cost more than the integration saves, and someone has to manually copy records from one to the other every day. That task is stable. The fields are the same every time. The sequence is always the same. The volume is high enough that it eats real human time. This is exactly what RPA was built for. The bot handles the mechanical middle part so the person who was doing it can do something else.</p>
+<p>The vendors that built this space, UiPath, Blue Prism, Automation Anywhere, are well established and have real enterprise customers. The technology works. The question has never really been whether the bots can execute. It is whether the conditions under which bots succeed are as common as the sales materials suggest.</p>
+<p>They are not, in my observation. The brittle bot problem is probably the most underappreciated risk in RPA deployments. A bot built to navigate a particular screen workflow breaks the moment that screen changes. If a vendor updates their web application and moves a button, the bot stops. If a data format changes slightly, the bot stops. If a process step gets added because of a regulatory change, the bot stops. Each of these events requires someone to go find the bot, understand what it was doing, figure out what changed, and rebuild the relevant section. That is maintenance work, and it is ongoing.</p>
+<p>The problem I keep running into in the literature and in industry reporting is that RPA implementations rarely account for this honestly in the original business case. The case is built on what the bot saves during steady-state operation. It does not usually account for the engineering time to build the bot, the monitoring infrastructure needed to know when the bot fails silently, the exception handling for records that do not fit the standard format, and the ongoing maintenance as the systems the bot touches keep changing. When organizations automate dozens or hundreds of processes, the aggregate maintenance cost of that estate can be significant, and by most accounts it often surprises organizations that did not plan for it.</p>
+<p>There is also a process-quality problem that I think is more serious than the brittleness problem, because at least brittleness is visible. When a bot breaks, someone notices. When an organization automates a bad process, the badness becomes faster, higher-volume, and harder to fix. I wrote about <a href="/blog/workarounds-shadow-it-requirements">how workarounds reveal system-task misfit</a>, and the same logic applies here. If the manual process being automated has inefficiencies, redundant steps, or embedded workarounds for some other system's limitations, the bot faithfully replicates all of it. You have now automated the inefficiency and made it permanent, because changing an automated process is harder than changing a manual one.</p>
+<p>This is where the framing of RPA as a "transformation initiative" causes problems. Transformation implies the process gets better, not just faster. But RPA does not redesign processes. It automates whatever exists. Organizations that approach RPA as a tactical efficiency tool for genuinely stable, well-defined, high-volume tasks tend to get real value. Organizations that approach it as a transformation strategy tend to build themselves a brittle estate of automated bad processes, then wonder why the promised transformation has not arrived.</p>
+<p>The governance challenge compounds over time. When a single team deploys a handful of bots for a specific purpose, ownership is clear. The same team built the bots, the same team monitors them, and when something breaks they know exactly what to fix. After three or four years of aggressive deployment across an organization, many companies find themselves with hundreds of bots, and for a significant portion of them, nobody can clearly answer who owns it, what it does, when it was last updated, or what happens if the system it touches gets upgraded next quarter. That is not a bot problem. It is a governance problem dressed in bot clothes.</p>
+<p>My read on RPA is that it occupies a specific and legitimate niche, but that niche is smaller than vendors would prefer. The meaningful question before any RPA project is not "can a bot do this?" Almost anything a human does by clicking a screen, a bot can technically replicate. The question is: is this process stable enough that we will not spend more maintaining the bot than we save by running it? Is it well-designed enough that automating it does not just lock in existing inefficiencies? And do we have the monitoring and ownership structure to manage this bot when it breaks at 11pm on a Tuesday?</p>
+<p>If those answers are yes, RPA is a reasonable tool. If the process is going to change in the next eighteen months because of a system upgrade, a regulatory shift, or a business model change, the economics look a lot worse. The honest version of an RPA business case includes the maintenance line. Most of them still do not.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/saas-subscription-economics-hidden-costs/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">SaaS Subscription Economics and the Total Cost Nobody Calculates</div></a><a href="/blog/routine-dynamics-process-change/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Routine Dynamics and Why Processes Keep Reverting to the Old Way</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agile-at-enterprise-scale/" class="blog-related-card"><h4>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

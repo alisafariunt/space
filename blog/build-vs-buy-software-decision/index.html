@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Build vs. Buy Decision: Why the Answer Is Almost Never Simple | Ali Safari</title><meta name="description" content="Buy commodity capabilities, build differentiating ones. The textbook answer is clean. The actual decision is entangled with vendor risk, integration complexity, and organizational honesty."><meta name="keywords" content=IT Governance & Strategy, information systems, research"><meta property="og:title" content="The Build vs. Buy Decision: Why the Answer Is Almost Never Simple"><meta property="og:description" content="Buy commodity capabilities, build differentiating ones. The textbook answer is clean. The actual decision is entangled with vendor risk, integration complexity, and organizational honesty."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/build-vs-buy-software-decision/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IT Governance & Strategy"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/build-vs-buy-software-decision/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Build vs. Buy Decision: Why the Answer Is Almost Never Simple","description":"Buy commodity capabilities, build differentiating ones. The textbook answer is clean. The actual decision is entangled with vendor risk, integration complexity, and organizational honesty.","url":"https://alisafari.space/blog/build-vs-buy-software-decision/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">The Build vs. Buy Decision: Why the Answer Is Almost Never Simple</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="build-vs-buy-software-decision" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IT Governance &amp; Strategy</span>
+<h1>The Build vs. Buy Decision: Why the Answer Is Almost Never Simple</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>"Should we build it or buy it?" is a question that gets asked constantly in IT strategy conversations and answered badly almost as often. The textbook answer is clean enough: buy capabilities that are not differentiating, build capabilities that are. If every company in your industry uses an accounts payable process that works roughly the same way, buy an AP module and configure it. If your company has a pricing algorithm that is genuinely the source of competitive advantage, build it and protect it. The principle is sound. The difficulty is in applying it honestly.</p>
+<p>The "buy" case is strongest when speed and proven functionality matter more than customization. Software vendors have invested years and large engineering teams in their products. A best-of-breed HR platform or a cloud-native CRM represents thousands of person-years of design decisions, edge case handling, and iterative improvement that an in-house team cannot replicate quickly or cheaply. Buying gets you to a working solution faster than building from scratch. You also get someone else's customer support, someone else's engineering team fixing bugs, and someone else's product roadmap adding features. That is a real value, particularly for organizations whose IT teams are already overextended.</p>
+<p>The "build" case gets strong when the capability is genuinely specific to your business model. If no vendor builds exactly what you need because your use case is unusual, buying the closest available option requires bending your process to fit the product. That distortion has a cost. Business processes that were designed around your specific operating model get reshaped to work within the constraints of a product built for someone else's operating model. Sometimes the distortion is minor. Sometimes it's significant enough that the organization ends up with a purchased product and a workaround infrastructure that is more complex than what they would have built from scratch.</p>
+<p>There is a hidden third option that the "build vs. buy" framing tends to obscure. Most enterprise software purchases are not really "buy" decisions in the way the textbook describes. They are "configure" decisions: you purchase a platform and then spend months or years of effort configuring it, extending it, integrating it with other systems, and training people on it. An ERP implementation that takes 18 months and three consulting partners is not "buying" a solution in the sense of making a fast, simple choice. It is buying a platform and then building a significant amount on top of it. The total cost is not the license fee. It is the license fee plus the implementation cost plus the ongoing customization and integration maintenance, which often exceeds the license cost over the product's lifetime.</p>
+<p>This is where honest accounting matters. Organizations that compare "build cost" against "license fee" are not doing the right comparison. The right comparison is total cost of ownership on both sides: the full development and maintenance cost of building versus the full implementation, customization, integration, and ongoing licensing cost of buying. When you do that comparison honestly, the buy option is often still cheaper, but the margin is smaller than it appears in the initial analysis. And for highly customized implementations, building sometimes wins.</p>
+<p>Vendor viability risk is the part of the buy decision that gets underweighted in initial analyses. When you buy and become dependent on a vendor's product, you are also accepting that vendor's decisions about pricing, product direction, and corporate continuity. Vendors raise prices. Vendors acquire other companies and change product strategy. Vendors get acquired themselves and the acquirer decides to sunset the product or force migration to their own platform. Organizations that built deep dependencies on a platform sometimes discover that migrating away from it costs more than the savings they realized by not building in the first place. This is especially true for platforms that made it easy to build customizations within their ecosystem, because those customizations are often non-portable.</p>
+<p>I've watched organizations go through this cycle. They bought a platform because building seemed expensive and risky. They customized it extensively because the out-of-the-box version didn't quite fit. The vendor got acquired five years later. The acquirer announced end-of-life for the platform. The organization now has a migration project that requires rebuilding three years of custom configuration work on a new platform, which is essentially a build project anyway, at a point when the organization is also paying the old platform's licensing fees until the migration is complete. The build vs. buy decision didn't eliminate the build work. It deferred it and added vendor dependency risk.</p>
+<p>Gartner's guidance on build vs. buy decisions has consistently emphasized total cost of ownership and organizational capability gaps as the key decision factors (see <a href="https://www.gartner.com/en/newsroom">Gartner Newsroom</a>). According to Gartner research, organizations frequently underestimate implementation and integration costs in buy decisions, and overestimate internal build capability when assessing the build option. I'll hedge specific figures here, but the pattern they identify is real: both options tend to cost more and take longer than initial estimates, and the actual decision should be made against realistic projections on both sides, not optimistic ones on both sides.</p>
+<p>The organizational capability question is one that's uncomfortable to ask honestly. "Can we build this?" requires an accurate assessment of what the internal team is actually capable of delivering, on what timeline, with what quality. Teams that have a strong history of shipping software on time and maintaining it well are better candidates for build decisions than teams that don't. This sounds obvious but it's frequently ignored. The build vs. buy analysis gets done against the team's theoretical capacity rather than its demonstrated delivery capability.</p>
+<p>The "buy" option also has a capability requirement that's easy to underestimate. Implementation, configuration, and ongoing management of complex enterprise software requires its own skills. Many organizations have bought sophisticated platforms only to find that nobody in-house understands the platform well enough to configure it correctly, and they are now permanently dependent on the vendor's professional services or an external consulting partner for every change. That dependency is a form of build work that happens outside the organization, at consulting rates, without the organizational learning that internal builds generate.</p>
+<p>The question is almost never "build or buy" as a simple binary. It is usually some combination of: what do we buy, what do we configure on top of what we bought, what do we build ourselves, and where do we accept that an imperfect solution is good enough for now? Getting to a good answer requires being honest about your organization's capabilities, your tolerance for vendor dependency, and your willingness to do the accounting on total cost rather than just the headline numbers.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/business-intelligence-vs-analytics-culture/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">BI Tools and Analytics Culture Are Not the Same Thing</div></a><a href="/blog/bricolage-is-innovation-constraints/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Making Do: How Bricolage Explains Improvised IS Innovation</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agile-at-enterprise-scale/" class="blog-related-card"><h4>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

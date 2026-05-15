@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Ali Safari</title><meta name="description" content="Ali Safari's blog on Information Systems research, AI, security, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Blog | Ali Safari"><meta property="og:description" content="Information Systems research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Ali Safari Blog","description":"Thoughts on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
+</head>
+<body class="blog-page">
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<header class="blog-header">
+<h1>Blog</h1>
+<p class="blog-subtitle">Thoughts on IS theory, AI, technology, and comps studying. No summaries, just honest reactions.</p>
+<div class="blog-meta">
+<span class="blog-meta-item"><i class="fas fa-pen-nib"></i> 258 posts</span>
+<span class="blog-meta-item"><i class="fas fa-tags"></i> 10 topics</span>
+</div>
+</header>
+<section class="blog-stats-bar">
+<div class="blog-stat"><span class="blog-stat-value">258</span><div class="blog-stat-label">Posts</div></div>
+<div class="blog-stat"><span class="blog-stat-value">10</span><div class="blog-stat-label">Topics</div></div>
+<div class="blog-stat"><span class="blog-stat-value">2026</span><div class="blog-stat-label">Latest</div></div>
+</section>
+<div class="blog-controls">
+<div class="blog-search-box"><i class="fas fa-search"></i><input type="text" id="blogSearch" placeholder="Search posts by title or content..." autocomplete="off"></div>
+<div class="blog-filter-sort">
+<button class="blog-filter-btn active" data-sort="newest"><i class="fas fa-sort-amount-down"></i> Newest</button>
+<button class="blog-filter-btn" data-sort="oldest"><i class="fas fa-sort-amount-up"></i> Oldest</button>
+</div>
+</div>
+<div class="blog-tag-filters"><a href="/blog/" class="blog-tag-chip active" data-tag="all">All <span class="tag-count">258</span></a><a href="/blog/?tag=Comps &amp; Reflections" class="blog-tag-chip " data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="tag-count">86</span></a><a href="/blog/?tag=IS Theory" class="blog-tag-chip " data-tag="IS Theory">IS Theory <span class="tag-count">82</span></a><a href="/blog/?tag=IT Governance &amp; Strategy" class="blog-tag-chip " data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="tag-count">77</span></a><a href="/blog/?tag=AI &amp; Agentic Systems" class="blog-tag-chip " data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="tag-count">74</span></a><a href="/blog/?tag=Organizational Theory" class="blog-tag-chip " data-tag="Organizational Theory">Organizational Theory <span class="tag-count">72</span></a><a href="/blog/?tag=Platforms &amp; Ecosystems" class="blog-tag-chip " data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="tag-count">47</span></a><a href="/blog/?tag=IS Research Methods" class="blog-tag-chip " data-tag="IS Research Methods">IS Research Methods <span class="tag-count">43</span></a><a href="/blog/?tag=Technology Adoption" class="blog-tag-chip " data-tag="Technology Adoption">Technology Adoption <span class="tag-count">32</span></a><a href="/blog/?tag=Trust &amp; Security" class="blog-tag-chip " data-tag="Trust &amp; Security">Trust &amp; Security <span class="tag-count">31</span></a><a href="/blog/?tag=Sociotechnical Systems" class="blog-tag-chip " data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="tag-count">29</span></a></div>
+<div class="blog-grid" id="blogGrid">
+<div class="blog-grid-item" data-title="ai supercomputing is not a moat" data-excerpt="every major cloud vendor now sells gpu clusters. the hardware is commodity. the capability to use it is not. here is what carr and barney teach us about ai moats." data-tags="AI &amp; Agentic Systems,IS Theory,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="ai-supercomputing-rbv-commodity">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/ai-supercomputing-rbv-commodity/">AI Supercomputing Is Not a Moat</a></h2>
+</div>
+<p class="card-excerpt">Every major cloud vendor now sells GPU clusters. The hardware is commodity. The capability to use it is not. Here is what Carr and Barney teach us about AI moat...</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="ai-supercomputing-rbv-commodity" title="Save for later" aria-label="Save AI Supercomputing Is Not a Moat for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/ai-supercomputing-rbv-commodity/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="when ai gets it wrong, who is responsible?" data-excerpt="the accountability gap in algorithmic decision-making is an is governance problem, not just a legal one. and the eu ai act is forcing organizations to confront it." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="2026-05-14-ai-systems-organizational-accountability">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
+<h2><a href="/blog/2026-05-14-ai-systems-organizational-accountability/">When AI Gets It Wrong, Who Is Responsible?</a></h2>
+</div>
+<p class="card-excerpt">The accountability gap in algorithmic decision-making is an IS governance problem, not just a legal one. And the EU AI Act is forcing organizations to confront ...</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="2026-05-14-ai-systems-organizational-accountability" title="Save for later" aria-label="Save When AI Gets It Wrong, Who Is Responsible? for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/2026-05-14-ai-systems-organizational-accountability/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="ai is not a technology. it is a task-technology fit problem." data-excerpt="goodhue and thompson said performance follows fit, not features. ai is a family of tools, and the wrong one for the task will fail the same way every time." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Sociotechnical Systems" data-date="2026-05-14" data-slug="ai-task-technology-fit">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
+<h2><a href="/blog/ai-task-technology-fit/">AI Is Not a Technology. It Is a Task-Technology Fit Problem.</a></h2>
+</div>
+<p class="card-excerpt">Goodhue and Thompson said performance follows fit, not features. AI is a family of tools, and the wrong one for the task will fail the same way every time.</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Sociotechnical Systems</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="ai-task-technology-fit" title="Save for later" aria-label="Save AI Is Not a Technology. It Is a Task-Technology Fit Problem. for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/ai-task-technology-fit/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="ai training data made the knowledge-based view visible" data-excerpt="the new york times lawsuit against openai is the knowledge-based view of the firm becoming visible in court and in every training data licensing negotiation." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Organizational Theory" data-date="2026-05-14" data-slug="ai-training-data-knowledge-based-view">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/ai-training-data-knowledge-based-view/">AI Training Data Made the Knowledge-Based View Visible</a></h2>
+</div>
+<p class="card-excerpt">The New York Times lawsuit against OpenAI is the Knowledge-Based View of the firm becoming visible in court and in every training data licensing negotiation.</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Organizational Theory</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="ai-training-data-knowledge-based-view" title="Save for later" aria-label="Save AI Training Data Made the Knowledge-Based View Visible for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/ai-training-data-knowledge-based-view/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="ai lowers the cost of coordination, so why are organizations still siloed?" data-excerpt="transaction cost economics predicts that when ai cuts coordination costs, organizations should restructure. but they are not. what gives?" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Organizational Theory" data-date="2026-05-14" data-slug="ai-transaction-cost-economics">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/ai-transaction-cost-economics/">AI Lowers the Cost of Coordination, So Why Are Organizations Still Siloed?</a></h2>
+</div>
+<p class="card-excerpt">Transaction cost economics predicts that when AI cuts coordination costs, organizations should restructure. But they are not. What gives?</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Organizational Theory</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="ai-transaction-cost-economics" title="Save for later" aria-label="Save AI Lowers the Cost of Coordination, So Why Are Organizations Still Siloed? for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/ai-transaction-cost-economics/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="after ai hallucinates, how does it earn trust back?" data-excerpt="ai trust repair is not about rebuilding a relationship. it is about recalibration. the is trust literature has been explaining this for two decades." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Trust &amp; Security" data-date="2026-05-14" data-slug="ai-trust-repair-willingness-vulnerability">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/ai-trust-repair-willingness-vulnerability/">After AI Hallucinates, How Does It Earn Trust Back?</a></h2>
+</div>
+<p class="card-excerpt">AI trust repair is not about rebuilding a relationship. It is about recalibration. The IS trust literature has been explaining this for two decades.</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Trust &amp; Security</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="ai-trust-repair-willingness-vulnerability" title="Save for later" aria-label="Save After AI Hallucinates, How Does It Earn Trust Back? for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/ai-trust-repair-willingness-vulnerability/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="ai vendor concentration creates a new resource dependency" data-excerpt="pfeffer and salancik said dependence rises when resources are critical and concentrated. ai model providers are the most concentrated critical resource in is history." data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="ai-vendor-concentration-resource-dependency">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/ai-vendor-concentration-resource-dependency/">AI Vendor Concentration Creates a New Resource Dependency</a></h2>
+</div>
+<p class="card-excerpt">Pfeffer and Salancik said dependence rises when resources are critical and concentrated. AI model providers are the most concentrated critical resource in IS hi...</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="ai-vendor-concentration-resource-dependency" title="Save for later" aria-label="Save AI Vendor Concentration Creates a New Resource Dependency for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/ai-vendor-concentration-resource-dependency/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="algorithmic bias: when the model is the policy" data-excerpt="when an algorithm screens job applicants or recommends bail conditions, it is not neutral infrastructure. it is policy, running at scale, with no judgment calls." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections" data-date="2026-05-14" data-slug="algorithmic-bias-model-is-policy">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/algorithmic-bias-model-is-policy/">Algorithmic Bias: When the Model Is the Policy</a></h2>
+</div>
+<p class="card-excerpt">When an algorithm screens job applicants or recommends bail conditions, it is not neutral infrastructure. It is policy, running at scale, with no judgment calls...</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="algorithmic-bias-model-is-policy" title="Save for later" aria-label="Save Algorithmic Bias: When the Model Is the Policy for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/algorithmic-bias-model-is-policy/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="the api economy and why your software is now a platform" data-excerpt="apis let companies monetize capabilities rather than products. the strategic logic is platform theory, and the dependency chain it creates is intentional." data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="api-economy-software-as-platform">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
+<h2><a href="/blog/api-economy-software-as-platform/">The API Economy and Why Your Software Is Now a Platform</a></h2>
+</div>
+<p class="card-excerpt">APIs let companies monetize capabilities rather than products. The strategic logic is platform theory, and the dependency chain it creates is intentional.</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="api-economy-software-as-platform" title="Save for later" aria-label="Save The API Economy and Why Your Software Is Now a Platform for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/api-economy-software-as-platform/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="strategy is what your organization actually pays attention to" data-excerpt="ocasio&#x27;s attention-based view says firm behavior follows what executives notice, not what they intend. attention is the scarcest organizational resource." data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="attention-based-view-strategy-focus">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/attention-based-view-strategy-focus/">Strategy Is What Your Organization Actually Pays Attention To</a></h2>
+</div>
+<p class="card-excerpt">Ocasio&#x27;s attention-based view says firm behavior follows what executives notice, not what they intend. Attention is the scarcest organizational resource.</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="attention-based-view-strategy-focus" title="Save for later" aria-label="Save Strategy Is What Your Organization Actually Pays Attention To for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/attention-based-view-strategy-focus/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="autonomous ai agents: when the system makes decisions without asking" data-excerpt="ai agents that plan, act, and iterate without human input are moving into enterprise deployment. the accountability questions this raises do not have clean answers yet." data-tags="AI &amp; Agentic Systems,IS Research Methods" data-date="2026-05-14" data-slug="autonomous-ai-agents-enterprise">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
+<h2><a href="/blog/autonomous-ai-agents-enterprise/">Autonomous AI Agents: When the System Makes Decisions Without Asking</a></h2>
+</div>
+<p class="card-excerpt">AI agents that plan, act, and iterate without human input are moving into enterprise deployment. The accountability questions this raises do not have clean answ...</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Research Methods</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="autonomous-ai-agents-enterprise" title="Save for later" aria-label="Save Autonomous AI Agents: When the System Makes Decisions Without Asking for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/autonomous-ai-agents-enterprise/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="everyone hates the spreadsheet, but nobody deletes it" data-excerpt="star and griesemer&#x27;s boundary objects are plastic enough to serve local needs but robust enough to hold shared identity. that is why the spreadsheet survives." data-tags="Comps &amp; Reflections,IS Theory,Organizational Theory,Sociotechnical Systems,Technology Adoption" data-date="2026-05-14" data-slug="boundary-objects-spreadsheet-coordination">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/boundary-objects-spreadsheet-coordination/">Everyone Hates the Spreadsheet, But Nobody Deletes It</a></h2>
+</div>
+<p class="card-excerpt">Star and Griesemer&#x27;s boundary objects are plastic enough to serve local needs but robust enough to hold shared identity. That is why the spreadsheet survives.</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span><span class="tag">Sociotechnical Systems</span><span class="tag">Technology Adoption</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="boundary-objects-spreadsheet-coordination" title="Save for later" aria-label="Save Everyone Hates the Spreadsheet, But Nobody Deletes It for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/boundary-objects-spreadsheet-coordination/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="making do: how bricolage explains improvised is innovation" data-excerpt="bricolage explains why organizations without the right tools often build something better than the official system. making do with what&#x27;s at hand is not failure." data-tags="Organizational Theory" data-date="2026-05-14" data-slug="bricolage-is-innovation-constraints">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/bricolage-is-innovation-constraints/">Making Do: How Bricolage Explains Improvised IS Innovation</a></h2>
+</div>
+<p class="card-excerpt">Bricolage explains why organizations without the right tools often build something better than the official system. Making do with what&#x27;s at hand is not failure...</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">Organizational Theory</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="bricolage-is-innovation-constraints" title="Save for later" aria-label="Save Making Do: How Bricolage Explains Improvised IS Innovation for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/bricolage-is-innovation-constraints/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="the build vs. buy decision: why the answer is almost never simple" data-excerpt="buy commodity capabilities, build differentiating ones. the textbook answer is clean. the actual decision is entangled with vendor risk, integration complexity, and organizational honesty." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="build-vs-buy-software-decision">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/build-vs-buy-software-decision/">The Build vs. Buy Decision: Why the Answer Is Almost Never Simple</a></h2>
+</div>
+<p class="card-excerpt">Buy commodity capabilities, build differentiating ones. The textbook answer is clean. The actual decision is entangled with vendor risk, integration complexity,...</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="build-vs-buy-software-decision" title="Save for later" aria-label="Save The Build vs. Buy Decision: Why the Answer Is Almost Never Simple for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/build-vs-buy-software-decision/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="bi tools and analytics culture are not the same thing" data-excerpt="most organizations have dashboards showing last month&#x27;s numbers and call it data-driven. that is bi. an analytics culture is something different, and harder." data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="business-intelligence-vs-analytics-culture">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
+<h2><a href="/blog/business-intelligence-vs-analytics-culture/">BI Tools and Analytics Culture Are Not the Same Thing</a></h2>
+</div>
+<p class="card-excerpt">Most organizations have dashboards showing last month&#x27;s numbers and call it data-driven. That is BI. An analytics culture is something different, and harder.</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="business-intelligence-vs-analytics-culture" title="Save for later" aria-label="Save BI Tools and Analytics Culture Are Not the Same Thing for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/business-intelligence-vs-analytics-culture/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="byod and the it department&#x27;s impossible choice" data-excerpt="when the iphone became better than the company laptop, it departments had to decide how much control was worth the fight. neither option was clean." data-tags="Organizational Theory,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="byod-consumerization-of-it">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/byod-consumerization-of-it/">BYOD and the IT Department&#x27;s Impossible Choice</a></h2>
+</div>
+<p class="card-excerpt">When the iPhone became better than the company laptop, IT departments had to decide how much control was worth the fight. Neither option was clean.</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">Organizational Theory</span><span class="tag">Platforms &amp; Ecosystems</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="byod-consumerization-of-it" title="Save for later" aria-label="Save BYOD and the IT Department&#x27;s Impossible Choice for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/byod-consumerization-of-it/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="care is not about privacy" data-excerpt="most people think digital privacy is about data breaches. leidner and tona&#x27;s care framework says it is really about whether your dignity can survive digitization." data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Trust &amp; Security" data-date="2026-05-14" data-slug="care-is-not-about-privacy">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/care-is-not-about-privacy/">CARE Is Not About Privacy</a></h2>
+</div>
+<p class="card-excerpt">Most people think digital privacy is about data breaches. Leidner and Tona&#x27;s CARE framework says it is really about whether your dignity can survive digitizatio...</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Trust &amp; Security</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="care-is-not-about-privacy" title="Save for later" aria-label="Save CARE Is Not About Privacy for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/care-is-not-about-privacy/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="case study research in is: what yin actually said" data-excerpt="is loves case studies and sometimes misuses them. robert yin&#x27;s framework tells you exactly when a case study is the right choice and what rigor looks like in that context." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="case-study-research-is-yin">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
+<h2><a href="/blog/case-study-research-is-yin/">Case Study Research in IS: What Yin Actually Said</a></h2>
+</div>
+<p class="card-excerpt">IS loves case studies and sometimes misuses them. Robert Yin&#x27;s framework tells you exactly when a case study is the right choice and what rigor looks like in th...</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">IS Research Methods</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="case-study-research-is-yin" title="Save for later" aria-label="Save Case Study Research in IS: What Yin Actually Said for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/case-study-research-is-yin/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="change management in is implementation: the part nobody budgets for" data-excerpt="is implementations routinely underinvest in change management. the technology budget gets line items. the people budget gets a rounding error." data-tags="Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="change-management-is-implementation">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/change-management-is-implementation/">Change Management in IS Implementation: The Part Nobody Budgets For</a></h2>
+</div>
+<p class="card-excerpt">IS implementations routinely underinvest in change management. The technology budget gets line items. The people budget gets a rounding error.</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">Organizational Theory</span><span class="tag">Technology Adoption</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="change-management-is-implementation" title="Save for later" aria-label="Save Change Management in IS Implementation: The Part Nobody Budgets For for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/change-management-is-implementation/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div><div class="blog-grid-item" data-title="chatbots in enterprise: when they help and when they don&#x27;t" data-excerpt="rule-based bots were honest about what they couldn&#x27;t do. llm-based bots can sound confident while being wrong. that&#x27;s a more dangerous failure mode." data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="chatbots-enterprise-when-they-work">
+<article class="blog-post-card">
+<div class="card-header">
+<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
+<h2><a href="/blog/chatbots-enterprise-when-they-work/">Chatbots in Enterprise: When They Help and When They Don&#x27;t</a></h2>
+</div>
+<p class="card-excerpt">Rule-based bots were honest about what they couldn&#x27;t do. LLM-based bots can sound confident while being wrong. That&#x27;s a more dangerous failure mode.</p>
+<div class="card-footer">
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IT Governance &amp; Strategy</span></div>
+<div class="card-actions">
+<button class="bookmark-btn" data-slug="chatbots-enterprise-when-they-work" title="Save for later" aria-label="Save Chatbots in Enterprise: When They Help and When They Don&#x27;t for later"><i class="far fa-bookmark"></i></button>
+<a href="/blog/chatbots-enterprise-when-they-work/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</article>
+</div>
+<div class="blog-empty-state" style="display:none"><i class="fas fa-search"></i><h3>No posts found</h3><p>Try a different search term.</p></div>
+</div>
+<div class="blog-pagination"><a href="/blog/">1</a><a href="/blog/page/2/">2</a><span class="current">3</span><a href="/blog/page/4/">4</a><a href="/blog/page/5/">5</a><a href="/blog/page/6/">6</a><a href="/blog/page/7/">7</a><a href="/blog/page/8/">8</a><a href="/blog/page/9/">9</a><a href="/blog/page/10/">10</a><a href="/blog/page/11/">11</a><a href="/blog/page/12/">12</a><a href="/blog/page/13/">13</a></div>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

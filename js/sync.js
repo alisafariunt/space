@@ -1,4 +1,4 @@
-// Cloud Sync Manager (JWT-Authenticated)
+// Cloud Sync Manager (No Authentication)
 (function () {
     const API_URL = '/api/sync';
     const SYNC_QUEUE_KEY = 'studyGuide_syncQueue';
@@ -6,8 +6,7 @@
     const DEBOUNCE_DELAY = 2000; // 2 seconds
     const LAST_SYNC_KEY = 'studyGuide_lastSync';
 
-    let userId = null; // Will be set after authentication
-    let authManager = null; // Reference to AuthManager from auth.js
+    let userId = null; // Will be set from localStorage
     let syncQueue = {
         highlights: { upsert: [], deleted: [] },
         progress: { upsert: [], deleted: [] },
@@ -38,14 +37,6 @@
 
     // Initialize Sync
     function init() {
-        // Get reference to AuthManager (from auth.js)
-        authManager = window.AuthManager;
-
-        if (!authManager) {
-            console.warn('[Sync] AuthManager not found. Make sure auth.js is loaded first.');
-            return;
-        }
-
         // Load sync queue
         const savedQueue = localStorage.getItem(SYNC_QUEUE_KEY);
         if (savedQueue) {
@@ -65,50 +56,19 @@
             }
         }
 
-        // Listen for authentication state changes
-        window.addEventListener('authStateChanged', (event) => {
-            const { isAuthenticated, user } = event.detail;
-
-            if (isAuthenticated) {
-                userId = user.username;
-                setupSync();
-                createUserInfo();
-
-                // Trigger initial sync with preferences
-                window.StudyGuideSync.queueChange('preferences', 'upsert', null);
-                debouncedSync();
-            } else {
-                userId = null;
-                teardownSync();
-                createUserInfo();
-            }
-        });
-
-        // Check initial authentication state
-        if (authManager.isAuthenticated()) {
-            userId = authManager.getUsername();
+        // Get userId from localStorage (username)
+        userId = getUserId();
+        
+        if (userId) {
             setupSync();
-            createUserInfo();
         } else {
-            createUserInfo();
-            const initialAuthPromise = authManager.initialAuthPromise;
-            if (initialAuthPromise && typeof initialAuthPromise.then === 'function') {
-                initialAuthPromise.then((success) => {
-                    if (!success && !authManager.isAuthenticated() && window.showLoginModal) {
-                        window.showLoginModal();
-                    }
-                });
-            } else if (window.showLoginModal) {
-                window.showLoginModal();
-            }
+            // Generate a default userId if none exists
+            userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem('studyGuide_username', userId);
+            setupSync();
         }
     }
 
-    // User Info UI is now handled by auth.js (updateUserMenu function)
-    // This function is kept as a stub for compatibility
-    function createUserInfo() {
-        // Auth.js handles the user menu now
-    }
 
     function setupSync() {
         injectStyles();
@@ -208,7 +168,7 @@
             `;
             indicator.addEventListener('click', () => window.StudyGuideSync.sync());
 
-            const nav = document.querySelector('.navbar-content') || document.querySelector('.nav-container') || document.querySelector('nav');
+            const nav = document.querySelector('.nav-actions') || document.querySelector('.navbar-content') || document.querySelector('.nav-container') || document.querySelector('nav');
             if (nav) {
                 nav.appendChild(indicator);
             }
@@ -344,13 +304,13 @@
             return { success: false, reason: 'already syncing' };
         }
 
-        // Check authentication
-        if (!authManager || !authManager.isAuthenticated()) {
-            console.log('[Sync] Not authenticated');
-            if (window.showLoginModal) {
-                window.showLoginModal();
+        // Ensure userId exists
+        if (!userId) {
+            userId = getUserId();
+            if (!userId) {
+                userId = 'user_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('studyGuide_username', userId);
             }
-            return { success: false, reason: 'not authenticated' };
         }
 
         syncStatus = 'syncing';
@@ -359,17 +319,8 @@
         try {
             const courseId = getCourseId();
 
-            // Get JWT token
-            let accessToken;
-            try {
-                accessToken = authManager.getAccessToken();
-            } catch (error) {
-                throw new Error('AUTH_FAILED');
-            }
-
             const headers = {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${accessToken}`
+                'Content-Type': 'application/json'
             };
 
             // Push local changes first
@@ -379,26 +330,11 @@
                 const response = await fetch(API_URL, {
                     method: 'POST',
                     headers: headers,
-                    credentials: 'include',
                     body: JSON.stringify({
+                        userId: userId,
                         changes: queue
                     })
                 });
-
-                if (response.status === 401) {
-                    // Token expired, try refresh
-                    try {
-                        await authManager.refreshAccessToken();
-                        // Retry sync with new token
-                        return await sync(options);
-                    } catch (refreshError) {
-                        throw new Error('AUTH_FAILED');
-                    }
-                }
-
-                if (response.status === 429) {
-                    throw new Error('RATE_LIMIT_EXCEEDED');
-                }
 
                 if (!response.ok) {
                     const errorData = await response.json().catch(() => ({}));
@@ -425,27 +361,12 @@
                     }
                 }
             }
-            const pullUrl = params.toString() ? `${API_URL}?${params.toString()}` : API_URL;
+            params.set('userId', userId);
+            const pullUrl = params.toString() ? `${API_URL}?${params.toString()}` : `${API_URL}?userId=${userId}`;
             const pullResponse = await fetch(pullUrl, {
                 method: 'GET',
-                headers: headers,
-                credentials: 'include'
+                headers: headers
             });
-
-            if (pullResponse.status === 401) {
-                // Token expired, try refresh
-                try {
-                    await authManager.refreshAccessToken();
-                    // Retry sync with new token
-                    return await sync(options);
-                } catch (refreshError) {
-                    throw new Error('AUTH_FAILED');
-                }
-            }
-
-            if (pullResponse.status === 429) {
-                throw new Error('RATE_LIMIT_EXCEEDED');
-            }
 
             if (!pullResponse.ok) {
                 throw new Error(`Pull failed: ${pullResponse.status}`);
@@ -477,31 +398,6 @@
 
         } catch (error) {
             console.error('Sync error:', error);
-
-            if (error.message === 'AUTH_FAILED') {
-                syncStatus = 'error';
-                updateSyncStatusUI();
-                if (window.showToast) {
-                    window.showToast('Please log in to sync your data', 'warning');
-                }
-                if (window.showLoginModal) {
-                    window.showLoginModal('Session expired. Please login again.');
-                }
-                return { success: false, error: 'auth_failed' };
-            }
-
-            if (error.message === 'RATE_LIMIT_EXCEEDED') {
-                syncStatus = 'error';
-                updateSyncStatusUI();
-                if (window.showToast) {
-                    window.showToast('Too many requests. Please wait a moment.', 'error');
-                }
-                setTimeout(() => {
-                    syncStatus = 'idle';
-                    updateSyncStatusUI();
-                }, 10000);
-                return { success: false, error: 'rate_limit' };
-            }
 
             syncStatus = 'error';
             updateSyncStatusUI();

@@ -428,7 +428,7 @@
         btn.setAttribute('aria-label', 'Flashcards');
         btn.addEventListener('click', openFlashcards);
 
-        const nav = document.querySelector('.main-nav') || document.querySelector('nav');
+        const nav = document.querySelector('.nav-actions') || document.querySelector('.navbar-content') || document.querySelector('nav');
         if (nav) {
             nav.appendChild(btn);
         } else {

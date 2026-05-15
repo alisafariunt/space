@@ -5,6 +5,9 @@
     let NOTE_INDEX = [];
     let searchModal = null;
     let currentFilter = 'all';
+    const GENERAL_ROUTE_MAP = {
+        theory: '/theory/'
+    };
 
     // Build search index from page content
     function buildIndex() {
@@ -193,6 +196,9 @@
         if (courseId && courseId !== 'general') {
             return `/${courseId}/${file}${highlightId ? `#hl=${highlightId}` : ''}`;
         }
+        if (GENERAL_ROUTE_MAP[pageId]) {
+            return `${GENERAL_ROUTE_MAP[pageId]}${highlightId ? `#hl=${highlightId}` : ''}`;
+        }
         return `/${file}${highlightId ? `#hl=${highlightId}` : ''}`;
     }
 
@@ -262,6 +268,13 @@
 
     // Create search button
     function createSearchButton() {
+        // Check if button already exists in HTML
+        const existingBtn = document.getElementById('search-btn');
+        if (existingBtn) {
+            existingBtn.addEventListener('click', openSearch);
+            return;
+        }
+
         const btn = document.createElement('button');
         btn.id = 'search-btn';
         btn.className = 'search-btn';
@@ -269,7 +282,7 @@
         btn.setAttribute('aria-label', 'Search');
         btn.addEventListener('click', openSearch);
 
-        const nav = document.querySelector('.main-nav') || document.querySelector('nav');
+        const nav = document.querySelector('.nav-actions') || document.querySelector('.navbar-content') || document.querySelector('nav');
         if (nav) {
             nav.appendChild(btn);
         } else {

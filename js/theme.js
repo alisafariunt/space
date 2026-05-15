@@ -35,13 +35,20 @@
     // Create toggle button
     function createToggleButton() {
         const btn = document.createElement('button');
+        // Check if button already exists in HTML
+        const existingBtn = document.getElementById('theme-toggle');
+        if (existingBtn) {
+            existingBtn.addEventListener('click', toggleTheme);
+            return;
+        }
+
         btn.id = 'theme-toggle';
         btn.className = 'theme-toggle';
         btn.setAttribute('aria-label', 'Toggle theme');
         btn.addEventListener('click', toggleTheme);
 
         // Find nav or create fixed position
-        const nav = document.querySelector('.main-nav') || document.querySelector('nav');
+        const nav = document.querySelector('.nav-actions') || document.querySelector('.navbar-content') || document.querySelector('nav');
         if (nav) {
             nav.appendChild(btn);
         } else {

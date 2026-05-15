@@ -1,0 +1,2535 @@
+/* ============================================================
+   IS Theory Encyclopedia — Study Guide Design
+   Matching session3 visual language for consistency
+   ============================================================ */
+
+/* Import Vazir Font for Persian/Farsi Text */
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css');
+
+/* Fix for fixed navbar overlap */
+body {
+    padding-top: 100px;
+}
+
+/* ===== Session Header ===== */
+.session-header {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a5f 100%);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.session-header h1 {
+    color: white;
+    font-size: 2.25rem;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.session-meta {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+/* ===== Statistics Box ===== */
+.stats-box {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ===== Info Box — Same as session3 ===== */
+.info-box {
+    background: #dbeafe;
+    border-left: 3px solid #3b82f6;
+    padding: 0.75rem 1rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1rem 0;
+}
+
+.info-box h4 {
+    color: #3b82f6;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.info-box p {
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+[data-theme="dark"] .info-box {
+    background: #1e3a5f;
+    border-color: #60a5fa;
+}
+
+[data-theme="dark"] .info-box h4 {
+    color: #60a5fa;
+}
+
+/* ===== Table of Contents ===== */
+.toc-container {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin: 1.25rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.toc-part {
+    margin-bottom: 1.5rem;
+}
+
+.toc-part:last-child {
+    margin-bottom: 0;
+}
+
+.toc-part-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-alt);
+    border-left: 4px solid var(--color-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.toc-part-header .part-count {
+    margin-left: auto;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.25rem 1rem;
+    padding-left: 1.5rem;
+}
+
+.toc-list li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.toc-list a,
+.toc-list li a {
+    display: block;
+    padding: 0.35rem 0.75rem;
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.toc-list a::before,
+.toc-list li a::before {
+    content: "\2192  ";
+    color: var(--color-primary);
+}
+
+.toc-list a:hover,
+.toc-list li a:hover {
+    background: #e5edff;
+    text-decoration: none;
+}
+
+[data-theme="dark"] .toc-list a:hover,
+[data-theme="dark"] .toc-list li a:hover {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+/* ===== Part Dividers — Same as session3 session-header ===== */
+.part-divider {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a5f 100%);
+    color: white;
+    padding: 1.25rem 1.75rem;
+    border-radius: 12px;
+    margin: 2rem 0 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.part-divider h2 {
+    color: white;
+    margin: 0;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.part-divider p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.part-count {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: white;
+}
+
+/* ================================================================
+   PAPER CARD — Base for all theory cards
+   ================================================================ */
+.paper-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.paper-card>h2 {
+    margin-top: 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1rem;
+    border-bottom: none;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+}
+
+/* ================================================================
+   THEORY PREVIEW CARD — Enhanced visual hierarchy
+   ================================================================ */
+.theory-preview-card {
+    border-left: 4px solid var(--color-primary);
+}
+
+.theory-preview-card>h2 {
+    border-left: none;
+    padding-left: 0;
+}
+
+/* ===== Theory Header ===== */
+.theory-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.theory-meta-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Theory Badges — Clean pill style like session3 */
+.theory-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Badge variants — using session3 semantic colors */
+.theory-badge.philosophy {
+    background: #ede9fe;
+    color: #6d28d9;
+    border: 1px solid #c4b5fd;
+}
+
+.theory-badge.is-native {
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #93c5fd;
+}
+
+.theory-badge.strategy {
+    background: #d1fae5;
+    color: #059669;
+    border: 1px solid #6ee7b7;
+}
+
+.theory-badge.security {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+.theory-badge.behavioral {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fcd34d;
+}
+
+.theory-badge.organizational {
+    background: #ccfbf1;
+    color: #115e59;
+    border: 1px solid #5eead4;
+}
+
+.theory-badge.economics {
+    background: #fef9c3;
+    color: #854d0e;
+    border: 1px solid #fde047;
+}
+
+.theory-badge.psychology {
+    background: #fce7f3;
+    color: #9d174d;
+    border: 1px solid #f9a8d4;
+}
+
+.theory-badge.sociology {
+    background: #e0f2fe;
+    color: #075985;
+    border: 1px solid #7dd3fc;
+}
+
+.theory-badge.criminology {
+    background: #fef2f2;
+    color: #7f1d1d;
+    border: 1px solid #fca5a5;
+}
+
+.theory-badge.meta {
+    background: #ede9fe;
+    color: #6d28d9;
+    border: 1px solid #c4b5fd;
+}
+
+/* Dark mode badges */
+[data-theme="dark"] .theory-badge.philosophy {
+    background: #581c87;
+    color: #c4b5fd;
+    border-color: #7c3aed;
+}
+
+[data-theme="dark"] .theory-badge.is-native {
+    background: #1e3a5f;
+    color: #93c5fd;
+    border-color: #3b82f6;
+}
+
+[data-theme="dark"] .theory-badge.strategy {
+    background: #064e3b;
+    color: #6ee7b7;
+    border-color: #059669;
+}
+
+[data-theme="dark"] .theory-badge.security {
+    background: #7f1d1d;
+    color: #fca5a5;
+    border-color: #ef4444;
+}
+
+[data-theme="dark"] .theory-badge.behavioral {
+    background: #78350f;
+    color: #fcd34d;
+    border-color: #f59e0b;
+}
+
+[data-theme="dark"] .theory-badge.organizational {
+    background: #134e4a;
+    color: #5eead4;
+    border-color: #14b8a6;
+}
+
+[data-theme="dark"] .theory-badge.economics {
+    background: #713f12;
+    color: #fde047;
+    border-color: #eab308;
+}
+
+[data-theme="dark"] .theory-badge.psychology {
+    background: #831843;
+    color: #f9a8d4;
+    border-color: #ec4899;
+}
+
+[data-theme="dark"] .theory-badge.sociology {
+    background: #0c4a6e;
+    color: #7dd3fc;
+    border-color: #0ea5e9;
+}
+
+[data-theme="dark"] .theory-badge.criminology {
+    background: #7f1d1d;
+    color: #fca5a5;
+    border-color: #ef4444;
+}
+
+[data-theme="dark"] .theory-badge.meta {
+    background: #581c87;
+    color: #c4b5fd;
+    border-color: #7c3aed;
+}
+
+.theory-header h2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    border-left: none;
+    padding-left: 0;
+    line-height: 1.25;
+}
+
+.theory-tagline {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== Theory Preview Box ===== */
+.theory-preview {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.theory-preview>p {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.theory-key-points {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.key-point {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary);
+    padding: 0.75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+
+.key-point strong {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* ===== Theory Relevance — Using success-box style ===== */
+.theory-relevance {
+    background: #d1fae5;
+    border-left: 3px solid #059669;
+    padding: 0.65rem 0.85rem;
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+.theory-relevance strong {
+    color: #059669;
+    font-weight: 700;
+}
+
+[data-theme="dark"] .theory-relevance {
+    background: #064e3b;
+    border-color: #10b981;
+}
+
+[data-theme="dark"] .theory-relevance strong {
+    color: #34d399;
+}
+
+/* ================================================================
+   ANALYSIS SECTIONS — Same as session3
+   ================================================================ */
+.analysis-section {
+    margin: 0.65rem 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.analysis-section:last-child {
+    border-bottom: none;
+}
+
+.analysis-label {
+    display: inline-block;
+    background: #1e40af;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.analysis-section p {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 0.65rem;
+}
+
+.analysis-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== Tables — Same as session3 ===== */
+.analysis-section table,
+.paper-card table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.75rem 0;
+    font-size: 0.88rem;
+}
+
+.analysis-section table thead,
+.paper-card table thead {
+    background: #1e40af;
+    color: white;
+}
+
+.analysis-section table th,
+.paper-card table th {
+    padding: 0.5rem 0.65rem;
+    text-align: left;
+    font-weight: 600;
+    color: white;
+    background: #1e40af;
+}
+
+.analysis-section table td,
+.paper-card table td {
+    padding: 0.5rem 0.65rem;
+    text-align: left;
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    line-height: 1.45;
+    vertical-align: top;
+}
+
+.analysis-section table tbody tr:nth-child(even),
+.paper-card table tbody tr:nth-child(even) {
+    background: var(--color-bg-alt);
+}
+
+.analysis-section table tbody tr:hover,
+.paper-card table tbody tr:hover {
+    background: #e5edff;
+}
+
+[data-theme="dark"] .analysis-section table tbody tr:hover,
+[data-theme="dark"] .paper-card table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+[data-theme="dark"] .analysis-section table th,
+[data-theme="dark"] .paper-card table th {
+    background: #334155;
+}
+
+/* Table row highlight variants — from session3 */
+.table-row-highlight {
+    background-color: #e3f2fd;
+}
+
+.table-row-success {
+    background-color: #e8f5e9;
+}
+
+.table-row-warning {
+    background-color: #fff3cd;
+}
+
+[data-theme="dark"] .table-row-highlight {
+    background-color: #1e3a5f;
+}
+
+[data-theme="dark"] .table-row-success {
+    background-color: #064e3b;
+}
+
+[data-theme="dark"] .table-row-warning {
+    background-color: #713f12;
+}
+
+/* ===== Construct Badge — Clean emphasis ===== */
+.construct-badge {
+    font-weight: 600;
+    color: inherit;
+}
+
+/* ===== Highlight — Yellow like session3 ===== */
+mark {
+    background-color: #fef08a;
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+}
+
+[data-theme="dark"] mark {
+    background-color: #854d0e;
+}
+
+/* ===== Special Content Boxes — Matching session3 semantic colors ===== */
+
+/* Key Insight = info-box colors (blue) */
+.key-insight {
+    background: #dbeafe;
+    border-left: 4px solid #3b82f6;
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.key-insight::before {
+    content: "\1F4A1  Key Insight: ";
+    font-weight: 700;
+    color: #3b82f6;
+}
+
+[data-theme="dark"] .key-insight {
+    background: #1e3a5f;
+    border-color: #60a5fa;
+}
+
+[data-theme="dark"] .key-insight::before {
+    color: #60a5fa;
+}
+
+/* Exam Tip = success-box colors (green) */
+.exam-tip {
+    background: #d1fae5;
+    border-left: 3px solid #059669;
+    padding: 0.65rem 0.85rem;
+    border-radius: 0 6px 6px 0;
+    margin: 0.65rem 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+.exam-tip::before {
+    content: "\1F3AF  Exam Tip: ";
+    font-weight: 700;
+    color: #059669;
+}
+
+[data-theme="dark"] .exam-tip {
+    background: #064e3b;
+    border-color: #10b981;
+}
+
+[data-theme="dark"] .exam-tip::before {
+    color: #10b981;
+}
+
+/* Critical Point = warning-box colors (amber) */
+.critical-point {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.critical-point::before {
+    content: "\26A0\FE0F  Important: ";
+    font-weight: 700;
+    color: #b45309;
+}
+
+[data-theme="dark"] .critical-point {
+    background: #713f12;
+    border-color: #fbbf24;
+}
+
+[data-theme="dark"] .critical-point::before {
+    color: #fbbf24;
+}
+
+/* Mechanism Highlight = synthesis style (purple) */
+.mechanism-highlight {
+    background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 100%);
+    border-left: 4px solid #c4b5fd;
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.mechanism-highlight strong:first-child {
+    color: #6d28d9;
+}
+
+[data-theme="dark"] .mechanism-highlight {
+    background: #581c87;
+    border-color: #8b5cf6;
+}
+
+/* ===== Element Cards — Left-border style like session3 ===== */
+.four-elements {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.element-card {
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary);
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.element-card h4 {
+    color: var(--color-primary);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+.element-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+/* ===== Theory Lists ===== */
+.theory-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.75rem 0;
+}
+
+.theory-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.theory-list li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0.5rem;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.theory-list li strong {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+/* ===== Framework Steps — Numbered circles ===== */
+.framework-steps {
+    counter-reset: step-counter;
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.framework-steps li {
+    counter-increment: step-counter;
+    position: relative;
+    padding-left: 3.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.framework-steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--color-primary);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* ===== Navbar tweaks for theories page ===== */
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.navbar-brand {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.navbar-brand:hover {
+    color: var(--color-primary);
+}
+
+.navbar-links {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.navbar-links a {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+    color: var(--color-primary);
+    background: rgba(37, 99, 235, 0.06);
+}
+
+/* Nav actions container */
+.navbar-content .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Nav action buttons */
+.nav-actions button {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.nav-actions button:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+/* TTS button text styling */
+.nav-actions .tts-btn {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* ===== Search Button ===== */
+.search-btn {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.search-btn:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* ===== Progress ===== */
+.progress-container {
+    padding: 0.3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.progress-bar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--color-border);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--color-primary);
+    border-radius: 20px;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 12px;
+    background: var(--color-primary);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    z-index: 999;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.back-to-top:hover {
+    transform: translateY(-2px);
+    background: #1e3a5f;
+}
+
+/* ===== Footer ===== */
+.footer {
+    background: var(--color-bg-alt);
+    padding: 1.5rem 2rem;
+    margin-top: 3rem;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* ===== Highlight Flash (for TOC click) ===== */
+@keyframes highlightFlash {
+
+    0%,
+    100% {
+        box-shadow: none;
+    }
+
+    50% {
+        box-shadow: 0 0 0 4px var(--color-primary);
+    }
+}
+
+.highlight-flash {
+    animation: highlightFlash 1.8s ease;
+}
+
+/* ================================================================
+   THEORY CONNECTION MAPS — Visual diagrams for theory relationships
+   ================================================================ */
+/* ================================================================
+   THEORY CONNECTION MAPS — Visual diagrams for theory relationships
+   ================================================================ */
+/* ================================================================
+   THEORY CONNECTION MAPS — Visual diagrams for theory relationships
+   ================================================================ */
+.theory-map {
+    background-color: #f8fafc;
+    background-image:
+        linear-gradient(rgba(226, 232, 240, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(226, 232, 240, 0.5) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border: 2px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1.5rem 0;
+    page-break-inside: avoid;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 10px 15px -3px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+[data-theme="dark"] .theory-map {
+    background-color: #0f172a;
+    background-image:
+        linear-gradient(rgba(30, 41, 59, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 41, 59, 0.5) 1px, transparent 1px);
+}
+
+/* Decorative "Tape" effect for header */
+.theory-map-header {
+    text-align: center;
+    margin: -0.5rem auto 1.2rem;
+    padding: 0.6rem 1.2rem;
+    background: white;
+    display: table;
+    border-radius: 2px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: rotate(-1deg);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+[data-theme="dark"] .theory-map-header {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+.theory-map-header::before {
+    content: "";
+    /* Tape effect */
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 28px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-left: 1px dashed rgba(0, 0, 0, 0.1);
+    border-right: 1px dashed rgba(0, 0, 0, 0.1);
+    opacity: 0.6;
+}
+
+.theory-map-header h3 {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin: 0 0 0.15rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.theory-map-header p {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    margin: 0;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
+/* Cluster Groups */
+.theory-clusters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.theory-cluster {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+[data-theme="dark"] .theory-cluster {
+    background: #1e293b;
+}
+
+.theory-cluster:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+.cluster-label {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.7rem 0.4rem;
+    margin: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Cluster Icons using ::before */
+.cluster-label::before {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 0.35rem;
+    line-height: 1;
+}
+
+.cluster-label.meta::before {
+    content: "🧠";
+}
+
+.cluster-label.adoption::before {
+    content: "🚀";
+}
+
+.cluster-label.structure::before {
+    content: "🏗️";
+}
+
+.cluster-label.strategy::before {
+    content: "♟️";
+}
+
+.cluster-label.governance::before {
+    content: "⚖️";
+}
+
+.cluster-label.behavioral::before {
+    content: "🤔";
+}
+
+.cluster-label.social::before {
+    content: "🤝";
+}
+
+.cluster-label.security::before {
+    content: "🔒";
+}
+
+/* Cluster Colors - Keeping the nice pastels but bolder text */
+.cluster-label.adoption {
+    background: #eff6ff;
+    color: #1e40af;
+}
+
+.cluster-label.structure {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.cluster-label.behavioral {
+    background: #fffbeb;
+    color: #b45309;
+}
+
+.cluster-label.security {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.cluster-label.strategy {
+    background: #eef2ff;
+    color: #4338ca;
+}
+
+.cluster-label.social {
+    background: #fdf2f8;
+    color: #be185d;
+}
+
+.cluster-label.meta {
+    background: #f5f3ff;
+    color: #7c3aed;
+}
+
+.cluster-label.governance {
+    background: #f0fdfa;
+    color: #0f766e;
+}
+
+[data-theme="dark"] .cluster-label.adoption {
+    background: #172554;
+    color: #bfdbfe;
+}
+
+[data-theme="dark"] .cluster-label.structure {
+    background: #064e3b;
+    color: #6ee7b7;
+}
+
+[data-theme="dark"] .cluster-label.behavioral {
+    background: #451a03;
+    color: #fcd34d;
+}
+
+[data-theme="dark"] .cluster-label.security {
+    background: #7f1d1d;
+    color: #fca5a5;
+}
+
+[data-theme="dark"] .cluster-label.strategy {
+    background: #312e81;
+    color: #a5b4fc;
+}
+
+[data-theme="dark"] .cluster-label.social {
+    background: #831843;
+    color: #fbcfe8;
+}
+
+[data-theme="dark"] .cluster-label.meta {
+    background: #4c1d95;
+    color: #ddd6fe;
+}
+
+[data-theme="dark"] .cluster-label.governance {
+    background: #134e4a;
+    color: #5eead4;
+}
+
+.cluster-theories {
+    list-style: none;
+    padding: 0.8rem;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cluster-theories li {
+    padding: 0.5rem 0.7rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--color-text);
+    line-height: 1.3;
+    position: relative;
+    padding-left: 0.8rem;
+    border-left: 3px solid transparent;
+}
+
+/* Indent effect */
+.cluster-theories li strong {
+    display: block;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+}
+
+/* Hover effects matching header colors */
+.theory-cluster:hover .cluster-theories li {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.theory-cluster .cluster-label.strategy~.cluster-theories li {
+    border-left-color: #4338ca;
+}
+
+.theory-cluster .cluster-label.structure~.cluster-theories li {
+    border-left-color: #047857;
+}
+
+.theory-cluster .cluster-label.adoption~.cluster-theories li {
+    border-left-color: #1e40af;
+}
+
+/* ... (add others if needed, using primary default for now) */
+
+/* Connection Flowchart */
+.theory-connections {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    position: relative;
+}
+
+[data-theme="dark"] .theory-connections {
+    background: #1e293b;
+}
+
+.theory-connections h4 {
+    position: absolute;
+    top: -0.9rem;
+    left: 1.5rem;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 16px;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+}
+
+.connection-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.connection-item {
+    display: grid;
+    grid-template-columns: minmax(100px, auto) 1fr minmax(100px, auto);
+    align-items: start;
+    gap: 0.6rem;
+    padding: 0.8rem;
+    background: var(--color-bg-alt);
+    border: 1px dashed var(--color-border);
+    border-radius: 6px;
+}
+
+.connection-from,
+.connection-to {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    padding: 0.4rem 0.7rem;
+    border-radius: 5px;
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 0.82rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.connection-arrow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #f59e0b;
+    font-size: 1rem;
+    font-weight: bold;
+    position: relative;
+}
+
+.connection-arrow::before {
+    content: "";
+    display: none;
+}
+
+.connection-arrow::after {
+    content: "";
+    display: none;
+}
+
+.connection-type {
+    grid-column: 1 / -1;
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+    background: transparent;
+    padding: 0.3rem 0;
+    margin-top: 0.2rem;
+    border-top: 1px solid var(--color-border);
+    line-height: 1.4;
+    white-space: normal;
+}
+
+/* Teacher's Note (Pairing Guide) */
+.pairing-guide {
+    margin-top: 1.2rem;
+    background: #fef9c3;
+    color: #854d0e;
+    padding: 1rem;
+    border-radius: 2px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transform: rotate(1deg);
+    position: relative;
+    border: none;
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+    /* Handwritten feel */
+}
+
+[data-theme="dark"] .pairing-guide {
+    background: #713f12;
+    color: #fef9c3;
+}
+
+.pairing-guide::before {
+    content: "📌";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    font-size: 1.3rem;
+    transform: translateX(-50%);
+}
+
+.pairing-guide h4 {
+    color: #a16207;
+    margin: 0 0 0.4rem 0;
+    font-size: 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 0.4rem;
+    display: block;
+}
+
+[data-theme="dark"] .pairing-guide h4 {
+    color: #fde047;
+}
+
+.pairing-guide p {
+    margin: 0.4rem 0;
+    font-size: 0.88rem;
+    line-height: 1.4;
+}
+
+/* Print styles for maps */
+/* Theory map print styles merged into main print block below */
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 768px) {
+    .stats-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .toc-list {
+        grid-template-columns: 1fr;
+    }
+
+    .theory-key-points {
+        grid-template-columns: 1fr;
+    }
+
+    .four-elements {
+        grid-template-columns: 1fr;
+    }
+
+    .paper-card {
+        padding: 1.25rem;
+    }
+
+    .part-divider {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .navbar-content {
+        flex-wrap: wrap;
+        padding: 0 1rem;
+        gap: 0.75rem;
+    }
+
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    .navbar-links {
+        display: none;
+    }
+
+    .navbar-content .nav-actions {
+        margin-left: auto;
+    }
+}
+
+/* ================================================================
+   FLASHCARD & TIMER BUTTON STYLES
+   ================================================================ */
+.flashcard-btn,
+.timer-toggle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    margin-left: 0.5rem;
+}
+
+.flashcard-btn:hover,
+.timer-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* ================================================================
+   FLASHCARDS MODAL
+   ================================================================ */
+.flashcard-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    padding: 2rem;
+    backdrop-filter: blur(8px);
+}
+
+.flashcard-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flashcard-container {
+    max-width: 700px;
+    width: 100%;
+}
+
+.flashcard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.flashcard-header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.flashcard-header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.flashcard-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.flashcard-mode-toggle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.flashcard-mode-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.flashcard-mode-btn.active {
+    background: var(--color-primary);
+    color: white;
+}
+
+.flashcard-mode-btn:hover {
+    transform: translateY(-1px);
+}
+
+.flashcard-header button {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.25rem;
+}
+
+.flashcard-wrapper {
+    perspective: 1000px;
+    margin-bottom: 1.5rem;
+}
+
+.flashcard {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.flashcard-front {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    color: white;
+}
+
+.flashcard-back {
+    background: var(--color-bg-card);
+    color: var(--color-text);
+    transform: rotateY(180deg);
+    overflow-y: auto;
+}
+
+.flashcard-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.flashcard-front .flashcard-content {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.flashcard-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.flashcard-review-controls {
+    display: none;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.flashcard-review-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.flashcard-review-btn:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.flashcard-extra {
+    display: none;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.flashcard-extra button {
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    color: white;
+    padding: 0.5rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.flashcard-nav,
+.flashcard-flip {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.flashcard-nav {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.flashcard-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.flashcard-flip {
+    background: var(--color-primary);
+    color: white;
+}
+
+.flashcard-nav:hover:not(:disabled),
+.flashcard-flip:hover {
+    transform: scale(1.05);
+}
+
+.flashcard-hint {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.875rem;
+}
+
+/* ================================================================
+   STUDY TIMER WIDGET
+   ================================================================ */
+.timer-widget {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--color-bg-card);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    z-index: 1500;
+    overflow: hidden;
+    min-width: 250px;
+    border: 1px solid var(--color-border);
+}
+
+.timer-widget.hidden {
+    display: none;
+}
+
+.timer-widget.minimized .timer-body {
+    display: none;
+}
+
+.timer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--color-primary);
+    color: white;
+    font-weight: 600;
+}
+
+.timer-header button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.timer-body {
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.timer-display {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.timer-btn {
+    padding: 0.6rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.timer-btn:hover {
+    transform: scale(1.05);
+}
+
+.timer-btn.primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.timer-sessions {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+}
+
+/* Print - Compact colorful design */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Hide UI elements */
+    .navbar,
+    .search-btn,
+    .theme-toggle,
+    .back-to-top,
+    .progress-container,
+    .timer-widget,
+    .timer-toggle-btn,
+    .flashcard-btn,
+    .flashcard-modal,
+    .tts-btn,
+    .tts-panel,
+    .highlight-panel-btn,
+    .highlight-panel,
+    .quick-nav,
+    .stats-box,
+    .footer,
+    .bookmark-btn {
+        display: none !important;
+    }
+
+    @page {
+        size: A4;
+        margin: 0.3cm;
+    }
+
+    body {
+        font-size: 7pt !important;
+        line-height: 1.2 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Session header - minimal */
+    .session-header {
+        padding: 0.3cm !important;
+        margin-bottom: 0.2cm !important;
+    }
+
+    .session-header h1 {
+        font-size: 10pt !important;
+        margin: 0 !important;
+        padding-bottom: 0.05cm !important;
+    }
+
+    .session-meta {
+        font-size: 6pt !important;
+        margin: 0 !important;
+    }
+
+    /* TOC - ultra compact */
+    .toc-container {
+        padding: 0.2cm !important;
+        margin-bottom: 0.2cm !important;
+        page-break-after: always;
+    }
+
+    .toc-container h2 {
+        font-size: 10pt !important;
+        margin-bottom: 0.15cm !important;
+    }
+
+    .toc-part {
+        margin-bottom: 0.1cm !important;
+    }
+
+    .toc-part-header {
+        font-size: 8pt !important;
+        padding: 0.1cm !important;
+    }
+
+    .toc-list {
+        gap: 0.05cm !important;
+        padding: 0.1cm !important;
+    }
+
+    .toc-list li {
+        font-size: 7pt !important;
+    }
+
+    .toc-list a::before {
+        content: "• ";
+    }
+
+    /* Part dividers - compact */
+    .part-divider {
+        padding: 0.2cm 0.3cm !important;
+        margin: 0.2cm 0 !important;
+        page-break-before: always;
+    }
+
+    .part-divider h2 {
+        font-size: 11pt !important;
+        margin: 0 !important;
+    }
+
+    /* Paper cards - very tight */
+    .paper-card {
+        padding: 0.15cm !important;
+        margin-bottom: 0.1cm !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+
+    .paper-card h2 {
+        font-size: 9pt !important;
+        margin-bottom: 0.05cm !important;
+        padding-bottom: 0.03cm !important;
+    }
+
+    .paper-card h3 {
+        font-size: 8pt !important;
+        margin: 0.05cm 0 0.03cm !important;
+    }
+
+    .paper-card h4 {
+        font-size: 7pt !important;
+        margin: 0.05cm 0 0.03cm !important;
+    }
+
+    /* Theory cards */
+    .theory-preview-card {
+        border-left: 2px solid #1e40af !important;
+        padding: 0.15cm !important;
+        margin-bottom: 0.15cm !important;
+    }
+
+    .theory-header {
+        padding-bottom: 0.05cm !important;
+        margin-bottom: 0.05cm !important;
+    }
+
+    .theory-badge {
+        font-size: 5pt !important;
+        padding: 1pt 3pt !important;
+    }
+
+    .theory-preview {
+        padding: 0.1cm !important;
+        margin: 0.05cm 0 !important;
+    }
+
+    .theory-key-points {
+        gap: 0.1cm !important;
+        margin: 0.1cm 0 !important;
+    }
+
+    .key-point {
+        padding: 0.05cm !important;
+        font-size: 6.5pt !important;
+        border-left: 1px solid #1e40af !important;
+    }
+
+    /* Analysis sections */
+    .analysis-section {
+        margin: 0.1cm 0 !important;
+        padding: 0.05cm 0 !important;
+    }
+
+    .analysis-label {
+        font-size: 7pt !important;
+        padding: 0.05cm 0.15cm !important;
+    }
+
+    /* Tables - very compact */
+    table {
+        font-size: 6.5pt !important;
+        margin: 0.05cm 0 !important;
+    }
+
+    th,
+    td {
+        padding: 0.03cm 0.07cm !important;
+        line-height: 1.15 !important;
+    }
+
+    th {
+        font-size: 6.5pt !important;
+    }
+
+    /* Text */
+    p,
+    li {
+        font-size: 7pt !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.03cm !important;
+    }
+
+    /* Lists - tight */
+    ul,
+    ol {
+        margin: 0.05cm 0 !important;
+        padding-left: 0.3cm !important;
+    }
+
+    li {
+        margin-bottom: 0.02cm !important;
+    }
+
+    /* Special boxes - minimal but colorful */
+    .info-box,
+    .key-insight,
+    .exam-tip,
+    .critical-point,
+    .mechanism-highlight,
+    .theory-relevance {
+        padding: 0.1cm 0.15cm !important;
+        margin: 0.1cm 0 !important;
+        border-left-width: 2px !important;
+        font-size: 7.5pt !important;
+        page-break-inside: avoid;
+    }
+
+    /* Page breaks */
+    h1,
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+
+    .paper-card,
+    .analysis-section {
+        page-break-inside: avoid;
+    }
+
+    /* Theory maps */
+    .theory-map {
+        padding: 0.15cm !important;
+        margin-bottom: 0.15cm !important;
+        box-shadow: none !important;
+    }
+
+    .connection-item,
+    .pairing-guide {
+        padding: 0.1cm !important;
+        margin-bottom: 0.1cm !important;
+    }
+}
+
+/* ============================================================
+   EXAM BLUEPRINT SECTION - PhD Comps Study Guide
+   ============================================================ */
+
+.exam-blueprint-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-radius: 12px;
+    border-left: 4px solid #0284c7;
+}
+
+.exam-blueprint-section h2 {
+    color: #0c4a6e;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.blueprint-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.blueprint-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blueprint-card h3 {
+    color: #1e40af;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.blueprint-table {
+    width: 100%;
+    margin-top: 0.5rem;
+    border-collapse: collapse;
+}
+
+.blueprint-table td {
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+}
+
+.blueprint-table tr:last-child td {
+    border-bottom: none;
+}
+
+.blueprint-table td:first-child {
+    font-weight: 600;
+    color: #1e40af;
+    width: 35%;
+}
+
+.blueprint-table td:nth-child(2) {
+    font-weight: 600;
+    color: #059669;
+    width: 15%;
+}
+
+.blueprint-table td:nth-child(3) {
+    color: #6b7280;
+    width: 50%;
+}
+
+.study-path {
+    margin-bottom: 1.5rem;
+}
+
+.study-path:last-child {
+    margin-bottom: 0;
+}
+
+.study-path h4 {
+    color: #1e40af;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.study-path ol {
+    margin: 0.5rem 0 0 1.5rem;
+    padding: 0;
+}
+
+.study-path li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.blueprint-note {
+    font-style: italic;
+    color: #6b7280;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.priority-legend {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fef3c7;
+    border-radius: 6px;
+}
+
+.priority-legend h4 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #92400e;
+}
+
+.priority-legend p {
+    margin: 0;
+    line-height: 1.8;
+    color: #78350f;
+}
+
+/* Priority Tags */
+.priority-tag {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0.2rem;
+    white-space: nowrap;
+}
+
+.priority-tag.core {
+    background: #dc2626;
+    color: white;
+}
+
+.priority-tag.important {
+    background: #ea580c;
+    color: white;
+}
+
+.priority-tag.optional {
+    background: #6b7280;
+    color: white;
+}
+
+/* Priority badge in TOC */
+.priority-badge {
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+}
+
+.priority-badge.core {
+    color: #dc2626;
+}
+
+/* ============================================================
+   PRACTICE QUESTIONS SECTION
+   ============================================================ */
+
+.practice-questions-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fef3c7 0%, #fef9c3 100%);
+    border-radius: 12px;
+    border-left: 4px solid #f59e0b;
+}
+
+.practice-header {
+    color: #92400e;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.answer-template-box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 2px solid #fbbf24;
+}
+
+.answer-template-box h4 {
+    color: #92400e;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.answer-template-box ol {
+    margin: 0.5rem 0 0 1.5rem;
+    padding: 0;
+}
+
+.answer-template-box li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.template-note {
+    font-style: italic;
+    color: #78350f;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+.practice-question {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question-text {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.reveal-answer-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.reveal-answer-btn:hover {
+    background: #2563eb;
+}
+
+.model-answer {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f0f9ff;
+    border-left: 3px solid #3b82f6;
+    border-radius: 4px;
+}
+
+.model-answer p:first-child {
+    font-weight: 600;
+    color: #1e40af;
+    margin-bottom: 0.5rem;
+}
+
+.model-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================================
+   VERSION FOOTER
+   ============================================================ */
+
+.version-footer {
+    margin: 4rem 0 2rem;
+    padding: 2rem;
+    background: #f9fafb;
+    border-top: 3px solid #3b82f6;
+    border-radius: 8px;
+}
+
+.version-footer h2 {
+    color: #1e40af;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.version-info {
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.version-info p {
+    margin: 0.5rem 0;
+}
+
+.changelog-section {
+    margin: 1.5rem 0;
+}
+
+.changelog-section h3 {
+    color: #1e40af;
+    margin-bottom: 1rem;
+}
+
+.changelog-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.changelog-list>li {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: white;
+    border-left: 4px solid #10b981;
+    border-radius: 4px;
+}
+
+.changelog-list ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.changelog-list ul li {
+    margin-bottom: 0.3rem;
+}
+
+.citation-recommendation {
+    background: #fef3c7;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1.5rem;
+}
+
+.citation-recommendation h4 {
+    color: #92400e;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.citation-note {
+    font-style: italic;
+    color: #92400e;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Print styles for new sections */
+@media print {
+    .exam-blueprint-section {
+        page-break-inside: avoid;
+        background: white !important;
+        border: 1px solid #000;
+    }
+
+    .practice-questions-section {
+        display: none;
+        /* Hide practice questions in print */
+    }
+
+    .priority-tag {
+        border: 1px solid #000;
+        background: white !important;
+        color: #000 !important;
+    }
+
+    .part-overview {
+        background: white !important;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+}
+
+/* ============================================================
+   PART OVERVIEW SECTION - Context Before Each Part
+   ============================================================ */
+
+/* Part Overview Container */
+.part-overview {
+    margin: 1.5rem 0 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-radius: 10px;
+    border-left: 5px solid #16a34a;
+}
+
+.overview-header h3 {
+    margin: 0 0 1rem 0;
+    color: #166534;
+    font-size: 1.25rem;
+}
+
+.overview-content {
+    line-height: 1.7;
+}
+
+/* Apply Vazir font to RTL (Persian/Farsi) content */
+.part-overview [dir="rtl"],
+.part-overview [dir="rtl"] * {
+    font-family: Vazir, 'Segoe UI', Tahoma, sans-serif;
+}
+
+.overview-definition {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.overview-definition strong {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+.overview-why,
+.overview-connections {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+}
+
+.overview-why strong,
+.overview-connections strong {
+    color: #166534;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.overview-connections ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.5rem;
+}
+
+.overview-connections li {
+    margin-bottom: 0.3rem;
+    color: #374151;
+}

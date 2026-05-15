@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conway&#x27;s Law and Why Your Software Architecture Looks Like Your Org Chart | Ali Safari</title><meta name="description" content="Melvin Conway observed in 1967 that organizations produce systems that mirror their communication structures. Once you see it, you cannot unsee it."><meta name="keywords" content=IT Governance & Strategy, Platforms & Ecosystems, Sociotechnical Systems, information systems, research"><meta property="og:title" content="Conway&#x27;s Law and Why Your Software Architecture Looks Like Your Org Chart"><meta property="og:description" content="Melvin Conway observed in 1967 that organizations produce systems that mirror their communication structures. Once you see it, you cannot unsee it."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/conways-law-software-architecture/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IT Governance & Strategy, Platforms & Ecosystems, Sociotechnical Systems"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/conways-law-software-architecture/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Conway&#x27;s Law and Why Your Software Architecture Looks Like Your Org Chart","description":"Melvin Conway observed in 1967 that organizations produce systems that mirror their communication structures. Once you see it, you cannot unsee it.","url":"https://alisafari.space/blog/conways-law-software-architecture/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy, Platforms & Ecosystems, Sociotechnical Systems"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Conway&#x27;s Law and Why Your Software Architecture Looks Like Your Org Chart</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="conways-law-software-architecture" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IT Governance &amp; Strategy</span>
+<h1>Conway&#x27;s Law and Why Your Software Architecture Looks Like Your Org Chart</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span><span class="tag">Sociotechnical Systems</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>Melvin Conway made his observation in a 1967 paper that almost didn't get published. The Harvard Business Review rejected it. The idea was simple enough that it could fit in a sentence: "organizations which design systems are constrained to produce designs which are copies of the communication structures of those organizations." Fred Brooks picked it up in "The Mythical Man-Month" and called it Conway's Law, which is how it stuck. The idea has survived because it keeps being right.</p>
+<p>The reason it keeps being right is that system design is a communication problem. To produce a software interface between two components, the people responsible for each component have to talk to each other. They have to agree on what the interface does, how it behaves, what it returns when something goes wrong. That coordination requires a communication channel. If the communication channel doesn't exist, the interface doesn't get cleanly defined. If the teams don't talk often, the interface accumulates ambiguity. If they sit in different divisions with different management chains and different quarterly goals, the interface becomes a source of friction that nobody has the organizational authority to resolve cleanly.</p>
+<p>So the architecture ends up reflecting who talks to whom. The components owned by teams that communicate frequently tend to be tightly integrated. The boundaries between teams that don't communicate much become the seams in the software. This is not cynicism. It is almost mechanical. The structure of the software is the structure of the coordination required to build it, and the structure of the coordination is determined by the organizational structure. Conway was describing a constraint, not a preference.</p>
+<p>I have seen this in enterprise IT contexts that have nothing glamorous about them. A company with a monolithic IT department, organized around technical function (a database team, a middleware team, a frontend team), tends to produce monolithic applications with clean vertical layers but terrible horizontal seams. Every feature requires changes in three layers owned by three teams, which requires three separate handoffs, three separate code reviews, and three sets of deployment windows that have to align. The architecture didn't choose to be this way. The organization made it this way by deciding to organize around technical specialization rather than around business capabilities.</p>
+<p>The inverse of this is also true, and it's where the interesting strategic implications come in. You can design your team structure to produce the architecture you want. This idea, sometimes called the "inverse Conway maneuver," got traction in the microservices and DevOps communities. If you want a modular, loosely coupled architecture where services can be deployed independently, you organize teams so that each team owns a service end to end. The team handles the backend, the API, the frontend components, the deployment pipeline, and the monitoring. No handoffs. The communication structure is contained within the team, so the service boundary is clean and the interface to other services is a formal, versioned API.</p>
+<p>The maneuver works, but it requires genuine organizational change, not just a declared intention. Teams that own services end to end need the skills to do it. They need a backend engineer, someone who understands deployment, someone who thinks about security, someone who can look at monitoring data and respond to incidents. Small teams with narrow specialization can't actually be autonomous. Declaring them autonomous doesn't make them autonomous if they still need the central security team to approve every configuration change and the central DBA to bless every schema migration.</p>
+<p>This is where I see the most common failure mode. An organization reads about microservices and Netflix and decides to decompose its monolith. It starts splitting the codebase into separate services. But it doesn't change the team structure. The same three teams that owned the monolith now own different slices of the microservices. The deployment process still requires coordination across all three teams because they're deploying into a shared environment they all depend on. The data still lives in one database that all three services share because the organization has one DBA and she's not going to manage three separate databases. What you get is a distributed monolith. You have the operational complexity of microservices without any of the autonomy. The services look independent on the architecture diagram but can't actually be deployed or scaled independently.</p>
+<p>The distributed monolith problem is Conway's Law reasserting itself. The team structure didn't change, so the effective coupling in the system didn't change, regardless of what the code looks like. The services call each other synchronously in long chains. A failure in one cascades through all the others. Nobody can define the API boundaries cleanly because the teams still negotiate shared logic through informal hallway conversations rather than formal contracts. The code is distributed. The design is still monolithic.</p>
+<p>According to Gartner research on application modernization and cloud-native architecture, the organizational and cultural dimensions of architecture change are consistently underestimated relative to the technical dimensions (see <a href="https://www.gartner.com/en/newsroom">Gartner Newsroom</a>). That matches what Conway's Law predicts. The technical migration is the easier part. Restructuring the communication patterns, the ownership, the skills distribution, and the governance model is the harder part, and it's the part that determines whether the new architecture delivers what was promised.</p>
+<p>The implication I find most useful for IT practice is that architectural decisions and organizational decisions are the same decision seen from different angles. When a CTO says "we're going to move to microservices," they are also saying "we're going to reorganize how teams work." The second statement is usually not made explicit, which is why the first statement often fails. You can't separate them. You can try to make the architectural decision and avoid making the organizational decision, but then Conway's Law makes the organizational decision for you, and the result is the architecture your organization was always going to produce given who talks to whom.</p>
+<p>The 1967 paper has a second observation that gets less attention. Conway argued that the number of possible design solutions to a given problem is determined by the number of communication paths the organization can maintain. A small team has few communication paths, so it will produce a simple design. A large organization has many communication paths, so it can potentially produce a complex design, but the complexity will follow the communication structure. This has practical implications for architecture decisions. If you want a genuinely simple design, you might need to deliberately limit the number of teams involved in the design process. Architecture by committee, where every stakeholder gets to weigh in, tends to produce architectures that satisfy the communication needs of all the stakeholders, which means they're complex, layered, and full of interfaces that reflect the organizational boundaries more than any technical necessity.</p>
+<p>Conway's Law is one of those observations that gets cited in conference talks and then forgotten when actual organizational decisions get made. The org chart goes in one direction, the architecture diagram goes in another, and six months later everyone wonders why the new system has all the same problems as the old one.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/critical-realism-is-research/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">The World Exists Whether You Measure It or Not</div></a><a href="/blog/contingency-theory-no-best-it-strategy/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">There Is No Best IT Strategy</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/actor-network-theory-is-research/" class="blog-related-card"><h4>Actor-Network Theory: Why Your ERP System Is an Actor Too</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

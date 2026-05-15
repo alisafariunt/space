@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edge Computing and the Governance Problem Nobody Planned For | Ali Safari</title><meta name="description" content="Edge computing moves computation to where data is generated. The latency gains are real. The governance problem that follows is harder than most enterprise IT teams planned for."><meta name="keywords" content=IT Governance & Strategy, Trust & Security, information systems, research"><meta property="og:title" content="Edge Computing and the Governance Problem Nobody Planned For"><meta property="og:description" content="Edge computing moves computation to where data is generated. The latency gains are real. The governance problem that follows is harder than most enterprise IT teams planned for."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/edge-computing-enterprise-it/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IT Governance & Strategy, Trust & Security"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/edge-computing-enterprise-it/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Edge Computing and the Governance Problem Nobody Planned For","description":"Edge computing moves computation to where data is generated. The latency gains are real. The governance problem that follows is harder than most enterprise IT teams planned for.","url":"https://alisafari.space/blog/edge-computing-enterprise-it/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy, Trust & Security"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Edge Computing and the Governance Problem Nobody Planned For</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="edge-computing-enterprise-it" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IT Governance &amp; Strategy</span>
+<h1>Edge Computing and the Governance Problem Nobody Planned For</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 7 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Trust &amp; Security</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>The argument for edge computing is about physics. The speed of light is a real constraint. When a sensor on a factory floor generates data, sending that data to a cloud data center, processing it, and sending back a decision takes time. The round trip might be fifty milliseconds, or two hundred, depending on network conditions and distance. For some applications, that is fine. For others, it is not. A quality control camera inspecting products at high speed, making accept-or-reject decisions on a moving production line, cannot wait for a cloud round trip. A collision avoidance system in an autonomous vehicle cannot either. These applications need computation at or very close to the source of the data, which is what edge computing provides.</p>
+<p>The use cases have expanded well beyond manufacturing. Retail stores run computer vision at the shelf edge to detect inventory gaps without relying on store wifi to route video to a central server. Hospitals deploy edge processing on patient monitoring devices to run inference locally without requiring every patient's vital signs to traverse a hospital network. Energy infrastructure uses edge intelligence on grid equipment to make real-time switching decisions faster than centralized systems can respond. The IoT connection is direct: when you have large numbers of devices generating data in time-sensitive applications, and when those devices operate in environments where network connectivity is intermittent or expensive, you move computation to the device or to a nearby compute cluster rather than routing everything to a central cloud.</p>
+<p>Gartner has consistently placed edge computing among its top strategic technology trends, and its Hype Cycle work has tracked edge as it moves from peak expectation toward more realistic assessment (see <a href="https://www.gartner.com/en/research/methodologies/gartner-hype-cycle">Gartner Hype Cycle methodology</a> and the <a href="https://www.gartner.com/en/newsroom">Gartner newsroom</a> for current commentary). I hedge any specific positioning Gartner assigns because hype cycle placements change, and I am not working from a verified current report. The directional observation, that edge computing is a real and growing infrastructure pattern in enterprise IT, is well supported by what large technology vendors are building and what enterprise customers are deploying.</p>
+<p>The OT/IT convergence dimension is where edge computing becomes most complicated for large enterprises. OT stands for operational technology: the systems that control physical industrial processes. SCADA systems, PLCs, distributed control systems. These were designed to be isolated, proprietary, and long-lived. An industrial control system might be in service for twenty years, running on a vendor-specific operating system with firmware that cannot be updated without a formal change control process and, in some cases, a vendor service visit. IT systems, by contrast, are designed to be updated continuously, to communicate over standard protocols, and to be monitored and managed centrally. Edge computing brings these two worlds into contact. You are now running cloud-native software, containers, Kubernetes, standard Linux, on infrastructure that lives on the factory floor or the utility substation, next to OT systems that were never designed to coexist with that kind of environment.</p>
+<p>The governance problem that follows is the one I see underestimated most consistently. In a cloud environment, governance is centralized. You have a cloud account with billing and IAM visibility. You have centralized logging through CloudTrail or equivalent. You have a limited number of access patterns and a manageable attack surface. Patching is managed either by the cloud provider for managed services or by your operations team for workloads you run yourself. The cloud, for all its complexity, is at least a known environment.</p>
+<p>Edge devices are not a known environment in the same way. A large organization deploying edge compute for industrial IoT might have hundreds or thousands of edge nodes distributed across factories, warehouses, retail locations, or field sites. Each one is a computer running software that needs to be patched. Each one is a network endpoint that could be physically accessed by someone in that location. Each one has credentials, certificates, and configuration that need to be managed and rotated. Central IT departments are typically not staffed or structured to manage this kind of distributed endpoint estate at scale. The tooling that exists for cloud management, the infrastructure-as-code tooling, the CI/CD pipelines, the monitoring stacks, assumes that your compute is in a data center or cloud region with reliable network connectivity and physical security. An edge node on a factory floor in a remote location has none of those assumptions.</p>
+<p>Software updates on edge devices deserve special attention because they are where the security risk is most acute and the operational risk is highest simultaneously. You want to patch edge devices promptly when vulnerabilities are discovered, because unpatched edge devices on OT networks are attractive targets and because a compromise of an edge node near operational technology can have physical consequences. But you cannot update edge software with the same cadence as cloud software, because the edge device is running software that controls a physical process, and an update that introduces a regression in behavior is not a service disruption, it is potentially an equipment failure or a safety incident. The validation requirements for OT-adjacent software updates are different from the validation requirements for a web application. This creates a situation where the security team wants faster patching and the OT team wants slower patching, and both are right within their own risk frame.</p>
+<p>Structurally, this is the same problem Trist and Bamforth documented in the coal mines, technical optimization creating friction with the social and operational systems surrounding it. I wrote about how STS theory applies to edge AI in <a href="/blog/edge-ai-physical-world-sts">edge AI and physical decision-making</a>, and the broader edge computing context has the same shape. The technical case for edge, lower latency, reduced bandwidth consumption, resilience to cloud connectivity interruption, is well made and well supported. What the technical case does not address is how you govern a distributed estate of devices that need to be patched, secured, monitored, and managed without the centralized control surface that enterprise IT governance has been built around. That is an organizational problem, not a technology problem, and it is one that edge computing vendors have not fully solved in their product offerings, because solving it requires understanding each customer's specific OT environment, security posture, and operational constraints.</p>
+<p>The organizations navigating this well tend to be the ones that treat edge computing as a new domain requiring new skills and new governance models, rather than treating it as an extension of either their existing cloud governance or their existing OT governance. The skills required to manage edge infrastructure competently overlap with cloud operations skills and with OT engineering skills, but they are not identical to either. The governance models that work for cloud, centralized control, continuous deployment, infrastructure-as-code, do not port directly to edge, and the governance models that work for OT, formal change control, extended stability windows, physical isolation, cannot accommodate the update velocity that edge security requires.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/edtech-learning-analytics-problem/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">EdTech and the Learning Analytics Problem</div></a><a href="/blog/edge-ai-physical-world-sts/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Edge AI Moves Computation Into the Physical World. STS Says That Changes Everything.</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agile-at-enterprise-scale/" class="blog-related-card"><h4>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>
