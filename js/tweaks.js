@@ -1,6 +1,6 @@
-/* Field Notes — Tweaks panel (vanilla JS) */
+/* Field Notes — Tweaks panel (paper / dark) */
 (function () {
-  const DEFAULTS = { palette: 'paper', font: 'nunito', density: 'comfortable' };
+  const DEFAULTS = { palette: 'paper' };
   const STORAGE_KEY = 'fn-tweaks';
 
   function load() {
@@ -15,52 +15,29 @@
   function apply(prefs) {
     const html = document.documentElement;
     html.setAttribute('data-palette', prefs.palette);
-    html.setAttribute('data-font', prefs.font);
-    html.setAttribute('data-density', prefs.density);
   }
 
   function buildPanel(prefs) {
     const panel = document.createElement('div');
     panel.className = 'tweaks-panel';
     panel.innerHTML = `
-      <button class="tweaks-trigger" aria-label="Design tweaks" title="Tweaks">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+      <button class="tweaks-trigger" aria-label="Toggle theme" title="Theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
         </svg>
       </button>
-      <div class="tweaks-popup" role="dialog" aria-label="Design tweaks">
+      <div class="tweaks-popup" role="dialog" aria-label="Theme">
         <div class="tweaks-section">
-          <span class="tweaks-label">Color</span>
-          <div class="tweaks-palettes">
-            <button class="tweak-swatch" data-palette="paper" title="Paper" style="background:#ffffff;border-color:#d4d4d4;"></button>
-            <button class="tweak-swatch" data-palette="sage" title="Sage" style="background:#f8f9f5;"></button>
-            <button class="tweak-swatch" data-palette="cobalt" title="Cobalt" style="background:#f8faff;"></button>
-            <button class="tweak-swatch" data-palette="noir" title="Noir" style="background:#0a0a0a;"></button>
-          </div>
-        </div>
-        <div class="tweaks-section">
-          <span class="tweaks-label">Typeface</span>
-          <div class="tweaks-fonts">
-            <button class="tweak-opt" data-font="nunito">Nunito <span style="opacity:.5;font-size:.8em;margin-left:auto;">friendly</span></button>
-            <button class="tweak-opt" data-font="editorial">Newsreader <span style="opacity:.5;font-size:.8em;margin-left:auto;font-style:italic;">editorial</span></button>
-            <button class="tweak-opt" data-font="plex">IBM Plex <span style="opacity:.5;font-size:.8em;margin-left:auto;">technical</span></button>
-            <button class="tweak-opt" data-font="modern">Crimson Pro <span style="opacity:.5;font-size:.8em;margin-left:auto;">literary</span></button>
-          </div>
-        </div>
-        <div class="tweaks-section">
-          <span class="tweaks-label">Density</span>
-          <div class="tweaks-density">
-            <button class="tweak-opt" data-density="compact">Compact</button>
-            <button class="tweak-opt" data-density="comfortable">Comfortable</button>
-            <button class="tweak-opt" data-density="spacious">Spacious</button>
-          </div>
+          <span class="tweaks-label">// Theme</span>
+          <button class="tweak-opt" data-palette="paper">Paper</button>
+          <button class="tweak-opt" data-palette="dark">Dark</button>
         </div>
       </div>
     `;
+    document.body.appendChild(panel);
 
     const trigger = panel.querySelector('.tweaks-trigger');
-    const popup   = panel.querySelector('.tweaks-popup');
-
+    const popup = panel.querySelector('.tweaks-popup');
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       popup.classList.toggle('open');
@@ -69,36 +46,28 @@
       if (!panel.contains(e.target)) popup.classList.remove('open');
     });
 
-    panel.addEventListener('click', (e) => {
-      const el = e.target.closest('[data-palette],[data-font],[data-density]');
-      if (!el) return;
-      const key = el.dataset.palette ? 'palette' : el.dataset.font ? 'font' : 'density';
-      prefs[key] = el.dataset[key === 'density' ? 'density' : key];
-      save(prefs);
-      apply(prefs);
-      refresh(panel, prefs);
-    });
+    function refresh() {
+      panel.querySelectorAll('[data-palette]').forEach(b => {
+        b.classList.toggle('on', b.dataset.palette === prefs.palette);
+      });
+    }
+    refresh();
 
-    return panel;
-  }
-
-  function refresh(panel, prefs) {
-    panel.querySelectorAll('[data-palette]').forEach(el => {
-      el.classList.toggle('on', el.dataset.palette === prefs.palette);
-    });
-    panel.querySelectorAll('[data-font]').forEach(el => {
-      el.classList.toggle('on', el.dataset.font === prefs.font);
-    });
-    panel.querySelectorAll('[data-density]').forEach(el => {
-      el.classList.toggle('on', el.dataset.density === prefs.density);
+    panel.querySelectorAll('[data-palette]').forEach(b => {
+      b.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prefs.palette = b.dataset.palette;
+        apply(prefs); save(prefs); refresh();
+      });
     });
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const prefs = load();
-    apply(prefs);
-    const panel = buildPanel(prefs);
-    document.body.appendChild(panel);
-    refresh(panel, prefs);
-  });
+  const prefs = load();
+  apply(prefs);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => buildPanel(prefs));
+  } else {
+    buildPanel(prefs);
+  }
 })();

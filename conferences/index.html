@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
+<html lang="en" data-palette="paper">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,105 +11,203 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
 <style>
-:root{
-  --bg:#ffffff;--ink:#0a0a0a;--ink-2:#525252;--ink-3:#a3a3a3;--ink-4:#d4d4d4;
-  --rule:rgba(10,10,10,.08);--rule-s:rgba(10,10,10,.18);
-  --f:"Nunito",sans-serif;--mono:"JetBrains Mono",monospace;
-  --pad:clamp(20px,5vw,80px);
+/* ── Conferences page-specific ── */
+.page-hero {
+  padding: 96px var(--pad) 72px;
+  border-bottom: 1px solid var(--ink);
 }
-[data-palette="sage"]  {--bg:#f8f9f5;--ink:#161d13;--ink-2:#4a5246;--ink-3:#9aa396;--ink-4:#d0d5cc;}
-[data-palette="cobalt"]{--bg:#f8faff;--ink:#0d1526;--ink-2:#3a4b6b;--ink-3:#8a9bb8;--ink-4:#c8d3e8;}
-[data-palette="noir"]  {--bg:#0a0a0a;--ink:#f5f5f5;--ink-2:#a3a3a3;--ink-3:#525252;--ink-4:#2a2a2a;}
-*,*::before,*::after{box-sizing:border-box;}
-html,body{margin:0;padding:0;}
-body{background:var(--bg);color:var(--ink);font-family:var(--f);-webkit-font-smoothing:antialiased;line-height:1.6;transition:background .2s,color .2s;}
-a{color:inherit;text-decoration:none;}
-::selection{background:var(--ink);color:var(--bg);}
+.page-hero .hero-eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+  display: flex; align-items: center; gap: 10px;
+}
+.page-hero .hero-eyebrow::before {
+  content: "//"; color: var(--ink-4); letter-spacing: 0;
+}
+.page-hero .hero-title {
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(56px, 11vw, 144px);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  margin: 0 0 28px;
+  color: var(--ink);
+}
+.page-hero .hero-sub {
+  font-family: var(--f-serif);
+  font-size: clamp(18px, 1.9vw, 22px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink-2);
+  max-width: 56ch;
+  margin: 0;
+}
 
-/* nav */
-nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);}
-.nav-brand{font-weight:800;font-size:17px;letter-spacing:-.02em;display:flex;align-items:center;gap:8px;}
-.nav-brand::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ink);display:inline-block;}
-.nav-links{display:flex;gap:0;list-style:none;margin:0;padding:0;font-size:13.5px;font-weight:500;}
-.nav-links a{padding:7px 14px;border-radius:999px;color:var(--ink-2);transition:background .12s,color .12s;}
-.nav-links a:hover{background:var(--rule);color:var(--ink);}
-.nav-links a.active{background:var(--ink);color:var(--bg);}
-.nav-links a.fn{font-style:italic;}
-.nav-links a.fn:hover{background:var(--ink);color:var(--bg);}
+.conf-list { padding: 0 var(--pad) 120px; max-width: 1200px; margin: 0 auto; }
+.conf-item {
+  display: grid; grid-template-columns: 220px 1fr;
+  gap: 0; padding: 64px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.conf-item:first-child { border-top: 1px solid var(--rule); }
+.conf-meta { padding-right: 40px; border-right: 1px solid var(--rule); }
+.conf-year {
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: 56px;
+  letter-spacing: -0.03em;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.conf-month {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 18px;
+}
+.conf-where {
+  font-family: var(--f-serif);
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.4;
+}
+.conf-where span { display: block; }
+.conf-where span:first-child { font-weight: 600; color: var(--ink); }
+.conf-status {
+  margin-top: 16px;
+  display: inline-block;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 2px;
+  background: var(--ink);
+  color: var(--bg);
+}
+.conf-body { padding-left: 56px; }
+.conf-abbr {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+.conf-name {
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-size: clamp(22px, 2.8vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0 0 28px;
+  color: var(--ink);
+}
+.paper-block {
+  margin-bottom: 24px;
+  padding: 22px 26px;
+  border-left: 2px solid var(--accent);
+  background: var(--bg-soft);
+  border-radius: 0 4px 4px 0;
+}
+.paper-label {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 10px;
+}
+.paper-title {
+  font-family: var(--f-serif);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+.paper-desc {
+  font-family: var(--f-serif);
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink-2);
+  line-height: 1.55;
+  margin: 0;
+}
+.conf-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 11px 20px;
+  border-radius: 2px;
+  border: 1px solid var(--rule-strong);
+  color: var(--ink-2);
+  margin-top: 12px;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.conf-link:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
 
-/* hero */
-.hero{padding:88px var(--pad) 72px;border-bottom:1px solid var(--ink);}
-.hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:20px;}
-.hero-title{font-weight:800;font-size:clamp(52px,10vw,130px);line-height:.92;letter-spacing:-.04em;margin:0 0 24px;}
-.hero-sub{font-size:clamp(16px,1.6vw,20px);font-weight:300;color:var(--ink-2);margin:0;max-width:52ch;}
+.upcoming {
+  background: var(--ink); color: var(--bg);
+  padding: 96px var(--pad);
+  position: relative;
+}
+.upcoming::before {
+  content: "// COMING UP";
+  position: absolute;
+  top: 32px; left: var(--pad);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--accent-2);
+}
+.upcoming-inner { max-width: 1200px; margin: 0 auto; }
+.upcoming-label { display: none; }
+.upcoming-title {
+  font-family: var(--f-serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin: 24px 0 18px;
+  color: var(--bg);
+}
+.upcoming-sub {
+  font-family: var(--f-serif);
+  font-size: 18px;
+  color: rgba(250,250,247,0.65);
+  margin: 0;
+  max-width: 56ch;
+}
 
-/* conference list */
-.conf-list{padding:0 var(--pad) 120px;max-width:1200px;margin:0 auto;}
-.conf-item{display:grid;grid-template-columns:200px 1fr;gap:0;border-bottom:1px solid var(--rule);padding:64px 0;}
-.conf-item:first-child{border-top:1px solid var(--rule);margin-top:0;}
-.conf-meta{padding-right:48px;border-right:1px solid var(--rule);}
-.conf-year{font-weight:800;font-size:48px;letter-spacing:-.04em;line-height:1;margin-bottom:8px;}
-.conf-month{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:16px;}
-.conf-where{font-size:13px;font-weight:500;color:var(--ink-2);line-height:1.4;}
-.conf-where span{display:block;}
-.conf-status{margin-top:16px;display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--ink);color:var(--bg);}
-.conf-body{padding-left:56px;}
-.conf-abbr{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;}
-.conf-name{font-weight:800;font-size:clamp(22px,2.8vw,34px);line-height:1.05;letter-spacing:-.025em;margin:0 0 24px;}
-.paper-block{margin-bottom:24px;padding:20px 24px;border-left:2px solid var(--ink);}
-.paper-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;}
-.paper-title{font-weight:700;font-size:16px;line-height:1.3;letter-spacing:-.01em;margin:0 0 12px;}
-.paper-desc{font-size:15px;color:var(--ink-2);line-height:1.6;margin:0;}
-.conf-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:10px 18px;border-radius:999px;border:1px solid var(--rule-s);color:var(--ink-2);margin-top:8px;transition:background .12s,color .12s,border-color .12s;}
-.conf-link:hover{background:var(--ink);color:var(--bg);border-color:var(--ink);}
-
-/* upcoming */
-.upcoming{background:var(--ink);color:var(--bg);padding:64px var(--pad);margin-top:0;}
-.upcoming-inner{max-width:1200px;margin:0 auto;}
-.upcoming-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px;}
-.upcoming-title{font-weight:800;font-size:clamp(28px,4vw,48px);line-height:1;letter-spacing:-.03em;margin:0 0 14px;}
-.upcoming-sub{font-size:16px;color:rgba(255,255,255,.5);font-weight:300;margin:0;}
-
-/* footer */
-footer{border-top:1px solid var(--ink);padding:48px var(--pad) 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
-.footer-brand{font-weight:800;font-size:20px;letter-spacing:-.02em;}
-.footer-links{display:flex;gap:4px;flex-wrap:wrap;}
-.footer-links a{padding:6px 12px;border-radius:999px;font-size:13px;color:var(--ink-2);transition:background .12s,color .12s;}
-.footer-links a:hover{background:var(--rule);color:var(--ink);}
-.footer-base{width:100%;padding-top:16px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);}
-
-/* tweaks panel */
-.tweaks-panel{position:fixed;bottom:28px;right:28px;z-index:200;}
-.tweaks-trigger{width:40px;height:40px;border-radius:999px;background:var(--ink);color:var(--bg);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.18);cursor:pointer;border:0;transition:opacity .15s;}
-.tweaks-trigger:hover{opacity:.8;}
-.tweaks-popup{position:absolute;bottom:52px;right:0;background:var(--bg);border:1px solid var(--rule-s);border-radius:12px;padding:20px;width:260px;box-shadow:0 8px 32px rgba(0,0,0,.12);display:none;}
-.tweaks-popup.open{display:block;}
-.tweaks-section{margin-bottom:20px;}
-.tweaks-section:last-child{margin-bottom:0;}
-.tweaks-label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-4);margin-bottom:10px;display:block;}
-.tweaks-palettes{display:flex;gap:8px;flex-wrap:wrap;}
-.tweak-swatch{width:28px;height:28px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:border-color .12s;}
-.tweak-swatch.on{border-color:var(--ink);}
-.tweaks-fonts,.tweaks-density{display:flex;flex-direction:column;gap:4px;}
-.tweak-opt{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:6px;font-family:var(--f);font-size:13px;color:var(--ink-2);cursor:pointer;transition:background .12s,color .12s;}
-.tweak-opt:hover{background:var(--rule);color:var(--ink);}
-.tweak-opt.on{background:var(--ink);color:var(--bg);}
-
-@media(max-width:768px){
-  .conf-item{grid-template-columns:1fr;gap:24px;}
-  .conf-meta{padding-right:0;border-right:0;border-bottom:1px solid var(--rule);padding-bottom:24px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;}
-  .conf-body{padding-left:0;}
-  .conf-year{font-size:36px;}
-  .nav-links{display:none;}
-  .tweaks-panel{bottom:16px;right:16px;}
+@media (max-width: 768px) {
+  .conf-item { grid-template-columns: 1fr; gap: 24px; }
+  .conf-meta { padding-right: 0; border-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; }
+  .conf-body { padding-left: 0; }
+  .conf-year { font-size: 40px; }
 }
 </style>
 </head>
 <body>
 
-<nav>
+<nav class="nav">
   <a href="/" class="nav-brand">Ali Safari</a>
   <ul class="nav-links">
     <li><a href="/#about">About</a></li>
@@ -121,11 +219,11 @@ footer{border-top:1px solid var(--ink);padding:48px var(--pad) 32px;display:flex
   </ul>
 </nav>
 
-<div class="hero">
+<header class="page-hero">
   <div class="hero-eyebrow">Academic presentations &amp; events</div>
   <h1 class="hero-title">Conferences.</h1>
   <p class="hero-sub">Research presented at international IS and AI conferences. Topics span IoT security, AI governance, and trust in AI systems.</p>
-</div>
+</header>
 
 <div class="conf-list">
 
@@ -135,7 +233,7 @@ footer{border-top:1px solid var(--ink);padding:48px var(--pad) 32px;display:flex
       <div class="conf-year">2026</div>
       <div class="conf-month">January</div>
       <div class="conf-where">
-        <span style="font-weight:700;">Qatar University</span>
+        <span>Qatar University</span>
         <span>Doha, Qatar</span>
       </div>
       <span class="conf-status">Presented</span>
@@ -157,7 +255,7 @@ footer{border-top:1px solid var(--ink);padding:48px var(--pad) 32px;display:flex
       <div class="conf-year">2025</div>
       <div class="conf-month">December</div>
       <div class="conf-where">
-        <span style="font-weight:700;">Bangkok</span>
+        <span>Bangkok</span>
         <span>Thailand</span>
       </div>
       <span class="conf-status">Presented</span>
@@ -183,7 +281,7 @@ footer{border-top:1px solid var(--ink);padding:48px var(--pad) 32px;display:flex
       <div class="conf-year">2025</div>
       <div class="conf-month">November</div>
       <div class="conf-where">
-        <span style="font-weight:700;">Decision Sciences</span>
+        <span>Decision Sciences</span>
         <span>Institute (DSI)</span>
       </div>
       <span class="conf-status">Presented</span>
@@ -203,23 +301,22 @@ footer{border-top:1px solid var(--ink);padding:48px var(--pad) 32px;display:flex
 
 <div class="upcoming">
   <div class="upcoming-inner">
-    <div class="upcoming-label">Coming up</div>
     <h2 class="upcoming-title">More presentations in 2026.</h2>
     <p class="upcoming-sub">Research on AI trust calibration and agentic delegation currently under review.</p>
   </div>
 </div>
 
-<footer>
+<footer class="footer-simple">
   <span class="footer-brand">Ali Safari.</span>
   <nav class="footer-links">
-    <a href="/">Portfolio</a>
+    <a href="/">Home</a>
     <a href="/blog/">Field Notes.</a>
     <a href="/roadmap.html">Roadmap</a>
     <a href="/#contact">Contact</a>
   </nav>
-  <div class="footer-base">
-    <span>© 2026 Ali Safari · University of North Texas</span>
-    <span>Set in Nunito &amp; JetBrains Mono</span>
+  <div class="footer-copy">
+    <span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+    <span>Set in Newsreader, Inter &amp; JetBrains Mono</span>
   </div>
 </footer>
 
