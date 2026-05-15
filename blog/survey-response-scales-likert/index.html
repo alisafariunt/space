@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/survey-response-scales-likert/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Survey Response Scales and Why Your Five Points Might Not Mean What You Think","description":"IS survey research defaults to Likert-type scales without much thought. The choices made about scale design shape what respondents report and how results can be analyzed.","url":"https://alisafari.space/blog/survey-response-scales-likert/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IS Research Methods","keywords":"IS Research Methods"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>IS Research Methods</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">IS Research Methods</div>
+<h1 class="art-title">Survey Response Scales and Why Your Five Points Might Not Mean What You Think</h1>
+<p class="art-dek">IS survey research defaults to Likert-type scales without much thought. The choices made about scale design shape what respondents report and how results can be analyzed.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">IS Research Methods</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Survey Response Scales and Why Your Five Points Might Not Mean What You Think</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="survey-response-scales-likert" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">IS Research Methods</span>
-<h1>Survey Response Scales and Why Your Five Points Might Not Mean What You Think</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>I sat through a dissertation proposal defense a while back where the committee asked one question that the student had no answer for: why five points and not seven? The student had built a twenty-item survey to measure three constructs. Every item used a five-point Strongly Disagree to Strongly Agree scale. The scales worked, statistically. Cronbach's alpha was fine. But no one had thought about why five. The choice was inherited from prior work in the same area, and prior work had probably inherited it from something older still.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>I sat through a dissertation proposal defense a while back where the committee asked one question that the student had no answer for: why five points and not seven? The student had built a twenty-item survey to measure three constructs. Every item used a five-point Strongly Disagree to Strongly Agree scale. The scales worked, statistically. Cronbach's alpha was fine. But no one had thought about why five. The choice was inherited from prior work in the same area, and prior work had probably inherited it from something older still.</p>
 <p>That kind of unreflective inheritance is everywhere in IS survey research. The Likert-type scale is the default. It shows up in almost every positivist IS study that measures attitudes, perceptions, or intentions. And most papers treat the scale design as a detail, not a decision. I think this is a mistake.</p>
 <p>Rensis Likert developed his original summated rating scales in 1932 as a way to measure attitudes by aggregating responses across multiple items. The key word is "summated." The idea was to combine many items that all point to the same underlying construct, so that idiosyncratic responses to individual items cancel out. A single item measuring "trust" is not a Likert scale in the original sense. It is a single rating. In IS research, these get treated as equivalent, which they are not. When Davis (1989) operationalized Perceived Usefulness in TAM using six items, each rated on a seven-point scale, the aggregation across six items gave the construct score some measurement depth. A one-item "how useful is this system" question measured on a five-point scale is a different animal, even if both are called Likert items.</p>
 <p>The choice between five and seven points matters more than it seems. More response points give respondents more room to express gradations in their attitudes, which tends to increase variance in the data and can improve the discriminant validity of constructs that are otherwise hard to separate. But more points also increase cognitive load. When a respondent has to choose between "Agree" and "Strongly Agree," they are making a judgment about intensity that is genuinely difficult. Seven-point scales ask respondents to make finer distinctions than five-point scales, and whether respondents can reliably make those distinctions is an empirical question, not a given. In practice, many respondents compress a seven-point scale to three or four effective options anyway.</p>
@@ -68,47 +57,55 @@
 <p>The midpoint question is also worth thinking about. A five-point scale with a "Neither Agree nor Disagree" midpoint gives respondents an explicit neutral option. Some researchers remove the midpoint, forcing a directional response, on the theory that most attitudes are not truly neutral and that the midpoint is a refuge for low-effort respondents. Others keep it on the theory that forcing a direction when respondents are genuinely ambivalent introduces measurement error. The right answer depends on the construct. For attitudes that plausibly have neutral cases, removing the midpoint creates artificial directionality. For constructs where neutrality is theoretically impossible (you either use the system or you do not), a forced-choice design may be more honest.</p>
 <p>Gartner's enterprise surveys face all the same problems and make the same kinds of design choices. When Gartner reports that a certain percentage of CIOs plan to increase technology investments in a given category, those percentages come from survey responses measured on some kind of rating or agreement scale. The methodological choices Gartner makes about scale length, labeling, and midpoints shape the statistics that practitioners then quote as if they were objective facts. You can browse the kinds of findings Gartner publishes at <a href="https://www.gartner.com/en/newsroom">the Gartner newsroom</a>, but the methodology behind those surveys is rarely visible. Academic IS surveys are at least expected to report their measurement decisions and face peer review on them.</p>
 <p>When I think about what makes measurement decisions defensible, I come back to what Straub, Boudreau, and Gefen (2004) argued for IS specifically: that the credibility of empirical findings depends on transparent, consistent validation of the measurement instruments. Scale design is part of that. Choosing five points instead of seven, or removing the midpoint, or using single-item measures where multi-item scales exist, these are all decisions that should be justified in the paper, not buried in a footnote or, worse, not mentioned at all. The issue connects to the broader construct validity problem I wrote about in my post on <a href="/blog/common-method-bias-survey-research">common method bias in survey research</a>, where the measurement method itself becomes a source of variance in the results.</p>
-<p>The student at the proposal defense eventually landed on a reasonable answer for the committee: prior IS research in the same domain consistently used five-point scales, so comparability with existing studies justified the choice. That is a legitimate argument. It is not the best argument (comparability with a flawed convention is still a flawed convention), but it is an honest one. What I would have liked to hear is what the five-point scale would miss that a seven-point scale might capture, and whether that mattered for the construct in question.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>The student at the proposal defense eventually landed on a reasonable answer for the committee: prior IS research in the same domain consistently used five-point scales, so comparability with existing studies justified the choice. That is a legitimate argument. It is not the best argument (comparability with a flawed convention is still a flawed convention), but it is an honest one. What I would have liked to hear is what the five-point scale would miss that a seven-point scale might capture, and whether that mattered for the construct in question.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/synthetic-data-ai-training/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Synthetic Data: Training AI Without Real People&#x27;s Information</div></a><a href="/blog/surveillance-capitalism-what-data-is-for/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Surveillance Capitalism and What Your Data Is Actually For</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/action-research-is-method/" class="related-item"><div><div class="related-cat">IS Research Methods</div><div class="related-title">Action Research in IS: When the Researcher Is Also the Intervener</div></div><span class="related-rt">7 min read</span></a><a href="/blog/ai-labor-market-is-research/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">AI and the Labor Market: What IS Research Can Contribute</div></div><span class="related-rt">6 min read</span></a><a href="/blog/ai-models-critical-realism-mechanisms/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">Critical Realism Explains Why AI Models Are Not the Mechanisms They Simulate</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/synthetic-data-ai-training/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Synthetic Data: Training AI Without Real People&#x27;s Information</div></a><a href="/blog/surveillance-capitalism-what-data-is-for/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Surveillance Capitalism and What Your Data Is Actually For</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/action-research-is-method/" class="blog-related-card"><h4>Action Research in IS: When the Researcher Is Also the Intervener</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/ai-labor-market-is-research/" class="blog-related-card"><h4>AI and the Labor Market: What IS Research Can Contribute</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-models-critical-realism-mechanisms/" class="blog-related-card"><h4>Critical Realism Explains Why AI Models Are Not the Mechanisms They Simulate</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

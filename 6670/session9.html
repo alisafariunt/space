@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Week 9: Design Science Research - DSR Foundations, Validity, Human-AI Ecologies, and Expert-Augmented Few-Shot Learning">
+    <meta name="theme-color" content="#1e40af">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Week 9: Design Science Research | BCIS 6670 Study Guide</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/study-header.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-brand">BCIS 6670 Study Guide</a>
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="session1.html">Wk 1</a></li>
+                <li><a href="session2.html">Wk 2</a></li>
+                <li><a href="session3.html">Wk 3+4</a></li>
+                <li><a href="session5.html">Wk 5</a></li>
+                <li><a href="session6.html">Wk 6</a></li>
+                <li><a href="session7.html">Wk 7</a></li>
+                <li><a href="session9.html" class="active">Wk 9</a></li>
+            </ul>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">Reading Progress: 0%</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- Session Header -->
+        <div class="session-header">
+            <h1>Week 9: Design Science Research</h1>
+            <p class="session-meta">Mar 10, 2026 | Week 8 was Spring Break | DSR Foundations, Validity, and Applied DSR Papers</p>
+        </div>
+
+        <!-- Session Overview -->
+        <div class="info-box">
+            <h4>🎯 This Week's Focus</h4>
+            <p>Week 9 covers <strong>Design Science Research (DSR)</strong>, starting from its foundations (Hevner et al., 2004) through modern extensions on positioning (Gregor & Hevner, 2013), genres of inquiry (Baskerville et al., 2015), and validity (Larsen et al., 2025). Two applied DSR papers demonstrate the methodology in action: guardrails for human-AI ecologies (Grisold et al., 2025) and expert-augmented few-shot learning for medicine (Liu et al., 2025). Key question: <em>How do we design, evaluate, and validate IT artifacts as legitimate research contributions?</em></p>
+        </div>
+
+        <!-- This Week's Requirements -->
+        <div class="warning-box">
+            <h4>📋 This Week's Requirements (Mar 10, 2026)</h4>
+            <ul>
+                <li><strong>Presenter assignments:</strong> Hevner (Dante), Gregor & Hevner (Vamsi, Ali), Larsen (Rayna), Baskerville (Kim)</li>
+                <li><strong>Ali's assigned papers:</strong> Gregor & Hevner (2013) + Grisold et al. (2025)</li>
+                <li><strong>DSR Application papers:</strong> Grisold (Ali, Dante, Vamsi) and Liu (Kim, Rayna)</li>
+                <li>Read all six papers and be ready to discuss <strong>how each paper maps to the DSR frameworks</strong>.</li>
+            </ul>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="paper-card quick-nav">
+            <h4>🔗 فهرست سریع - Quick Navigation</h4>
+            <div class="quick-nav-links">
+                <a href="#hevner" class="quick-nav-link">🏗️ Hevner et al. (2004) — DSR Foundations</a>
+                <a href="#gregor" class="quick-nav-link">🎯 Gregor & Hevner (2013) — Positioning DSR</a>
+                <a href="#baskerville" class="quick-nav-link">📚 Baskerville et al. (2015) — Genres of Inquiry</a>
+                <a href="#larsen" class="quick-nav-link">✅ Larsen et al. (2025) — Validity in DSR</a>
+                <a href="#grisold" class="quick-nav-link">🤖 Grisold et al. (2025) — Human-AI Ecologies</a>
+                <a href="#liu" class="quick-nav-link">🧬 Liu et al. (2025) — Expert-Augmented FSL</a>
+                <a href="#mental-map" class="quick-nav-link">🗺️ Mental Map</a>
+            </div>
+        </div>
+
+        <!-- Papers at a Glance -->
+        <div class="paper-card">
+            <h2>Papers at a Glance</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Paper</th>
+                        <th>Core Contribution</th>
+                        <th>Type</th>
+                        <th>Key Takeaway</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Hevner et al. (2004)</strong></td>
+                        <td>7 Guidelines for DSR + IS Research Framework</td>
+                        <td>Methodology</td>
+                        <td>DSR = Build + Evaluate artifacts. Truth and utility are inseparable.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gregor & Hevner (2013)</strong></td>
+                        <td>2x2 Knowledge Contribution Framework + 3 Levels of Abstraction</td>
+                        <td>Methodology</td>
+                        <td>4 contribution types: Invention, Improvement, Exaptation, Routine Design.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Baskerville et al. (2015)</strong></td>
+                        <td>Genre Framework for DSR inquiry</td>
+                        <td>Methodology</td>
+                        <td>4 genres from 2 dualities (Design/Science x Nomothetic/Idiographic).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Larsen et al. (2025)</strong></td>
+                        <td>Design Science Validity Framework (DSVF)</td>
+                        <td>Methodology</td>
+                        <td>3 knowledge claims (Criterion, Causal, Context) with specific validity types.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grisold et al. (2025)</strong></td>
+                        <td>Guardrails via norm-based coordination</td>
+                        <td>DSR Application</td>
+                        <td>Deep norms + surface norms as guardrails for human-AI coordination.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Liu et al. (2025)</strong></td>
+                        <td>FastSR: Expert-augmented few-shot learning</td>
+                        <td>DSR Application</td>
+                        <td>F1@3 ~73% vs GPT-4's 39%. Saves 44 weeks and $73.5K per systematic review.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- ===================== HEVNER ET AL. (2004) ===================== -->
+        <div class="paper-card" id="hevner">
+            <h2>🏗️ Paper 1: Design Science in Information Systems Research</h2>
+            <h3>Hevner, March, Park & Ram (2004) — MIS Quarterly 28(1), 75-105</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>Hevner, A., March, S., Park, J., and Ram, S. (2004). "Design Science in Information Systems Research," <em>MIS Quarterly</em>, 28(1), pp. 75-105.</p>
+                <p><strong>Presenter:</strong> Dante</p>
+            </div>
+
+            <!-- Persian RTL -->
+            <div class="analysis-section rtl-section">
+                <h4>📚 توضیح فارسی — علم طراحی در IS چیست؟</h4>
+
+                <p><strong>🔴 مسئله اصلی:</strong> تحقیقات IS دو پارادایم دارد. اولی <mark>علم رفتاری (Behavioral Science)</mark> است که ما ترمی با آن آشنا شدیم — فرضیه می‌سازیم، داده جمع می‌کنیم، تست می‌کنیم. اما پارادایم دومی هم هست: <mark>علم طراحی (Design Science)</mark>. در این پارادایم، به جای تست نظریه، یک <strong>آرتیفکت</strong> (مصنوع) می‌سازیم — مثل یک سیستم نرم‌افزاری، یک مدل، یک الگوریتم — و نشان می‌دهیم که کار می‌کند.</p>
+
+                <p><strong>🎯 چرا این پیپر مهم است؟</strong> قبل از ۲۰۰۴، خیلی از محققان IS فکر می‌کردند فقط با نظرسنجی و آزمایش می‌شود پیپر خوب نوشت. هِوِنر و همکارانش نشان دادند که <mark>ساختن چیز جدید هم تحقیق است</mark>، به شرط اینکه هم <strong>مفید</strong> باشد و هم <strong>دقیق</strong>. شعار کلیدی: "Truth and Utility are inseparable" — حقیقت و سودمندی از هم جدا نیستند.</p>
+
+                <p><strong>📖 دو پارادایم:</strong></p>
+                <ul>
+                    <li><strong>علم رفتاری:</strong> هدف = <mark>حقیقت (Truth)</mark>. فرضیه می‌سازد، تست می‌کند، نظریه تولید می‌کند.</li>
+                    <li><strong>علم طراحی:</strong> هدف = <mark>سودمندی (Utility)</mark>. آرتیفکت می‌سازد، ارزیابی می‌کند، مسئله حل می‌کند.</li>
+                </ul>
+                <p>نکته: این دو <strong>مکمل</strong> هم هستند، نه رقیب. نظریه‌های رفتاری پایه طراحی هستند (kernel theories)، و آرتیفکت‌های طراحی پدیده‌هایی ایجاد می‌کنند که علم رفتاری مطالعه‌شان می‌کند.</p>
+
+                <p><strong>⚡ نکته کلیدی برای کلاس:</strong> وقتی استاد بپرسد «چرا DSR هم تحقیق محسوب می‌شود؟»، جواب این است: چون آرتیفکت جدید <mark>دانش جدید تولید می‌کند</mark> — هم در مورد اینکه چه چیزی ممکن است (utility) و هم در مورد اینکه چرا کار می‌کند (truth).</p>
+            </div>
+
+            <!-- Two Paradigms -->
+            <div class="paper-card">
+                <h4>⚖️ Two Paradigms of IS Research</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Behavioral Science</th>
+                            <th>Design Science</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Origin</strong></td>
+                            <td>Natural sciences</td>
+                            <td>Engineering, "sciences of the artificial" (Simon)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Goal</strong></td>
+                            <td><mark>Truth</mark> — explain/predict behavior</td>
+                            <td><mark>Utility</mark> — extend human/organizational capabilities</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Output</strong></td>
+                            <td>Theories, hypotheses</td>
+                            <td>Artifacts (constructs, models, methods, instantiations)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Process</strong></td>
+                            <td>Develop theory → Test</td>
+                            <td>Build artifact → Evaluate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Evaluation</strong></td>
+                            <td>Statistical significance</td>
+                            <td>Utility, quality, efficacy of artifact</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- IS Research Framework -->
+            <div class="paper-card">
+                <h4>🔄 IS Research Framework (Figure 2 — The Core Diagram)</h4>
+                <div class="mermaid">
+                    graph LR
+                        subgraph ENV["🏢 Environment (Relevance)"]
+                            P[People<br/>Roles, Capabilities]
+                            O[Organizations<br/>Strategy, Culture]
+                            T[Technology<br/>Infrastructure, Apps]
+                        end
+                        subgraph ISR["🔬 IS Research"]
+                            B["Build<br/>(Construct Artifact)"]
+                            E["Evaluate<br/>(Test Artifact)"]
+                            B -->|iterate| E
+                            E -->|refine| B
+                        end
+                        subgraph KB["📚 Knowledge Base (Rigor)"]
+                            F[Foundations<br/>Theories, Frameworks]
+                            M[Methodologies<br/>Analysis, Measures]
+                        end
+                        ENV -->|"Business Needs<br/>Relevance Cycle"| ISR
+                        ISR -->|"Applicable Knowledge"| ENV
+                        KB -->|"Rigor Cycle<br/>Grounding"| ISR
+                        ISR -->|"Additions to KB"| KB
+                </div>
+                <p><strong>Three Research Cycles:</strong></p>
+                <ul>
+                    <li><strong>Relevance Cycle:</strong> Environment ↔ IS Research. Identifies business needs, tests artifacts in field.</li>
+                    <li><strong>Design Cycle:</strong> Build ↔ Evaluate loop (internal iteration until satisfactory).</li>
+                    <li><strong>Rigor Cycle:</strong> Knowledge Base ↔ IS Research. Grounds in theory, adds new knowledge.</li>
+                </ul>
+            </div>
+
+            <!-- 7 Guidelines -->
+            <div class="paper-card">
+                <h4>📋 The 7 DSR Guidelines (Table 1)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Guideline</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td><mark>Design as an Artifact</mark></td>
+                            <td>Must produce a viable artifact: <strong>construct</strong> (vocabulary), <strong>model</strong> (representation), <strong>method</strong> (algorithm/process), or <strong>instantiation</strong> (prototype/system).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td><mark>Problem Relevance</mark></td>
+                            <td>Must solve an important and relevant business problem.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td><mark>Design Evaluation</mark></td>
+                            <td>Utility, quality, and efficacy must be rigorously demonstrated (see evaluation methods table).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td><mark>Research Contributions</mark></td>
+                            <td>Must provide clear contributions in: the artifact itself, design foundations, and/or methodologies.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td><mark>Research Rigor</mark></td>
+                            <td>Rigorous methods in both construction and evaluation.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td><mark>Design as a Search Process</mark></td>
+                            <td>Finding an effective artifact is heuristic — a <strong>Generate/Test Cycle</strong> to reach desired ends while satisfying constraints.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>7</strong></td>
+                            <td><mark>Communication of Research</mark></td>
+                            <td>Must be presented to both technology-oriented (how to build) and management-oriented (why it matters) audiences.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="warning-box">
+                    <h4>⚠️ Important Note</h4>
+                    <p>These 7 guidelines are <strong>not a mandatory checklist</strong>. They are principles requiring "creative skill and judgment" in application. However, researchers must address each one to some degree.</p>
+                </div>
+            </div>
+
+            <!-- Evaluation Methods -->
+            <div class="paper-card">
+                <h4>🔍 Design Evaluation Methods (Table 2)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Methods</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Observational</strong></td>
+                            <td>Case Study, Field Study</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Analytical</strong></td>
+                            <td>Static Analysis, Architecture Analysis, Optimization, Dynamic Analysis</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Experimental</strong></td>
+                            <td>Controlled Experiment, Simulation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Testing</strong></td>
+                            <td>Functional (Black Box), Structural (White Box)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Descriptive</strong></td>
+                            <td>Informed Argument, Scenarios</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- IT Artifact Types -->
+            <div class="success-box">
+                <h4>💡 Four Types of IT Artifacts</h4>
+                <ul>
+                    <li><strong>Constructs:</strong> The vocabulary and symbols of the domain (e.g., "entity," "relationship" in ER diagrams).</li>
+                    <li><strong>Models:</strong> Abstractions and representations using constructs (e.g., data models).</li>
+                    <li><strong>Methods:</strong> Algorithms and practices for performing tasks (e.g., SDLC, agile).</li>
+                    <li><strong>Instantiations:</strong> Working systems — prototypes or full implementations that demonstrate feasibility.</li>
+                </ul>
+            </div>
+
+            <!-- Original Figures from Hevner 2004 -->
+            <div class="paper-card">
+                <h4>📷 شکل‌های اصلی مقاله — Original Paper Figures (Hevner et al., 2004)</h4>
+
+                <!-- Figure 1: Image first, then descriptions -->
+                <img src="img/week9/ss16.png" alt="Figure 1: Organizational Design and Information Systems Design Activities" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Figure 1. Organizational Design and Information Systems Design Activities (Hevner et al., 2004, p. 78)</p>
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 شکل ۱ — طراحی سازمانی و طراحی سیستم‌های اطلاعاتی:</strong> این شکل از Henderson و Venkatraman (۱۹۹۳) اقتباس شده. چهار بخش دارد: <mark>استراتژی کسب‌وکار</mark> (بالا چپ)، <mark>استراتژی فناوری اطلاعات</mark> (بالا راست)، <mark>زیرساخت سازمانی</mark> (پایین چپ)، و <mark>زیرساخت سیستم‌های اطلاعاتی</mark> (پایین راست). یعنی IS فقط فناوری نیست، بلکه <mark>همراستایی (alignment)</mark> بین استراتژی کسب‌وکار و استراتژی IT لازم است.</p>
+                </div>
+                <div class="analysis-section">
+                    <p><strong>🇬🇧 Figure 1:</strong> Four boxes: <mark>Business Strategy</mark> (top-left), <mark>IT Strategy</mark> (top-right), <mark>Organizational Infrastructure</mark> (bottom-left), <mark>IS Infrastructure</mark> (bottom-right). Key idea: IS is not just technology. There must be <mark>alignment</mark> between business and IT strategy. This is Hevner's foundation: DSR must be both <strong>relevant</strong> and <strong>rigorous</strong>.</p>
+                </div>
+
+                <!-- Table 1: Image first, then descriptions -->
+                <img src="img/week9/ss17.png" alt="Table 1: Design-Science Research Guidelines" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Table 1. Design-Science Research Guidelines (Hevner et al., 2004, p. 83)</p>
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 جدول ۱ — هفت راهنمای تحقیق علم طراحی:</strong> <mark>این مهم‌ترین جدول پیپر است!</mark></p>
+                    <ul>
+                        <li><strong>راهنمای ۱:</strong> باید یک مصنوع قابل‌استفاده تولید شود (سازه، مدل، متد، یا نمونه عملی).</li>
+                        <li><strong>راهنمای ۲:</strong> باید یک مسئله مهم و واقعی را حل کند.</li>
+                        <li><strong>راهنمای ۳:</strong> باید <mark>مفید</mark>، <mark>باکیفیت</mark> و <mark>مؤثر</mark> بودنش ثابت شود.</li>
+                        <li><strong>راهنمای ۴:</strong> سهم مشخص در آرتیفکت، مبانی طراحی، یا روش‌شناسی.</li>
+                        <li><strong>راهنمای ۵:</strong> هم ساخت و هم ارزیابی با متدهای دقیق.</li>
+                        <li><strong>راهنمای ۶:</strong> فرایند <mark>ابتکاری (heuristic)</mark> — تولید و آزمایش تکرار می‌شود.</li>
+                        <li><strong>راهنمای ۷:</strong> هم برای مخاطبان فنی و هم مدیریتی قابل‌فهم باشد.</li>
+                    </ul>
+                </div>
+                <div class="analysis-section">
+                    <p><strong>🇬🇧 Table 1:</strong> <mark>Most important table!</mark> Seven principles:</p>
+                    <ul>
+                        <li><strong>G1:</strong> Must produce a usable artifact (construct, model, method, or instantiation).</li>
+                        <li><strong>G2:</strong> Must solve an important, real business problem.</li>
+                        <li><strong>G3:</strong> Must show it is <mark>useful</mark>, <mark>high quality</mark>, and <mark>effective</mark>.</li>
+                        <li><strong>G4:</strong> Clear contributions in artifact, design foundations, or methodologies.</li>
+                        <li><strong>G5:</strong> Rigorous methods in both building and evaluation.</li>
+                        <li><strong>G6:</strong> Finding the right artifact is <mark>heuristic</mark> — a generate-and-test cycle.</li>
+                        <li><strong>G7:</strong> Clear for both technical and management audiences.</li>
+                    </ul>
+                    <p>⚠️ Not a mandatory checklist — principles requiring "creative skill and judgment."</p>
+                </div>
+
+                <!-- Table 2: Image first, then descriptions -->
+                <img src="img/week9/ss18.png" alt="Table 2: Design Evaluation Methods" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Table 2. Design Evaluation Methods (Hevner et al., 2004, p. 86)</p>
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 جدول ۲ — روش‌های ارزیابی طراحی:</strong> پنج دسته:</p>
+                    <ul>
+                        <li><strong>۱. مشاهده‌ای:</strong> مطالعه موردی و مطالعه میدانی.</li>
+                        <li><strong>۲. تحلیلی:</strong> تحلیل ایستا، معماری، بهینه‌سازی، پویا.</li>
+                        <li><strong>۳. تجربی:</strong> آزمایش کنترل‌شده و شبیه‌سازی.</li>
+                        <li><strong>۴. تست:</strong> جعبه سیاه (عملکردی) و جعبه سفید (ساختاری).</li>
+                        <li><strong>۵. توصیفی:</strong> استدلال مستند و سناریوسازی.</li>
+                    </ul>
+                    <p><mark>انتخاب روش</mark> به نوع آرتیفکت بستگی دارد. الگوریتم → تست و شبیه‌سازی. Framework مفهومی → استدلال مستند و سناریو.</p>
+                </div>
+                <div class="analysis-section">
+                    <p><strong>🇬🇧 Table 2:</strong> Five evaluation categories:</p>
+                    <ul>
+                        <li><strong>1. Observational:</strong> Case study, field study.</li>
+                        <li><strong>2. Analytical:</strong> Static, architecture, optimization, dynamic analysis.</li>
+                        <li><strong>3. Experimental:</strong> Controlled experiment, simulation.</li>
+                        <li><strong>4. Testing:</strong> Black box (functional), white box (structural).</li>
+                        <li><strong>5. Descriptive:</strong> Informed argument, scenarios.</li>
+                    </ul>
+                    <p><mark>Which to pick?</mark> Algorithm → testing/simulation. Conceptual framework → informed argument/scenarios.</p>
+                </div>
+
+                <!-- Figure 2: Image first, then descriptions -->
+                <img src="img/week9/ss19.png" alt="Figure 2: Information Systems Research Framework" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Figure 2. Information Systems Research Framework (Hevner et al., 2004, p. 80)</p>
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 شکل ۲ — چارچوب تحقیق IS:</strong> <mark>مهم‌ترین شکل پیپر!</mark> سه ستون:</p>
+                    <ul>
+                        <li><strong>چپ — محیط:</strong> افراد، سازمان‌ها، فناوری. <mark>نیازهای کسب‌وکار</mark> از اینجا می‌آید → <strong>چرخه ارتباط (Relevance)</strong>.</li>
+                        <li><strong>وسط — تحقیق IS:</strong> <mark>ساخت (Build)</mark> + <mark>ارزیابی (Evaluate)</mark> با رفت‌وبرگشت بین آنها.</li>
+                        <li><strong>راست — پایگاه دانش:</strong> نظریه‌ها، چارچوب‌ها، روش‌شناسی‌ها. <mark>دقت (Rigor)</mark> از اینجا می‌آید.</li>
+                    </ul>
+                    <p>⚡ بدون ارتباط = بی‌فایده. بدون دقت = بی‌اعتبار.</p>
+                </div>
+                <div class="analysis-section">
+                    <p><strong>🇬🇧 Figure 2:</strong> <mark>Most important figure!</mark> Three columns:</p>
+                    <ul>
+                        <li><strong>Left — Environment:</strong> People, organizations, technology. <mark>Business needs</mark> come from here → <strong>Relevance Cycle</strong>.</li>
+                        <li><strong>Center — IS Research:</strong> <mark>Develop/Build</mark> + <mark>Justify/Evaluate</mark> with back-and-forth iteration.</li>
+                        <li><strong>Right — Knowledge Base:</strong> Theories, frameworks, methodologies. <mark>Rigor</mark> comes from here → <strong>Rigor Cycle</strong>.</li>
+                    </ul>
+                    <p>⚡ Without relevance = useless. Without rigor = not credible.</p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+        <!-- ===================== GREGOR & HEVNER (2013) ===================== -->
+        <div class="paper-card" id="gregor">
+            <h2>🎯 Paper 2: Positioning and Presenting DSR for Maximum Impact</h2>
+            <h3>Gregor & Hevner (2013) — MIS Quarterly 37(2), 337-355</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>Gregor, S. and Hevner, A. R. (2013). "Positioning And Presenting Design Science Research For Maximum Impact," <em>MIS Quarterly</em>, 37(2), pp. 337-355.</p>
+                <p><strong>Presenters:</strong> Vamsi, <mark>Ali</mark></p>
+            </div>
+
+            <div class="analysis-section rtl-section">
+                <h4>📚 توضیح فارسی — کل پیپر گرگور و هِوِنر ۲۰۱۳ (خلاصه سریع)</h4>
+
+                <p><strong>🔴 مسئله اصلی:</strong> هِوِنر ۲۰۰۴ گفت «DSR تحقیق است» و ۷ راهنما برای آن تعیین کرد. ولی بعد از ده سال، خیلی‌ها هنوز نمی‌دانستند <mark>چطور پیپر DSR بنویسند</mark> تا روی reviewer اثر بگذارد. مشکل بزرگ: محققان نمی‌دانستند artifact خودشان را کجا بگذارند، چطور ادعایشان را فریم کنند، چه ساختاری به پیپر بدهند. گرگور و هِوِنر ۲۰۱۳ دقیقاً این مشکل را حل می‌کنند.</p>
+
+                <p><strong>🎯 دو نوع دانش (Knowledge Base):</strong></p>
+                <ul>
+                    <li><strong>Ω (امگا) — دانش توصیفی (Descriptive):</strong> قوانین طبیعت. «دنیا چطور کار می‌کند؟» مثل: TAM می‌گوید perceived usefulness بر technology adoption اثر دارد. این دانش از مشاهده و تحقیق رفتاری (behavioral research) می‌آید.</li>
+                    <li><strong>Λ (لامبدا) — دانش تجویزی (Prescriptive):</strong> مصنوعات ساخت بشر. «چطور چیز جدید بسازیم؟» مثل: یک الگوریتم، یک framework، یک اصل طراحی، یک پروتوتایپ. این دانش از طراحی و ساختن (design) می‌آید.</li>
+                </ul>
+                <p><strong>ارتباط بین دو دانش:</strong> <mark>DSR خوب</mark> هم Ω دارد هم Λ. یعنی وقتی یک artifact می‌سازی، باید بگویی این artifact بر اساس چه نظریه توصیفی (kernel theory) ساخته شده و چرا قرار است کار کند.</p>
+
+                <p><strong>📊 ماتریس ۲×۲ سهم علمی (مهم‌ترین بخش):</strong></p>
+                <ul>
+                    <li><strong>Invention (اختراع):</strong> مشکل جدید + راه‌حل جدید. نادرترین نوع. مثال: اولین DSS (Scott-Morton, 1967). در مقالات MISQ ، هیچکدام Invention نبودند!</li>
+                    <li><strong>Improvement (بهبود):</strong> مشکل شناخته‌شده + راه‌حل بهتر/جدید. <mark>رایج‌ترین نوع DSR</mark> در IS. مثال: الگوریتم بهتر برای توصیه محصول.</li>
+                    <li><strong>Exaptation (اقتباس):</strong> مشکل جدید + راه‌حل شناخته‌شده از حوزه دیگر. مثال: روش‌های data warehouse را بیاوری برای healthcare (مثل CATCH).</li>
+                    <li><strong>Routine Design (طراحی روتین):</strong> مشکل شناخته‌شده + راه‌حل شناخته‌شده. <mark>این تحقیق نیست!</mark> این کار مهندسی است.</li>
+                </ul>
+                <p>⚠️ <strong>نکته مهم برای ارائه:</strong> وقتی از تو بپرسند یک پیپر DSR کجای این ماتریس است، باید بتوانی توضیح بدهی <mark>چرا مشکل جدید است یا نیست</mark> و <mark>چرا راه‌حل جدید است یا نیست</mark>.</p>
+
+                <p><strong>📐 سه سطح انتزاع (Levels of Abstraction):</strong></p>
+                <ul>
+                    <li><strong>سطح ۱ — Situated Implementation:</strong> یک سیستم واقعی ساختی. پروتوتایپ، نرم‌افزار، instantiation. خیلی concrete و خاص یک context. مثال: یک اپ موبایل برای مدیریت دارو.</li>
+                    <li><strong>سطح ۲ — Nascent Design Theory:</strong> از آن سیستم <mark>اصول طراحی</mark> استخراج کردی. دیگر خاص یک context نیست، بلکه قابل تعمیم‌تر است. مثال: «سیستم‌های سلامت هوشمند باید X و Y ویژگی داشته باشند.» این همان جایی است که Grisold et al. هستند.</li>
+                    <li><strong>سطح ۳ — Well-Developed Design Theory:</strong> یک تئوری طراحی کامل با قدرت توضیحی و پیش‌بینی. خیلی نادر است.</li>
+                </ul>
+                <p><mark>قانون طلایی: هرچه انتزاعی‌تر = تأثیرگذارتر.</mark> سطح ۱ به تنهایی ضعیف‌ترین سهم علمی است. اگر می‌خواهی پیپرت اثر داشته باشد، از سطح ۱ به سطح ۲ حرکت کن.</p>
+
+                <p><strong>📝 ساختار ۷ بخشی پیپر (Publication Schema):</strong></p>
+                <ul>
+                    <li><strong>۱. مقدمه:</strong> مشکل چیست؟ چرا مهم است؟ artifact خودت چیست؟ <mark>اینجا باید صریحاً بگویی contribution از چه نوعی است</mark> (Invention/Improvement/Exaptation).</li>
+                    <li><strong>۲. مرور ادبیات:</strong> چه نظریه‌ها و artifact‌هایی قبلاً وجود دارد؟</li>
+                    <li><strong>۳. روش:</strong> از چه روش DSR استفاده کردی؟ (Hevner 2004 یا Peffers 2007)</li>
+                    <li><strong>۴. توضیح artifact:</strong> <mark>بزرگ‌ترین بخش پیپر!</mark> artifact خودت را کامل توضیح بده.</li>
+                    <li><strong>۵. ارزیابی:</strong> چطور نشان دادی artifact کار می‌کند؟ (آزمایش، مطالعه موردی، سناریو)</li>
+                    <li><strong>۶. بحث:</strong> artifact تو چه سهمی در دانش دارد؟</li>
+                    <li><strong>۷. نتیجه‌گیری.</strong></li>
+                </ul>
+
+                <p><strong>📣 سیگنال‌دهی (Signaling):</strong> نویسنده DSR باید <mark>در مقدمه صریحاً بگوید</mark> سهم علمی‌اش چیست. مثال: «This study offers an improvement to...» یا «We contribute a nascent design theory (Level 2).» این به reviewer کمک می‌کند بفهمد چه نوع ادعایی را ارزیابی می‌کند. اگر سیگنال ندهی، reviewer ممکن است ادعای تو را اشتباه تفسیر کند.</p>
+
+                <p><strong>🔗 ارتباط با تحقیق من:</strong> وقتی در آینده خودم پیپر DSR برای trust-delegation framework بنویسم، باید از این ماتریس و سطوح استفاده کنم. احتمالاً کار من Improvement یا Exaptation است (مشکل جدید: agentic AI delegation + راه‌حل مبتنی بر نظریه‌های موجود trust). و باید هدفم سطح ۲ باشد: design principles استخراج کنم، نه فقط یک سیستم بسازم.</p>
+            </div>
+
+            <!-- 2x2 Framework -->
+            <div class="paper-card">
+                <h4>📊 DSR Knowledge Contribution Framework (Figure 3)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Low Application Domain Maturity<br/>(New problem)</th>
+                            <th>High Application Domain Maturity<br/>(Known problem)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>High Solution Maturity</strong><br/>(Known solution)</td>
+                            <td style="background: #fef3c7;"><strong>Exaptation</strong><br/>Extend known solutions to new problems.<br/><em>Example: Data warehouse methods → healthcare (CATCH)</em></td>
+                            <td style="background: #fee2e2;"><strong>Routine Design</strong><br/>Known solutions for known problems.<br/><em>Not research — professional practice.</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Low Solution Maturity</strong><br/>(New solution)</td>
+                            <td style="background: #d1fae5;"><strong>Invention</strong><br/>New solutions for new problems. Radical innovation.<br/><em>Example: First DSS (Scott-Morton, 1967)</em></td>
+                            <td style="background: #dbeafe;"><strong>Improvement</strong><br/>New/better solutions for known problems.<br/><em>Most common DSR type in IS.</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 3 Levels -->
+            <div class="paper-card">
+                <h4>📐 Three Levels of DSR Contribution (Table 1)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Type</th>
+                            <th>Examples</th>
+                            <th>Abstraction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Level 1</strong></td>
+                            <td><mark>Situated Implementation</mark></td>
+                            <td>Software products, implemented processes, prototypes</td>
+                            <td>Most concrete</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Level 2</strong></td>
+                            <td><mark>Nascent Design Theory</mark></td>
+                            <td>Operational principles, architectures, constructs, design principles, methods</td>
+                            <td>Middle</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Level 3</strong></td>
+                            <td><mark>Well-Developed Design Theory</mark></td>
+                            <td>Mid-range and grand theories about embedded phenomena</td>
+                            <td>Most abstract</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="success-box">
+                    <h4>💡 Key Insight</h4>
+                    <p>To have lasting impact, researchers should aim to move beyond Level 1 (just building a system) toward Level 2 or 3 (extracting design principles or theory). <strong>Abstraction = Impact.</strong></p>
+                </div>
+            </div>
+
+            <!-- Publication Schema -->
+            <div class="paper-card">
+                <h4>📝 Recommended DSR Paper Structure (Table 3)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Section</th>
+                            <th>What to Include</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td><strong>Introduction</strong></td><td>Define the problem, significance, and <mark>specify artifact goals</mark>.</td></tr>
+                        <tr><td>2</td><td><strong>Literature Review</strong></td><td>Survey prior design theory/knowledge and existing artifacts.</td></tr>
+                        <tr><td>3</td><td><strong>Method</strong></td><td>State the DSR approach (Hevner 2004 or Peffers 2007).</td></tr>
+                        <tr><td>4</td><td><strong>Artifact Description</strong></td><td>The <mark>major part</mark> of the paper. Describe the artifact at appropriate abstraction.</td></tr>
+                        <tr><td>5</td><td><strong>Evaluation</strong></td><td>Evidence of validity, utility, quality, and efficacy.</td></tr>
+                        <tr><td>6</td><td><strong>Discussion</strong></td><td>Link back to Introduction's objectives. Highlight significance.</td></tr>
+                        <tr><td>7</td><td><strong>Conclusions</strong></td><td>Restate main findings and contribution.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Original Figures from the Paper -->
+            <div class="paper-card">
+                <h4>📷 شکل‌های اصلی مقاله — Original Paper Figures</h4>
+
+                <!-- Figure 1: Image first -->
+                <img src="img/week9/ss02.png" alt="Figure 1: The Design Science Research Knowledge Base" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Figure 1. The Design Science Research Knowledge Base (Gregor & Hevner, 2013, p. 344)</p>
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 شکل ۱ — پایگاه دانش:</strong> این شکل دو نوع دانش را نشان می‌دهد. سمت چپ دانش توصیفی (پدیده‌ها، قوانین، الگوها) و سمت راست دانش تجویزی (سازه‌ها، مدل‌ها، متدها، و نظریه طراحی).</p>
+                </div>
+                <div class="analysis-section">
+                    <p><strong>🗣️ How I would explain Figure 1:</strong> So this figure splits knowledge into two types. On the left you have <mark>Omega (Ω) — descriptive knowledge</mark>. That is what we already know about how the world works. Like TAM tells us perceived usefulness matters. On the right you have <mark>Lambda (Λ) — prescriptive knowledge</mark>. That is stuff we build — constructs, models, methods, design theories. The point is: when you do DSR, you are creating Lambda. But your Lambda should be based on Omega. You need a reason why your artifact should work, not just "I built it and it seems fine."</p>
+                </div>
+
+                <!-- Figure 2: Image first -->
+                <img src="img/week9/ss03.png" alt="Figure 2: The Roles of Knowledge in Design Science Research" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Figure 2. The Roles of Knowledge in Design Science Research (Gregor & Hevner, 2013, p. 344)</p>
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 شکل ۲ — نقش دانش:</strong> سه بخش: سمت چپ محیط کاربردی (مشکلات و فرصت‌ها)، وسط پایگاه دانش، و سمت راست توانایی‌های انسانی. دانش توصیفی به تجویزی اطلاعات می‌دهد و بالعکس.</p>
+                </div>
+                <div class="analysis-section">
+                    <p><strong>🗣️ How I would explain Figure 2:</strong> Three columns. Left side is the <mark>real world</mark> — the problems and opportunities we are trying to address. Middle is the <mark>knowledge base</mark> where Omega and Lambda sit together and inform each other. Right side is <mark>us, the researchers</mark> — our creativity, experience, judgment. So the idea is: problems come from the real world, we use existing knowledge plus our own skills to build new artifacts, and those artifacts add back to the knowledge base.</p>
+                </div>
+
+                <!-- Figure 3: Image first -->
+                <img src="img/week9/ss04.png" alt="Figure 3: DSR Knowledge Contribution Framework" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Figure 3. DSR Knowledge Contribution Framework (Gregor & Hevner, 2013, p. 345)</p>
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 شکل ۳ — ماتریس ۲×۲ سهم علمی:</strong> <mark>این مهم‌ترین شکل پیپر است!</mark> چهار خانه:</p>
+                    <ul>
+                        <li>مشکل جدید + راه‌حل جدید = <mark>اختراع</mark></li>
+                        <li>مشکل قدیمی + راه‌حل جدید = <mark>بهبود</mark> (رایج‌ترین نوع)</li>
+                        <li>مشکل جدید + راه‌حل قدیمی = <mark>اقتباس</mark></li>
+                        <li>مشکل قدیمی + راه‌حل قدیمی = طراحی روتین (تحقیق نیست)</li>
+                    </ul>
+                </div>
+                <div class="analysis-section">
+                    <p><strong>🗣️ How I would explain Figure 3:</strong> This is the <mark>most important figure</mark> in the whole paper. It is a 2×2 matrix. X-axis is how mature the problem is. Y-axis is how mature the solution is. Four boxes:</p>
+                    <ul>
+                        <li><strong>Invention:</strong> Nobody studied this problem before, and nobody built this kind of solution before. Very rare. Like the first decision support system ever.</li>
+                        <li><strong>Improvement:</strong> We know the problem, but we have a better way to solve it. <mark>This is where most DSR papers live.</mark></li>
+                        <li><strong>Exaptation:</strong> New problem, but we take a solution that already works somewhere else and apply it here. Like taking data warehouse methods and using them for healthcare.</li>
+                        <li><strong>Routine Design:</strong> Known problem, known solution. That is just engineering. <mark>Not research.</mark></li>
+                    </ul>
+                    <p>When the professor asks "where does this paper fit?", you need to say why the problem is new or not, and why the solution is new or not.</p>
+                </div>
+
+                <!-- Table 1: Image first -->
+                <img src="img/week9/ss01.png" alt="Table 1: Design Science Research Contribution Types" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Table 1. Design Science Research Contribution Types (Gregor & Hevner, 2013, p. 342)</p>
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 جدول ۱ — سه سطح سهم علمی:</strong> <mark>هرچه بالاتر = انتزاعی‌تر و تأثیرگذارتر.</mark></p>
+                    <ul>
+                        <li>سطح ۱ = سیستم واقعی (پروتوتایپ)</li>
+                        <li>سطح ۲ = اصول طراحی (نظریه نوپا)</li>
+                        <li>سطح ۳ = نظریه طراحی کامل</li>
+                    </ul>
+                </div>
+                <div class="analysis-section">
+                    <p><strong>🗣️ How I would explain Table 1:</strong> Three levels of how abstract your contribution is. <mark>Higher level = bigger impact.</mark></p>
+                    <ul>
+                        <li><strong>Level 1:</strong> You just built something. A prototype, a system. It works in one specific place. That is the weakest contribution by itself.</li>
+                        <li><strong>Level 2:</strong> You extracted <mark>design principles</mark> from what you built. Now other people can use your principles in different contexts. This is where most good DSR papers try to be. Grisold et al. is here.</li>
+                        <li><strong>Level 3:</strong> Full design theory. Very rare. Almost nobody gets here.</li>
+                    </ul>
+                    <p>The takeaway: if you only build a system and stop there, your contribution is weak. You need to go from "I built it" to "here is why it works and here are the principles others can follow."</p>
+                </div>
+
+                <!-- Table 2: Image first -->
+                <img src="img/week9/ss05.png" alt="Table 2: DSR Articles Classified by Contribution Type" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Table 2. DSR Articles in MISQ 2006-2011 Classified by Knowledge Contribution Type (Gregor & Hevner, 2013, p. 348)</p>
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 جدول ۲:</strong> اکثراً <mark>بهبود</mark> هستند. چند مورد اقتباس. هیچکدام اختراع نیست (اختراع نادر است).</p>
+                </div>
+                <div class="analysis-section">
+                    <p><strong>🗣️ How I would explain Table 2:</strong> The authors looked at MISQ papers from 2006 to 2011 and classified them. Most of them were <mark>Improvement</mark> — known problem, better solution. A few were Exaptation. And <mark>zero were Invention</mark>. So if someone claims Invention, that is a big claim and you should check carefully whether it is really new on both axes.</p>
+                </div>
+
+                <!-- Table 3: Image first -->
+                <img src="img/week9/ss06.png" alt="Table 3: Publication Schema for DSR" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Table 3. Publication Schema for a Design Science Research Study (Gregor & Hevner, 2013, p. 350)</p>
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 جدول ۳:</strong> ۷ بخش. بخش چهارم (توضیح آرتیفکت) <mark>بزرگ‌ترین بخش</mark> پیپر است.</p>
+                </div>
+                <div class="analysis-section">
+                    <p><strong>🗣️ How I would explain Table 3:</strong> This is the recommended structure for writing a DSR paper. Seven sections: Introduction, Literature Review, Method, Artifact Description, Evaluation, Discussion, Conclusions. The <mark>biggest section should be Section 4</mark> — describing your artifact. And the key rule: in your Introduction, you must <mark>tell the reader upfront</mark> what kind of contribution you are making. Say "this is an Improvement" or "this is Exaptation at Level 2." If you do not signal, the reviewer does not know what standard to judge you by.</p>
+                </div>
+            </div>
+
+            <!-- Signaling -->
+            <div class="warning-box">
+                <h4>📣 Signaling Your Contribution</h4>
+                <p>The paper emphasizes that DSR authors must <strong>explicitly signal</strong> their contribution type in the Introduction. Example: "This study offers an <em>improvement</em> to existing approaches by..." Reviewers need to know upfront what type of claim they are evaluating.</p>
+            </div>
+        </div>
+
+
+        <!-- ===================== BASKERVILLE ET AL. (2015) ===================== -->
+        <div class="paper-card" id="baskerville">
+            <h2>📚 Paper 3: Genres of Inquiry in Design-Science Research</h2>
+            <h3>Baskerville, Kaul & Storey (2015) — MIS Quarterly 39(3), 541-564</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>Baskerville, R., Kaul, M., and Storey, V.C. (2015). "Genres of Inquiry in Design-Science Research: Justification and Evaluation of Knowledge Production," <em>MIS Quarterly</em>, 39(3), pp. 541-564.</p>
+                <p><strong>Presenter:</strong> Kim</p>
+            </div>
+
+            <div class="analysis-section rtl-section">
+                <h4>📚 توضیح فارسی — ژانرهای پژوهش DSR</h4>
+
+                <p><strong>🔴 مسئله:</strong> بسکرویل و همکارانش می‌گویند DSR یک <mark>"آشفته‌بازار روش‌شناسی" (methodological hodgepodge)</mark> است. چرا؟ چون در یک پروژه DSR ممکن است هم طراحی کنی، هم مطالعه موردی انجام بدهی، هم تحلیل علمی کنی. مشکل اینجاست: با کدام معیار هر بخش را ارزیابی کنیم؟</p>
+
+                <p><strong>🎯 راه‌حل:</strong> مفهوم <mark>"ژانر پژوهش" (Genre of Inquiry)</mark>. هر ژانر معیارهای خاص خودش را دارد. وقتی در لحظه‌ای از پروژه هستی که داری "طراحی" می‌کنی، معیار ارزیابی متفاوت است با وقتی که داری "آزمایش علمی" می‌کنی. این اسمش <mark>"لحظه دانشی" (Knowledge Moment)</mark> است.</p>
+
+                <p><strong>⚡ نکته کلیدی:</strong> یک پروژه DSR <strong>چند ژانر</strong> را طی می‌کند. باید مشخص کنی الان در کدام ژانر هستی تا reviewer معیار اشتباهی برای ارزیابی به کار نبرد.</p>
+            </div>
+
+            <!-- Two Dualities -->
+            <div class="paper-card">
+                <h4>⚖️ Two Dualities of DSR</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Duality</th>
+                            <th>Pole 1</th>
+                            <th>Pole 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Knowledge Goals</strong></td>
+                            <td><mark>Design</mark> — synthesis, utility, making things work</td>
+                            <td><mark>Science</mark> — analysis, truth, understanding why</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Knowledge Scope</strong></td>
+                            <td><mark>Nomothetic</mark> — general laws, abstract theories</td>
+                            <td><mark>Idiographic</mark> — specific, unique, concrete contexts</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Genre Framework -->
+            <div class="paper-card">
+                <h4>📊 The Genre Framework (Figure 1)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Design (Synthesis/Utility)</th>
+                            <th>Science (Analysis/Truth)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nomothetic</strong><br/>(General)</td>
+                            <td style="background: #dbeafe;"><strong>Genre ND — Nomothetic Design</strong><br/>General design principles, meta-requirements, meta-designs.<br/><em>Output: design principles, design theories</em></td>
+                            <td style="background: #d1fae5;"><strong>Genre NS — Nomothetic Science</strong><br/>General theories about how artifacts interact with environments.<br/><em>Output: formal models, explanatory theories</em></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Idiographic</strong><br/>(Specific)</td>
+                            <td style="background: #fef3c7;"><strong>Genre ID — Idiographic Design</strong><br/>Designing a specific, material artifact for a unique problem.<br/><em>Output: a working system, prototype</em></td>
+                            <td style="background: #fce7f3;"><strong>Genre IS — Idiographic Science</strong><br/>Specific insights from implementing an artifact in a particular setting.<br/><em>Output: case insights, contextual findings</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Justification vs Evaluation -->
+            <div class="paper-card">
+                <h4>🔍 Justification vs. Evaluation</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Definition</th>
+                            <th>Timing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Justification</strong></td>
+                            <td>The <mark>logic and arguments</mark> — grounds for belief. Why this theoretical grounding makes sense.</td>
+                            <td>Before / during the process</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Evaluation</strong></td>
+                            <td>The <mark>empirical evidence</mark> — quality and performance of the final product.</td>
+                            <td>After building the artifact</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Case Studies -->
+            <div class="success-box">
+                <h4>💡 Illustrative Examples</h4>
+                <ul>
+                    <li><strong>CyberGate (Abbasi & Chen, 2008):</strong> Text analysis for computer-mediated communication. Moved from meta-requirements (Genre ND) → building the system (Genre ID) → testing on Enron email database (Genre IS).</li>
+                    <li><strong>Viability Engineering Method (VEM):</strong> Modeling language for information flows. Created meta-models (ND) → applied in banking/healthcare (ID) → generalized scientific knowledge (NS).</li>
+                </ul>
+                <p>Key takeaway: A single DSR project <strong>moves through multiple genres</strong> as different "knowledge moments."</p>
+            </div>
+        </div>
+
+        <!-- ===================== LARSEN ET AL. (2025) ===================== -->
+        <div class="paper-card" id="larsen">
+            <h2>✅ Paper 4: Validity in Design Science</h2>
+            <h3>Larsen, Lukyanenko, Storey, Parsons, VanderMeer & Hovorka (2025) — MIS Quarterly 49(4), 1267-1294</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>Larsen, K. R., Lukyanenko, R., C. Storey, V., Parsons, J., VanderMeer, D., & Hovorka, D. S. (2025). "Validity in Design Science," <em>MIS Quarterly</em>, 49(4), pp. 1267-1294.</p>
+                <p><strong>Presenter:</strong> Rayna</p>
+            </div>
+
+            <div class="analysis-section rtl-section">
+                <h4>📚 توضیح فارسی — اعتبار در DSR</h4>
+
+                <p><strong>🔴 مسئله:</strong> در پژوهش رفتاری، ما می‌دانیم validity چیست (construct validity, internal validity, و غیره). اما در DSR، وقتی یک آرتیفکت می‌سازیم، <mark>چه چیزی را باید valid کنیم؟</mark> و با چه معیاری؟ این پیپر یک چارچوب مشخص ارائه می‌دهد.</p>
+
+                <p><strong>🎯 ایده اصلی:</strong> بجای اینکه validity فقط در آخر کار بیاید (ارزیابی نهایی)، باید از <mark>ابتدای طراحی</mark> به validity فکر کنیم. سه نوع ادعای دانشی وجود دارد:</p>
+                <ul>
+                    <li><strong>Criterion Claim:</strong> «آیا بهتر است؟» — مقایسه با یک استاندارد.</li>
+                    <li><strong>Causal Claim:</strong> «چطور کار می‌کند؟» — کدام قسمت طراحی باعث عملکرد شد.</li>
+                    <li><strong>Context Claim:</strong> «کجا کار می‌کند؟» — در چه شرایطی قابل تعمیم است.</li>
+                </ul>
+            </div>
+
+            <!-- DSVF Framework -->
+            <div class="paper-card">
+                <h4>📊 Design Science Validity Framework (DSVF)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Knowledge Claim</th>
+                            <th>Key Question</th>
+                            <th>Validity Types</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Criterion Claims</strong></td>
+                            <td><mark>"Is it better?"</mark></td>
+                            <td>Criterion Efficacy (vs. standard), Predictive (future data), Concurrent (current data), Criterion Characteristic (vs. reference features)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Causal Claims</strong></td>
+                            <td><mark>"How does it work?"</mark></td>
+                            <td>Causal Efficacy (impact of specific part on performance), Causal Characteristic (impact on features)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Context Claims</strong></td>
+                            <td><mark>"Where does it work?"</mark></td>
+                            <td>External Validity (across multiple systems), Ecological Validity (real-world sociotechnical systems)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- DSR vs Behavioral Validity -->
+            <div class="paper-card">
+                <h4>⚖️ DSR Validity vs. Behavioral Research Validity</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Behavioral Research</th>
+                            <th>Design Science</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Focus</strong></td>
+                            <td>Research <em>process</em> (sampling, measurement)</td>
+                            <td><mark>Knowledge claims</mark> about the artifact</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compared to</strong></td>
+                            <td>Theoretical expectations</td>
+                            <td>A <mark>reference entity</mark> (human, gold-standard artifact, ideal theory)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>When</strong></td>
+                            <td>During statistical analysis</td>
+                            <td>From the <mark>start of design</mark> through final evaluation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Recommendations -->
+            <div class="success-box">
+                <h4>💡 Recommendations for Researchers</h4>
+                <ul>
+                    <li><strong>Be explicit about claims:</strong> Clearly state if you are making a criterion, causal, or context claim.</li>
+                    <li><strong>Select appropriate reference entities:</strong> Be transparent about what you compare your artifact to.</li>
+                    <li><strong>Use the taxonomy labels:</strong> Use terms like "criterion efficacy validity" to improve reporting clarity.</li>
+                    <li><strong>Adopt a process view:</strong> Plan for validity from the start, not just as a final evaluation step.</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- ===================== GRISOLD ET AL. (2025) ===================== -->
+        <div class="paper-card" id="grisold">
+            <h2>🤖 Paper 5: Guardrails for Human-AI Ecologies</h2>
+            <h3>Grisold, Berente & Seidel (2025) — MIS Quarterly 49(4), 1239-1266</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>Grisold, T., Berente, N., & Seidel, S. (2025). "Guardrails for Human-AI Ecologies: Norm-Based Coordination and Design for Predictability," <em>MIS Quarterly</em>, 49(4), pp. 1239-1266.</p>
+                <p><strong>Presenters:</strong> <mark>Ali</mark>, Dante, Vamsi</p>
+            </div>
+
+            <div class="analysis-section rtl-section">
+                <h4>📚 توضیح فارسی — کل پیپر گریسولد ۲۰۲۵ (خلاصه سریع برای مطالعه)</h4>
+
+                <p><strong>🔴 مسئله اصلی:</strong> وقتی AI خیلی <mark>خودمختار (agentic)</mark> می‌شود، یعنی خودش یاد می‌گیرد، تصمیم می‌گیرد، و عمل می‌کند، دیگر نمی‌توانیم با «قوانین سخت» (hard-coded rules) کنترلش کنیم. چرا؟ چون رفتارش غیرقابل پیش‌بینی می‌شود. مثلاً یک ربات در انبار ممکن است مسیر جدیدی یاد بگیرد که ما پیش‌بینی نکرده بودیم. این پیپر می‌گوید: به جای قوانین سخت، از <mark>هنجارهای اجتماعی (social norms)</mark> استفاده کنیم تا انعطاف داشته باشیم ولی همزمان یک چارچوب رفتاری حفظ شود.</p>
+
+                <p><strong>🎯 مفهوم کلیدی — اکولوژی انسان-AI:</strong> محیطی که انسان‌ها و عامل‌های AI <mark>با هم</mark> تعامل دارند و باید هماهنگ شوند. مثل یک انبار هوشمند که ربات‌ها، درون‌ها و انسان‌ها با هم کار می‌کنند. تفاوت با سیستم‌های قدیمی: اینجا AI فقط ابزار نیست، <mark>عامل (agent)</mark> است. تصمیم می‌گیرد، یاد می‌گیرد، و حتی ممکن است اشتباه کند.</p>
+
+                <p><strong>📖 دو نظریه پایه (Kernel Theories):</strong></p>
+                <ul>
+                    <li><strong>۱. نظریه پردازش پیش‌بینانه (Predictive Processing Theory):</strong> هر عامل (انسان یا AI) یک «ماشین پیش‌بینی» است. بر اساس مدل درونی‌اش پیش‌بینی می‌کند چه اتفاقی خواهد افتاد → عمل می‌کند → ورودی حسی می‌گیرد → اگر ورودی با پیش‌بینی مطابقت نداشت، <mark>خطای پیش‌بینی (prediction error)</mark> رخ می‌دهد → مدل درونی‌اش را به‌روز می‌کند. این چرخه دائمی است.</li>
+                    <li><strong>۲. نظریه هنجارهای اجتماعی (Social Norm Theory):</strong> جوامع بدون اینکه یک رئیس مرکزی داشته باشند، از طریق هنجارهای مشترک هماهنگ می‌شوند. مثلاً وقتی وارد آسانسور می‌شوی، بدون هیچ قانونی می‌دانی باید ساکت باشی. این هنجارها <mark>انتظارات مشترک</mark> ایجاد می‌کنند.</li>
+                </ul>
+
+                <p><strong>📖 دو نوع هنجار (مهم!):</strong></p>
+                <ul>
+                    <li><strong>هنجارهای عمیق (Deep Norms):</strong> ارزش‌های اصلی و ثابت. مثل «حفاظت از ایمنی انسان»، «عدالت»، «کارایی». اینها <mark>گاردریل‌ها</mark> هستند. مثل خط‌کشی‌های کنار جاده: جهت کلی رفتار را مشخص می‌کنند ولی مسیر دقیق را نه.</li>
+                    <li><strong>هنجارهای سطحی (Surface Norms):</strong> قوانین عملی و انعطاف‌پذیر که بر اساس شرایط تغییر می‌کنند. مثل «در تقاطع، ابتدا ربات رد می‌شود» یا «وقتی انبار شلوغ است، درون‌ها مسیر بالایی را بروند». اینها قابل تغییر و قابل تولید هستند.</li>
+                </ul>
+                <p><strong>رابطه بین دو نوع:</strong> هنجارهای عمیق، هنجارهای سطحی را <mark>محدود</mark> می‌کنند. یعنی هر هنجار سطحی باید درون «منطقه رفتار مطلوب» (zone of desirable behavior) هنجار عمیق باشد. اگر یک هنجار سطحی از این منطقه خارج شود (مثلاً سرعت خیلی بالای ربات) → هنجار عمیق (ایمنی) نقض شده و مدیر باید مداخله کند.</p>
+
+                <p><strong>📐 چهار اصل طراحی (Artifact اصلی پیپر):</strong></p>
+                <ul>
+                    <li><strong>DP1 — طراحی برای هنجارهای مشترک:</strong> هنجارهای عمیق (ارزش‌های اصلی) را در سیستم encode کن. دو زیراصل: <strong>DP1.1</strong> = deep norm encoding (ارزش‌ها را تعریف کن) و <strong>DP1.2</strong> = surface norm enactment (هنجارهای سطحی را بر اساس عمیق بساز). <mark>مثال:</mark> مدیر انبار تعیین می‌کند «ایمنی مهم‌ترین ارزش است» → سیستم بر اساس آن قوانین عملی تولید می‌کند.</li>
+                    <li><strong>DP2 — طراحی برای مداخله انسانی:</strong> مدیر باید بتواند نتایج را رصد کند و وقتی مشکلی پیش آمد، مداخله کند. <strong>DP2.1</strong> = deep norm evolution (هنجارهای عمیق را در طول زمان تکامل بده) و <strong>DP2.2</strong> = deep norm reinforcement (هنجارهای سطحی موفق را به هنجار عمیق تبدیل کن). <mark>مثال:</mark> مدیر می‌بیند «قانون یک‌طرفه شدن راهرو» خوب کار کرده → آن را به هنجار عمیق تبدیل می‌کند.</li>
+                    <li><strong>DP3 — طراحی برای پیش‌بینی‌پذیری (سیگنال‌ها):</strong> عاملان باید بتوانند قصد خود را <mark>سیگنال بدهند</mark> و قصد دیگران را <mark>استنباط کنند</mark>. <strong>DP3.1</strong> = norm-enactment communication (عامل سیگنال می‌دهد: «من دارم از هنجار X پیروی می‌کنم»). <strong>DP3.2</strong> = norm-enactment inference (عامل از رفتار دیگری حدس می‌زند از چه هنجاری پیروی می‌کند). <mark>مثال:</mark> ربات چراغ‌اش را روشن می‌کند تا نشان بدهد دارد از مسیر A می‌رود → انسان می‌فهمد و از مسیر B می‌رود.</li>
+                    <li><strong>DP4 — طراحی برای پیش‌بینی‌پذیری (اجرا):</strong> چهار زیراصل: <strong>DP4.1</strong> = surface norm defaulting (وقتی عدم‌قطعیت کم است، از هنجار سطحی پیش‌فرض استفاده کن). <strong>DP4.2</strong> = surface norm adjustment (وقتی عدم‌قطعیت متوسط است، هنجار سطحی را تعدیل کن). <strong>DP4.3</strong> = surface norm generation (وقتی عدم‌قطعیت زیاد است و هنجار سطحی مناسبی وجود ندارد، <mark>یک هنجار سطحی جدید تولید کن</mark>). <strong>DP4.4</strong> = surface norm reinforcing (هنجارهای سطحی موفق را تقویت کن). <mark>مثال:</mark> ربات وارد منطقه جدید می‌شود که قبلاً ندیده، هنجار سطحی مناسبی ندارد → یک قانون جدید حرکتی تولید می‌کند → اگر خوب کار کرد، تقویت می‌شود.</li>
+                </ul>
+
+                <p><strong>📊 جایگاه DSR این پیپر (بر اساس Gregor & Hevner 2013):</strong></p>
+                <ul>
+                    <li><strong>نوع سهم:</strong> <mark>Invention</mark> (مشکل جدید: هماهنگی با AI خودمختار + راه‌حل جدید: هنجارهای اجتماعی). ادعای نویسندگان ص. ۱۲۶۰.</li>
+                    <li><strong>سطح:</strong> <mark>Level 2</mark> (Nascent Design Theory) — design principles. نه پروتوتایپ ساختند، نه تست واقعی.</li>
+                    <li><strong>نوع تئوری:</strong> Type V از Gregor (2006) — Theory for Design and Action.</li>
+                    <li><strong>Ω (دانش توصیفی):</strong> Predictive Processing Theory + Social Norm Theory.</li>
+                    <li><strong>Λ (دانش تجویزی):</strong> ۴ اصل طراحی با ۱۰ زیراصل.</li>
+                </ul>
+
+                <p><strong>⚠️ نقطه ضعف پیپر (مهم برای بحث کلاسی):</strong> ارزیابی (evaluation) ضعیف‌ترین بخش است. فقط از یک <mark>سناریوی تشریحی (illustrative scenario)</mark> در انبار استفاده کردند. هیچ پروتوتایپ، هیچ آزمایش، هیچ مطالعه موردی واقعی نیست. فقط «تصور کنید در یک انبار...» خودشان هم این محدودیت را قبول دارند و می‌گویند آینده باید implementation واقعی ساخته شود.</p>
+
+                <p><strong>🔗 ارتباط با تحقیق من:</strong> این پیپر مستقیماً به <mark>agentic IS</mark> و trust-delegation مربوط است. وقتی AI خودمختار می‌شود، به جای کنترل مستقیم، باید «guardrails» بگذاریم. این خیلی شبیه مفهوم delegation rights در تحقیق خودم است: به جای اینکه همه چیز را کنترل کنی، حق تصمیم‌گیری را با محدودیت‌هایی delegate می‌کنی. deep norms = trust boundaries من. surface norms = operational delegation rules.</p>
+
+                <p><strong>🎤 سؤالات احتمالی در کلاس:</strong></p>
+                <ul>
+                    <li>آیا واقعاً AI می‌تواند هنجار اجتماعی را «بفهمد»؟ (پاسخ: نه لزوماً «فهم» به معنای انسانی، بلکه encode شدن در رفتار)</li>
+                    <li>فرق guardrails با hard rules چیست؟ (پاسخ: guardrails مرز تعیین می‌کنند ولی درون مرز آزادی عمل هست، hard rules مسیر دقیق تعیین می‌کنند)</li>
+                    <li>چرا Invention ادعا کردند؟ آیا multi-agent coordination قبلاً در CS بوده؟ (پاسخ: بله ولی در IS و sociotechnical context جدید است)</li>
+                </ul>
+            </div>
+
+            <!-- Key Concepts -->
+            <div class="paper-card">
+                <h4>🔑 Key Concepts</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Concept</th>
+                            <th>Definition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Human-AI Ecology</strong></td>
+                            <td>Sociotechnical environment where human and AI agents coordinate via shared norms in a <mark>shared environment</mark>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Guardrails</strong></td>
+                            <td>Zones of desirable behavior established by <mark>deep norms</mark>. They define boundaries, not exact paths.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deep Norms</strong></td>
+                            <td>Abstract, persistent social rules (safety, efficiency, fairness). These set the guardrails.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Surface Norms</strong></td>
+                            <td>Concrete, flexible rules agents use to adjust to changing situations.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Predictive Processing Theory (PPT)</strong></td>
+                            <td>Agents (human and AI) are "prediction machines" using top-down models to predict bottom-up sensory input.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Design Principles -->
+            <div class="paper-card">
+                <h4>📐 Four Design Principles (The DSR Artifact)</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DP</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>DP1</strong></td>
+                            <td><mark>Design for Shared Norms</mark></td>
+                            <td>Encode deep norms for core values (safety, fairness) into the ecology.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DP2</strong></td>
+                            <td><mark>Design for Human Intervention</mark></td>
+                            <td>Monitor outcomes. Reinforce successful surface norms into deep norms over time.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DP3</strong></td>
+                            <td><mark>Design for Predictability (Signals)</mark></td>
+                            <td>Agents must signal their intent (norm-enactment communication) and infer others' intent (norm-enactment inference).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DP4</strong></td>
+                            <td><mark>Design for Predictability (Enacting)</mark></td>
+                            <td>Default to known surface norms or generate new ones in high-uncertainty scenarios.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- DSR Positioning -->
+            <div class="paper-card">
+                <h4>📊 How This Paper is Positioned as DSR</h4>
+                <ul>
+                    <li><strong>Artifact type:</strong> Design Theory (Theory of Design and Action — Gregor's Type V)</li>
+                    <li><strong>Kernel theories:</strong> Predictive Processing Theory + Social Norm Theory</li>
+                    <li><strong>Contribution type (Gregor & Hevner 2013):</strong> <mark>Invention</mark> — new solution (norm-based coordination) for a new problem (human-AI ecology coordination)</li>
+                    <li><strong>Level (Gregor & Hevner 2013):</strong> Level 2 — Nascent Design Theory (design principles)</li>
+                    <li><strong>Evaluation:</strong> Illustrative scenario — autonomous warehouse ecology (humans, drones, robots)</li>
+                </ul>
+            </div>
+
+            <!-- Coordination Flow -->
+            <div class="paper-card">
+                <h4>🔄 Coordination Through Norms (Conceptual Flow)</h4>
+                <div class="mermaid">
+                    graph TB
+                        DN["Deep Norms<br/>(Safety, Fairness, Efficiency)"] --> GR["GUARDRAILS<br/>Zones of Desirable Behavior"]
+                        GR --> SN["Surface Norms<br/>(Specific rules for situations)"]
+                        SN --> A1["Agent 1 (Human)<br/>Predicts Agent 2's behavior"]
+                        SN --> A2["Agent 2 (AI)<br/>Predicts Agent 1's behavior"]
+                        A1 --> |"Signals intent"| A2
+                        A2 --> |"Signals intent"| A1
+                        A1 --> O["Outcomes"]
+                        A2 --> O
+                        O --> |"Human monitors<br/>DP2"| DN
+                </div>
+            </div>
+
+            <!-- Original Figures from the Paper -->
+            <div class="paper-card">
+                <h4>📷 شکل‌های اصلی مقاله — Original Paper Figures</h4>
+
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 شکل ۱ — ترکیب ادبیات:</strong> این شکل نشان می‌دهد چطور دو حوزه تعامل انسان-کامپیوتر و سیستم‌های چندعاملی ترکیب شده‌اند. از اولی: هماهنگی = پردازش اطلاعات + عدم‌قطعیت. از دومی: هماهنگی قابل پیش‌تعریف کامل نیست + هنجارها لازم هستند.</p>
+                </div>
+                <p style="font-size:0.85em; color:#555; margin:2px 0;">HCI (Human Computer Interaction) + MAS (Multi-Agent Systems) → Coordination in Human-AI Ecologies</p>
+                <img src="img/week9/ss07.png" alt="Figure 1: Synthesis of HCI and MAS Literature" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Figure 1. Synthesis of the HCI and MAS Literature to Understand Coordination in Human-AI Ecologies (Grisold et al., 2025)</p>
+
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 شکل ۲ — مکانیزم پردازش پیش‌بینانه:</strong> <mark>بنیاد نظری اصلی پیپر.</mark> عامل بر اساس مدل درونی‌اش پیش‌بینی می‌کند، عمل می‌کند، ورودی حسی می‌گیرد، و اگر تفاوتی باشد خطای پیش‌بینی رخ می‌دهد.</p>
+                </div>
+                <p style="font-size:0.85em; color:#555; margin:2px 0;">(a) Competing predictions → (b) Agent acts → (c) Sensory input → (d) Prediction errors</p>
+                <img src="img/week9/ss08.png" alt="Figure 2: Predictive Processing Mechanisms" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Figure 2. Schematic Representation of the Basic Mechanisms of Predictive Processing (Grisold et al., 2025)</p>
+
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 شکل ۳ — رابطه هنجارهای عمیق و سطحی:</strong> هنجار عمیق = «حفاظت از سلامت». هنجار سطحی مطلوب = «روش‌های جدید سلام» برای جلوگیری از انتقال ویروس. هنجار سطحی نامطلوب = «انتشار اطلاعات نادرست». اگر نامطلوب تکرار شود، هنجار عمیق آسیب می‌بیند.</p>
+                </div>
+                <p style="font-size:0.85em; color:#555; margin:2px 0;">(a) Deep norm → desirable surface norm &nbsp;|&nbsp; (b) Deep norm → problematic surface norm &nbsp;|&nbsp; (c) Problematic → damages deep norm</p>
+                <img src="img/week9/ss09.png" alt="Figure 3: Deep Norms vs Surface Norms" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Figure 3. The Relationship Between Deep Norms and Surface Norms (Grisold et al., 2025)</p>
+
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 شکل ۴ — ساختار سه‌لایه‌ای:</strong> <mark>شکل کلیدی برای ارائه!</mark> پایین = هنجارهای عمیق (ثابت/پایدار). وسط = هنجارهای سطحی (خاص‌تر). بالا = تعاملات هماهنگ (عملی). فلش‌ها نشان‌دهنده جریان از عمیق به سطحی و سپس به تعامل، و بازخورد خطاهای پیش‌بینی هستند.</p>
+                </div>
+                <p style="font-size:0.85em; color:#555; margin:2px 0;">Bottom: Deep norms (stable) → Middle: Surface norms (specific) → Top: Coordinated interactions (actual) &nbsp;|&nbsp; ⚡ = prediction errors</p>
+                <img src="img/week9/ss10.png" alt="Figure 4: Norm Layers and Coordinated Interactions" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Figure 4. The Relationship Between Deep Norms, Surface Norms, and Coordinated Interactions in Human-AI Ecologies (Grisold et al., 2025)</p>
+
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 جدول ۱ — نقش‌ها:</strong> سه نقش:</p>
+                    <ul>
+                        <li><mark>مدیران:</mark> ارزش‌ها و قوانین اصلی تعیین می‌کنند</li>
+                        <li><mark>توسعه‌دهندگان:</mark> اکولوژی را می‌سازند و تغییر می‌دهند</li>
+                        <li><mark>عاملان:</mark> انسان یا هوش مصنوعی — در اکولوژی عمل می‌کنند</li>
+                    </ul>
+                </div>
+                <p style="font-size:0.85em; color:#555; margin:2px 0;">Managers (values/rules) · Developers (build/modify) · Agents (human or AI, act in ecology)</p>
+                <img src="img/week9/ss11.png" alt="Table 1: Roles in Human-AI Ecologies" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Table 1. Roles in Human-AI Ecologies (Grisold et al., 2025)</p>
+
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 جدول ۲ — مفاهیم کلیدی:</strong> تعریف دقیق هر مفهوم از پیپر. این جدول نظریه پردازش پیش‌بینانه و نظریه هنجارها را <mark>ترکیب</mark> می‌کند.</p>
+                </div>
+                <p style="font-size:0.85em; color:#555; margin:2px 0;">Deep norm · Surface norm · Coordinated interaction · Expected precision · Contextual cue · Low/High-uncertainty scenarios</p>
+                <img src="img/week9/ss12.png" alt="Table 2: Key Concepts for Design Principles" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Table 2. Key Concepts for Design Principles, Synthesizing Predictive Processing Theory and Norm Theory (Grisold et al., 2025)</p>
+
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 جدول ۳ — اصول طراحی ۱ و ۲ (جزئیات):</strong> اصل اول درباره هنجارهای مشترک و اصل دوم درباره مداخله انسانی. هر ستون پنج بخش دارد: اصل، زیراصل، مکانیزم، نقش‌ها، و نتیجه.</p>
+                </div>
+                <p style="font-size:0.85em; color:#555; margin:2px 0;">DP1 = Shared Norms (DP1.1 + DP1.2) &nbsp;|&nbsp; DP2 = Human Intervention (DP2.1 + DP2.2) &nbsp;|&nbsp; Columns: Principle → Subprinciple → Mechanism → Roles → Outcome</p>
+                <img src="img/week9/ss13.png" alt="Table 3: Design Principles DP1-DP2" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Table 3. Design Principles Focusing on Enabling Managerial Intervention (DP1 & DP2) (Grisold et al., 2025)</p>
+
+                <div class="analysis-section rtl-section">
+                    <p><strong>📖 جدول ۴ — اصول طراحی ۳ و ۴ (جزئیات):</strong> اصل سوم درباره پیش‌بینی‌پذیری از طریق سیگنال‌ها و اصل چهارم درباره پیش‌بینی‌پذیری از طریق اجرای هنجارها. اصل چهارم چهار زیراصل دارد.</p>
+                </div>
+                <p style="font-size:0.85em; color:#555; margin:2px 0;">DP3 = Predictability (Signals): DP3.1 norm-enactment communication + DP3.2 norm-enactment inference &nbsp;|&nbsp; DP4 = Predictability (Enacting): DP4.1 surface norm defaulting + DP4.2 surface norm adjustment + DP4.3 surface norm generation + DP4.4 surface norm reinforcing</p>
+                <img src="img/week9/ss14.png" alt="Table 4: Design Principles DP3-DP4" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <img src="img/week9/ss15.png" alt="Table 4 continued: DP4.2-DP4.4" style="max-width:100%; border:1px solid #ddd; border-radius:8px; margin:10px 0;">
+                <p style="text-align:center; color:#666; font-size:0.9em;">Table 4. Design Principles Focusing on Enabling Agent Interaction (DP3 & DP4) (Grisold et al., 2025)</p>
+            </div>
+        </div>
+
+
+        <!-- ===================== LIU ET AL. (2025) ===================== -->
+        <div class="paper-card" id="liu">
+            <h2>🧬 Paper 6: Automating in High-Expertise, Low-Label Environments</h2>
+            <h3>Liu, Li, Zivkovic & Abbasi (2025) — MIS Quarterly 49(3), 1049-1093</h3>
+
+            <div class="info-box">
+                <h4>📝 Citation</h4>
+                <p>Rong Liu, Jingjing Li, Zivkovic, M., & Abbasi, A. (2025). "Automating in High-Expertise, Low-Label Environments: Evidence-Based Medicine by Expert-augmented Few-Shot Learning," <em>MIS Quarterly</em>, 49(3), pp. 1049-1093.</p>
+                <p><strong>Presenters:</strong> Kim, Rayna</p>
+            </div>
+
+            <div class="analysis-section rtl-section">
+                <h4>📚 توضیح فارسی — یادگیری چندنمونه‌ای با کمک متخصص</h4>
+
+                <p><strong>🔴 مسئله:</strong> در بعضی حوزه‌ها مثل پزشکی، <mark>برچسب‌گذاری داده خیلی گران و کم است</mark>. یک مرور نظام‌مند (Systematic Review) در پزشکی به طور متوسط <strong>۶۷ هفته</strong> طول می‌کشد. مشکل اینجاست که ML معمولی به هزاران نمونه برچسب‌دار نیاز دارد، اما اینجا فقط ۱۰-۲۰ نمونه داریم.</p>
+
+                <p><strong>🎯 آرتیفکت DSR:</strong> نویسندگان <mark>FastSR</mark> را می‌سازند — یک سیستم few-shot learning که با کمک‌ دانش متخصص (expert augmentation) می‌تواند از تعداد کم نمونه یاد بگیرد و عناصر PICO را استخراج کند.</p>
+
+                <p><strong>📊 نتایج کلیدی:</strong></p>
+                <ul>
+                    <li>FastSR با F1@3 حدود <strong>۷۳٪</strong> کار می‌کند.</li>
+                    <li>این بهتر از <strong>BioBERT</strong> (۶۴٪) و خیلی بهتر از <strong>GPT-4 Few-Shot</strong> (۳۹٪) است.</li>
+                    <li>می‌تواند فرایند مرور نظام‌مند را <strong>۶۵٪</strong> سریع‌تر کند و <strong>۴۴ هفته</strong> و <strong>۷۳,۵۰۰ دلار</strong> صرفه‌جویی کند.</li>
+                </ul>
+            </div>
+
+            <!-- Key Architecture -->
+            <div class="paper-card">
+                <h4>🏗️ FastSR Architecture</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Sentence Contextualization</strong></td>
+                            <td>CNNs for semantic representation of medical text</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Global Context</strong></td>
+                            <td>ProtoNet-based prototypes for article sections (Methods vs. Results)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expert Augmentation</strong></td>
+                            <td><mark>Attention mechanisms</mark> to identify text fragments that SR experts focus on</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Joint Learning</strong></td>
+                            <td>Simultaneous sentence classification + sequence tagging for PICO extraction</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="success-box">
+                    <h4>💡 What is PICO?</h4>
+                    <p><strong>P</strong>opulation, <strong>I</strong>ntervention, <strong>C</strong>omparison, <strong>O</strong>utcome — the standard framework for formulating clinical research questions in Evidence-Based Medicine.</p>
+                </div>
+            </div>
+
+            <!-- Evaluation Results -->
+            <div class="paper-card">
+                <h4>📊 Evaluation Results</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>F1@3 Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GPT-4 Few-Shot</td>
+                            <td>39.23</td>
+                        </tr>
+                        <tr>
+                            <td>Fine-tuned BioBERT</td>
+                            <td>64.17</td>
+                        </tr>
+                        <tr>
+                            <td><strong>FastSR (This paper)</strong></td>
+                            <td><mark>~73.00</mark></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><strong>Datasets tested:</strong> Wilson Disease (WD), COVID-19, public EBM-NLP dataset.</p>
+                <p><strong>Theoretical basis:</strong> Compositionality Theory — complex PICO extraction can be decomposed into identifiable semantic and contextual components.</p>
+            </div>
+
+            <!-- DSR Positioning -->
+            <div class="paper-card">
+                <h4>📊 How This Paper Maps to DSR Frameworks</h4>
+                <ul>
+                    <li><strong>Hevner (2004) G1:</strong> Artifact = FastSR system (instantiation)</li>
+                    <li><strong>Hevner (2004) G2:</strong> Problem = SR bottleneck in EBM (67 weeks average!)</li>
+                    <li><strong>Hevner (2004) G3:</strong> Multifaceted evaluation — benchmarking + expert interviews</li>
+                    <li><strong>Gregor & Hevner (2013):</strong> <mark>Improvement</mark> (new solution for known problem) or <mark>Exaptation</mark> (applying FSL to new complex domain)</li>
+                    <li><strong>Larsen (2025) DSVF:</strong> Criterion claim (Is FastSR better than baselines?) + Causal claim (Which components matter?)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ===================== MENTAL MAP ===================== -->
+        <div class="paper-card" id="mental-map">
+            <h2>🗺️ Mental Map: How the Papers Connect</h2>
+
+            <div class="analysis-section rtl-section">
+                <h4>📚 نقشه ذهنی — چطور پیپرها به هم وصل می‌شوند</h4>
+
+                <p>این هفته یک <mark>ساختار لایه‌ای</mark> دارد. ۴ پیپر اول روش‌شناسی DSR را تعریف می‌کنند (بنیاد → پوزیشن‌گذاری → ژانرها → اعتبار). ۲ پیپر آخر این روش‌شناسی را <strong>در عمل</strong> نشان می‌دهند.</p>
+
+                <p><strong>⚡ نکته کلیدی برای کلاس:</strong> وقتی درباره Grisold یا Liu صحبت می‌کنیم، باید بتوانیم بگوییم: "این پیپر از نظر Hevner چه Guideline‌هایی را پوشش می‌دهد؟ از نظر Gregor & Hevner چه نوع contribution دارد؟ از نظر Baskerville در کدام ژانر پژوهش قرار دارد؟ و از نظر Larsen چه ادعای validity دارد؟"</p>
+            </div>
+
+            <div class="mermaid">
+                graph TB
+                    subgraph FOUNDATION["📐 DSR Methodology Papers"]
+                        H["Hevner et al. (2004)<br/>7 Guidelines<br/>Build + Evaluate"] --> G["Gregor & Hevner (2013)<br/>Contribution Framework<br/>4 types, 3 levels"]
+                        G --> B["Baskerville et al. (2015)<br/>Genre Framework<br/>4 genres"]
+                        G --> L["Larsen et al. (2025)<br/>Validity Framework<br/>3 knowledge claims"]
+                    end
+                    subgraph APPLICATION["🔬 DSR Application Papers"]
+                        GR["Grisold et al. (2025)<br/>Human-AI Ecologies<br/>Design Theory: 4 DPs"]
+                        LIU["Liu et al. (2025)<br/>FastSR<br/>Instantiation: Few-Shot System"]
+                    end
+                    H --> GR
+                    H --> LIU
+                    G --> GR
+                    G --> LIU
+                    L --> GR
+                    L --> LIU
+            </div>
+
+            <!-- Mapping Table -->
+            <div class="paper-card">
+                <h4>📊 Mapping Application Papers to DSR Frameworks</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Framework</th>
+                            <th>Grisold et al. (2025)</th>
+                            <th>Liu et al. (2025)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Hevner G1: Artifact</strong></td>
+                            <td>Design Theory (4 design principles)</td>
+                            <td>Instantiation (FastSR system)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hevner G2: Relevance</strong></td>
+                            <td>Human-AI coordination challenge</td>
+                            <td>SR bottleneck in EBM</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hevner G3: Evaluation</strong></td>
+                            <td>Illustrative scenario (warehouse)</td>
+                            <td>Benchmarking + expert interviews</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gregor & Hevner: Type</strong></td>
+                            <td><mark>Invention</mark></td>
+                            <td><mark>Improvement / Exaptation</mark></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gregor & Hevner: Level</strong></td>
+                            <td>Level 2 (Nascent Design Theory)</td>
+                            <td>Level 1 (Situated Implementation)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Baskerville: Genre</strong></td>
+                            <td>Nomothetic Design (ND)</td>
+                            <td>Idiographic Design (ID) → Idiographic Science (IS)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Larsen: Validity Claims</strong></td>
+                            <td>Criterion (useful guardrails?) + Context (what ecologies?)</td>
+                            <td>Criterion (F1 vs baselines) + Causal (which components?)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Connection to Earlier Weeks -->
+            <div class="success-box">
+                <h4>🔗 Connections to Earlier Weeks</h4>
+                <ul>
+                    <li><strong>Week 2 (Baird & Maruping, 2021):</strong> Grisold's "guardrails" connect directly to the <mark>agentic IS delegation framework</mark>. Both deal with how humans coordinate with autonomous AI.</li>
+                    <li><strong>Week 3 (Gregor, 2006):</strong> Gregor's Type V theory (Design and Action) is exactly what Grisold produces. The DSR papers this week complete the theory typology from Week 3.</li>
+                    <li><strong>Week 5 (Liu et al., 2025):</strong> The human-AI delegation dynamics paper uses behavioral methods. This week's Liu paper uses <mark>DSR methods</mark> to solve a similar class of problem (human-AI collaboration in expert domains).</li>
+                    <li><strong>Week 7 (Analytical Modeling):</strong> Last week was mathematical models. This week is <mark>artifact-building</mark>. Together they show IS has 3 major research approaches: behavioral, analytical, and design science.</li>
+                </ul>
+            </div>
+
+            <!-- Week 9 Homework -->
+            <div class="paper-card" id="homework">
+                <h3>📝 Week 9 Homework — Evaluating Grisold et al. (2025) Using Gregor & Hevner (2013)</h3>
+
+                <div class="analysis-section">
+                    <p>Grisold et al. (2025) propose norm-based coordination for what they call "human-AI ecologies," environments where humans and autonomous AI agents work together. Their argument is that once AI agents start learning and adapting on their own, you cannot rely on hard-coded rules to keep everything in order. So they develop design principles based on social norms instead. Below I go through how this paper holds up against the evaluation criteria from Gregor and Hevner (2013).</p>
+                </div>
+
+                <h4>Where it sits in the 2×2</h4>
+                <div class="analysis-section">
+                    <p>The contribution framework in Gregor and Hevner (2013) has two axes: how mature the problem domain is, and how mature the existing solutions are. That gives you four quadrants: Invention, Improvement, Exaptation, and Routine Design.</p>
+                    <p>Grisold et al. claim <mark>Invention</mark> (p. 1260), meaning both the problem and the solution are new. I think the claim is fair, but not bulletproof. The problem side is strong: coordinating autonomous AI agents with humans in an open ecology really is a new challenge, because earlier governance work assumed humans stay in control and AI follows instructions. Once AI becomes agentic, that breaks. The solution side is also genuinely new, combining Predictive Processing Theory with Social Norm Theory for coordination is something nobody had done before in IS.</p>
+                    <p>But you could push back on the "new problem" part. Multi-agent coordination has been studied in computer science for decades. Grisold et al. are framing it differently by focusing on sociotechnical ecologies where humans and AI coexist, but the core problem of getting multiple agents to coordinate is not brand new. The Invention claim holds, I think, but it is close to the boundary with Exaptation.</p>
+                </div>
+
+                <h4>Contribution level</h4>
+                <div class="analysis-section">
+                    <p>Gregor and Hevner distinguish three levels. Level 1 is a working artifact, Level 2 is a nascent design theory (like design principles), and Level 3 is a full design theory with explanatory and predictive power.</p>
+                    <p>Grisold et al. go with <mark>Level 2</mark>. They produce four design principles with ten subprinciples. No prototype, no implementation, just principles grounded in theory. This is the right call. The principles abstract from a specific warehouse scenario into something more general, so it is more than just Level 1. But they have not tested these principles in multiple settings, which means Level 3 is not there yet. They are upfront about this limitation.</p>
+                </div>
+
+                <h4>Theoretical grounding</h4>
+                <div class="analysis-section">
+                    <p>This is where the paper is strongest. Gregor and Hevner (2013) distinguish descriptive knowledge (Ω) from prescriptive knowledge (Λ). DSR papers contribute Λ, but good ones also build on Ω to explain why their designs should work.</p>
+                    <p>Grisold et al. do both. The design principles themselves are Λ. The Ω comes from two kernel theories: Predictive Processing Theory (how agents form predictions + act on them + update when they get it wrong) and Social Norm Theory (how shared expectations coordinate behavior without centralized control). What I found convincing is how the <mark>deep norm / surface norm</mark> distinction falls out naturally from this combination. Deep norms are stable values like "protect safety." Surface norms are the flexible operational rules that change depending on context, like "robots yield to humans at intersections." That layered structure gives the design principles a rationale that feels grounded, not ad hoc.</p>
+                </div>
+
+                <h4>Structure and evaluation</h4>
+                <div class="analysis-section">
+                    <p>Gregor and Hevner recommend a seven-section schema for DSR papers. Grisold et al. follow it, and the artifact description takes up the biggest chunk, which is what the schema calls for. The method section references both Gregor and Hevner (2013) and Gregor (2006). They also explicitly signal their contribution type early in the paper (p. 1242): "theory of design and action (Type V)." They map themselves to Invention and Level 2 in the discussion. That kind of transparent signaling is exactly what Gregor and Hevner ask for, and it makes the paper easier to evaluate on its own terms.</p>
+                    <p>The weak spot is evaluation. They use an illustrative scenario set in an autonomous warehouse with humans, drones, and robots. It helps explain how the design principles would play out in practice, but it does not give you empirical evidence that they actually work. A case study or even a prototype would have been much stronger evidence. The authors know this. They call the scenario a starting point and say future work should build and test real implementations. For a nascent design theory at Level 2, an illustrative scenario is not unusual, but it does limit how much we can say about whether these principles would hold up in a real deployment.</p>
+                    <p>The bigger question the paper opens up is how to govern AI agents that are too autonomous for hard rules but still need to stay within acceptable boundaries. Norm-based coordination feels like a real alternative to the traditional control-based approach. Whether it actually works in practice is the open question, and answering it will require going from Level 2 to Level 1 (building something) and eventually testing it properly.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="/js/study-navbar.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/search.js"></script>
+    <!-- Mermaid JS -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
+
+    <!-- Reading Progress Bar -->
+    <script>
+        window.addEventListener('scroll', function () {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            var bar = document.querySelector('.progress-fill');
+            var text = document.querySelector('.progress-text');
+            if (bar) bar.style.width = scrolled + '%';
+            if (text) text.textContent = 'Reading Progress: ' + Math.round(scrolled) + '%';
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,376 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Ali Safari</title><meta name="description" content="Ali Safari's blog on Information Systems research, AI, security, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Blog | Ali Safari"><meta property="og:description" content="Information Systems research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<title>Field Notes | Ali Safari</title><meta name="description" content="Ali Safari's notes on Information Systems research, AI, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Field Notes | Ali Safari"><meta property="og:description" content="Notes on IS research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="canonical" href="https://alisafari.space/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Ali Safari Blog","description":"Thoughts on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Field Notes — Ali Safari","description":"Notes on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
 </head>
-<body class="blog-page">
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="index">
+<header class="masthead">
+<div class="masthead-kicker">Field Notes &mdash; Ali Safari &mdash; 258 notes</div>
+<h1 class="masthead-title">Field<br>Notes.</h1>
+<div class="masthead-bottom">
+<p class="masthead-dek">Honest reactions to IS research, AI, and the theory I'm studying for comps. No summaries.</p>
+<div class="masthead-stats">
+<div><b>258</b> Posts</div>
+<div><b>10</b> Topics</div>
 </div>
-</div></nav>
-<header class="blog-header">
-<h1>Blog</h1>
-<p class="blog-subtitle">Thoughts on IS theory, AI, technology, and comps studying. No summaries, just honest reactions.</p>
-<div class="blog-meta">
-<span class="blog-meta-item"><i class="fas fa-pen-nib"></i> 258 posts</span>
-<span class="blog-meta-item"><i class="fas fa-tags"></i> 10 topics</span>
 </div>
 </header>
-<section class="blog-stats-bar">
-<div class="blog-stat"><span class="blog-stat-value">258</span><div class="blog-stat-label">Posts</div></div>
-<div class="blog-stat"><span class="blog-stat-value">10</span><div class="blog-stat-label">Topics</div></div>
-<div class="blog-stat"><span class="blog-stat-value">2026</span><div class="blog-stat-label">Latest</div></div>
-</section>
-<div class="blog-controls">
-<div class="blog-search-box"><i class="fas fa-search"></i><input type="text" id="blogSearch" placeholder="Search posts by title or content..." autocomplete="off"></div>
-<div class="blog-filter-sort">
-<button class="blog-filter-btn active" data-sort="newest"><i class="fas fa-sort-amount-down"></i> Newest</button>
-<button class="blog-filter-btn" data-sort="oldest"><i class="fas fa-sort-amount-up"></i> Oldest</button>
+<div class="controls">
+<div class="search-wrap">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="blogSearch" placeholder="Search notes…" autocomplete="off">
+</div>
+<div class="seg">
+<button class="on" data-sort="newest">Newest</button>
+<button data-sort="oldest">Oldest</button>
+</div>
+</div>
+<div class="tags" id="tagFilters"><button class="tag-chip on" data-tag="all">All <span class="n">258</span></button><button class="tag-chip" data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="n">86</span></button><button class="tag-chip" data-tag="IS Theory">IS Theory <span class="n">82</span></button><button class="tag-chip" data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="n">77</span></button><button class="tag-chip" data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="n">74</span></button><button class="tag-chip" data-tag="Organizational Theory">Organizational Theory <span class="n">72</span></button><button class="tag-chip" data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="n">47</span></button><button class="tag-chip" data-tag="IS Research Methods">IS Research Methods <span class="n">43</span></button><button class="tag-chip" data-tag="Technology Adoption">Technology Adoption <span class="n">32</span></button><button class="tag-chip" data-tag="Trust &amp; Security">Trust &amp; Security <span class="n">31</span></button><button class="tag-chip" data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="n">29</span></button></div>
+<div class="hero-post" data-slug="2026-05-14-5g-enterprise-digital-transformation">
+<div class="hero-eyebrow">2026-05-14</div>
+<h2 class="hero-title"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/">5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</a></h2>
+<p class="hero-excerpt">Private 5G networks let enterprises build their own cellular infrastructure inside a factory or warehouse. Most organizations are still figuring out what to do with that.</p>
+<div class="hero-foot">
+<div class="hero-meta"><span>7 min read</span><span class="dot">&middot;</span><span>IT Governance &amp; Strategy</span></div>
+<a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="hero-cta">Read &#8594;</a>
+</div>
+</div>
+<div class="post-list" id="postList">
+<div class="post-row" data-title="bought a $2m platform, nobody learned a thing" data-tags="Comps &amp; Reflections,IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="absorptive-capacity-why-tools-alone-fail" onclick="location.href='/blog/absorptive-capacity-why-tools-alone-fail/'"><div class="pr-n">02</div><div class="pr-body"><div class="pr-title"><a href="/blog/absorptive-capacity-why-tools-alone-fail/">Bought a $2M Platform, Nobody Learned a Thing</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="action research in is: when the researcher is also the intervener" data-tags="IS Research Methods" data-date="2026-05-14" data-slug="action-research-is-method" onclick="location.href='/blog/action-research-is-method/'"><div class="pr-n">03</div><div class="pr-body"><div class="pr-title"><a href="/blog/action-research-is-method/">Action Research in IS: When the Researcher Is Also the Intervener</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="people use tools inside activity systems, not in a vacuum" data-tags="IS Theory,Platforms &amp; Ecosystems,Sociotechnical Systems,Technology Adoption" data-date="2026-05-14" data-slug="activity-theory-is-research" onclick="location.href='/blog/activity-theory-is-research/'"><div class="pr-n">04</div><div class="pr-body"><div class="pr-title"><a href="/blog/activity-theory-is-research/">People Use Tools Inside Activity Systems, Not in a Vacuum</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div><div class="post-row" data-title="actor-network theory: why your erp system is an actor too" data-tags="IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="actor-network-theory-is-research" onclick="location.href='/blog/actor-network-theory-is-research/'"><div class="pr-n">05</div><div class="pr-body"><div class="pr-title"><a href="/blog/actor-network-theory-is-research/">Actor-Network Theory: Why Your ERP System Is an Actor Too</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="the gap between what a system can do and what people do with it" data-tags="IS Theory" data-date="2026-05-14" data-slug="affordance-actualization-perception-gap" onclick="location.href='/blog/affordance-actualization-perception-gap/'"><div class="pr-n">06</div><div class="pr-body"><div class="pr-title"><a href="/blog/affordance-actualization-perception-gap/">The Gap Between What a System Can Do and What People Do With It</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the door handle is not for everyone" data-tags="IS Theory,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="affordance-theory-is-not-just-features" onclick="location.href='/blog/affordance-theory-is-not-just-features/'"><div class="pr-n">07</div><div class="pr-body"><div class="pr-title"><a href="/blog/affordance-theory-is-not-just-features/">The Door Handle Is Not for Everyone</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="when the algorithm fails, nobody takes the call" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="agency-theory-algorithm-accountability" onclick="location.href='/blog/agency-theory-algorithm-accountability/'"><div class="pr-n">08</div><div class="pr-body"><div class="pr-title"><a href="/blog/agency-theory-algorithm-accountability/">When the Algorithm Fails, Nobody Takes the Call</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the internet of agents will be built by platforms that own the protocol" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="agent-ecosystems-platform-envelopment" onclick="location.href='/blog/agent-ecosystems-platform-envelopment/'"><div class="pr-n">09</div><div class="pr-body"><div class="pr-title"><a href="/blog/agent-ecosystems-platform-envelopment/">The Internet of Agents Will Be Built by Platforms That Own the Protocol</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="agile at enterprise scale: why it is harder than it looks" data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="agile-at-enterprise-scale" onclick="location.href='/blog/agile-at-enterprise-scale/'"><div class="pr-n">10</div><div class="pr-body"><div class="pr-title"><a href="/blog/agile-at-enterprise-scale/">Agile at Enterprise Scale: Why It Is Harder Than It Looks</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai adoption follows the s-curve. most organizations are still in the chasm." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Technology Adoption" data-date="2026-05-14" data-slug="ai-adoption-s-curve-diffusion" onclick="location.href='/blog/ai-adoption-s-curve-diffusion/'"><div class="pr-n">11</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-adoption-s-curve-diffusion/">AI Adoption Follows the S-Curve. Most Organizations Are Still in the Chasm.</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai adoption spreads through social networks, not tech budgets" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="ai-adoption-social-network-theory" onclick="location.href='/blog/ai-adoption-social-network-theory/'"><div class="pr-n">12</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-adoption-social-network-theory/">AI Adoption Spreads Through Social Networks, Not Tech Budgets</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="why ai adoption produces roi for some and a headache for others" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Organizational Theory" data-date="2026-05-14" data-slug="ai-adoption-toe-framework" onclick="location.href='/blog/ai-adoption-toe-framework/'"><div class="pr-n">13</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-adoption-toe-framework/">Why AI Adoption Produces ROI for Some and a Headache for Others</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai agents create a principal-agent problem at machine speed" data-tags="AI &amp; Agentic Systems,IS Theory" data-date="2026-05-14" data-slug="ai-agents-principal-agent-theory" onclick="location.href='/blog/ai-agents-principal-agent-theory/'"><div class="pr-n">14</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-agents-principal-agent-theory/">AI Agents Create a Principal-Agent Problem at Machine Speed</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai creates an ambidexterity challenge every organization is failing" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="ai-ambidexterity-exploit-explore" onclick="location.href='/blog/ai-ambidexterity-exploit-explore/'"><div class="pr-n">15</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-ambidexterity-exploit-explore/">AI Creates an Ambidexterity Challenge Every Organization Is Failing</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai augmentation vs. ai automation: getting the frame right" data-tags="Technology Adoption" data-date="2026-05-14" data-slug="2026-05-14-ai-augmentation-vs-automation" onclick="location.href='/blog/2026-05-14-ai-augmentation-vs-automation/'"><div class="pr-n">16</div><div class="pr-body"><div class="pr-title"><a href="/blog/2026-05-14-ai-augmentation-vs-automation/">AI Augmentation vs. AI Automation: Getting the Frame Right</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Technology Adoption</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="ai chatbots are the richest medium that has never existed" data-tags="AI &amp; Agentic Systems,Trust &amp; Security" data-date="2026-05-14" data-slug="ai-chatbots-media-richness-theory" onclick="location.href='/blog/ai-chatbots-media-richness-theory/'"><div class="pr-n">17</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-chatbots-media-richness-theory/">AI Chatbots Are the Richest Medium That Has Never Existed</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="copilot generated more code and more bugs" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory" data-date="2026-05-14" data-slug="ai-coding-effective-use-quality" onclick="location.href='/blog/ai-coding-effective-use-quality/'"><div class="pr-n">18</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-coding-effective-use-quality/">Copilot Generated More Code and More Bugs</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="when ai is a colleague, not a tool: structuration in the agent era" data-tags="AI &amp; Agentic Systems,IS Theory,Organizational Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="ai-colleague-structuration-theory" onclick="location.href='/blog/ai-colleague-structuration-theory/'"><div class="pr-n">19</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-colleague-structuration-theory/">When AI Is a Colleague, Not a Tool: Structuration in the Agent Era</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="ai&#x27;s energy problem is a sociotechnical systems problem" data-tags="AI &amp; Agentic Systems,IS Theory,Platforms &amp; Ecosystems,Sociotechnical Systems" data-date="2026-05-14" data-slug="ai-energy-sociotechnical-systems" onclick="location.href='/blog/ai-energy-sociotechnical-systems/'"><div class="pr-n">20</div><div class="pr-body"><div class="pr-title"><a href="/blog/ai-energy-sociotechnical-systems/">AI&#x27;s Energy Problem Is a Sociotechnical Systems Problem</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div>
+<div id="emptyState" style="display:none;padding:64px 0;font-family:var(--f-mono);font-size:13px;color:var(--ink-4);letter-spacing:.07em;text-transform:uppercase;">No notes found</div>
+<div class="pgn"><span></span><div class="pgn-nums"><span class="cur">1</span><button onclick="location.href='/blog/page/2/'">2</button><button onclick="location.href='/blog/page/3/'">3</button><button onclick="location.href='/blog/page/4/'">4</button><button onclick="location.href='/blog/page/5/'">5</button><button onclick="location.href='/blog/page/6/'">6</button><button onclick="location.href='/blog/page/7/'">7</button><button onclick="location.href='/blog/page/8/'">8</button><button onclick="location.href='/blog/page/9/'">9</button><button onclick="location.href='/blog/page/10/'">10</button><button onclick="location.href='/blog/page/11/'">11</button><button onclick="location.href='/blog/page/12/'">12</button><button onclick="location.href='/blog/page/13/'">13</button></div><a href="/blog/page/2/" class="pgn-step">Next &#8594;</a></div>
+</div>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="blog-tag-filters"><a href="/blog/" class="blog-tag-chip active" data-tag="all">All <span class="tag-count">258</span></a><a href="/blog/?tag=Comps &amp; Reflections" class="blog-tag-chip " data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="tag-count">86</span></a><a href="/blog/?tag=IS Theory" class="blog-tag-chip " data-tag="IS Theory">IS Theory <span class="tag-count">82</span></a><a href="/blog/?tag=IT Governance &amp; Strategy" class="blog-tag-chip " data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="tag-count">77</span></a><a href="/blog/?tag=AI &amp; Agentic Systems" class="blog-tag-chip " data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="tag-count">74</span></a><a href="/blog/?tag=Organizational Theory" class="blog-tag-chip " data-tag="Organizational Theory">Organizational Theory <span class="tag-count">72</span></a><a href="/blog/?tag=Platforms &amp; Ecosystems" class="blog-tag-chip " data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="tag-count">47</span></a><a href="/blog/?tag=IS Research Methods" class="blog-tag-chip " data-tag="IS Research Methods">IS Research Methods <span class="tag-count">43</span></a><a href="/blog/?tag=Technology Adoption" class="blog-tag-chip " data-tag="Technology Adoption">Technology Adoption <span class="tag-count">32</span></a><a href="/blog/?tag=Trust &amp; Security" class="blog-tag-chip " data-tag="Trust &amp; Security">Trust &amp; Security <span class="tag-count">31</span></a><a href="/blog/?tag=Sociotechnical Systems" class="blog-tag-chip " data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="tag-count">29</span></a></div>
-<div class="blog-grid" id="blogGrid">
-<div class="blog-grid-item" data-title="5g is not about faster phones. here is what enterprises actually care about." data-excerpt="private 5g networks let enterprises build their own cellular infrastructure inside a factory or warehouse. most organizations are still figuring out what to do with that." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="2026-05-14-5g-enterprise-digital-transformation">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/">5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</a></h2>
-</div>
-<p class="card-excerpt">Private 5G networks let enterprises build their own cellular infrastructure inside a factory or warehouse. Most organizations are still figuring out what to do ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="2026-05-14-5g-enterprise-digital-transformation" title="Save for later" aria-label="Save 5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About. for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="bought a $2m platform, nobody learned a thing" data-excerpt="organizations buy expensive analytics platforms and learn nothing. the theory of absorptive capacity explains why prior knowledge, not capital, determines whether new technology becomes intelligence or noise." data-tags="Comps &amp; Reflections,IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="absorptive-capacity-why-tools-alone-fail">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/absorptive-capacity-why-tools-alone-fail/">Bought a $2M Platform, Nobody Learned a Thing</a></h2>
-</div>
-<p class="card-excerpt">Organizations buy expensive analytics platforms and learn nothing. The theory of absorptive capacity explains why prior knowledge, not capital, determines wheth...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="absorptive-capacity-why-tools-alone-fail" title="Save for later" aria-label="Save Bought a $2M Platform, Nobody Learned a Thing for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="action research in is: when the researcher is also the intervener" data-excerpt="action research asks you to help solve a real problem while studying it. the dual role is genuinely difficult, and the rigor vs. relevance tension never fully resolves." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="action-research-is-method">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/action-research-is-method/">Action Research in IS: When the Researcher Is Also the Intervener</a></h2>
-</div>
-<p class="card-excerpt">Action research asks you to help solve a real problem while studying it. The dual role is genuinely difficult, and the rigor vs. relevance tension never fully r...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="action-research-is-method" title="Save for later" aria-label="Save Action Research in IS: When the Researcher Is Also the Intervener for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/action-research-is-method/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="people use tools inside activity systems, not in a vacuum" data-excerpt="activity theory says you cannot understand tool use without the full activity system around it. the same tool in two systems means two completely different things." data-tags="IS Theory,Platforms &amp; Ecosystems,Sociotechnical Systems,Technology Adoption" data-date="2026-05-14" data-slug="activity-theory-is-research">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/activity-theory-is-research/">People Use Tools Inside Activity Systems, Not in a Vacuum</a></h2>
-</div>
-<p class="card-excerpt">Activity theory says you cannot understand tool use without the full activity system around it. The same tool in two systems means two completely different thin...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Platforms &amp; Ecosystems</span><span class="tag">Sociotechnical Systems</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="activity-theory-is-research" title="Save for later" aria-label="Save People Use Tools Inside Activity Systems, Not in a Vacuum for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/activity-theory-is-research/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="actor-network theory: why your erp system is an actor too" data-excerpt="ant treats software, databases, and infrastructure as actants with the same analytical standing as humans. in is research, that changes everything about how we study implementation." data-tags="IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="actor-network-theory-is-research">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/actor-network-theory-is-research/">Actor-Network Theory: Why Your ERP System Is an Actor Too</a></h2>
-</div>
-<p class="card-excerpt">ANT treats software, databases, and infrastructure as actants with the same analytical standing as humans. In IS research, that changes everything about how we ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="actor-network-theory-is-research" title="Save for later" aria-label="Save Actor-Network Theory: Why Your ERP System Is an Actor Too for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/actor-network-theory-is-research/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the gap between what a system can do and what people do with it" data-excerpt="affordance actualization explains why two organizations using the same system get completely different results. the technology affords possibilities. people and context determine what happens." data-tags="IS Theory" data-date="2026-05-14" data-slug="affordance-actualization-perception-gap">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/affordance-actualization-perception-gap/">The Gap Between What a System Can Do and What People Do With It</a></h2>
-</div>
-<p class="card-excerpt">Affordance actualization explains why two organizations using the same system get completely different results. The technology affords possibilities. People and...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="affordance-actualization-perception-gap" title="Save for later" aria-label="Save The Gap Between What a System Can Do and What People Do With It for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/affordance-actualization-perception-gap/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the door handle is not for everyone" data-excerpt="an affordance is not a feature. it is an action possibility for a specific actor with a specific goal in a specific context. most is papers get this wrong." data-tags="IS Theory,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="affordance-theory-is-not-just-features">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/affordance-theory-is-not-just-features/">The Door Handle Is Not for Everyone</a></h2>
-</div>
-<p class="card-excerpt">An affordance is not a feature. It is an action possibility for a specific actor with a specific goal in a specific context. Most IS papers get this wrong.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="affordance-theory-is-not-just-features" title="Save for later" aria-label="Save The Door Handle Is Not for Everyone for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/affordance-theory-is-not-just-features/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="when the algorithm fails, nobody takes the call" data-excerpt="agency theory explains it outsourcing and governance through principals, agents, and monitoring. ai rewrites the problem in a way the original framework did not anticipate." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="agency-theory-algorithm-accountability">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/agency-theory-algorithm-accountability/">When the Algorithm Fails, Nobody Takes the Call</a></h2>
-</div>
-<p class="card-excerpt">Agency theory explains IT outsourcing and governance through principals, agents, and monitoring. AI rewrites the problem in a way the original framework did not...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="agency-theory-algorithm-accountability" title="Save for later" aria-label="Save When the Algorithm Fails, Nobody Takes the Call for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/agency-theory-algorithm-accountability/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the internet of agents will be built by platforms that own the protocol" data-excerpt="the platform that controls the agent communication protocol will control the internet of agents, just as google owned search and apple owned mobile." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="agent-ecosystems-platform-envelopment">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/agent-ecosystems-platform-envelopment/">The Internet of Agents Will Be Built by Platforms That Own the Protocol</a></h2>
-</div>
-<p class="card-excerpt">The platform that controls the agent communication protocol will control the Internet of Agents, just as Google owned search and Apple owned mobile.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="agent-ecosystems-platform-envelopment" title="Save for later" aria-label="Save The Internet of Agents Will Be Built by Platforms That Own the Protocol for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/agent-ecosystems-platform-envelopment/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="agile at enterprise scale: why it is harder than it looks" data-excerpt="scaling agile to 500 people across three time zones is a different problem entirely. the frameworks meant to help often just create new bureaucracy." data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="agile-at-enterprise-scale">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/agile-at-enterprise-scale/">Agile at Enterprise Scale: Why It Is Harder Than It Looks</a></h2>
-</div>
-<p class="card-excerpt">Scaling agile to 500 people across three time zones is a different problem entirely. The frameworks meant to help often just create new bureaucracy.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="agile-at-enterprise-scale" title="Save for later" aria-label="Save Agile at Enterprise Scale: Why It Is Harder Than It Looks for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/agile-at-enterprise-scale/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai adoption follows the s-curve. most organizations are still in the chasm." data-excerpt="rogers showed that innovation adoption follows an s-curve. enterprise ai is not stalling. it is exactly where diffusion theory predicts." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Technology Adoption" data-date="2026-05-14" data-slug="ai-adoption-s-curve-diffusion">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-adoption-s-curve-diffusion/">AI Adoption Follows the S-Curve. Most Organizations Are Still in the Chasm.</a></h2>
-</div>
-<p class="card-excerpt">Rogers showed that innovation adoption follows an S-curve. Enterprise AI is not stalling. It is exactly where diffusion theory predicts.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-adoption-s-curve-diffusion" title="Save for later" aria-label="Save AI Adoption Follows the S-Curve. Most Organizations Are Still in the Chasm. for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-adoption-s-curve-diffusion/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai adoption spreads through social networks, not tech budgets" data-excerpt="rogers, granovetter, and burt explain why the department with the ai champion adopts faster while the department across the building with the same budget does not." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="ai-adoption-social-network-theory">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/ai-adoption-social-network-theory/">AI Adoption Spreads Through Social Networks, Not Tech Budgets</a></h2>
-</div>
-<p class="card-excerpt">Rogers, Granovetter, and Burt explain why the department with the AI champion adopts faster while the department across the building with the same budget does n...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Organizational Theory</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-adoption-social-network-theory" title="Save for later" aria-label="Save AI Adoption Spreads Through Social Networks, Not Tech Budgets for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-adoption-social-network-theory/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="why ai adoption produces roi for some and a headache for others" data-excerpt="toe from tornatzky and fleischer explains why most ai investments fail while a few transform organizations: the three contexts must align." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Organizational Theory" data-date="2026-05-14" data-slug="ai-adoption-toe-framework">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-adoption-toe-framework/">Why AI Adoption Produces ROI for Some and a Headache for Others</a></h2>
-</div>
-<p class="card-excerpt">TOE from Tornatzky and Fleischer explains why most AI investments fail while a few transform organizations: the three contexts must align.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-adoption-toe-framework" title="Save for later" aria-label="Save Why AI Adoption Produces ROI for Some and a Headache for Others for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-adoption-toe-framework/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai agents create a principal-agent problem at machine speed" data-excerpt="the ai alignment problem is principal-agent theory with a new degree of freedom: the agent can act faster than human oversight can keep up." data-tags="AI &amp; Agentic Systems,IS Theory" data-date="2026-05-14" data-slug="ai-agents-principal-agent-theory">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-agents-principal-agent-theory/">AI Agents Create a Principal-Agent Problem at Machine Speed</a></h2>
-</div>
-<p class="card-excerpt">The AI alignment problem is principal-agent theory with a new degree of freedom: the agent can act faster than human oversight can keep up.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-agents-principal-agent-theory" title="Save for later" aria-label="Save AI Agents Create a Principal-Agent Problem at Machine Speed for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-agents-principal-agent-theory/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai creates an ambidexterity challenge every organization is failing" data-excerpt="organizations use ai to optimize existing processes while calling it transformation. march (1991) would call this pure exploitation, and the exploration gap is getting dangerous." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="ai-ambidexterity-exploit-explore">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-ambidexterity-exploit-explore/">AI Creates an Ambidexterity Challenge Every Organization Is Failing</a></h2>
-</div>
-<p class="card-excerpt">Organizations use AI to optimize existing processes while calling it transformation. March (1991) would call this pure exploitation, and the exploration gap is ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-ambidexterity-exploit-explore" title="Save for later" aria-label="Save AI Creates an Ambidexterity Challenge Every Organization Is Failing for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-ambidexterity-exploit-explore/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai augmentation vs. ai automation: getting the frame right" data-excerpt="there are two fundamentally different visions of ai in the workplace, and the is research frame you choose changes everything about what you study and what you find." data-tags="Technology Adoption" data-date="2026-05-14" data-slug="2026-05-14-ai-augmentation-vs-automation">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/2026-05-14-ai-augmentation-vs-automation/">AI Augmentation vs. AI Automation: Getting the Frame Right</a></h2>
-</div>
-<p class="card-excerpt">There are two fundamentally different visions of AI in the workplace, and the IS research frame you choose changes everything about what you study and what you ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="2026-05-14-ai-augmentation-vs-automation" title="Save for later" aria-label="Save AI Augmentation vs. AI Automation: Getting the Frame Right for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/2026-05-14-ai-augmentation-vs-automation/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai chatbots are the richest medium that has never existed" data-excerpt="ai chatbots feel like a face to face conversation but function like a search engine with a confidence problem. media richness theory explains why that mismatch is dangerous." data-tags="AI &amp; Agentic Systems,Trust &amp; Security" data-date="2026-05-14" data-slug="ai-chatbots-media-richness-theory">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-chatbots-media-richness-theory/">AI Chatbots Are the Richest Medium That Has Never Existed</a></h2>
-</div>
-<p class="card-excerpt">AI chatbots feel like a face to face conversation but function like a search engine with a confidence problem. Media richness theory explains why that mismatch ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-chatbots-media-richness-theory" title="Save for later" aria-label="Save AI Chatbots Are the Richest Medium That Has Never Existed for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-chatbots-media-richness-theory/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="copilot generated more code and more bugs" data-excerpt="thirty percent acceptance is adoption, not effective use. burton-jones and grange defined effective use as faithful domain representation, not output." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory" data-date="2026-05-14" data-slug="ai-coding-effective-use-quality">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-coding-effective-use-quality/">Copilot Generated More Code and More Bugs</a></h2>
-</div>
-<p class="card-excerpt">Thirty percent acceptance is adoption, not effective use. Burton-Jones and Grange defined effective use as faithful domain representation, not output.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-coding-effective-use-quality" title="Save for later" aria-label="Save Copilot Generated More Code and More Bugs for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-coding-effective-use-quality/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="when ai is a colleague, not a tool: structuration in the agent era" data-excerpt="multiagent ai systems are not just tools being used. they act, and their outputs become part of the organizational structure that shapes the next cycle." data-tags="AI &amp; Agentic Systems,IS Theory,Organizational Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="ai-colleague-structuration-theory">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/ai-colleague-structuration-theory/">When AI Is a Colleague, Not a Tool: Structuration in the Agent Era</a></h2>
-</div>
-<p class="card-excerpt">Multiagent AI systems are not just tools being used. They act, and their outputs become part of the organizational structure that shapes the next cycle.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-colleague-structuration-theory" title="Save for later" aria-label="Save When AI Is a Colleague, Not a Tool: Structuration in the Agent Era for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-colleague-structuration-theory/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="ai&#x27;s energy problem is a sociotechnical systems problem" data-excerpt="training ai models consumes staggering amounts of energy. trist and bamforth showed in 1951 why optimizing only the technical subsystem creates a collapse." data-tags="AI &amp; Agentic Systems,IS Theory,Platforms &amp; Ecosystems,Sociotechnical Systems" data-date="2026-05-14" data-slug="ai-energy-sociotechnical-systems">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/ai-energy-sociotechnical-systems/">AI&#x27;s Energy Problem Is a Sociotechnical Systems Problem</a></h2>
-</div>
-<p class="card-excerpt">Training AI models consumes staggering amounts of energy. Trist and Bamforth showed in 1951 why optimizing only the technical subsystem creates a collapse.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Platforms &amp; Ecosystems</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="ai-energy-sociotechnical-systems" title="Save for later" aria-label="Save AI&#x27;s Energy Problem Is a Sociotechnical Systems Problem for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/ai-energy-sociotechnical-systems/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div>
-<div class="blog-empty-state" style="display:none"><i class="fas fa-search"></i><h3>No posts found</h3><p>Try a different search term.</p></div>
-</div>
-<div class="blog-pagination"><span class="current">1</span><a href="/blog/page/2/">2</a><a href="/blog/page/3/">3</a><a href="/blog/page/4/">4</a><a href="/blog/page/5/">5</a><a href="/blog/page/6/">6</a><a href="/blog/page/7/">7</a><a href="/blog/page/8/">8</a><a href="/blog/page/9/">9</a><a href="/blog/page/10/">10</a><a href="/blog/page/11/">11</a><a href="/blog/page/12/">12</a><a href="/blog/page/13/">13</a></div>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-</div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
 </body></html>

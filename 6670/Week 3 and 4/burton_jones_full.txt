@@ -1,0 +1,1559 @@
+SPECIAL ISSUE: NEXT-GENERATION IS THEORIES
+
+NEXT-GENERATION INFORMATION SYSTEMS
+THEORIZING: A CALL TO ACTION1
+Andrew Burton-Jones
+UQ Business School, University of Queensland,
+Brisbane, QLD 4072 AUSTRALIA {abj@business.uq.edu.au}
+
+Brian S. Butler
+College of Information Systems (iSchool), University of Maryland, College Park,
+College Park, MD 20742 U.S.A. {bsbutler@umd.edu}
+
+Susan V. Scott
+London School of Economics and Political Science,
+London, WC21 2AE UNITED KINGDOM {s.v.scott@lse.ac.uk}
+
+Sean Xin Xu
+School of Economics and Management, Tsinghua University,
+Beijing 1000084 CHINA {xuxin@sem.tsinghua.edu.cn}
+
+1
+
+Why Theorize? Why Now?
+Theorizing is the intellectual engine of a scholarly community. With this special issue, we hope to inspire the IS
+community to reaffirm its commitment to developing
+foundational theories and offer bold new theoretical ideas and
+approaches to inspire and shape our field’s future.
+Such work is especially important now because of two trends.
+In practice, the nature of information systems is changing
+faster and their impact is greater than ever before. So many
+of the grand challenges of our time, from health and wellbeing, to sustainability, education, and social inclusion, now
+depend deeply on information systems. We need bold new
+theories to help us understand these challenges and guide our
+contributions. While our field has always studied how information systems are developed and how individuals, groups,
+organizations, and markets interact with new technology
+(Sidorova et al. 2008, p. 475), these activities have changed
+dramatically and continue to do so. In contrast, theories tend
+to change slowly (Kuhn 1996) and as a result, many of our
+
+theories are unlikely to be sufficient to address today’s new
+challenges. We call upon the scholarly community to rethink
+our theories and create new theories to guide us.
+In research, there is a noticeable counter-trend, namely a
+move toward doubting theory’s value. While theory has had
+a hallowed status in many fields for decades (Mueller and
+Urbach 2017; Straub et al. 1994), two doubts are increasingly
+raised. Some question if researchers need theory in an age of
+big data and machine learning. According to this view, highly
+predictive algorithms may be enough; theory may not be
+needed (Anderson 2008; Kitchin 2014; Steadman 2013).
+Others ask why we want theory so much. From this perspective, too many researchers suffer from a theory fetish (Avison
+and Malaurent 2014), fixation (Hirschheim 2019), or
+obsession (Dennis 2019), and devalue other contributions
+(Ågerfalk 2014). Similar criticisms have been raised in other
+fields (Hambrick 2007), with some arguing that an obsession
+with theory risks their field’s future (Tourish 2020).
+Our response to the trend in practice is that theorizing is now
+more critical than ever. This is because what we are seeing
+
+1
+
+This special issue was accepted while Arun Rai was Editor-in-Chief.
+
+DOI: 10.25300/MISQ/2021/15434
+
+MIS Quarterly Vol. 45 No. 1, pp.301-314/March 2021
+
+301
+
+Burton-Jones et al./Special Issue: Introduction
+
+in practice is a significant rise in complexity, and making
+sense of complexity is exactly what theory is for (Popper
+1980, p. 59; Wilson 1998, p. 56). After all, the complexity of
+a domain rises with increases in the number of elements,
+interconnections, and dynamics (Wood 1986). Look at any
+context in our work or personal life and that’s exactly what
+digitalization is doing: we see more sensors, data, and software, more interfaces and interactions, and more change. We
+need theories to help us make sense of this complex world and
+to act wisely.
+Likewise, our response to the trend in research is that better
+theorizing is now more critical than ever. Rather than diminishing the value of theory, new forms of data and machine
+learning provide opportunities to improve theorizing, for
+example, by becoming new theorizing instruments (Einav and
+Levin 2014). Likewise, doubts over the value of theory
+should motivate us to theorize more effectively (Agarwal and
+Dhar 2014; Berente, Seidel, and Safadi 2019; Chang et al.
+2014; Johnson et al. 2019). Many critiques of theorizing are
+actually just critiques of old-fashioned views of theorizing
+that we can move beyond. We need to adopt fresh approaches
+to theorizing for the road ahead (Jordan and Mitchell 2015).
+Several of our sister disciplines are having similar discussions
+about their own theorizing (Haveman et al. 2019; Moorman
+et al. 2019; Zeithaml et al. 2020). And our colleagues in the
+data and machine learning communities are recognizing the
+need for theory to inform the development of algorithms and
+guide approaches for evidence-based decision making (Jordan
+and Mitchell 2015). The collective reflection in which we are
+engaged is an opportunity for all of us, across academic disciplines and between academia and industry, to reconsider old
+intellectual boundaries and lenses and bring fresh insights to
+our shared challenges.
+We hope this special issue will fuel and sustain the intellectual
+engine of our scholarly community at this crucial point in
+history. The call for papers issued for this special issue
+resulted in the submission of far more papers than we could
+publish. Rather than being a problem, we saw this as a rare
+chance to trigger a broad intellectual movement that we hope
+will be reflected in the publication of exciting theoretical
+contributions across the field in the coming years. We are
+inspired by this movement, and hope you will be too.
+
+ephemeral data, machine learning, mashups, connected x,
+digital x, smart x, hyperautomation, quantum computing, and
+augmented reality. That is not what we mean.
+As a field, Information Systems scholars know more than
+most how important it is to find a balance between focusing
+on fundamentals and fads in our theorizing. Accordingly,
+rather than referring to the latest “hot” topics, we use nextgeneration theorizing to refer to new ways of thinking that
+shift significantly from current patterns of theorizing and
+where this shift rewards scholars by revealing significant new
+lines of inquiry (adapted from Kitcher 1982, p. 48). The
+“generation” label, therefore, has a dual meaning: a new
+generation of ideas to inspire a new generation of scholars. In
+short, we are looking for fresh, bold, path-breaking ideas,
+ideas that can reshape prevailing paradigms or even spark new
+ones (Kuhn 1996).
+
+Strategies for Next-Gen Theorizing
+At this point, a reader might ask, “MIS Quarterly is always
+looking for new ways of thinking, so why do we need a
+special issue for it?” The reason is that scientific fields are
+often risk-averse (Wang et al. 2017). Authors can feel unsure
+how bold they can be, and journals may fail to receive or
+accept the novel papers they desire. While MIS Quarterly
+works hard to avoid those traps, we still face these risks.
+Accordingly, our goal in this special issue was to explicitly
+call for fresh, bold, path-breaking work, and to create a
+review process that would appreciate and celebrate it.
+As noted above, next-generation theorizing is not an exercise
+in theorizing the latest hot topics. Rather, as Table 1 shows,
+we see four ways of engaging in it, defined by two axes:
+•
+
+Stance toward IS phenomena: Researchers may be
+studying either existing or new phenomena. Both approaches have long traditions in our field, as shown, for
+example, by calls in MIS Quarterly editorials for
+researchers to reconsider the fundamental nature of IT
+artifacts (see Volume 27, Issue 1) as well as to study the
+latest IS phenomenon (see Volume 37, Issue 1). Either
+way, next-generation theorizing is needed when
+researchers realize that changes occurring in the contemporary world render existing theories insufficient.
+Changes in intellectual toolkits are needed to keep up
+with changes occurring in familiar phenomena and to
+understand new phenomena emerging.
+
+•
+
+Stance toward theorizing: Researchers may be oriented
+toward using existing theories or inventing new ones.
+Both traditions have long histories in IS research (Keen
+
+What Do We Mean by NextGeneration Theorizing?
+At first glance, next-generation theorizing might mean
+building theories of blockchain, Internet-of-Things, Industry
+4.0, geotargeting, social analytics, big data, the dark web,
+
+302
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+Burton-Jones et al./Special Issue: Introduction
+
+Table 1. Four Next-Gen Theorizing Strategies
+
+Inventing new IS
+theory
+Stance
+toward
+Theorizing
+
+Using existing (often
+reference-discipline)
+theory
+
+Stance toward IS Phenomena
+Studying existing phenomena in a
+Studying new phenomena emerging
+changing world
+in a changing world
+Replace
+Envision
+(Replacing existing theory with new IS
+(Developing a new theory that opens
+theory to understand a phenomenon
+up a new world)
+more effectively)
+Reformulate
+Extend
+(Unpacking and altering a theory
+(Expanding a theory significantly so
+considerably so that it offers new and
+that it can explain/reveal a new world)
+better insights)
+
+1980). Some researchers use existing theory (often from
+reference disciplines) (Dennis 2019) while others
+develop new theory (Grover and Lyytinen 2015; Sarker
+et al. 2019). Next-generation theorizing occurs when
+researchers show that well-accepted theories need to
+fundamentally change or that new theories must replace
+old theories in order to engage new realities.
+To illustrate these notions, it is helpful to consider some
+prominent MISQ papers published with each strategy over the
+years.
+A seminal example of the replace strategy is Dennis et al.’s
+(2008) award-winning paper urging researchers studying ITmediated communication to shift from the theory of media
+richness to the theory of media synchronicity. A more recent
+(also award-winning) example is Lukyanenko et al.’s (2019)
+call for designers to shift from class-based data structures to
+instance-based data structures when designing systems for
+discovery-oriented data collection. In both cases, the papers
+tackled existing phenomena in the field (online communication and online data collection) and developed new theory
+to replace existing theory.
+An influential example of the reformulate strategy is Nan’s
+(2011) effort to improve the prevailing paradigm for studying
+system use, which relied on natural language formulations,
+with a more formal, agent-based formulation that afforded
+more rigorous analysis. A more recent example is Berente et
+al.’s (2019) use of institutional analysis to reformulate the
+resistance-to-change paradigm so that it can serve as a more
+suitable theoretical platform for research on enterprise
+systems.
+Classic examples of the envision strategy include the development of a new design theory for emergent knowledge
+processes (Markus et al. 2002) and the formulation of a new
+paradigm for theorizing digital innovation in a ubiquitous
+
+computing environment (Yoo 2010). In both cases, new
+theory was developed for new and important domains that
+were emerging at that time.
+Finally, exemplars of the extend strategy include the extension
+of accepted theories of identity to study the emerging notion
+of “IT identity” (Carter and Grover 2015) and the extension
+of existing theories of the firm, and firm innovation, to study
+the changing structure of the firm in a platform-based
+economy (Parker et al. 2017). Once again, in these cases, the
+focus is on developing forward-looking theory to understand
+changes we are beginning to see in the world around us.
+While none of these papers was explicitly framed as nextgeneration theorizing, each one exemplifies it. No matter
+their stance toward theorizing and toward IS phenomena, each
+one calls for and provides a significant shift in thinking, and
+opens significant new lines of inquiry.
+
+The Role of the Past and the Future
+in Next-Gen Theorizing
+As each of the four strategies in Table 1 emphasizes, next-gen
+theorizing aims to provide novel ways of thinking that are so
+sufficiently different they shift existing patterns of theorizing.
+A natural question to ask is: How do we generate next-gen
+theoretical innovation and what makes it different?
+Broadly, we see two views of what novelty means, providing
+researchers with different ways to consider next-generation
+theorizing.
+A linear view on novelty will make sense for researchers who
+see theory building in chronological terms, gaining a better
+understanding through successive efforts over time (Cook and
+Campbell 1979). From this perspective, a next-generation
+theory opens up a new line of work that builds on a prior line
+but extends it in a new direction.
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+303
+
+Burton-Jones et al./Special Issue: Introduction
+
+A hermeneutic view on novelty will make sense for
+researchers who see theory building as ongoing attempts to
+reach a better understanding of a phenomenon by cycling
+between understanding the parts and the whole (Bernstein
+1983). Repeated cycles of the hermeneutic circle create
+multiple interpretations which afford the possibility to reach
+original or unusual understandings that relate to the horizons
+of prior views (Peat et al. 2019). From this perspective, a
+next-generation theory will provide a significant and original
+interpretation of a part, a whole, or a fusion of horizons.
+We stress this point about novelty for the simple reason that
+pushing for next-generation or new thinking does not mean
+forgetting the past. In both interpretations above, we cannot
+understand the future without appreciating the past. In the
+linear view, scholars must understand the past because the
+new lines of inquiry are still path-dependent. In the hermeneutic view, scholars must understand the past because current
+and past understandings are related through the hermeneutic
+circle. Both views also provide us with a way to think of what
+is new. New insights can help move the field forward (linear
+view) or deeper and outward (hermeneutic view).
+It is important for scholars to understand this link between the
+old and the new because a key characteristic of the IS field is
+our constantly changing phenomena: novel technologies and
+uses continue to emerge (Wang 2010). And yet, we also have
+long-lived, persistent phenomena, such as the fundamentals of
+information, sociotechnical systems, legacy infrastructure, and
+the installed base (Boell 2017; Bostrom and Heinen 1977;
+Keen 1980; McKinney and Yoos 2010; Sarker et al. 2019;
+Star and Ruhleder 1996; Winter et al. 2014). Thus, those
+engaging in next-generation theorizing must keep an eye on
+the past while also looking to (or even creating) the future.
+To see all these aspects of next-generation theorizing in
+action, consider the last special issue on theory in this journal.
+The current special issue is MIS Quarterly’s second special
+issue devoted to theory papers. In March 1999, MIS Quarterly
+issued a Call for Submissions for a Special Issue on
+Redefining the Organizational Roles of Information Technology in the Information Age, with the papers ultimately
+published across two years (2002–2003). While not named as
+such, that special issue was an exercise in next-generation
+theorizing motivated by changes occurring during the 1990s.
+The papers in that special issue (Griffith et al. 2003; Lamb
+and Kling 2003; Markus et al. 2002; Sambamurthy et al.
+2003) all became classics.
+All four of those papers focused on contemporary phenomena
+(knowledge management, digital strategy, and virtual teams),
+illustrated new ways of thinking (design theorizing and options thinking), and broadened and challenged core concepts
+
+304
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+(attributing agency to IT not just to users, and critiquing the
+notion of “users” altogether). Inspired by the changing contexts of that time, these authors helped reshaped the field’s
+thinking and ushered in multiple new lines of inquiry
+(achieving an average of 1700 citations each on Google
+Scholar).
+Despite the continued relevance of these papers, the world has
+changed greatly since then. With the passage of time, several
+characteristics of these studies are quite noticeable. For example, they focused squarely on organizational contexts and
+implications, whereas now the line between organizational
+and non-organizational contexts often blurs, and many more
+social implications are recognized. They also viewed technological phenomena as relatively isolatable and stable whereas
+now there is increasing recognition of the interconnected and
+overflowing nature of the digital world. With such significant
+shifts taking place, it is unsurprising that other disciplines
+have joined us in studying “technology.” This challenges us
+to strive toward having impact beyond the IS field, reinforcing
+a long-standing commitment to make digital and digitalization
+our primary focus, not a background interest, all of which
+suggests that we need next-generation theories and approaches
+to understand the new world we inhabit and see ahead.
+
+Updating Views on Theory to Enable
+Next-Generation Theorizing
+Publishing ground breaking theoretical work can be challenging if reviewers’ views on theorizing are locked in the
+past. This special issue provides a good opportunity to engage in discussions about the practice of theorizing. After all,
+it is hard to engage in next-generation scholarship if our views
+on theorizing are out-of-date.
+The IS field has a long tradition of reflecting on its theories
+and theorizing (Keen 1980). While many of these papers are
+well-known, we offer a summary in Table 2 as a reminder.
+This literature has been enormously helpful to us and many
+others, as has been the broader literature on theorizing in
+general (Dubin 1978; Jaccard and Jacoby 2010; Schutz 1962)
+and in our neighboring fields (Carroll and Kellogg 1989;
+Makadok et al. 2018; Tadajewski 2004; Wacker 1998; Weick
+1995).
+As we worked on this special issue, we reviewed and reflected
+on this literature, as well as on our own experiences as authors
+and editors. We identified ways of thinking that work against
+taking a next-generation view. In particular, we believe that
+some researchers are held back from engaging in nextgeneration theorizing, and some reviewers are held back from
+
+Burton-Jones et al./Special Issue: Introduction
+
+Table 2. Insights from the IS Literature on Theory and Theorizing
+Categories of Insights
+Calls for IS-specific vis-à-vis reference
+discipline theory
+The nature of theory and good theory
+Aspects of causal structure
+
+The roles of theory in interpretive,
+positivist, and critical research
+The nature and opportunities of
+grounded theorizing
+The role of theory in design and action
+research
+
+Example References
+Benbasat and Weber 1996; Grover and Lyytinen 2015; Keen 1980; Lee 2001;
+Markus and Saunders 2007; Orlikowski and Iacono 2001; Truex et al. 2006;
+Weber 1987
+Gregor 2006; Hassan et al. 2019; Lee and Baskerville 2003; Rivard 2014; Weber
+2003, 2012
+Avgerou 2013, 2019; Burton-Jones et al. 2015; Davison and Martinsons 2016;
+Hong et al. 2014; Lee et al. 1997; Markus and Robey 1988; Markus and Rowe
+2018; Paré et al. 2008; Zhang and Gable 2017
+Carroll and Swatman 2000; Klein and Myers 1999; Lee 1991; Longshore Smith
+2006; Orlikowski and Baroudi 1991; W alsham 1993
+Berente, Seidel, and Safadi 2019; Birk s et al. 2013; Urquhart and Fernandez
+2013; Urquhart et al. 2010; W eische et al. 2017
+Baskerville et al. 2018; Davison et al. 2012; Gregor and Jones 2007; Gregory and
+Muntermann 2014; Rai 2017
+
+appreciating next-generation theorizing, because one or both
+parties has an underdeveloped perspective on theorizing.
+Accordingly, in Table 3, we detail four shifts in the way theorizing is often understood that we believe are important for
+enabling next-generation theorizing:
+•
+•
+•
+•
+
+from theory as an intellectual product to theory as an
+intellectual conversation
+from theory as truth to theory as a lens
+from theory as purely desk work to theory as reflective
+engagement
+from theory as purely representational to performative
+
+Each shift allows reviewers to provide more helpful and
+developmental reviews of theoretical work. Viewing theorizing as a conversation enables reviewers to appreciate how
+authors are trying to support or change a theoretical tradition.
+Viewing theory as a lens helps reviewers appreciate the value
+of different perspectives. Viewing theorizing as reflective
+engagement allows reviewers to appreciate the benefits of
+learning from abstract reflection on one hand and learning in
+engaged modes of design and/or action on the other. And by
+viewing theorizing as performative, reviewers can see how
+authors are being mindful of theoretical positions, the world
+with which they are entangled, and how theories can become
+generative in ways that are world-making.
+In sum, when reviewers keep all four of these perspectives in
+mind, we believe they will be more able to identify and shape
+the potential of next-generation theories. And when both
+authors and reviewers appreciate these perspectives, we believe next-generation theories are more likely to emerge.
+Accordingly, we kept these in mind throughout this special
+issue process.
+
+The IS Field’s Capabilities and Responsibilities to Engage in Next-Generation
+Theorizing
+At this point in human history, as digitalization shapes almost
+every aspect of work and life, IS phenomena are arguably
+some of the most salient phenomena of our time. Unsurprisingly, many fields are now trying to grapple with them.
+Yet it remains the case that the IS research community is
+uniquely capable of doing so, because we have been theorizing the design, nature, and effects of information technology in business and society for half a century (Emery
+1973; Langefors and Samuelson 1975; Mason and Mitroff
+1973).
+Our theorizing over these decades has benefited from a culture that values theory both for its power of application and
+“for its own sake” (Keen 1980, p. 12). Such a culture has
+been incredibly important because it has enabled and encouraged scholars to explore the profound complexity of the
+phenomena that emerge at the intersection of IT and social
+settings (Lee 1999). It is hard not to overstate this complexity. Because information systems are open systems, there
+is an inexorable tension between studying the whole system in
+all its intricacy (where we risk saying nothing about a lot) and
+focusing on a small subset that is more feasible to study
+(where we risk saying a lot about nothing). Much of our
+field’s history has involved finding a balance between these
+poles, and rebalancing over time as the phenomena we study
+evolve (Kling and Scacchi 1982; Mumford 2003; Orlikowski
+and Scott 2008; Robey et al. 2013; Sarker et al. 2019; Winter
+et al. 2014).
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+305
+
+Burton-Jones et al./Special Issue: Introduction
+
+Table 3. Updating Our Views of Theorizing in the IS Field to Support Next-Generation Theorizing
+#
+
+1
+
+Shifts in Views of
+Theorizing
+From: Theory as
+intellectual product
+
+Theory is an explicit set of statements using constructs and
+relationships to explain a particular
+phenomenon.
+
+To: Theory as
+intellectual
+conversation
+
+Theory is an evolving set of ideas
+that emerge and change over time
+within and among scholarly communities. The theory in a specific
+paper is a version stabilized among
+an authorship and review team at
+one time.
+
+From: Theory as
+truth
+
+A theory is an attempt to mirror a
+portion of reality. The goal is to
+select theories with greater fidelity
+and to improve the fidelity of
+existing theory.
+
+To: Theory as lens
+
+A theory is a lens purposefully
+selected for its specific focus and
+relevance to key research questions. Need diversity in lenses
+because the world is complex and
+overflows a single perspective or
+priorities. Lenses may offer value
+by surfacing questions or sensibilities, not just answers.
+
+From: Theory as
+purely desk work
+
+A theory is ultimately a product of
+the researcher’s intellect (e.g.,
+worked out in her/his armchair or
+desk), removed from the empirical
+world being studied.
+
+To: Theory as
+reflective engagement
+
+A theory can be a product of
+reflective engagement and action
+research scholarship. While theorizing can require desk work, it can
+also occur in and through practice
+in the field and during design.
+
+From: Theory as
+purely
+representational
+
+A theory is a simplified representation of how a portion of the world
+works. The aim is to articulate the
+core logic in a simple, accurate,
+generalizable way.
+
+To: Theory as
+performative
+
+A theory that is performative
+describes and produces the world
+simultaneously. Theories are thus
+‘models of’ and ‘models for’ the
+world. They can make a difference
+to events and the enactment of
+reality (both positively and
+negatively).
+
+2
+
+3
+
+4
+
+306
+
+Description of Each View
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+Implications of the Shift for
+Theorizing in General
+
+Implications of the Shift for
+Theorizing in IS
+
+Knowing the history of theoretical
+ideas helps researchers when
+selecting, building, or assessing
+theory. For instance, the choice
+of a theory in a study often makes
+more sense when you know the
+choices in prior studies. Likewise, the way a theory is used in
+a study (perhaps in a different
+way to the theory’s original intent)
+may make sense when viewed in
+context.
+
+Need to appreciate the history
+of ideas in IS because some
+parts of the field change
+(sometimes dramatically) while
+others stay stable. The goal is
+to improve and celebrate old
+ideas while building and
+refining new ideas. Ideas may
+also move in and out of
+relevance over time (e.g., the
+rise, fall, and rise of interest in
+ethics).
+
+Researchers will gain more from
+seeking requisite variety in lenses
+rather than holding a winnertakes-all view of theory, and by
+seeking tractable uncertainty and
+productive insight rather than
+seeking certainty. New methods
+of data-informed theorizing offer
+new opportunities for theorizing
+by providing and refining lenses.
+
+Need to recognize that many
+IS phenomena are emergent,
+dynamic, and sociotechnically
+complex. Need to scope
+theories carefully, appreciate
+how theories are enabled and
+constrained by our methods,
+and recognize that scholarly
+communities evolve with
+different/changing starting
+assumptions.
+
+Researchers seeking to build or
+advance theory may need to
+engage in the field through
+design, action, or interaction even
+more than those who wish merely
+to apply or test theory or who
+conduct atheoretical work. By
+corollary, lack of access to the
+field or constraints on design/
+action can constrain theory
+building.
+
+Need to be aware how the
+world is changing, how we are
+being prevented or constrained
+from understanding certain
+parts of it, and how we can
+engage ourselves in action,
+design, and learning with and
+from practitioners to theorize
+important issues.
+
+Researchers need to be attentive
+to their entanglement with the
+world and the generativity of the
+models with which they work
+(whether developed in research
+or practice). Researchers can
+contribute by articulating,
+critiquing, or even improving
+these theories, mindful of the
+effects of doing so.
+
+Need to appreciate how the
+sociomaterial phenomena we
+are studying is itself partly a
+product of theorizing, and how
+our theorizing, in turn, can
+potentially be enrolled (by us
+and others) into world-making
+activities that can make a
+difference.
+
+Burton-Jones et al./Special Issue: Introduction
+
+Not only has the IS field valued theorizing for many years,
+our focus on theorizing has increased in intensity over time
+(Dennis 2019; Hirschheim and Klein 2012).2 As a result, the
+IS field has now generated rich theoretical traditions across its
+various domains, from understanding how systems are
+developed (e.g., Hirschheim et al. 1995; Orlikowski 1993;
+Sabherwal and Robey 1995), to understanding the many ways
+individuals, groups, organizations, and markets interact with
+IT (e.g., Choudhury et al. 1998; Dennis et al. 2001; Hitt and
+Brynjolfsson 1996; Majchrzak et al. 2000; Robey and
+Boudreau 1999; Venkatesh et al. 2003; Zuboff 1988). The IS
+field also has a rich history of questioning and improving the
+philosophical foundations upon which these theories are based
+(Hasan et al. 2018; Hirschheim et al. 1995; Mingers and
+Willcocks 2004). These improvements in our theories and
+theoretical foundations have further benefitted from interplay
+with our empirical traditions, such as our longstanding respect
+for new data and analysis techniques (Brynjolfsson and Kahin
+2000; Maas et al. 2018), diverse research methods (Birks et
+al. 2013; Rai 2017; Robey 1996; Sein et al. 2011), and
+diverse contexts (Avgerou 2019; Hong et al. 2014;
+Ngwenyama and Lee 1997).
+Valuing theory comes with costs and challenges. Building
+and writing theory can be time consuming and frustrating for
+authors. The seemingly never-ending dialogues and debates
+that come with building a body of theory can hinder the timely
+description and addressing of practical topics. The language
+of theory is also often seen by practitioners as esoteric and
+academic, exacerbating the research–practice divide. Our
+field has a long history of recognizing these challenges
+(Hovorka et al. 2019; Keen 1980).
+Despite the costs and limitations that a focus on theory can
+impose, the theorizing capabilities developed in the IS field
+over the past 50 years are critically important, and must be
+nurtured, because the trends now facing the world are more
+complex and serious than ever. In the field’s early days, some
+researchers critiqued what we theorized as “much ado about
+nothing” (Huber 1983). But that time has long gone. The
+contemporary world is overflowing in digital interactions,
+with increasingly serious consequences for individuals,
+groups, organizations, markets, and societies (Bharadwaj et al.
+2013a; Majchrzak et al. 2016). The world of research is likewise overflowing with digitalization, with ever-more sensors,
+data, and techniques (Bailey and Barley 2020).
+
+2
+
+We verified this trend by examining MISQ’s editorial notes throughout the
+journal’s history. We found that while editors have balanced their focus on
+theory and practice throughout MISQ’s history, editors focused more on
+practice in the early years and more on theory in later years, with the 1990s
+being the transition.
+
+Because of the growing challenges and complexities wrought
+by digital evolution, researchers have a great responsibility to
+develop theories that can help society make sense of and act
+in the world we encounter and are involved in creating.
+Because of our strong capabilities in theorizing, the IS field is
+exceptionally well-suited to do so. The responsibility and
+opportunity is ours.
+
+The Special Issue Process
+and Papers
+Motivated by the need to demonstrate and further develop the
+IS field’s theoretical capabilities, we released our call for
+papers in 2018. We were excited but unsure what we would
+receive. We were delighted by the response! In this section,
+we outline how we handled the papers we received and we
+introduce the papers we accepted.
+The special issue process involved four rounds: submission
+of abstracts, submission of full papers, and two rounds of
+revisions. We conducted reviews at each stage to provide
+feedback and cultivate the best work. From around 170
+abstracts and 60 full paper submissions, five full papers
+emerged. The submitted papers covered the full range of
+topics and approaches in the field. We hope all these papers
+go on to have substantial influence. The five papers we
+accepted, in particular, are outstanding examples of nextgeneration theorizing that we expect to have long-lasting
+influence.
+In addition to these full papers, we also invited a number of
+short contributions on theorizing, under the theme of theoretical “provocations.” As the name suggests, we hope these
+thought pieces will provoke readers to think anew about the
+work they currently do or might do going forward.
+When we reviewed and developed the full papers and provocations, we followed our call-for-papers in searching for
+manuscripts that excelled in the following dimensions:
+•
+
+Motivate: We sought papers that revealed salient problems with existing theory and provided a powerful case
+to support new theorizing. We asked reviewers to question whether the theorization would make a real
+difference to our understanding going forward.
+
+•
+
+Create: We sought papers that advanced theory significantly or created entirely new theory. We asked our
+reviewers to support authors in advancing beyond familiar or established theories and help them develop ideas
+that could be used by others.
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+307
+
+Burton-Jones et al./Special Issue: Introduction
+
+•
+
+Mobilize: We sought papers that could excite readers to
+pursue a new theory’s implications. We asked reviewers
+to share our goal of finding inspiring ideas and approaches that enable the IS community to research
+differently and better address the challenges around us.
+
+spective of an ecosystem’s parts, Wang replaces this view
+with a focus on part-whole dynamics. He achieves this
+shift by introducing the concept of holon from ecology to
+theorize part–whole relations. He also links it to fundamental IS-specific concepts, such as information
+processing, and shows how it can help us understand the
+role played by digital technologies in serving to integrate
+the parts and whole of an innovation ecosystem. The
+new theory offers a fruitful lens for exploring how to
+orchestrate a sustainable innovation ecosystem.
+
+For the full papers, we encouraged papers that demonstrated
+excellence on all three of these dimensions. For the invited
+provocations, we asked authors to focus on motivating and
+mobilizing alone, to incite readers to tackle the creation aspect
+themselves in the future.
+•
+
+Reza Mousavi Baygi, Lucas Introna, and Lotta Hultin, in
+their paper “Everything Flows: Studying Continuous
+Socio-Technological Transformation in a Fluid and Dynamic Digital World,” provides another example of the
+“replace” strategy. Their paper is motivated by the
+constant transformative change and flux wrought by new
+technologies that we see all around us. While they
+acknowledge the growing importance of this issue, their
+point is that this has always been the case, for transformative change is all there is. Their paper argues that
+while prior theories (which tend to be actor-centric) have
+their place, researchers can benefit from shifting to an
+alternative, flow-centered orientation to theorizing. The
+authors offer concepts from social anthropology to enable
+this shift toward flow and show how they can transform
+what we look at and theorize. Specifically, they show
+how such an orientation toward flow can help us make
+sense of rapidly shifting digital phenomena (such as the
+online emergence of political movements). The authors
+also outline the implications of their flow perspective for
+rethinking how we theorize in the field.
+
+•
+
+Aaron Baird and Likoebe Maruping’s paper, “The Next
+Generation of Research on IS Use: A Theoretical Framework of Delegation to and from Agentic IS Artifacts,” is
+an exemplar of the “reformulate” strategy. Motivated by
+the increasing degrees of agency found in contemporary
+information systems, the authors call for a change to the
+traditional “IS use” paradigm—arguably the largest body
+of theory in our field. They argue that this traditional IS
+use paradigm needs an accompanying delegation
+paradigm if we are to understand the use of agentic IS
+artifacts. The reformulation requires a new way of
+thinking about use, users, systems, and how their interrelationships lead to outcomes in particular tasks and
+contexts. The authors offer a new framework of delegation to help guide research, illustrate several ways it can
+be applied, and outline how it can be extended by others
+in the future.
+
+•
+
+Gerald Kane, Amber Young, Ann Majchrzak, and Sam
+Ransbotham’s, “Avoiding an Oppressive Future of
+
+The Full Papers: Exemplars of NextGeneration Theorizing in
+Information Systems
+We accepted five full papers, each one introducing a significant shift in thinking in the IS field. Collectively, the papers
+reflect all four strategies for engaging in next-generation
+theorizing shown earlier in Table 1. Like many strong papers,
+they make multiple contributions that can be interpreted in
+different ways. While our summaries below cannot do justice
+to their entire contribution, they provide a glimpse of what
+these papers offer.
+•
+
+•
+
+308
+
+Dorothy Leidner and Olgerta Tona, in their paper “The
+CARE Theory of Dignity Amid Personal Data Digitalization,” are motivated by the proliferation of personal
+data and its implications for human dignity. The authors
+outline the limitations of past theories and perspectives
+for addressing the totality of the issue and, therefore, the
+need for a new overarching theory. The new theory they
+create helps reveal the complex relationships between
+personal data digitalization and human dignity, including
+its positive and negative elements, its individual and collective elements, and its immediate and longitudinal
+trends. By serving as an overarching theory, complementing and extending a number of influential theories in
+the field, the new theory offers numerous opportunities
+for researchers to extend and test it. In terms of Table 1,
+this paper is an excellent example of the “extend”
+strategy, in that the authors extend theories of dignity to
+understand an important emerging phenomenon.
+Ping Wang’s paper, “Connecting the Parts with the
+Whole: Toward an Information Ecology Theory of Digital Innovation Ecosystems,” is an excellent example of
+the “replace” strategy in Table 1. Motivated by the
+growing importance of innovation ecosystems and the
+difficulty of sustaining them, Wang builds a theory to
+understand how efforts can be integrated in such systems.
+Whereas prior studies examined this issue from the per-
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+Burton-Jones et al./Special Issue: Introduction
+
+Machine Learning: A Design Theory for Emancipatory
+Assistants,” illustrates the “envision” strategy. Rather
+than explaining the current world, they look into the
+future—a future that could be just around the corner
+given the signs and trends that we see around us.
+Alarmed by the potential oppression that could occur in
+this future environment (a world they call “Informania”),
+they draw on the traditions of critical theorists and design
+theorists to offer a new theory for the design of personal
+agents to fight AI oppression. The aim of these agents is
+to help avoid a state of Informania and create a future
+marked by reconciliation between machines and humans
+rather than oppression. This thought-provoking paper
+offers new design principles for designers to use and for
+researchers to explore. It also exemplifies a form of
+theorizing that might be applied fruitfully in many
+domains of IS research in the future.
+
+growing scale of digital phenomena, and the limits to our
+understanding of scale as revealed by practice theories,
+in their provocation, “Scale Matters: Doing PracticeBased Studies of Contemporary Digital Phenomena.”
+•
+
+Erik Brynjolfsson, Chong (Alex) Wang, and Xiaoquan
+(Michael) Zhang provoke the field to migrate to new
+questions, and new ways of answering questions, on the
+economics of IT, in their provocation, “The Economics
+of IT and Digitization: Eight Questions for Research.”
+
+•
+
+Sudha Ram and Paulo Goes provoke the field to question
+the place of theory in the pursuit of high-impact research,
+in their provocation, “Focusing on Programmatic High
+Impact Information Systems Research, Not Theory, to
+Address Grand Challenges.”
+
+•
+
+Bernd Stahl and M. Lynne Markus provoke the field to
+reflect on how it can take a leadership position in the
+ethics of smart systems, in their provocation, “Let’s
+Claim the Authority to Speak Out on the Ethics of Smart
+Information Systems.”
+
+We invited eight short provocations, each undergoing several
+rounds of editorial review. We selected author teams based
+on the abstracts we received from our first call for papers
+together with a desire to represent the diversity of voices and
+approaches in the field. We sought contributions that could
+help the field avoid the perils of risk-aversion that can impede
+theorizing (Wang et al. 2017) and the tendency to follow
+existing scripts (Grover and Lyytinen 2015). Much like the
+“Visions and Voices” contribution in the Digital Business
+Strategy special issue (Bharadwaj et al. 2013b), we hoped to
+encourage researchers to think differently, spark debate, and
+unsettle researchers who have fallen into a rut with existing
+scripts.
+
+•
+
+Natalia Levina provokes the field to reflect on the need
+to be more transparent and systematic in the way it conceptualizes, uses, and describes theorizing, in her provocation, “All Information Systems Theory Is Grounded
+Theory.”
+
+•
+
+Finally, John Leslie King provokes scholars to get back
+to their roots in understanding what theorizing is and why
+it matters, in his provocation, “Who Needs Theory?”
+
+Each of the provocations provokes researchers in different
+ways:
+
+Working on this special issue has been an immense privilege
+for us. We saw our roles as helping the IS field, in at least a
+small way, to reimagine its theoretical foundations and
+futures. It has been an exciting and challenging journey! We
+received many more submissions than we could publish, and
+we hope all these papers go on to be published in the future.
+Together with the excellent papers in this special issue, we
+hope this new body of theoretical work creates a new wave of
+interest in theory and theorizing, and a new wave of energy
+for advancing IS research of all genres.
+
+The Provocations: Ideas and Challenges for
+Next-Generation Theorizing in Information
+Systems
+
+•
+
+Monica Tremblay, Rajiv Kohli, and Nicole Forsgren provoke the field to rethink what theorizing should be with
+practitioner–academic engagement, in their provocation,
+“Theories in Flux: Reimagining Theory Building in the
+Age of Machine Learning.”
+
+•
+
+Dirk Hovorka and Sandra Peter provoke the field to
+revisit its responsibility to help society understand and
+shape our shared futures, in their provocation, “Speculatively Engaging Future(s): Four Theses.”
+
+•
+
+Michael Barrett and Wanda Orlikowski provoke the field
+to rethink the limits of practice theories in the face of the
+
+Conclusion
+
+As we wrap-up this special issue, we are even more excited
+about the potential for theorizing in our field than we were at
+its start. The special issue process afforded us a two-year’s
+long conversation with scholars from all corners of our field
+interested in reflecting on and debating theory. The process
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+309
+
+Burton-Jones et al./Special Issue: Introduction
+
+has reinforced our belief that it has never been a more important time in our field to theorize creatively and boldly. It is
+through theorizing that we create new ideas and insights.
+Theorizing is an expression of our curiosity—our need to
+wonder, invent, imagine. And nothing is surer than the need
+for this to continue. To paraphrase Duke Ellington’s description of a great musician, it is through theorizing that we keep
+the intellectual foundations of our field “perpetually contemporary” (Williams 2007).
+
+acknowledge the generous support of the College of Information Studies at the University of Maryland for hosting our
+special issue workshop, and Emily Dacquisto for her help.
+We owe a special debt to Dr. Gongtai Wang for his excellent
+research and editorial assistance. We also benefitted from
+comments from participants in seminars at the London School
+of Economics, HEC Montreal, University of Georgia, University of Texas at San Antonio, Deakin University, and Xidian
+University. Finally, we acknowledge all the reviewers and
+editorial board members serving on the special issue. They
+are listed below, alphabetically.
+
+Acknowledgments
+We thank Arun Rai for his tireless support for this special
+issue and all the authors who trusted us with their work. We
+
+Special Issue Associate Editors and Reviewers
+Diane Bailey
+Michael Barrett
+Michel Benaroch
+Beth Bechky
+Nicholas Berente
+Kevin Boudreau
+Glenn Browne
+Gordon Burtch
+Bendik Bygstad
+Hasan Cavusoglu
+Min Chen
+Panos Constantinides
+Robert Crossler
+Kevin Crowston
+Luciana D'Adderio
+John D'Arcy
+Alan Dennis
+Anne-Laure Fayard
+Jens Foerderer
+Marlene Fraune
+Ahmed Gazawneh
+Jodi Gittell
+Vern Glaser
+
+310
+
+Varun Grover
+Hong Guo
+Janine Hacker
+Wencui Han
+Matthew Hashim
+Rudy Hirschheim
+Susanna Ho
+James Howison
+Lucas Introna
+Michael Jacobides
+Robert Johnston
+Steven Johnston
+Matthew Jones
+Jannis Kallinikos
+Prasanna Karhade
+Brian Keegan
+Seamas Kelly
+Huigang Liang
+Natalia Levina
+Aron Lindberg
+Rikard Lindgren
+Kalle Lyytinen
+Ann Majchrzak
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+Likoebe Maruping
+Nigel Melville
+John Mingers
+Shaila Miranda
+Emmanuel Monod
+Eric Monteiro
+Saggi Nevo
+Jeffrey Nickerson
+Wanda Orlikowski
+Brian Pentland
+Alain Pinnsoneault
+Neil Pollock
+Hatim Rahman
+Jan Recker
+Ching Ren
+Lauren Rhue
+Kai Riemer
+Lionel Robert
+Terence Saldanha
+Jorgen Sandberg
+Carol Saunders
+Krishnan Satish
+Steve Sawyer
+
+Ulrike Schultze
+Gerhard Schwabe
+Anastasia Sergeeva
+Teresa Shaft
+Maha Shaikh
+Pratyush Sharma
+Mari-Klara Stein
+Ning Su
+Anjana Susarla
+Barney Tan
+Amrit Tiwana
+Emma Vaast
+Ping Wang
+Martin Wiener
+Robin Williams
+David Xu
+Ling Xue
+Mochen Yang
+Jinjing Zhang
+Bob Zmud
+
+Burton-Jones et al./Special Issue: Introduction
+
+References
+Agarwal, R., and Dhar, V. 2014. “Big Data, Data Science, and
+Analytics: The Opportunity and Challenge for IS Research,”
+Information Systems Research (25:3), pp. 443-448.
+Ågerfalk, P. 2014. “Insufficient Theoretical Contribution: A
+Conclusive Rationale for Rejection?,” European Journal of
+Information Systems (23:6), pp. 593-599.
+Anderson, C. 2008. “The End of Theory,” Wired (16:7), p. 71.
+Avgerou, C. 2013. “Social Mechanisms for Causal Explanation in
+Social Theory Based IS Research,” Journal of the Association for
+Information Systems (14:8), pp. 399-419.
+Avgerou, C. 2019. “Contextual Explanation: Alternative Approaches and Persistent Challenges,” MIS Quarterly (43:3), pp.
+977-1006.
+Avison, D., and Malaurent, J. 2014. “Is Theory King? Questioning
+the Theory Fetish in Information Systems,” Journal of Information Technology (29), pp. 327-336.
+Bailey, D. E., and Barley, S. R. 2020. “Beyond Design and Use:
+How Scholars Should Study Intelligent Technologies,” Information and Organization (30:2), pp. 1-12.
+Baird, A., and Maruping, L. M. 2021. “Theorizing IS Delegation:
+Supporting the Next Generation of IS Use Research,” MIS
+Quarterly (45:1), pp. 315-341.
+Barrett, M., and Orlikowski, W. 2021. “Scale Matters: Doing
+Practice-Based Studies of Contemporary Digital Phenomena,”
+MIS Quarterly (45:1), pp. 467-472.
+Baskerville, R. L., Baiyere, A., Gregor, S., Hevner, A. R., and
+Rossi, M. 2018. “Design Science Reesarch Contributions:
+Finding a Balance between Artifact and Theory,” Journal of the
+Association for Information Systems (19:5), pp. 358-376.
+Benbasat, I., and Weber, R. 1996. “Rethinking ‘Diversity’ in
+Information Systems Research,” Information Systems Research
+(7:4), pp. 389-399.
+Berente, N., Lyytinen, K., Yoo, Y., and Maurer, C. 2019. “Institutional Logics and Pluralistic Responses to Enterprise Systems
+Implementation: A Qualitative Meta-Analysis,” MIS Quarterly
+(43:3), pp. 873-902.
+Berente, N., Seidel, S., and Safadi, H. 2019.
+“Research
+Commentary—Data-Driven Computationally-Intensive Theory
+Development,” Information Systems Research (30:1), pp. 50-64.
+Bernstein, R. J. 1983. Beyond Objectivism and Relativism:
+Science, Hermeneutics, and Praxis, Philadelphia: University of
+Pennsylvania Press.
+Bharadwaj, A., El Sawy, O. A., Pavlou, P. A., and Venkatraman, N.
+2013a. “Digital Business Strategy: Toward a Next Generation
+of Insights,” MIS Quarterly (37:2), pp. 471-482.
+Bharadwaj, A., El Sawy, O. A., Pavlou, P., and Venkatraman, N.
+2013b. “Visions and Voices on Emerging Challenges in Digital
+Business Strategy,” MIS Quarterly (37:2), pp. 633-661.
+Birks, D. F., Fernandez, W., Levina, N., and Nasirin, S. 2013.
+“Grounded Theory Method in Information Systems Research: Its
+Nature, Diversity, and Opportunities,” European Journal of
+Information Systems (22:1), pp. 1-8.
+Boell, S. K. 2017. “Information: Fundamental Positions and Their
+Implications for Information Systems Research, Education, and
+Practice,” Information and Organization (27), pp. 1-16.
+
+Bostrom, R. P., and Heinen, J. S. 1977. “MIS Problems and
+Failures: A Socio-Technical Perspective. Part 1: The Causes,”
+MIS Quarterly (1:3), pp. 17-32.
+Brynjolfsson, E., and Kahin, B. (eds.). 2000. Understanding the
+Digital Economy: Data, Tools, and Research, Cambridge, MA:
+MIT Press.
+Brynjolfsson, E., Wang, C., and Zhang, X. 2021.“The Economics
+of IT and Digitization: Eight Questions for Research,” MIS
+Quarterly (45:1), pp. 473-477.
+Burton-Jones, A., McLean, E., and Monod, E. 2015. “Theoretical
+Perspectives in IS Research: From Variance and Process to
+Conceptual Latitude and Conceptual Fit,” European Journal of
+Information Systems (24:6), pp. 664-679.
+Carroll, J. M., and Kellogg, W. A. 1989. “Artifact as TheoryNexus: Hermeneutics Meets Theory-Based Design,” ACM SIG
+CHI Bulletin (20:SI), 1989, pp. 7-14.
+Carroll, J. M., and Swatman, P. A. 2000. “Structured-Case: A
+Methodological Framework for Building Theory in Information
+Systems Research,” European Journal of Information Systems
+(9:4), pp. 235-242.
+Carter, M., and Grover, V. 2015. “Me, My Self, and I(T):
+Conceptualizing Information Technology Identity and its
+Implications,” MIS Quarterly (39:4), pp. 931-957.
+Chang, R. M., Kauffman, R. J., and Kwon, Y. O. 2014.
+“Understanding the Paradigm Shift to Computational Social
+Science in the Presence of Big Data,” Decision Support Systems
+(63), pp. 67-80.
+Choudhury, V., Hartzel, K., and Konsynski, B. 1998. “Uses and
+Consequences of Electronic Markets: An Empirical Investigation
+in the Aircraft Parts Industry,” MIS Quarterly (22:4), pp.
+471-507.
+Cook, T. D., and Campbell, D. T. 1979. Quasi-Experimentation:
+Design & Analysis Issues for Field Settings, Boston: Houghton
+Mifflin.
+Davison, R. M., and Martinsons, M. G. 2016. “Context Is King!
+Considering Particularism in Research Design and Reporting,”
+Journal of Information Technology (31:3), pp. 241-249.
+Davison, R. M., Martinsons, M. G., and Ou, C. X. J. 2012. “The
+Roles of Theory in Canonical Action Research,” MIS Quarterly
+(36:3), pp. 763-786.
+Dennis, A. R. 2019. “An Unhealthy Obsession with Theory,”
+Journal of the Association for Information Systems (20:9), pp.
+1406-1411.
+Dennis, A. R., Fuller, R. M., and Valacich, J. S. 2008. “Media,
+Tasks, and Communication Processes: A Theory of Media
+Synchronicity,” MIS Quarterly (32:3), pp. 575-600.
+Dennis, A. R., Wixom, B. H., and Vandenberg, R. J. 2001. “Understanding Fit and Appropriation Effects in Group Support Systems
+via Meta-Analysis,” MIS Quarterly (25:2), pp. 167-193.
+Dubin, R. 1978. Theory Building (rev. ed.), New York: The Free
+Press.
+Einav, L., and Levin, J. 2014. “Economics in the Age of Big Data,”
+Science (346:6210), 1243089.
+Emery, J. C. 1973. “An Overview of Management Information
+Systems,” The DATA BASE for Advances in Information Systems
+(5), pp. 1-15.
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+311
+
+Burton-Jones et al./Special Issue: Introduction
+
+Goes, P. 2013. “Editor’s Comments,” MIS Quarterly (37:1), pp.
+iii-vii.
+Gregor, S. 2006. “The Nature of Theory in Information Systems,”
+MIS Quarterly (30:3), pp. 611-642.
+Gregor, S., and Jones, D. 2007. “The Anatomy of a Design
+Theory,” Journal of the Association for Information Systems
+(8:5), pp. 312-335.
+Gregory, R. W., and Muntermann, J. 2014. “Heuristic Theorizing:
+Proactively Generating Design Theories,” Information Systems
+Research (25:3), pp. 639-653.
+Griffith, T. L., Sawyer, J. E., and Neale, M. A. 2003. “Virtualness
+and Knowledge in Teams: Managing the Love Triangle of
+Organizations, Individuals, and Information Technology,” MIS
+Quarterly (27:2), pp. 265-287.
+Grover, V., and Lyytinen, K. 2015. “New State of Play in
+Information Systems Research: The Push to the Edges,” MIS
+Quarterly (39:2), pp. 271-296.
+Hambrick, D. C. 2007. “The Field of Management's Devotion to
+Theory: Too Much of a Good Thing?,” Academy of Management
+Journal (50:6), pp. 1346-1352.
+Hasan, N. R., Mingers, J., and Stahl, B. 2018. “Philosophy and
+Information Systems: Where are We and Where Should We
+Go?,” European Journal of Information Systems (27:3), pp.
+263-277.
+Hassan, N. R., Mathiassen, L., and Lowry, P. B. 2019. “The Process of Information Systems Theorizing as a Discursive Practice,”
+Journal of Information Technology (34:3), pp. 198-220.
+Haveman, H. A., Mahoney, J. T., and Mannix, E. 2019. “Call for
+Papers: AMR Special Topic Forum: The Role of Theory in
+Management Research,” Academy of Management Review, pp.
+1-3.
+Hirschheim, R. 2019. “Against Theory: With Apologies to
+Feyerabend,” Journal of the Association for Information Systems
+(20:9), pp. 1340-1357.
+Hirschheim, R., and Klein, H. K. 2012. “A Glorious and
+Not-So-Short History of the Information Systems Field,” Journal
+of the Association for Information Systems (13:4), pp. 188-235.
+Hirschheim, R., Klein, H., and Lyytinen, K. 1995. Information
+Systems Development and Data Modeling: Conceptual and
+Philosophical Foundations, Cambridge, UK: Cambridge
+University Press.
+Hitt, L. M., and Brynjolfsson, E. 1996. “Productivity, Business
+Profitability, and Consumer Surplus: Three Different Measures
+of Information Technology Value,” MIS Quarterly (20:2), pp.
+121-142.
+Hong, W., Chan, K. Y., Thong, J. Y. L., Chasalow, L., and
+Dhillon, G. 2014. “The Role of Context in Theory Development: A Framework and Guidelines for Context-Specific
+Theorizing in Information Systems Research,” Information
+Systems Research (25:1), pp. 111-136.
+Hovorka, D., Rowe, F., Markus, M. L., Jarvenpaa, S., Swanson,
+E. B., Lacity, M., Burton-Jones, A., Venkatesh, V., and
+Hirschheim, R. 2019. “Scholarly Commentaries on Hirschheim’s ‘Against Theory,’” Journal of the Association for Information Systems (20:9), pp. 1358-1389.
+Hovorka, D. S., and Peter, S. 2021. “Speculatively Engaging
+Future(s): Four Theses,” MIS Quarterly (45:1), pp. 461-466.
+
+312
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+Huber, G. P. 1983. “Cognitive Style as a Basis for MIS and DSS
+Design: Much Ado About Nothing?,” Management Science
+(29:5), pp. 567-579.
+Jaccard, J., and Jacoby, J. 2010. Theory Construction and
+Model-Building Skills, New York: Guilford Press.
+Johnson, S. L., Gray, P., and Sarker, S. 2918, “Revisiting IS
+Research Practice in the Era of Big Data,” Information and
+Organization (29), pp. 41-56.
+Jordan, M. I., and Mitchell, T. M. 2015. “Machine Learning:
+Trends, Perspectives, and Prospects,” Science (349:6245), pp.
+255-260.
+Kane, G. C., Young, A. G., Majchrzak, A., and Ransbotham, S.
+2021. “Avoiding an Oppressive Future of Machine Learning: A
+Design Theory for Emancipatory Assistants,” MIS Quarterly
+(45:1), pp. 371-396.
+Keen, P. G. W. 1980. “MIS Research: Reference Disciplines and
+a Cumulative Tradition,” in Proceedings of the First Conference
+on Information Systems, Philadelphia, PA, pp. 9-18.
+King, J. L. 2021. “Who Needs Theory,” MIS Quarterly (45:1), pp.
+495-498.
+Kitcher, P. 1982. Abusing Science: The Case Against Creationism,
+Cambridge, MA: The MIT Press.
+Kitchin, R. 2014. “Big Data, New Epistemologies and Paradigm
+Shifts,” Big Data and Society (1:1), pp. 1-12.
+Klein, H. K., and Myers, M. D. 1999. “A Set of Principles for
+Conducting and Evaluating Interpretive Field Studies in
+Information Systems,” MIS Quarterly (23:1), pp. 67-93.
+Kling, R., and Scacchi, W. 1982. “The Web of Computing:
+Computer Technology as Social Organization,” Advances in
+Computers (21), pp. 1-90.
+Kuhn, T. S. 1996. The Structure of Scientific Revolutions (3rd ed.),
+Chicago: University of Chicago Press.
+Lamb, R., and Kling, R. 2003. “Reconceptualizing Users as Social
+Actors in Information Systems Research,” MIS Quarterly (27:2),
+pp. 197-235.
+Langefors, B., and Samuelson, K. 1975. Information and Data in
+Systems, New York: Petrocelly/Charter.
+Lee, A. S. 1991. “Integrating Positivist and Interpretive Approaches to Organizational Research,” Organization Science
+(2:4), pp. 342-365.
+Lee, A. S. 1999. “Inaugural Editor’s Comments: The MIS Field,
+the Publication Process, and the Future Course of MIS
+Quarterly,” MIS Quarterly (23:1), pp. v-xi.
+Lee, A. S. 2001. “Editor’s Comments: Research in Information
+Systems: What We Haven’t Learned,” MIS Quarterly (25:4), pp.
+v-xv.
+Lee, A. S., and Baskerville, R. 2003. “Generalizing Generalizability in Information Systems Research,” Information Systems
+Research (14:3), pp. 221-243.
+Lee, B., Barua, A., and Whinston, A. B. 1997. “Representation of
+Causal Relationships in MIS Research: A Methodological
+Framework,” MIS Quarterly (21:1), pp. 109-136.
+Leidner, D., and Tona, O. 2021. “The CARE Theory of Dignity
+Amid Personal Data Digitalization,” MIS Quarterly (45:1), pp.
+343-370.
+Levina, N. 2021. “All Information Systems Theory Is Grounded
+Theory,” MIS Quarterly (45:1), pp. 489-494.
+
+Burton-Jones et al./Special Issue: Introduction
+
+Longshore Smith, M. 2006. “Overcoming Theory–Practice Inconsistencies: Critical Realism and Information Systems Research,”
+Information and Organization (16), 2006, pp. 191-211.
+Lukyanenko, R., Parsons, J., Wiersma, Y., and Maddah, M. 2019.
+“Expecting the Unexpected: Effects of Data Collection Design
+Choices on the Quality of Crowdsourced User-Generated
+Content,” MIS Quarterly (43:2), pp. 623-647.
+Maas, W., Parsons, J., Purao, S., Storey, V. C., and Woo, C. 2018.
+“Data-Driven Meets Theory-Driven Research in the Era of Big
+Data: Opportunities and Challenges for Information Systems
+Research,” Journal of the Association for Information Systems
+(19:12), pp. 1253-1273.
+Majchrzak, A., Markus, M. L., and Wareham, J. 2016. “Designing
+for Digital Transformation: Lessons for Information Systems
+Research from the Study of ICT and Societal Challenges,” MIS
+Quarterly (40:2), pp. 267-277.
+Majchrzak, A., Rice, R. E., Malhorta, A., King, N., and Ba, S.
+2000. “Technology Adaptation: The Case of a ComputerSupported Inter-Organizational Virtual Team,” MIS Quarterly
+(24:4), pp. 569-600.
+Makadok, R., Burton, R., and Barney, J. 2018. “A Practical Guide
+for Making Theory Contributions in Strategic Management,”
+Strategic Management Journal (39:6), pp. 1530-1545.
+Markus, M. L., Majchrzak, A., and Gasser, L. 2002. “A Design
+Theory for Systems that Support Emergent Knowledge
+Processes,” MIS Quarterly (26:3), pp. 179-212.
+Markus, M. L., and Robey, D. 1988. “Information Technology and
+Organizational Change: Causal Structure in Theory and
+Research,” Management Science (34:5), pp. 583-598.
+Markus, M. L., and Rowe, F. 2018. “Is IT Changing the World?
+Conceptions of Causality for Information Systems Theorizing,”
+MIS Quarterly (42:4), pp. 1255-1280.
+Markus, M. L., and Saunders, C. 2007. “Looking for a Few Good
+Concepts…and Theories…for the Information Systems Field,”
+MIS Quarterly (31:1), pp. iii-vi.
+Mason, R. O., and Mitroff, I. I. 1973. “A Program of Research on
+Management Information Systems,” Management Science (19:5),
+pp. 475-487.
+McKinney, E. H., and Yoos, C. J. 2010. “Information about
+Information: A Taxonomy of Views,” MIS Quarterly (34:2), pp.
+329-344.
+Mingers, J., and Willcocks, L. (eds.). 2004. Social Theory and
+Philosophy for Information Systems, Chichester, UK: John
+Wiley & Sons.
+Moorman, C., van Heerde, H. J., Moreau, C. P., and Palmatier,
+R. W. 2019. “Challenging the Boundaries of Marketing,”
+Journal of Marketing (83:5), pp. 1-4.
+Mousavi Baygi, R., Introna, L., and Hultin, L. 2021. “Everything
+Flows: Studying Continuous Socio-Technological Transformation in a Fluid and Dynamic Digital World,” MIS Quarterly
+(45:1), pp. 423-452.
+Mueller, B., and Urbach, N. 2017. “Understanding the Why, What,
+and How of Theories in IS Research,” Communications of the
+Association for Information Systems (41:17), pp. 349-388.
+Mumford, E. 2003. “Information Systems Research and the Quest
+for Certainty,” Journal of the Association for Information
+Systems (4:4), pp. 197-205.
+
+Nan, N. 2011. “Capturing Bottom-Up IT Use Processes: A Complex Adaptive Systems Model,” MIS Quarterly 2011, pp.
+505-532.
+Ngwenyama, O. K., and Lee, A. S. 1997. “Communication
+Richness in Electronic Mail: Critical Social Theory and the
+Contextuality of Meaning,” MIS Quarterly (21:2), pp. 145-167.
+Orlikowski, W. J. 1993. “CASE Tools as Organizational Change:
+Investigating Incremental and Radical Changes in Systems
+Development,” MIS Quarterly (17:3), pp. 309-340.
+Orlikowski, W. J., and Baroudi, J. J. 1991. “Studying Information
+Technology in Organizations: Research Approaches and
+Assumptions,” Information Systems Research (2:1), pp. 1-28.
+Orlikowski, W. J., and Iacono, C. S. 2001. “Desperately Seeking
+the ‘IT’ in IT Research—A Call to Theorizing the IT Artifact,”
+Information Systems Research (12:2), pp. 121-134.
+Orlikowski, W. J., and Scott, S. V. 2008. “Sociomateriality:
+Challenging the Separation of Technology, Work and Organization,” The Academy of Management Annals (2:1), pp. 433-474.
+Paré, G., Bourdeau, S., Marsan, J., Nach, H., and Shuraida, S. 2008.
+“Re-examining the Causal Structure of Information Technology
+Impact Research,” European Journal of Information Systems
+(17:4), pp. 403-416.
+Parker, G., Van Alstyne, M., and Jiang, X. 2916, “Platform
+Ecosystems: How Developers Invert the Firm,” MIS Quarterly
+(41:1), pp. 255-266.
+Peat, G., Rodriguez, A., and Smith, J. 2019. “Interpretive
+Phenomenological Analysis Applied to Healthcare Research,”
+BMJ: Evidence Based Nursing (22:1), pp. 7-9.
+Popper, K. 1980. The Logic of Scientific Discovery, London:
+Unwin Hyman.
+Rai, A. 2017. “Editor’s Comments: Diversity of Design Science
+Research,” MIS Quarterly (41:1), pp. iii-xviii.
+Ram, S., and Goes, P. 2021. “Focusing on Programmatic High
+Impact Information Systems Research, Not Theory, to Address
+Grand Challenges,” MIS Quarterly (45:1), pp. 479-483.
+Rivard, S. 2014. “The Ions of Theory Construction,” MIS
+Quarterly (38:2), pp. iii-xiii.
+Robey, D. 1996. “Diversity in Information Systems Research:
+Threat, Promise, and Responsibility,” Information Systems
+Research (7:4), pp. 400-408.
+Robey, D., Anderson, C., and Raymond, B. 2013. “Information
+Technology, Materiality, and Organizational Change: A Professional Odyssey,” Journal of the Association for Information
+Systems (14:7), pp. 379-398.
+Robey, D., and Boudreau, M.-C. 1999. “Accounting for the
+Contradictory Organizational Consequences of Information Technology: Theoretical Directions and Methodological Implications,” Information Systems Research (10:2), pp. 167-185.
+Sabherwal, R., and Robey, D. 1995. “Reconciling Variance and
+Process Strategies for Studying Information Systems Development,” Information Systems Research (6:4), pp. 303-327.
+Sambamurthy, V., Bharadwaj, A., and Grover, V. 2003. “Shaping
+Agility through Digitial Options: Reconceptualizing the Role of
+Information Technology in Contemporary Firms,” MIS Quarterly
+(27:2), pp. 237-263.
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+313
+
+Burton-Jones et al./Special Issue: Introduction
+
+Sarker, S., Chatterjee, S., Xiao, X., and Elbanna, A. 2019. “The
+Sociotechnical. “Axis of Cohesion” for the IS Discipline: Its
+Historical Legacy and its Continued Relevance,” MIS Quarterly
+(43:3), pp. 695-719.
+Schutz, A. 1962. “Concept and Theory Formation in the Social
+Sciences,” in Collected Papers, M. Natanson (ed.), The Hague:
+Martinus Nijhoff, 1962, pp. 48-66.
+Sein, M. K., Henfridsson, O., Purao, S., Rossi, M., and Lindgren, R.
+2011. “Action Design Research,” MIS Quarterly (35:1), pp.
+35-56.
+Sidorova, A., Evangelopoulos, N., Valacich, J. S., and Ramakrishnan, T. 2008. “Uncovering the Intellectual Core of the
+Information Systems Discipline,” MIS Quarterly (32:3), pp.
+467-482.
+Stahl, B. C., and Markus, M. L. 2021. “Let’s Claim the Authority
+to Speak Out on the Ethics of Smart Information Systems,” MIS
+Quarterly (45:1), pp. 485-488.
+Star, S. L., and Ruhleder, K. 19996. “Steps Towards an Ecology of
+Infrastructure: Design and Access for Large Information
+Spaces,” Information Systems Research (7:1), pp. 111-134.
+Steadman, I. 2013. “Big Data and the Death of the Theorist,”
+Wired, January 25 (https://www.wired.co.uk/article/big-dataend-of-theory).
+Straub, D. W., Ang, S., and Evaristo, R. 1994. “Normative
+Standards for IS Research,” DataBase for Advances in
+Information Systems (25:1), pp. 21-34.
+Tadajewski, M. 2004. “The Philosophy of Marketing Theory:
+Historical and Future Directions,” The Marketing Review (4:3),
+pp. 307-340.
+Tourish, D. 2020. “The Triumph of Nonsense in Management
+Studies,” Academy of Management Learning & Education (19:1),
+pp. 99-109.
+Tremblay, M. C., Kohli, R., and Forsgren, N. 2021. “Theories in
+Flux: Reimagining Theory Building in the Age of Machine
+Learning,” MIS Quarterly (45:1), pp. 455-459.
+Truex, D., Holmström, J., and Keil, M. 2006. “Theorizing in
+Information Systems Research: A Reflexive Analysis of the
+Adaptation of Theory in Information Systems Research,” Journal
+of the Association for Information Systems (7:12), pp. 797-821.
+Urquhart, C., and Fernandez, W. 2013. “Using Grounded Theory
+Method in Information Systems: The Researcher as Blank Slate
+and Other Myths,” Journal of Information Technology (28), pp.
+224-236.
+Urquhart, C., Lehmann, H., and Myers, M. D. 2010. “Putting the
+‘Theory’ Back into Grounded Theory: Guidelines for Grounded
+Theory Studies in Information Systems,” Information Systems
+Journal (20), pp. 357-381.
+Venkatesh, V., Morris, M. G., Davis, G. B., and Davis, F. D. 2003.
+“User Acceptance of Information Technology: Toward a Unified
+View,” MIS Quarterly (27:3), pp. 425-478.
+
+314
+
+MIS Quarterly Vol. 45 No. 1/March 2021
+
+Wacker, J. G. 1998. “A Definition of Theory: Research Guidelines
+for Different Theory-Building Research Methods in Operations
+Management,” Journal of Operations Management (16:4), pp.
+361-385.
+Walsham, G. 1993. Interpreting Information Systems in Organizations, Chichester, UK: Wiley.
+Wang, J., Veugelers, R., and Stephan, P. 2017. “Bias Against
+Novelty in Science: A Cautionary Tale for Users of Bibliometric
+Indicators,” Research Policy (46), pp. 1416-1436.
+Wang, P. 2010. “Chasing the Hottest IT: Effects of Information
+Technology Fashion on Organizations,” MIS Quarterly (34:1),
+pp. 63-85.
+Wang, P. 2021. “Connecting the Parts with the Whole: Toward an
+Information Ecology Theory of Digital Innovation Ecosystems,”
+MIS Quarterly (45:1), pp. 397-422.
+Weber, R. 1987. “Toward a Theory of Artifacts: A Paradigmatic
+Basis for Information Systems Research,” Journal of Information
+Systems (1:2), pp. 3-19.
+Weber, R. 2003. “Editor’s Comments: Theoretically Speaking,”
+MIS Quarterly (27:3), pp. iii-xii.
+Weber, R. 2012. “Evaluating and Developing Theories in the
+Information Systems Discipline,” Journal of the Association for
+Information Systems (13:1), pp. 1-30.
+Weick, K. E. 1995. “What Theory is Not, Theorizing Is,”
+Administrative Science Quarterly (40:3), pp. 385-390.
+Weische, M., Jurisch, M., Yetton, P., and Krcmar, H. 2017.
+“Grounded Theory Methodology in Information Systems
+Research,” MIS Quarterly (41:3), pp. 685-701.
+Williams, M. L. 2007. “Perpetually Contemporary,” NPR News,
+July 25 (https://www.npr.org/2007/07/25/11904062/ mary-louwilliams-perpetually-contemporary).
+Wilson, E. O. 1998. Consilience: The Unity of Knowledge, New
+York: Vintage Books.
+Winter, S., Berente, N., Howison, J., and Butler, B. 2014. “Beyond
+the Organizational ‘Container’: Conceptualizing 21st Century
+Sociotechnical Work,” Information and Organization (24:4), pp.
+250-269.
+Wood, R. E. 1986. “Task Complexity: Definition of the Construct,” Organizational Behavior and Human Decision Processes
+(37:1), pp. 60-82.
+Yoo, Y. 2010. “Computing in Everyday Life: A Call for Research
+on Experiential Computing,” MIS Quarterly (34:2), pp. 213-231.
+Zeithaml, V. A., Jaworski, B. J., Kohli, A. K., Tuli, K. R.,
+Ulaga, W., and Zaltman, G. 2020. “A Theories-in-Use Approach
+to Building Marketing Theory,” Journal of Marketing (84:1), pp.
+32-51.
+Zhang, M., and Gable, G. G. 2017. “A Systematic Framework for
+Multilevel Theorizing in Information Systems Research,” Information Systems Research (28:2), pp. 203-224.
+Zuboff, S. 1988. In the Age of the Smart Machine: The Future of
+Work and Power, New York: Basic Books.
+
+Copyright of MIS Quarterly is the property of MIS Quarterly and its content may not be
+copied or emailed to multiple sites or posted to a listserv without the copyright holder's
+express written permission. However, users may print, download, or email articles for
+individual use.
+
+

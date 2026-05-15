@@ -1,376 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Ali Safari</title><meta name="description" content="Ali Safari's blog on Information Systems research, AI, security, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Blog | Ali Safari"><meta property="og:description" content="Information Systems research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<title>Field Notes | Ali Safari</title><meta name="description" content="Ali Safari's notes on Information Systems research, AI, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Field Notes | Ali Safari"><meta property="og:description" content="Notes on IS research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="canonical" href="https://alisafari.space/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Ali Safari Blog","description":"Thoughts on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Field Notes — Ali Safari","description":"Notes on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
 </head>
-<body class="blog-page">
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="index">
+<header class="masthead">
+<div class="masthead-kicker">Field Notes &mdash; Ali Safari &mdash; 258 notes</div>
+<h1 class="masthead-title">Field<br>Notes.</h1>
+<div class="masthead-bottom">
+<p class="masthead-dek">Honest reactions to IS research, AI, and the theory I'm studying for comps. No summaries.</p>
+<div class="masthead-stats">
+<div><b>258</b> Posts</div>
+<div><b>10</b> Topics</div>
 </div>
-</div></nav>
-<header class="blog-header">
-<h1>Blog</h1>
-<p class="blog-subtitle">Thoughts on IS theory, AI, technology, and comps studying. No summaries, just honest reactions.</p>
-<div class="blog-meta">
-<span class="blog-meta-item"><i class="fas fa-pen-nib"></i> 258 posts</span>
-<span class="blog-meta-item"><i class="fas fa-tags"></i> 10 topics</span>
 </div>
 </header>
-<section class="blog-stats-bar">
-<div class="blog-stat"><span class="blog-stat-value">258</span><div class="blog-stat-label">Posts</div></div>
-<div class="blog-stat"><span class="blog-stat-value">10</span><div class="blog-stat-label">Topics</div></div>
-<div class="blog-stat"><span class="blog-stat-value">2026</span><div class="blog-stat-label">Latest</div></div>
-</section>
-<div class="blog-controls">
-<div class="blog-search-box"><i class="fas fa-search"></i><input type="text" id="blogSearch" placeholder="Search posts by title or content..." autocomplete="off"></div>
-<div class="blog-filter-sort">
-<button class="blog-filter-btn active" data-sort="newest"><i class="fas fa-sort-amount-down"></i> Newest</button>
-<button class="blog-filter-btn" data-sort="oldest"><i class="fas fa-sort-amount-up"></i> Oldest</button>
+<div class="controls">
+<div class="search-wrap">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="blogSearch" placeholder="Search notes…" autocomplete="off">
+</div>
+<div class="seg">
+<button class="on" data-sort="newest">Newest</button>
+<button data-sort="oldest">Oldest</button>
+</div>
+</div>
+<div class="tags" id="tagFilters"><button class="tag-chip on" data-tag="all">All <span class="n">258</span></button><button class="tag-chip" data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="n">86</span></button><button class="tag-chip" data-tag="IS Theory">IS Theory <span class="n">82</span></button><button class="tag-chip" data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="n">77</span></button><button class="tag-chip" data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="n">74</span></button><button class="tag-chip" data-tag="Organizational Theory">Organizational Theory <span class="n">72</span></button><button class="tag-chip" data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="n">47</span></button><button class="tag-chip" data-tag="IS Research Methods">IS Research Methods <span class="n">43</span></button><button class="tag-chip" data-tag="Technology Adoption">Technology Adoption <span class="n">32</span></button><button class="tag-chip" data-tag="Trust &amp; Security">Trust &amp; Security <span class="n">31</span></button><button class="tag-chip" data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="n">29</span></button></div>
+
+<div class="post-list" id="postList">
+<div class="post-row" data-title="same tool, different department, total disaster" data-tags="IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="structuration-theory-same-tool-different-outcome" onclick="location.href='/blog/structuration-theory-same-tool-different-outcome/'"><div class="pr-n">221</div><div class="pr-body"><div class="pr-title"><a href="/blog/structuration-theory-same-tool-different-outcome/">Same Tool, Different Department, Total Disaster</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="supply chain digitization: what covid-19 revealed" data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="supply-chain-digitization-covid-lessons" onclick="location.href='/blog/supply-chain-digitization-covid-lessons/'"><div class="pr-n">222</div><div class="pr-body"><div class="pr-title"><a href="/blog/supply-chain-digitization-covid-lessons/">Supply Chain Digitization: What COVID-19 Revealed</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="surveillance capitalism and what your data is actually for" data-tags="Comps &amp; Reflections,Trust &amp; Security" data-date="2026-05-14" data-slug="surveillance-capitalism-what-data-is-for" onclick="location.href='/blog/surveillance-capitalism-what-data-is-for/'"><div class="pr-n">223</div><div class="pr-body"><div class="pr-title"><a href="/blog/surveillance-capitalism-what-data-is-for/">Surveillance Capitalism and What Your Data Is Actually For</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="survey response scales and why your five points might not mean what you think" data-tags="IS Research Methods" data-date="2026-05-14" data-slug="survey-response-scales-likert" onclick="location.href='/blog/survey-response-scales-likert/'"><div class="pr-n">224</div><div class="pr-body"><div class="pr-title"><a href="/blog/survey-response-scales-likert/">Survey Response Scales and Why Your Five Points Might Not Mean What You Think</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="synthetic data: training ai without real people&#x27;s information" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Trust &amp; Security" data-date="2026-05-14" data-slug="synthetic-data-ai-training" onclick="location.href='/blog/synthetic-data-ai-training/'"><div class="pr-n">225</div><div class="pr-body"><div class="pr-title"><a href="/blog/synthetic-data-ai-training/">Synthetic Data: Training AI Without Real People&#x27;s Information</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="systematic literature reviews and the discipline of not picking favorites" data-tags="IS Research Methods" data-date="2026-05-14" data-slug="systematic-literature-review-prisma-is" onclick="location.href='/blog/systematic-literature-review-prisma-is/'"><div class="pr-n">226</div><div class="pr-body"><div class="pr-title"><a href="/blog/systematic-literature-review-prisma-is/">Systematic Literature Reviews and the Discipline of Not Picking Favorites</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the tool is not broken. it&#x27;s just wrong for your job." data-tags="Comps &amp; Reflections,Sociotechnical Systems" data-date="2026-05-14" data-slug="task-technology-fit-wrong-tool" onclick="location.href='/blog/task-technology-fit-wrong-tool/'"><div class="pr-n">227</div><div class="pr-body"><div class="pr-title"><a href="/blog/task-technology-fit-wrong-tool/">The Tool Is Not Broken. It&#x27;s Just Wrong for Your Job.</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="technical debt in non-tech companies is an is governance problem" data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="technical-debt-non-tech-companies" onclick="location.href='/blog/technical-debt-non-tech-companies/'"><div class="pr-n">228</div><div class="pr-body"><div class="pr-title"><a href="/blog/technical-debt-non-tech-companies/">Technical Debt in Non-Tech Companies Is an IS Governance Problem</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">5 min read</span></div></div><div class="post-row" data-title="technical skills every is researcher actually needs" data-tags="IS Research Methods" data-date="2026-05-14" data-slug="technical-skills-is-researchers" onclick="location.href='/blog/technical-skills-is-researchers/'"><div class="pr-n">229</div><div class="pr-body"><div class="pr-title"><a href="/blog/technical-skills-is-researchers/">Technical Skills Every IS Researcher Actually Needs</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the system that teaches nothing" data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="technology-organizational-learning" onclick="location.href='/blog/technology-organizational-learning/'"><div class="pr-n">230</div><div class="pr-body"><div class="pr-title"><a href="/blog/technology-organizational-learning/">The System That Teaches Nothing</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="platform design is not neutral. democracy pays the price." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="technology-platforms-democracy-threat" onclick="location.href='/blog/technology-platforms-democracy-threat/'"><div class="pr-n">231</div><div class="pr-body"><div class="pr-title"><a href="/blog/technology-platforms-democracy-threat/">Platform Design Is Not Neutral. Democracy Pays the Price.</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="some people are just not ready (and that is data, not a flaw)" data-tags="IS Theory,Technology Adoption" data-date="2026-05-14" data-slug="technology-readiness-resistance-is-data" onclick="location.href='/blog/technology-readiness-resistance-is-data/'"><div class="pr-n">232</div><div class="pr-body"><div class="pr-title"><a href="/blog/technology-readiness-resistance-is-data/">Some People Are Just Not Ready (And That Is Data, Not a Flaw)</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="telehealth after covid: what stuck and what didn&#x27;t" data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="telehealth-post-covid-what-stuck" onclick="location.href='/blog/telehealth-post-covid-what-stuck/'"><div class="pr-n">233</div><div class="pr-body"><div class="pr-title"><a href="/blog/telehealth-post-covid-what-stuck/">Telehealth After COVID: What Stuck and What Didn&#x27;t</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the it artifact is not optional" data-tags="Comps &amp; Reflections,IS Theory,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="the-it-artifact-is-not-optional" onclick="location.href='/blog/the-it-artifact-is-not-optional/'"><div class="pr-n">234</div><div class="pr-body"><div class="pr-title"><a href="/blog/the-it-artifact-is-not-optional/">The IT Artifact Is Not Optional</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="the productivity paradox is still alive" data-tags="IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="the-productivity-paradox-is-still-alive" onclick="location.href='/blog/the-productivity-paradox-is-still-alive/'"><div class="pr-n">235</div><div class="pr-body"><div class="pr-title"><a href="/blog/the-productivity-paradox-is-still-alive/">The Productivity Paradox Is Still Alive</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the s-curve does not care about your launch date" data-tags="Comps &amp; Reflections,Technology Adoption" data-date="2026-05-14" data-slug="the-s-curve-does-not-care-about-your-launch-date" onclick="location.href='/blog/the-s-curve-does-not-care-about-your-launch-date/'"><div class="pr-n">236</div><div class="pr-body"><div class="pr-title"><a href="/blog/the-s-curve-does-not-care-about-your-launch-date/">The S-Curve Does Not Care About Your Launch Date</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="theory testing vs. theory building: when each is appropriate" data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="theory-testing-vs-theory-building" onclick="location.href='/blog/theory-testing-vs-theory-building/'"><div class="pr-n">237</div><div class="pr-body"><div class="pr-title"><a href="/blog/theory-testing-vs-theory-building/">Theory Testing vs. Theory Building: When Each Is Appropriate</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="what tiktok understands about user behavior that your enterprise app does not" data-tags="IS Theory,Platforms &amp; Ecosystems,Sociotechnical Systems,Technology Adoption" data-date="2026-05-14" data-slug="tiktok-enterprise-ux-hedonic-motivation" onclick="location.href='/blog/tiktok-enterprise-ux-hedonic-motivation/'"><div class="pr-n">238</div><div class="pr-body"><div class="pr-title"><a href="/blog/tiktok-enterprise-ux-hedonic-motivation/">What TikTok Understands About User Behavior That Your Enterprise App Does Not</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="why the same crm thrives in one city and dies in another" data-tags="Comps &amp; Reflections,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="toe-framework-technology-adoption-context" onclick="location.href='/blog/toe-framework-technology-adoption-context/'"><div class="pr-n">239</div><div class="pr-body"><div class="pr-title"><a href="/blog/toe-framework-technology-adoption-context/">Why the Same CRM Thrives in One City and Dies in Another</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="the specification error in your trust variable" data-tags="AI &amp; Agentic Systems,IS Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="specification-error-trust-variable" onclick="location.href='/blog/specification-error-trust-variable/'"><div class="pr-n">240</div><div class="pr-body"><div class="pr-title"><a href="/blog/specification-error-trust-variable/">The Specification Error in Your Trust Variable</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div>
+<div id="emptyState" style="display:none;padding:64px 0;font-family:var(--f-mono);font-size:13px;color:var(--ink-4);letter-spacing:.07em;text-transform:uppercase;">No notes found</div>
+<div class="pgn"><a href="/blog/page/11/" class="pgn-step">&#8592; Prev</a><div class="pgn-nums"><button onclick="location.href='/blog/'">1</button><button onclick="location.href='/blog/page/2/'">2</button><button onclick="location.href='/blog/page/3/'">3</button><button onclick="location.href='/blog/page/4/'">4</button><button onclick="location.href='/blog/page/5/'">5</button><button onclick="location.href='/blog/page/6/'">6</button><button onclick="location.href='/blog/page/7/'">7</button><button onclick="location.href='/blog/page/8/'">8</button><button onclick="location.href='/blog/page/9/'">9</button><button onclick="location.href='/blog/page/10/'">10</button><button onclick="location.href='/blog/page/11/'">11</button><span class="cur">12</span><button onclick="location.href='/blog/page/13/'">13</button></div><a href="/blog/page/13/" class="pgn-step">Next &#8594;</a></div>
+</div>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="blog-tag-filters"><a href="/blog/" class="blog-tag-chip active" data-tag="all">All <span class="tag-count">258</span></a><a href="/blog/?tag=Comps &amp; Reflections" class="blog-tag-chip " data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="tag-count">86</span></a><a href="/blog/?tag=IS Theory" class="blog-tag-chip " data-tag="IS Theory">IS Theory <span class="tag-count">82</span></a><a href="/blog/?tag=IT Governance &amp; Strategy" class="blog-tag-chip " data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="tag-count">77</span></a><a href="/blog/?tag=AI &amp; Agentic Systems" class="blog-tag-chip " data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="tag-count">74</span></a><a href="/blog/?tag=Organizational Theory" class="blog-tag-chip " data-tag="Organizational Theory">Organizational Theory <span class="tag-count">72</span></a><a href="/blog/?tag=Platforms &amp; Ecosystems" class="blog-tag-chip " data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="tag-count">47</span></a><a href="/blog/?tag=IS Research Methods" class="blog-tag-chip " data-tag="IS Research Methods">IS Research Methods <span class="tag-count">43</span></a><a href="/blog/?tag=Technology Adoption" class="blog-tag-chip " data-tag="Technology Adoption">Technology Adoption <span class="tag-count">32</span></a><a href="/blog/?tag=Trust &amp; Security" class="blog-tag-chip " data-tag="Trust &amp; Security">Trust &amp; Security <span class="tag-count">31</span></a><a href="/blog/?tag=Sociotechnical Systems" class="blog-tag-chip " data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="tag-count">29</span></a></div>
-<div class="blog-grid" id="blogGrid">
-<div class="blog-grid-item" data-title="same tool, different department, total disaster" data-excerpt="why the same erp or slack deployment thrives in one department and collapses in another, explained through structuration theory, orlikowski&#x27;s duality of technology, and adaptive structuration." data-tags="IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="structuration-theory-same-tool-different-outcome">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/structuration-theory-same-tool-different-outcome/">Same Tool, Different Department, Total Disaster</a></h2>
-</div>
-<p class="card-excerpt">Why the same ERP or Slack deployment thrives in one department and collapses in another, explained through structuration theory, Orlikowski&#x27;s duality of technol...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="structuration-theory-same-tool-different-outcome" title="Save for later" aria-label="Save Same Tool, Different Department, Total Disaster for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/structuration-theory-same-tool-different-outcome/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="supply chain digitization: what covid-19 revealed" data-excerpt="covid-19 didn&#x27;t break supply chains. it revealed how much fragility had been building for decades. the digital response is real, but the problems aren&#x27;t primarily technological." data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="supply-chain-digitization-covid-lessons">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/supply-chain-digitization-covid-lessons/">Supply Chain Digitization: What COVID-19 Revealed</a></h2>
-</div>
-<p class="card-excerpt">COVID-19 didn&#x27;t break supply chains. It revealed how much fragility had been building for decades. The digital response is real, but the problems aren&#x27;t primari...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="supply-chain-digitization-covid-lessons" title="Save for later" aria-label="Save Supply Chain Digitization: What COVID-19 Revealed for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/supply-chain-digitization-covid-lessons/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="surveillance capitalism and what your data is actually for" data-excerpt="zuboff&#x27;s argument is not just that companies collect too much data. it is that behavioral data has become raw material for a specific economic logic aimed at predicting and modifying what you do next." data-tags="Comps &amp; Reflections,Trust &amp; Security" data-date="2026-05-14" data-slug="surveillance-capitalism-what-data-is-for">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/surveillance-capitalism-what-data-is-for/">Surveillance Capitalism and What Your Data Is Actually For</a></h2>
-</div>
-<p class="card-excerpt">Zuboff&#x27;s argument is not just that companies collect too much data. It is that behavioral data has become raw material for a specific economic logic aimed at pr...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="surveillance-capitalism-what-data-is-for" title="Save for later" aria-label="Save Surveillance Capitalism and What Your Data Is Actually For for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/surveillance-capitalism-what-data-is-for/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="survey response scales and why your five points might not mean what you think" data-excerpt="is survey research defaults to likert-type scales without much thought. the choices made about scale design shape what respondents report and how results can be analyzed." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="survey-response-scales-likert">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/survey-response-scales-likert/">Survey Response Scales and Why Your Five Points Might Not Mean What You Think</a></h2>
-</div>
-<p class="card-excerpt">IS survey research defaults to Likert-type scales without much thought. The choices made about scale design shape what respondents report and how results can be...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="survey-response-scales-likert" title="Save for later" aria-label="Save Survey Response Scales and Why Your Five Points Might Not Mean What You Think for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/survey-response-scales-likert/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="synthetic data: training ai without real people&#x27;s information" data-excerpt="synthetic data offers a way to train ai on sensitive domains without exposing real people&#x27;s records. the privacy tradeoff is real but often misunderstood." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,Trust &amp; Security" data-date="2026-05-14" data-slug="synthetic-data-ai-training">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/synthetic-data-ai-training/">Synthetic Data: Training AI Without Real People&#x27;s Information</a></h2>
-</div>
-<p class="card-excerpt">Synthetic data offers a way to train AI on sensitive domains without exposing real people&#x27;s records. The privacy tradeoff is real but often misunderstood.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="synthetic-data-ai-training" title="Save for later" aria-label="Save Synthetic Data: Training AI Without Real People&#x27;s Information for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/synthetic-data-ai-training/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="systematic literature reviews and the discipline of not picking favorites" data-excerpt="a systematic literature review uses explicit, reproducible criteria to select and synthesize research. the point is to minimize the selection bias of traditional narrative reviews." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="systematic-literature-review-prisma-is">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/systematic-literature-review-prisma-is/">Systematic Literature Reviews and the Discipline of Not Picking Favorites</a></h2>
-</div>
-<p class="card-excerpt">A systematic literature review uses explicit, reproducible criteria to select and synthesize research. The point is to minimize the selection bias of traditiona...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="systematic-literature-review-prisma-is" title="Save for later" aria-label="Save Systematic Literature Reviews and the Discipline of Not Picking Favorites for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/systematic-literature-review-prisma-is/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the tool is not broken. it&#x27;s just wrong for your job." data-excerpt="goodhue and thompson showed that performance depends on fit between task and technology, not on whether the tool is good in the abstract." data-tags="Comps &amp; Reflections,Sociotechnical Systems" data-date="2026-05-14" data-slug="task-technology-fit-wrong-tool">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/task-technology-fit-wrong-tool/">The Tool Is Not Broken. It&#x27;s Just Wrong for Your Job.</a></h2>
-</div>
-<p class="card-excerpt">Goodhue and Thompson showed that performance depends on fit between task and technology, not on whether the tool is good in the abstract.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="task-technology-fit-wrong-tool" title="Save for later" aria-label="Save The Tool Is Not Broken. It&#x27;s Just Wrong for Your Job. for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/task-technology-fit-wrong-tool/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="technical debt in non-tech companies is an is governance problem" data-excerpt="ward cunningham coined technical debt in 1992. non-tech organizations accumulate it just as fast as tech companies, and manage it far less deliberately." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="technical-debt-non-tech-companies">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 5 min read</span></div>
-<h2><a href="/blog/technical-debt-non-tech-companies/">Technical Debt in Non-Tech Companies Is an IS Governance Problem</a></h2>
-</div>
-<p class="card-excerpt">Ward Cunningham coined technical debt in 1992. Non-tech organizations accumulate it just as fast as tech companies, and manage it far less deliberately.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="technical-debt-non-tech-companies" title="Save for later" aria-label="Save Technical Debt in Non-Tech Companies Is an IS Governance Problem for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/technical-debt-non-tech-companies/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="technical skills every is researcher actually needs" data-excerpt="is research lives between computer science and management. here is what i have found useful and what i think the field gets wrong about technical skills." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="technical-skills-is-researchers">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/technical-skills-is-researchers/">Technical Skills Every IS Researcher Actually Needs</a></h2>
-</div>
-<p class="card-excerpt">IS research lives between computer science and management. Here is what I have found useful and what I think the field gets wrong about technical skills.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="technical-skills-is-researchers" title="Save for later" aria-label="Save Technical Skills Every IS Researcher Actually Needs for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/technical-skills-is-researchers/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the system that teaches nothing" data-excerpt="enterprise knowledge systems capture what can be written down and miss everything else. argyris, nonaka, and cohen tell us why." data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="technology-organizational-learning">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/technology-organizational-learning/">The System That Teaches Nothing</a></h2>
-</div>
-<p class="card-excerpt">Enterprise knowledge systems capture what can be written down and miss everything else. Argyris, Nonaka, and Cohen tell us why.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="technology-organizational-learning" title="Save for later" aria-label="Save The System That Teaches Nothing for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/technology-organizational-learning/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="platform design is not neutral. democracy pays the price." data-excerpt="cambridge analytica. the facebook papers. recommendation algorithms and radicalization. is researchers studying social media cannot pretend these are side effects." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="technology-platforms-democracy-threat">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/technology-platforms-democracy-threat/">Platform Design Is Not Neutral. Democracy Pays the Price.</a></h2>
-</div>
-<p class="card-excerpt">Cambridge Analytica. The Facebook Papers. Recommendation algorithms and radicalization. IS researchers studying social media cannot pretend these are side effec...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="technology-platforms-democracy-threat" title="Save for later" aria-label="Save Platform Design Is Not Neutral. Democracy Pays the Price. for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/technology-platforms-democracy-threat/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="some people are just not ready (and that is data, not a flaw)" data-excerpt="most adoption models treat resistance as the absence of adoption. but resistance is its own construct with its own causes, and ignoring it means your model is doing half the job." data-tags="IS Theory,Technology Adoption" data-date="2026-05-14" data-slug="technology-readiness-resistance-is-data">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/technology-readiness-resistance-is-data/">Some People Are Just Not Ready (And That Is Data, Not a Flaw)</a></h2>
-</div>
-<p class="card-excerpt">Most adoption models treat resistance as the absence of adoption. But resistance is its own construct with its own causes, and ignoring it means your model is d...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="technology-readiness-resistance-is-data" title="Save for later" aria-label="Save Some People Are Just Not Ready (And That Is Data, Not a Flaw) for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/technology-readiness-resistance-is-data/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="telehealth after covid: what stuck and what didn&#x27;t" data-excerpt="covid forced telehealth adoption overnight. the waivers, the reimbursement, the video calls. now the question is which parts of that experiment actually held." data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="telehealth-post-covid-what-stuck">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/telehealth-post-covid-what-stuck/">Telehealth After COVID: What Stuck and What Didn&#x27;t</a></h2>
-</div>
-<p class="card-excerpt">COVID forced telehealth adoption overnight. The waivers, the reimbursement, the video calls. Now the question is which parts of that experiment actually held.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="telehealth-post-covid-what-stuck" title="Save for later" aria-label="Save Telehealth After COVID: What Stuck and What Didn&#x27;t for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/telehealth-post-covid-what-stuck/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the it artifact is not optional" data-excerpt="56% of is papers study the social side without theorizing technology at all. the field&#x27;s identity crisis is not rhetorical. the numbers show it is real." data-tags="Comps &amp; Reflections,IS Theory,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="the-it-artifact-is-not-optional">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/the-it-artifact-is-not-optional/">The IT Artifact Is Not Optional</a></h2>
-</div>
-<p class="card-excerpt">56% of IS papers study the social side without theorizing technology at all. The field&#x27;s identity crisis is not rhetorical. The numbers show it is real.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="the-it-artifact-is-not-optional" title="Save for later" aria-label="Save The IT Artifact Is Not Optional for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/the-it-artifact-is-not-optional/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the productivity paradox is still alive" data-excerpt="we keep spending more on technology and expecting more productivity. the same trap keeps catching us. here is why the is research community saw this coming decades ago." data-tags="IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="the-productivity-paradox-is-still-alive">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/the-productivity-paradox-is-still-alive/">The Productivity Paradox Is Still Alive</a></h2>
-</div>
-<p class="card-excerpt">We keep spending more on technology and expecting more productivity. The same trap keeps catching us. Here is why the IS research community saw this coming deca...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="the-productivity-paradox-is-still-alive" title="Save for later" aria-label="Save The Productivity Paradox Is Still Alive for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/the-productivity-paradox-is-still-alive/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the s-curve does not care about your launch date" data-excerpt="rogers showed that the s-curve is a social process with five failure points built in. most product teams read it as a timeline and miss the diagnostic entirely." data-tags="Comps &amp; Reflections,Technology Adoption" data-date="2026-05-14" data-slug="the-s-curve-does-not-care-about-your-launch-date">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/the-s-curve-does-not-care-about-your-launch-date/">The S-Curve Does Not Care About Your Launch Date</a></h2>
-</div>
-<p class="card-excerpt">Rogers showed that the S-curve is a social process with five failure points built in. Most product teams read it as a timeline and miss the diagnostic entirely.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="the-s-curve-does-not-care-about-your-launch-date" title="Save for later" aria-label="Save The S-Curve Does Not Care About Your Launch Date for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/the-s-curve-does-not-care-about-your-launch-date/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="theory testing vs. theory building: when each is appropriate" data-excerpt="is research tests existing theory more than it builds new theory. there is value in testing. but after hundreds of tam extensions, we should be honest about how small the marginal contribution of each new study has become." data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="theory-testing-vs-theory-building">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/theory-testing-vs-theory-building/">Theory Testing vs. Theory Building: When Each Is Appropriate</a></h2>
-</div>
-<p class="card-excerpt">IS research tests existing theory more than it builds new theory. There is value in testing. But after hundreds of TAM extensions, we should be honest about how...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="theory-testing-vs-theory-building" title="Save for later" aria-label="Save Theory Testing vs. Theory Building: When Each Is Appropriate for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/theory-testing-vs-theory-building/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="what tiktok understands about user behavior that your enterprise app does not" data-excerpt="venkatesh added hedonic motivation, habit, and price value to utaut for consumer contexts. enterprise software still runs on the utilitarian-only version. that gap is why tiktok and slack win while expense reporting tools get memed." data-tags="IS Theory,Platforms &amp; Ecosystems,Sociotechnical Systems,Technology Adoption" data-date="2026-05-14" data-slug="tiktok-enterprise-ux-hedonic-motivation">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/tiktok-enterprise-ux-hedonic-motivation/">What TikTok Understands About User Behavior That Your Enterprise App Does Not</a></h2>
-</div>
-<p class="card-excerpt">Venkatesh added hedonic motivation, habit, and price value to UTAUT for consumer contexts. Enterprise software still runs on the utilitarian-only version. That ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Platforms &amp; Ecosystems</span><span class="tag">Sociotechnical Systems</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="tiktok-enterprise-ux-hedonic-motivation" title="Save for later" aria-label="Save What TikTok Understands About User Behavior That Your Enterprise App Does Not for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/tiktok-enterprise-ux-hedonic-motivation/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="why the same crm thrives in one city and dies in another" data-excerpt="the toe framework explains why identical technology adoption fails in one organization and succeeds in another: context is not background, it is the whole story." data-tags="Comps &amp; Reflections,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="toe-framework-technology-adoption-context">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/toe-framework-technology-adoption-context/">Why the Same CRM Thrives in One City and Dies in Another</a></h2>
-</div>
-<p class="card-excerpt">The TOE framework explains why identical technology adoption fails in one organization and succeeds in another: context is not background, it is the whole story...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Organizational Theory</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="toe-framework-technology-adoption-context" title="Save for later" aria-label="Save Why the Same CRM Thrives in One City and Dies in Another for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/toe-framework-technology-adoption-context/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the specification error in your trust variable" data-excerpt="trust, trustworthiness, reliance, and delegation operate at different levels with different antecedents. treating them as interchangeable is not a measurement choice, it is a theoretical mistake." data-tags="AI &amp; Agentic Systems,IS Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="specification-error-trust-variable">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/specification-error-trust-variable/">The Specification Error in Your Trust Variable</a></h2>
-</div>
-<p class="card-excerpt">Trust, trustworthiness, reliance, and delegation operate at different levels with different antecedents. Treating them as interchangeable is not a measurement c...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="specification-error-trust-variable" title="Save for later" aria-label="Save The Specification Error in Your Trust Variable for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/specification-error-trust-variable/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div>
-<div class="blog-empty-state" style="display:none"><i class="fas fa-search"></i><h3>No posts found</h3><p>Try a different search term.</p></div>
-</div>
-<div class="blog-pagination"><a href="/blog/">1</a><a href="/blog/page/2/">2</a><a href="/blog/page/3/">3</a><a href="/blog/page/4/">4</a><a href="/blog/page/5/">5</a><a href="/blog/page/6/">6</a><a href="/blog/page/7/">7</a><a href="/blog/page/8/">8</a><a href="/blog/page/9/">9</a><a href="/blog/page/10/">10</a><a href="/blog/page/11/">11</a><span class="current">12</span><a href="/blog/page/13/">13</a></div>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-</div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
 </body></html>

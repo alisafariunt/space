@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/measurement-invariance-is-surveys/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Measurement Invariance and the Assumption Nobody Checks","description":"When IS researchers compare survey results across groups, they assume the constructs mean the same thing to everyone. Most papers never test this. The test is called measurement invariance.","url":"https://alisafari.space/blog/measurement-invariance-is-surveys/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IS Research Methods","keywords":"IS Research Methods"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>IS Research Methods</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">IS Research Methods</div>
+<h1 class="art-title">Measurement Invariance and the Assumption Nobody Checks</h1>
+<p class="art-dek">When IS researchers compare survey results across groups, they assume the constructs mean the same thing to everyone. Most papers never test this. The test is called measurement invariance.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>7 min read</span>
+<span class="art-tag">IS Research Methods</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Measurement Invariance and the Assumption Nobody Checks</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="measurement-invariance-is-surveys" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">IS Research Methods</span>
-<h1>Measurement Invariance and the Assumption Nobody Checks</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 7 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>There is an assumption buried in almost every IS paper that compares groups, and almost nobody checks it explicitly. When you run a study that includes men and women, or experienced and novice users, or respondents from the US and China, and you compare their scores on constructs like "perceived usefulness" or "system trust," you are assuming that those constructs mean the same thing to both groups, and that the survey items work the same way for both groups. That assumption has a name: measurement invariance. And if it does not hold, your group comparisons may be meaningless.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>There is an assumption buried in almost every IS paper that compares groups, and almost nobody checks it explicitly. When you run a study that includes men and women, or experienced and novice users, or respondents from the US and China, and you compare their scores on constructs like "perceived usefulness" or "system trust," you are assuming that those constructs mean the same thing to both groups, and that the survey items work the same way for both groups. That assumption has a name: measurement invariance. And if it does not hold, your group comparisons may be meaningless.</p>
 <p>Let me explain what it actually means for an item to "work the same way" across groups. In a reflective measurement model, each survey item is an indicator of the underlying construct. The item "Using this system increases my productivity" is supposed to reflect perceived usefulness. For a factor loading of, say, 0.78, we assume that a one-unit increase in the underlying construct produces a 0.78-unit increase in the observed item. Metric invariance means those factor loadings are the same across groups. If experienced users load the productivity item at 0.78 but novice users load it at 0.45, then the item has a different relationship to the construct depending on who is answering it. Comparing those two groups on "perceived usefulness" is not comparing the same thing.</p>
 <p>Scalar invariance is even more demanding. It requires not just that the loadings are equal but that the item intercepts are equal across groups. The intercept is the baseline level of the item response when the underlying construct is at zero. If experienced users have a systematically higher baseline response to the productivity item, independent of their actual perceived usefulness, then even if the loadings match, you are still comparing apples to oranges. Mean comparisons across groups, the kind you do when you claim "experienced users report higher perceived usefulness than novices," require scalar invariance to be defensible.</p>
 <p>Chen (2007) and Vandenberg and Lance (2000) are widely cited in the management and IS methods literature for laying out the sequence of tests and the criteria for what counts as invariance. The standard approach uses a series of increasingly constrained confirmatory factor analysis (CFA) models. You start with configural invariance, which tests whether the same factor structure (same items loading on the same factors) holds in both groups. Then you constrain the factor loadings to be equal across groups and test whether model fit degrades significantly. That is the metric invariance test. Then you constrain the item intercepts to be equal and test again. That is the scalar invariance test.</p>
@@ -68,47 +57,55 @@
 <p>A study might find that users in China report higher social influence as a predictor of adoption than users in the US. That is a theoretically interesting finding if it means that social norms actually play a different causal role in the two contexts. But if the social influence items function differently in the two samples, with different loadings and different intercepts, then you cannot tell whether the observed difference is real or an artifact of measurement non-equivalence. You might be measuring the same latent variable with different precision in the two groups and calling the resulting difference a cross-cultural effect.</p>
 <p>The practical barrier to doing this properly is that it requires a reasonably large sample in each group and some familiarity with CFA modeling. Multi-group CFA is not complicated once you have done it a few times, but it adds a step that many IS researchers skip because reviewers do not routinely ask for it. That is the real driver here. If the norm is to test and report measurement invariance, researchers will do it. If the norm is to collect data across groups and run a moderated regression without ever specifying your measurement model, the assumption stays invisible and unchecked.</p>
 <p>There is also a reasonable question about what to do when you detect partial non-invariance. Full scalar invariance is often not achieved in real IS survey data, especially across cultural groups. The more interesting question is which items are non-invariant and whether that non-invariance is theoretically meaningful or a translation artifact. If one item in a five-item construct shows non-invariant intercepts across countries, you can still make limited comparisons using the invariant items. Partial invariance does not necessarily kill the comparison; it just means you need to be more careful about what you claim. Some researchers drop the non-invariant items and proceed with the remaining items. Whether that is methodologically appropriate depends on whether the dropped items were contributing to construct validity or whether they were outliers.</p>
-<p>The broader point is that cross-group comparisons are not free. They carry an assumption, and the assumption is testable. IS research would be better served by making this test routine rather than exceptional.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>The broader point is that cross-group comparisons are not free. They carry an assumption, and the assumption is testable. IS research would be better served by making this test routine rather than exceptional.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/mental-health-apps-evidence-ethics/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Mental Health Apps: Good Intentions, Mixed Evidence</div></a><a href="/blog/markus-robey-emergent-causal-structure/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Technology Neither Determines Nor Submits</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/action-research-is-method/" class="related-item"><div><div class="related-cat">IS Research Methods</div><div class="related-title">Action Research in IS: When the Researcher Is Also the Intervener</div></div><span class="related-rt">7 min read</span></a><a href="/blog/ai-labor-market-is-research/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">AI and the Labor Market: What IS Research Can Contribute</div></div><span class="related-rt">6 min read</span></a><a href="/blog/ai-models-critical-realism-mechanisms/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">Critical Realism Explains Why AI Models Are Not the Mechanisms They Simulate</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/mental-health-apps-evidence-ethics/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Mental Health Apps: Good Intentions, Mixed Evidence</div></a><a href="/blog/markus-robey-emergent-causal-structure/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Technology Neither Determines Nor Submits</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/action-research-is-method/" class="blog-related-card"><h4>Action Research in IS: When the Researcher Is Also the Intervener</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/ai-labor-market-is-research/" class="blog-related-card"><h4>AI and the Labor Market: What IS Research Can Contribute</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-models-critical-realism-mechanisms/" class="blog-related-card"><h4>Critical Realism Explains Why AI Models Are Not the Mechanisms They Simulate</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

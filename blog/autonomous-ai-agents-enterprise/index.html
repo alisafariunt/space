@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/autonomous-ai-agents-enterprise/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Autonomous AI Agents: When the System Makes Decisions Without Asking","description":"AI agents that plan, act, and iterate without human input are moving into enterprise deployment. The accountability questions this raises do not have clean answers yet.","url":"https://alisafari.space/blog/autonomous-ai-agents-enterprise/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"AI & Agentic Systems","keywords":"AI & Agentic Systems, IS Research Methods"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>AI &amp; Agentic Systems</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">AI &amp; Agentic Systems</div>
+<h1 class="art-title">Autonomous AI Agents: When the System Makes Decisions Without Asking</h1>
+<p class="art-dek">AI agents that plan, act, and iterate without human input are moving into enterprise deployment. The accountability questions this raises do not have clean answers yet.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>7 min read</span>
+<span class="art-tag">AI &amp; Agentic Systems</span><span class="art-tag">IS Research Methods</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Autonomous AI Agents: When the System Makes Decisions Without Asking</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="autonomous-ai-agents-enterprise" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">AI &amp; Agentic Systems</span>
-<h1>Autonomous AI Agents: When the System Makes Decisions Without Asking</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 7 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Research Methods</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>There is a useful distinction between a tool and an agent. A tool does exactly what you tell it to do, every time, in the same way. A hammer does not decide which nail to hit. A spreadsheet formula does not choose which cells to reference. The entire point of a tool is that it has no discretion. You supply the judgment; the tool supplies the execution.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>There is a useful distinction between a tool and an agent. A tool does exactly what you tell it to do, every time, in the same way. A hammer does not decide which nail to hit. A spreadsheet formula does not choose which cells to reference. The entire point of a tool is that it has no discretion. You supply the judgment; the tool supplies the execution.</p>
 <p>An AI agent is something different. You give it a goal. It figures out the steps. It chooses which tools to use. It evaluates the results. It adjusts and tries again. If it hits an obstacle it cannot resolve, it either finds a workaround or asks for help. The human is not directing individual actions. The human sets the objective and the agent figures out the rest.</p>
 <p>That gap, between directing actions and setting objectives, is where most of the governance questions live.</p>
 <p>The technical architecture of agentic AI involves a model that can plan multi-step tasks, access external tools like web search, code execution, databases, and APIs, and loop through a sequence of action-evaluation-adjustment cycles until the goal is achieved or the agent determines it cannot proceed. Systems like these have been in research contexts for a few years, but in 2025 and 2026 they are actively being deployed in enterprise settings, not as experiments but as production systems with real business consequences. Customer service agents that can pull up account records, issue refunds, update data, and escalate cases. Code review agents that examine pull requests and flag issues. Research agents that gather information from multiple sources and synthesize findings into a report.</p>
@@ -70,47 +59,55 @@
 <p>The accountability gap shows up most clearly in regulated industries. A financial services firm that deploys an agent to process loan applications has to be able to explain why a specific application was approved or declined. Regulators require this. If the agent's decision process is opaque, the firm is exposed. A healthcare organization that uses an agent to triage patient inquiries has to be able to defend every action the agent took if something goes wrong. These are not hypothetical compliance concerns. They are real constraints that make agentic deployment in regulated contexts substantially more complex than in consumer applications.</p>
 <p>There is also a scope problem that is easy to underestimate. Human employees have intuitions about when to ask for permission. They know when something feels outside their normal remit, when the situation is unusual enough to check in, when the stakes are high enough that proceeding alone is a bad idea. These intuitions come from years of organizational socialization and judgment about risk and authority. Agents do not have this. An agent given broad tool access and an ambitious goal may take actions that are technically within its permissions but that a human operator, if they had been watching, would have stopped. The agent is not being reckless. It is doing exactly what it was designed to do: pursue the goal with the tools it has. But the boundary between "authorized to do" and "should probably ask first" is a judgment call that agents currently make poorly.</p>
 <p>From an IS research perspective, this connects to agency theory in an interesting way. The principal-agent problem traditionally assumes the agent is a human with interests that may diverge from the principal's. The monitoring and incentive mechanisms are designed around that assumption. An AI agent does not have interests in the same sense, but it can still diverge from principal intent because its goal representation, its interpretation of instructions, and its tool usage may not align with what the principal actually wanted. The divergence is not motivational. It is representational. And monitoring AI agent behavior in real time, at the speed agents operate, is not the same problem as monitoring a human employee.</p>
-<p>I do not think this means organizations should not deploy agents. The efficiency gains are real and the technology is moving fast. What it means is that the governance design has to precede the deployment, not follow it. Who is accountable when an agent takes an action that harms a customer? What actions require human approval before execution? What audit trail does the system maintain? What does "rollback" look like when an agent has already updated several records and sent three emails? These questions have answers. They require careful design. Most enterprise deployments I am aware of are working through them in real time, which means the governance is catching up to the capability rather than running alongside it.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>I do not think this means organizations should not deploy agents. The efficiency gains are real and the technology is moving fast. What it means is that the governance design has to precede the deployment, not follow it. Who is accountable when an agent takes an action that harms a customer? What actions require human approval before execution? What audit trail does the system maintain? What does "rollback" look like when an agent has already updated several records and sent three emails? These questions have answers. They require careful design. Most enterprise deployments I am aware of are working through them in real time, which means the governance is catching up to the capability rather than running alongside it.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/boundary-objects-spreadsheet-coordination/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Everyone Hates the Spreadsheet, But Nobody Deletes It</div></a><a href="/blog/attention-based-view-strategy-focus/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Strategy Is What Your Organization Actually Pays Attention To</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/action-research-is-method/" class="related-item"><div><div class="related-cat">IS Research Methods</div><div class="related-title">Action Research in IS: When the Researcher Is Also the Intervener</div></div><span class="related-rt">7 min read</span></a><a href="/blog/agency-theory-algorithm-accountability/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">When the Algorithm Fails, Nobody Takes the Call</div></div><span class="related-rt">6 min read</span></a><a href="/blog/agent-ecosystems-platform-envelopment/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">The Internet of Agents Will Be Built by Platforms That Own the Protocol</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/boundary-objects-spreadsheet-coordination/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Everyone Hates the Spreadsheet, But Nobody Deletes It</div></a><a href="/blog/attention-based-view-strategy-focus/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Strategy Is What Your Organization Actually Pays Attention To</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/action-research-is-method/" class="blog-related-card"><h4>Action Research in IS: When the Researcher Is Also the Intervener</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agent-ecosystems-platform-envelopment/" class="blog-related-card"><h4>The Internet of Agents Will Be Built by Platforms That Own the Protocol</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

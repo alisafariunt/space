@@ -1,376 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Ali Safari</title><meta name="description" content="Ali Safari's blog on Information Systems research, AI, security, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Blog | Ali Safari"><meta property="og:description" content="Information Systems research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<title>Field Notes | Ali Safari</title><meta name="description" content="Ali Safari's notes on Information Systems research, AI, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Field Notes | Ali Safari"><meta property="og:description" content="Notes on IS research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="canonical" href="https://alisafari.space/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Ali Safari Blog","description":"Thoughts on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Field Notes — Ali Safari","description":"Notes on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
 </head>
-<body class="blog-page">
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="index">
+<header class="masthead">
+<div class="masthead-kicker">Field Notes &mdash; Ali Safari &mdash; 258 notes</div>
+<h1 class="masthead-title">Field<br>Notes.</h1>
+<div class="masthead-bottom">
+<p class="masthead-dek">Honest reactions to IS research, AI, and the theory I'm studying for comps. No summaries.</p>
+<div class="masthead-stats">
+<div><b>258</b> Posts</div>
+<div><b>10</b> Topics</div>
 </div>
-</div></nav>
-<header class="blog-header">
-<h1>Blog</h1>
-<p class="blog-subtitle">Thoughts on IS theory, AI, technology, and comps studying. No summaries, just honest reactions.</p>
-<div class="blog-meta">
-<span class="blog-meta-item"><i class="fas fa-pen-nib"></i> 258 posts</span>
-<span class="blog-meta-item"><i class="fas fa-tags"></i> 10 topics</span>
 </div>
 </header>
-<section class="blog-stats-bar">
-<div class="blog-stat"><span class="blog-stat-value">258</span><div class="blog-stat-label">Posts</div></div>
-<div class="blog-stat"><span class="blog-stat-value">10</span><div class="blog-stat-label">Topics</div></div>
-<div class="blog-stat"><span class="blog-stat-value">2026</span><div class="blog-stat-label">Latest</div></div>
-</section>
-<div class="blog-controls">
-<div class="blog-search-box"><i class="fas fa-search"></i><input type="text" id="blogSearch" placeholder="Search posts by title or content..." autocomplete="off"></div>
-<div class="blog-filter-sort">
-<button class="blog-filter-btn active" data-sort="newest"><i class="fas fa-sort-amount-down"></i> Newest</button>
-<button class="blog-filter-btn" data-sort="oldest"><i class="fas fa-sort-amount-up"></i> Oldest</button>
+<div class="controls">
+<div class="search-wrap">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="blogSearch" placeholder="Search notes…" autocomplete="off">
+</div>
+<div class="seg">
+<button class="on" data-sort="newest">Newest</button>
+<button data-sort="oldest">Oldest</button>
+</div>
+</div>
+<div class="tags" id="tagFilters"><button class="tag-chip on" data-tag="all">All <span class="n">258</span></button><button class="tag-chip" data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="n">86</span></button><button class="tag-chip" data-tag="IS Theory">IS Theory <span class="n">82</span></button><button class="tag-chip" data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="n">77</span></button><button class="tag-chip" data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="n">74</span></button><button class="tag-chip" data-tag="Organizational Theory">Organizational Theory <span class="n">72</span></button><button class="tag-chip" data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="n">47</span></button><button class="tag-chip" data-tag="IS Research Methods">IS Research Methods <span class="n">43</span></button><button class="tag-chip" data-tag="Technology Adoption">Technology Adoption <span class="n">32</span></button><button class="tag-chip" data-tag="Trust &amp; Security">Trust &amp; Security <span class="n">31</span></button><button class="tag-chip" data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="n">29</span></button></div>
+
+<div class="post-list" id="postList">
+<div class="post-row" data-title="everyone copied everyone else&#x27;s ai strategy" data-tags="AI &amp; Agentic Systems,Organizational Theory" data-date="2026-05-14" data-slug="institutional-isomorphism-ai-adoption" onclick="location.href='/blog/institutional-isomorphism-ai-adoption/'"><div class="pr-n">141</div><div class="pr-body"><div class="pr-title"><a href="/blog/institutional-isomorphism-ai-adoption/">Everyone Copied Everyone Else&#x27;s AI Strategy</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the hospital and the startup are not playing the same game" data-tags="IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="institutional-logics-competing-rationalities" onclick="location.href='/blog/institutional-logics-competing-rationalities/'"><div class="pr-n">142</div><div class="pr-body"><div class="pr-title"><a href="/blog/institutional-logics-competing-rationalities/">The Hospital and the Startup Are Not Playing the Same Game</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="interdisciplinary is research: opportunity or identity crisis?" data-tags="IS Theory" data-date="2026-05-14" data-slug="interdisciplinary-is-research-challenge" onclick="location.href='/blog/interdisciplinary-is-research-challenge/'"><div class="pr-n">143</div><div class="pr-body"><div class="pr-title"><a href="/blog/interdisciplinary-is-research-challenge/">Interdisciplinary IS Research: Opportunity or Identity Crisis?</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="shadow it is intrapreneurship with a compliance problem" data-tags="IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="intrapreneurship-is-innovation-enterprise" onclick="location.href='/blog/intrapreneurship-is-innovation-enterprise/'"><div class="pr-n">144</div><div class="pr-body"><div class="pr-title"><a href="/blog/intrapreneurship-is-innovation-enterprise/">Shadow IT Is Intrapreneurship With a Compliance Problem</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="iot in manufacturing: the gap between pilot and plant" data-tags="Technology Adoption" data-date="2026-05-14" data-slug="iot-manufacturing-adoption-gap" onclick="location.href='/blog/iot-manufacturing-adoption-gap/'"><div class="pr-n">145</div><div class="pr-body"><div class="pr-title"><a href="/blog/iot-manufacturing-adoption-gap/">IoT in Manufacturing: The Gap Between Pilot and Plant</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Technology Adoption</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="what you can actually do with an is degree in 2026" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections" data-date="2026-05-14" data-slug="is-career-paths-2026" onclick="location.href='/blog/is-career-paths-2026/'"><div class="pr-n">146</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-career-paths-2026/">What You Can Actually Do with an IS Degree in 2026</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="is consulting vs. is academia: an honest comparison" data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="is-consulting-vs-academia" onclick="location.href='/blog/is-consulting-vs-academia/'"><div class="pr-n">147</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-consulting-vs-academia/">IS Consulting vs. IS Academia: An Honest Comparison</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="is in developing countries: the assumptions that don&#x27;t travel" data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="is-developing-countries-assumptions" onclick="location.href='/blog/is-developing-countries-assumptions/'"><div class="pr-n">148</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-developing-countries-assumptions/">IS in Developing Countries: The Assumptions That Don&#x27;t Travel</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="is journals and how the publishing game actually works" data-tags="Comps &amp; Reflections,IS Research Methods" data-date="2026-05-14" data-slug="is-journals-publishing-game" onclick="location.href='/blog/is-journals-publishing-game/'"><div class="pr-n">149</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-journals-publishing-game/">IS Journals and How the Publishing Game Actually Works</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="what is phd programs teach and what they don&#x27;t" data-tags="Comps &amp; Reflections,IS Research Methods" data-date="2026-05-14" data-slug="is-phd-program-gaps" onclick="location.href='/blog/is-phd-program-gaps/'"><div class="pr-n">150</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-phd-program-gaps/">What IS PhD Programs Teach and What They Don&#x27;t</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="what nobody tells you before starting an is phd" data-tags="IS Research Methods" data-date="2026-05-14" data-slug="is-phd-what-nobody-tells-you" onclick="location.href='/blog/is-phd-what-nobody-tells-you/'"><div class="pr-n">151</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-phd-what-nobody-tells-you/">What Nobody Tells You Before Starting an IS PhD</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="is research borrows constantly. that&#x27;s the problem and the point." data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="is-research-across-disciplines" onclick="location.href='/blog/is-research-across-disciplines/'"><div class="pr-n">152</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-research-across-disciplines/">IS Research Borrows Constantly. That&#x27;s the Problem and the Point.</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="delone and mclean&#x27;s is success model works for ai if you flip who the user is" data-tags="AI &amp; Agentic Systems,IS Theory" data-date="2026-05-14" data-slug="is-success-model-ai-flip-user" onclick="location.href='/blog/is-success-model-ai-flip-user/'"><div class="pr-n">153</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-success-model-ai-flip-user/">DeLone and McLean&#x27;s IS Success Model Works for AI If You Flip Who the User Is</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the is success model and what it misses today" data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="is-success-model-what-it-misses" onclick="location.href='/blog/is-success-model-what-it-misses/'"><div class="pr-n">154</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-success-model-what-it-misses/">The IS Success Model and What It Misses Today</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="is research has an environmental cost problem it mostly ignores" data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="is-sustainability-environmental-cost-computing" onclick="location.href='/blog/is-sustainability-environmental-cost-computing/'"><div class="pr-n">155</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-sustainability-environmental-cost-computing/">IS Research Has an Environmental Cost Problem It Mostly Ignores</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the theory-practice gap in is: who is this research for?" data-tags="IS Research Methods" data-date="2026-05-14" data-slug="is-theory-practice-gap" onclick="location.href='/blog/is-theory-practice-gap/'"><div class="pr-n">156</div><div class="pr-body"><div class="pr-title"><a href="/blog/is-theory-practice-gap/">The Theory-Practice Gap in IS: Who Is This Research For?</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="it-business alignment: still unsolved after three decades" data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="it-business-alignment-henderson-venkatraman" onclick="location.href='/blog/it-business-alignment-henderson-venkatraman/'"><div class="pr-n">157</div><div class="pr-body"><div class="pr-title"><a href="/blog/it-business-alignment-henderson-venkatraman/">IT-Business Alignment: Still Unsolved After Three Decades</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the it-business alignment problem: still unsolved after 30 years" data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="it-business-alignment-still-unsolved" onclick="location.href='/blog/it-business-alignment-still-unsolved/'"><div class="pr-n">158</div><div class="pr-body"><div class="pr-title"><a href="/blog/it-business-alignment-still-unsolved/">The IT-Business Alignment Problem: Still Unsolved After 30 Years</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="it capability and organizational performance: what the research shows" data-tags="IS Research Methods,IS Theory,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="it-capability-organizational-performance" onclick="location.href='/blog/it-capability-organizational-performance/'"><div class="pr-n">159</div><div class="pr-body"><div class="pr-title"><a href="/blog/it-capability-organizational-performance/">IT Capability and Organizational Performance: What the Research Shows</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="it outsourcing: why we keep doing the same thing" data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="it-outsourcing-same-cycle" onclick="location.href='/blog/it-outsourcing-same-cycle/'"><div class="pr-n">160</div><div class="pr-body"><div class="pr-title"><a href="/blog/it-outsourcing-same-cycle/">IT Outsourcing: Why We Keep Doing the Same Thing</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div>
+<div id="emptyState" style="display:none;padding:64px 0;font-family:var(--f-mono);font-size:13px;color:var(--ink-4);letter-spacing:.07em;text-transform:uppercase;">No notes found</div>
+<div class="pgn"><a href="/blog/page/7/" class="pgn-step">&#8592; Prev</a><div class="pgn-nums"><button onclick="location.href='/blog/'">1</button><button onclick="location.href='/blog/page/2/'">2</button><button onclick="location.href='/blog/page/3/'">3</button><button onclick="location.href='/blog/page/4/'">4</button><button onclick="location.href='/blog/page/5/'">5</button><button onclick="location.href='/blog/page/6/'">6</button><button onclick="location.href='/blog/page/7/'">7</button><span class="cur">8</span><button onclick="location.href='/blog/page/9/'">9</button><button onclick="location.href='/blog/page/10/'">10</button><button onclick="location.href='/blog/page/11/'">11</button><button onclick="location.href='/blog/page/12/'">12</button><button onclick="location.href='/blog/page/13/'">13</button></div><a href="/blog/page/9/" class="pgn-step">Next &#8594;</a></div>
+</div>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="blog-tag-filters"><a href="/blog/" class="blog-tag-chip active" data-tag="all">All <span class="tag-count">258</span></a><a href="/blog/?tag=Comps &amp; Reflections" class="blog-tag-chip " data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="tag-count">86</span></a><a href="/blog/?tag=IS Theory" class="blog-tag-chip " data-tag="IS Theory">IS Theory <span class="tag-count">82</span></a><a href="/blog/?tag=IT Governance &amp; Strategy" class="blog-tag-chip " data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="tag-count">77</span></a><a href="/blog/?tag=AI &amp; Agentic Systems" class="blog-tag-chip " data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="tag-count">74</span></a><a href="/blog/?tag=Organizational Theory" class="blog-tag-chip " data-tag="Organizational Theory">Organizational Theory <span class="tag-count">72</span></a><a href="/blog/?tag=Platforms &amp; Ecosystems" class="blog-tag-chip " data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="tag-count">47</span></a><a href="/blog/?tag=IS Research Methods" class="blog-tag-chip " data-tag="IS Research Methods">IS Research Methods <span class="tag-count">43</span></a><a href="/blog/?tag=Technology Adoption" class="blog-tag-chip " data-tag="Technology Adoption">Technology Adoption <span class="tag-count">32</span></a><a href="/blog/?tag=Trust &amp; Security" class="blog-tag-chip " data-tag="Trust &amp; Security">Trust &amp; Security <span class="tag-count">31</span></a><a href="/blog/?tag=Sociotechnical Systems" class="blog-tag-chip " data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="tag-count">29</span></a></div>
-<div class="blog-grid" id="blogGrid">
-<div class="blog-grid-item" data-title="everyone copied everyone else&#x27;s ai strategy" data-excerpt="most organizations adopting ai are not making rational decisions. they are responding to coercive, mimetic, and normative pressure that makes copying feel like strategy." data-tags="AI &amp; Agentic Systems,Organizational Theory" data-date="2026-05-14" data-slug="institutional-isomorphism-ai-adoption">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/institutional-isomorphism-ai-adoption/">Everyone Copied Everyone Else&#x27;s AI Strategy</a></h2>
-</div>
-<p class="card-excerpt">Most organizations adopting AI are not making rational decisions. They are responding to coercive, mimetic, and normative pressure that makes copying feel like ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="institutional-isomorphism-ai-adoption" title="Save for later" aria-label="Save Everyone Copied Everyone Else&#x27;s AI Strategy for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/institutional-isomorphism-ai-adoption/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the hospital and the startup are not playing the same game" data-excerpt="different institutional logics give people different definitions of rational. market logic says grow fast; clinical logic says do no harm. when they clash in healthcare, banking, or education, technology alone cannot bridge the gap." data-tags="IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="institutional-logics-competing-rationalities">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/institutional-logics-competing-rationalities/">The Hospital and the Startup Are Not Playing the Same Game</a></h2>
-</div>
-<p class="card-excerpt">Different institutional logics give people different definitions of rational. Market logic says grow fast; clinical logic says do no harm. When they clash in he...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="institutional-logics-competing-rationalities" title="Save for later" aria-label="Save The Hospital and the Startup Are Not Playing the Same Game for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/institutional-logics-competing-rationalities/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="interdisciplinary is research: opportunity or identity crisis?" data-excerpt="is borrows from almost every social science discipline. that flexibility is the field&#x27;s strength and the source of its deepest ongoing argument." data-tags="IS Theory" data-date="2026-05-14" data-slug="interdisciplinary-is-research-challenge">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/interdisciplinary-is-research-challenge/">Interdisciplinary IS Research: Opportunity or Identity Crisis?</a></h2>
-</div>
-<p class="card-excerpt">IS borrows from almost every social science discipline. That flexibility is the field&#x27;s strength and the source of its deepest ongoing argument.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="interdisciplinary-is-research-challenge" title="Save for later" aria-label="Save Interdisciplinary IS Research: Opportunity or Identity Crisis? for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/interdisciplinary-is-research-challenge/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="shadow it is intrapreneurship with a compliance problem" data-excerpt="when employees spin up unauthorized cloud accounts and build their own tools, they are being intrapreneurial. the question is whether organizations can harness that without losing control." data-tags="IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="intrapreneurship-is-innovation-enterprise">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/intrapreneurship-is-innovation-enterprise/">Shadow IT Is Intrapreneurship With a Compliance Problem</a></h2>
-</div>
-<p class="card-excerpt">When employees spin up unauthorized cloud accounts and build their own tools, they are being intrapreneurial. The question is whether organizations can harness ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="intrapreneurship-is-innovation-enterprise" title="Save for later" aria-label="Save Shadow IT Is Intrapreneurship With a Compliance Problem for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/intrapreneurship-is-innovation-enterprise/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="iot in manufacturing: the gap between pilot and plant" data-excerpt="sensor technology works in controlled conditions. deploying it across a real production floor, with legacy machines, variable connectivity, and skeptical workers, is a different problem." data-tags="Technology Adoption" data-date="2026-05-14" data-slug="iot-manufacturing-adoption-gap">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/iot-manufacturing-adoption-gap/">IoT in Manufacturing: The Gap Between Pilot and Plant</a></h2>
-</div>
-<p class="card-excerpt">Sensor technology works in controlled conditions. Deploying it across a real production floor, with legacy machines, variable connectivity, and skeptical worker...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="iot-manufacturing-adoption-gap" title="Save for later" aria-label="Save IoT in Manufacturing: The Gap Between Pilot and Plant for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/iot-manufacturing-adoption-gap/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="what you can actually do with an is degree in 2026" data-excerpt="is sits between technology and management, and that positioning opens more paths than most people realize, including some that didn&#x27;t exist five years ago." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections" data-date="2026-05-14" data-slug="is-career-paths-2026">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-career-paths-2026/">What You Can Actually Do with an IS Degree in 2026</a></h2>
-</div>
-<p class="card-excerpt">IS sits between technology and management, and that positioning opens more paths than most people realize, including some that didn&#x27;t exist five years ago.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-career-paths-2026" title="Save for later" aria-label="Save What You Can Actually Do with an IS Degree in 2026 for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-career-paths-2026/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="is consulting vs. is academia: an honest comparison" data-excerpt="both paths study organizations and technology. the differences in how they do it, and what you give up, are rarely described honestly." data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="is-consulting-vs-academia">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-consulting-vs-academia/">IS Consulting vs. IS Academia: An Honest Comparison</a></h2>
-</div>
-<p class="card-excerpt">Both paths study organizations and technology. The differences in how they do it, and what you give up, are rarely described honestly.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-consulting-vs-academia" title="Save for later" aria-label="Save IS Consulting vs. IS Academia: An Honest Comparison for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-consulting-vs-academia/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="is in developing countries: the assumptions that don&#x27;t travel" data-excerpt="most is theory was built in high-income countries with reliable infrastructure. when you apply those assumptions in lmics, many of them fall apart immediately." data-tags="Comps &amp; Reflections" data-date="2026-05-14" data-slug="is-developing-countries-assumptions">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-developing-countries-assumptions/">IS in Developing Countries: The Assumptions That Don&#x27;t Travel</a></h2>
-</div>
-<p class="card-excerpt">Most IS theory was built in high-income countries with reliable infrastructure. When you apply those assumptions in LMICs, many of them fall apart immediately.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-developing-countries-assumptions" title="Save for later" aria-label="Save IS in Developing Countries: The Assumptions That Don&#x27;t Travel for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-developing-countries-assumptions/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="is journals and how the publishing game actually works" data-excerpt="academic publishing in is is slow, opaque, and high-stakes. understanding the game is as important as doing good research." data-tags="Comps &amp; Reflections,IS Research Methods" data-date="2026-05-14" data-slug="is-journals-publishing-game">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-journals-publishing-game/">IS Journals and How the Publishing Game Actually Works</a></h2>
-</div>
-<p class="card-excerpt">Academic publishing in IS is slow, opaque, and high-stakes. Understanding the game is as important as doing good research.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-journals-publishing-game" title="Save for later" aria-label="Save IS Journals and How the Publishing Game Actually Works for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-journals-publishing-game/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="what is phd programs teach and what they don&#x27;t" data-excerpt="going through an is phd program has been genuinely valuable. it has also revealed some consistent gaps between what the curriculum covers and what doing is research actually requires." data-tags="Comps &amp; Reflections,IS Research Methods" data-date="2026-05-14" data-slug="is-phd-program-gaps">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-phd-program-gaps/">What IS PhD Programs Teach and What They Don&#x27;t</a></h2>
-</div>
-<p class="card-excerpt">Going through an IS PhD program has been genuinely valuable. It has also revealed some consistent gaps between what the curriculum covers and what doing IS rese...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-phd-program-gaps" title="Save for later" aria-label="Save What IS PhD Programs Teach and What They Don&#x27;t for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-phd-program-gaps/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="what nobody tells you before starting an is phd" data-excerpt="the things i wish someone had said to me before i started: about reading, theory, reviewers, advisors, and the strange valley you fall into around year two." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="is-phd-what-nobody-tells-you">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-phd-what-nobody-tells-you/">What Nobody Tells You Before Starting an IS PhD</a></h2>
-</div>
-<p class="card-excerpt">The things I wish someone had said to me before I started: about reading, theory, reviewers, advisors, and the strange valley you fall into around year two.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-phd-what-nobody-tells-you" title="Save for later" aria-label="Save What Nobody Tells You Before Starting an IS PhD for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-phd-what-nobody-tells-you/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="is research borrows constantly. that&#x27;s the problem and the point." data-excerpt="is draws its theories from economics, sociology, psychology, and computer science. the result is a discipline with a persistent identity problem and an unusual opportunity." data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="is-research-across-disciplines">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-research-across-disciplines/">IS Research Borrows Constantly. That&#x27;s the Problem and the Point.</a></h2>
-</div>
-<p class="card-excerpt">IS draws its theories from economics, sociology, psychology, and computer science. The result is a discipline with a persistent identity problem and an unusual ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-research-across-disciplines" title="Save for later" aria-label="Save IS Research Borrows Constantly. That&#x27;s the Problem and the Point. for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-research-across-disciplines/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="delone and mclean&#x27;s is success model works for ai if you flip who the user is" data-excerpt="delone and mclean&#x27;s is success model applies to ai systems when you expand &#x27;user&#x27; to include both humans and the downstream systems that consume ai output." data-tags="AI &amp; Agentic Systems,IS Theory" data-date="2026-05-14" data-slug="is-success-model-ai-flip-user">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-success-model-ai-flip-user/">DeLone and McLean&#x27;s IS Success Model Works for AI If You Flip Who the User Is</a></h2>
-</div>
-<p class="card-excerpt">DeLone and McLean&#x27;s IS success model applies to AI systems when you expand &#x27;user&#x27; to include both humans and the downstream systems that consume AI output.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-success-model-ai-flip-user" title="Save for later" aria-label="Save DeLone and McLean&#x27;s IS Success Model Works for AI If You Flip Who the User Is for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-success-model-ai-flip-user/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the is success model and what it misses today" data-excerpt="delone and mclean built the most cited is success model for transactional systems. most software today is something else entirely." data-tags="IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="is-success-model-what-it-misses">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-success-model-what-it-misses/">The IS Success Model and What It Misses Today</a></h2>
-</div>
-<p class="card-excerpt">DeLone and McLean built the most cited IS success model for transactional systems. Most software today is something else entirely.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-success-model-what-it-misses" title="Save for later" aria-label="Save The IS Success Model and What It Misses Today for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-success-model-what-it-misses/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="is research has an environmental cost problem it mostly ignores" data-excerpt="digital infrastructure consumes significant electricity. is researchers studying digital transformation should be asking who measures, reports, and governs the it carbon footprint." data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="is-sustainability-environmental-cost-computing">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-sustainability-environmental-cost-computing/">IS Research Has an Environmental Cost Problem It Mostly Ignores</a></h2>
-</div>
-<p class="card-excerpt">Digital infrastructure consumes significant electricity. IS researchers studying digital transformation should be asking who measures, reports, and governs the ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-sustainability-environmental-cost-computing" title="Save for later" aria-label="Save IS Research Has an Environmental Cost Problem It Mostly Ignores for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-sustainability-environmental-cost-computing/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the theory-practice gap in is: who is this research for?" data-excerpt="is research is supposed to matter to both academics and practitioners. in practice, two separate conversations are happening with almost no crossover." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="is-theory-practice-gap">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/is-theory-practice-gap/">The Theory-Practice Gap in IS: Who Is This Research For?</a></h2>
-</div>
-<p class="card-excerpt">IS research is supposed to matter to both academics and practitioners. In practice, two separate conversations are happening with almost no crossover.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="is-theory-practice-gap" title="Save for later" aria-label="Save The Theory-Practice Gap in IS: Who Is This Research For? for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/is-theory-practice-gap/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="it-business alignment: still unsolved after three decades" data-excerpt="henderson and venkatraman published their strategic alignment model in 1993. three decades later, it-business alignment still tops cio concern lists. the problem persists." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="it-business-alignment-henderson-venkatraman">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/it-business-alignment-henderson-venkatraman/">IT-Business Alignment: Still Unsolved After Three Decades</a></h2>
-</div>
-<p class="card-excerpt">Henderson and Venkatraman published their Strategic Alignment Model in 1993. Three decades later, IT-business alignment still tops CIO concern lists. The proble...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="it-business-alignment-henderson-venkatraman" title="Save for later" aria-label="Save IT-Business Alignment: Still Unsolved After Three Decades for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/it-business-alignment-henderson-venkatraman/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the it-business alignment problem: still unsolved after 30 years" data-excerpt="henderson and venkatraman published the strategic alignment model in 1993. alignment remains a top cio concern today. the problem has not gone away." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="it-business-alignment-still-unsolved">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/it-business-alignment-still-unsolved/">The IT-Business Alignment Problem: Still Unsolved After 30 Years</a></h2>
-</div>
-<p class="card-excerpt">Henderson and Venkatraman published the Strategic Alignment Model in 1993. Alignment remains a top CIO concern today. The problem has not gone away.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="it-business-alignment-still-unsolved" title="Save for later" aria-label="Save The IT-Business Alignment Problem: Still Unsolved After 30 Years for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/it-business-alignment-still-unsolved/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="it capability and organizational performance: what the research shows" data-excerpt="the productivity paradox asked why it spending didn&#x27;t show up in productivity data. the answer turned out to be about capability, not spending." data-tags="IS Research Methods,IS Theory,IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="it-capability-organizational-performance">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/it-capability-organizational-performance/">IT Capability and Organizational Performance: What the Research Shows</a></h2>
-</div>
-<p class="card-excerpt">The productivity paradox asked why IT spending didn&#x27;t show up in productivity data. The answer turned out to be about capability, not spending.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="it-capability-organizational-performance" title="Save for later" aria-label="Save IT Capability and Organizational Performance: What the Research Shows for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/it-capability-organizational-performance/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="it outsourcing: why we keep doing the same thing" data-excerpt="organizations outsource it, run into problems, bring it back in-house, then outsource again. the cycle is predictable. the reasons it repeats are not mysterious." data-tags="Comps &amp; Reflections,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="it-outsourcing-same-cycle">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/it-outsourcing-same-cycle/">IT Outsourcing: Why We Keep Doing the Same Thing</a></h2>
-</div>
-<p class="card-excerpt">Organizations outsource IT, run into problems, bring it back in-house, then outsource again. The cycle is predictable. The reasons it repeats are not mysterious...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="it-outsourcing-same-cycle" title="Save for later" aria-label="Save IT Outsourcing: Why We Keep Doing the Same Thing for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/it-outsourcing-same-cycle/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div>
-<div class="blog-empty-state" style="display:none"><i class="fas fa-search"></i><h3>No posts found</h3><p>Try a different search term.</p></div>
-</div>
-<div class="blog-pagination"><a href="/blog/">1</a><a href="/blog/page/2/">2</a><a href="/blog/page/3/">3</a><a href="/blog/page/4/">4</a><a href="/blog/page/5/">5</a><a href="/blog/page/6/">6</a><a href="/blog/page/7/">7</a><span class="current">8</span><a href="/blog/page/9/">9</a><a href="/blog/page/10/">10</a><a href="/blog/page/11/">11</a><a href="/blog/page/12/">12</a><a href="/blog/page/13/">13</a></div>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-</div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
 </body></html>

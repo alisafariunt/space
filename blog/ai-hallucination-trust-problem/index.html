@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/ai-hallucination-trust-problem/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"AI Hallucination Is a Trust Problem, Not a Technical One","description":"Hallucination is framed as a retrieval bug to be engineered away. Lee and See would call it a trust calibration failure, and that framing changes the solution entirely.","url":"https://alisafari.space/blog/ai-hallucination-trust-problem/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"AI & Agentic Systems","keywords":"AI & Agentic Systems, Trust & Security"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>AI &amp; Agentic Systems</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">AI &amp; Agentic Systems</div>
+<h1 class="art-title">AI Hallucination Is a Trust Problem, Not a Technical One</h1>
+<p class="art-dek">Hallucination is framed as a retrieval bug to be engineered away. Lee and See would call it a trust calibration failure, and that framing changes the solution entirely.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">AI &amp; Agentic Systems</span><span class="art-tag">Trust &amp; Security</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">AI Hallucination Is a Trust Problem, Not a Technical One</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="ai-hallucination-trust-problem" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">AI &amp; Agentic Systems</span>
-<h1>AI Hallucination Is a Trust Problem, Not a Technical One</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Trust &amp; Security</span></div>
-</div>
-</article>
+</header>
 <div class="series-badge"><span class="series-label">Ai</span><span class="series-counter">Part 12 of 38</span><div class="series-nav"><a href="/blog/ai-adoption-s-curve-diffusion/">Ai Adoption S Curve </a> &rsaquo; <a href="/blog/ai-adoption-social-network-theory/">Ai Adoption Social N</a> &rsaquo; <a href="/blog/ai-adoption-toe-framework/">Ai Adoption Toe Fram</a> &rsaquo; <a href="/blog/ai-agents-principal-agent-theory/">Ai Agents Principal </a> &rsaquo; <a href="/blog/ai-ambidexterity-exploit-explore/">Ai Ambidexterity Exp</a> &rsaquo; <a href="/blog/ai-chatbots-media-richness-theory/">Ai Chatbots Media Ri</a> &rsaquo; <a href="/blog/ai-coding-effective-use-quality/">Ai Coding Effective </a> &rsaquo; <a href="/blog/ai-colleague-structuration-theory/">Ai Colleague Structu</a> &rsaquo; <a href="/blog/ai-energy-sociotechnical-systems/">Ai Energy Sociotechn</a> &rsaquo; <a href="/blog/ai-ethics-ceremonial-adoption-isomorphism/">Ai Ethics Ceremonial</a> &rsaquo; <a href="/blog/ai-garbage-can-model-adoption/">Ai Garbage Can Model</a> &rsaquo; <span class="series-current">12</span> &rsaquo; <a href="/blog/ai-healthcare-identity-theory-professional/">Ai Healthcare Identi</a> &rsaquo; <a href="/blog/ai-hiring-fairness-metric-experience-gap/">Ai Hiring Fairness M</a> &rsaquo; <a href="/blog/ai-implementation-failure-sociotechnical/">Ai Implementation Fa</a> &rsaquo; <a href="/blog/ai-is-research-methods-evolution/">Ai Is Research Metho</a> &rsaquo; <a href="/blog/ai-labor-market-is-research/">Ai Labor Market Is R</a> &rsaquo; <a href="/blog/ai-models-critical-realism-mechanisms/">Ai Models Critical R</a> &rsaquo; <a href="/blog/ai-native-development-tiny-teams-delegation/">Ai Native Developmen</a> &rsaquo; <a href="/blog/ai-network-effects-data-flywheel/">Ai Network Effects D</a> &rsaquo; <a href="/blog/ai-observational-learning-social-cognitive/">Ai Observational Lea</a> &rsaquo; <a href="/blog/ai-output-boundary-objects/">Ai Output Boundary O</a> &rsaquo; <a href="/blog/ai-participant-work-systems-theory/">Ai Participant Work </a> &rsaquo; <a href="/blog/ai-pilots-dont-become-products/">Ai Pilots Dont Becom</a> &rsaquo; <a href="/blog/ai-pilots-dont-become-products.claims/">Ai Pilots Dont Becom</a> &rsaquo; <a href="/blog/ai-pilots-dont-become-products.review/">Ai Pilots Dont Becom</a> &rsaquo; <a href="/blog/ai-pilots-dont-become-products.verification/">Ai Pilots Dont Becom</a> &rsaquo; <a href="/blog/ai-policy-governance-theater-isomorphism/">Ai Policy Governance</a> &rsaquo; <a href="/blog/ai-regulation-global-landscape/">Ai Regulation Global</a> &rsaquo; <a href="/blog/ai-safety-pmt-fear-danger/">Ai Safety Pmt Fear D</a> &rsaquo; <a href="/blog/ai-security-platforms-governance-boundary-resources/">Ai Security Platform</a> &rsaquo; <a href="/blog/ai-self-efficacy-digital-divide/">Ai Self Efficacy Dig</a> &rsaquo; <a href="/blog/ai-supercomputing-rbv-commodity/">Ai Supercomputing Rb</a> &rsaquo; <a href="/blog/ai-task-technology-fit/">Ai Task Technology F</a> &rsaquo; <a href="/blog/ai-training-data-knowledge-based-view/">Ai Training Data Kno</a> &rsaquo; <a href="/blog/ai-transaction-cost-economics/">Ai Transaction Cost </a> &rsaquo; <a href="/blog/ai-trust-repair-willingness-vulnerability/">Ai Trust Repair Will</a> &rsaquo; <a href="/blog/ai-vendor-concentration-resource-dependency/">Ai Vendor Concentrat</a></div></div>
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>In May 2023 a lawyer filed a federal brief in the Southern District of New York. He had used ChatGPT to research precedent, and the model had cheerfully invented six cases that did not exist, complete with docket numbers, plaintiff names, and plausible-sounding holdings. The lawyer did not verify them because the output looked authoritative. The judge noticed. Sanctions followed. When I first read about this, the reaction I kept seeing was that we need better models, better retrieval, better grounding. What I could not stop thinking was that this has nothing to do with the model architecture. It has everything to do with how a human calibrated trust in a system that was intermittently reliable in ways the human could not predict.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>In May 2023 a lawyer filed a federal brief in the Southern District of New York. He had used ChatGPT to research precedent, and the model had cheerfully invented six cases that did not exist, complete with docket numbers, plaintiff names, and plausible-sounding holdings. The lawyer did not verify them because the output looked authoritative. The judge noticed. Sanctions followed. When I first read about this, the reaction I kept seeing was that we need better models, better retrieval, better grounding. What I could not stop thinking was that this has nothing to do with the model architecture. It has everything to do with how a human calibrated trust in a system that was intermittently reliable in ways the human could not predict.</p>
 <p>The AI industry frames hallucination as a technical bug. Better training data. Retrieval-augmented generation. Tighter prompting. Stricter factuality benchmarks. The assumption is that hallucination lives inside the model, and if we engineer the model better, the problem shrinks. I think this is the wrong frame. Lee and See (2004) would look at the lawyer, the chatbot, the enterprise team that gave up on their AI pilot, and call all of them the same thing: a trust calibration failure. The technical fix misses the mechanism that actually causes the damage.</p>
 <p>Lee and See (2004) give three calibration states. Overtrust, or misuse, is when a person relies on automation beyond its actual capability. This is the lawyer. The ChatGPT output looked like legal writing, it cited real-sounding authorities, it used the register and format of a federal filing. The lawyer calibrated trust based on surface fluency, not on actual reliability, because surface fluency was the only signal available. The system gave no warning flag, no confidence score, no structural cue that said "I am fabricating right now." The lawyer was not lazy. He was operating with incomplete information about when the system would fail. That is overtrust, and overtrust is a calibration problem, not a retrieval problem.</p>
 <p>Undertrust is the mirror image. It happens when people reject automation that could improve their performance, because past failures or opacity have destroyed any basis for calibrated reliance. Lee and See call this disuse. An enterprise team that watched the model hallucinate twice in a demo stops using it for anything, including tasks the model would have done well. The model did not get worse. The calibration broke because failures arrived unpredictably and the cost of each failure was asymmetric. One hallucinated number in a quarterly report erases whatever trust was built across fifty accurate ones.</p>
@@ -70,47 +59,55 @@
 <p>The interventions that Lee and See describe for each calibration failure are different, and neither one is "make the model more accurate." For overtrust, the intervention is transparency about limitations. Show the user where the model is likely to fail, when confidence is low, what the plausible failure modes are. For undertrust, the intervention is evidence of capability, shown in domains where the model is genuinely reliable and the user can verify it. Neither intervention requires changing the model architecture. Both require changing the information environment in which the user operates. This is what makes hallucination an IS problem, not an ML problem. It requires designing the interaction between the person and the system so that calibration is possible. It requires surfacing the information the user needs to know when to trust the output and when to override it. If you work on the model and ignore the interaction, the calibration problem remains regardless of how accurate the model becomes.</p>
 <p>I wrote about <a href="/blog/specification-error-trust-variable">the specification error that happens when researchers measure trust, trustworthiness, reliance, and delegation as if they were the same construct</a>. That problem shows up here too. When an enterprise deploys an AI system and measures adoption, they are measuring a behavioral outcome that trust influences but does not determine. A team might use the system because they have no alternative, without trusting it. Another team might trust the model's output but not delegate high-stakes decisions to it because organizational policy blocks transfer. If the organization thinks the problem is low adoption and tries to fix it by improving the model, they are treating a delegation or calibration problem as an accuracy problem, and the fix will miss the mechanism.</p>
 <p>Bhattacherjee knew this in 2001. The continuance problem is not about whether people start using a system. It is about whether they keep using it after the initial experience. Every SaaS company that measures signup rates and ignores the first-thirty-day experience is replaying the same error: treating adoption as the finish line when the actual mechanism that determines outcomes is what happens between expectation and confirmation. Lee and See gave us the calibration framework. Dimoka gave us the neural separation of trust and distrust. Mayer et al. gave us the distinction between trust and trustworthiness. The IS field built the theoretical toolkit to understand hallucination as a trust problem twenty years ago. The AI industry is still treating it as an engineering one.</p>
-<p>I am not saying model quality does not matter. I am saying that model quality alone cannot solve the problem, because the problem is not that the model sometimes fails. The problem is that the user cannot predict when it will fail, and uncertainty about failure is a calibration problem, not a retrieval problem. The most profitable investment a SaaS company can make in its AI product is not a better model. It is better structural information about what the model is likely to get right, what it is likely to get wrong, and what happens in between. That is an IS question. Bhattacherjee asked it about continuance in 2001. Lee and See asked it about automation in 2004. The IS field had the tools. The AI industry just has not picked them up yet.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>I am not saying model quality does not matter. I am saying that model quality alone cannot solve the problem, because the problem is not that the model sometimes fails. The problem is that the user cannot predict when it will fail, and uncertainty about failure is a calibration problem, not a retrieval problem. The most profitable investment a SaaS company can make in its AI product is not a better model. It is better structural information about what the model is likely to get right, what it is likely to get wrong, and what happens in between. That is an IS question. Bhattacherjee asked it about continuance in 2001. Lee and See asked it about automation in 2004. The IS field had the tools. The AI industry just has not picked them up yet.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/ai-healthcare-identity-theory-professional/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Why Doctors Still Resist Better AI: Identity, Not Accuracy</div></a><a href="/blog/ai-garbage-can-model-adoption/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">AI Adopted the Way the Garbage Can Model Predicts</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/agency-theory-algorithm-accountability/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">When the Algorithm Fails, Nobody Takes the Call</div></div><span class="related-rt">6 min read</span></a><a href="/blog/agent-ecosystems-platform-envelopment/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">The Internet of Agents Will Be Built by Platforms That Own the Protocol</div></div><span class="related-rt">6 min read</span></a><a href="/blog/ai-adoption-s-curve-diffusion/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">AI Adoption Follows the S-Curve. Most Organizations Are Still in the Chasm.</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/ai-healthcare-identity-theory-professional/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Why Doctors Still Resist Better AI: Identity, Not Accuracy</div></a><a href="/blog/ai-garbage-can-model-adoption/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">AI Adopted the Way the Garbage Can Model Predicts</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agent-ecosystems-platform-envelopment/" class="blog-related-card"><h4>The Internet of Agents Will Be Built by Platforms That Own the Protocol</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-adoption-s-curve-diffusion/" class="blog-related-card"><h4>AI Adoption Follows the S-Curve. Most Organizations Are Still in the Chasm.</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

@@ -1,376 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Ali Safari</title><meta name="description" content="Ali Safari's blog on Information Systems research, AI, security, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Blog | Ali Safari"><meta property="og:description" content="Information Systems research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<title>Field Notes | Ali Safari</title><meta name="description" content="Ali Safari's notes on Information Systems research, AI, and theory. 258 posts covering IS theory, technology adoption, AI governance, and more."><meta name="keywords" content="information systems, IS theory, AI, technology adoption, trust, security, blog"><meta property="og:title" content="Field Notes | Ali Safari"><meta property="og:description" content="Notes on IS research, AI, and theory — 258 posts."><meta property="og:type" content="website"><meta property="og:url" content="https://alisafari.space/blog/"><meta property="og:site_name" content="Ali Safari"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
 <link rel="icon" type="image/png" href="/images/favicon.png">
 <link rel="canonical" href="https://alisafari.space/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Ali Safari Blog","description":"Thoughts on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Field Notes — Ali Safari","description":"Notes on IS theory, AI, technology, and comps studying.","url":"https://alisafari.space/blog/","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"}}</script>
 </head>
-<body class="blog-page">
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="index">
+<header class="masthead">
+<div class="masthead-kicker">Field Notes &mdash; Ali Safari &mdash; 258 notes</div>
+<h1 class="masthead-title">Field<br>Notes.</h1>
+<div class="masthead-bottom">
+<p class="masthead-dek">Honest reactions to IS research, AI, and the theory I'm studying for comps. No summaries.</p>
+<div class="masthead-stats">
+<div><b>258</b> Posts</div>
+<div><b>10</b> Topics</div>
 </div>
-</div></nav>
-<header class="blog-header">
-<h1>Blog</h1>
-<p class="blog-subtitle">Thoughts on IS theory, AI, technology, and comps studying. No summaries, just honest reactions.</p>
-<div class="blog-meta">
-<span class="blog-meta-item"><i class="fas fa-pen-nib"></i> 258 posts</span>
-<span class="blog-meta-item"><i class="fas fa-tags"></i> 10 topics</span>
 </div>
 </header>
-<section class="blog-stats-bar">
-<div class="blog-stat"><span class="blog-stat-value">258</span><div class="blog-stat-label">Posts</div></div>
-<div class="blog-stat"><span class="blog-stat-value">10</span><div class="blog-stat-label">Topics</div></div>
-<div class="blog-stat"><span class="blog-stat-value">2026</span><div class="blog-stat-label">Latest</div></div>
-</section>
-<div class="blog-controls">
-<div class="blog-search-box"><i class="fas fa-search"></i><input type="text" id="blogSearch" placeholder="Search posts by title or content..." autocomplete="off"></div>
-<div class="blog-filter-sort">
-<button class="blog-filter-btn active" data-sort="newest"><i class="fas fa-sort-amount-down"></i> Newest</button>
-<button class="blog-filter-btn" data-sort="oldest"><i class="fas fa-sort-amount-up"></i> Oldest</button>
+<div class="controls">
+<div class="search-wrap">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+<input type="text" id="blogSearch" placeholder="Search notes…" autocomplete="off">
+</div>
+<div class="seg">
+<button class="on" data-sort="newest">Newest</button>
+<button data-sort="oldest">Oldest</button>
+</div>
+</div>
+<div class="tags" id="tagFilters"><button class="tag-chip on" data-tag="all">All <span class="n">258</span></button><button class="tag-chip" data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="n">86</span></button><button class="tag-chip" data-tag="IS Theory">IS Theory <span class="n">82</span></button><button class="tag-chip" data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="n">77</span></button><button class="tag-chip" data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="n">74</span></button><button class="tag-chip" data-tag="Organizational Theory">Organizational Theory <span class="n">72</span></button><button class="tag-chip" data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="n">47</span></button><button class="tag-chip" data-tag="IS Research Methods">IS Research Methods <span class="n">43</span></button><button class="tag-chip" data-tag="Technology Adoption">Technology Adoption <span class="n">32</span></button><button class="tag-chip" data-tag="Trust &amp; Security">Trust &amp; Security <span class="n">31</span></button><button class="tag-chip" data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="n">29</span></button></div>
+
+<div class="post-list" id="postList">
+<div class="post-row" data-title="quantum computing and what it actually means for information systems" data-tags="IT Governance &amp; Strategy,Organizational Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="2026-05-14-quantum-computing-is-implications" onclick="location.href='/blog/2026-05-14-quantum-computing-is-implications/'"><div class="pr-n">201</div><div class="pr-body"><div class="pr-title"><a href="/blog/2026-05-14-quantum-computing-is-implications/">Quantum Computing and What It Actually Means for Information Systems</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="remote work and is: what actually changed" data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="remote-work-is-what-changed" onclick="location.href='/blog/remote-work-is-what-changed/'"><div class="pr-n">202</div><div class="pr-body"><div class="pr-title"><a href="/blog/remote-work-is-what-changed/">Remote Work and IS: What Actually Changed</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the replication crisis and what it means for is research" data-tags="IS Research Methods" data-date="2026-05-14" data-slug="replication-crisis-is-research" onclick="location.href='/blog/replication-crisis-is-research/'"><div class="pr-n">203</div><div class="pr-body"><div class="pr-title"><a href="/blog/replication-crisis-is-research/">The Replication Crisis and What It Means for IS Research</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Research Methods</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="a new label on an old idea is not a contribution" data-tags="Comps &amp; Reflections,IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="research-contributions-that-count" onclick="location.href='/blog/research-contributions-that-count/'"><div class="pr-n">204</div><div class="pr-body"><div class="pr-title"><a href="/blog/research-contributions-that-count/">A New Label on an Old Idea Is Not a Contribution</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="resource-based view and it as competitive advantage" data-tags="IS Theory,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="resource-based-view-it-competitive-advantage" onclick="location.href='/blog/resource-based-view-it-competitive-advantage/'"><div class="pr-n">205</div><div class="pr-body"><div class="pr-title"><a href="/blog/resource-based-view-it-competitive-advantage/">Resource-Based View and IT as Competitive Advantage</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="resource dependency theory and the it sourcing problem" data-tags="IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="resource-dependency-theory-it-sourcing" onclick="location.href='/blog/resource-dependency-theory-it-sourcing/'"><div class="pr-n">206</div><div class="pr-body"><div class="pr-title"><a href="/blog/resource-dependency-theory-it-sourcing/">Resource Dependency Theory and the IT Sourcing Problem</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="rlhf is structuration theory: we train ai, then ai trains us" data-tags="AI &amp; Agentic Systems,IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="rlhf-structuration-ai-preferences" onclick="location.href='/blog/rlhf-structuration-ai-preferences/'"><div class="pr-n">207</div><div class="pr-body"><div class="pr-title"><a href="/blog/rlhf-structuration-ai-preferences/">RLHF Is Structuration Theory: We Train AI, Then AI Trains Us</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="routine dynamics and why processes keep reverting to the old way" data-tags="Organizational Theory" data-date="2026-05-14" data-slug="routine-dynamics-process-change" onclick="location.href='/blog/routine-dynamics-process-change/'"><div class="pr-n">208</div><div class="pr-body"><div class="pr-title"><a href="/blog/routine-dynamics-process-change/">Routine Dynamics and Why Processes Keep Reverting to the Old Way</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Organizational Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="rpa adoption: what works and what becomes automated chaos" data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="rpa-adoption-what-works" onclick="location.href='/blog/rpa-adoption-what-works/'"><div class="pr-n">209</div><div class="pr-body"><div class="pr-title"><a href="/blog/rpa-adoption-what-works/">RPA Adoption: What Works and What Becomes Automated Chaos</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="saas subscription economics and the total cost nobody calculates" data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="saas-subscription-economics-hidden-costs" onclick="location.href='/blog/saas-subscription-economics-hidden-costs/'"><div class="pr-n">210</div><div class="pr-body"><div class="pr-title"><a href="/blog/saas-subscription-economics-hidden-costs/">SaaS Subscription Economics and the Total Cost Nobody Calculates</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IT Governance &amp; Strategy</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="organizations don&#x27;t choose tech, they rationalize it" data-tags="AI &amp; Agentic Systems,IS Theory,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="sensemaking-not-decision-making" onclick="location.href='/blog/sensemaking-not-decision-making/'"><div class="pr-n">211</div><div class="pr-body"><div class="pr-title"><a href="/blog/sensemaking-not-decision-making/">Organizations Don&#x27;t Choose Tech, They Rationalize It</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="shadow ai is the new shadow it" data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="shadow-ai-new-shadow-it" onclick="location.href='/blog/shadow-ai-new-shadow-it/'"><div class="pr-n">212</div><div class="pr-body"><div class="pr-title"><a href="/blog/shadow-ai-new-shadow-it/">Shadow AI Is the New Shadow IT</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="shadow ai is shadow it all over again, just faster" data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory,Organizational Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="shadow-ai-shadow-it-workarounds" onclick="location.href='/blog/shadow-ai-shadow-it-workarounds/'"><div class="pr-n">213</div><div class="pr-body"><div class="pr-title"><a href="/blog/shadow-ai-shadow-it-workarounds/">Shadow AI Is Shadow IT All Over Again, Just Faster</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="signaling theory and what technology choices communicate" data-tags="IS Theory,IT Governance &amp; Strategy,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="signaling-theory-technology-choices" onclick="location.href='/blog/signaling-theory-technology-choices/'"><div class="pr-n">214</div><div class="pr-body"><div class="pr-title"><a href="/blog/signaling-theory-technology-choices/">Signaling Theory and What Technology Choices Communicate</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="the network you have is part of the system" data-tags="Comps &amp; Reflections,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="social-capital-network-is-part-of-the-system" onclick="location.href='/blog/social-capital-network-is-part-of-the-system/'"><div class="pr-n">215</div><div class="pr-body"><div class="pr-title"><a href="/blog/social-capital-network-is-part-of-the-system/">The Network You Have Is Part of the System</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Comps &amp; Reflections</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="social cognitive theory and why training doesn&#x27;t change behavior" data-tags="Technology Adoption" data-date="2026-05-14" data-slug="social-cognitive-theory-is-training" onclick="location.href='/blog/social-cognitive-theory-is-training/'"><div class="pr-n">216</div><div class="pr-body"><div class="pr-title"><a href="/blog/social-cognitive-theory-is-training/">Social Cognitive Theory and Why Training Doesn&#x27;t Change Behavior</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Technology Adoption</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="joint optimization is not a feel-good slogan" data-tags="IS Theory,Organizational Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="sociotechnical-systems-joint-optimization" onclick="location.href='/blog/sociotechnical-systems-joint-optimization/'"><div class="pr-n">217</div><div class="pr-body"><div class="pr-title"><a href="/blog/sociotechnical-systems-joint-optimization/">Joint Optimization Is Not a Feel-Good Slogan</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="spatial computing and the enterprise ar story nobody is telling" data-tags="Organizational Theory" data-date="2026-05-14" data-slug="2026-05-14-spatial-computing-enterprise-ar-vr" onclick="location.href='/blog/2026-05-14-spatial-computing-enterprise-ar-vr/'"><div class="pr-n">218</div><div class="pr-body"><div class="pr-title"><a href="/blog/2026-05-14-spatial-computing-enterprise-ar-vr/">Spatial Computing and the Enterprise AR Story Nobody Is Telling</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>Organizational Theory</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div><div class="post-row" data-title="stop counting users, start measuring delegation" data-tags="AI &amp; Agentic Systems,IS Theory" data-date="2026-05-14" data-slug="stop-counting-users-start-measuring-delegation" onclick="location.href='/blog/stop-counting-users-start-measuring-delegation/'"><div class="pr-n">219</div><div class="pr-body"><div class="pr-title"><a href="/blog/stop-counting-users-start-measuring-delegation/">Stop Counting Users, Start Measuring Delegation</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>AI &amp; Agentic Systems</span></div></div><div class="pr-side"><span class="pr-rt">6 min read</span></div></div><div class="post-row" data-title="giddens in is: why the same system produces different organizations" data-tags="IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="structuration-theory-is-giddens" onclick="location.href='/blog/structuration-theory-is-giddens/'"><div class="pr-n">220</div><div class="pr-body"><div class="pr-title"><a href="/blog/structuration-theory-is-giddens/">Giddens in IS: Why the Same System Produces Different Organizations</a></div><div class="pr-meta"><span>2026-05-14</span><span class="mdot">&middot;</span><span>IS Theory</span></div></div><div class="pr-side"><span class="pr-rt">7 min read</span></div></div>
+<div id="emptyState" style="display:none;padding:64px 0;font-family:var(--f-mono);font-size:13px;color:var(--ink-4);letter-spacing:.07em;text-transform:uppercase;">No notes found</div>
+<div class="pgn"><a href="/blog/page/10/" class="pgn-step">&#8592; Prev</a><div class="pgn-nums"><button onclick="location.href='/blog/'">1</button><button onclick="location.href='/blog/page/2/'">2</button><button onclick="location.href='/blog/page/3/'">3</button><button onclick="location.href='/blog/page/4/'">4</button><button onclick="location.href='/blog/page/5/'">5</button><button onclick="location.href='/blog/page/6/'">6</button><button onclick="location.href='/blog/page/7/'">7</button><button onclick="location.href='/blog/page/8/'">8</button><button onclick="location.href='/blog/page/9/'">9</button><button onclick="location.href='/blog/page/10/'">10</button><span class="cur">11</span><button onclick="location.href='/blog/page/12/'">12</button><button onclick="location.href='/blog/page/13/'">13</button></div><a href="/blog/page/12/" class="pgn-step">Next &#8594;</a></div>
+</div>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="blog-tag-filters"><a href="/blog/" class="blog-tag-chip active" data-tag="all">All <span class="tag-count">258</span></a><a href="/blog/?tag=Comps &amp; Reflections" class="blog-tag-chip " data-tag="Comps &amp; Reflections">Comps &amp; Reflections <span class="tag-count">86</span></a><a href="/blog/?tag=IS Theory" class="blog-tag-chip " data-tag="IS Theory">IS Theory <span class="tag-count">82</span></a><a href="/blog/?tag=IT Governance &amp; Strategy" class="blog-tag-chip " data-tag="IT Governance &amp; Strategy">IT Governance &amp; Strategy <span class="tag-count">77</span></a><a href="/blog/?tag=AI &amp; Agentic Systems" class="blog-tag-chip " data-tag="AI &amp; Agentic Systems">AI &amp; Agentic Systems <span class="tag-count">74</span></a><a href="/blog/?tag=Organizational Theory" class="blog-tag-chip " data-tag="Organizational Theory">Organizational Theory <span class="tag-count">72</span></a><a href="/blog/?tag=Platforms &amp; Ecosystems" class="blog-tag-chip " data-tag="Platforms &amp; Ecosystems">Platforms &amp; Ecosystems <span class="tag-count">47</span></a><a href="/blog/?tag=IS Research Methods" class="blog-tag-chip " data-tag="IS Research Methods">IS Research Methods <span class="tag-count">43</span></a><a href="/blog/?tag=Technology Adoption" class="blog-tag-chip " data-tag="Technology Adoption">Technology Adoption <span class="tag-count">32</span></a><a href="/blog/?tag=Trust &amp; Security" class="blog-tag-chip " data-tag="Trust &amp; Security">Trust &amp; Security <span class="tag-count">31</span></a><a href="/blog/?tag=Sociotechnical Systems" class="blog-tag-chip " data-tag="Sociotechnical Systems">Sociotechnical Systems <span class="tag-count">29</span></a></div>
-<div class="blog-grid" id="blogGrid">
-<div class="blog-grid-item" data-title="quantum computing and what it actually means for information systems" data-excerpt="quantum hardware is real, but enterprise-ready it is not. here is what the is field should be watching anyway." data-tags="IT Governance &amp; Strategy,Organizational Theory,Trust &amp; Security" data-date="2026-05-14" data-slug="2026-05-14-quantum-computing-is-implications">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/2026-05-14-quantum-computing-is-implications/">Quantum Computing and What It Actually Means for Information Systems</a></h2>
-</div>
-<p class="card-excerpt">Quantum hardware is real, but enterprise-ready it is not. Here is what the IS field should be watching anyway.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span><span class="tag">Trust &amp; Security</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="2026-05-14-quantum-computing-is-implications" title="Save for later" aria-label="Save Quantum Computing and What It Actually Means for Information Systems for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/2026-05-14-quantum-computing-is-implications/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="remote work and is: what actually changed" data-excerpt="covid-19 forced the largest unplanned is deployment in history. what it revealed about organizations was not what most people expected." data-tags="Comps &amp; Reflections,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="remote-work-is-what-changed">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/remote-work-is-what-changed/">Remote Work and IS: What Actually Changed</a></h2>
-</div>
-<p class="card-excerpt">COVID-19 forced the largest unplanned IS deployment in history. What it revealed about organizations was not what most people expected.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="remote-work-is-what-changed" title="Save for later" aria-label="Save Remote Work and IS: What Actually Changed for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/remote-work-is-what-changed/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the replication crisis and what it means for is research" data-excerpt="a large-scale effort to replicate psychology findings triggered a reckoning across social sciences. is research is not immune, and the field has a long way to go." data-tags="IS Research Methods" data-date="2026-05-14" data-slug="replication-crisis-is-research">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/replication-crisis-is-research/">The Replication Crisis and What It Means for IS Research</a></h2>
-</div>
-<p class="card-excerpt">A large-scale effort to replicate psychology findings triggered a reckoning across social sciences. IS research is not immune, and the field has a long way to g...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Research Methods</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="replication-crisis-is-research" title="Save for later" aria-label="Save The Replication Crisis and What It Means for IS Research for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/replication-crisis-is-research/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="a new label on an old idea is not a contribution" data-excerpt="most is papers are improvements dressed as inventions. sun et al. say you need novelty, rigor, and relevance, not two out of three." data-tags="Comps &amp; Reflections,IS Research Methods,IS Theory" data-date="2026-05-14" data-slug="research-contributions-that-count">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/research-contributions-that-count/">A New Label on an Old Idea Is Not a Contribution</a></h2>
-</div>
-<p class="card-excerpt">Most IS papers are improvements dressed as inventions. Sun et al. say you need novelty, rigor, and relevance, not two out of three.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Research Methods</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="research-contributions-that-count" title="Save for later" aria-label="Save A New Label on an Old Idea Is Not a Contribution for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/research-contributions-that-count/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="resource-based view and it as competitive advantage" data-excerpt="most it purchases fail the vrin test. the interesting question is what it-related resources actually are hard to imitate." data-tags="IS Theory,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="resource-based-view-it-competitive-advantage">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/resource-based-view-it-competitive-advantage/">Resource-Based View and IT as Competitive Advantage</a></h2>
-</div>
-<p class="card-excerpt">Most IT purchases fail the VRIN test. The interesting question is what IT-related resources actually are hard to imitate.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="resource-based-view-it-competitive-advantage" title="Save for later" aria-label="Save Resource-Based View and IT as Competitive Advantage for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/resource-based-view-it-competitive-advantage/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="resource dependency theory and the it sourcing problem" data-excerpt="pfeffer and salancik said dependence on external resources shapes power relationships. in it sourcing, that means vendor lock-in is not a contract problem. it is a structural one." data-tags="IS Theory,Organizational Theory" data-date="2026-05-14" data-slug="resource-dependency-theory-it-sourcing">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/resource-dependency-theory-it-sourcing/">Resource Dependency Theory and the IT Sourcing Problem</a></h2>
-</div>
-<p class="card-excerpt">Pfeffer and Salancik said dependence on external resources shapes power relationships. In IT sourcing, that means vendor lock-in is not a contract problem. It i...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="resource-dependency-theory-it-sourcing" title="Save for later" aria-label="Save Resource Dependency Theory and the IT Sourcing Problem for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/resource-dependency-theory-it-sourcing/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="rlhf is structuration theory: we train ai, then ai trains us" data-excerpt="rlhf mirrors giddens&#x27; duality of structure, creating a recursive loop where human preferences shape ai outputs and reshape human preferences." data-tags="AI &amp; Agentic Systems,IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="rlhf-structuration-ai-preferences">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/rlhf-structuration-ai-preferences/">RLHF Is Structuration Theory: We Train AI, Then AI Trains Us</a></h2>
-</div>
-<p class="card-excerpt">RLHF mirrors Giddens&#x27; duality of structure, creating a recursive loop where human preferences shape AI outputs and reshape human preferences.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="rlhf-structuration-ai-preferences" title="Save for later" aria-label="Save RLHF Is Structuration Theory: We Train AI, Then AI Trains Us for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/rlhf-structuration-ai-preferences/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="routine dynamics and why processes keep reverting to the old way" data-excerpt="feldman and pentland (2003) showed that routines contain the seeds of both stability and change. is implementations often change the documented process while leaving the actual one intact." data-tags="Organizational Theory" data-date="2026-05-14" data-slug="routine-dynamics-process-change">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/routine-dynamics-process-change/">Routine Dynamics and Why Processes Keep Reverting to the Old Way</a></h2>
-</div>
-<p class="card-excerpt">Feldman and Pentland (2003) showed that routines contain the seeds of both stability and change. IS implementations often change the documented process while le...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="routine-dynamics-process-change" title="Save for later" aria-label="Save Routine Dynamics and Why Processes Keep Reverting to the Old Way for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/routine-dynamics-process-change/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="rpa adoption: what works and what becomes automated chaos" data-excerpt="rpa bots are brittle. automate a stable, high-volume, rules-based process and you have a useful tool. automate a bad process and you have automated chaos." data-tags="IT Governance &amp; Strategy" data-date="2026-05-14" data-slug="rpa-adoption-what-works">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/rpa-adoption-what-works/">RPA Adoption: What Works and What Becomes Automated Chaos</a></h2>
-</div>
-<p class="card-excerpt">RPA bots are brittle. Automate a stable, high-volume, rules-based process and you have a useful tool. Automate a bad process and you have automated chaos.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="rpa-adoption-what-works" title="Save for later" aria-label="Save RPA Adoption: What Works and What Becomes Automated Chaos for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/rpa-adoption-what-works/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="saas subscription economics and the total cost nobody calculates" data-excerpt="saas was supposed to replace unpredictable capital expenditure with clean monthly operating costs. for many organizations a decade in, the math is not working out that way." data-tags="IT Governance &amp; Strategy,Platforms &amp; Ecosystems" data-date="2026-05-14" data-slug="saas-subscription-economics-hidden-costs">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/saas-subscription-economics-hidden-costs/">SaaS Subscription Economics and the Total Cost Nobody Calculates</a></h2>
-</div>
-<p class="card-excerpt">SaaS was supposed to replace unpredictable capital expenditure with clean monthly operating costs. For many organizations a decade in, the math is not working o...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="saas-subscription-economics-hidden-costs" title="Save for later" aria-label="Save SaaS Subscription Economics and the Total Cost Nobody Calculates for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/saas-subscription-economics-hidden-costs/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="organizations don&#x27;t choose tech, they rationalize it" data-excerpt="weick&#x27;s sensemaking theory says people act first and make sense later, preferring plausibility over accuracy. that explains everything from the twitter rebrand to eu ai regulation." data-tags="AI &amp; Agentic Systems,IS Theory,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="sensemaking-not-decision-making">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/sensemaking-not-decision-making/">Organizations Don&#x27;t Choose Tech, They Rationalize It</a></h2>
-</div>
-<p class="card-excerpt">Weick&#x27;s sensemaking theory says people act first and make sense later, preferring plausibility over accuracy. That explains everything from the Twitter rebrand ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="sensemaking-not-decision-making" title="Save for later" aria-label="Save Organizations Don&#x27;t Choose Tech, They Rationalize It for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/sensemaking-not-decision-making/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="shadow ai is the new shadow it" data-excerpt="employees are pasting internal documents into consumer ai tools. the risk profile is different from shadow it, but the pattern is identical." data-tags="AI &amp; Agentic Systems,IT Governance &amp; Strategy,Organizational Theory" data-date="2026-05-14" data-slug="shadow-ai-new-shadow-it">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/shadow-ai-new-shadow-it/">Shadow AI Is the New Shadow IT</a></h2>
-</div>
-<p class="card-excerpt">Employees are pasting internal documents into consumer AI tools. The risk profile is different from shadow IT, but the pattern is identical.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="shadow-ai-new-shadow-it" title="Save for later" aria-label="Save Shadow AI Is the New Shadow IT for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/shadow-ai-new-shadow-it/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="shadow ai is shadow it all over again, just faster" data-excerpt="ferneley and sobreperez&#x27;s workaround types explain why employees bypass official ai tools. shadow ai is task-technology fit failure, not compliance failure." data-tags="AI &amp; Agentic Systems,Comps &amp; Reflections,IS Theory,Organizational Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="shadow-ai-shadow-it-workarounds">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/shadow-ai-shadow-it-workarounds/">Shadow AI Is Shadow IT All Over Again, Just Faster</a></h2>
-</div>
-<p class="card-excerpt">Ferneley and Sobreperez&#x27;s workaround types explain why employees bypass official AI tools. Shadow AI is task-technology fit failure, not compliance failure.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">Comps &amp; Reflections</span><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="shadow-ai-shadow-it-workarounds" title="Save for later" aria-label="Save Shadow AI Is Shadow IT All Over Again, Just Faster for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/shadow-ai-shadow-it-workarounds/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="signaling theory and what technology choices communicate" data-excerpt="spence (1973) showed that costly observable signals communicate unobservable qualities. technology choices do this constantly. what you run says something beyond what it does." data-tags="IS Theory,IT Governance &amp; Strategy,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="signaling-theory-technology-choices">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/signaling-theory-technology-choices/">Signaling Theory and What Technology Choices Communicate</a></h2>
-</div>
-<p class="card-excerpt">Spence (1973) showed that costly observable signals communicate unobservable qualities. Technology choices do this constantly. What you run says something beyon...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Organizational Theory</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="signaling-theory-technology-choices" title="Save for later" aria-label="Save Signaling Theory and What Technology Choices Communicate for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/signaling-theory-technology-choices/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="the network you have is part of the system" data-excerpt="social capital theory says the network around a system determines whether the system works. is treats this network as a constant. it is not." data-tags="Comps &amp; Reflections,Organizational Theory,Technology Adoption" data-date="2026-05-14" data-slug="social-capital-network-is-part-of-the-system">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/social-capital-network-is-part-of-the-system/">The Network You Have Is Part of the System</a></h2>
-</div>
-<p class="card-excerpt">Social capital theory says the network around a system determines whether the system works. IS treats this network as a constant. It is not.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Organizational Theory</span><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="social-capital-network-is-part-of-the-system" title="Save for later" aria-label="Save The Network You Have Is Part of the System for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/social-capital-network-is-part-of-the-system/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="social cognitive theory and why training doesn&#x27;t change behavior" data-excerpt="bandura&#x27;s self-efficacy research shows that whether people change behavior depends less on what they know than on whether they believe they can do it. is training consistently gets this wrong." data-tags="Technology Adoption" data-date="2026-05-14" data-slug="social-cognitive-theory-is-training">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/social-cognitive-theory-is-training/">Social Cognitive Theory and Why Training Doesn&#x27;t Change Behavior</a></h2>
-</div>
-<p class="card-excerpt">Bandura&#x27;s self-efficacy research shows that whether people change behavior depends less on what they know than on whether they believe they can do it. IS traini...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Technology Adoption</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="social-cognitive-theory-is-training" title="Save for later" aria-label="Save Social Cognitive Theory and Why Training Doesn&#x27;t Change Behavior for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/social-cognitive-theory-is-training/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="joint optimization is not a feel-good slogan" data-excerpt="the origin story of sociotechnical systems theory is not a feel-good tale about teamwork. it is a cautionary tale about what happens when you optimize only the machines." data-tags="IS Theory,Organizational Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="sociotechnical-systems-joint-optimization">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/sociotechnical-systems-joint-optimization/">Joint Optimization Is Not a Feel-Good Slogan</a></h2>
-</div>
-<p class="card-excerpt">The origin story of sociotechnical systems theory is not a feel-good tale about teamwork. It is a cautionary tale about what happens when you optimize only the ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Organizational Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="sociotechnical-systems-joint-optimization" title="Save for later" aria-label="Save Joint Optimization Is Not a Feel-Good Slogan for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/sociotechnical-systems-joint-optimization/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="spatial computing and the enterprise ar story nobody is telling" data-excerpt="while the consumer metaverse flopped, enterprise ar kept growing quietly. apple vision pro brought spatial computing back to the headlines, but the real story started years earlier on factory floors." data-tags="Organizational Theory" data-date="2026-05-14" data-slug="2026-05-14-spatial-computing-enterprise-ar-vr">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/2026-05-14-spatial-computing-enterprise-ar-vr/">Spatial Computing and the Enterprise AR Story Nobody Is Telling</a></h2>
-</div>
-<p class="card-excerpt">While the consumer metaverse flopped, enterprise AR kept growing quietly. Apple Vision Pro brought spatial computing back to the headlines, but the real story s...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">Organizational Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="2026-05-14-spatial-computing-enterprise-ar-vr" title="Save for later" aria-label="Save Spatial Computing and the Enterprise AR Story Nobody Is Telling for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/2026-05-14-spatial-computing-enterprise-ar-vr/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="stop counting users, start measuring delegation" data-excerpt="why &#x27;use&#x27; is the wrong construct for agentic ai, and what delegation theory actually means for how we study human-ai interaction." data-tags="AI &amp; Agentic Systems,IS Theory" data-date="2026-05-14" data-slug="stop-counting-users-start-measuring-delegation">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 6 min read</span></div>
-<h2><a href="/blog/stop-counting-users-start-measuring-delegation/">Stop Counting Users, Start Measuring Delegation</a></h2>
-</div>
-<p class="card-excerpt">Why &#x27;use&#x27; is the wrong construct for agentic AI, and what delegation theory actually means for how we study human-AI interaction.</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="stop-counting-users-start-measuring-delegation" title="Save for later" aria-label="Save Stop Counting Users, Start Measuring Delegation for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/stop-counting-users-start-measuring-delegation/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div><div class="blog-grid-item" data-title="giddens in is: why the same system produces different organizations" data-excerpt="giddens built structuration theory around structure and agency being mutually constitutive. orlikowski pointed it at technology, and is has never been the same since." data-tags="IS Theory,Sociotechnical Systems" data-date="2026-05-14" data-slug="structuration-theory-is-giddens">
-<article class="blog-post-card">
-<div class="card-header">
-<div class="card-meta"><span>2026-05-14</span><span class="reading-time"><i class="far fa-clock"></i> 7 min read</span></div>
-<h2><a href="/blog/structuration-theory-is-giddens/">Giddens in IS: Why the Same System Produces Different Organizations</a></h2>
-</div>
-<p class="card-excerpt">Giddens built structuration theory around structure and agency being mutually constitutive. Orlikowski pointed it at technology, and IS has never been the same ...</p>
-<div class="card-footer">
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
-<div class="card-actions">
-<button class="bookmark-btn" data-slug="structuration-theory-is-giddens" title="Save for later" aria-label="Save Giddens in IS: Why the Same System Produces Different Organizations for later"><i class="far fa-bookmark"></i></button>
-<a href="/blog/structuration-theory-is-giddens/" class="read-link">Read <i class="fas fa-arrow-right"></i></a>
-</div>
-</div>
-</article>
-</div>
-<div class="blog-empty-state" style="display:none"><i class="fas fa-search"></i><h3>No posts found</h3><p>Try a different search term.</p></div>
-</div>
-<div class="blog-pagination"><a href="/blog/">1</a><a href="/blog/page/2/">2</a><a href="/blog/page/3/">3</a><a href="/blog/page/4/">4</a><a href="/blog/page/5/">5</a><a href="/blog/page/6/">6</a><a href="/blog/page/7/">7</a><a href="/blog/page/8/">8</a><a href="/blog/page/9/">9</a><a href="/blog/page/10/">10</a><span class="current">11</span><a href="/blog/page/12/">12</a><a href="/blog/page/13/">13</a></div>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-</div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
 </body></html>

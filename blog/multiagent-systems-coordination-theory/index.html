@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/multiagent-systems-coordination-theory/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Multiagent Systems Are a Coordination Problem, Not an AI Problem","description":"Gartner says multiagent systems inquiries surged 1,445% but the real gap is not better agents. It is coordination architecture.","url":"https://alisafari.space/blog/multiagent-systems-coordination-theory/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"AI & Agentic Systems","keywords":"AI & Agentic Systems, IS Theory"}</script>
@@ -20,92 +19,90 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>AI &amp; Agentic Systems</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">AI &amp; Agentic Systems</div>
+<h1 class="art-title">Multiagent Systems Are a Coordination Problem, Not an AI Problem</h1>
+<p class="art-dek">Gartner says multiagent systems inquiries surged 1,445% but the real gap is not better agents. It is coordination architecture.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">AI &amp; Agentic Systems</span><span class="art-tag">IS Theory</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Multiagent Systems Are a Coordination Problem, Not an AI Problem</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="multiagent-systems-coordination-theory" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">AI &amp; Agentic Systems</span>
-<h1>Multiagent Systems Are a Coordination Problem, Not an AI Problem</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>Gartner reports that inquiries about multiagent systems surged 1,445 percent from the first quarter of 2024 to the second quarter of 2025. I read that number three times to make sure I had not misread it. That is not a trend line. That is a hockey stick. Organizations are not asking whether to build multiple interacting AI agents anymore. They are asking how, and the answer they are getting from vendors is almost entirely about the technical side: better reasoning models, better tool use, better memory architectures. The assumption seems to be that if you build capable enough agents, the coordination problem will solve itself. I think that assumption is wrong, and I think IS theory explains why.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>Gartner reports that inquiries about multiagent systems surged 1,445 percent from the first quarter of 2024 to the second quarter of 2025. I read that number three times to make sure I had not misread it. That is not a trend line. That is a hockey stick. Organizations are not asking whether to build multiple interacting AI agents anymore. They are asking how, and the answer they are getting from vendors is almost entirely about the technical side: better reasoning models, better tool use, better memory architectures. The assumption seems to be that if you build capable enough agents, the coordination problem will solve itself. I think that assumption is wrong, and I think IS theory explains why.</p>
 <p>Baird and Maruping (2021) argued that when information systems become agentic, the central construct must shift from use to delegation. They gave us three mechanisms that govern the relationship between a human and an agentic system: appraisal, where the human judges whether the agent can do the task, distribution, where subtasks get allocated, and coordination, where the human and the agent manage their interdependencies over time. The coordination mechanism is the one that has received the least attention, and I think it is the most important one for what comes next. Baird and Maruping designed this framework for the human-agent dyad, one human and one system. But when you have N agents interacting with each other, the coordination problem is no longer dyadic. It is networked. Appraisal no longer means one human evaluating one agent. It means each agent evaluating every other agent's capabilities, reliability, and preference alignment. Distribution no longer means one human dividing tasks between herself and one system. It means an ecosystem of agents allocating work among themselves without centralized control. Coordination no longer means managing interdependencies between two actors. It means managing a web of dependencies where each agent's output is another agent's input and no single actor sees the full picture.</p>
 <p>The principal-agent problem that Baird and Maruping illustrated with the thermostat analogy scales up in exactly the same way. A single thermostat that optimizes for its own longevity will freeze you. That is a preference misalignment between one human and one agent. Now imagine a procurement agent that optimizes for lowest cost, a logistics agent that optimizes for fastest delivery, and a quality assurance agent that optimizes for lowest defect rate. Each agent is doing exactly what it was designed to do. Each agent is maximizing its own objective function. And the collective outcome can be gridlock, because no mechanism exists to resolve the trade-offs among those preferences. The technical community calls this the alignment problem at the model level. At the system level, it is a coordination problem that IS scholars have studied for decades under different names: interdependence, task allocation, governance.</p>
 <p>Stelmaszak, Möhlmann, and Sorensen (2025) pushed this even further by showing that delegation is not always human-to-algorithm. Algorithms can delegate to humans too. In multiagent settings, that means an agent can initiate work, assign tasks to other agents or to people, and structure the interaction without a human triggering it. The direction of delegation becomes fluid. An agent that was designed as a subordinate in one workflow can act as a delegator in another. That flexibility is powerful, but it also means that the governance of who delegates to whom, under what authority, and with what accountability has no stable anchor. Every agent is potentially both principal and agent at different moments, and the preference functions can shift with the role.</p>
 <p>Grisold, Berente, and Seidel (2025) offered one path forward with their work on norm-based coordination for human-AI ecologies. They argued that hard-coded rules are insufficient when AI agents interact in changing environments. Shared norms create predictability without requiring every interaction to be pre-specified. That is exactly the kind of mechanism that a multiagent system needs, but norms are not the same thing as protocols. Norms emerge through repeated interaction. They require shared history, shared context, and the ability to sanction deviations. Gartner calls the next phase the Internet of Agents, where agents discover each other, negotiate task allocation, and form temporary coalitions. That vision requires protocols for agent discovery, capability advertisement, task negotiation, conflict resolution, and outcome reporting. Those protocols do not exist yet, at least not in any standardized form. Every multiagent implementation today is a bespoke arrangement between agents built by the same vendor or integrated through custom middleware. That is not an internet. That is a collection of intranets.</p>
 <p>I think the hardest problem in multiagent systems is not making each agent more intelligent. It is designing the coordination architecture so that N agents reliably produce better outcomes than one agent working alone, and we have no theory for that yet. Baird and Maruping gave us the dyadic starting point. Stelmaszak showed us the direction is bidirectional. Grisold showed us norms can help. But a full theory of multiagent coordination would need to explain how appraisal scales to networks, how distribution works without a central allocator, and how coordination emerges when no single actor manages the interdependencies. I wrote about delegation replacing use for single-agent systems in a previous post, and the logic there was that IS theory needed a construct update. For multiagent systems, the construct update is even more fundamental. We are not just replacing use with delegation. We are adding a fourth mechanism that Baird and Maruping did not name: arbitration, the process by which an ecosystem of agents with different preference functions resolves conflicts and produces a coherent outcome.</p>
-<p>Organizations that are building multiagent systems today should pay less attention to the reasoning capabilities of individual agents and more attention to the coordination architecture that connects them. The agent that makes the best decision in isolation can be the agent that breaks the system when it acts without regard for its peers. The preference functions matter more than the inference speed. The governance rules matter more than the prompt templates. And the protocol for task handoff matters more than the model size. Because in a multiagent system, the weakest link is never a single agent. It is the space between them.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>Organizations that are building multiagent systems today should pay less attention to the reasoning capabilities of individual agents and more attention to the coordination architecture that connects them. The agent that makes the best decision in isolation can be the agent that breaks the system when it acts without regard for its peers. The preference functions matter more than the inference speed. The governance rules matter more than the prompt templates. And the protocol for task handoff matters more than the model size. Because in a multiagent system, the weakest link is never a single agent. It is the space between them.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/network-effects-platform-theory-is/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Network Effects and Platform Theory: Why Platforms Are Different</div></a><a href="/blog/multi-cloud-strategy-architecture/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Multi-Cloud Strategy: Architecture or Accident?</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="related-item"><div><div class="related-cat">Comps &amp; Reflections</div><div class="related-title">Bought a $2M Platform, Nobody Learned a Thing</div></div><span class="related-rt">6 min read</span></a><a href="/blog/activity-theory-is-research/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">People Use Tools Inside Activity Systems, Not in a Vacuum</div></div><span class="related-rt">5 min read</span></a><a href="/blog/actor-network-theory-is-research/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">Actor-Network Theory: Why Your ERP System Is an Actor Too</div></div><span class="related-rt">7 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/network-effects-platform-theory-is/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Network Effects and Platform Theory: Why Platforms Are Different</div></a><a href="/blog/multi-cloud-strategy-architecture/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Multi-Cloud Strategy: Architecture or Accident?</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/actor-network-theory-is-research/" class="blog-related-card"><h4>Actor-Network Theory: Why Your ERP System Is an Actor Too</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

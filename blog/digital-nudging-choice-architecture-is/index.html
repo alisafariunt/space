@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/digital-nudging-choice-architecture-is/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Who Designed That Default? You Did.","description":"Every default in a digital system is a design choice with behavioral consequences. IS designers are choice architects whether they admit it or not.","url":"https://alisafari.space/blog/digital-nudging-choice-architecture-is/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"Comps & Reflections","keywords":"Comps & Reflections"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>Comps &amp; Reflections</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">Comps &amp; Reflections</div>
+<h1 class="art-title">Who Designed That Default? You Did.</h1>
+<p class="art-dek">Every default in a digital system is a design choice with behavioral consequences. IS designers are choice architects whether they admit it or not.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">Comps &amp; Reflections</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Who Designed That Default? You Did.</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="digital-nudging-choice-architecture-is" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">Comps &amp; Reflections</span>
-<h1>Who Designed That Default? You Did.</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">Comps &amp; Reflections</span></div>
-</div>
-</article>
+</header>
 <div class="series-badge"><span class="series-label">Digital</span><span class="series-counter">Part 6 of 12</span><div class="series-nav"><a href="/blog/digital-colonialism-tech-imperialism/">Digital Colonialism </a> &rsaquo; <a href="/blog/digital-divide-beyond-access/">Digital Divide Beyon</a> &rsaquo; <a href="/blog/digital-ethics-beyond-compliance/">Digital Ethics Beyon</a> &rsaquo; <a href="/blog/digital-identity-who-are-you-online/">Digital Identity Who</a> &rsaquo; <a href="/blog/digital-leadership-cio-cdo-role/">Digital Leadership C</a> &rsaquo; <span class="series-current">6</span> &rsaquo; <a href="/blog/digital-product-management-is/">Digital Product Mana</a> &rsaquo; <a href="/blog/digital-provenance-trust-calibration/">Digital Provenance T</a> &rsaquo; <a href="/blog/digital-sovereignty-data-politics/">Digital Sovereignty </a> &rsaquo; <a href="/blog/digital-transformation-leadership/">Digital Transformati</a> &rsaquo; <a href="/blog/digital-transformation-not-just-digitization/">Digital Transformati</a> &rsaquo; <a href="/blog/digital-twins-enterprise-operations/">Digital Twins Enterp</a></div></div>
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>When Microsoft set "reply all" as the default behavior for email responses in Outlook years ago, they probably ran some calculation about which default produced fewer complaints. The consequence of that choice is not neutral. When millions of people click reply without thinking, they reply to everyone on the thread. Most of them would have chosen reply if they had been paying full attention. Most of them were not paying full attention. The default resolved their inattention in a particular direction.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>When Microsoft set "reply all" as the default behavior for email responses in Outlook years ago, they probably ran some calculation about which default produced fewer complaints. The consequence of that choice is not neutral. When millions of people click reply without thinking, they reply to everyone on the thread. Most of them would have chosen reply if they had been paying full attention. Most of them were not paying full attention. The default resolved their inattention in a particular direction.</p>
 <p>That is choice architecture. Richard Thaler and Cass Sunstein wrote "Nudge" in 2008 and made the concept accessible to a wider audience than behavioral economics had previously reached. Their core argument is that the design of any choice environment, the layout, the defaults, the ordering, the framing, shapes the decisions people make without limiting their options. People remain free to choose otherwise. Most do not. The architecture does the work.</p>
 <p>Thaler and Sunstein used pension enrollment as one of their cleaner examples. When employees have to actively opt into a pension scheme, enrollment rates tend to be lower than when enrollment is automatic and employees have to opt out. The same logic applies to the contribution rate. If the default is set to, say, 6 percent of salary, most employees stay at 6 percent. Some had intended to contribute more. Some had intended to contribute less. But inertia and the cognitive cost of changing a default mean that the default itself carries enormous behavioral weight. The employer or plan designer who set that default made a consequential decision even if they were not thinking of it that way.</p>
 <p>IS designers make these decisions constantly. Every enterprise system ships with defaults for notification frequency, privacy settings, sharing permissions, data retention periods, and dozens of other choices that users technically can adjust and practically never do. A collaboration tool that defaults to public channels rather than private ones is making a choice about organizational transparency. An analytics dashboard that defaults to showing last-quarter data is making a choice about which time horizon managers use when evaluating performance. A mobile app that defaults to sending location data is making a choice about data collection. The user can change any of these. The user usually does not.</p>
@@ -69,47 +58,55 @@
 <p>There is a category of these practices, increasingly called dark patterns, where interface design exploits cognitive biases in ways that are arguably deceptive rather than helpful. Regulators in Europe have started paying attention to this. The EU's General Data Protection Regulation and the Digital Services Act both address, in different ways, design practices that manipulate user choices. I am not going to cite specific articles here because the regulatory landscape is shifting and the specifics are contested, but the direction is clear: regulators are beginning to treat design choices as consequential in a legal sense, not just an ethical one.</p>
 <p>The IS angle on this that I keep thinking about is the gap between what IS designers are trained to do and what they are actually doing when they make these choices. Software engineering education focuses on functionality, performance, and correctness. Interaction design education focuses on usability and user goals. Neither tradition has a well-developed vocabulary for thinking about behavioral consequences at population scale. When I design a default, I am making a choice that will affect not one user in a usability test but thousands or millions of users in real conditions. The tools I need to reason about that are drawn from behavioral economics and public policy, not from system design.</p>
 <p>Thaler and Sunstein argued for what they called "libertarian paternalism": preserving freedom of choice while arranging the environment to make the better choice easier. That is a defensible principle in the context of helping people save more for retirement. It is a much more contested principle when applied to helping a platform extract more revenue. Both are nudges. Both use defaults. The ethical question is not about the mechanism but about who benefits.</p>
-<p>I do not think IS designers are generally trying to manipulate users. I do think most IS designers are not thinking carefully about defaults as behavioral choices with population-level consequences. The field has the concepts to do better. Behavioral IS is a recognized research area. The work from Thaler, Sunstein, and the behavioral economics tradition is well documented and accessible. The gap is mostly between what the research knows and what gets applied in practice when someone is shipping a product.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>I do not think IS designers are generally trying to manipulate users. I do think most IS designers are not thinking carefully about defaults as behavioral choices with population-level consequences. The field has the concepts to do better. Behavioral IS is a recognized research area. The work from Thaler, Sunstein, and the behavioral economics tradition is well documented and accessible. The gap is mostly between what the research knows and what gets applied in practice when someone is shipping a product.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/digital-product-management-is/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Digital Product Management: When IT Projects Become Products</div></a><a href="/blog/digital-leadership-cio-cdo-role/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">The CIO Used to Keep the Lights On. Now What?</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="related-item"><div><div class="related-cat">Comps &amp; Reflections</div><div class="related-title">Bought a $2M Platform, Nobody Learned a Thing</div></div><span class="related-rt">6 min read</span></a><a href="/blog/agency-theory-algorithm-accountability/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">When the Algorithm Fails, Nobody Takes the Call</div></div><span class="related-rt">6 min read</span></a><a href="/blog/agent-ecosystems-platform-envelopment/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">The Internet of Agents Will Be Built by Platforms That Own the Protocol</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/digital-product-management-is/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Digital Product Management: When IT Projects Become Products</div></a><a href="/blog/digital-leadership-cio-cdo-role/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">The CIO Used to Keep the Lights On. Now What?</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agent-ecosystems-platform-envelopment/" class="blog-related-card"><h4>The Internet of Agents Will Be Built by Platforms That Own the Protocol</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

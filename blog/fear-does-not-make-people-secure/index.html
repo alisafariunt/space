@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/fear-does-not-make-people-secure/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fear Does Not Make People Secure","description":"Security awareness training loves a good scare story. The research says fear without efficacy produces denial, not compliance.","url":"https://alisafari.space/blog/fear-does-not-make-people-secure/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"Trust & Security","keywords":"Trust & Security"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>Trust &amp; Security</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">Trust &amp; Security</div>
+<h1 class="art-title">Fear Does Not Make People Secure</h1>
+<p class="art-dek">Security awareness training loves a good scare story. The research says fear without efficacy produces denial, not compliance.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>7 min read</span>
+<span class="art-tag">Trust &amp; Security</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Fear Does Not Make People Secure</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="fear-does-not-make-people-secure" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">Trust &amp; Security</span>
-<h1>Fear Does Not Make People Secure</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 7 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">Trust &amp; Security</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>I was reading through the cybersecurity and privacy section of my oral exam materials when I hit a trap warning that stopped me. The warning said: do not confuse fear control with danger control. I had to stop and think about what that distinction actually means, because most security awareness training I have ever seen gets it wrong.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>I was reading through the cybersecurity and privacy section of my oral exam materials when I hit a trap warning that stopped me. The warning said: do not confuse fear control with danger control. I had to stop and think about what that distinction actually means, because most security awareness training I have ever seen gets it wrong.</p>
 <p>The distinction comes from Boss et al. (2015), who applied Protection Motivation Theory to IS security and drew a line that should have changed how every company runs its security awareness program. Fear control is what happens when someone responds to a threat by managing their emotional fear. They deny the risk, they avoid the information, they tell themselves it will not happen to them. Danger control is what happens when someone responds to a threat by managing the actual danger. They install the software update, they follow the policy, they change their password. Only danger control produces security compliance. Fear control produces maladaptive responses that look like noncompliance but are something different and more stubborn.</p>
 <p>Rogers (1975, 1983) built PMT on two appraisal processes. Threat appraisal combines perceived severity, how bad the consequences would be, with perceived vulnerability, how likely you think it is to happen to you. Coping appraisal combines response efficacy, your belief that the recommended action actually works, with self-efficacy, your belief that you can actually do it. The critical point is that fear appeals only motivate protective behavior when threat appraisal is accompanied by sufficient coping appraisal. High threat without high efficacy does not produce protection. It produces avoidance, denial, or fatalism.</p>
 <p>This is not a minor academic point. Most security awareness programs work like this: show employees scary statistics about data breaches, display dramatic phishing simulations, maybe run a simulated attack that embarrasses people who click the wrong link. The operating assumption is that if employees are scared enough, they will behave more carefully. But PMT says the opposite happens when you raise threat without also raising efficacy. You scare someone into thinking breaches are inevitable and severe, but you do not give them a believable, doable response, and they shift into fear control. They stop reading your emails. They tune out during training. They develop a kind of learned helplessness about security that no amount of additional scary statistics will fix.</p>
@@ -69,47 +58,55 @@
 <p>The organizational level tells a different story again. Liang et al. (2025) show that mergers and acquisitions increase data breach risk through organizational complexity. When firms integrate, they connect previously separate systems, routines, and security practices. The expanded attack surface is a structural consequence of the merger, not a failure of individual employees clicking the wrong link. This is systems thinking applied to cybersecurity: risk grows from interdependence and complexity, not from individual laziness or ignorance.</p>
 <p>What bothers me is how often the practical lessons from these papers get lost. A CISO runs mandatory phishing simulations and wonders why employees disengage. An IS researcher measures privacy concern and disclosure behavior separately, treats the gap as a paradox requiring behavioral nudges, and misses that the person made a perfectly rational calculus in context. A board asks why the merged company got breached and blames employee negligence when the real mechanism was structural complexity that no individual employee could have fixed.</p>
 <p>The through-line is that people are not irrational. They are responding to the information and the options available to them. Fear without a believable, doable response produces denial, which is rational if you cannot actually protect yourself. Disclosing data for a benefit is rational when the benefit outweighs the risk in that context. And getting breached after a merger is a structural outcome, not a human failure.</p>
-<p>If I were advising a company on security awareness, I would start by asking what efficacy information the program provides. Not what threat scenarios, not what scare stories, but what specific, achievable actions employees can take and why those actions work. Without that, the program is manufacturing fear control and calling it compliance.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>If I were advising a company on security awareness, I would start by asking what efficacy information the program provides. Not what threat scenarios, not what scare stories, but what specific, achievable actions employees can take and why those actions work. Without that, the program is manufacturing fear control and calling it compliance.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/fintech-disruption-banking-it/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">FinTech and the Bank That Still Runs on COBOL</div></a><a href="/blog/extending-tam-instead-of-replacing-it/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Why Everyone Keeps Extending TAM Instead of Replacing It</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/ai-chatbots-media-richness-theory/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">AI Chatbots Are the Richest Medium That Has Never Existed</div></div><span class="related-rt">6 min read</span></a><a href="/blog/ai-hallucination-trust-problem/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">AI Hallucination Is a Trust Problem, Not a Technical One</div></div><span class="related-rt">6 min read</span></a><a href="/blog/ai-safety-pmt-fear-danger/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">AI Safety Frameworks Are PMT Without Using the Name</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/fintech-disruption-banking-it/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">FinTech and the Bank That Still Runs on COBOL</div></a><a href="/blog/extending-tam-instead-of-replacing-it/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Why Everyone Keeps Extending TAM Instead of Replacing It</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/ai-chatbots-media-richness-theory/" class="blog-related-card"><h4>AI Chatbots Are the Richest Medium That Has Never Existed</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-hallucination-trust-problem/" class="blog-related-card"><h4>AI Hallucination Is a Trust Problem, Not a Technical One</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-safety-pmt-fear-danger/" class="blog-related-card"><h4>AI Safety Frameworks Are PMT Without Using the Name</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/api-economy-software-as-platform/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The API Economy and Why Your Software Is Now a Platform","description":"APIs let companies monetize capabilities rather than products. The strategic logic is platform theory, and the dependency chain it creates is intentional.","url":"https://alisafari.space/blog/api-economy-software-as-platform/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy, Platforms & Ecosystems"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>IT Governance &amp; Strategy</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">IT Governance &amp; Strategy</div>
+<h1 class="art-title">The API Economy and Why Your Software Is Now a Platform</h1>
+<p class="art-dek">APIs let companies monetize capabilities rather than products. The strategic logic is platform theory, and the dependency chain it creates is intentional.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>5 min read</span>
+<span class="art-tag">IT Governance &amp; Strategy</span><span class="art-tag">Platforms &amp; Ecosystems</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">The API Economy and Why Your Software Is Now a Platform</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="api-economy-software-as-platform" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">IT Governance &amp; Strategy</span>
-<h1>The API Economy and Why Your Software Is Now a Platform</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 5 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>In 2009, if a startup wanted to accept credit card payments, they needed a merchant account, a payment processor relationship, and usually a lawyer to review the contracts. It took months and cost real money before a single transaction could occur. Then Stripe launched, and the same startup could accept payments in 40 countries with a few dozen lines of code and a weekend's work. The entire payment infrastructure stack, the banking relationships, the fraud detection, the currency conversion, became a function call.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>In 2009, if a startup wanted to accept credit card payments, they needed a merchant account, a payment processor relationship, and usually a lawyer to review the contracts. It took months and cost real money before a single transaction could occur. Then Stripe launched, and the same startup could accept payments in 40 countries with a few dozen lines of code and a weekend's work. The entire payment infrastructure stack, the banking relationships, the fraud detection, the currency conversion, became a function call.</p>
 <p>That shift is what people mean by the API economy, though the phrase has gotten vague from overuse. An API (Application Programming Interface) is how software systems talk to each other in standardized ways. The API economy is the pattern where companies expose their core capabilities through APIs and make money by letting other businesses build on top of them. Twilio did this with phone calls and text messages. Stripe did it with payments. Sendgrid did it with email delivery. In each case, the entire product is the API, and the revenue model depends on other businesses integrating it into their own products.</p>
 <p>The strategic logic underneath this is platform theory. Parker, Van Alstyne, and Jiang (2017) drew the distinction between pipeline businesses and platform businesses, and it applies cleanly here. A pipeline business creates value in a linear sequence: raw materials come in, processing happens, a product goes out. A platform facilitates interactions between parties who would not have found or transacted with each other otherwise, and the platform owner takes a share of that value. An API-first company is a platform business in a particular configuration: developers are one side of the market, end users are the other, and the API is the interface through which both sides create value the platform then monetizes.</p>
 <p>What makes this sticky is the dependency chain it creates. Every developer who builds a product on Stripe's API is a developer whose product now depends on Stripe continuing to exist and behave consistently. Switching costs are not primarily monetary. They are architectural. If you built your payment flow around Stripe's webhooks, their idempotency model, their dispute resolution API, your product is Stripe-shaped. Migrating to a competitor means rebuilding that shape. This is not an accident. The switching cost is part of why API-first companies invest so much in developer experience: the more integrated the API becomes into a developer's thinking and codebase, the higher the cost of leaving.</p>
@@ -69,47 +58,55 @@
 <p>AWS service outages are well-documented events, and when they occur they tend to take down large portions of the internet at once, because so many services depend on the same infrastructure. This is the structural risk that the API economy creates: concentration. The more efficient the market becomes at reusing commodity capabilities through APIs, the more those commodity capabilities concentrate at a small number of providers. The efficiency and the fragility come from the same source.</p>
 <p>I think about this alongside what I wrote on <a href="/blog/platform-governance-multi-sided-markets">platform governance and multi-sided markets</a>. The API-first platform and the traditional platform have the same governance structure: the platform owner sets the rules, controls the interfaces, and decides which complementors get access and on what terms. When Stripe changes its fee structure, you can disagree, but you probably cannot leave easily. When AWS deprecates a service, you adapt. The dependency that makes these platforms valuable to developers is the same dependency that gives the platform owner structural power over everyone building on it.</p>
 <p>There is also a useful IS frame here from <a href="/blog/resource-based-view-it-competitive-advantage">resource-based view and IT competitive advantage</a>. The capability exposed through an API is, from the provider's perspective, a resource that is rare (they built the banking relationships, the infrastructure), valuable (other businesses will pay for it), and at least partially inimitable (the network effects and regulatory relationships are hard to replicate). From the consumer's perspective, the API is a commodity they can access without building the underlying resource themselves. The API economy is, in some ways, a market for bounded access to resources that are inimitable only at the level of the provider.</p>
-<p>The thing that gets obscured in the enthusiasm around composable architecture is that "composable" and "dependent" are the same thing, viewed differently. You compose your product from Stripe, Twilio, Auth0, and Sendgrid. You also depend on all four of them simultaneously. When any one of them has a problem, your product has a problem. The more sophisticated your composition, the more potential failure points you have accumulated in services you do not control.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>The thing that gets obscured in the enthusiasm around composable architecture is that "composable" and "dependent" are the same thing, viewed differently. You compose your product from Stripe, Twilio, Auth0, and Sendgrid. You also depend on all four of them simultaneously. When any one of them has a problem, your product has a problem. The more sophisticated your composition, the more potential failure points you have accumulated in services you do not control.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/attention-based-view-strategy-focus/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Strategy Is What Your Organization Actually Pays Attention To</div></a><a href="/blog/algorithmic-bias-model-is-policy/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Algorithmic Bias: When the Model Is the Policy</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="related-item"><div><div class="related-cat">IT Governance &amp; Strategy</div><div class="related-title">5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</div></div><span class="related-rt">7 min read</span></a><a href="/blog/activity-theory-is-research/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">People Use Tools Inside Activity Systems, Not in a Vacuum</div></div><span class="related-rt">5 min read</span></a><a href="/blog/agency-theory-algorithm-accountability/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">When the Algorithm Fails, Nobody Takes the Call</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/attention-based-view-strategy-focus/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Strategy Is What Your Organization Actually Pays Attention To</div></a><a href="/blog/algorithmic-bias-model-is-policy/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Algorithmic Bias: When the Model Is the Policy</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

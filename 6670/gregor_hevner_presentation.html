@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gregor & Hevner (2013) — Presentation Notes</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.7; padding: 25px; max-width: 920px; margin: 0 auto; }
+        h1 { color: #1e40af; font-size: 1.7em; margin-bottom: 4px; }
+        .subtitle { color: #64748b; font-size: 0.95em; margin-bottom: 20px; }
+        h2 { color: #1e40af; font-size: 1.25em; margin: 30px 0 12px; border-left: 5px solid #3b82f6; padding-left: 12px; background: #eff6ff; padding: 8px 12px; border-radius: 0 8px 8px 0; }
+        .card { background: #ffffff; border-radius: 12px; padding: 20px; margin: 12px 0; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+        .card img { max-width: 100%; border-radius: 8px; margin: 8px 0; border: 1px solid #cbd5e1; }
+        .caption { text-align: center; color: #64748b; font-size: 0.85em; margin-bottom: 12px; }
+        .speak { background: #f0f9ff; border-left: 4px solid #3b82f6; padding: 14px 16px; border-radius: 0 8px 8px 0; margin: 10px 0; }
+        .speak strong { color: #1e40af; }
+        .example { background: #fefce8; border-left: 4px solid #eab308; padding: 10px 14px; border-radius: 0 8px 8px 0; margin: 8px 0; font-size: 0.92em; }
+        .example strong { color: #a16207; }
+        mark { background: #fde68a; color: #1e293b; padding: 1px 5px; border-radius: 3px; }
+        ul { margin: 8px 0 8px 22px; }
+        li { margin: 5px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+        th, td { border: 1px solid #cbd5e1; padding: 9px 12px; text-align: left; font-size: 0.9em; }
+        th { background: #eff6ff; color: #1e40af; font-weight: 600; }
+        .warn { background: #fff7ed; border: 1px solid #fb923c; border-radius: 8px; padding: 14px; margin: 12px 0; }
+        .warn strong { color: #c2410c; }
+        .key { background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 14px; margin: 12px 0; }
+        .key strong { color: #166534; }
+        p { margin: 6px 0; }
+        .tag { display: inline-block; background: #dbeafe; color: #1e40af; font-size: 0.8em; padding: 2px 8px; border-radius: 12px; margin: 2px 3px; }
+        hr { border: none; border-top: 1px solid #e2e8f0; margin: 25px 0; }
+    </style>
+</head>
+<body>
+
+<h1>🎯 Gregor & Hevner (2013)</h1>
+<p class="subtitle">Positioning and Presenting Design Science Research for Maximum Impact<br/>
+MIS Quarterly, 37(2), pp. 337-355 &nbsp;|&nbsp; <strong>Presenters:</strong> Vamsi, <mark>Ali</mark></p>
+
+<!-- ========== 1 ========== -->
+<h2>1️⃣ What Problem Does This Paper Solve?</h2>
+<div class="card">
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> Hevner et al. (2004) told us DSR is legitimate research and gave us 7 guidelines. That was a big deal. But after about ten years, many IS researchers still struggled with a practical question: <mark>how do I actually write a DSR paper that reviewers will accept?</mark></p>
+        <p>They did not know how to frame their contribution. They did not know where their artifact fits compared to other work. They did not know what structure to use when writing. So many DSR papers got rejected — not because the work was bad, but because the authors could not communicate what they did and why it matters.</p>
+        <p>Gregor and Hevner (2013) fix this. They give us <mark>three practical tools</mark>:</p>
+        <ul>
+            <li><strong>Tool 1:</strong> A knowledge base framework (Ω vs Λ) to ground your work in theory</li>
+            <li><strong>Tool 2:</strong> A 2×2 matrix to classify what type of contribution you are making</li>
+            <li><strong>Tool 3:</strong> A 7-section paper structure to follow when writing</li>
+        </ul>
+        <p>Plus one golden rule: <mark>signal your contribution type in the Introduction</mark>, so reviewers know what standard to judge you by.</p>
+    </div>
+</div>
+
+<!-- ========== 2 ========== -->
+<h2>2️⃣ Two Types of Knowledge: Ω and Λ — Figure 1</h2>
+<div class="card">
+    <img src="img/week9/ss02.png" alt="Figure 1: The DSR Knowledge Base">
+    <p class="caption">Figure 1. The Design Science Research Knowledge Base (Gregor & Hevner, 2013, p. 344)</p>
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> This figure splits all knowledge into two types.</p>
+        <ul>
+            <li><strong>Omega (Ω) = Descriptive knowledge.</strong> This is what we already know about how the world works. Natural laws, observed patterns, theories that describe reality. For example, TAM tells us that perceived usefulness affects technology adoption. This kind of knowledge comes from behavioral research, experiments, observation.</li>
+            <li><strong>Lambda (Λ) = Prescriptive knowledge.</strong> This is stuff humans build — constructs, models, methods, design theories, prototypes. It tells you <em>how to do something</em>, not just how things are. This comes from designing, building, engineering.</li>
+        </ul>
+        <p>The key insight: <mark>when you do DSR, you are creating Lambda</mark>. You are building something new — an artifact. But your artifact should not come out of nowhere. It should be <mark>grounded in Omega</mark>. You need a theoretical reason why your artifact should work, not just "I built it and it seems fine."</p>
+    </div>
+    <div class="example">
+        <p><strong>💡 Example:</strong> If I build a trust-delegation framework for AI agents (that is Lambda), I should ground it in theories like Trust Theory from Mayer et al. (1995) and Agency Theory (that is Omega). The Omega explains WHY certain design choices make sense.</p>
+    </div>
+</div>
+
+<!-- ========== 3 ========== -->
+<h2>3️⃣ How Knowledge Flows in DSR — Figure 2</h2>
+<div class="card">
+    <img src="img/week9/ss03.png" alt="Figure 2: Roles of Knowledge in DSR">
+    <p class="caption">Figure 2. The Roles of Knowledge in Design Science Research (Gregor & Hevner, 2013, p. 344)</p>
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> This figure shows how knowledge moves around in DSR. Three columns:</p>
+        <ul>
+            <li><strong>Left = Application Environment.</strong> The real world — the problems and opportunities we are trying to address. This is where the motivation for your research comes from.</li>
+            <li><strong>Center = Knowledge Base.</strong> Where Omega (descriptive) and Lambda (prescriptive) sit together and <mark>inform each other</mark>. When you observe a pattern in reality (Omega), that can inspire a new design (Lambda). And when you build something new (Lambda), testing it can reveal new truths about reality (Omega).</li>
+            <li><strong>Right = Human Capabilities.</strong> This is us — the researchers. Our creativity, our experience, our judgment. DSR is not purely mechanical. It requires human insight to design good artifacts.</li>
+        </ul>
+        <p>The big picture: problems come from the real world, we use existing knowledge plus our own skills to build new artifacts, and those artifacts <mark>add back to the knowledge base</mark> for future researchers.</p>
+    </div>
+</div>
+
+<!-- ========== 4 ========== -->
+<h2>4️⃣ The 2×2 Contribution Matrix — Figure 3 ⭐⭐⭐</h2>
+<div class="card">
+    <img src="img/week9/ss04.png" alt="Figure 3: DSR Knowledge Contribution Framework">
+    <p class="caption">Figure 3. DSR Knowledge Contribution Framework (Gregor & Hevner, 2013, p. 345)</p>
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> <mark>This is the most important figure in the whole paper.</mark> It is a 2×2 matrix with two axes:</p>
+        <ul>
+            <li><strong>X-axis:</strong> How mature is the <em>problem domain</em>? (Is this a new problem or a well-known one?)</li>
+            <li><strong>Y-axis:</strong> How mature is the <em>solution</em>? (Is this a new solution or an existing one?)</li>
+        </ul>
+        <p>That gives you four quadrants:</p>
+    </div>
+
+    <table>
+        <thead><tr><th></th><th>🆕 New Problem<br/>(Low domain maturity)</th><th>📋 Known Problem<br/>(High domain maturity)</th></tr></thead>
+        <tbody>
+            <tr>
+                <td><strong>📋 Known Solution</strong><br/>(High solution maturity)</td>
+                <td style="background:#fef9c3;"><strong>Exaptation</strong><br/>Take a known solution and apply it to a new problem.<br/><em>Example: data warehouse methods → healthcare</em></td>
+                <td style="background:#fee2e2;"><strong>Routine Design</strong><br/>Known solution for known problem.<br/><em>NOT research. Just engineering.</em></td>
+            </tr>
+            <tr>
+                <td><strong>🆕 New Solution</strong><br/>(Low solution maturity)</td>
+                <td style="background:#dcfce7;"><strong>Invention</strong><br/>New solution for a new problem. Very rare!<br/><em>Example: first DSS (Scott-Morton, 1967)</em></td>
+                <td style="background:#dbeafe;"><strong>Improvement</strong><br/>Better solution for a known problem.<br/><em>Most common DSR type in IS.</em></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="speak">
+        <p><strong>🗣️ More detail on each quadrant:</strong></p>
+        <ul>
+            <li><strong>Invention:</strong> Nobody studied this problem before, and nobody built this kind of solution. This is radical innovation. Very rare. When the authors looked at MISQ papers from 2006-2011, <mark>zero papers were Invention</mark>.</li>
+            <li><strong>Improvement:</strong> We know the problem well, but we have a <mark>better or new way</mark> to solve it. This is where most DSR papers in IS fall. Example: a better algorithm for product recommendation, a faster classification model.</li>
+            <li><strong>Exaptation:</strong> The problem is new, but we borrow a solution that already works in another domain. Example: taking CATCH methods from data warehousing and applying them to healthcare informatics.</li>
+            <li><strong>Routine Design:</strong> Known problem, known solution. This is just professional practice or engineering. <mark>It is not research</mark> and should not be published as DSR.</li>
+        </ul>
+    </div>
+
+    <div class="warn">
+        <p><strong>⚠️ For class discussion:</strong> When someone asks "where does this paper fit in the matrix?", you need to explain two things: (1) <mark>why the problem is new or not</mark>, and (2) <mark>why the solution is new or not</mark>. Just saying "it's Improvement" is not enough — you need to justify it.</p>
+    </div>
+</div>
+
+<!-- ========== 5 ========== -->
+<h2>5️⃣ Three Levels of Contribution — Table 1</h2>
+<div class="card">
+    <img src="img/week9/ss01.png" alt="Table 1: Contribution Types">
+    <p class="caption">Table 1. Design Science Research Contribution Types (Gregor & Hevner, 2013, p. 342)</p>
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> Besides the 2×2, there is another dimension: <mark>how abstract is your contribution?</mark> Three levels:</p>
+        <ul>
+            <li><strong>Level 1 — Situated Implementation:</strong> You just built something concrete. A prototype, a working system, a piece of software. It works in one specific context. That is the <mark>weakest contribution by itself</mark> because it only solves one specific problem in one specific place.</li>
+            <li><strong>Level 2 — Nascent Design Theory:</strong> You went beyond just building. You <mark>extracted design principles</mark> from what you built. Now other people in different contexts can learn from your principles and apply them. This is where most good DSR papers try to be. Grisold et al. (2025) is Level 2 — they give us four design principles, not just a system.</li>
+            <li><strong>Level 3 — Well-Developed Design Theory:</strong> A full, mature design theory with explanatory and predictive power. This is very rare. Almost nobody gets here in a single paper.</li>
+        </ul>
+    </div>
+
+    <table>
+        <thead><tr><th>Level</th><th>Type</th><th>What It Looks Like</th><th>Impact</th></tr></thead>
+        <tbody>
+            <tr><td><strong>1</strong></td><td>Situated Implementation</td><td>Prototypes, software, implemented processes</td><td>Low (too specific)</td></tr>
+            <tr><td><strong>2</strong></td><td><mark>Nascent Design Theory</mark></td><td>Design principles, architectures, methods, constructs</td><td>Medium-High</td></tr>
+            <tr><td><strong>3</strong></td><td>Well-Developed Design Theory</td><td>Full theories about embedded phenomena</td><td>Highest (but very rare)</td></tr>
+        </tbody>
+    </table>
+
+    <div class="key">
+        <p><strong>🏆 Golden Rule:</strong> If you only build a system and stop there, your contribution is weak. You need to go from "I built it" to <mark>"here is why it works and here are the principles others can follow."</mark> That is the move from Level 1 to Level 2. That is where impact comes from.</p>
+    </div>
+</div>
+
+<!-- ========== 6 ========== -->
+<h2>6️⃣ What Do Real DSR Papers Look Like? — Table 2</h2>
+<div class="card">
+    <img src="img/week9/ss05.png" alt="Table 2: Classified Articles">
+    <p class="caption">Table 2. DSR Articles in MISQ 2006-2011 Classified by Knowledge Contribution Type (Gregor & Hevner, 2013, p. 348)</p>
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> The authors actually went through MISQ papers published between 2006 and 2011 and classified each one using their matrix. What did they find?</p>
+        <ul>
+            <li>Most papers were <mark>Improvement</mark> — a known problem with a new or better solution.</li>
+            <li>A few were <strong>Exaptation</strong> — borrowing solutions from other fields.</li>
+            <li><mark>Zero were Invention.</mark> Not a single paper claimed to solve a completely new problem with a completely new solution.</li>
+        </ul>
+        <p>What does this tell us? Two things: (1) Invention is extremely rare, so if a paper claims it, you should check that claim very carefully. (2) The realistic expectation for most of us PhD students doing DSR: our work will probably be an Improvement or Exaptation, and that is perfectly fine.</p>
+    </div>
+</div>
+
+<!-- ========== 7 ========== -->
+<h2>7️⃣ How to Write a DSR Paper — Table 3 (Publication Schema)</h2>
+<div class="card">
+    <img src="img/week9/ss06.png" alt="Table 3: Publication Schema">
+    <p class="caption">Table 3. Publication Schema for a Design Science Research Study (Gregor & Hevner, 2013, p. 350)</p>
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> This table gives you the recommended structure for writing a DSR paper. Seven sections, and the most important thing to notice is that <mark>Section 4 (Artifact Description) should be the biggest section</mark> in the paper. That is where you explain what you built and how it works.</p>
+    </div>
+
+    <table>
+        <thead><tr><th>#</th><th>Section</th><th>What Goes Here</th><th>Notes</th></tr></thead>
+        <tbody>
+            <tr><td>1</td><td><strong>Introduction</strong></td><td>Define the problem. Explain why it matters. State your artifact.</td><td><mark>Signal your contribution type here!</mark></td></tr>
+            <tr><td>2</td><td><strong>Literature Review</strong></td><td>What theories (Ω) and artifacts (Λ) already exist?</td><td>Show you know the field</td></tr>
+            <tr><td>3</td><td><strong>Method</strong></td><td>State your DSR approach.</td><td>Reference Hevner 2004 or Peffers 2007</td></tr>
+            <tr><td>4</td><td><strong>Artifact Description</strong></td><td>Describe your artifact in full detail.</td><td><mark>Biggest section!</mark></td></tr>
+            <tr><td>5</td><td><strong>Evaluation</strong></td><td>How did you show it works?</td><td>Experiment, case study, scenario, simulation</td></tr>
+            <tr><td>6</td><td><strong>Discussion</strong></td><td>What does your artifact contribute to knowledge?</td><td>Link back to intro objectives</td></tr>
+            <tr><td>7</td><td><strong>Conclusions</strong></td><td>Restate main findings and contribution.</td><td></td></tr>
+        </tbody>
+    </table>
+
+    <div class="example">
+        <p><strong>💡 Check:</strong> Look at Grisold et al. (2025). They follow this structure. Their Section 4 (describing the design principles) is the biggest part. In Section 1 they signal: "Type V theory, Invention, Level 2." That is exactly what Gregor & Hevner recommend.</p>
+    </div>
+</div>
+
+<!-- ========== 8 ========== -->
+<h2>8️⃣ Signaling — Tell the Reader What You Are Doing</h2>
+<div class="card">
+    <div class="speak">
+        <p><strong>🗣️ What I would say:</strong> This is a simple but very important idea. When you write a DSR paper, you must <mark>explicitly signal your contribution type in the Introduction</mark>. Do not leave the reviewer guessing.</p>
+        <p>Say something like:</p>
+        <ul>
+            <li>"This study offers an <em>improvement</em> to existing approaches by..."</li>
+            <li>"We contribute a <em>nascent design theory</em> (Level 2) for..."</li>
+            <li>"Following Gregor (2006), this is a <em>Type V theory</em> — a theory of design and action."</li>
+        </ul>
+        <p>Why does this matter? Because <mark>the reviewer needs to know what standard to judge you by</mark>. If you built a Level 2 contribution but the reviewer thinks you are claiming Level 3, they will say "your theory is not developed enough" and reject you — unfairly. Signaling protects you from being judged by the wrong criteria.</p>
+    </div>
+    <div class="warn">
+        <p><strong>📣 The Three Things to Signal in Your Introduction:</strong></p>
+        <ul>
+            <li><strong>(1) Contribution type:</strong> Invention / Improvement / Exaptation</li>
+            <li><strong>(2) Contribution level:</strong> Level 1 / Level 2 / Level 3</li>
+            <li><strong>(3) Theory type:</strong> Using Gregor (2006) classification (e.g., Type V = theory for design and action)</li>
+        </ul>
+    </div>
+</div>
+
+<hr/>
+<p style="color:#94a3b8; font-size:0.85em; text-align:center;">Ali Safari — BCIS 6670 Week 9 — Spring 2026</p>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/cloud-migration-hidden-costs/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Cloud Migration Nobody Talks About Honestly","description":"Cloud migration is sold as a cost-reduction play. In practice, many organizations end up spending more and quietly moving workloads back.","url":"https://alisafari.space/blog/cloud-migration-hidden-costs/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy, Platforms & Ecosystems"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>IT Governance &amp; Strategy</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">IT Governance &amp; Strategy</div>
+<h1 class="art-title">The Cloud Migration Nobody Talks About Honestly</h1>
+<p class="art-dek">Cloud migration is sold as a cost-reduction play. In practice, many organizations end up spending more and quietly moving workloads back.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">IT Governance &amp; Strategy</span><span class="art-tag">Platforms &amp; Ecosystems</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">The Cloud Migration Nobody Talks About Honestly</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="cloud-migration-hidden-costs" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">IT Governance &amp; Strategy</span>
-<h1>The Cloud Migration Nobody Talks About Honestly</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>The pitch is always the same. Move to the cloud and you will cut infrastructure costs, scale faster, and stop worrying about hardware. Your on-premise servers are a liability. The cloud is a variable expense you can dial up and down. The slide deck is clean and the math is usually compelling. Then the bill arrives twelve months later and it is three times what anyone projected, and suddenly the CTO is sitting in a room explaining to the CFO why "cloud is cheaper" turned out to be wrong.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>The pitch is always the same. Move to the cloud and you will cut infrastructure costs, scale faster, and stop worrying about hardware. Your on-premise servers are a liability. The cloud is a variable expense you can dial up and down. The slide deck is clean and the math is usually compelling. Then the bill arrives twelve months later and it is three times what anyone projected, and suddenly the CTO is sitting in a room explaining to the CFO why "cloud is cheaper" turned out to be wrong.</p>
 <p>I have seen this story play out in enough organizations that I stopped being surprised by it. What surprises me now is how consistently the industry press keeps repeating the original pitch even as a growing number of companies quietly move workloads back on-premise.</p>
 <p>The cost problem is not a secret. As argued in a widely circulated piece by Andreessen Horowitz around 2022, cloud costs can become the second or third largest expense item for software companies, after salaries and, sometimes, sales. Their argument was that cloud repatriation, moving workloads back to owned infrastructure, could save large companies hundreds of millions of dollars over time. These are their own estimates and their own modeling, not peer-reviewed accounting, but the directional claim lines up with what a lot of IT leaders will tell you in private. The cloud is expensive when you actually run production workloads at scale for years.</p>
 <p>Dropbox is the case that gets cited most often. Around 2016 and 2017, they moved a large portion of their storage workloads off AWS and onto their own hardware. By their own account, this saved them roughly $75 million over two years. Dropbox is a specific kind of company: massive amounts of relatively predictable storage demand, the engineering capability to build and operate their own infrastructure, and enough scale to make that investment worthwhile. Most companies are not Dropbox. But the case demonstrates something important: the on-premise model is not obsolete, and for certain workload profiles it is substantially cheaper.</p>
@@ -69,47 +58,55 @@
 <p>The lift-and-shift approach makes this worse. Lift and shift means taking an existing workload, picking it up, and putting it in the cloud with minimal changes. It is the fastest path to migration and the path that most organizations take because the alternative, actually redesigning the application to be cloud-native, takes far longer and costs far more upfront. The problem is that on-premise architecture makes assumptions that cloud pricing does not respect. On-premise, you pay for hardware once and run it continuously. A server running at 20% utilization costs you the same as one running at 90%. In the cloud, you pay for what you use, but the pricing model also rewards sustained use and penalizes the kind of bursty, always-on workload patterns that legacy applications were designed around. A workload that was economical on owned hardware can be shockingly expensive in the cloud if it was not designed with cloud pricing in mind. Lift and shift transfers the workload without addressing any of these assumptions, and the bill reflects that immediately.</p>
 <p>I think about this as an instance of the same problem I described in <a href="/blog/erp-implementation-failure-structural-not-technical">why ERP implementations fail structurally, not technically</a>. The technology decision is made at the executive level, with projections that assume the organization will adapt its processes to the technology. The actual adaptation is harder than projected, the costs accumulate, and the gap between the business case and reality grows. Cloud migration has the same shape: a confident projection, an underestimated adaptation cost, and an outcome that looks nothing like the slide deck.</p>
 <p>What is happening now as a result is repatriation, a word that sounds more dramatic than the reality but captures something real. Organizations are not abandoning the cloud entirely. They are becoming more selective. Workloads with predictable, sustained compute needs, particularly storage-intensive or high-throughput data processing jobs, are moving back on-premise or to colocation facilities where the economics are cleaner. Workloads with genuinely variable demand, customer-facing applications that need to scale for unpredictable traffic, and services that benefit from geographic distribution are staying in the cloud. This is not a repudiation of cloud computing. It is the industry slowly arriving at the conclusion that cloud is a good fit for some workloads and a bad fit for others, and that the original pitch that cloud is always better was a simplification that benefited vendors more than customers.</p>
-<p>The honest version of the cloud decision is not "cloud vs. on-premise." It is "which workloads belong where, and what will it actually cost to move them, run them, and, if necessary, move them again?" That calculation is harder than the migration vendor wants it to be, because part of the answer involves modeling a future where you might want to leave. Vendors are not motivated to help you model that scenario. The egress fees, the proprietary service dependencies, and the migration inertia are all features of a system designed to make staying the default. An organization that goes in without understanding this will eventually learn it on the bill. Most of them do.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>The honest version of the cloud decision is not "cloud vs. on-premise." It is "which workloads belong where, and what will it actually cost to move them, run them, and, if necessary, move them again?" That calculation is harder than the migration vendor wants it to be, because part of the answer involves modeling a future where you might want to leave. Vendors are not motivated to help you model that scenario. The egress fees, the proprietary service dependencies, and the migration inertia are all features of a system designed to make staying the default. An organization that goes in without understanding this will eventually learn it on the bill. Most of them do.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/coevolution-technology-organizations/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Technology and Organizations Shape Each Other. That Is Not a Metaphor.</div></a><a href="/blog/clinical-decision-support-algorithm-doctor/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Clinical Decision Support: When the Algorithm Disagrees With the Doctor</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="related-item"><div><div class="related-cat">IT Governance &amp; Strategy</div><div class="related-title">5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</div></div><span class="related-rt">7 min read</span></a><a href="/blog/activity-theory-is-research/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">People Use Tools Inside Activity Systems, Not in a Vacuum</div></div><span class="related-rt">5 min read</span></a><a href="/blog/agency-theory-algorithm-accountability/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">When the Algorithm Fails, Nobody Takes the Call</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/coevolution-technology-organizations/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Technology and Organizations Shape Each Other. That Is Not a Metaphor.</div></a><a href="/blog/clinical-decision-support-algorithm-doctor/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Clinical Decision Support: When the Algorithm Disagrees With the Doctor</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

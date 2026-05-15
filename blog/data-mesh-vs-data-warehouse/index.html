@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/data-mesh-vs-data-warehouse/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Data Mesh vs. Data Warehouse: The Architecture Wars Are a Distraction","description":"The data architecture debate between centralized warehouses and data mesh has generated enormous noise. The actual choice depends on your organization, not your preferences.","url":"https://alisafari.space/blog/data-mesh-vs-data-warehouse/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>IT Governance &amp; Strategy</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">IT Governance &amp; Strategy</div>
+<h1 class="art-title">Data Mesh vs. Data Warehouse: The Architecture Wars Are a Distraction</h1>
+<p class="art-dek">The data architecture debate between centralized warehouses and data mesh has generated enormous noise. The actual choice depends on your organization, not your preferences.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">IT Governance &amp; Strategy</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Data Mesh vs. Data Warehouse: The Architecture Wars Are a Distraction</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="data-mesh-vs-data-warehouse" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">IT Governance &amp; Strategy</span>
-<h1>Data Mesh vs. Data Warehouse: The Architecture Wars Are a Distraction</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
-</div>
-</article>
+</header>
 <div class="series-badge"><span class="series-label">Data</span><span class="series-counter">Part 3 of 3</span><div class="series-nav"><a href="/blog/data-governance-executive-sponsorship/">Data Governance Exec</a> &rsaquo; <a href="/blog/data-lakehouse-architecture/">Data Lakehouse Archi</a> &rsaquo; <span class="series-current">3</span></div></div>
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>Sometime around 2020 and 2021, the data engineering community developed the particular kind of energy that happens when a new concept arrives that is genuinely interesting and also instantly overhyped. Zhamak Dehghani had introduced data mesh in a series of posts on Martin Fowler's site starting around 2019, and suddenly every conference talk, every vendor deck, and every LinkedIn post was either declaring data mesh the future or defending the data warehouse with the intensity of someone whose career depended on it. Some of those people's careers did depend on it.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>Sometime around 2020 and 2021, the data engineering community developed the particular kind of energy that happens when a new concept arrives that is genuinely interesting and also instantly overhyped. Zhamak Dehghani had introduced data mesh in a series of posts on Martin Fowler's site starting around 2019, and suddenly every conference talk, every vendor deck, and every LinkedIn post was either declaring data mesh the future or defending the data warehouse with the intensity of someone whose career depended on it. Some of those people's careers did depend on it.</p>
 <p>I find the debate mostly unproductive, and I want to explain why. The two approaches solve different problems. Treating them as competing answers to the same question is what generates the noise.</p>
 <p>A centralized data warehouse, and its more recent variants like data lakes and lakehouses, is built on a particular organizational assumption: that a central team can understand the organization's data well enough to collect it, transform it, and serve it to the people who need it for reporting and analysis. This works well when the data sources are relatively stable and not too numerous, when the business questions are known in advance (or at least discoverable through a central intake process), and when the central data team is small enough to actually talk to its internal customers regularly. The warehouse gives you consistency. Everyone works from the same definitions. "Revenue" means the same thing in every report because one team defined "revenue" and applied that definition everywhere.</p>
 <p>The problem Dehghani was diagnosing was different. She was describing large organizations, companies with many business domains, each generating data as a byproduct of their operations, each with specialized context about what their data means and how it was collected. In those organizations, the central data team becomes a bottleneck. Domain teams produce new data, and then they wait for the central team to ingest it, understand it, transform it, and make it available. The central team is perpetually behind because the volume of incoming data requests exceeds their capacity to process them. And the central team often doesn't understand the domain well enough to model the data correctly. The product team knows why their conversion metric sometimes spikes on Thursdays. The central team just sees the spike and doesn't know if it's real or an artifact.</p>
@@ -71,47 +60,55 @@
 <p>The honest version of the decision framework looks something like this. If your central data team is a bottleneck that is genuinely slowing down the business, and if you have domain teams with the capability to own data as a product, and if you're willing to invest in federated governance infrastructure, then data mesh is worth serious consideration. If none of those conditions are true, a well-run centralized data warehouse with a small, focused team and good data quality practices will serve you better and cost you less to maintain.</p>
 <p>What I find frustrating about the way the debate gets conducted is that it becomes a question of architectural identity rather than organizational fit. Teams adopt data mesh because it's what sophisticated data engineering organizations do now, without asking whether their organization has the characteristics that make data mesh the right choice. The result is organizational complexity without the bottleneck relief that complexity was supposed to buy.</p>
 <p>The same dynamic appears with data lakes. Organizations built data lakes because they'd heard you should put all your raw data somewhere before you know what to do with it. Many of them ended up with what became known as data swamps: enormous repositories of raw data with poor documentation, inconsistent formatting, and no reliable way to find or trust what was in them. The architectural idea was sound in principle. The organizational execution failed because nobody was responsible for maintaining quality in a decentralized dump of raw files.</p>
-<p>The architecture debate is a distraction because the architecture is not the hard part. The hard part is deciding who owns what, who maintains what, and what standards data has to meet before it's useful to someone else. Those are organizational questions. The architecture follows from how you answer them. Data mesh and the centralized warehouse are both organizational models as much as they are technical architectures. Picking the right one requires understanding your organization honestly, which is harder and less satisfying than picking the architecture that won the most conference talks this year.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>The architecture debate is a distraction because the architecture is not the hard part. The hard part is deciding who owns what, who maintains what, and what standards data has to meet before it's useful to someone else. Those are organizational questions. The architecture follows from how you answer them. Data mesh and the centralized warehouse are both organizational models as much as they are technical architectures. Picking the right one requires understanding your organization honestly, which is harder and less satisfying than picking the architecture that won the most conference talks this year.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/design-science-is-not-just-building-things/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Design Science Is Not Just Building Things</div></a><a href="/blog/data-lakehouse-architecture/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">The Data Lakehouse: How We Stopped Copying Data Between Systems</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="related-item"><div><div class="related-cat">IT Governance &amp; Strategy</div><div class="related-title">5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</div></div><span class="related-rt">7 min read</span></a><a href="/blog/agency-theory-algorithm-accountability/" class="related-item"><div><div class="related-cat">AI &amp; Agentic Systems</div><div class="related-title">When the Algorithm Fails, Nobody Takes the Call</div></div><span class="related-rt">6 min read</span></a><a href="/blog/agile-at-enterprise-scale/" class="related-item"><div><div class="related-cat">IT Governance &amp; Strategy</div><div class="related-title">Agile at Enterprise Scale: Why It Is Harder Than It Looks</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/design-science-is-not-just-building-things/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Design Science Is Not Just Building Things</div></a><a href="/blog/data-lakehouse-architecture/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">The Data Lakehouse: How We Stopped Copying Data Between Systems</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agile-at-enterprise-scale/" class="blog-related-card"><h4>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

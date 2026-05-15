@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/physical-ai-affordance-theory/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Physical AI Is Affordance Theory Made Concrete","description":"Warehouse robots, autonomous vehicles, and drones make affordance theory literal in a way that software never could. Misreading what a robot affords is not a UX problem.","url":"https://alisafari.space/blog/physical-ai-affordance-theory/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IS Theory","keywords":"IS Theory"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>IS Theory</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">IS Theory</div>
+<h1 class="art-title">Physical AI Is Affordance Theory Made Concrete</h1>
+<p class="art-dek">Warehouse robots, autonomous vehicles, and drones make affordance theory literal in a way that software never could. Misreading what a robot affords is not a UX problem.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>6 min read</span>
+<span class="art-tag">IS Theory</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Physical AI Is Affordance Theory Made Concrete</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="physical-ai-affordance-theory" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">IS Theory</span>
-<h1>Physical AI Is Affordance Theory Made Concrete</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">IS Theory</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>Gartner says 80 percent of warehouses will use robotics or automation by 2028, and five of the top ten AI vendors will offer physical AI products by the same year. I read that number three times before it sank in. Not cloud software, not analytics dashboards, not chatbots that hallucinate your quarterly report. Robots. Arms that pick boxes off conveyor belts. Drones that scan inventory from the ceiling. Vehicles that drive themselves across warehouse floors. Physical AI, systems that sense, decide, and act in the same space as human bodies.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>Gartner says 80 percent of warehouses will use robotics or automation by 2028, and five of the top ten AI vendors will offer physical AI products by the same year. I read that number three times before it sank in. Not cloud software, not analytics dashboards, not chatbots that hallucinate your quarterly report. Robots. Arms that pick boxes off conveyor belts. Drones that scan inventory from the ceiling. Vehicles that drive themselves across warehouse floors. Physical AI, systems that sense, decide, and act in the same space as human bodies.</p>
 <p>Gibson (1979) said an affordance is an action possibility in the relationship between an organism and its environment. Markus and Silver (2008) brought that into IS by dividing the concept into technical objects, functional affordances, and symbolic expressions, and insisting that an affordance must name both the actor and the goal. Leonardi (2011) added imbrication, the recursive interlocking of human agency and material agency over time. I have read these papers enough times that I can recite the key sentences from memory. But it was the Gartner number that finally made me see something I had been missing.</p>
 <p>Affordance theory has been used for two decades to study software interfaces. A dashboard affords monitoring. A collaboration tool affords coordination. A notification system affords awareness. These are real claims, but they are also safe. If a user misreads what a software interface affords, the cost is a few minutes of confusion, a misclick, a closed tab. The stakes are cognitive. Physical AI makes the same theory literal in a way that software never could, because the stakes are now physical.</p>
 <p>Take a robot arm in a warehouse. For a trained operator who has worked with that arm for six months, it affords coordinated lifting, rhythm-matched placing, and emergency override. The same arm, for a visiting manager who has never stood next to it, affords danger, a reason to stay behind a yellow line, something to watch from a distance. The technical object is identical. The affordance is different because the actor-goal pair is different. This is exactly what Markus and Silver (2008) required: a functional affordance does not sit in the machine. It sits in the relationship between the machine and a specific actor with a specific goal. If you collapse that distinction and call every feature an affordance, you miss the fact that the same robot arm affords radically different things to different people in the same room, and one of those misreadings can send someone to the hospital.</p>
@@ -67,47 +56,55 @@
 <p>This is what I mean when I say physical AI makes affordance theory concrete. In a software interface, affordance divergence produces a usability error. In a physical workspace, it produces a safety incident.</p>
 <p>Leonardi's imbrication (2011) becomes literal in the same way. Imbrication describes how human agency and material agency interlock recursively over time. People develop workarounds around a technology. Those workarounds change how the technology is used, which may trigger updates or reconfigurations, which change what people can do next. In software, this cycle is mostly invisible. A user finds a keyboard shortcut to bypass a slow menu, and the workaround becomes muscle memory. The imbrication happens in mental models and click patterns. In a physical AI environment, the imbrication happens in the arrangement of pallets, the placement of safety cages, the walking paths that workers develop over weeks. When a new autonomous vehicle is introduced to a warehouse floor, workers change their routes to avoid it, then the vehicle's routing algorithm adapts to the new human traffic patterns, then management reconfigures the floor layout based on the emergent traffic flows, then the workers develop new shortcuts that the vehicle cannot predict. Each layer changes what the next layer can do. The imbrication is visible in the physical layout of the workspace. You can walk through a warehouse and read the history of human-material agency interlocking in the tape marks on the floor.</p>
 <p>I kept noticing an uncomfortable implication while writing this. If physical AI makes affordance miscalibration into a safety problem, then affordance theory is no longer optional for the people building these systems. A software team that ships a feature without testing what it affords to different user groups ships a bad experience. A robotics team that deploys a physical AI system without mapping who will perceive what affordance, and whether those perceptions conflict, ships a hazard. Safety protocols cover speed limits, emergency stops, and sensor ranges. They rarely cover the question of what a robot means to a tired worker on a twelve-hour shift who has learned that the robot stops for humans and has incorporated that stop into their timing.</p>
-<p>I am not sure the IS field has fully absorbed this yet. We have been using affordance theory for software interfaces, for platform governance, for digital transformation. We have been applying it to screens. Physical AI is bringing the same theoretical machinery into environments where the outcome of a miscalibrated affordance is not a support ticket but an injury. I wrote about affordance theory as a general IS concept and why it is not just a set of features. This post is the other side of the same argument. If the Gartner number is even close to right, millions of people will share workspace with physical AI systems in the next two years. The theory we already have says that what those systems afford will depend on who is looking and what they are trying to do. Building the systems without mapping that relational space is not just a design gap. The door handle is not for everyone, and neither is the robot arm.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>I am not sure the IS field has fully absorbed this yet. We have been using affordance theory for software interfaces, for platform governance, for digital transformation. We have been applying it to screens. Physical AI is bringing the same theoretical machinery into environments where the outcome of a miscalibrated affordance is not a support ticket but an injury. I wrote about affordance theory as a general IS concept and why it is not just a set of features. This post is the other side of the same argument. If the Gartner number is even close to right, millions of people will share workspace with physical AI systems in the next two years. The theory we already have says that what those systems afford will depend on who is looking and what they are trying to do. Building the systems without mapping that relational space is not just a design gap. The door handle is not for everyone, and neither is the robot arm.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/platform-capitalism-digital-labor/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">Platform Capitalism and the Digital Labor Question</div></a><a href="/blog/paradox-theory-is-organizations/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">Paradox Theory and the Tensions That Don&#x27;t Resolve</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="related-item"><div><div class="related-cat">Comps &amp; Reflections</div><div class="related-title">Bought a $2M Platform, Nobody Learned a Thing</div></div><span class="related-rt">6 min read</span></a><a href="/blog/activity-theory-is-research/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">People Use Tools Inside Activity Systems, Not in a Vacuum</div></div><span class="related-rt">5 min read</span></a><a href="/blog/actor-network-theory-is-research/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">Actor-Network Theory: Why Your ERP System Is an Actor Too</div></div><span class="related-rt">7 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/platform-capitalism-digital-labor/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Platform Capitalism and the Digital Labor Question</div></a><a href="/blog/paradox-theory-is-organizations/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Paradox Theory and the Tensions That Don&#x27;t Resolve</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/actor-network-theory-is-research/" class="blog-related-card"><h4>Actor-Network Theory: Why Your ERP System Is an Actor Too</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>

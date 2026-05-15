@@ -258,27 +258,26 @@
         }
     }
 
-    // ===== Store post data when bookmarking =====
-    document.querySelectorAll('.blog-grid-item').forEach(item => {
+    // ===== Store post data from post-rows =====
+    document.querySelectorAll('.post-row[data-slug]').forEach(item => {
         const slug = item.dataset.slug;
-        const title = item.querySelector('h2 a')?.textContent || '';
-        const excerpt = item.querySelector('.card-excerpt')?.textContent || '';
-        const date = item.dataset.date;
-        const tags = item.dataset.tags;
-        const reading_time = item.querySelector('.reading-time')?.textContent.replace('⏱ ', '') || '5 min';
+        if (!slug) return;
+        const title = item.querySelector('.pr-title a')?.textContent || '';
+        const date = item.dataset.date || '';
+        const tags = item.dataset.tags || '';
+        const reading_time = item.querySelector('.pr-rt')?.textContent || '5 min';
 
-        // Store for reading list
         const allData = JSON.parse(localStorage.getItem('postData') || '{}');
-        allData[slug] = { title, excerpt, date, tags, reading_time };
+        allData[slug] = { title, excerpt: '', date, tags, reading_time };
         localStorage.setItem('postData', JSON.stringify(allData));
     });
 
     // ===== Search with Debounce + URL Sync =====
     const searchInput = document.getElementById('blogSearch');
-    const sortBtns = document.querySelectorAll('.blog-filter-btn[data-sort]');
-    const tagChips = document.querySelectorAll('.blog-tag-chip');
-    const gridItems = document.querySelectorAll('.blog-grid-item');
-    const emptyState = document.querySelector('.blog-empty-state');
+    const sortBtns = document.querySelectorAll('.seg button[data-sort]');
+    const tagChips = document.querySelectorAll('.tag-chip');
+    const gridItems = document.querySelectorAll('.post-row, .hero-post');
+    const emptyState = document.getElementById('emptyState');
 
     let currentSort = 'newest';
     let currentTag = 'all';
@@ -291,17 +290,13 @@
 
         items.forEach(item => {
             const title = item.dataset.title || '';
-            const excerpt = item.dataset.excerpt || '';
             const tags = (item.dataset.tags || '').split(',').filter(Boolean);
 
-            const matchesSearch = !searchQuery ||
-                title.toLowerCase().includes(searchQuery) ||
-                excerpt.toLowerCase().includes(searchQuery);
-
+            const matchesSearch = !searchQuery || title.includes(searchQuery);
             const matchesTag = currentTag === 'all' || tags.includes(currentTag);
 
             if (matchesSearch && matchesTag) {
-                item.style.display = 'flex';
+                item.style.display = '';
                 visibleCount++;
             } else {
                 item.style.display = 'none';
@@ -309,25 +304,20 @@
         });
 
         const visibleItems = items.filter(item => item.style.display !== 'none');
-        const grid = document.querySelector('.blog-grid');
-        if (grid) {
-            visibleItems.forEach(item => grid.appendChild(item));
-            if (currentSort === 'oldest') {
-                visibleItems.reverse();
-                visibleItems.forEach(item => grid.appendChild(item));
-            }
+        const list = document.getElementById('postList');
+        if (list && currentSort === 'oldest') {
+            visibleItems.reverse();
+            visibleItems.forEach(item => list.appendChild(item));
         }
 
         if (emptyState) {
             emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
         }
 
-        // Update URL without reloading
         const params = new URLSearchParams();
         if (searchQuery) params.set('q', searchQuery);
         if (currentTag !== 'all') params.set('tag', currentTag);
         if (currentSort !== 'newest') params.set('sort', currentSort);
-        
         const newUrl = params.toString() ? `?${params.toString()}` : window.location.pathname;
         window.history.replaceState({}, '', newUrl);
     }
@@ -344,33 +334,25 @@
 
     sortBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            sortBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+            sortBtns.forEach(b => b.classList.remove('on'));
+            btn.classList.add('on');
             currentSort = btn.dataset.sort;
             filterAndSort();
         });
     });
 
-    // Tag chips - allow direct href navigation or JS filtering
-    // Only attach click handler if not navigating away
     tagChips.forEach(chip => {
         chip.addEventListener('click', (e) => {
-            // Check if this is a category page (has href with /blog/?tag=)
-            const href = chip.getAttribute('href');
-            if (href && href.includes('?tag=')) {
-                // Let the browser navigate
-                return;
-            }
             e.preventDefault();
             const tag = chip.dataset.tag;
             if (currentTag === tag) {
                 currentTag = 'all';
-                tagChips.forEach(c => c.classList.remove('active'));
-                document.querySelector('.blog-tag-chip[data-tag="all"]')?.classList.add('active');
+                tagChips.forEach(c => c.classList.remove('on'));
+                document.querySelector('.tag-chip[data-tag="all"]')?.classList.add('on');
             } else {
                 currentTag = tag;
-                tagChips.forEach(c => c.classList.remove('active'));
-                chip.classList.add('active');
+                tagChips.forEach(c => c.classList.remove('on'));
+                chip.classList.add('on');
             }
             filterAndSort();
         });
@@ -390,16 +372,16 @@
 
         if (tag) {
             currentTag = tag;
-            tagChips.forEach(c => c.classList.remove('active'));
-            const match = document.querySelector(`.blog-tag-chip[data-tag="${CSS.escape(tag)}"]`);
-            if (match) match.classList.add('active');
+            tagChips.forEach(c => c.classList.remove('on'));
+            const match = document.querySelector(`.tag-chip[data-tag="${CSS.escape(tag)}"]`);
+            if (match) match.classList.add('on');
         }
 
         if (sort) {
             currentSort = sort;
-            sortBtns.forEach(b => b.classList.remove('active'));
-            const match = document.querySelector(`.blog-filter-btn[data-sort="${CSS.escape(sort)}"]`);
-            if (match) match.classList.add('active');
+            sortBtns.forEach(b => b.classList.remove('on'));
+            const match = document.querySelector(`.seg button[data-sort="${CSS.escape(sort)}"]`);
+            if (match) match.classList.add('on');
         }
 
         if (q || tag || sort) {

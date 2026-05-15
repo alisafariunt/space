@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-palette="paper" data-font="nunito" data-density="comfortable">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
 <link rel="canonical" href="https://alisafari.space/blog/actor-network-theory-is-research/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Geist:wght@300;400;500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Crimson+Pro:ital,wght@0,400;1,400&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/blog.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Actor-Network Theory: Why Your ERP System Is an Actor Too","description":"ANT treats software, databases, and infrastructure as actants with the same analytical standing as humans. In IS research, that changes everything about how we study implementation.","url":"https://alisafari.space/blog/actor-network-theory-is-research/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IS Theory","keywords":"IS Theory, Sociotechnical Systems"}</script>
@@ -20,46 +19,36 @@
     }
     </script>
 </head>
-<body class="blog-page blog-article-page">
-<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
-<nav class="navbar" id="navbar"><div class="nav-container">
-<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<body class="article-page">
+<div class="reading-progress"><div class="reading-progress-bar" id="rpb"></div></div>
+<nav class="nav">
+<a href="/" class="nav-brand">Ali Safari</a>
 <ul class="nav-links">
 <li><a href="/">Home</a></li>
-<li><a href="/blog/" class="active">Blog</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/blog/" class="active">Field Notes.</a></li>
+<li><a href="/roadmap.html">Roadmap</a></li>
 <li><a href="/conferences/">Conferences</a></li>
 <li><a href="/#contact">Contact</a></li>
 </ul>
-<div class="nav-actions">
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
-<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<nav class="crumbs" aria-label="Breadcrumb">
+<a href="/blog/">Field Notes</a>
+<span class="sep">/</span>
+<span>IS Theory</span>
+</nav>
+<header class="art-header">
+<div class="art-cat">IS Theory</div>
+<h1 class="art-title">Actor-Network Theory: Why Your ERP System Is an Actor Too</h1>
+<p class="art-dek">ANT treats software, databases, and infrastructure as actants with the same analytical standing as humans. In IS research, that changes everything about how we study implementation.</p>
+<div class="art-meta">
+<span>2026-05-14</span>
+<span class="dot">&middot;</span>
+<span>7 min read</span>
+<span class="art-tag">IS Theory</span><span class="art-tag">Sociotechnical Systems</span>
 </div>
-</div></nav>
-<div class="blog-article-nav"><div class="blog-article-nav-inner">
-<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
-<span class="nav-title">Actor-Network Theory: Why Your ERP System Is an Actor Too</span>
-<div class="nav-actions-right">
-<button class="nav-share-btn bookmark-btn" data-slug="actor-network-theory-is-research" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
-<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
-</div>
-</div></div>
-<article class="blog-article-hero">
-<span class="article-category">IS Theory</span>
-<h1>Actor-Network Theory: Why Your ERP System Is an Actor Too</h1>
-<div class="article-meta-bar">
-<span>2026-05-14</span><span class="meta-sep"></span>
-<span class="meta-reading-time"><i class="far fa-clock"></i> 7 min read</span>
-<span class="meta-sep"></span>
-<div class="card-tags"><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
-</div>
-</article>
+</header>
 
-<div class="blog-article-layout">
-
-<div class="blog-article-body">
-
-<p>I spent a long time assuming that "the human side" of an IS implementation was the interesting part and the technology was just there in the background doing what it was told. Then I read Callon's 1986 paper on scallops and fishermen, which has nothing to do with information systems on the surface, and something shifted. The argument he was making was that the scallops, the anchoring devices, the larvae collectors, and the fishermen all had to be enrolled into a network for the research project to work. None of them were passive. The scallops either attached to the collectors or they did not. The fishermen either cooperated with the moratorium or they did not. The collectors held the larvae or they failed to. Every entity in the network had to be brought on board, and any one of them could make the whole thing fall apart.</p>
+<div class="art-body drop-cap" style="max-width:var(--col);margin:0 auto;"><p>I spent a long time assuming that "the human side" of an IS implementation was the interesting part and the technology was just there in the background doing what it was told. Then I read Callon's 1986 paper on scallops and fishermen, which has nothing to do with information systems on the surface, and something shifted. The argument he was making was that the scallops, the anchoring devices, the larvae collectors, and the fishermen all had to be enrolled into a network for the research project to work. None of them were passive. The scallops either attached to the collectors or they did not. The fishermen either cooperated with the moratorium or they did not. The collectors held the larvae or they failed to. Every entity in the network had to be brought on board, and any one of them could make the whole thing fall apart.</p>
 <p>I immediately thought about every ERP implementation story I had ever read.</p>
 <p>Actor-Network Theory, which comes primarily from the work of Michel Callon, Bruno Latour, and John Law in the sociology of science and technology, starts from a principle that the IS mainstream still finds uncomfortable. Humans and non-humans should be given equal analytical standing in studying how networks form and function. The technical term for any entity that acts, whether human or non-human, is "actant." A database is an actant. A workflow rule is an actant. An API endpoint is an actant. A printed report that a manager carries into a budget meeting is an actant. Not because these things have consciousness or intentions, but because they act: they shape what is possible, they constrain what humans can do, they make some paths easier and others harder.</p>
 <p>The concept that makes this more than a philosophical position is inscription. When designers build a technology, they inscribe assumptions, values, and intended behaviors into the artifact. A form field that requires a numeric vendor code inscribes the assumption that every vendor has a code in the system. A workflow that routes purchase orders above ten thousand dollars to a director for approval inscribes an organizational hierarchy and a threshold judgment. A dashboard that shows only the metrics the designers thought were important inscribes a theory of what counts as performance. The people who built the system are not in the room anymore, but their assumptions are in there, running. Latour called this "delegating" to non-humans: the technology acts on behalf of the designers' intentions, even when those designers have moved on, retired, or been acquired.</p>
@@ -70,47 +59,55 @@
 <p>My reading of the IS literature suggests that these criticisms do not make ANT useless. They locate its appropriate use. ANT is not the right lens if you want to test hypotheses about adoption rates or identify variance in user satisfaction scores. It is the right lens if you want to understand how a specific technology became stabilized in a specific organizational setting, what had to be enrolled to make that happen, whose interests were translated and whose were not, and why the network is fragile or resilient. Those are qualitative, process-oriented questions. They call for case study methods, ethnography, and close reading of documents and artifacts. ANT gives that kind of research a theoretical backbone.</p>
 <p>The ERP implementation is the canonical IS example because it makes every ANT concept visible. The vendor is an actant, shaping what the system can do and inscribing its own assumptions into the software. The consultants are actants, doing translation work by defining the implementation problem in terms that serve their methodology. The legacy data is an actant, refusing to migrate cleanly and forcing decisions about data quality that nobody planned for. The approval workflow in the old system is an actant, and when the new system's workflow does not match it, people route around the system. The printed workaround that appears six months after go-live is an actant. The shadow spreadsheet that the finance team runs in parallel to "double-check the ERP numbers" is an actant. The network of the implementation includes all of these, and understanding the outcome requires following all of them.</p>
 <p>What I find most useful in ANT for my own research thinking is the resistance to predetermined hierarchy. Most IS theories have a default assumption about what matters: user cognition, organizational structure, IT capabilities, institutional pressures. ANT says follow the actors, wherever they lead. If the printed report is doing more work than the dashboard, study the report. If the data entry constraint is shaping manager behavior more than the training program, study the constraint. You cannot decide in advance which actants matter. You have to trace the network as it forms and see what does the work.</p>
-<p>The flip side of that flexibility is that ANT requires you to know when to stop. A network has no natural boundary. Every actor is connected to other actors that are connected to other actors. Inscription in a database traces back to a vendor's product decision that traces back to industry standards that trace back to decisions made in the 1980s. Translation work involves consultants who were trained in institutions that were funded by clients who have their own histories. ANT as a method requires choices about scope that the theory itself cannot make for you. That is not a flaw exactly. It is a feature of doing research on genuinely complex sociotechnical phenomena. But it means that an ANT study requires a researcher who knows why they are drawing the boundaries they are drawing, not just one who adopted the vocabulary.</p>
-</div>
-</div>
-<div class="author-card">
-<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
-<div class="author-info">
+<p>The flip side of that flexibility is that ANT requires you to know when to stop. A network has no natural boundary. Every actor is connected to other actors that are connected to other actors. Inscription in a database traces back to a vendor's product decision that traces back to industry standards that trace back to decisions made in the 1980s. Translation work involves consultants who were trained in institutions that were funded by clients who have their own histories. ANT as a method requires choices about scope that the theory itself cannot make for you. That is not a flaw exactly. It is a feature of doing research on genuinely complex sociotechnical phenomena. But it means that an ANT study requires a researcher who knows why they are drawing the boundaries they are drawing, not just one who adopted the vocabulary.</p></div>
+<div class="end-matter">
+<hr class="end-rule">
+<p class="end-label">About the author</p>
+<div class="author-block">
+<div class="author-av">A</div>
+<div>
 <div class="author-name">Ali Safari</div>
-<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
-<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-role">PhD Student in IS, University of North Texas</div>
+<p class="author-note">Researching AI governance, trust in intelligent systems, and agentic AI. Writing while studying for comps.</p>
 <div class="author-links">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<a href="https://linkedin.com/in/ali-safari" class="alink" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" class="alink" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">gs</a>
 </div>
 </div>
 </div>
-<div class="blog-share-section">
-<h3>Share this post</h3>
-<div class="blog-share-buttons">
-<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
-<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+<p class="end-label">Share</p>
+<div class="share-row">
+<button class="share-btn" data-platform="twitter">Twitter / X</button>
+<button class="share-btn" data-platform="linkedin">LinkedIn</button>
+<button class="share-btn" data-platform="copy">Copy link</button>
 </div>
+<p class="end-label">More notes</p><div class="prev-next"><a href="/blog/affordance-actualization-perception-gap/" class="pn-link"><div class="pn-dir">&#8592; Previous</div><div class="pn-title">The Gap Between What a System Can Do and What People Do With It</div></a><a href="/blog/activity-theory-is-research/" class="pn-link right"><div class="pn-dir">Next &#8594;</div><div class="pn-title">People Use Tools Inside Activity Systems, Not in a Vacuum</div></a></div>
+<p class="end-label">Related notes</p><div class="related-list"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="related-item"><div><div class="related-cat">Comps &amp; Reflections</div><div class="related-title">Bought a $2M Platform, Nobody Learned a Thing</div></div><span class="related-rt">6 min read</span></a><a href="/blog/affordance-actualization-perception-gap/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">The Gap Between What a System Can Do and What People Do With It</div></div><span class="related-rt">6 min read</span></a><a href="/blog/affordance-theory-is-not-just-features/" class="related-item"><div><div class="related-cat">IS Theory</div><div class="related-title">The Door Handle Is Not for Everyone</div></div><span class="related-rt">6 min read</span></a></div>
 </div>
-<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/affordance-actualization-perception-gap/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">The Gap Between What a System Can Do and What People Do With It</div></a><a href="/blog/activity-theory-is-research/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">People Use Tools Inside Activity Systems, Not in a Vacuum</div><i class="fas fa-arrow-right"></i></a></nav>
-<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/affordance-actualization-perception-gap/" class="blog-related-card"><h4>The Gap Between What a System Can Do and What People Do With It</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/affordance-theory-is-not-just-features/" class="blog-related-card"><h4>The Door Handle Is Not for Everyone</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
-<footer class="footer"><div class="footer-content">
-<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
-<ul class="footer-links">
-<li><a href="/">Home</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/blog/reading-list/">Reading List</a></li>
-<li><a href="/roadmap.html">AI Roadmap</a></li>
-<li><a href="/conferences/">Conferences</a></li>
-</ul>
-<div class="footer-social">
-<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+<footer class="footer-simple">
+<span class="footer-brand">Ali Safari.</span>
+<nav class="footer-links">
+<a href="/">Home</a>
+<a href="/blog/">Field Notes.</a>
+<a href="/roadmap.html">Roadmap</a>
+<a href="/conferences/">Conferences</a>
+<a href="/#contact">Contact</a>
+</nav>
+<div class="footer-copy">
+<span>&copy; 2026 Ali Safari &middot; University of North Texas</span>
+<span>Set in Nunito &amp; JetBrains Mono</span>
 </div>
-</div>
-<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
 </footer>
 <script src="/js/blog.js"></script>
-<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<script src="/js/tweaks.js"></script>
+<script>
+(function(){
+  var bar=document.getElementById('rpb');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+  },{passive:true});
+})();
+</script>
 </body></html>
