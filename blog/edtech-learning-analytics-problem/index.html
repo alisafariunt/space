@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EdTech and the Learning Analytics Problem | Ali Safari</title><meta name="description" content="Learning analytics platforms collect enormous amounts of student behavior data. Whether that data measures learning, or just measures clicking, is a much harder question."><meta name="keywords" content=Trust & Security, information systems, research"><meta property="og:title" content="EdTech and the Learning Analytics Problem"><meta property="og:description" content="Learning analytics platforms collect enormous amounts of student behavior data. Whether that data measures learning, or just measures clicking, is a much harder question."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/edtech-learning-analytics-problem/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=Trust & Security"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/edtech-learning-analytics-problem/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"EdTech and the Learning Analytics Problem","description":"Learning analytics platforms collect enormous amounts of student behavior data. Whether that data measures learning, or just measures clicking, is a much harder question.","url":"https://alisafari.space/blog/edtech-learning-analytics-problem/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"Trust & Security","keywords":"Trust & Security"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">EdTech and the Learning Analytics Problem</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="edtech-learning-analytics-problem" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">Trust &amp; Security</span>
+<h1>EdTech and the Learning Analytics Problem</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">Trust &amp; Security</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>A few semesters ago I noticed something in one of my online course platforms. The dashboard showed I had spent less than average time on a particular module compared to my peers. The system flagged it in a slightly different color, I think to suggest I might be at risk of falling behind. What the system could not know is that I had already read three papers on that topic, taken notes in a separate notebook, and had no intention of re-reading the introductory content that the module was mostly made of. The dashboard had data. It had almost no information about my learning.</p>
+<p>That experience stuck with me because it points to a problem that runs through most of the learning analytics conversation: the data is plentiful, but the gap between what gets measured and what actually constitutes learning is often enormous.</p>
+<p>Learning analytics is the practice of collecting data about student behavior within digital learning environments and using it to understand, predict, or improve learning. The data available to platforms like Canvas, Coursera, and edX is substantial. Logins, session durations, video watch rates, quiz scores, assignment completion timestamps, forum participation, click paths through content. All of that gets recorded. And the aspiration, fully reasonable on its face, is that if you have enough of this data, you can identify students who are falling behind before they fail, adapt the content to individual learning patterns, and close the gaps that traditional instruction misses because a single lecturer cannot track forty students simultaneously.</p>
+<p>The problem is that time on task is not the same as learning. A student who reads slowly, carefully, and annotates a text will look identical to a student who opens a browser tab and goes to cook dinner. Both spent the same number of minutes "on" the module. A student who clicks through video lessons at 2x speed while taking careful notes will show lower average watch time than a student who plays every video at 1x while doing something else. Engagement metrics are easy to collect. They are much harder to interpret, and the gap between the metric and the construct it is supposed to measure is not a small data quality issue. It is a fundamental validity problem.</p>
+<p>The at-risk flagging systems that some platforms use to identify students who might disengage or fail are trying to do something genuinely useful. Early warning is valuable if it leads to effective intervention. The concern I have is about what happens when those systems are trained on historical data that reflects structural inequalities rather than learning potential. If students from certain backgrounds historically showed lower engagement metrics for reasons that had nothing to do with their ability, and if an algorithm trained on that history then flags students from similar backgrounds as higher risk, the system has encoded a historical pattern as a predictive signal. The student who logs in less frequently because they share a computer, or because they work more hours, or because their broadband is unreliable, shows up in the data the same way as a student who is genuinely disengaged. The algorithm does not know the difference.</p>
+<p>The algorithmic recommendation side of this has its own complications. Platforms that use behavioral data to make personalized content recommendations or to adjust pacing are building on the same measurement base. If the signals being used to drive adaptation are noisy, the adaptation can drift in unhelpful directions. A student who skips introductory content because they already know it might receive a recommendation to go back and complete the basics. A student who flies through foundational material because they are answering questions randomly rather than thinking carefully might get pushed to advanced content too quickly. The system is optimizing for signals. Whether those signals correlate with learning is the empirical question that often gets assumed rather than demonstrated.</p>
+<p>FERPA, the Family Educational Rights and Privacy Act, gives students in the US some control over their educational records and restricts how that data can be shared without consent. In K-12 contexts, additional protections apply. But FERPA was written for a world of paper transcripts and administrative records. The behavioral trace data that a modern learning management system generates, click patterns, time stamps, emotional inference if the platform uses cameras or attention monitoring, sits in a complicated space relative to those rules. And in corporate training contexts, which is where Gartner has noted that learning experience platforms are evolving toward adaptive and personalized delivery, many of the student data protections simply do not apply at all. An employee completing a training module has far fewer rights over the data that generates than a university student would. Whether the adaptive features those platforms are developing will actually improve learning outcomes or just measure completion more granularly remains, in my read of the space, an open question.</p>
+<p>The deeper issue is one that IS researchers know well from adjacent domains. Data availability creates pressure to use the data, even when the validity of the measurement is unclear. Organizations that invested in learning management systems with analytics dashboards face pressure to make use of the dashboards. Making use of the dashboards means treating the metrics as meaningful. Treating the metrics as meaningful means potentially acting on signals that are noisy proxies rather than direct measures of learning. This is not unique to EdTech. The same pattern shows up in performance management, health monitoring, and organizational surveillance more generally. But in education, the stakes for the individual students on the receiving end of those decisions are high enough that the validity gap is worth taking seriously as an IS design problem rather than just a data quality footnote.</p>
+<p>What would it look like to treat learning analytics as an IS problem rather than a data problem? It would start with being honest about what each metric measures versus what it is being used to predict. It would require building feedback mechanisms that let students contest or contextualize their own data rather than just being flagged by an algorithm they cannot see. And it would require treating the equity implications of historically-trained predictive systems as a design constraint, not a post-hoc diversity concern. The platforms that get this right will probably look less impressive on a feature sheet and more defensible in an audit. That tradeoff is worth thinking about.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/effective-use-not-just-adoption/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Logging In Is Not Using</div></a><a href="/blog/edge-computing-enterprise-it/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Edge Computing and the Governance Problem Nobody Planned For</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/ai-chatbots-media-richness-theory/" class="blog-related-card"><h4>AI Chatbots Are the Richest Medium That Has Never Existed</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-hallucination-trust-problem/" class="blog-related-card"><h4>AI Hallucination Is a Trust Problem, Not a Technical One</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-safety-pmt-fear-danger/" class="blog-related-card"><h4>AI Safety Frameworks Are PMT Without Using the Name</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

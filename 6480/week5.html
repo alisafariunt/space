@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Week 5 - BUSI 6480: Full Project 1 learning guide and exam transfer module">
+    <title>Week 5 - BUSI 6480 Study Guide</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/study-header.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-brand">BUSI 6480 Study Guide</a>
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="week1.html">Week 1</a></li>
+                <li><a href="week2.html">Week 2</a></li>
+                <li><a href="week3.html">Week 3</a></li>
+                <li><a href="week4.html">Week 4</a></li>
+                <li><a href="week5.html" class="active">Week 5</a></li>
+                <li><a href="exam1.html">Exam 1</a></li>
+            </ul>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">Reading Progress: 0%</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <div class="session-header">
+            <h1>Week 5: Project 1 Full Learning Guide</h1>
+            <p class="session-meta">From doing the project to mastering exam questions</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>How to Use This Page</h2>
+
+            <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: چطور از این صفحه برای پروژه و امتحان استفاده کنیم</h4>
+                <p>این صفحه قرار نیست فقط یک خلاصه کوتاه باشد. ایده‌اش این است که تو پروژه 1 را آنقدر خوب انجام بدهی که
+                    همان مهارت‌ها مستقیم به امتحان منتقل شود. یعنی هر بار که یک بخش پروژه را حل می‌کنی، همان لحظه از
+                    خودت بپرس "اگر این سوال در امتحان بود، من چطور 3 جمله‌ای جواب می‌دادم؟"</p>
+                <p>روش استفاده عملی این است: اول هر مسئله را اینجا مفهومی بخوان. بعد برو سراغ اسکریپت‌ها و اجرا کن. بعد
+                    خروجی را به زبان ساده تفسیر کن. آخرش هم برو سراغ تمرین‌های امتحانی پایین صفحه و بدون نگاه کردن به
+                    متن، جواب بده.</p>
+                <p>اگر وقتت کم است، به جای اینکه همه چیز را یکجا بخوانی، بهتر است چرخه‌ای جلو بروی: یک مسئله، اجرا،
+                    تفسیر، تمرین. این چرخه کمک می‌کند واقعا یاد بگیری نه اینکه فقط متن را رد کنی.</p>
+                <p>نکته مهم: برای این درس، جمله‌های تفسیر خیلی مهم هستند. خودت را عادت بده بعد از هر جدول، 2 تا 4 جمله
+                    فارسی بنویسی که بگوید چه شد و یعنی چه.</p>
+            </div>
+            <p>This page is not a short summary. It is a full playbook for your project and exam prep together. The idea
+                is simple: when you can do each project part with full interpretation, you are also ready for most exam
+                question types in this course.</p>
+            <p>Read this page in order. Then run the scripts in your project folder. Then answer the exam drills at the
+                end without notes.</p>
+
+            <div class="info-box">
+                <h4>Your project folder</h4>
+                <p>/Users/alisafari/Downloads/PHD/UNT/2026/BUSI 6480/Week 5/project1_work</p>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Quick Access to Your Deliverables</h2>
+
+            <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: این فایل‌ها را برای جمع کردن پروژه و مرور امتحان استفاده کن</h4>
+                <p>این قسمت یک جور نقشه راه است که گم نشوی. بهتر است پروژه را فقط با Word پیش نبری. اسکریپت‌ها و
+                    خروجی‌ها همان چیزی هستند که بعدا اگر استاد سوال کرد یا خودت خواستی دوباره چک کنی، نجاتت می‌دهند.</p>
+                <p>یک پیشنهاد ساده: هر مسئله را که تمام کردی، خلاصه خروجی‌اش را از فایل‌های خروجی بردار و همان را در
+                    گزارش قرار بده. بعد هم همان خلاصه را برای امتحان مرور کن. لازم نیست عددها را حفظ کنی، مهم این است که
+                    بدانی هر عدد چه معنایی دارد.</p>
+                <p>اگر بخواهم به زبان خیلی ساده بگویم، پوشه scripts یعنی "دقیقا چه کار کردم"، پوشه outputs یعنی "چه چیزی
+                    به دست آمد"، و گزارش نهایی یعنی "این خروجی‌ها چه معنایی دارند".</p>
+                <ul>
+                    <li>اگر چیزی را فراموش کردی، اول برو سراغ summary جدول‌ها در outputs.</li>
+                    <li>اگر خواستی دوباره اجرا کنی، برو سراغ scripts.</li>
+                    <li>اگر خواستی در SAS جواب بدهی، از sas_map استفاده کن.</li>
+                </ul>
+            </div>
+            <p>Use these files while studying and writing.</p>
+            <ul>
+                <li><a
+                        href="file:///Users/alisafari/Downloads/PHD/UNT/2026/BUSI%206480/Week%205/project1_work/report/BUSI6480_Project1_AliSafari.docx">Final
+                        report docx</a></li>
+                <li><a
+                        href="file:///Users/alisafari/Downloads/PHD/UNT/2026/BUSI%206480/Week%205/project1_work/scripts/p1_mediation.R">Problem
+                        1 R script</a></li>
+                <li><a
+                        href="file:///Users/alisafari/Downloads/PHD/UNT/2026/BUSI%206480/Week%205/project1_work/scripts/p2_holdtimes.R">Problem
+                        2 R script</a></li>
+                <li><a
+                        href="file:///Users/alisafari/Downloads/PHD/UNT/2026/BUSI%206480/Week%205/project1_work/scripts/p3_contrasts.R">Problem
+                        3 R script</a></li>
+                <li><a
+                        href="file:///Users/alisafari/Downloads/PHD/UNT/2026/BUSI%206480/Week%205/project1_work/sas/p1_sas_map.sas">Problem
+                        1 SAS map</a></li>
+                <li><a
+                        href="file:///Users/alisafari/Downloads/PHD/UNT/2026/BUSI%206480/Week%205/project1_work/sas/p2_sas_map.sas">Problem
+                        2 SAS map</a></li>
+                <li><a
+                        href="file:///Users/alisafari/Downloads/PHD/UNT/2026/BUSI%206480/Week%205/project1_work/sas/p3_sas_map.sas">Problem
+                        3 SAS map</a></li>
+                <li><a
+                        href="file:///Users/alisafari/Downloads/PHD/UNT/2026/BUSI%206480/Week%205/project1_work/exam_prep/exam_bank.md">Exam
+                        bank</a></li>
+            </ul>
+        </div>
+
+        <div class="paper-card">
+            <h2>Problem 1 Deep Guide: Mediation, Moderation, Serial Mediation</h2>
+
+            <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: مسئله 1، میانجی‌گری و تعدیل‌گری را قاطی نکنیم</h4>
+                <p>این مسئله از آن سوال‌هاست که اگر فقط عددها را نگاه کنی، گیج می‌شوی. باید اول مدل را تو ذهنت روشن کنی.
+                    میانجی‌گری یعنی X روی Y اثر می‌گذارد چون از یک مسیر غیرمستقیم از طریق M عبور می‌کند. تعدیل‌گری یعنی
+                    اثر X روی Y بستگی دارد به سطح W و این را با interaction نشان می‌دهیم.</p>
+                <p>در مدل‌های 1a و 1b شما دو میانجی جدا دارید. برای هر کدام باید سه تا چیز را مرتب گزارش کنی: اثر
+                    غیرمستقیم (indirect)، اثر مستقیم (c') و اثر کل (total). یک نکته مهم که در خروجی خودت هم دیدی این است
+                    که ممکن است indirect معنی دار باشد ولی total معنی دار نباشد. این حالت عادی است و اسمش competitive
+                    mediation است، چون گاهی c' و ab علامت مخالف دارند و همدیگر را خنثی می‌کنند.</p>
+                <p>چون در پروژه سطح معنی‌داری 0.01 است، بهتر است روی 99% bootstrap CI تکیه کنی. قانون ساده: اگر CI
+                    غیرمستقیم صفر را قطع نکند، indirect معنی دار است. در خروجی تو، هر دو مدل 1a و 1b indirect معنی دار
+                    بودند و نسبت indirect به total هم بیشتر از 1 شد (این معمولا وقتی رخ می‌دهد که total کوچک یا نزدیک
+                    صفر باشد).</p>
+                <p>برای moderation، دیگر از منطق indirect استفاده نکن. فقط نگاه کن interaction (مثلا X*W) در مدل معنی
+                    دار است یا نه. اگر در alpha=0.01 interaction معنی دار نیست، نباید بنویسی "تعدیل‌گری وجود دارد".
+                    نهایتش می‌گویی شواهد کافی برای interaction پیدا نشد.</p>
+                <p>در مدل 2 (serial mediation) داستان غنی‌تر می‌شود چون دو میانجی هم جدا داریم هم مسیر زنجیره‌ای
+                    X->M1->M2->Y. اینجا بهتر است سه indirect را جدا گزارش کنی (از طریق M1، از طریق M2، و مسیر
+                    زنجیره‌ای). بعد هم اگر سوال contrast خواست، تفاوت indirectها را گزارش کنی. این ساختار اگر در ذهنت جا
+                    بیفتد، امتحان را هم راحت‌تر جواب می‌دهی چون سوال‌های مفهومی زیادی از همین می‌آیند.</p>
+                <pre><code>مفهوم کلی:
+                Total (c) = Direct (c') + Indirect (a*b)
+
+                در serial:
+                X -> M1 -> Y
+                X -> M2 -> Y
+                X -> M1 -> M2 -> Y</code></pre>
+            </div>
+            <p>This problem tests your understanding of mechanism, not just correlation. You have one predictor, two
+                possible mediators, and one outcome. The assignment wants model-level thinking.</p>
+
+            <h3>Part (a) and (b): Single mediator logic</h3>
+            <p>Run Model 1a with Entrep_Self_Eff as mediator. Run Model 1b with Religiosity as mediator. Use 1 percent
+                significance level. For each model report:</p>
+            <ol>
+                <li>Indirect effect significance (bootstrap CI rule)</li>
+                <li>Direct effect significance</li>
+                <li>Total effect significance</li>
+                <li>Indirect to total ratio</li>
+            </ol>
+
+            <p>Your computed ratios are already available in your output summaries. Use them in the report and explain
+                what they mean in simple words.</p>
+
+            <h3>Part (c): Moderation tests</h3>
+            <p>This section asks a different question from mediation. Here you test interaction effects. If interaction
+                is not significant at 1 percent, you should not claim moderation. Keep this interpretation clean and
+                direct.</p>
+
+            <h3>Part (d): Serial mediation model</h3>
+            <p>This is the strongest model in this problem because it includes both mediators and the serial path.</p>
+
+            <pre><code>Model 2 order:
+Cultural_Values -> Entrep_Self_Eff -> Religiosity -> Entrep_Suc
+
+Specific indirects:
+ind_m1      = X -> M1 -> Y
+ind_m2      = X -> M2 -> Y
+ind_serial  = X -> M1 -> M2 -> Y
+
+Contrast terms:
+contrast_m1_m2
+contrast_m1_serial
+contrast_m2_serial</code></pre>
+
+            <p>Your results show all three indirect paths significant at 1 percent. This is a strong mechanism story.
+            </p>
+
+            <h3>Part (e): Compare models</h3>
+            <p>Do not write only "Model 2 is better". Explain why. A good reason is that Model 2 can test both separate
+                and chained pathways in one coherent system. This gives richer interpretation than running separate
+                single-mediator models only.</p>
+
+            <div class="warning-box">
+                <h4>Very common mistake</h4>
+                <p>Students mix up mediation and moderation wording. Keep one sentence clearly for each: mediation is
+                    indirect path, moderation is interaction effect.</p>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Problem 2 Deep Guide: GLM, GENMOD Analog, Nonparametric</h2>
+
+            <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: مسئله 2، وقتی داده کج است چه کار کنیم؟</h4>
+                <p>در مسئله 2 شما با hold time سر و کار دارید. این نوع داده‌ها معمولا مثبت هستند و خیلی وقت‌ها چولگی به
+                    راست دارند. برای همین، اگر فقط ANOVA معمولی بزنیم، ممکن است فرض نرمال بودن و همگنی واریانس خوب
+                    برقرار نباشد. پروژه دقیقا برای همین از تو می‌خواهد چند روش را مقایسه کنی.</p>
+                <p>گام اول معمولاً GLM/ANOVA است. اینجا Levene را برای همگنی واریانس چک می‌کنی و نمودار باقیمانده‌ها را
+                    نگاه می‌کنی. بعد اگر هدف مقایسه همه جفت‌هاست، Tukey را می‌زنی. این بخش هنوز مهم است چون بسیاری از
+                    استادها می‌خواهند ببینند تو "workflow استاندارد" را بلدی.</p>
+                <p>گام دوم مدل Gamma با لینک log است (معادل GENMOD). این مدل برای داده‌های مثبت و کج خیلی طبیعی‌تر است.
+                    نکته تفسیری هم این است که در لینک log، اختلاف‌ها گاهی حالت ضربی پیدا می‌کنند، پس بهتر است علاوه بر
+                    p-value، در مورد جهت و معنای عملی اختلاف‌ها هم حرف بزنی.</p>
+                <p>گام سوم nonparametric است. اینجا تمرکز روی رتبه‌هاست نه میانگین‌ها. وقتی داده خیلی غیرنرمال است یا
+                    outlier زیاد است، گاهی روش‌های ناپارامتریک تفاوت‌هایی را پیدا می‌کنند که در ANOVA سخت‌تر دیده
+                    می‌شود. همین تفاوت‌ها، بخش (g) پروژه را می‌سازد.</p>
+                <p>برای نوشتن بخش (g)، بهترین کار این است که بگویی کدام جفت‌ها در همه روش‌ها ثابت بودند (پس نتیجه قوی‌تر
+                    است) و کدام جفت‌ها روش-حساس بودند (پس با احتیاط گزارش می‌کنی). این طرز نوشتن، هم علمی است هم نمره
+                    می‌آورد.</p>
+            </div>
+            <p>This problem is about robust decision making under distribution issues. You do not just run one model and
+                stop.</p>
+
+            <h3>Part (a): GLM with Tukey and Levene</h3>
+            <p>Start with one-way GLM/ANOVA. Report overall group effect, Levene result, and Tukey pairwise comparisons.
+                This is your baseline result.</p>
+
+            <h3>Part (b): SAS statement alignment</h3>
+            <p>Your SAS map includes:</p>
+            <pre><code>means MySupportCenter / lines Tukey hovtest welch;
+lsmeans MySupportCenter / pdiff adjust=Tukey;</code></pre>
+
+            <p>In write-up, mention that Welch check supports robustness when variance assumptions are uncertain.</p>
+
+            <h3>Part (c): Compare part (a) and (b)</h3>
+            <p>Most likely overall effect will align, while some pairwise details may move. Explain that software
+                options and assumptions can produce small differences, especially near significance threshold.</p>
+
+            <h3>Part (d): Residual histogram</h3>
+            <p>Your histogram shows right-skew tendency. This is exactly why part (e) and (f) are needed. Use this as
+                transition sentence in report.</p>
+
+            <h3>Part (e): GENMOD analog (Gamma with log link)</h3>
+            <p>Gamma model is suitable for positive skewed outcomes like hold time. Compare pairwise conclusions with
+                GLM output. Stable pairs are stronger evidence.</p>
+
+            <h3>Part (f): Nonparametric multiple comparisons</h3>
+            <p>Use DSCF-style pairwise nonparametric method. This method is less sensitive to normality assumptions. It
+                can find extra differences when rank structure supports them.</p>
+
+            <h3>Part (g): Consistency paragraph</h3>
+            <p>Your consistency table is the key file for this part. It shows which pairs agree across methods and which
+                do not.</p>
+
+            <pre><code>Strong writing pattern for (g):
+1) name stable pairs across all methods
+2) name method-sensitive pairs
+3) give reason (distribution shape, model assumptions, rank vs mean focus)
+4) end with practical recommendation</code></pre>
+        </div>
+
+        <div class="paper-card">
+            <h2>Problem 3 Deep Guide: Sequential Threshold Contrasts</h2>
+
+            <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: مسئله 3، تصمیم آستانه‌ای با چند اصلاح مختلف</h4>
+                <p>مسئله 3 همان منطق هفته 3 را به شکل پروژه‌ای و واقعی‌تر از تو می‌خواهد. تو باید کنتراست‌های آستانه‌ای
+                    را بسازی، چند روش اصلاح را اجرا کنی، و بعد بر اساس قانون تصمیم، یک گزینه توصیه کنی. اگر فقط جدول
+                    بدهی و قانون را ننویسی، جواب ناقص می‌شود.</p>
+                <p>یک نکته حساس در این مسئله mismatch برچسب‌هاست. در متن سوال ممکن است X3/X4/X6/X8/X10 ببینی ولی در فایل
+                    ستون‌ها Donate1/Donate2/Donate4/Donate6/Donate8 باشد. تو باید شفاف بنویسی که نگاشت را بر اساس ترتیب
+                    سطح‌ها انجام دادی تا منطق آستانه‌ای حفظ شود. همین شفاف نوشتن خودش امتیاز دارد.</p>
+                <p>بعد از ساختن C1 تا C4، یادت باشد اینجا چند تست پشت سر هم داریم. پس باید Bonferroni، Holm، Bootstrap و
+                    FDR را مقایسه کنی. نکته خوشحال‌کننده این است که اگر چند روش مختلف یک تصمیم یکسان بدهند، یعنی نتیجه
+                    پایدارتر است. در خروجی تو هم C1 و C2 معنی دار شدند ولی C3 و C4 بعد از اصلاح معنی دار نشدند، پس طبق
+                    قانون ترتیبی گزینه 3 انتخاب شد (X6 که در داده به Donate4 نگاشت شده بود).</p>
+                <p>سوال استقلال هم دو لایه دارد: ضرایب کنتراست‌ها به شکل طراحی شده می‌تواند orthogonal باشد، ولی چون
+                    معمولا همان افراد چند گزینه را رتبه داده‌اند، رفتار آزمون‌ها می‌تواند وابسته شود. اگر این را دو
+                    جمله‌ای بگویی، جواب تو کامل است.</p>
+            </div>
+            <p>This problem tests contrast construction, multiple-testing control, and decision logic. It is excellent
+                exam training because it combines math and reasoning.</p>
+
+            <h3>Label mapping issue and fix</h3>
+            <p>The prompt labels are X3, X4, X6, X8, X10. Data columns are Donate1, Donate2, Donate4, Donate6, Donate8.
+                You documented mapping by ordered position so threshold logic stays valid. Keep this note in your method
+                section for transparency.</p>
+
+            <h3>Contrast sequence used</h3>
+            <pre><code>C1 = [ 1, -1/4, -1/4, -1/4, -1/4 ]
+C2 = [ 0,  1,   -1/3, -1/3, -1/3 ]
+C3 = [ 0,  0,    1,   -1/2, -1/2 ]
+C4 = [ 0,  0,    0,    1,   -1   ]</code></pre>
+
+            <h3>Corrections and decisions</h3>
+            <p>You applied Bonferroni, Holm, FDR, and Bootstrap. In your current data, all four methods chose the same
+                threshold option (X6 mapped to Donate4). Mention this clearly and explain that agreement increases
+                confidence in decision stability.</p>
+
+            <h3>Independence question</h3>
+            <p>Answer in two parts:</p>
+            <ol>
+                <li>Coefficient space: contrasts are orthogonal by design.</li>
+                <li>Data dependence: participant-level repeated ratings can still induce dependence in test behavior.
+                </li>
+            </ol>
+
+            <p>This balanced answer is usually stronger than saying only "independent" or only "not independent".</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>How to Write a High-Scoring Project Answer</h2>
+
+            <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: نوشتن گزارش پروژه مثل آدم، نه مثل خروجی نرم‌افزار</h4>
+                <p>استاد معمولا دنبال این نیست که شما 10 صفحه خروجی بچسبانی. دنبال این است که ببیند تو می‌فهمی چه کار
+                    کردی و چرا. پس ساختار جواب باید ساده و شفاف باشد: یک جمله سوال، یک جمله روش، چند عدد کلیدی، و یک
+                    تفسیر کوتاه.</p>
+                <p>بهتر است بعد از هر بخش، همانجا خروجی مهم را بیاوری و زیرش یک پاراگراف تفسیر بنویسی. اگر همه خروجی‌ها
+                    را آخر گزارش بریزی، خودت هم موقع نوشتن گم می‌شوی و هم خواننده سخت‌تر می‌فهمد.</p>
+                <p>یک نکته مهم برای نمره: هر جا روش انتخاب می‌کنی، یک جمله دلیل بده. مثلا "چون داده کج بود از Gamma
+                    استفاده شد" یا "چون چند کنتراست داشتیم از Holm استفاده شد". همین دلیل کوتاه، جواب را حرفه‌ای می‌کند.
+                </p>
+            </div>
+            <p>Use this simple structure for every subpart:</p>
+
+            <pre><code>1) Restate question in one sentence.
+2) State method and alpha level.
+3) Report key numbers (estimate, CI or p-value, ratio if required).
+4) Give plain interpretation in 2-4 sentences.
+5) Add one short practical implication sentence.</code></pre>
+
+            <p>Try to avoid copy-paste of raw output without explanation. Your instructor explicitly asks for clear
+                interpretation.</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>Exam Transfer Map: From Project Skill to Exam Skill</h2>
+
+            <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: این پروژه دقیقا کدام مهارت‌های امتحان را می‌سازد؟</h4>
+                <p>اگر پروژه 1 را درست انجام بدهی، عملا بخش بزرگی از امتحان را تمرین کرده‌ای. چون امتحان هم معمولا سه
+                    چیز می‌خواهد: انتخاب روش درست، اجرا/توضیح خروجی، و تفسیر با زبان ساده.</p>
+                <p>مسئله 1 به تو یاد می‌دهد مدل مفهومی را درست بخوانی و فرق مسیر غیرمستقیم با interaction را قاطی نکنی.
+                    مسئله 2 به تو یاد می‌دهد وقتی فرض‌ها خراب است، فقط گیر ندهی و روش جایگزین انتخاب کنی. مسئله 3 هم به
+                    تو یاد می‌دهد چطور کنتراست بسازی و چند تست را با اصلاح کنترل کنی.</p>
+                <p>برای مرور امتحان، بهترین کار این است که برای هر مسئله، یک برگه کوچک برای خودت درست کنی که فقط شامل
+                    "کلمات کلیدی و جملات تفسیر" باشد. عددها مهم‌ترین بخش نیستند. جمله‌ها مهم هستند.</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Project skill</th>
+                        <th>Exam skill it trains</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mediation path interpretation</td>
+                        <td>Conceptual model reasoning and direct/indirect logic</td>
+                    </tr>
+                    <tr>
+                        <td>Moderation interaction test</td>
+                        <td>Correct use of interaction-based claims</td>
+                    </tr>
+                    <tr>
+                        <td>GLM vs Gamma vs Nonparametric</td>
+                        <td>Assumption-aware method choice</td>
+                    </tr>
+                    <tr>
+                        <td>Sequential contrasts with corrections</td>
+                        <td>Multiple testing strategy and threshold decisions</td>
+                    </tr>
+                    <tr>
+                        <td>Cross-method consistency paragraph</td>
+                        <td>Balanced interpretation under conflicting evidence</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="paper-card">
+            <h2>Suggested Study Order Before Submission</h2>
+
+            <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: یک ترتیب مطالعه که واقعا جواب می‌دهد</h4>
+                <p>اینجا هدف این است که هم پروژه را جمع کنی هم برای امتحان آماده شوی. پس ترتیب باید طوری باشد که هر روز
+                    یک خروجی واقعی تولید کنی و همزمان هم تمرین کنی که بدون نگاه کردن به متن، بتوانی توضیح بدهی.</p>
+                <p>اگر فقط 3 تا 4 ساعت در روز وقت داری، پیشنهاد عملی این است: اول گزارش نهایی را یک بار کامل بخوان. بعد
+                    برای هر مسئله، خلاصه 5 خطی بنویس. بعد یک بار اسکریپت را از اول تا آخر اجرا کن تا مطمئن شوی همه چیز
+                    reproducible است. بعد هم برو سراغ تمرین‌های امتحانی و نقاط ضعف را یادداشت کن.</p>
+                <p>در نهایت، شب آخر به جای خواندن دوباره همه چیز، فقط همان نقاط ضعف را مرور کن. این مدل مرور معمولا بهتر
+                    از مرور پراکنده است.</p>
+            </div>
+            <ol>
+                <li>Read your final report once from start to end.</li>
+                <li>Open p1, p2, p3 summary files and recite the core conclusions without notes.</li>
+                <li>Do Simulation 1 under time.</li>
+                <li>Review weak topic tracker and fix weakest two topics.</li>
+                <li>Do Simulation 2 under time.</li>
+                <li>Polish your final report language before sending email.</li>
+            </ol>
+        </div>
+
+        <div class="paper-card">
+            <h2>Exam Drills with Answers (Project 1 Focus)</h2>
+
+            <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: تمرین‌های امتحانی پروژه 1، تمرکز روی تفسیر</h4>
+                <p>این تمرین‌ها را با همان قانون طلایی حل کن: جواب کوتاه، ولی پرمعنا. یعنی روش را بگو، نتیجه را بگو،
+                    تفسیر را بگو. اگر فقط تعریف بنویسی یا فقط عدد بنویسی، نیمه نمره را از دست می‌دهی.</p>
+                <p>برای سوال‌های mediation، حتما یاد بگیر بگویی indirect با CI معنی دار است یا نه. برای سوال‌های
+                    moderation، فقط دنبال interaction بگرد. برای سوال‌های مسئله 2، روی منطق انتخاب روش تمرکز کن: داده کج
+                    است، پس Gamma یا nonparametric می‌تواند مناسب‌تر باشد.</p>
+                <p>اگر خواستی تمرین را سخت‌تر کنی، برای هر سوال بعد از جواب دادن، یک جمله هم اضافه کن که "چرا این روش را
+                    انتخاب کردم". این جمله همان چیزی است که در امتحان امتیاز اضافه می‌دهد.</p>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q1</span>
+                <p>If indirect effect is significant but total effect is not, is mediation impossible?</p>
+                <div class="success-box">
+                    <p>No. Mediation can still exist because direct and indirect effects may offset each other in total
+                        effect.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q2</span>
+                <p>At alpha 0.01, interaction p-value is 0.03. Is moderation supported?</p>
+                <div class="success-box">
+                    <p>No, not at the 1 percent criterion.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q3</span>
+                <p>Why compare GLM and Gamma for hold-time data?</p>
+                <div class="success-box">
+                    <p>Because hold times are positive and can be skewed, and Gamma can model that shape better.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q4</span>
+                <p>If C1 and C2 are significant, C3 is not, what option is chosen?</p>
+                <div class="success-box">
+                    <p>Option 3 by sequential threshold rule.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q5</span>
+                <p>Why keep both raw and adjusted p-values in your table?</p>
+                <div class="success-box">
+                    <p>To show raw signal and final decision after multiplicity control transparently.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q6</span>
+                <p>Can orthogonal contrasts still show practical dependence in data?</p>
+                <div class="success-box">
+                    <p>Yes, especially when same people rate multiple options.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q7</span>
+                <p>What is a strong final sentence for method disagreement?</p>
+                <div class="success-box">
+                    <p>Focus conclusions on pairs stable across methods and report method-sensitive pairs as cautious
+                        findings.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q8</span>
+                <p>What is the main reason Model 2 is often preferred in Problem 1?</p>
+                <div class="success-box">
+                    <p>It tests both separate and chained mediator pathways in one coherent model.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q9</span>
+                <p>How long should each interpretation paragraph be?</p>
+                <div class="success-box">
+                    <p>Usually 2 to 4 sentences with one clear practical meaning line.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q10</span>
+                <p>What is the fastest way to review before exam?</p>
+                <div class="success-box">
+                    <p>Use your simulation files and weak-topic tracker, then re-explain each answer in your own words.
+                    </p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q11</span>
+                <p>If all methods choose same threshold in Problem 3, what does it suggest?</p>
+                <div class="success-box">
+                    <p>The decision is method-stable in this dataset, which increases confidence in recommendation.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q12</span>
+                <p>What is the biggest writing mistake in take-home reports?</p>
+                <div class="success-box">
+                    <p>Pasting output without translating it into clear conclusions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Week 5 Final Checklist</h2>
+
+            <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: چک لیست نهایی هفته 5 قبل از ارسال پروژه</h4>
+                <p>این چک لیست برای این است که مطمئن شوی هم پروژه آماده است هم خودت آماده‌ای. اگر یک مورد را نمی‌توانی
+                    بدون نگاه کردن به فایل‌ها توضیح بدهی، همان قسمت را دوباره مرور کن.</p>
+                <ul>
+                    <li>می‌توانم فرق mediation و moderation را با یک جمله ساده بگویم.</li>
+                    <li>می‌توانم بگویم indirect effect را با CI چطور معنی دار می‌کنیم.</li>
+                    <li>می‌توانم بگویم چرا GLM ممکن است برای hold time ضعیف باشد و Gamma چه مزیتی دارد.</li>
+                    <li>می‌توانم منطق انتخاب گزینه در کنتراست آستانه‌ای را مرحله به مرحله توضیح بدهم.</li>
+                    <li>می‌توانم برای هر نتیجه، یک پاراگراف تفسیر بنویسم که انسانی و قابل فهم باشد.</li>
+                </ul>
+            </div>
+            <ul>
+                <li>I can explain each subpart of Project 1 without reading scripts line by line.</li>
+                <li>I can defend my method choices for each problem.</li>
+                <li>I can explain why some pairwise results agree and some differ across methods.</li>
+                <li>I can explain threshold contrast decision logic clearly.</li>
+                <li>I can write concise, human interpretation paragraphs for each result block.</li>
+            </ul>
+        </div>
+
+        <!-- REAL NUMBERS SECTION -->
+        <div class="paper-card">
+            <h2>Actual Computed Numbers – Project 1 Full Results</h2>
+            <p>These are the real numbers from your R output files. Use them directly in your report and for exam
+                review.</p>
+
+            <h3>Problem 1: Model 1a – Entrep_Self_Eff mediator (α = .01)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Effect</th>
+                        <th>Estimate</th>
+                        <th>99% CI</th>
+                        <th>p-value</th>
+                        <th>Sig?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a (X→M1)</td>
+                        <td>0.3482</td>
+                        <td>[0.242, 0.457]</td>
+                        <td>&lt;.001</td>
+                        <td>✓ Yes</td>
+                    </tr>
+                    <tr>
+                        <td>b (M1→Y)</td>
+                        <td>0.6458</td>
+                        <td>[0.532, 0.753]</td>
+                        <td>&lt;.001</td>
+                        <td>✓ Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Indirect (a×b)</td>
+                        <td>0.2249</td>
+                        <td>[0.151, 0.313]</td>
+                        <td>&lt;.001</td>
+                        <td>✓ Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Direct (c')</td>
+                        <td>−0.1867</td>
+                        <td>[−0.295, −0.076]</td>
+                        <td>.000005</td>
+                        <td>✓ Yes (negative)</td>
+                    </tr>
+                    <tr>
+                        <td>Total (c)</td>
+                        <td>0.0382</td>
+                        <td>[−0.077, 0.161]</td>
+                        <td>.403</td>
+                        <td>n.s. — competitive mediation</td>
+                    </tr>
+                    <tr>
+                        <td>Ratio ind/total</td>
+                        <td>5.895</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Problem 1: Model 1b – Religiosity mediator (α = .01)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Effect</th>
+                        <th>Estimate</th>
+                        <th>99% CI</th>
+                        <th>p-value</th>
+                        <th>Sig?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a (X→M2)</td>
+                        <td>0.4816</td>
+                        <td>[0.388, 0.573]</td>
+                        <td>&lt;.001</td>
+                        <td>✓ Yes</td>
+                    </tr>
+                    <tr>
+                        <td>b (M2→Y)</td>
+                        <td>0.2637</td>
+                        <td>[0.104, 0.418]</td>
+                        <td>.000011</td>
+                        <td>✓ Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Indirect (a×b)</td>
+                        <td>0.1270</td>
+                        <td>[0.047, 0.214]</td>
+                        <td>&lt;.001</td>
+                        <td>✓ Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Direct (c')</td>
+                        <td>−0.0889</td>
+                        <td>[−0.229, 0.057]</td>
+                        <td>.094</td>
+                        <td>n.s. — full mediation</td>
+                    </tr>
+                    <tr>
+                        <td>Total (c)</td>
+                        <td>0.0382</td>
+                        <td>—</td>
+                        <td>.403</td>
+                        <td>n.s.</td>
+                    </tr>
+                    <tr>
+                        <td>Ratio ind/total</td>
+                        <td>3.329</td>
+                        <td>—</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Problem 1: Model 2 – Serial Mediation (α = .01)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Path</th>
+                        <th>Estimate</th>
+                        <th>99% CI</th>
+                        <th>Sig?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ind_m1 (X→M1→Y)</td>
+                        <td>0.3336</td>
+                        <td>[0.224, 0.457]</td>
+                        <td>✓ Yes (positive)</td>
+                    </tr>
+                    <tr>
+                        <td>ind_m2 (X→M2→Y)</td>
+                        <td>−0.1143</td>
+                        <td>[−0.176, −0.065]</td>
+                        <td>✓ Yes (negative/suppressor)</td>
+                    </tr>
+                    <tr>
+                        <td>ind_serial (X→M1→M2→Y)</td>
+                        <td>−0.1087</td>
+                        <td>[−0.168, −0.062]</td>
+                        <td>✓ Yes (negative/chain)</td>
+                    </tr>
+                    <tr>
+                        <td>Direct (c')</td>
+                        <td>−0.0724</td>
+                        <td>[−0.187, 0.043]</td>
+                        <td>n.s.</td>
+                    </tr>
+                    <tr>
+                        <td>Contrast: m1 vs m2</td>
+                        <td>0.4479</td>
+                        <td>[0.318, 0.591]</td>
+                        <td>✓ Yes — m1 stronger</td>
+                    </tr>
+                    <tr>
+                        <td>Contrast: m1 vs serial</td>
+                        <td>0.4423</td>
+                        <td>[0.290, 0.613]</td>
+                        <td>✓ Yes — m1 stronger</td>
+                    </tr>
+                    <tr>
+                        <td>Contrast: m2 vs serial</td>
+                        <td>−0.0056</td>
+                        <td>[−0.061, 0.050]</td>
+                        <td>n.s. — similar magnitude</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Problem 2: Summary Statistics &amp; Tests (α = .05)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Center</th>
+                        <th>n</th>
+                        <th>Mean</th>
+                        <th>SD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>NorthHub</td>
+                        <td>90</td>
+                        <td>3.305</td>
+                        <td>1.523</td>
+                    </tr>
+                    <tr>
+                        <td>PrairieSupport</td>
+                        <td>90</td>
+                        <td>2.845</td>
+                        <td>1.958</td>
+                    </tr>
+                    <tr>
+                        <td>MetroAssist</td>
+                        <td>90</td>
+                        <td>2.126</td>
+                        <td>2.175</td>
+                    </tr>
+                    <tr>
+                        <td>CoastalConnect</td>
+                        <td>111</td>
+                        <td>2.084</td>
+                        <td>2.172</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <pre><code>ANOVA: F(3,377) = 8.39, p = 2.06e-5  → significant
+Levene:  F(3,377) = 2.16, p = .092    → NOT sig (variances OK)
+Welch:   p = 4.02e-6                  → also confirms groups differ
+Residual skewness = 1.41              → motivates Gamma + nonparametric</code></pre>
+
+            <h3>Problem 3: Contrast Results (α = .05)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Contrast</th>
+                        <th>t-stat</th>
+                        <th>p-raw</th>
+                        <th>p-Bonferroni</th>
+                        <th>p-Holm</th>
+                        <th>p-FDR</th>
+                        <th>Bootstrap</th>
+                        <th>Decision</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>C1: X3 vs avg others</td>
+                        <td>−5.762</td>
+                        <td>.000015</td>
+                        <td>.000060</td>
+                        <td>.000060</td>
+                        <td>.000060</td>
+                        <td>sig</td>
+                        <td>✓ sig → move on</td>
+                    </tr>
+                    <tr>
+                        <td>C2: X4 vs avg others</td>
+                        <td>−4.472</td>
+                        <td>.000261</td>
+                        <td>.001045</td>
+                        <td>.000784</td>
+                        <td>.000523</td>
+                        <td>sig</td>
+                        <td>✓ sig → move on</td>
+                    </tr>
+                    <tr>
+                        <td>C3: X6 vs avg(X8,X10)</td>
+                        <td>−1.979</td>
+                        <td>.0625</td>
+                        <td>.250</td>
+                        <td>.125</td>
+                        <td>.083</td>
+                        <td>n.s.</td>
+                        <td><strong>STOP → Choose X6</strong></td>
+                    </tr>
+                    <tr>
+                        <td>C4: X8 vs X10</td>
+                        <td>−1.818</td>
+                        <td>.085</td>
+                        <td>.339</td>
+                        <td>.125</td>
+                        <td>.085</td>
+                        <td>n.s.</td>
+                        <td>(not reached)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="success-box">
+                <p>All 4 correction methods agree: choose X6 ($6 donation). This method-agreement strengthens the
+                    recommendation.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>BUSI 6480 Study Guide | Ali Safari | Spring 2026</p>
+    </footer>
+
+    <script src="/js/study-navbar.js"></script>
+    <script src="/js/toast.js"></script>
+    <script src="/js/course-loader.js"></script>
+    <script src="/js/sync.js"></script>
+    <script src="/js/highlights.js"></script>
+    <script src="/js/tts.js"></script>
+    <script src="/js/progress.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/flashcards.js"></script>
+    <script src="/js/timer.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Data Lakehouse: How We Stopped Copying Data Between Systems | Ali Safari</title><meta name="description" content="The lakehouse architecture combines the cheap storage of data lakes with the transactional guarantees of data warehouses, and the governance challenge is what makes or breaks it."><meta name="keywords" content=IT Governance & Strategy, information systems, research"><meta property="og:title" content="The Data Lakehouse: How We Stopped Copying Data Between Systems"><meta property="og:description" content="The lakehouse architecture combines the cheap storage of data lakes with the transactional guarantees of data warehouses, and the governance challenge is what makes or breaks it."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/data-lakehouse-architecture/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IT Governance & Strategy"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/data-lakehouse-architecture/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Data Lakehouse: How We Stopped Copying Data Between Systems","description":"The lakehouse architecture combines the cheap storage of data lakes with the transactional guarantees of data warehouses, and the governance challenge is what makes or breaks it.","url":"https://alisafari.space/blog/data-lakehouse-architecture/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">The Data Lakehouse: How We Stopped Copying Data Between Systems</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="data-lakehouse-architecture" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IT Governance &amp; Strategy</span>
+<h1>The Data Lakehouse: How We Stopped Copying Data Between Systems</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
+</div>
+</article>
+<div class="series-badge"><span class="series-label">Data</span><span class="series-counter">Part 2 of 3</span><div class="series-nav"><a href="/blog/data-governance-executive-sponsorship/">Data Governance Exec</a> &rsaquo; <span class="series-current">2</span> &rsaquo; <a href="/blog/data-mesh-vs-data-warehouse/">Data Mesh Vs Data Wa</a></div></div>
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>For a long time, enterprise data architecture was built around a clean separation between two very different ideas. Bill Inmon gave us the data warehouse as a "subject-oriented, integrated, time-variant, and non-volatile" store of structured data, purpose-built for analytics. Ralph Kimball took a more pragmatic angle with dimensional modeling, building warehouses around the business processes that mattered. Both approaches required careful schema design upfront, ETL pipelines that moved and transformed data before it could be queried, and expensive specialized hardware from vendors like Teradata. The trade was strict governance and fast query performance for money and inflexibility.</p>
+<p>The data lake was the reaction to that inflexibility. Cheap cloud object storage (S3, Azure Blob, GCS) made it possible to just dump everything in one place and figure out the schema later. "Schema-on-read" was the rallying cry: you ingest first and impose structure when you query. Hadoop and later Spark made it possible to run computation directly against raw files sitting in object storage. This was genuinely useful. You could store clickstream logs, sensor data, and raw JSON from APIs without designing a schema upfront. The cost per terabyte dropped dramatically. For a few years, everyone was building data lakes.</p>
+<p>Then the data lakes started turning into data swamps.</p>
+<p>Without transaction guarantees, a data lake has no concept of atomicity. If a write job fails halfway through, you now have partial data sitting in the lake, and nothing stops the next query from reading that partial data. Without ACID (Atomicity, Consistency, Isolation, Durability) semantics, running a query while data is being loaded gives you inconsistent results. And without schema enforcement, the lake fills up with files in incompatible formats, column names that shifted over time, and data no one can explain. The governance assumption built into the data lake model was essentially "someone will clean this up later," and that assumption turned out to be optimistic.</p>
+<p>The lakehouse emerged as an attempt to get the benefits of both approaches without giving up either. Databricks coined the term around 2020, and the architecture they described is now a real design pattern that a number of organizations have adopted. The core idea is to add a metadata and transaction layer on top of object storage, so that the same files sitting in your cheap cloud storage can be treated with warehouse-grade consistency and governance. You keep the cost and flexibility of the lake. You add the reliability and governance that the warehouse promised.</p>
+<p>The technology that makes this work is a set of open table formats. Delta Lake came from Databricks. Apache Iceberg came primarily from Netflix, and is now heavily supported by Apple, Netflix, and others. Apache Hudi came from Uber. All three are trying to solve the same core problem: how do you give ACID transaction semantics to files sitting in object storage? They do it by maintaining a transaction log alongside the actual data files. When a write operation runs, the table format records the operation in the log before the files are actually committed. If the write fails, the log lets you roll back. If two queries run concurrently, the log serializes them. The underlying storage is still cheap commodity object storage. The behavior looks like a proper database.</p>
+<p>This matters for enterprise IS in a specific and practical way. The old pattern for most organizations was to run an ETL pipeline that moved data from operational systems into a staging area, transformed it, and then loaded it into a warehouse for reporting. That pipeline was slow (usually nightly), expensive (every transformation cost compute), and brittle (schema changes upstream broke everything downstream). More problematically, you ended up with multiple copies of the same data: one in the operational system, one in the staging area, one in the warehouse, and often another copy in a departmental reporting database or a BI tool's local cache. Every copy was a potential point of divergence and a governance liability.</p>
+<p>The lakehouse, at least in theory, removes the need for some of those copies. If your operational data can land in an open table format directly, and your analytics tools can query it there with transactional consistency, you do not need a separate warehouse copy. You query the source. The "single source of truth" that every enterprise data strategy document promises but never quite delivers becomes structurally achievable rather than just aspirational.</p>
+<p>I say "at least in theory" because the practice is more complicated. Getting operational systems to write directly to a lakehouse requires changes to those systems or at minimum to the pipelines that feed them. The legacy ERP running your financial close is not going to start writing Iceberg files on its own. The integration layer does not disappear. What changes is that once data is in the lake in an open format, you can query it, transform it, and serve it to different tools without copying it again.</p>
+<p>The governance challenge is also real and often underappreciated. The open table formats solve the technical problem of transactional consistency. They do not solve the organizational problem of who is allowed to access which data, what data means, who is responsible for its quality, and who gets notified when it changes. Those questions require people and process, not just technology. A lakehouse without data governance practices is just a better-organized swamp. The data is accessible and consistent, but nobody knows what it means or whether they can trust it.</p>
+<p>This is part of why data mesh has gotten attention as an organizational complement to the lakehouse technical pattern. Data mesh, associated with Zhamak Dehghani's writing on the subject, argues that data should be owned and served by the domain teams that produce it, not centralized in a single platform team. Each domain treats its data as a product with defined consumers, documented semantics, and a quality SLA. The lakehouse is the plumbing. Data mesh is the organizational design that prevents the plumbing from filling up with garbage.</p>
+<p>Whether data mesh actually works at scale in real enterprises is still an open question. It requires a level of domain maturity and cross-team coordination that most organizations struggle with even without adding new data responsibilities. The technology is the easy part. Getting the finance team and the operations team and the customer team to each maintain a well-governed data product with clear ownership and reliable freshness guarantees is a political and organizational problem. The lakehouse architecture makes it technically feasible. Whether organizations can actually execute on it depends on things that no open table format can fix.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/data-mesh-vs-data-warehouse/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Data Mesh vs. Data Warehouse: The Architecture Wars Are a Distraction</div></a><a href="/blog/data-governance-executive-sponsorship/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Why Data Governance Fails Without Executive Sponsorship</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agile-at-enterprise-scale/" class="blog-related-card"><h4>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

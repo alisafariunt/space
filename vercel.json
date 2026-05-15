@@ -1,6 +1,21 @@
 {
   "redirects": [
     {
+      "source": "/theory",
+      "destination": "/theory/",
+      "permanent": true
+    },
+    {
+      "source": "/theories",
+      "destination": "/theory/",
+      "permanent": true
+    },
+    {
+      "source": "/theories/",
+      "destination": "/theory/",
+      "permanent": true
+    },
+    {
       "source": "/6670",
       "destination": "/6670/",
       "permanent": true
@@ -13,6 +28,11 @@
     {
       "source": "/conferences",
       "destination": "/conferences/",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/",
       "permanent": true
     }
   ],
@@ -31,6 +51,31 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), speaker=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https://*.alisafari.space; media-src 'self' blob: https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
+        }
+      ]
+    },
+    {
+      "source": "/blog/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, stale-while-revalidate=86400"
         }
       ]
     },
@@ -42,6 +87,39 @@
           "value": "no-cache"
         }
       ]
+    },
+    {
+      "source": "/theory/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/theory/diagrams/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/theories.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/ping-supabase",
+      "schedule": "0 8 * * *"
     }
   ]
 }

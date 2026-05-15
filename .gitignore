@@ -1,1 +1,28 @@
 .vercel
+node_modules
+.DS_Store
+
+# Environment / secrets
+.env
+.env.*
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+credentials.json
+service-account*.json
+firebase-adminsdk*.json
+
+# Internal planning docs (not for public deployment)
+FILE_VERSION_ANALYSIS.md
+THEORIES_HTML_REVISION_REPORT.md
+continuation-prompt.md
+
+# Build / cache
+output/
+**/__pycache__/
+
+# Stray screenshots committed at repo root
+/Screenshot*.png
+/Screenshot*.jpg
+/Screenshot*.jpeg

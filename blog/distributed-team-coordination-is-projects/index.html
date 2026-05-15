@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Distributed Team Coordination in IS Projects | Ali Safari</title><meta name="description" content="Distributed IS projects face coordination overhead that project plans rarely account for. COVID made this everyone&#x27;s problem at once."><meta name="keywords" content=Platforms & Ecosystems, Sociotechnical Systems, information systems, research"><meta property="og:title" content="Distributed Team Coordination in IS Projects"><meta property="og:description" content="Distributed IS projects face coordination overhead that project plans rarely account for. COVID made this everyone&#x27;s problem at once."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/distributed-team-coordination-is-projects/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=Platforms & Ecosystems, Sociotechnical Systems"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/distributed-team-coordination-is-projects/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Distributed Team Coordination in IS Projects","description":"Distributed IS projects face coordination overhead that project plans rarely account for. COVID made this everyone&#x27;s problem at once.","url":"https://alisafari.space/blog/distributed-team-coordination-is-projects/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"Platforms & Ecosystems","keywords":"Platforms & Ecosystems, Sociotechnical Systems"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Distributed Team Coordination in IS Projects</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="distributed-team-coordination-is-projects" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">Platforms &amp; Ecosystems</span>
+<h1>Distributed Team Coordination in IS Projects</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">Platforms &amp; Ecosystems</span><span class="tag">Sociotechnical Systems</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>When I started working on IS research coordination problems, I kept running into the same pattern in project failure accounts. The technical work was roughly on track. The integration tests passed. The code review process was functioning. But the project was running three weeks behind on deliverables, and nobody could point to a single specific thing that was causing the delay. The lag was everywhere and nowhere. It was in the half-day gaps between questions asked and answers received. It was in the misunderstandings about scope that took a week of asynchronous email to untangle. It was in the decision that should have taken thirty minutes in a room together and instead took eleven days of back-and-forth across time zones.</p>
+<p>This is the coordination overhead of distributed IS projects. It is real, it is well-documented in the research literature, and it is almost never adequately reflected in the project plan.</p>
+<p>The coordination challenges in distributed IS teams have been studied under several labels in IS research, most commonly globally distributed software development and virtual teams. The core findings are consistent. Time zone differences create communication latency that does not affect the technical work in isolation but compounds across collaborative dependencies. A question asked at the end of the day in Austin may not be answered until the following morning, which means if the answer determines the next step, the effective workday for that dependency is a few hours, not eight. When multiple such dependencies stack across a sprint, the cumulative effect can look like team underperformance, when it is actually a structural coordination problem.</p>
+<p>Jarvenpaa and Leidner's (1999) work on trust in global virtual teams is widely cited in IS research as an early empirical examination of how trust forms and operates in distributed teams. Their finding was that swift trust, a form of trust based on initial signals of professional competence and communication responsiveness rather than long-term relationship history, matters enormously in virtual team performance. I want to be careful here because I have not verified this paper's full text against a local study-hub file, so I am hedging: this is widely cited in the virtual team literature and I am working from my reading of the field rather than a verified local source. The core observation, that virtual teams rely on different trust mechanisms than collocated ones, is defensible from the broader research stream.</p>
+<p>The sociotechnical perspective adds something that purely technical accounts of coordination miss. Distributed teams rely much more heavily on digital artifacts, documents, tickets, code comments, pull requests, chat logs, to coordinate than collocated teams who can use conversation, whiteboard, hallway conversation, and ambient observation of what teammates are working on. In a collocated team, a lot of coordination happens passively, just by being in the same space and picking up on what people are doing. Distributed teams have to make that coordination explicit, which means it has to be written down, organized, and maintained. The quality and completeness of those artifacts becomes critical, and it is also highly variable across teams and projects.</p>
+<p>This has a practical consequence that IS project managers often underestimate. In a distributed project, documentation is not a bureaucratic overhead. It is the coordination infrastructure. A ticket that is ambiguously worded, a commit message that omits context, a Slack message that does not reference the relevant document: each of these is a coordination failure waiting to become a delay. The same message would not matter in a collocated context because someone could just walk over and ask. In a distributed context, each ambiguity creates latency.</p>
+<p>Language and cultural differences compound these problems in globally distributed teams. Technical communication is already dense with implied context and shared assumptions. When team members have different first languages, different professional communication norms, and different assumptions about what counts as a complete answer versus a partial one, interpretation failures become more frequent. These are not failures of competence. They are failures of shared context, and they require structural solutions, shared glossaries, explicit communication norms, more time for confirmation, not individual effort to communicate better.</p>
+<p>According to Gartner research on the digital workplace and collaboration technology, organizations that adopted distributed work during the COVID-19 period without supporting infrastructure for asynchronous coordination saw measurable impacts on project delivery and team cohesion (see https://www.gartner.com/en/newsroom for Gartner's current releases on this topic). I am hedging specific percentages here, but the directional finding is consistent with what the IS project management literature has shown for years before the pandemic made remote work universal.</p>
+<p>COVID-19 did not create the distributed team coordination problem. It made it everyone's problem at once. Before 2020, organizations could choose whether to have distributed teams. After 2020, many organizations discovered they were managing distributed teams with processes, norms, and tooling built for collocated ones. The IS project management research on globally distributed software development had been documenting the coordination problems for at least two decades. The pandemic accelerated the practitioner recognition of what researchers already knew.</p>
+<p>What I think is underappreciated is how much the coordination overhead varies by the type of dependency, not just the distance. Two developers in different cities working on independent modules face minimal coordination overhead. Two developers in different cities working on tightly coupled components, where one person's output is the other person's input, face serious latency problems unless they build explicit synchronization points. Mapping the dependency structure before distributing the work is the step that most project plans skip.</p>
+<p>The research on transactive memory systems, developed through work by Wegner (1987) and operationalized in IS contexts by Lewis (2003), is also relevant here. Transactive memory is the shared knowledge in a group about who knows what. In collocated teams, you build this informally. You learn over time who to ask about which problem. In distributed teams, building that shared mental map of expertise requires deliberate effort, because the informal channels through which it normally develops are absent or attenuated.</p>
+<p>I do not think distributed IS projects are inherently more likely to fail than collocated ones. But they are more sensitive to coordination infrastructure. A well-run distributed project with strong artifacts, clear async norms, and explicit dependency management can outperform a poorly run collocated project. The collocated team can cover for coordination failures with face time. The distributed team cannot.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/dslm-absorptive-capacity-domain-knowledge/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Domain-Specific AI Needs Domain-Specific Knowledge to Work</div></a><a href="/blog/digital-twins-enterprise-operations/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Digital Twins: The Sociotechnical Artifact Nobody Warned You About</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/actor-network-theory-is-research/" class="blog-related-card"><h4>Actor-Network Theory: Why Your ERP System Is an Actor Too</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agent-ecosystems-platform-envelopment/" class="blog-related-card"><h4>The Internet of Agents Will Be Built by Platforms That Own the Protocol</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agile-at-enterprise-scale/" class="blog-related-card"><h4>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

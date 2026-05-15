@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cybersecurity Mesh: When the Perimeter Finally Stopped Making Sense | Ali Safari</title><meta name="description" content="The castle-and-moat model of security was built for a world where the data stayed inside. That world is gone."><meta name="keywords" content=Trust & Security, information systems, research"><meta property="og:title" content="Cybersecurity Mesh: When the Perimeter Finally Stopped Making Sense"><meta property="og:description" content="The castle-and-moat model of security was built for a world where the data stayed inside. That world is gone."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/cybersecurity-mesh-architecture/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=Trust & Security"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/cybersecurity-mesh-architecture/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cybersecurity Mesh: When the Perimeter Finally Stopped Making Sense","description":"The castle-and-moat model of security was built for a world where the data stayed inside. That world is gone.","url":"https://alisafari.space/blog/cybersecurity-mesh-architecture/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"Trust & Security","keywords":"Trust & Security"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Cybersecurity Mesh: When the Perimeter Finally Stopped Making Sense</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="cybersecurity-mesh-architecture" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">Trust &amp; Security</span>
+<h1>Cybersecurity Mesh: When the Perimeter Finally Stopped Making Sense</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">Trust &amp; Security</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>The original model of enterprise security made intuitive sense for a particular moment in computing history. You had a building. Inside the building were servers, workstations, and applications. You drew a perimeter around the building in network terms: a firewall on the edge, tight controls on what came in and what went out. If you were inside the perimeter, you were trusted. If you were outside, you were not. The castle metaphor is apt. You build thick walls, you defend the gates, and everything inside the walls is assumed to be friendly.</p>
+<p>This model had a thirty-year run. It worked reasonably well when employees sat at company desktops connected to company networks in company offices, when enterprise software ran on servers in company data centers, and when "the outside" was a relatively well-defined concept. None of those conditions hold anymore.</p>
+<p>Employees are working from home, from coffee shops, from airports, on personal devices, on company devices connecting over public WiFi. Applications have moved to SaaS platforms managed by third-party vendors, to public cloud infrastructure, and to a mix of both. Data sits in SharePoint, in Salesforce, in AWS S3 buckets, in employees' local browsers storing session tokens. The perimeter that the castle model defended does not have a clear location. There is no wall to build because there is no longer a coherent inside and outside.</p>
+<p>Cybersecurity Mesh Architecture (CSMA) is Gartner's framework for how security should be redesigned to match this reality. According to Gartner's public newsroom and research (https://www.gartner.com/en/newsroom), CSMA is not a single product or a vendor category: it is an architectural philosophy that says security controls should be distributed, composable, and interoperable rather than centralized and monolithic. I am hedging the specific claims here because Gartner frames CSMA in research that evolves, and I do not want to attribute specific statistics or exact year-dates to their internal reports without access to those documents directly. The core concepts Gartner has publicly articulated are what I am drawing on.</p>
+<p>The idea of CSMA is that in a world where security tools are distributed, they need to share information to be effective. An organization might have an endpoint detection and response (EDR) tool, an identity provider, a cloud security posture management (CSPM) tool, and a network security tool, all from different vendors. In the traditional model, each of these tools operates in its own silo. The EDR tool sees something suspicious on a laptop but cannot tell the identity provider to revoke the session for that user's account, because the two systems do not talk to each other. CSMA proposes that these tools should interoperate through a common set of layers: a shared identity fabric, a shared analytics and intelligence layer, a shared data layer, and a consolidated policy management layer. The tools remain distinct but they share information and can respond to each other.</p>
+<p>Zero trust is a related concept but it is not the same thing. Zero trust is a principle: never trust any connection just because it originates from inside a network boundary. Every request for access, whether it comes from inside or outside, should be verified. This is sometimes described as "assume breach," meaning you design security as if attackers are already inside, because in many cases they are. Zero trust is a design philosophy for access control. CSMA is more about how multiple security tools interoperate across a distributed environment. You can implement zero trust principles without having a mesh architecture. You can have a mesh architecture that includes zero-trust-aligned access controls. They are complementary but distinct.</p>
+<p>SASE (Secure Access Service Edge) is the network-specific instantiation of these ideas. SASE, another term Gartner introduced, bundles network security functions (firewall-as-a-service, secure web gateway, cloud access security broker) with wide-area networking (SD-WAN) into a cloud-delivered service. The logic is that if users are accessing applications from anywhere and applications are in the cloud, you should inspect and secure traffic at the edge of the cloud rather than routing everything through a central corporate data center first. Backhauling all remote traffic to a corporate data center so you can run it through your on-premise security stack before letting it reach SaaS applications adds latency and creates a bottleneck. SASE moves the security inspection closer to where the user and the application actually are.</p>
+<p>What strikes me about all of this as an IS researcher is how much of the security problem is organizational rather than technical. The CSMA framework assumes that security tools from different vendors will share a common data layer and interoperate at the policy level. This requires vendor cooperation, open standards, and organizational willingness to actually integrate these systems rather than just buy them and run them in parallel. In practice, enterprise security environments are a collection of tools accumulated over many years from many vendors, each of which would prefer that you buy more from them rather than integrating deeply with competitors. The integrations are often shallow or bespoke rather than based on open standards.</p>
+<p>Identity is the piece that holds this together in theory. If every access request is authenticated against a central identity fabric, and that identity fabric shares context with every other security tool, then you have the foundation for a distributed but coherent security posture. A user whose device is flagged as compromised by the EDR tool would automatically have their access revoked or step-up authentication required, because the identity layer received that signal and the policy management layer acted on it. This is the vision. The reality is that identity management in most large enterprises is a patchwork: on-premise Active Directory, cloud identity providers, legacy application-specific credentials, and service accounts that nobody has audited in years.</p>
+<p>The castle-and-moat era of security is over. What replaces it is still being worked out. CSMA is a useful framework for thinking about the destination, but the path from where most organizations currently are to a genuinely composable, interoperable security architecture is long, expensive, and requires vendors to cooperate in ways that are not always in their individual commercial interest.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/dashboard-effective-use-information-quality/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Why No One Reads Your Dashboard</div></a><a href="/blog/cybersecurity-critical-infrastructure/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Cybersecurity in Critical Infrastructure: When the Stakes Are Physical</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/ai-chatbots-media-richness-theory/" class="blog-related-card"><h4>AI Chatbots Are the Richest Medium That Has Never Existed</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-hallucination-trust-problem/" class="blog-related-card"><h4>AI Hallucination Is a Trust Problem, Not a Technical One</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-safety-pmt-fear-danger/" class="blog-related-card"><h4>AI Safety Frameworks Are PMT Without Using the Name</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

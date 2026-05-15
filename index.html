@@ -18,6 +18,39 @@
     <meta property="og:url" content="https://alisafari.space">
     <meta property="og:image" content="https://alisafari.space/images/profile.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@alisafari">
+    <meta name="twitter:title" content="Ali Safari | PhD Researcher">
+    <meta name="twitter:description" content="PhD Student at University of North Texas specializing in Deep Learning, Security & Privacy, and Agentic AI">
+    <meta name="twitter:image" content="https://alisafari.space/images/profile.jpg">
+
+    <link rel="canonical" href="https://alisafari.space/">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Ali Safari",
+        "url": "https://alisafari.space",
+        "image": "https://alisafari.space/images/profile.jpg",
+        "jobTitle": "PhD Student in Information Systems",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "University of North Texas"
+        },
+        "alumniOf": {
+          "@type": "Organization",
+          "name": "University of North Texas"
+        },
+        "knowsAbout": ["Deep Learning", "AI Security", "Trust in AI", "Agentic Systems", "Information Systems"],
+        "sameAs": [
+          "https://linkedin.com/in/ali-safari",
+          "https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en"
+        ]
+      }
+    }
+    </script>
 
     <title>Ali Safari | PhD Researcher</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
@@ -25,27 +58,35 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
 </head>
 
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
-                <img src="images/logo.png" alt="Ali Safari" class="logo-img">
+            <a href="/" class="nav-logo">
+                <img src="images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36">
             </a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#publications">Publications</a></li>
                 <li><a href="conferences/">Conferences</a></li>
+                <li><a href="blog/">Blog</a></li>
+                <li><a href="roadmap.html">AI Roadmap</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
@@ -65,7 +106,7 @@
     <section class="hero-minimal" id="hero">
         <div class="hero-container">
             <div class="hero-profile">
-                <img src="images/profile.jpg" alt="Ali Safari" class="hero-photo">
+                <img src="images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="hero-photo" width="280" height="280" loading="eager">
             </div>
             <div class="hero-info">
                 <h1 class="hero-name-minimal">Ali Safari</h1>
@@ -114,10 +155,10 @@
                     </p>
                     <p>
                         My path to academia was not typical. I spent over a decade building technology businesses,
-                        including <a href="https://rasadm.com" target="_blank"><strong>Rasa</strong></a>, a digital
+                        including                         <a href="https://rasadm.com" target="_blank" rel="noopener noreferrer"><strong>Rasa</strong></a>, a digital
                         marketing platform I founded 10 years ago that became one of the largest in the Middle East.
                         Since starting my PhD, I also built <a href="https://rasec.app"
-                            target="_blank"><strong>RaSEC</strong></a>, a free security platform for students and
+                            target="_blank" rel="noopener noreferrer"><strong>RaSEC</strong></a>, a free security platform for students and
                         researchers. I led 100+ projects, built teams of 20+ people, and taught digital marketing to MBA
                         students. This hands-on experience shapes how I think about research: I care about ideas that
                         actually work.
@@ -271,7 +312,7 @@
                     </p>
                     <p class="pub-venue">arXiv preprint arXiv:2504.14053, 2025</p>
                     <div class="pub-actions">
-                        <a href="https://arxiv.org/abs/2504.14053" target="_blank" class="pub-link">
+                        <a href="https://arxiv.org/abs/2504.14053" target="_blank" rel="noopener noreferrer" class="pub-link">
                             <i class="fas fa-external-link-alt"></i> View on arXiv
                         </a>
                     </div>
@@ -279,7 +320,7 @@
 
             </div>
             <div class="publications-more">
-                <a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank"
+                <a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"
                     class="btn btn-outline">
                     <i class="fas fa-graduation-cap"></i> View All on Google Scholar
                 </a>
@@ -305,12 +346,12 @@
                         <span>Email</span>
                         <small>alisafari@my.unt.edu</small>
                     </a>
-                    <a href="https://linkedin.com/in/ali-safari" target="_blank" class="contact-card">
+                    <a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" class="contact-card">
                         <i class="fab fa-linkedin"></i>
                         <span>LinkedIn</span>
                         <small>Connect with me</small>
                     </a>
-                    <a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank"
+                    <a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"
                         class="contact-card">
                         <i class="fas fa-graduation-cap"></i>
                         <span>Scholar</span>
@@ -352,10 +393,10 @@
                     <a href="#contact">Contact</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://linkedin.com/in/ali-safari" target="_blank" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank"
+                    <a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"
                         aria-label="Google Scholar">
                         <i class="fas fa-graduation-cap"></i>
                     </a>
@@ -367,6 +408,7 @@
         </div>
     </footer>
 
+    <script src="js/toast.js"></script>
     <script src="js/main.js"></script>
 </body>
 

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Replication Crisis and What It Means for IS Research | Ali Safari</title><meta name="description" content="A large-scale effort to replicate psychology findings triggered a reckoning across social sciences. IS research is not immune, and the field has a long way to go."><meta name="keywords" content=IS Research Methods, information systems, research"><meta property="og:title" content="The Replication Crisis and What It Means for IS Research"><meta property="og:description" content="A large-scale effort to replicate psychology findings triggered a reckoning across social sciences. IS research is not immune, and the field has a long way to go."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/replication-crisis-is-research/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IS Research Methods"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/replication-crisis-is-research/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Replication Crisis and What It Means for IS Research","description":"A large-scale effort to replicate psychology findings triggered a reckoning across social sciences. IS research is not immune, and the field has a long way to go.","url":"https://alisafari.space/blog/replication-crisis-is-research/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IS Research Methods","keywords":"IS Research Methods"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">The Replication Crisis and What It Means for IS Research</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="replication-crisis-is-research" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IS Research Methods</span>
+<h1>The Replication Crisis and What It Means for IS Research</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 7 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IS Research Methods</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>The Open Science Collaboration (2015) is widely cited as documenting that a substantial portion of psychology findings did not replicate when independent teams tried to reproduce them. The exact percentages vary depending on how you define replication success, whether you use effect size similarity, significance in the same direction, or some other threshold. But the directional finding is clear and widely accepted: a lot of what got published did not hold up when tested again in different samples and different labs.</p>
+<p>I want to talk about what that means for IS research. Because the first reaction in our field was more or less "that's a psychology problem." It is not.</p>
+<p>The mechanisms that produced the replication crisis in psychology are structural, and IS research shares all of them. Publication bias is the one most people know: journals historically preferred studies with statistically significant results. This means that if I ran the same study five times and got one significant result, that result would get published and the other four would sit in a file drawer somewhere. The published literature then shows a "real" effect that was really just noise. Small samples amplify this problem. If you have 80 participants in a student sample, and your effect is real but small, your power to detect it is low. When you do find significance, you might be picking up on sampling variability rather than a true relationship.</p>
+<p>Then there is p-hacking, which is the practice of running multiple analyses on the same data until something hits the p &lt; .05 threshold. This can happen consciously or unconsciously. You collect data on ten variables, run all pairwise correlations, find three that are significant, build a story around those three, and submit the paper. The story sounds coherent after the fact. There is no way for reviewers to know that you started with a different theoretical model and pivoted when the data did not cooperate.</p>
+<p>IS research does all of this. The field runs heavily on Likert-scale surveys, often with student samples, often in a single organization, collected at a single point in time. I have reviewed papers where the entire sample was MBA students at one university using a newly launched course management system. The authors found the hypothesized relationships, published, and cited the limitations as a paragraph at the end. Then other papers built on that one. If the original result was not real, the whole chain of work downstream is building on a fragile foundation.</p>
+<p>The student sample issue is worth dwelling on. There is a real logic to using students: they are relatively homogeneous, which reduces noise, and they are available. In some domains, like studying how people learn with educational technology, students are the right population. But a lot of IS research uses students as a convenient stand-in for "users in general," and that assumption is almost never tested. Students are younger, more educated than average, more comfortable with technology in specific ways, and responding to survey instruments in a context where they want to appear competent. That is a very specific and strange population to generalize from.</p>
+<p>The single-organization case study creates a different but related problem. Case studies are valuable and I am not criticizing them here. But a case study of one organization implementing ERP in 2018 may not tell you much about ERP implementations in general. The organization's history, industry, leadership, and a dozen other factors shape the outcome. When the case produces a set of "factors for success," those factors are specific to that case. Turning them into general theory requires more work than most papers do.</p>
+<p>What is notable about the replication crisis is that it was not primarily about fraud. Most of the original studies in psychology were conducted honestly. The researchers believed their hypotheses, ran legitimate statistical tests, and reported what they found. The problem was structural: the incentive system rewards novelty and significance, small samples are treated as adequate, and the norms of the field did not require pre-registering hypotheses or sharing data. When all of those things are true at once, even honest researchers produce unreliable results at scale.</p>
+<p>IS has made some moves toward addressing this. Open data and materials sharing are slowly growing. Some journals are accepting registered reports, where you pre-register your hypotheses and methods before collecting data, and the journal commits to publish regardless of the outcome. Pre-registration is the most direct fix for p-hacking and outcome-switching, because the hypotheses are locked in before anyone sees the results.</p>
+<p>But the field has a long way to go. Most IS journals still do not require data sharing. Replication studies are rare and not particularly valued. When I look at the citation patterns in high-impact IS journals, I see a lot of papers extending existing models with new moderators or new contexts, but very few papers asking whether the original models held up in new samples. The literature accumulates but does not self-correct the way it should.</p>
+<p>I think the harder conversation is about what we treat as a contribution. A study that finds a new moderator of technology acceptance, using a student sample in a single country, with no replication check, might be publishable. A replication study that tests whether an established finding generalizes to a different population might be harder to place, even though the replication study is arguably more useful for building cumulative knowledge. That incentive structure is the real problem. And changing it requires journal editors, program chairs, and tenure committees to decide that reproducibility is a scholarly value, not just a methodological nicety.</p>
+<p>The psychology replication crisis was uncomfortable for that field. The equivalent reckoning in IS research has not really happened yet. That does not mean the field is immune. It means the conversation has not started in earnest.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/research-contributions-that-count/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">A New Label on an Old Idea Is Not a Contribution</div></a><a href="/blog/remote-work-is-what-changed/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Remote Work and IS: What Actually Changed</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/action-research-is-method/" class="blog-related-card"><h4>Action Research in IS: When the Researcher Is Also the Intervener</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/ai-labor-market-is-research/" class="blog-related-card"><h4>AI and the Labor Market: What IS Research Can Contribute</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-models-critical-realism-mechanisms/" class="blog-related-card"><h4>Critical Realism Explains Why AI Models Are Not the Mechanisms They Simulate</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RLHF Is Structuration Theory: We Train AI, Then AI Trains Us | Ali Safari</title><meta name="description" content="RLHF mirrors Giddens&#x27; duality of structure, creating a recursive loop where human preferences shape AI outputs and reshape human preferences."><meta name="keywords" content=AI & Agentic Systems, IS Theory, Sociotechnical Systems, information systems, research"><meta property="og:title" content="RLHF Is Structuration Theory: We Train AI, Then AI Trains Us"><meta property="og:description" content="RLHF mirrors Giddens&#x27; duality of structure, creating a recursive loop where human preferences shape AI outputs and reshape human preferences."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/rlhf-structuration-ai-preferences/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=AI & Agentic Systems, IS Theory, Sociotechnical Systems"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/rlhf-structuration-ai-preferences/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"RLHF Is Structuration Theory: We Train AI, Then AI Trains Us","description":"RLHF mirrors Giddens&#x27; duality of structure, creating a recursive loop where human preferences shape AI outputs and reshape human preferences.","url":"https://alisafari.space/blog/rlhf-structuration-ai-preferences/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"AI & Agentic Systems","keywords":"AI & Agentic Systems, IS Theory, Sociotechnical Systems"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">RLHF Is Structuration Theory: We Train AI, Then AI Trains Us</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="rlhf-structuration-ai-preferences" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">AI &amp; Agentic Systems</span>
+<h1>RLHF Is Structuration Theory: We Train AI, Then AI Trains Us</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">AI &amp; Agentic Systems</span><span class="tag">IS Theory</span><span class="tag">Sociotechnical Systems</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>I was reading about RLHF last week, the training pipeline that major AI labs now use to align language models with human preferences. I had understood the mechanism before. Human raters rank model outputs. The model learns from the ranking. The model gets better at producing the kind of answers raters prefer. But I was also reading Giddens again, prepping for comps, and the structural loop jumped out at me. RLHF is not just a clever training technique. It is the duality of structure running as software.</p>
+<p>Giddens (1984) built structuration theory around the idea that social structures are simultaneously the medium through which action is organized and the outcome of that action. Structures enable action and constrain it at the same time. The patterned action that people produce then reproduces or transforms the structures. The loop is recursive. RLHF makes that loop concrete in a way I think the IS field has not fully recognized.</p>
+<p>In an RLHF pipeline, human raters rank model outputs according to a preference criterion, typically some combination of helpfulness, honesty, and harmlessness. That ranking becomes a reward model, a structure encoded as neural network weights. The language model trains against this reward model, adjusting its parameters to produce outputs that score highly. The preference structure constrains the model. Outputs that deviate are punished by low scores. Outputs that conform are reinforced. This is the duality of structure at the technical level. The structure enables certain outputs and constrains others.</p>
+<p>But the recursive part is what makes it structuration rather than simple conditioning. The model generates new outputs optimized for the preference structure. Those outputs go into production, where users read them, form expectations, and internalize the AI's style as normal. When the next round of human raters ranks outputs, their preferences have shifted. They have been reading AI-generated text for months. The structure has been transformed by the agent's outputs. The loop closes. The structure shaped the agent, and the agent's outputs reshaped the structure.</p>
+<p>Orlikowski (1992) applied structuration to technology by arguing that technology is both a product of human action and a medium of human action. RLHF fits this framing tightly. The reward model is a product of human ranking behavior. It is also a medium that shapes what users see, expect, and eventually prefer. Orlikowski introduced technology-in-practice to emphasize that the structural properties of a technology are enacted through recurrent use and are never fixed at design time. The reward model shifts with every round of training data, and the training data is itself partially generated by the system. The technology-in-practice of an RLHF system is never the same twice.</p>
+<p>The two most discussed problems with RLHF are structuration problems in disguise. The first is model drift toward safe generic answers. When raters consistently rank safer, blander outputs higher, the preference distribution tightens around the center of the safe zone. The model becomes constrained to that zone. It is not a training failure. It is the structure restricting the range of possible action, exactly as structuration predicts. Markus and Robey (1988) would recognize this as the technological imperative reversed: the human preferences encoded in the model take on a constraining force that looks deterministic from the model's perspective.</p>
+<p>The second is the recursive contamination problem where AI-generated content becomes training data for the next model. When a model's outputs enter the training pool for the next RLHF round, human raters rank AI-generated text alongside human-written text. When the pool is dominated by AI text, the preference distribution converges on the average of what the model was already producing. The structure is no longer encoding human preferences. It is encoding the model's own previous output distribution, which was itself shaped by human preferences from an earlier round. The duality becomes a closed loop that shrinks with each cycle. This is what structuration theory would predict when the medium starts producing the conditions of its own reproduction. Leonardi (2011) warned that structuration can slip into structural determinism when the recursive dynamic is not examined. The RLHF data loop is that warning realized at scale.</p>
+<p>Alignment cannot be a one-time fix for exactly this reason. You cannot train a model to be aligned, lock the weights, and walk away. The preference structure changes as users interact with the model's outputs. It changes as the training data composition shifts. Maintaining alignment requires ongoing recursive engagement where humans update the preference model and the model continues to shape what humans expect. Orlikowski argued that technology-in-practice is enacted through recurrent use. Alignment works the same way. It is not a property you embed into a system at training time. It is a relationship you maintain over time, and the relationship itself changes the terms. Every alignment technique that treats the problem as a one-shot optimization is fighting against the recursive logic that RLHF itself creates.</p>
+<p>I think the IS field should stop treating RLHF as a technical detail and start analyzing it as a structural phenomenon. Sarker et al. (2019) classify genuine <a href="/blog/sociotechnical-systems-joint-optimization">sociotechnical research</a> as Type IV, where social and technical dimensions genuinely interact. RLHF is textbook Type IV territory. The social dimension is human raters with shifting preferences embedded in institutional contexts. The technical dimension is the reward model and the language model. Neither determines the other. They co-evolve through the RLHF loop. A Type IV analysis would ask questions that the optimization literature never touches. Who gets to be in the rater pool, and whose preferences become structural? How does the institutional context of the AI lab that designs the reward model shape what counts as helpful or harmless? What happens when the preference structure propagates across cultural and linguistic boundaries where the original ranking criteria do not transfer? These are not engineering questions. They are structuration questions.</p>
+<p>Burton-Jones et al. (2021) proposed four shifts in how IS should think about theorizing. The shift from theory as representational to theory as performative is the one that connects to RLHF most directly. Theories do not just describe the world, they argued. They shape it. When practitioners adopt a theory's vocabulary, the theory starts influencing the phenomenon it was describing. RLHF makes structuration performative in a literal engineering sense. Giddens described the duality of structure as a way of conceptualizing social life. RLHF engineers did not set out to implement Giddens. But they built a system where the duality runs as a reward loop. The theory describes the system, and the system enacts the theory. That is performativity at the infrastructure level, and it is one of the most interesting things I have seen in the years I have been studying IS theory.</p>
+<p>The practical implication is that every decision about an RLHF system is a structural decision, whether the people making it think in those terms or not. Choosing the rater pool is choosing whose interpretive schemes become the signification modality of the structure. Choosing the ranking criteria is choosing the legitimation modality. Choosing what data goes into the training mix determines whether the structure reproduces itself or stays open to transformation. These are the same dimensions Giddens identified as the three modalities linking structure to agency: signification, domination, and legitimation. RLHF engineers are building systems that operationalize all three, usually without knowing that structuration theory exists.</p>
+<p>I wrote about <a href="/blog/structuration-theory-same-tool-different-outcome">how structuration explains why the same tool produces different outcomes</a> in different departments. RLHF scales that insight from the department level to the societal level. The preference-training pipeline is the same mechanism running across millions of users. The structural context is different depending on who builds the system, who rates the outputs, what content fills the training pool, and what users the model serves. The outcome is different every time. And the duality of structure never stops running, whether you designed for it or not.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/routine-dynamics-process-change/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Routine Dynamics and Why Processes Keep Reverting to the Old Way</div></a><a href="/blog/resource-dependency-theory-it-sourcing/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Resource Dependency Theory and the IT Sourcing Problem</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/affordance-actualization-perception-gap/" class="blog-related-card"><h4>The Gap Between What a System Can Do and What People Do With It</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/affordance-theory-is-not-just-features/" class="blog-related-card"><h4>The Door Handle Is Not for Everyone</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

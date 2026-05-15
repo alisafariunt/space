@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cloud Migration Nobody Talks About Honestly | Ali Safari</title><meta name="description" content="Cloud migration is sold as a cost-reduction play. In practice, many organizations end up spending more and quietly moving workloads back."><meta name="keywords" content=IT Governance & Strategy, Platforms & Ecosystems, information systems, research"><meta property="og:title" content="The Cloud Migration Nobody Talks About Honestly"><meta property="og:description" content="Cloud migration is sold as a cost-reduction play. In practice, many organizations end up spending more and quietly moving workloads back."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/cloud-migration-hidden-costs/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IT Governance & Strategy, Platforms & Ecosystems"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/cloud-migration-hidden-costs/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The Cloud Migration Nobody Talks About Honestly","description":"Cloud migration is sold as a cost-reduction play. In practice, many organizations end up spending more and quietly moving workloads back.","url":"https://alisafari.space/blog/cloud-migration-hidden-costs/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy, Platforms & Ecosystems"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">The Cloud Migration Nobody Talks About Honestly</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="cloud-migration-hidden-costs" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IT Governance &amp; Strategy</span>
+<h1>The Cloud Migration Nobody Talks About Honestly</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>The pitch is always the same. Move to the cloud and you will cut infrastructure costs, scale faster, and stop worrying about hardware. Your on-premise servers are a liability. The cloud is a variable expense you can dial up and down. The slide deck is clean and the math is usually compelling. Then the bill arrives twelve months later and it is three times what anyone projected, and suddenly the CTO is sitting in a room explaining to the CFO why "cloud is cheaper" turned out to be wrong.</p>
+<p>I have seen this story play out in enough organizations that I stopped being surprised by it. What surprises me now is how consistently the industry press keeps repeating the original pitch even as a growing number of companies quietly move workloads back on-premise.</p>
+<p>The cost problem is not a secret. As argued in a widely circulated piece by Andreessen Horowitz around 2022, cloud costs can become the second or third largest expense item for software companies, after salaries and, sometimes, sales. Their argument was that cloud repatriation, moving workloads back to owned infrastructure, could save large companies hundreds of millions of dollars over time. These are their own estimates and their own modeling, not peer-reviewed accounting, but the directional claim lines up with what a lot of IT leaders will tell you in private. The cloud is expensive when you actually run production workloads at scale for years.</p>
+<p>Dropbox is the case that gets cited most often. Around 2016 and 2017, they moved a large portion of their storage workloads off AWS and onto their own hardware. By their own account, this saved them roughly $75 million over two years. Dropbox is a specific kind of company: massive amounts of relatively predictable storage demand, the engineering capability to build and operate their own infrastructure, and enough scale to make that investment worthwhile. Most companies are not Dropbox. But the case demonstrates something important: the on-premise model is not obsolete, and for certain workload profiles it is substantially cheaper.</p>
+<p>The trouble starts before you sign any contracts, in how migration projects get scoped and costed in the first place. Total cost of ownership is the standard framework for these decisions, but the way TCO gets calculated in migration business cases is often incomplete in the same predictable ways. The cost of retraining staff for cloud-native tools gets underestimated. Refactoring legacy applications to work efficiently in the cloud gets skipped entirely. Downtime during migration is treated as a one-time event rather than an ongoing risk. And egress fees, the charges you pay to get your own data out of the cloud, are almost never in the original spreadsheet.</p>
+<p>Egress fees deserve more attention than they usually get. Every major cloud provider charges you to transfer data out of their environment. Moving data to another cloud, pulling it back on-premise, or sending it to a third-party analytics platform all costs money per gigabyte. When organizations are evaluating a migration, they are thinking about compute costs and storage costs. The exit costs are not front of mind because at the evaluation stage, nobody is thinking about leaving. By the time the egress costs become real, you are already in. The data is there. The applications depend on it being there. And leaving now means paying to extract everything you put in.</p>
+<p>This is not accidental. Oliver Williamson's transaction cost economics gives a clean explanation for why this structure persists. Once an organization builds on a cloud provider's proprietary services, the switching costs become enormous. Using AWS Lambda, Azure Cognitive Services, or Google's Vertex AI means your code is written against those specific APIs and those specific abstractions. That code does not port to another cloud easily, and it does not port back on-premise at all without significant refactoring. The asset specificity in Williamson's terms is very high: the investments you make become specific to that particular vendor relationship. The higher the asset specificity, the more locked in you are, and the more leverage the vendor has in every subsequent negotiation. I wrote about how platform governance works as a mechanism for capturing and retaining value in <a href="/blog/platform-governance-multi-sided-markets">the platform decides who wins</a>, and cloud lock-in follows the same structural logic. The platform is designed so that leaving costs more than staying.</p>
+<p>The lift-and-shift approach makes this worse. Lift and shift means taking an existing workload, picking it up, and putting it in the cloud with minimal changes. It is the fastest path to migration and the path that most organizations take because the alternative, actually redesigning the application to be cloud-native, takes far longer and costs far more upfront. The problem is that on-premise architecture makes assumptions that cloud pricing does not respect. On-premise, you pay for hardware once and run it continuously. A server running at 20% utilization costs you the same as one running at 90%. In the cloud, you pay for what you use, but the pricing model also rewards sustained use and penalizes the kind of bursty, always-on workload patterns that legacy applications were designed around. A workload that was economical on owned hardware can be shockingly expensive in the cloud if it was not designed with cloud pricing in mind. Lift and shift transfers the workload without addressing any of these assumptions, and the bill reflects that immediately.</p>
+<p>I think about this as an instance of the same problem I described in <a href="/blog/erp-implementation-failure-structural-not-technical">why ERP implementations fail structurally, not technically</a>. The technology decision is made at the executive level, with projections that assume the organization will adapt its processes to the technology. The actual adaptation is harder than projected, the costs accumulate, and the gap between the business case and reality grows. Cloud migration has the same shape: a confident projection, an underestimated adaptation cost, and an outcome that looks nothing like the slide deck.</p>
+<p>What is happening now as a result is repatriation, a word that sounds more dramatic than the reality but captures something real. Organizations are not abandoning the cloud entirely. They are becoming more selective. Workloads with predictable, sustained compute needs, particularly storage-intensive or high-throughput data processing jobs, are moving back on-premise or to colocation facilities where the economics are cleaner. Workloads with genuinely variable demand, customer-facing applications that need to scale for unpredictable traffic, and services that benefit from geographic distribution are staying in the cloud. This is not a repudiation of cloud computing. It is the industry slowly arriving at the conclusion that cloud is a good fit for some workloads and a bad fit for others, and that the original pitch that cloud is always better was a simplification that benefited vendors more than customers.</p>
+<p>The honest version of the cloud decision is not "cloud vs. on-premise." It is "which workloads belong where, and what will it actually cost to move them, run them, and, if necessary, move them again?" That calculation is harder than the migration vendor wants it to be, because part of the answer involves modeling a future where you might want to leave. Vendors are not motivated to help you model that scenario. The egress fees, the proprietary service dependencies, and the migration inertia are all features of a system designed to make staying the default. An organization that goes in without understanding this will eventually learn it on the bill. Most of them do.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/coevolution-technology-organizations/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Technology and Organizations Shape Each Other. That Is Not a Metaphor.</div></a><a href="/blog/clinical-decision-support-algorithm-doctor/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Clinical Decision Support: When the Algorithm Disagrees With the Doctor</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

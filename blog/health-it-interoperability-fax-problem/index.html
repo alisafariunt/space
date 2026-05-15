@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health IT Interoperability: Why Your Doctor Still Sends Faxes | Ali Safari</title><meta name="description" content="The US has spent billions on EHRs since 2009. Patient records still don&#x27;t move between systems. Fax machines still work. Here&#x27;s why."><meta name="keywords" content=Comps & Reflections, Platforms & Ecosystems, information systems, research"><meta property="og:title" content="Health IT Interoperability: Why Your Doctor Still Sends Faxes"><meta property="og:description" content="The US has spent billions on EHRs since 2009. Patient records still don&#x27;t move between systems. Fax machines still work. Here&#x27;s why."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/health-it-interoperability-fax-problem/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=Comps & Reflections, Platforms & Ecosystems"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/health-it-interoperability-fax-problem/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Health IT Interoperability: Why Your Doctor Still Sends Faxes","description":"The US has spent billions on EHRs since 2009. Patient records still don&#x27;t move between systems. Fax machines still work. Here&#x27;s why.","url":"https://alisafari.space/blog/health-it-interoperability-fax-problem/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"Comps & Reflections","keywords":"Comps & Reflections, Platforms & Ecosystems"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Health IT Interoperability: Why Your Doctor Still Sends Faxes</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="health-it-interoperability-fax-problem" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">Comps &amp; Reflections</span>
+<h1>Health IT Interoperability: Why Your Doctor Still Sends Faxes</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">Comps &amp; Reflections</span><span class="tag">Platforms &amp; Ecosystems</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>At some point, a family member of mine needed a referral to a specialist. The primary care office faxed records to the specialist's office. The specialist's office requested additional records from a hospital. The hospital faxed them. By the time my family member sat down with the specialist, the specialist was reading a fax printout of the summary that the primary care physician had printed, scanned, and transmitted. The original documents, sitting in two different EHR systems, did not exchange a single byte of data directly.</p>
+<p>This is not an unusual story. Fax machines are genuinely common in US healthcare in 2026, years after the country spent enormous amounts on health IT infrastructure. The explanation for why fax survives is not that healthcare organizations are stuck in the past. It is that fax works across organizational and system boundaries in a way that modern EHR systems, despite all their sophistication, often do not.</p>
+<p>The United States invested heavily in electronic health records following the HITECH Act of 2009. Meaningful Use incentive payments moved the industry toward EHR adoption at a pace that would have been hard to achieve otherwise. By the mid-2010s, the adoption numbers were genuinely impressive. Hospitals and clinics had EHR systems. The systems were being used. The problem is that "adoption" and "interoperability" are not the same thing. A hospital can have an EHR system that is excellent for managing care within that hospital and essentially useless at sharing information with a different hospital that runs a different system.</p>
+<p>The technical dimension of this is real but has been partially addressed. HL7 FHIR, which stands for Fast Healthcare Interoperability Resources, is a standard developed to enable health data exchange using web APIs. The idea is to give EHR systems a common language for sharing patient data, the way that HTTP is a common language for web servers. FHIR has gained real traction in recent years, and the 21st Century Cures Act of 2016 required EHR vendors to support FHIR-based interfaces. That is meaningful progress. But technical standards, even when required by law, do not automatically produce interoperable systems in practice. Implementation matters, and implementations vary.</p>
+<p>The business dimension is harder. EHR vendors have historically benefited from customers being locked into their platforms. I wrote about this dynamic in a different context looking at <a href="/blog/vendor-lock-in-is-a-strategy">how vendor lock-in is engineered rather than accidental</a>. Health IT is a clear case of the same pattern. When an organization runs Epic, their workflows, templates, training, and institutional knowledge are all built around Epic's system. Switching is enormously expensive and disruptive. That switching cost is not accidental. It is a consequence of years of customization inside a proprietary environment.</p>
+<p>If it is expensive for a health system to leave its current EHR, it is also in the vendor's interest to make data sharing with competing systems as frictionless as possible in appearance and as limited as possible in practice. An EHR vendor that makes it easy to export all patient data and import it into a competitor is accelerating its own replacement. The commercial incentive runs the other direction. The practice of deliberately making data sharing difficult, which the health IT world calls "information blocking," became prominent enough that the 21st Century Cures Act explicitly prohibited it and subsequent regulations created penalties for doing it. The fact that Congress needed to prohibit this behavior is itself evidence of how common it was.</p>
+<p>The result is that even in 2026, after the prohibition, the experience of trying to get records from one health system to another often involves phone calls, fax requests, delays, and incomplete information. FHIR-based APIs exist. Patient portals exist. Health information exchanges have been built in many regions with varying degrees of success and coverage. But the patchwork nature of the solution reflects the patchwork nature of the problem. There is no single interoperability infrastructure in US healthcare. There are many partial solutions that cover different sets of organizations in different ways.</p>
+<p>Fax survives in this environment because it has properties that no proprietary EHR system can match: universality and simplicity. Every healthcare organization, from a rural clinic to a major academic medical center, has a fax number. Sending a fax to an unknown organization requires nothing more than that number. No API key, no vendor relationship, no shared infrastructure, no agreed-upon data format that both sides have implemented correctly. You send a document, they receive a document. The document might be a scan of a printout of something that was originally digital, which is genuinely absurd from a data management perspective, but it works. Every time. Across every organizational and system boundary.</p>
+<p>This is a frustrating situation for people who care about health IT, and I count myself among them. FHIR is a real advance. The regulatory push toward interoperability is the right direction. But the gap between the standard existing and the standard working everywhere in practice is large, and closing it requires not just technical work but also sustained enforcement of information blocking rules, continued pressure on vendors who have commercial incentives to slow-walk implementation, and investment in the health information exchange infrastructure that makes point-to-point sharing unnecessary.</p>
+<p>The deeper issue is that the US healthcare system is not actually one system. It is thousands of independent organizations with different EHR vendors, different governance structures, different patient populations, and different financial incentives. Getting them to share data freely is not primarily a technology problem. It is an organizational coordination problem, and coordination problems of this scale require either very strong mandates or very compelling shared incentives. So far the mandates have been real but enforcement has been uneven, and the shared incentives have been weaker than the vendor incentives that push the other way.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/hyperautomation-enterprise/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Hyperautomation: The Gap Between the Gartner Term and the Factory Floor</div></a><a href="/blog/grounded-theory-is-research/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Grounded Theory in IS: Let the Data Lead, Except When It Doesn&#x27;t</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/absorptive-capacity-why-tools-alone-fail/" class="blog-related-card"><h4>Bought a $2M Platform, Nobody Learned a Thing</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Engineer in Information Systems — 6 Month Roadmap</title>
+  <meta name="description" content="Interactive 6-month roadmap to become an AI Engineer in Information Systems — with IS-specific topics, trust & governance, and curated resources.">
+  <meta name="keywords" content="AI engineer, information systems, roadmap, trust, governance, deep learning">
+  <link rel="canonical" href="https://alisafari.space/roadmap.html">
+  <meta property="og:title" content="AI Engineer in Information Systems — 6 Month Roadmap">
+  <meta property="og:description" content="Interactive 6-month roadmap to become an AI Engineer in Information Systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alisafari.space/roadmap.html">
+  <meta property="og:site_name" content="Ali Safari">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@alisafari">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Space Site Base Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Roadmap specific styles -->
+    <link rel="stylesheet" href="css/roadmap.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="images/logo.png" alt="Ali Safari - PhD researcher" class="logo-img" width="36" height="36">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="index.html#publications">Publications</a></li>
+                <li><a href="conferences/">Conferences</a></li>
+                <li><a href="roadmap.html" style="color: var(--color-primary); font-weight: 600;">AI Roadmap</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+  <div class="hero">
+    <h1>🚀 AI Engineer in Information Systems</h1>
+    <p>Your personalized 6-month roadmap — blending AI engineering skills with IS research on trust, governance, and organizational AI adoption.</p>
+    <div class="overall-progress">
+      <div class="progress-label">
+        <span id="progress-count">0 / 0 topics</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- LinkedIn Learning Banner -->
+    <div class="linkedin-banner">
+      <div class="icon">🎓</div>
+      <div class="text">
+        <h3>LinkedIn Learning — Start Here</h3>
+        <p>"Career Essentials in GenAI" by Microsoft (free cert, ~5 hours)</p>
+      </div>
+      <a href="https://www.linkedin.com/learning/paths/career-essentials-in-generative-ai-by-microsoft-and-linkedin" target="_blank" rel="noopener noreferrer">Start Free →</a>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="icon">📅</div>
+        <div class="number">6</div>
+        <div class="label">Months</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon">📚</div>
+        <div class="number" id="stat-topics">0</div>
+        <div class="label">Topics</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon">✅</div>
+        <div class="number" id="stat-done">0</div>
+        <div class="label">Completed</div>
+      </div>
+      <div class="stat-card">
+        <div class="icon">🔗</div>
+        <div class="number" id="stat-resources">0</div>
+        <div class="label">Resources</div>
+      </div>
+    </div>
+
+    <!-- Months -->
+    <div id="months-container"></div>
+
+    <!-- Salary Section -->
+    <div class="salary-section">
+      <h2>💰 IS + AI Career & Salary Reference (2026)</h2>
+      <div class="salary-grid">
+        <div>
+          <h3 style="font-size:0.9rem; margin-bottom:10px; color:var(--text-secondary);">Full-Time (US)</h3>
+          <table class="salary-table">
+            <tr><th>Role</th><th>Range</th></tr>
+            <tr><td>AI Engineer (entry)</td><td>$100K — $135K</td></tr>
+            <tr><td>AI Engineer (mid)</td><td>$135K — $200K</td></tr>
+            <tr><td>AI Research Scientist</td><td>$105K — $170K</td></tr>
+            <tr><td>Sr. AI/ML Engineer (PhD)</td><td>$195K — $300K</td></tr>
+            <tr><td>AI Governance (tech sector)</td><td>$170K — $221K</td></tr>
+          </table>
+        </div>
+        <div>
+          <h3 style="font-size:0.9rem; margin-bottom:10px; color:var(--text-secondary);">Freelance / Consulting</h3>
+          <table class="salary-table">
+            <tr><th>Specialty</th><th>Rate</th></tr>
+            <tr><td>AI Consulting (mid-level)</td><td>$120 — $300/hr</td></tr>
+            <tr><td>AI Governance & Ethics</td><td>$160 — $500/hr</td></tr>
+            <tr><td>RAG / LLM Integration</td><td>$150 — $250/hr</td></tr>
+            <tr><td>Monthly Retainer (advisory)</td><td>$2K — $10K/mo</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>
+      Adapted for Information Systems by <a href="https://www.linkedin.com/in/ali-safari/" target="_blank" rel="noopener noreferrer">Ali Safari</a>
+      · Inspired by <a href="https://x.com/DeRonin_/status/2033587293064204349" target="_blank" rel="noopener noreferrer">@DeRonin_'s roadmap</a>
+      · Progress saved locally
+      · <a href="#" onclick="resetProgress(); return false;">Reset Progress</a>
+    </p>
+  </div>
+
+  <script src="js/roadmap.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

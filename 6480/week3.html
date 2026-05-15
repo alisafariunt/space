@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Week 3 - BUSI 6480: Multiple comparisons, contrasts, and error control in depth">
+    <title>Week 3 - BUSI 6480 Study Guide</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/study-header.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-brand">BUSI 6480 Study Guide</a>
+            <ul class="navbar-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="week1.html">Week 1</a></li>
+                <li><a href="week2.html">Week 2</a></li>
+                <li><a href="week3.html" class="active">Week 3</a></li>
+                <li><a href="week4.html">Week 4</a></li>
+                <li><a href="week5.html">Week 5</a></li>
+				<li><a href="exam1.html">Exam 1</a></li>
+			</ul>
+		</div>
+        <div class="progress-container">
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">Reading Progress: 0%</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <div class="session-header">
+            <h1>Week 3: Multiple Comparisons and Contrasts (Deep Guide)</h1>
+            <p class="session-meta">Family-wise error, planned contrasts, Holm Bonferroni FDR, and exam logic</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>How to Think This Week</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: طرز فکر درست برای هفته 3</h4>
+                <p>هفته 3 از وقتی شروع می‌شود که شما ANOVA را اجرا کردید و نتیجه معنی دار شد. معنی دار شدن ANOVA فقط می‌گوید حداقل یک میانگین با بقیه فرق دارد، ولی نمی‌گوید کدام گروه‌ها. پس این هفته تمرین ما این است که بعد از ANOVA، جواب واقعی سوال را دربیاوریم.</p>
+                <p>مشکل اینجاست که معمولا بعد از ANOVA چندین تست پشت سر هم می‌زنیم. هر تست جداگانه یک احتمال خطای نوع اول دارد، و وقتی تعداد تست‌ها زیاد می‌شود احتمال اینکه حداقل یک نتیجه اشتباهی معنی دار شود بالا می‌رود. برای همین، بخش بزرگ نمره این هفته مربوط به این است که بگویید "چطور خطا را کنترل کردید".</p>
+                <p>برای امتحان و تکلیف، استاد دنبال این است که شما فقط نرم‌افزار اجرا نکنید. باید یک جمله روشن بنویسید که چرا این روش را انتخاب کردید. مثلا اگر هدف "همه مقایسه‌های جفتی" باشد، Tukey منطقی است چون برای همین ساخته شده. اگر فقط چند فرضیه مشخص دارید، planned contrast با Holm یا Bonferroni بهتر است چون مستقیم همان سوال را می‌پرسد.</p>
+                <p>یک قاعده ساده برای خودت بساز: هر وقت خواستی تست بزنی، اول خانواده آزمون‌ها را تعریف کن و بعد بگو هدف تو کنترل FWER است یا دنبال کشف بیشتر با FDR هستی. اگر این را درست بگویی، بقیه خروجی‌ها معمولا قابل دفاع می‌شوند.</p>
+                <ul>
+                  <li>خروجی ANOVA را مثل چراغ راهنما ببین: فقط می‌گوید "اختلاف هست".</li>
+                  <li>قدم بعدی را با هدف سوال انتخاب کن: همه جفت‌ها یا چند مقایسه مشخص.</li>
+                  <li>روش کنترل خطا را واضح نام ببر و یک دلیل کوتاه بنویس.</li>
+                  <li>آخرش یک پاراگراف فارسی بنویس که نتیجه را برای یک آدم عادی هم قابل فهم کند.</li>
+                </ul>
+            </div>
+            <p>Week 3 starts after a significant ANOVA. Most students stop too early at that point. In this class, that is not enough. You have to decide which means differ, how to control false positives, and how to explain your decision in clear words. This week is less about one formula and more about good statistical judgment.</p>
+            <p>A strong answer in this week has three parts. First, you name the follow-up strategy. Second, you show the exact test or contrast. Third, you explain why that method fits the question better than other methods.</p>
+
+            <div class="info-box">
+                <h4>Core exam message</h4>
+                <p>A good answer says both "what is significant" and "why this method is the right method".</p>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Learning Goals for Week 3</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: هدف‌های یادگیری هفته 3</h4>
+                <p>اگر هفته 3 را خوب یاد بگیری، بعد از یک ANOVA معنی دار گیج نمی‌شوی. می‌دانی قدم بعد چیست، و می‌دانی چطور بدون اینکه خطای الکی درست کنی، تفاوت‌های واقعی را پیدا کنی.</p>
+                <p>این هفته چند مهارت خیلی کلیدی دارد که در امتحان هم مستقیم می‌آید. مهم‌ترینش این است که بتوانی بین "post hoc" و "planned contrast" انتخاب کنی و انتخابت را توضیح بدهی. مهارت دوم این است که بتوانی بگویی چرا باید p-valueها را اصلاح کنی و کدام اصلاح مناسب‌تر است.</p>
+                <p>اگر بخواهم ساده بگویم، آخر این هفته باید بتوانی این کارها را انجام بدهی:</p>
+                <ul>
+                  <li>تعداد مقایسه‌های جفتی را برای p گروه حساب کنی و بگویی چرا این عدد مهم است.</li>
+                  <li>فرق FWER و FDR را با یک مثال خیلی ساده توضیح بدهی.</li>
+                  <li>یک contrast درست بسازی (جمع ضرایب صفر باشد) و تفسیرش را به زبان ساده بنویسی.</li>
+                  <li>در خروجی R یا SAS، تشخیص بدهی کجا Tukey لازم است و کجا Holm یا Bonferroni کافی است.</li>
+                  <li>یک "جدول تصمیم" درست کنی تا نتیجه‌ها پراکنده و سردرگم نشوند.</li>
+                </ul>
+                <p>برای خودت یک تمرین خوب این است که هر بار بعد از خروجی نرم‌افزار، فقط با نگاه به سوال، یک پاراگراف بنویسی که اگر عددها هم حذف شوند، باز هم منطق جواب مشخص باشد.</p>
+            </div>
+            <p>By the end of this week, you should be able to move from omnibus ANOVA to specific decisions. That means you can pick between pairwise tests and planned contrasts, adjust p-values correctly, and explain orthogonality in plain language.</p>
+            <p>Another important goal is writing quality. Many people can run software, but exam scoring depends on interpretation. So this page focuses on "how to explain" just as much as "how to compute".</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>Why Multiple Comparisons Are Risky</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: چرا مقایسه‌های متعدد خطرناک هستند</h4>
+                <p>وقتی شما فقط یک آزمون انجام می‌دهید و مثلا alpha = 0.05 است، احتمال خطای نوع اول همان 5 درصد است. ولی وقتی 10 تا یا 15 تا آزمون پشت سر هم انجام می‌دهید، دیگر احتمال "حداقل یک خطای نوع اول" خیلی بیشتر از 5 درصد می‌شود. این همان داستان FWER است.</p>
+                <p>اگر آزمون‌ها مستقل باشند، یک تقریب معروف برای خطای خانواده این است:</p>
+                <pre><code>FWER = 1 - (1 - alpha)^m
+
+                alpha = 0.05
+                m = 10
+                FWER = 1 - (0.95)^10 = 0.4013</code></pre>
+                <p>یعنی با 10 تست، احتمال اینکه حداقل یک نتیجه اشتباهی معنی دار شود حدود 40 درصد است. حتی اگر آزمون‌ها کاملا مستقل هم نباشند، ایده اصلی هنوز پابرجاست: تعداد تست زیاد شود، ریسک نتیجه اشتباه بالا می‌رود.</p>
+                <p>در امتحان اگر بپرسند "چرا باید اصلاح انجام دهیم"، بهترین جواب یک جمله‌ای این است: چون بعد از ANOVA چندین آزمون می‌زنیم و بدون اصلاح، خطای نوع اول جمع می‌شود و احتمال کشف غلط بالا می‌رود.</p>
+                <p>اینجاست که روش‌هایی مثل Bonferroni، Holm، Tukey یا FDR وارد می‌شوند. هر کدام برای یک هدف خاص طراحی شده‌اند و شما باید همان هدف را در جواب بنویسید.</p>
+            </div>
+            <p>Suppose alpha is 0.05 and you run one test. The false positive chance is 5 percent. But if you run many tests, the chance of at least one false positive gets larger. This is why family-wise error matters.</p>
+
+            <pre><code>Approximate family-wise error with m independent tests:
+FWER = 1 - (1 - alpha)^m
+
+Example:
+alpha = 0.05, m = 10
+FWER = 1 - (0.95)^10 = 0.4013
+
+So chance of at least one false positive is about 40%.</code></pre>
+
+            <p>Even when tests are not fully independent, the main idea still holds. More tests means more false positive risk if you do not control it.</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>Post Hoc vs Planned Contrasts</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: تفاوت post hoc و planned contrast</h4>
+                <p>post hoc یعنی شما بعد از اینکه نتیجه‌ها را دیدید، تصمیم می‌گیرید همه یا خیلی از مقایسه‌ها را بررسی کنید. معمولا وقتی سوال پژوهش از قبل "مقایسه‌های مشخص" نداده و شما می‌خواهید همه جفت‌ها را بررسی کنید، post hoc منطقی است. نمونه معروفش Tukey است که مخصوص مقایسه‌های جفتی است.</p>
+                <p>planned contrast یعنی شما قبل از نگاه کردن به داده‌ها، چند مقایسه مشخص و معنادار تعریف می‌کنید، چون تئوری یا سوال پژوهش دقیقا همان‌ها را می‌خواهد. این روش معمولا توان بیشتری برای همان فرضیه‌ها دارد، چون دنبال همه جفت‌ها نمی‌گردد. ولی شرطش این است که ضرایب را درست بنویسید و بگویید چرا این مقایسه‌ها "برنامه‌ریزی شده" بوده.</p>
+                <p>یک نکته که در امتحان نمره می‌آورد این است: معنی دار بودن ANOVA شرط منطقی برای planned contrast نیست. یعنی اگر فرضیه‌ها از قبل تعریف شده باشند، می‌توانید همان‌ها را تست کنید. البته در این درس معمولا بهتر است اول ANOVA را گزارش کنید و بعد بگویید با planned contrasts فرضیه‌های مشخص را تست کردید.</p>
+                <p>در جواب نوشتاری، سعی کن جمله‌ات این شکلی باشد: "چون هدف سوال X بود، از روش Y استفاده کردم و برای کنترل خطا از Z استفاده شد". این جمله ساده، هم روش را می‌گوید هم منطق را.</p>
+            </div>
+            <p>Use post hoc tests when you want to check many pairs without a strong theory before seeing data. Use planned contrasts when your hypotheses were defined before looking at the results. Planned contrasts are usually more focused and can have better power for the exact research question.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Approach</th>
+                        <th>When to use</th>
+                        <th>Strength</th>
+                        <th>Weakness</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Post hoc pairwise</td>
+                        <td>Exploratory after omnibus test</td>
+                        <td>Covers many pair checks</td>
+                        <td>Can lose power after correction</td>
+                    </tr>
+                    <tr>
+                        <td>Planned contrasts</td>
+                        <td>Theory-driven comparisons</td>
+                        <td>Directly tests your hypothesis</td>
+                        <td>Needs clear preplanned logic</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>Common grading issue</h4>
+                <p>Students write "I used Bonferroni" but do not explain why. Always add one sentence about why that method fits your goal.</p>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Error Control Methods You Must Know</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: روش‌های کنترل خطا که باید بلد باشی</h4>
+                <p>این قسمت را واقعا باید مفهومی بلد باشی، چون استاد معمولا فقط اسم روش را نمی‌خواهد. می‌خواهد بداند شما می‌فهمید هر روش چه چیزی را کنترل می‌کند و در چه سناریویی بهتر است.</p>
+                <p><strong>Bonferroni</strong> ساده‌ترین حالت است: alpha را تقسیم بر تعداد آزمون‌ها می‌کنی. خیلی محافظه کار است، مخصوصا وقتی تعداد تست زیاد باشد. با این حال، اگر فقط چند فرضیه محدود داشته باشی، Bonferroni هنوز قابل دفاع است چون خیلی شفاف است.</p>
+                <p><strong>Holm</strong> شبیه Bonferroni است ولی معمولا بهتر عمل می‌کند. هنوز FWER را کنترل می‌کند، ولی نسبت به Bonferroni کمتر سخت گیر است. وقتی چند planned contrast داری و می‌خواهی FWER کنترل شود، معمولا Holm انتخاب خوب و حرفه‌ای است.</p>
+                <p><strong>Tukey</strong> برای وقتی است که هدف تو "همه مقایسه‌های جفتی" باشد. اگر می‌خواهی تمام pairwiseها را چک کنی، Tukey معمولا از اینکه خودت Bonferroni بزنی مناسب‌تر و استانداردتر است.</p>
+                <p><strong>Scheffe</strong> خیلی انعطاف دارد (تقریبا هر کنتراستی) ولی معمولاً محافظه کار است. اگر استاد بگوید هر مقایسه‌ای ممکن است بعدا مطرح شود، Scheffe منطقی می‌شود، ولی در تکلیف‌های معمولی اغلب بیش از حد سخت گیر است.</p>
+                <p><strong>Dunnett</strong> وقتی خوب است که همه گروه‌ها را فقط با یک گروه کنترل مقایسه می‌کنی. این یکی را خیلی‌ها یادشان می‌رود، ولی در امتحان می‌تواند سوال شود.</p>
+                <p><strong>FDR</strong> وقتی به درد می‌خورد که تعداد آزمون‌ها زیاد است و شما بیشتر دنبال کشف هستی، نه اینکه سخت گیرانه احتمال "حتی یک خطا" را کنترل کنی. اگر آزمون‌ها کم هستند، معمولا FDR لازم نیست.</p>
+                <ul>
+                  <li>همه جفت‌ها: Tukey</li>
+                  <li>چند فرضیه مشخص: Holm (یا Bonferroni اگر بخواهی خیلی ساده باشد)</li>
+                  <li>همه در برابر کنترل: Dunnett</li>
+                  <li>تست‌های خیلی زیاد و هدف کشف: FDR</li>
+                </ul>
+            </div>
+            <p>Bonferroni is simple and strict. Holm is usually better than Bonferroni because it keeps family-wise control but is less conservative. FDR is useful when you run many tests and still want good power.</p>
+
+            <h3>Bonferroni</h3>
+            <p>Replace alpha with alpha/m. If alpha is 0.05 and m is 4, per-test alpha is 0.0125.</p>
+
+            <h3>Holm step-down</h3>
+            <p>Order p-values from smallest to largest. Compare each in sequence with adjusted thresholds. Stop at first non-significant step.</p>
+
+            <h3>FDR</h3>
+            <p>Controls expected proportion of false discoveries among rejected tests. It is usually more powerful than strict family-wise controls when test count is large.</p>
+
+            <h3>Tukey</h3>
+            <p>Best when your target is all pairwise mean comparisons. It is made for that use case.</p>
+
+            <h3>Scheffe</h3>
+            <p>Very flexible for complex contrasts, usually conservative.</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>Contrast Fundamentals</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: مبانی کنتراست</h4>
+                <p>کنتراست در واقع یک سوال پژوهشی را به زبان عدد و ضریب تبدیل می‌کند. شما به جای اینکه بگویی "گروه‌ها فرق دارند"، دقیقا می‌گویی "گروه 1 را با میانگین گروه‌های 2 تا 4 مقایسه کن". این دقیق بودن باعث می‌شود جواب شما در امتحان قوی‌تر شود.</p>
+                <p>قانون کنتراست خیلی ساده است: جمع ضرایب باید صفر باشد. اگر این شرط را نداشته باشی، آن چیزی که نوشتی کنتراست نیست و نمره را از دست می‌دهی.</p>
+                <pre><code>psi = c1*mu1 + c2*mu2 + c3*mu3 + c4*mu4
+                sum(c) = 0</code></pre>
+                <p>یک مثال معروف: "گروه 1 در برابر میانگین بقیه".</p>
+                <pre><code>c = [ 1, -1/3, -1/3, -1/3 ]
+                # یا معادلش در مقیاس دیگر:
+                c = [ 3, -1, -1, -1 ]</code></pre>
+                <p>اینجا یک نکته مهم است: اگر همه ضرایب را در یک عدد ضرب کنی، نتیجه تست تغییر نمی‌کند. پس به جای درگیر شدن با کسرها، می‌توانی شکل ساده‌تر را بنویسی. چیزی که مهم است "نسبت ضرایب" و "تفسیر" است.</p>
+                <p>در گزارش نوشتاری، حتما تفسیر را با کلمات بگو. فقط نوشتن ضرایب کافی نیست. بگو این کنتراست دقیقا چه مقایسه‌ای را انجام می‌دهد.</p>
+            </div>
+            <p>A contrast is a linear combination of means with coefficients that sum to zero. Coefficients represent your research question directly.</p>
+
+            <pre><code>General contrast:
+psi = c1*mu1 + c2*mu2 + ... + cp*mup
+
+Valid contrast condition:
+sum(ci) = 0
+
+Estimated contrast:
+psi_hat = c1*ybar1 + c2*ybar2 + ... + cp*ybarp</code></pre>
+
+            <p>When you define a contrast, your interpretation should use words, not only symbols. For example, "Group 1 compared to average of Groups 2 to 5" is much clearer than only showing numbers.</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>Orthogonal Contrasts</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: کنتراست‌های متعامد (Orthogonal)</h4>
+                <p>دو کنتراست وقتی متعامد هستند که از نظر "فضای ضرایب" اطلاعات تکراری ندهند. این موضوع در طرح‌های متعادل خیلی مهم است چون می‌شود گفت هر کنتراست یک تکه جدا از اختلاف‌ها را اندازه می‌گیرد.</p>
+                <p>شرط ساده‌اش این است که ضرب ضرایب را جمع بزنی و صفر شود (در حالت ساده و متعادل):</p>
+                <pre><code>sum(ci_A * ci_B) = 0
+
+                max number of orthogonal contrasts = p - 1</code></pre>
+                <p>یک دام امتحانی این است که بعضی‌ها فکر می‌کنند "متعامد بودن یعنی آزمون‌ها مستقل هستند". از نظر ضرایب، متعامد بودن خوب است، ولی اگر داده‌ها وابسته باشند (مثلا یک نفر چند گزینه را رتبه داده باشد)، آزمون‌ها می‌توانند از نظر آماری همبسته شوند. پس جواب قوی این است که بگویی: در سطح طراحی و ضرایب، متعامد هستند، ولی در سطح رفتار آماری، وابستگی داده می‌تواند استقلال کامل را از بین ببرد.</p>
+                <p>اگر استاد سوال "استقلال" را پرسید، همین دو لایه را جدا کن: لایه ضرایب و لایه داده‌ها. این جدا کردن معمولاً نمره کامل می‌دهد.</p>
+            </div>
+            <p>Two contrasts are orthogonal if their coefficient products sum to zero. Orthogonality is useful because contrasts then carry non-overlapping information in coefficient space.</p>
+
+            <pre><code>Orthogonality condition for contrasts A and B:
+sum(ci_A * ci_B) = 0
+
+Maximum number of orthogonal contrasts with p groups:
+p - 1</code></pre>
+
+            <p>Important nuance for exam answers: orthogonality of coefficients does not always mean practical independence of test statistics when data have repeated ratings from the same participants.</p>
+
+            <div class="info-box">
+                <h4>Quick memory line</h4>
+                <p>Orthogonal in design is not always independent in data dependence structure.</p>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Worked Example 1: Sequential Threshold Contrasts</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: مثال حل شده 1، منطق کنتراست‌های آستانه‌ای ترتیبی</h4>
+                <p>این مدل آستانه‌ای یک منطق تصمیم‌گیری خیلی کاربردی دارد: چند گزینه داریم که معمولا هر چه گزینه بالاتر است، هزینه یا سختی بیشتر دارد. ما می‌خواهیم "کم‌هزینه‌ترین گزینه‌ای" را انتخاب کنیم که از گزینه‌های بالاتر به شکل معنی دار بدتر نباشد.</p>
+                <p>به همین خاطر کنتراست‌ها را ترتیبی می‌نویسیم. کنتراست C1 گزینه 1 را با میانگین بقیه مقایسه می‌کند. اگر C1 معنی دار نباشد، یعنی شواهد کافی برای تفاوت نداریم و طبق قانون تصمیم، همان گزینه 1 را برمی‌داریم. اگر C1 معنی دار باشد، یعنی گزینه 1 با بقیه فرق دارد و معمولا نمی‌خواهیم آن را انتخاب کنیم، پس می‌رویم سراغ C2 و همین طور جلو می‌رویم.</p>
+                <p>ضرایب هم به این دلیل کسر دارند که "میانگین بقیه" را بسازند. شکلش این است:</p>
+                <pre><code>C1 = [ 1, -1/4, -1/4, -1/4, -1/4 ]
+                C2 = [ 0,  1,   -1/3, -1/3, -1/3 ]
+                C3 = [ 0,  0,    1,   -1/2, -1/2 ]
+                C4 = [ 0,  0,    0,    1,   -1   ]</code></pre>
+                <p>چون چند تست پشت سر هم می‌زنیم (چهار تا کنتراست)، باید مسئله multiple testing را جدی بگیریم. معمولاً در تکلیف‌های این درس Holm یا Bonferroni برای کنترل FWER قابل دفاع است. اگر همه روش‌ها (Bonferroni، Holm، Bootstrap، FDR) یک انتخاب مشترک بدهند، آن نتیجه خیلی "پایدارتر" است و این را می‌توانی در جواب بنویسی.</p>
+                <p>یک نکته مهم: "معنی دار نبودن" ثابت نمی‌کند که دو گزینه واقعا مساوی هستند. فقط می‌گوید شواهد کافی برای تفاوت نداریم. ولی قانون تصمیم آستانه‌ای از همین نبود شواهد استفاده می‌کند تا گزینه ارزان‌تر را انتخاب کند. این را اگر با یک جمله کوتاه توضیح بدهی، جواب تو حرفه‌ای‌تر می‌شود.</p>
+            </div>
+            <p>Suppose we have 5 options and we want minimum effective option by sequence.</p>
+
+            <pre><code>C1 = [ 1, -1/4, -1/4, -1/4, -1/4 ]
+C2 = [ 0,  1,   -1/3, -1/3, -1/3 ]
+C3 = [ 0,  0,    1,   -1/2, -1/2 ]
+C4 = [ 0,  0,    0,    1,   -1   ]
+
+Decision logic:
+If C1 not significant -> choose option 1
+Else if C2 not significant -> choose option 2
+Else if C3 not significant -> choose option 3
+Else if C4 not significant -> choose option 4
+Else choose option 5</code></pre>
+
+            <p>This logic is very important for your Week 5 project and can appear in exam form as concept question.</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>Worked Example 2: Pairwise Count and Family Error</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: مثال حل شده 2، تعداد مقایسه‌های جفتی و خطای خانواده</h4>
+                <p>یک چیز ساده ولی خیلی مهم در هفته 3 این است که بفهمی با زیاد شدن تعداد گروه‌ها، تعداد مقایسه‌های جفتی خیلی سریع بالا می‌رود. فرمولش این است:</p>
+                <pre><code>m = p*(p-1)/2</code></pre>
+                <p>مثلا اگر 5 گروه داشته باشیم، m = 10 می‌شود. اگر 6 گروه باشد، m = 15 می‌شود. حالا تصور کن برای هر کدام alpha = 0.05 بگذاری و هیچ اصلاحی نکنی. احتمال اینکه حداقل یک مقایسه به صورت شانسی معنی دار شود دیگر اصلا کم نیست.</p>
+                <p>اینجاست که یا از روش‌های مخصوص pairwise مثل Tukey استفاده می‌کنی، یا اگر می‌خواهی خودت آستانه را تنظیم کنی، یک روش ساده مثل Bonferroni می‌گذاری:</p>
+                <pre><code>alpha_family = 0.05
+                m = 15
+                alpha_per_test = 0.05/15 = 0.0033</code></pre>
+                <p>در جواب امتحان، همین که سریع بگویی "با 6 گروه، 15 مقایسه داریم، پس بدون اصلاح خطای نوع اول باد می‌کند" معمولا امتیاز خوبی می‌گیرد چون نشان می‌دهد منطق را می‌فهمی.</p>
+            </div>
+            <p>For p groups, number of pairwise tests is p*(p-1)/2. If p = 5, you have 10 pairwise tests. Without correction, false positive chance can be large.</p>
+
+            <pre><code>p = 5
+m = p*(p-1)/2 = 10
+alpha = 0.05
+Bonferroni per-test alpha = 0.05/10 = 0.005</code></pre>
+
+            <p>In report writing, this one line often earns points because it shows you understand test multiplicity, not only software output.</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>R Workflow for Week 3</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: روال عملی R برای هفته 3</h4>
+                <p>در R هدف این است که اول مدل را درست بسازی، بعد بسته به سوال، یا سراغ Tukey بروی یا سراغ planned contrast. اشتباه رایج این است که همه چیز را با یک دستور پیش ببرند. اینجا شما باید "روش" را با "سوال" هماهنگ کنی.</p>
+                <p>قبل از هر چیزی مطمئن شو گروه به شکل factor است و داده گمشده‌ها مشکل ایجاد نکرده. بعد ANOVA را اجرا کن. اگر هدف همه جفت‌هاست، از Tukey استفاده کن. اگر چند کنتراست مشخص داری، با emmeans کنتراست‌ها را تعریف کن و بعد p-valueها را با Holm یا روش مناسب اصلاح کن.</p>
+                <pre><code>fit <- aov(Y ~ Group, data = df)
+                summary(fit)
+
+                # همه مقایسه‌های جفتی
+                library(emmeans)
+                emm <- emmeans(fit, ~ Group)
+                pairs(emm, adjust = "tukey")
+
+                # planned contrasts (مثال)
+                C1 <- c( 1, -1/4, -1/4, -1/4, -1/4 )
+                C2 <- c( 0,  1,   -1/3, -1/3, -1/3 )
+                res_c <- contrast(emm, list(C1 = C1, C2 = C2), adjust = "holm")
+                summary(res_c)</code></pre>
+                <p>بعد از این، حتما یک جدول کوچک بساز که در آن raw p-value و adjusted p-value کنار هم باشند. این باعث می‌شود در نوشتن بخش نتیجه گم نشوی. و مهم‌تر از همه، آخرش یک پاراگراف بنویس که نتیجه را ترجمه کند: کدام گروه‌ها فرق دارند و این فرق از نظر سوال پژوهش چه معنایی دارد.</p>
+            </div>
+            <pre><code># 1) Fit model
+fit <- aov(Y ~ Group, data = df)
+summary(fit)
+
+# 2) Tukey pairwise if all-pair target
+TukeyHSD(fit)
+
+# 3) Planned contrasts with manual p adjustment
+raw_p <- c(p_c1, p_c2, p_c3, p_c4)
+p_bonf <- p.adjust(raw_p, method = "bonferroni")
+p_holm <- p.adjust(raw_p, method = "holm")
+p_fdr  <- p.adjust(raw_p, method = "fdr")
+
+# 4) Write decision table
+data.frame(test = c("C1","C2","C3","C4"), raw_p, p_bonf, p_holm, p_fdr)</code></pre>
+
+            <p>After this, your report should contain one final paragraph: which conclusions are stable across methods and which are method-sensitive.</p>
+        </div>
+
+        <div class="paper-card">
+            <h2>SAS Workflow for Week 3</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: روال عملی SAS برای هفته 3</h4>
+                <p>در SAS معمولا با PROC GLM جلو می‌رویم. کلید کار این است که هم ANOVA را درست بگیری، هم بعدش multiple comparisons یا contrasts را درست درخواست کنی. در امتحان هم معمولا می‌خواهند بدانند شما می‌دانی کدام دستور برای کدام هدف است.</p>
+                <p>اگر هدف همه جفت‌هاست، از MEANS یا LSMEANS با Tukey استفاده کن. اگر planned contrasts داری، از CONTRAST استفاده کن. برای اصلاح p-value چند کنتراست، می‌توانی از PROC MULTTEST استفاده کنی یا حداقل روش اصلاح را در تفسیر بنویسی.</p>
+                <pre><code>proc glm data=mydata;
+                  class Group;
+                  model Y = Group;
+
+                  /* همه مقایسه‌های جفتی */
+                  lsmeans Group / adjust=tukey;
+
+                  /* planned contrasts */
+                  contrast 'C1' Group  1  -0.25 -0.25 -0.25 -0.25;
+                  contrast 'C2' Group  0   1    -0.333333 -0.333333 -0.333333;
+                run;
+                quit;</code></pre>
+                <p>وقتی می‌نویسی، فقط کد را نگذار. یک جمله اضافه کن که چرا از Tukey یا Holm استفاده کردی. این همان چیزی است که جواب تو را از "فقط اجرا کردن نرم‌افزار" جدا می‌کند.</p>
+            </div>
+            <pre><code>proc glm data=mydata;
+  class Group;
+  model Y = Group;
+  means Group / Tukey;
+
+  contrast 'C1' Group 1 -0.25 -0.25 -0.25 -0.25;
+  contrast 'C2' Group 0 1 -0.333333 -0.333333 -0.333333;
+  contrast 'C3' Group 0 0 1 -0.5 -0.5;
+  contrast 'C4' Group 0 0 0 1 -1;
+run;
+quit;
+
+proc multtest data=mydata Bon Holm FDR;
+  class Group;
+  contrast 'C1' 1 -0.25 -0.25 -0.25 -0.25;
+  contrast 'C2' 0 1 -0.333333 -0.333333 -0.333333;
+  contrast 'C3' 0 0 1 -0.5 -0.5;
+  contrast 'C4' 0 0 0 1 -1;
+  test mean(Y);
+run;</code></pre>
+        </div>
+
+        <div class="paper-card">
+            <h2>What to Write in Homework or Exam</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: در تکلیف یا امتحان دقیقا چه بنویسیم</h4>
+                <p>این هفته نمره شما فقط به این نیست که تست را درست اجرا کنی. نمره زیاد به این است که چطور نتیجه را بنویسی. جواب خوب معمولا یک متن کوتاه ولی واضح است که سه چیز را کنار هم دارد: سوال، روش، نتیجه.</p>
+                <p>یک مدل نوشتن ساده که واقعا جواب می‌دهد این است که اول یک جمله بگویی سوال چیست. بعد بگویی چه روش مقایسه‌ای استفاده کردی و چرا. بعد 2 تا 3 عدد کلیدی بده (مثلا p-value اصلاح شده). در آخر هم نتیجه را با کلمات ساده بنویس.</p>
+                <p>مثلا اگر هدف همه جفت‌ها بود:</p>
+                <p><strong>نمونه متن:</strong> بعد از معنی دار شدن ANOVA در سطح 0.05، برای مشخص کردن تفاوت بین همه گروه‌ها از Tukey استفاده شد چون هدف مقایسه همه جفت‌ها بود. نتیجه نشان داد اختلاف بین ... و ... معنی دار است (p اصلاح شده &lt; 0.05)، ولی بقیه جفت‌ها تفاوت قوی نشان ندادند. پس از نظر سوال پژوهش، فقط این گروه‌ها واقعا با هم فرق دارند.</p>
+                <p>اگر planned contrasts بود، همان را بنویس ولی حتما بگو چند کنتراست داشتی و از چه اصلاحی (مثل Holm) استفاده کردی.</p>
+            </div>
+            <p>Use this simple structure each time:</p>
+            <ol>
+                <li>State hypothesis in plain language.</li>
+                <li>Name correction method and why.</li>
+                <li>Report key numbers (test statistic, p-value, adjusted p-value, CI if needed).</li>
+                <li>Give practical interpretation in one to three sentences.</li>
+            </ol>
+
+            <pre><code>Template sentence:
+"Using Holm correction at alpha=0.05, only C1 and C3 remained significant.
+This means option 1 differs from the average of others, and option 3 still differs
+from options 4 and 5 average, but C2 and C4 are not strong enough after error control."</code></pre>
+        </div>
+
+        <div class="paper-card">
+            <h2>Common Mistakes and Fast Fixes</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: اشتباهات رایج و اصلاح سریع</h4>
+                <p>اینجا چند اشتباه رایج هست که واقعا هر ترم تکرار می‌شود. اگر از الان حواست باشد، هم پروژه را بهتر می‌نویسی هم سر جلسه امتحان کمتر اشتباه می‌کنی.</p>
+                <ul>
+                  <li><strong>فقط نوشتن "ANOVA معنی دار شد":</strong> این جواب نصفه است. باید بگویی کدام گروه‌ها فرق دارند و با چه روشی.</li>
+                  <li><strong>اصلاح نکردن p-value با وجود تست‌های متعدد:</strong> باعث می‌شود نتیجه‌ات قابل دفاع نباشد. حداقل یک روش مثل Tukey یا Holm را انتخاب کن و دلیلش را بنویس.</li>
+                  <li><strong>کنتراست با ضرایب غلط (جمع ضرایب صفر نیست):</strong> قبل از اجرا، همیشه جمع ضرایب را چک کن.</li>
+                  <li><strong>تفسیر اشتباه non-significant:</strong> non-significant یعنی شواهد کافی نداریم، نه اینکه دو گروه صددرصد مساوی هستند.</li>
+                  <li><strong>جواب کاملا عددی بدون جمله انسانی:</strong> بعد از هر جدول، یک پاراگراف کوتاه بنویس که نتیجه را ترجمه کند.</li>
+                </ul>
+                <p>یک راه سریع برای بهتر شدن این است که هر جواب را با صدای بلند برای خودت توضیح بدهی. اگر نتوانستی با زبان ساده بگویی چه شد، یعنی هنوز باید مرور کنی.</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mistake</th>
+                        <th>Why it hurts score</th>
+                        <th>Fast fix</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Only saying "ANOVA significant"</td>
+                        <td>Does not answer which groups differ</td>
+                        <td>Add corrected pairwise or planned contrast results</td>
+                    </tr>
+                    <tr>
+                        <td>No correction for many tests</td>
+                        <td>Type I error inflation ignored</td>
+                        <td>Use Holm or Bonferroni or FDR based on goal</td>
+                    </tr>
+                    <tr>
+                        <td>Contrast coefficients not summing to zero</td>
+                        <td>Not a valid contrast</td>
+                        <td>Check sum(ci)=0 before testing</td>
+                    </tr>
+                    <tr>
+                        <td>No interpretation after p-values</td>
+                        <td>Looks mechanical and incomplete</td>
+                        <td>Write one plain-language conclusion per result</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="paper-card">
+            <h2>Exam Drills with Answers</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: تمرین‌های امتحانی، چطور واقعا ازشان یاد بگیریم</h4>
+                <p>این بخش برای این است که تو خودت را در حالت امتحان قرار بدهی. یعنی قبل از نگاه کردن به پاسخ، واقعا جواب را بنویس. فقط تو ذهن حل کردن فایده‌اش کمتر است چون سر جلسه باید بنویسی و استدلال کنی.</p>
+                <p>پیشنهاد من این است که برای هر سوال، 30 تا 60 ثانیه وقت بگذاری و جواب را در 1 یا 2 جمله بنویسی. بعد پاسخ را ببین و اگر اشتباه بود، فقط یک جمله اضافه کن که "اشکال من چه بود". این یک جمله خیلی به تثبیت یادگیری کمک می‌کند.</p>
+                <p>چند سوال کوتاه فارسی هم برای تمرین اضافه می‌کنم که بیشتر روی منطق انتخاب روش است:</p>
+                <p><strong>سوال تمرینی:</strong> اگر استاد بگوید فقط 3 مقایسه مشخص دارم و نمی‌خواهم همه جفت‌ها را چک کنم، کدام روش اصلاح را انتخاب می‌کنی؟ <strong>پاسخ:</strong> معمولا Holm مناسب است چون FWER را کنترل می‌کند و از Bonferroni کم‌تر سخت گیر است.</p>
+                <p><strong>سوال تمرینی:</strong> اگر هدف مقایسه همه جفت‌هاست، چرا Tukey بهتر از این است که خودت Bonferroni بزنی؟ <strong>پاسخ:</strong> چون Tukey برای همه pairwise طراحی شده و هم استانداردتر است هم معمولا توان بهتری نسبت به Bonferroni ساده دارد.</p>
+                <p><strong>سوال تمرینی:</strong> اگر یک کنتراست معنی دار نشد، در تفسیر چطور بنویسی که از اشتباه "برابر هستند" دور بمانی؟ <strong>پاسخ:</strong> می‌نویسم شواهد کافی برای تفاوت پیدا نشد، پس در این نمونه تفاوت قوی مشاهده نشد.</p>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q1</span>
+                <p>Why is family-wise error important after ANOVA?</p>
+                <div class="success-box">
+                    <p>Because multiple follow-up tests can create false positives if we do not control error rate.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q2</span>
+                <p>When is Holm better than Bonferroni?</p>
+                <div class="success-box">
+                    <p>When you still need family-wise control but want more power than Bonferroni.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q3</span>
+                <p>What does FDR control?</p>
+                <div class="success-box">
+                    <p>The expected proportion of false discoveries among rejected hypotheses.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q4</span>
+                <p>How many pairwise tests for 6 groups?</p>
+                <div class="success-box">
+                    <p>15, because 6*5/2 = 15.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q5</span>
+                <p>What is max number of orthogonal contrasts for p=5?</p>
+                <div class="success-box">
+                    <p>4.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q6</span>
+                <p>Does significant omnibus F mean all pairs are significant?</p>
+                <div class="success-box">
+                    <p>No. It only says at least one difference exists.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q7</span>
+                <p>Contrast coefficients are [1, -1, 0, 0]. Is it valid?</p>
+                <div class="success-box">
+                    <p>Yes. Coefficients sum to zero.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q8</span>
+                <p>Contrast coefficients are [1, 0, 0, 0]. Is it valid?</p>
+                <div class="success-box">
+                    <p>No. Coefficients do not sum to zero.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q9</span>
+                <p>How do you explain a non-significant C4 in threshold logic?</p>
+                <div class="success-box">
+                    <p>The two highest options are statistically similar under current method, so pick the lower-cost one by rule.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q10</span>
+                <p>Bonferroni alpha for 4 tests at family alpha 0.05?</p>
+                <div class="success-box">
+                    <p>0.0125 per test.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q11</span>
+                <p>If smallest p-value fails Holm first step, what happens?</p>
+                <div class="success-box">
+                    <p>Stop, and all remaining hypotheses are not rejected.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q12</span>
+                <p>Why write adjusted and unadjusted p-values both?</p>
+                <div class="success-box">
+                    <p>It shows both raw signal and corrected decision transparency.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q13</span>
+                <p>Can planned contrasts be tested without significant omnibus F?</p>
+                <div class="success-box">
+                    <p>Yes, if contrasts were preplanned and theory-driven.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q14</span>
+                <p>What is the strongest one-line conclusion style?</p>
+                <div class="success-box">
+                    <p>Name method, corrected result, and practical meaning in one short paragraph.</p>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <span class="analysis-label">Q15</span>
+                <p>Is orthogonality always enough for independence?</p>
+                <div class="success-box">
+                    <p>No. Data dependence structure can still create correlated test behavior.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="paper-card">
+            <h2>Week 3 Final Checklist</h2>
+
+                        <div class="persian-section" lang="fa" dir="rtl">
+                <h4>توضیح فارسی: چک لیست نهایی هفته 3</h4>
+                <p>چک لیست یعنی اگر این موارد را بتوانی بدون نگاه به جزوه توضیح بدهی، هفته 3 را واقعا یاد گرفتی. بهتر است این را شب قبل از امتحان با صدای بلند مرور کنی.</p>
+                <ul>
+                  <li>می‌توانم بگویم چرا بعد از ANOVA باید multiple comparisons را کنترل کنم.</li>
+                  <li>می‌توانم بین Tukey و planned contrasts انتخاب کنم و دلیل انتخاب را بگویم.</li>
+                  <li>می‌توانم Bonferroni، Holm و FDR را از نظر هدف کنترل خطا فرق بگذارم.</li>
+                  <li>می‌توانم یک کنتراست درست بسازم و جمع ضرایب را چک کنم.</li>
+                  <li>می‌توانم مفهوم orthogonal را توضیح بدهم و دام استقلال را هم یادآوری کنم.</li>
+                  <li>می‌توانم نتیجه را به یک پاراگراف ساده و قابل فهم تبدیل کنم، نه فقط جدول و p-value.</li>
+                </ul>
+            </div>
+            <ul>
+                <li>I can explain why error control is needed after ANOVA.</li>
+                <li>I can choose Holm Bonferroni FDR with clear reason.</li>
+                <li>I can define and test planned contrasts correctly.</li>
+                <li>I can check orthogonality and explain it in plain language.</li>
+                <li>I can write a complete interpretation paragraph, not only p-values.</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <p>BUSI 6480 Study Guide | Ali Safari | Spring 2026</p>
+    </footer>
+
+    <script src="/js/study-navbar.js"></script>
+    <script src="/js/toast.js"></script>
+    <script src="/js/course-loader.js"></script>
+    <script src="/js/sync.js"></script>
+    <script src="/js/highlights.js"></script>
+    <script src="/js/tts.js"></script>
+    <script src="/js/progress.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/flashcards.js"></script>
+    <script src="/js/timer.js"></script>
+
+</body>
+
+</html>

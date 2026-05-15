@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLS vs. CB-SEM: The Statistics Debate That Will Not Die | Ali Safari</title><meta name="description" content="The debate over which SEM approach to use in IS research has run for decades and produces more heat than light. Here is what actually matters."><meta name="keywords" content=IS Research Methods, information systems, research"><meta property="og:title" content="PLS vs. CB-SEM: The Statistics Debate That Will Not Die"><meta property="og:description" content="The debate over which SEM approach to use in IS research has run for decades and produces more heat than light. Here is what actually matters."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/pls-vs-cb-sem-statistics-debate/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IS Research Methods"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/pls-vs-cb-sem-statistics-debate/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"PLS vs. CB-SEM: The Statistics Debate That Will Not Die","description":"The debate over which SEM approach to use in IS research has run for decades and produces more heat than light. Here is what actually matters.","url":"https://alisafari.space/blog/pls-vs-cb-sem-statistics-debate/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IS Research Methods","keywords":"IS Research Methods"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">PLS vs. CB-SEM: The Statistics Debate That Will Not Die</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="pls-vs-cb-sem-statistics-debate" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IS Research Methods</span>
+<h1>PLS vs. CB-SEM: The Statistics Debate That Will Not Die</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IS Research Methods</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>The first time I had to choose between PLS-SEM and CB-SEM for a survey-based study, I did what most PhD students do: I asked my advisor, read a methods paper, and looked at what similar papers in the target journal had done. What I found was a field with strong opinions, a long history of argument, and surprisingly little consensus on when each approach is actually appropriate. The debate has been running since at least the late 1990s and it is still generating new papers.</p>
+<p>Structural equation modeling is the dominant quantitative method in IS survey research. The basic idea is that you have theoretical constructs (things like perceived usefulness, trust, or organizational commitment) that you cannot observe directly, and you measure them through observable indicators (survey items). SEM lets you specify relationships between these constructs while accounting for measurement error in the indicators. Two main approaches exist: covariance-based SEM, implemented in software like AMOS and lavaan, and partial least squares SEM, implemented most commonly in SmartPLS.</p>
+<p>Wold originally developed PLS in a different context, and Chin (1998) brought it into IS research with a paper that made the case for its advantages. The argument was that PLS-SEM works with smaller samples, handles non-normally distributed data, and is better suited for predictive and exploratory research where the goal is explaining variance rather than confirming theoretical structure. Chin's framing was influential. IS research adopted PLS-SEM at scale over the following decade, and SmartPLS became a standard tool in the IS methods toolkit.</p>
+<p>The core statistical difference matters for understanding what each approach is actually doing. CB-SEM is factor-based: it estimates latent variables by extracting common variance from indicators, and it tests whether the covariance structure implied by your model matches the covariance structure in your data. The fit statistics that CB-SEM produces (RMSEA, CFI, SRMR) are evaluating this match. PLS-SEM is composite-based: it constructs latent variable scores as weighted linear combinations of indicators and optimizes for maximizing explained variance in endogenous constructs. This means PLS-SEM does not produce model fit statistics in the same sense, which is both a feature (you are not constrained by fit requirements) and a limitation (you cannot test whether your measurement model is correct in the same way).</p>
+<p>The reflective versus formative distinction is where the theoretical stakes are highest. Reflective constructs are ones where the indicators reflect an underlying latent variable. If I have a construct called "organizational commitment," and the items I measure are different expressions of that underlying commitment, then the construct causes the indicators. Removing one item should not change the construct. CB-SEM is designed for reflective constructs. Formative constructs are the opposite: the indicators define or constitute the construct. A "socioeconomic status" construct formed from income, education, and occupational prestige is formative. Removing income changes what socioeconomic status means. PLS-SEM handles both. The trouble is that IS researchers often choose their measurement approach based on software habit or sample size rather than the theoretical direction of causality. Lin et al. (2019), in a review of PLS-SEM use in e-learning research, found that model misspecification, where a reflective construct is incorrectly treated as formative or vice versa, leads to inflated or deflated path coefficients and R-squared values.</p>
+<p>This is the critique that has accumulated over years: PLS-SEM has been used in IS research when CB-SEM is more appropriate, because PLS is more forgiving with small samples and tends to produce higher R-squared values. Hair, Ringle, and Sarstedt, who have been both champions of PLS-SEM and critics of its misuse, have published guidelines trying to clarify when PLS-SEM is the right choice. Their consistent argument is that PLS-SEM is appropriate for prediction-oriented research and for models with formative constructs, not as a general substitute for CB-SEM when the sample is small. "My sample is only 100 people" is not, by itself, a justification for PLS-SEM over CB-SEM. The justification should be theoretical and match the purpose of the research.</p>
+<p>The Fornell-Larcker criterion is a standard discriminant validity check that appears constantly in IS SEM papers. It tests whether each construct shares more variance with its own indicators than with other constructs in the model. Average Variance Extracted, or AVE, is the metric. An AVE above 0.5 is usually required. Composite reliability above 0.7. These thresholds come from psychometric traditions and have been widely adopted in IS as default validity checks. They apply most cleanly to reflective constructs. For formative constructs, you need different validation procedures, including checking for multicollinearity among indicators and ensuring each indicator contributes meaningfully to the construct.</p>
+<p>What I find frustrating about this debate is that it often becomes a proxy argument about software preference and reviewer expectations rather than a genuine methodological discussion. I have read papers where the entire justification for PLS-SEM is a half-sentence citing Chin (1998) and noting that the sample size was under 200. That is not a methodological choice. It is a citation that covers a choice made on other grounds. And reviewers at IS journals have sometimes accepted this, which means the practice is reinforced through publication.</p>
+<p>Gartner's practitioner research does not use SEM at all. Their surveys produce simpler descriptive statistics, crosstabulations, and trend analyses that practitioners can understand and act on directly. This is not a failure of Gartner's research. It reflects the difference between knowledge produced for academic accumulation and knowledge produced for decision support. A CIO asking "how many of our peers have adopted cloud-native infrastructure?" needs a percentage and a benchmark, not a structural model. Academic IS research asks different questions, which is why SEM matters in our context. But it is worth being honest about what the sophisticated methodology buys us, and whether it is always worth the additional complexity and the risk of misuse.</p>
+<p>The practical choice I try to make is to ask what kind of question I am actually answering before I pick an approach. If I am testing whether a well-established theoretical model holds in a new context, CB-SEM with confirmatory factor analysis is appropriate. If I am exploring a new phenomenon and trying to understand what predicts an outcome in a complex model, PLS-SEM makes more sense. If my constructs are genuinely formative, PLS-SEM is the right tool regardless of sample size. The decision should flow from the research question and the theoretical structure of the constructs, not from the software that is most convenient or the one that is most likely to produce publishable results.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/post-adoption-continuance-real-test/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">The Real Test Is Month Seven</div></a><a href="/blog/platform-monetization-architecture-business-model/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Platform Monetization: How the Business Model Is Baked Into the Architecture</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/action-research-is-method/" class="blog-related-card"><h4>Action Research in IS: When the Researcher Is Also the Intervener</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/ai-labor-market-is-research/" class="blog-related-card"><h4>AI and the Labor Market: What IS Research Can Contribute</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-models-critical-realism-mechanisms/" class="blog-related-card"><h4>Critical Realism Explains Why AI Models Are Not the Mechanisms They Simulate</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

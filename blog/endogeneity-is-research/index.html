@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Endogeneity: The Problem That Invalidates More IS Research Than People Admit | Ali Safari</title><meta name="description" content="Endogeneity biases OLS estimates in ways that make conclusions systematically wrong. IS research has significant exposure that is underacknowledged."><meta name="keywords" content=IS Research Methods, information systems, research"><meta property="og:title" content="Endogeneity: The Problem That Invalidates More IS Research Than People Admit"><meta property="og:description" content="Endogeneity biases OLS estimates in ways that make conclusions systematically wrong. IS research has significant exposure that is underacknowledged."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/endogeneity-is-research/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IS Research Methods"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/endogeneity-is-research/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Endogeneity: The Problem That Invalidates More IS Research Than People Admit","description":"Endogeneity biases OLS estimates in ways that make conclusions systematically wrong. IS research has significant exposure that is underacknowledged.","url":"https://alisafari.space/blog/endogeneity-is-research/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IS Research Methods","keywords":"IS Research Methods"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Endogeneity: The Problem That Invalidates More IS Research Than People Admit</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="endogeneity-is-research" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IS Research Methods</span>
+<h1>Endogeneity: The Problem That Invalidates More IS Research Than People Admit</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IS Research Methods</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>Here is a claim you see regularly in IS and management research: firms that invest in enterprise systems perform better. The number comes from a regression. Firms that adopted the system have higher productivity, or higher revenue per employee, or better customer satisfaction scores. The coefficient is positive and statistically significant. The authors conclude that the investment pays off.</p>
+<p>The problem is that this regression is almost certainly wrong, not because the researchers made a calculation error, but because the model has endogeneity. And endogeneity, when present, makes ordinary regression estimates biased and inconsistent. The conclusions drawn from the analysis may be systematically wrong, not randomly noisy, but pointing in the wrong direction or overstating the effect size in ways that cannot be corrected by collecting more data.</p>
+<p>Endogeneity occurs when an independent variable in your model is correlated with the error term. This can happen in three main ways. The first is omitted variables: there is a variable that affects both the independent variable and the outcome, and because it is not in the model, its effect gets absorbed into the error term. The second is reverse causality: instead of X causing Y, Y is also causing X, or causing it jointly, so the direction of influence in your model is ambiguous. The third is measurement error in the independent variable, which under certain conditions creates a correlation between the measured variable and the error term.</p>
+<p>The enterprise system example has a classic omitted variable problem. Organizations that adopt major enterprise technology are not a random sample of organizations. They tend to be larger, better resourced, more professionally managed, and more growth-oriented than organizations that do not adopt. These characteristics also independently predict better performance. If you regress performance on technology adoption without controlling adequately for all of those organizational characteristics, the adoption coefficient absorbs the effect of organizational quality. You have estimated a selection effect, not a treatment effect. High-performing firms adopted the system faster. The system did not make them high-performing. Or at least, you cannot tell the difference from OLS regression on observational data.</p>
+<p>This is selection bias operating as endogeneity. My notes from the IS research methods section of my comps preparation (day2.html, line 495) are direct about this: a study that wants to claim causation needs covariation, temporal precedence, and the absence of plausible alternative explanations. SEM and regression establish covariation. They do not by themselves rule out alternatives. Internal validity is the validity type that addresses exactly these conditions.</p>
+<p>The econometric solution is instrumental variables (IV) estimation. The idea is to find a variable that predicts technology adoption but does not directly affect the performance outcome. This instrument shifts the probability of adoption in ways that are unrelated to the omitted organizational characteristics. If you can find such an instrument, you can use it to isolate the variation in adoption that is truly exogenous, essentially the part of adoption that the instrument caused, and use only that variation to estimate the effect on performance. The problem is that good instruments are hard to find and even harder to defend. In IS research on enterprise technology adoption, a convincing instrument might be something like the adoption behavior of industry peers, or the availability of local implementation partners, or prior technology investments that are historically determined. Each of these can be challenged, and the instrument validity assumptions are untestable in important ways.</p>
+<p>The Heckman selection correction is another approach, widely cited in the econometrics literature, that models the selection into treatment as a first stage and then corrects the outcome regression for the predicted probability of selection. I am hedging here because my study-hub notes do not explicitly cover Heckman, but it is widely discussed in IS methodology papers that deal with selection bias, and the basic logic connects directly to the selection threat in Cook and Campbell's validity framework. The correction requires its own exclusion restriction, a variable that predicts selection but not the outcome, so it faces similar instrument validity problems as IV estimation. Neither approach is free. Both require strong theoretical justification that most IS studies do not provide.</p>
+<p>Why does this matter in practice? Because IS and business journals regularly publish studies that draw causal conclusions from observational regression results without adequate endogeneity controls. The ERP literature is full of this. The IT outsourcing literature is full of this. Studies that show a positive association between some technology adoption decision and firm performance are cited as evidence that the technology delivers ROI. Industry analysts amplify the pattern. Gartner, for instance, regularly reports survey findings about technology adoption and organizational performance at <a href="https://www.gartner.com/en/newsroom">the Gartner newsroom</a>, and practitioners interpret those correlational findings as causal evidence. The issue is not that Gartner is being deceptive; it is that survey data about adoption and performance cannot establish causation even with careful analysis, and the limitation is almost never flagged in the report's summary.</p>
+<p>The right response to this is not to give up on observational IS research. Cross-sectional and longitudinal observational studies are often the only feasible option when you cannot randomly assign firms to technology investments. The right response is to take endogeneity seriously as a threat, to look for instruments or natural experiments where they exist, to use panel data designs that allow firm fixed effects (which control for time-invariant organizational characteristics), and to be honest about the limits of what the evidence actually shows.</p>
+<p>I wrote about related design issues in my post on <a href="/blog/longitudinal-research-is">why cross-sectional studies miss half the story</a>. The endogeneity problem and the cross-sectional design problem overlap significantly: many endogeneity threats are harder to address when you only have one time point. Panel data does not solve endogeneity, but it reduces the omitted variable threat by controlling for stable organizational characteristics. That is a meaningful improvement, even if it is not a complete solution.</p>
+<p>The claim "firms that invest in X perform better" is not necessarily false. It might be true. But the regression that supports it is not sufficient evidence, and saying so is not a criticism of the research as much as it is a request for a more honest description of what the evidence can and cannot support.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/enterprise-architecture-togaf-zachman/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">Enterprise Architecture: The Blueprint That Never Quite Fits</div></a><a href="/blog/electronic-health-records-promise-vs-reality/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Electronic Health Records: What Was Promised and What Was Delivered</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/action-research-is-method/" class="blog-related-card"><h4>Action Research in IS: When the Researcher Is Also the Intervener</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/ai-labor-market-is-research/" class="blog-related-card"><h4>AI and the Labor Market: What IS Research Can Contribute</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/ai-models-critical-realism-mechanisms/" class="blog-related-card"><h4>Critical Realism Explains Why AI Models Are Not the Mechanisms They Simulate</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

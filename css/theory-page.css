@@ -1,0 +1,747 @@
+body.theory-guide-page {
+    padding-top: 102px;
+    background: linear-gradient(180deg, #f3f6fb 0%, #ffffff 18%, #f8fafc 100%);
+}
+
+body.theory-guide-page .container {
+    max-width: 1320px;
+    padding-bottom: 3rem;
+}
+
+body.theory-guide-page .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a5f 100%);
+    padding: 0 1.5rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.15);
+}
+
+body.theory-guide-page .navbar-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+body.theory-guide-page .navbar-brand {
+    color: white;
+    font-size: 1.16rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+body.theory-guide-page .navbar-brand:hover {
+    opacity: 0.92;
+}
+
+body.theory-guide-page .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+body.theory-guide-page .navbar-links::-webkit-scrollbar {
+    display: none;
+}
+
+body.theory-guide-page .navbar-links a {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.42rem 0.82rem;
+    border-radius: 999px;
+    font-size: 0.87rem;
+    font-weight: 500;
+}
+
+body.theory-guide-page .navbar-links a:hover,
+body.theory-guide-page .navbar-links a.active {
+    color: white;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+body.theory-guide-page .navbar-content .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+body.theory-guide-page .search-btn,
+body.theory-guide-page .theme-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.14);
+    color: white;
+    box-shadow: none;
+}
+
+body.theory-guide-page .search-btn:hover,
+body.theory-guide-page .theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-1px);
+}
+
+body.theory-guide-page .progress-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4rem 1.2rem;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.theory-guide-page .progress-bar-wrapper {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+body.theory-guide-page .progress-bar {
+    flex: 1;
+    height: 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    overflow: hidden;
+}
+
+body.theory-guide-page .progress-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+body.theory-guide-page .progress-text {
+    min-width: 102px;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+body.theory-guide-page .session-header {
+    margin-top: 0.75rem;
+    box-shadow: 0 16px 32px rgba(30, 64, 175, 0.16);
+}
+
+body.theory-guide-page .stats-box,
+body.theory-guide-page .toc-container,
+body.theory-guide-page .paper-card {
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.05);
+}
+
+body.theory-guide-page .session-header {
+    padding: 0.8rem 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+body.theory-guide-page .session-header h1 {
+    font-size: 2rem;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.45rem;
+}
+
+body.theory-guide-page .session-meta {
+    font-size: 0.92rem;
+}
+
+body.theory-guide-page .stats-box {
+    padding: 0.85rem;
+    margin: 0.85rem 0;
+    gap: 0.6rem;
+}
+
+body.theory-guide-page .stat-number {
+    font-size: 1.3rem;
+}
+
+body.theory-guide-page .stat-label {
+    font-size: 0.76rem;
+}
+
+body.theory-guide-page .info-box,
+body.theory-guide-page .toc-container,
+body.theory-guide-page .paper-card {
+    border-radius: 9px;
+}
+
+body.theory-guide-page .info-box {
+    padding: 0.7rem 0.95rem;
+    margin: 0.85rem 0;
+}
+
+body.theory-guide-page .info-box p {
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+body.theory-guide-page .toc-container {
+    padding: 1rem 1.15rem;
+    margin: 1rem 0;
+}
+
+body.theory-guide-page .toc-part {
+    margin-bottom: 1.15rem;
+}
+
+body.theory-guide-page .toc-part-header {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.96rem;
+}
+
+body.theory-guide-page .toc-list {
+    gap: 0.18rem 0.8rem;
+}
+
+body.theory-guide-page .toc-list a,
+body.theory-guide-page .toc-list li a {
+    padding: 0.26rem 0.58rem;
+    font-size: 0.84rem;
+}
+
+body.theory-guide-page .paper-card {
+    padding: 0.85rem;
+    margin-bottom: 0.85rem;
+}
+
+body.theory-guide-page .theory-header {
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.6rem;
+}
+
+body.theory-guide-page .theory-header h2 {
+    font-size: 1.22rem;
+    margin-bottom: 0.2rem;
+}
+
+body.theory-guide-page .theory-tagline {
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+body.theory-guide-page .theory-meta-badges {
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+body.theory-guide-page .theory-badge {
+    padding: 0.28rem 0.6rem;
+    font-size: 0.74rem;
+}
+
+body.theory-guide-page .theory-preview {
+    padding: 0.65rem;
+    margin-bottom: 0.65rem;
+}
+
+body.theory-guide-page .theory-preview > p {
+    font-size: 0.91rem;
+    line-height: 1.65;
+    margin-bottom: 0.75rem;
+}
+
+body.theory-guide-page .model-figure {
+    margin: 0 0 0.8rem 0;
+    padding: 0.72rem 0.82rem;
+    border-radius: 10px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    background: linear-gradient(180deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.98) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+body.theory-guide-page .model-meta {
+    display: inline-block;
+    margin-bottom: 0.55rem;
+    padding: 0.18rem 0.56rem;
+    border-radius: 999px;
+    background: rgba(30, 41, 59, 0.08);
+    color: #334155;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+body.theory-guide-page .theory-mermaid-container {
+    padding: 0.65rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+body.theory-guide-page .figure-placeholder-canvas {
+    width: 100%;
+    min-width: 560px;
+    min-height: 220px;
+    border-radius: 8px;
+    border: 2px dashed rgba(148, 163, 184, 0.45);
+    background:
+        linear-gradient(180deg, rgba(248, 250, 252, 0.88) 0%, rgba(241, 245, 249, 0.92) 100%),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 23px,
+            rgba(148, 163, 184, 0.1) 24px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 23px,
+            rgba(148, 163, 184, 0.1) 24px
+        );
+}
+
+body.theory-guide-page .figure-placeholder-note {
+    margin: 0.62rem 0 0 0;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #475569;
+}
+
+body.theory-guide-page .diagram-role-grid {
+    display: grid;
+    gap: 0.48rem;
+    margin-top: 0.62rem;
+}
+
+body.theory-guide-page .diagram-role-row {
+    display: grid;
+    grid-template-columns: minmax(118px, 150px) 1fr;
+    gap: 0.65rem;
+    align-items: start;
+}
+
+body.theory-guide-page .diagram-role-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.8rem;
+    padding: 0.16rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(30, 41, 59, 0.08);
+    color: #334155;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+body.theory-guide-page .diagram-role-value {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.42rem;
+    align-items: center;
+    min-height: 1.8rem;
+}
+
+body.theory-guide-page .diagram-role-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.72rem;
+    padding: 0.16rem 0.54rem;
+    border-radius: 999px;
+    border: 1px solid rgba(59, 130, 246, 0.18);
+    background: rgba(239, 246, 255, 0.95);
+    color: #1e3a8a;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+body.theory-guide-page .diagram-note-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.6rem;
+}
+
+body.theory-guide-page .diagram-note-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.65rem;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    line-height: 1.3;
+    color: #7c2d12;
+    background: rgba(255, 247, 237, 0.98);
+    border: 1px solid rgba(249, 115, 22, 0.18);
+    font-weight: 600;
+}
+
+body.theory-guide-page .theory-key-points {
+    gap: 0.6rem;
+}
+
+body.theory-guide-page .key-point {
+    padding: 0.62rem 0.8rem;
+    font-size: 0.84rem;
+    line-height: 1.5;
+}
+
+body.theory-guide-page .analysis-section {
+    margin: 0;
+    padding: 0.72rem 0;
+}
+
+body.theory-guide-page .analysis-section + .analysis-section {
+    border-top: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+body.theory-guide-page .analysis-section table,
+body.theory-guide-page .paper-card table {
+    font-size: 0.86rem;
+}
+
+body.theory-guide-page .analysis-section table th,
+body.theory-guide-page .analysis-section table td,
+body.theory-guide-page .paper-card table th,
+body.theory-guide-page .paper-card table td {
+    padding: 0.6rem 0.7rem;
+}
+
+body.theory-guide-page .guide-callout {
+    background: linear-gradient(135deg, rgba(219, 234, 254, 0.95) 0%, rgba(239, 246, 255, 0.95) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-left: 4px solid #2563eb;
+    border-radius: 9px;
+    padding: 0.85rem 0.95rem;
+    margin: 0.85rem 0 1.1rem 0;
+}
+
+body.theory-guide-page .guide-callout p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+body.theory-guide-page .guide-callout a {
+    color: #1d4ed8;
+    font-weight: 600;
+}
+
+body.theory-guide-page .theme-group,
+body.theory-guide-page section[id] {
+    scroll-margin-top: 118px;
+}
+
+body.theory-guide-page .theory-entry {
+    scroll-margin-top: 118px;
+}
+
+body.theory-guide-page .memory-cue {
+    margin: 0.75rem 0 0 0;
+    padding: 0.65rem 0.8rem;
+    border-radius: 9px;
+    background: linear-gradient(135deg, rgba(219, 234, 254, 0.9) 0%, rgba(239, 246, 255, 0.9) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    color: var(--color-text);
+    line-height: 1.7;
+}
+
+body.theory-guide-page .persian-box {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Vazirmatn', 'Nunito', sans-serif;
+}
+
+body.theory-guide-page .persian-box-label {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: #1e40af;
+    font-size: 0.77rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-align: right;
+    unicode-bidi: isolate;
+}
+
+body.theory-guide-page .persian-box-text {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 0.92rem;
+    line-height: 1.9;
+    direction: rtl;
+    text-align: right;
+}
+
+body.theory-guide-page .persian-box-text + .persian-box-text {
+    margin-top: 0.65rem;
+    padding-top: 0.65rem;
+    border-top: 1px solid rgba(59, 130, 246, 0.12);
+}
+
+body.theory-guide-page .persian-section {
+    margin: 0 0 0.85rem 0;
+    padding: 0.85rem 0.92rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(248, 250, 252, 0.98) 0%, rgba(241, 245, 249, 0.98) 100%);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+body.theory-guide-page .level-badge {
+    background: #eef2ff;
+    color: #3730a3;
+    border: 1px solid #c7d2fe;
+}
+
+body.theory-guide-page .number-badge {
+    background: #f8fafc;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+body.theory-guide-page .secondary-label {
+    margin-top: 0.85rem;
+    background: #475569;
+}
+
+body.theory-guide-page .analysis-section p,
+body.theory-guide-page .analysis-section li,
+body.theory-guide-page .analysis-section td {
+    font-size: 0.92rem;
+}
+
+body.theory-guide-page .analysis-section p {
+    margin: 0;
+    line-height: 1.76;
+}
+
+body.theory-guide-page .analysis-section p + p {
+    margin-top: 0.72rem;
+}
+
+body.theory-guide-page .quick-ref-section {
+    padding-top: 0.2rem;
+}
+
+body.theory-guide-page .guide-richtext p {
+    margin-bottom: 0.8rem;
+    line-height: 1.72;
+}
+
+body.theory-guide-page .guide-richtext p:last-child {
+    margin-bottom: 0;
+}
+
+body.theory-guide-page .guide-richtext ol,
+body.theory-guide-page .guide-richtext ul {
+    margin: 0.55rem 0 0 1rem;
+    padding-left: 1rem;
+}
+
+body.theory-guide-page .guide-richtext ul {
+    list-style: disc;
+}
+
+body.theory-guide-page .guide-richtext ol {
+    list-style: decimal;
+}
+
+body.theory-guide-page .guide-richtext li {
+    margin-bottom: 0.55rem;
+    line-height: 1.65;
+}
+
+body.theory-guide-page .question-essay p + p {
+    padding-top: 0.35rem;
+    border-top: 1px solid var(--color-border);
+}
+
+body.theory-guide-page .question-essay p:first-child {
+    padding-top: 0;
+    border-top: none;
+}
+
+body.theory-guide-page .part-divider {
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    margin: 1.5rem 0 1rem 0;
+}
+
+body.theory-guide-page .part-divider h2 {
+    font-size: 1.25rem;
+}
+
+body.theory-guide-page .part-divider p {
+    max-width: 760px;
+    font-size: 0.92rem;
+}
+
+body.theory-guide-page .citation-pair p {
+    margin-bottom: 0.62rem;
+}
+
+body.theory-guide-page .citation-pair p:last-child {
+    margin-bottom: 0;
+}
+
+[data-theme="dark"] body.theory-guide-page {
+    background: linear-gradient(180deg, #09090b 0%, #111827 18%, #09090b 100%);
+}
+
+[data-theme="dark"] body.theory-guide-page .guide-callout {
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.95) 0%, rgba(15, 23, 42, 0.95) 100%);
+    border-color: rgba(96, 165, 250, 0.22);
+}
+
+[data-theme="dark"] body.theory-guide-page .guide-callout a {
+    color: #93c5fd;
+}
+
+[data-theme="dark"] body.theory-guide-page .memory-cue {
+    background: rgba(30, 58, 95, 0.75);
+    border-color: rgba(96, 165, 250, 0.24);
+}
+
+[data-theme="dark"] body.theory-guide-page .model-figure {
+    border-color: rgba(148, 163, 184, 0.16);
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.82) 0%, rgba(15, 23, 42, 0.92) 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] body.theory-guide-page .model-meta {
+    background: rgba(148, 163, 184, 0.12);
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] body.theory-guide-page .theory-mermaid-container {
+    background: rgba(248, 250, 252, 0.96);
+    border-color: rgba(96, 165, 250, 0.24);
+}
+
+[data-theme="dark"] body.theory-guide-page .figure-placeholder-canvas {
+    border-color: rgba(96, 165, 250, 0.28);
+    background:
+        linear-gradient(180deg, rgba(226, 232, 240, 0.95) 0%, rgba(241, 245, 249, 0.98) 100%),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 23px,
+            rgba(96, 165, 250, 0.1) 24px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 23px,
+            rgba(96, 165, 250, 0.1) 24px
+        );
+}
+
+[data-theme="dark"] body.theory-guide-page .figure-placeholder-note {
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] body.theory-guide-page .diagram-role-label {
+    background: rgba(148, 163, 184, 0.12);
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] body.theory-guide-page .diagram-role-chip {
+    color: #bfdbfe;
+    background: rgba(30, 58, 95, 0.84);
+    border-color: rgba(96, 165, 250, 0.22);
+}
+
+[data-theme="dark"] body.theory-guide-page .diagram-note-chip {
+    color: #fed7aa;
+    background: rgba(124, 45, 18, 0.36);
+    border-color: rgba(251, 146, 60, 0.18);
+}
+
+[data-theme="dark"] body.theory-guide-page .persian-box-label {
+    color: #93c5fd;
+}
+
+[data-theme="dark"] body.theory-guide-page .persian-section {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+    border-color: rgba(96, 165, 250, 0.18);
+}
+
+[data-theme="dark"] body.theory-guide-page .persian-box-text + .persian-box-text {
+    border-top-color: rgba(96, 165, 250, 0.16);
+}
+
+[data-theme="dark"] body.theory-guide-page .analysis-section + .analysis-section {
+    border-top-color: rgba(96, 165, 250, 0.16);
+}
+
+[data-theme="dark"] body.theory-guide-page .level-badge {
+    background: #312e81;
+    color: #c7d2fe;
+    border-color: #6366f1;
+}
+
+[data-theme="dark"] body.theory-guide-page .number-badge {
+    background: #1e293b;
+    color: #cbd5e1;
+    border-color: #334155;
+}
+
+@media (max-width: 960px) {
+    body.theory-guide-page {
+        padding-top: 114px;
+    }
+
+    body.theory-guide-page .navbar {
+        padding: 0 0.9rem;
+    }
+
+    body.theory-guide-page .navbar-content {
+        gap: 0.75rem;
+    }
+
+    body.theory-guide-page .navbar-brand {
+        font-size: 1.05rem;
+    }
+
+    body.theory-guide-page .toc-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    body.theory-guide-page {
+        padding-top: 120px;
+    }
+
+    body.theory-guide-page .container {
+        padding: 0 0.9rem 2.5rem;
+    }
+
+    body.theory-guide-page .navbar-brand {
+        max-width: 145px;
+        line-height: 1.15;
+    }
+
+    body.theory-guide-page .navbar-links a {
+        padding: 0.38rem 0.68rem;
+        font-size: 0.81rem;
+    }
+
+    body.theory-guide-page .progress-bar-wrapper {
+        gap: 0.75rem;
+    }
+
+    body.theory-guide-page .progress-text {
+        min-width: 88px;
+        font-size: 0.74rem;
+    }
+
+    body.theory-guide-page .memory-cue,
+    body.theory-guide-page .guide-callout {
+        padding: 0.72rem 0.8rem;
+    }
+
+    body.theory-guide-page .diagram-role-row {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+    }
+}

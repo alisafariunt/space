@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agile at Enterprise Scale: Why It Is Harder Than It Looks | Ali Safari</title><meta name="description" content="Scaling agile to 500 people across three time zones is a different problem entirely. The frameworks meant to help often just create new bureaucracy."><meta name="keywords" content=IT Governance & Strategy, Platforms & Ecosystems, information systems, research"><meta property="og:title" content="Agile at Enterprise Scale: Why It Is Harder Than It Looks"><meta property="og:description" content="Scaling agile to 500 people across three time zones is a different problem entirely. The frameworks meant to help often just create new bureaucracy."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/agile-at-enterprise-scale/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IT Governance & Strategy, Platforms & Ecosystems"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/agile-at-enterprise-scale/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Agile at Enterprise Scale: Why It Is Harder Than It Looks","description":"Scaling agile to 500 people across three time zones is a different problem entirely. The frameworks meant to help often just create new bureaucracy.","url":"https://alisafari.space/blog/agile-at-enterprise-scale/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy, Platforms & Ecosystems"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Agile at Enterprise Scale: Why It Is Harder Than It Looks</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="agile-at-enterprise-scale" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IT Governance &amp; Strategy</span>
+<h1>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 6 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span><span class="tag">Platforms &amp; Ecosystems</span></div>
+</div>
+</article>
+
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>The Agile Manifesto was written in 2001 by seventeen software practitioners who gathered at a ski resort in Utah. They produced twelve principles and four value statements, all aimed at small teams building software in close collaboration with customers. The document is a few hundred words. It is also one of the most cited texts in enterprise IT, frequently invoked to justify organizational transformations that the original authors almost certainly did not have in mind.</p>
+<p>I want to be careful here. The manifesto itself is sensible. "Working software over comprehensive documentation." "Responding to change over following a plan." "Individuals and interactions over processes and tools." These are good ideas. They describe what actually works for a small, co-located team with a clear problem to solve and a product owner who can make decisions in real time. The question is what happens when you try to apply the same logic to a five-hundred-person organization spread across three time zones, with eight product lines, a procurement cycle that takes four months, and an annual budget process that locks in spending twelve months in advance.</p>
+<p>The honest answer is that it mostly does not work the same way, and the frameworks built to help often make things worse.</p>
+<p>SAFe, the Scaled Agile Framework, is probably the most widely deployed scaling approach in large enterprises. LeSS, Large-Scale Scrum, is another. Both attempt to take the core agile ideas and build coordination layers around them that work at scale. SAFe in particular is elaborate: it has program increments (essentially quarterly plans), agile release trains (coordinated groups of teams), and system demos, plus layers of roles and ceremonies above the team level. None of this is obviously wrong. Coordinating large teams requires coordination mechanisms. The problem is that the coordination mechanisms, once installed, start to look a lot like the planning artifacts that agile was supposed to replace.</p>
+<p>When I talk to people who work inside SAFe implementations, the complaint I hear most often is not that SAFe is bad in principle. It is that SAFe-as-practiced ends up being a waterfall plan with a two-week sprint cadence on top. The program increment objectives are basically a quarterly roadmap. The system demo is basically a stage-gate review. The planning ceremonies are time-boxed but the outputs are not particularly adaptive. The language is agile. The underlying governance is not.</p>
+<p>This is not a critique of SAFe specifically. It is a structural observation about what happens when agile meets organizational inertia. The principles of agility require that decisions be made close to the work and changed quickly when new information arrives. Enterprise governance requires that decisions be made further from the work and documented thoroughly before they are executed. Those two things are genuinely in tension, and no framework resolves the tension simply by renaming the artifacts.</p>
+<p>The deeper issue is that most "agile transformations" in large organizations changed the ceremonies and the vocabulary without touching the structures that actually govern how decisions get made. Budget cycles still run annually. Procurement still requires multi-month vendor evaluation processes. Risk management frameworks still require detailed upfront documentation. HR structures still evaluate people on pre-committed plans rather than on adaptability. You can rename your project managers "scrum masters" and your requirements documents "backlogs" and your steering committees "program increment reviews," but if the budget, procurement, HR, and governance structures are untouched, the agility is performative.</p>
+<p>There was a visible wave of agile transformations across large enterprises in the 2010s, many of them announced with considerable fanfare. By most accounts, the organizations that got real benefit were the ones that coupled agile methods with genuine authority to make product decisions at the team level: real decentralization, real empowerment, real tolerance for the messiness that comes from letting teams adjust course in response to user feedback rather than adhering to a plan written six months earlier. The organizations that announced "we are agile now" without changing any of those underlying structures mostly ended up with expensive consulting engagements and no meaningful change in how they worked.</p>
+<p>The Spotify model is worth mentioning here as a cautionary tale. For several years, Spotify's internal organizational structure was widely cited as the gold standard for agile at scale: squads, tribes, chapters, guilds. Large enterprises adopted the language and the diagrams. What many of them did not notice, or did not mention, is that Spotify itself moved away from that model over time as it grew and the structure started creating its own coordination problems. You can read about this in various industry postmortems. The model that worked for a music streaming company at one stage of its growth did not necessarily translate to a two-hundred-year-old bank.</p>
+<p>I am not arguing that large organizations cannot be more adaptive. They can, and the ones that manage it tend to do so by picking real problems, giving real authority to the teams solving them, and protecting those teams from the bureaucratic gravity that pulls every large organization toward process formalization. That is hard. It requires sustained leadership commitment and a willingness to accept outcomes that were not predicted in a quarterly roadmap. Most organizations find it easier to adopt the vocabulary of agility and leave the governance structures intact. The result is what you get when you try to install a speed governor on a race car: the aesthetics are there, but the performance is not.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/ai-adoption-s-curve-diffusion/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">AI Adoption Follows the S-Curve. Most Organizations Are Still in the Chasm.</div></a><a href="/blog/agent-ecosystems-platform-envelopment/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">The Internet of Agents Will Be Built by Platforms That Own the Protocol</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/activity-theory-is-research/" class="blog-related-card"><h4>People Use Tools Inside Activity Systems, Not in a Vacuum</h4><div class="related-meta">2026-05-14 &middot; 5 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>

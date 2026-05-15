@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Architecture: The Blueprint That Never Quite Fits | Ali Safari</title><meta name="description" content="TOGAF and Zachman promised to align IT with business strategy. What they often produced instead was documentation that nobody reads and governance that slows everything down."><meta name="keywords" content=IT Governance & Strategy, information systems, research"><meta property="og:title" content="Enterprise Architecture: The Blueprint That Never Quite Fits"><meta property="og:description" content="TOGAF and Zachman promised to align IT with business strategy. What they often produced instead was documentation that nobody reads and governance that slows everything down."><meta property="og:type" content="article"><meta property="og:url" content="https://alisafari.space/blog/enterprise-architecture-togaf-zachman/"><meta property="og:site_name" content="Ali Safari"><meta property="article:published_time" content="2026-05-14"><meta property="article:tag" content=IT Governance & Strategy"><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@alisafari">
+<link rel="icon" type="image/png" href="/images/favicon.png">
+<link rel="canonical" href="https://alisafari.space/blog/enterprise-architecture-togaf-zachman/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Enterprise Architecture: The Blueprint That Never Quite Fits","description":"TOGAF and Zachman promised to align IT with business strategy. What they often produced instead was documentation that nobody reads and governance that slows everything down.","url":"https://alisafari.space/blog/enterprise-architecture-togaf-zachman/","datePublished":"2026-05-14","author":{"@type":"Person","name":"Ali Safari","url":"https://alisafari.space"},"publisher":{"@type":"Organization","name":"Ali Safari","logo":{"@type":"ImageObject","url":"https://alisafari.space/images/logo.png"}},"articleSection":"IT Governance & Strategy","keywords":"IT Governance & Strategy"}</script>
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {});
+    }
+    </script>
+</head>
+<body class="blog-page blog-article-page">
+<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>
+<nav class="navbar" id="navbar"><div class="nav-container">
+<a href="/" class="nav-logo"><img src="/images/logo.png" alt="Ali Safari - PhD researcher at UNT" class="logo-img" width="36" height="36"></a>
+<ul class="nav-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/" class="active">Blog</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+<li><a href="/#contact">Contact</a></li>
+</ul>
+<div class="nav-actions">
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</div>
+</div></nav>
+<div class="blog-article-nav"><div class="blog-article-nav-inner">
+<a href="/blog/" class="back-link"><i class="fas fa-arrow-left"></i> Blog</a>
+<span class="nav-title">Enterprise Architecture: The Blueprint That Never Quite Fits</span>
+<div class="nav-actions-right">
+<button class="nav-share-btn bookmark-btn" data-slug="enterprise-architecture-togaf-zachman" title="Save for later" aria-label="Save for later"><i class="far fa-bookmark"></i></button>
+<button class="nav-share-btn share-btn" data-platform="copy" title="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div></div>
+<article class="blog-article-hero">
+<span class="article-category">IT Governance &amp; Strategy</span>
+<h1>Enterprise Architecture: The Blueprint That Never Quite Fits</h1>
+<div class="article-meta-bar">
+<span>2026-05-14</span><span class="meta-sep"></span>
+<span class="meta-reading-time"><i class="far fa-clock"></i> 7 min read</span>
+<span class="meta-sep"></span>
+<div class="card-tags"><span class="tag">IT Governance &amp; Strategy</span></div>
+</div>
+</article>
+<div class="series-badge"><span class="series-label">Enterprise</span><span class="series-counter">Part 1 of 3</span><div class="series-nav"><span class="series-current">1</span> &rsaquo; <a href="/blog/enterprise-blockchain-gap/">Enterprise Blockchai</a> &rsaquo; <a href="/blog/enterprise-software-universally-hated/">Enterprise Software </a></div></div>
+<div class="blog-article-layout">
+
+<div class="blog-article-body">
+
+<p>In 1987, John Zachman published a paper in the IBM Systems Journal that introduced what became known as the Zachman Framework. It was not really a methodology. It was a taxonomy, a two-dimensional grid that organized enterprise architecture artifacts by what they described (data, function, network, people, time, motivation) and who was looking at them (executives, business managers, system architects, designers, builders, subcontractors). The idea was that an enterprise, like a building, needed a complete set of drawings produced at different levels of abstraction, each serving a different audience. No single drawing was "the architecture." The architecture was the whole set, the totality of representations needed to understand, build, and operate the enterprise. It was a genuinely elegant idea.</p>
+<p>TOGAF came later, developed by The Open Group, and took a more methodological approach. Where Zachman gave you a taxonomy of what to document, TOGAF gave you a process for how to develop, maintain, and govern architecture. The Architecture Development Method, which most practitioners just call the ADM, walks architecture teams through phases from preliminary work through architecture vision, business architecture, information systems architecture, technology architecture, and then a series of transition and governance phases. TOGAF has become the dominant methodology in the field. By most accounts, a significant proportion of large enterprises that have formal EA programs use TOGAF or something derived from it. Certification programs exist and are widely pursued.</p>
+<p>The problem is not that Zachman or TOGAF are wrong. The problem is what enterprise architecture programs have often become in practice, and why that differs so much from the theory.</p>
+<p>I have talked to architects in large organizations and read enough EA literature to recognize the same complaint across different contexts. The EA team produces artifacts, lots of them. Architecture diagrams, principle documents, technology roadmaps, capability maps, application portfolio assessments. These take real time to produce. They are carefully structured and formally reviewed. And then they sit in a repository that the engineering teams actually delivering software have never opened and have no particular reason to open. The gap between the architecture as documented and the architecture as built can be enormous, and the EA team often finds out about divergence only when something breaks or a new capability request reveals that the documented landscape and the actual landscape have drifted significantly apart.</p>
+<p>TOGAF has a concept called the architecture repository, the governed store of all architectural artifacts, and a concept called the architecture board, the body that reviews and approves architectural decisions. In principle, these mechanisms ensure that decisions are made against an authoritative architectural baseline. In practice, delivery teams under schedule pressure do not wait for architecture board reviews, because architecture board reviews take time that the sprint schedule does not have. The board exists, the repository exists, the governance exists on paper, and the actual decisions get made by engineers in pull requests. The architecture is the sum of the pull requests, not the sum of the documents in the repository.</p>
+<p>This is the gap I keep running into: EA frameworks were designed for an era of waterfall delivery and multi-year programs where there was time to develop comprehensive architecture documentation before any code was written. Agile delivery moved that timeline. A two-week sprint cannot wait four weeks for architecture review. A continuous deployment pipeline cannot be paused while the architecture board meets to assess implications. The governance model embedded in TOGAF's ADM assumes a pace of decision-making that most modern engineering organizations have outgrown. This is not a flaw in TOGAF's logic. It is a design choice that was reasonable when the methodology was developed and has aged poorly.</p>
+<p>The IT-business alignment framing from Henderson and Venkatraman (1993), as I described in my post on <a href="/blog/it-business-alignment-henderson-venkatraman">why alignment is still unsolved after three decades</a>, captures what EA programs are supposed to address: the gap between business strategy and IT infrastructure, and the organizational and IT strategy layers in between. EA is one of the primary organizational mechanisms for maintaining that alignment. The Zachman grid and the TOGAF ADM are tools for making the alignment visible, governing it, and updating it when the strategy changes. The reason EA so often fails to deliver on this promise is not that the frameworks are wrong but that the alignment problem is harder than any framework can fully address, because alignment requires ongoing negotiation between business and IT leaders who are often not in the same room, have different priorities, and use different vocabulary.</p>
+<p>Modern organizations have started responding to the gap with what some call "lightweight EA" or "evolutionary architecture." The idea is to treat architecture decisions not as comprehensive blueprints produced upfront but as a series of fitness functions and decision records produced incrementally, as close to the code as possible. Architecture decision records (ADRs) are probably the most widely adopted version of this. Instead of a comprehensive architecture document that nobody reads, you get a series of short records, each documenting one significant architectural choice, the options considered, the decision made, and the reasoning. An engineer who encounters a confusing design choice can find the ADR that explains it. The governance is embedded in the decision trail, not in a separate repository.</p>
+<p>Platform engineering is the infrastructure version of the same response. Rather than governing technology choices through an architecture board that approves or rejects requests, you build an internal developer platform that makes the architecturally approved choices the path of least resistance. Developers pick from a curated set of options. The curation is the governance, expressed as default tooling rather than approval processes. This approach aligns well with the Richard Thaler and Cass Sunstein concept of choice architecture, structuring defaults to produce desired behavior without requiring active enforcement, though I hedge that connection as an interpretation rather than a formal claim in the literature.</p>
+<p>Zachman's 1987 insight that enterprises need architecture described at multiple levels of abstraction for different audiences still holds. The problem was never the insight. The problem is that "having architecture" got conflated with "producing architecture documents" and "governing architecture" got conflated with "reviewing architecture documents through a formal board." The documents are a means. The governance is a means. The actual goal is that the technical system the organization runs is coherent, can be understood by the people who need to make decisions about it, and can be changed when the business requires it. Whether that goal is best served by TOGAF's ADM or by ADRs and platform engineering defaults depends on the organization's size, delivery model, and tolerance for governance overhead. Most large organizations seem to be discovering, somewhat painfully, that the answer is not TOGAF as written.</p>
+</div>
+</div>
+<div class="author-card">
+<img src="/images/profile.jpg" alt="Ali Safari - PhD student at UNT researching AI security and trust" class="author-avatar" width="64" height="64" loading="lazy">
+<div class="author-info">
+<div class="author-name">Ali Safari</div>
+<div class="author-title">PhD Student in Information Systems, University of North Texas</div>
+<div class="author-bio">Researching AI security, trust in AI systems, and agentic intelligence. Writing while studying for comps.</div>
+<div class="author-links">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+</div>
+<div class="blog-share-section">
+<h3>Share this post</h3>
+<div class="blog-share-buttons">
+<a href="#" class="blog-share-btn twitter share-btn" data-platform="twitter" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+<a href="#" class="blog-share-btn linkedin share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+<button class="blog-share-btn copy share-btn" data-platform="copy" aria-label="Copy link"><i class="fas fa-link"></i></button>
+</div>
+</div>
+<nav class="prev-next-nav" aria-label="Post navigation"><a href="/blog/enterprise-blockchain-gap/" class="prev-next-link prev-link"><i class="fas fa-arrow-left"></i><div class="prev-next-label">Previous</div><div class="prev-next-title">The Enterprise Blockchain Gap</div></a><a href="/blog/endogeneity-is-research/" class="prev-next-link next-link"><div class="prev-next-label">Next</div><div class="prev-next-title">Endogeneity: The Problem That Invalidates More IS Research Than People Admit</div><i class="fas fa-arrow-right"></i></a></nav>
+<section class="blog-related-posts"><h2><i class="fas fa-compass"></i> Related Posts</h2><div class="blog-related-grid"><a href="/blog/2026-05-14-5g-enterprise-digital-transformation/" class="blog-related-card"><h4>5G Is Not About Faster Phones. Here Is What Enterprises Actually Care About.</h4><div class="related-meta">2026-05-14 &middot; 7 min read</div></a><a href="/blog/agency-theory-algorithm-accountability/" class="blog-related-card"><h4>When the Algorithm Fails, Nobody Takes the Call</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a><a href="/blog/agile-at-enterprise-scale/" class="blog-related-card"><h4>Agile at Enterprise Scale: Why It Is Harder Than It Looks</h4><div class="related-meta">2026-05-14 &middot; 6 min read</div></a></div></section>
+<footer class="footer"><div class="footer-content">
+<div class="footer-logo"><span>Ali Safari</span><p>PhD Researcher | University of North Texas</p></div>
+<ul class="footer-links">
+<li><a href="/">Home</a></li>
+<li><a href="/blog/">Blog</a></li>
+<li><a href="/blog/reading-list/">Reading List</a></li>
+<li><a href="/roadmap.html">AI Roadmap</a></li>
+<li><a href="/conferences/">Conferences</a></li>
+</ul>
+<div class="footer-social">
+<a href="https://linkedin.com/in/ali-safari" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://scholar.google.com/citations?user=rCosT9sAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+</div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 Ali Safari. All rights reserved.</p></div>
+</footer>
+<script src="/js/blog.js"></script>
+<button class="scroll-to-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+</body></html>
